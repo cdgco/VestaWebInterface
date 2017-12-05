@@ -1,0 +1,68 @@
+.hide {
+  display: none;
+***REMOVED***
+.wizard-pane {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
+***REMOVED***
+.wizard-pane.active {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+***REMOVED***
+.wizard-pane.activing {
+  visibility: visible;
+***REMOVED***
+.wizard-content {
+  position: relative;
+  padding: 0;
+  transition: height 0.2s ease;
+***REMOVED***
+.current {
+  color: blue !important;
+***REMOVED***
+.error {
+  color: red !important;
+***REMOVED***
+.done {
+  color: green !important;
+***REMOVED***
+.disabled {
+  cursor: not-allowed !important;
+***REMOVED***
+.wizard-pane {
+  padding: 10px;
+***REMOVED***
+.wizard-content {
+  border: 1px solid #aaa;
+***REMOVED***
+.wizard-steps {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+***REMOVED***
+.wizard-steps > li {
+  display: inline-block;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: #666;
+***REMOVED***
+.wizard-steps > li:hover {
+  color: #333;
+***REMOVED***
+.wizard-buttons {
+  margin-top: 10px;
+***REMOVED***
+.wizard-buttons > a {
+  margin-right: 5px;
+  padding: 5px 10px;
+  border: 1px solid #aaa;
+  border-radius: 20px;
+***REMOVED***
+.wizard-buttons > a.disabled {
+  color: #aaa;
+  border-color: #aaa;
+***REMOVED***

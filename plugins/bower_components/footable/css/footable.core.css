@@ -1,0 +1,181 @@
+@font-face {
+  font-family: 'footable';
+  src: url('fonts/footable.eot');
+  src: url('fonts/footable.eot?#iefix') format('embedded-opentype'), url('fonts/footable.woff') format('woff'), url('fonts/footable.ttf') format('truetype'), url('fonts/footable.svg#footable') format('svg');
+  font-weight: normal;
+  font-style: normal;
+***REMOVED***
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: 'footable';
+    src: url('fonts/footable.svg#footable') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  ***REMOVED***
+***REMOVED***
+.footable {
+  width: 100%;
+  /** SORTING **/
+
+  /** PAGINATION **/
+
+***REMOVED***
+.footable.breakpoint > tbody > tr.footable-detail-show > td {
+  border-bottom: none;
+***REMOVED***
+.footable.breakpoint > tbody > tr.footable-detail-show > td > span.footable-toggle:before {
+  content: "\e001";
+***REMOVED***
+.footable.breakpoint > tbody > tr:hover:not(.footable-row-detail) {
+  cursor: pointer;
+***REMOVED***
+.footable.breakpoint > tbody > tr > td.footable-cell-detail {
+  background: #eee;
+  border-top: none;
+***REMOVED***
+.footable.breakpoint > tbody > tr > td > span.footable-toggle {
+  display: inline-block;
+  font-family: 'footable';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  padding-right: 10px;
+  color: #777;
+***REMOVED***
+.footable.breakpoint > tbody > tr > td > span.footable-toggle:before {
+  content: "\e000";
+***REMOVED***
+.footable.breakpoint.toggle-circle > tbody > tr.footable-detail-show > td > span.footable-toggle:before {
+  content: "\e005";
+***REMOVED***
+.footable.breakpoint.toggle-circle > tbody > tr > td > span.footable-toggle:before {
+  content: "\e004";
+***REMOVED***
+.footable.breakpoint.toggle-circle-filled > tbody > tr.footable-detail-show > td > span.footable-toggle:before {
+  content: "\e003";
+***REMOVED***
+.footable.breakpoint.toggle-circle-filled > tbody > tr > td > span.footable-toggle:before {
+  content: "\e002";
+***REMOVED***
+.footable.breakpoint.toggle-square > tbody > tr.footable-detail-show > td > span.footable-toggle:before {
+  content: "\e007";
+***REMOVED***
+.footable.breakpoint.toggle-square > tbody > tr > td > span.footable-toggle:before {
+  content: "\e006";
+***REMOVED***
+.footable.breakpoint.toggle-square-filled > tbody > tr.footable-detail-show > td > span.footable-toggle:before {
+  content: "\e009";
+***REMOVED***
+.footable.breakpoint.toggle-square-filled > tbody > tr > td > span.footable-toggle:before {
+  content: "\e008";
+***REMOVED***
+.footable.breakpoint.toggle-arrow > tbody > tr.footable-detail-show > td > span.footable-toggle:before {
+  content: "\e00f";
+***REMOVED***
+.footable.breakpoint.toggle-arrow > tbody > tr > td > span.footable-toggle:before {
+  content: "\e011";
+***REMOVED***
+.footable.breakpoint.toggle-arrow-small > tbody > tr.footable-detail-show > td > span.footable-toggle:before {
+  content: "\e013";
+***REMOVED***
+.footable.breakpoint.toggle-arrow-small > tbody > tr > td > span.footable-toggle:before {
+  content: "\e015";
+***REMOVED***
+.footable.breakpoint.toggle-arrow-circle > tbody > tr.footable-detail-show > td > span.footable-toggle:before {
+  content: "\e01b";
+***REMOVED***
+.footable.breakpoint.toggle-arrow-circle > tbody > tr > td > span.footable-toggle:before {
+  content: "\e01d";
+***REMOVED***
+.footable.breakpoint.toggle-arrow-circle-filled > tbody > tr.footable-detail-show > td > span.footable-toggle:before {
+  content: "\e00b";
+***REMOVED***
+.footable.breakpoint.toggle-arrow-circle-filled > tbody > tr > td > span.footable-toggle:before {
+  content: "\e00d";
+***REMOVED***
+.footable.breakpoint.toggle-arrow-tiny > tbody > tr.footable-detail-show > td > span.footable-toggle:before {
+  content: "\e01f";
+***REMOVED***
+.footable.breakpoint.toggle-arrow-tiny > tbody > tr > td > span.footable-toggle:before {
+  content: "\e021";
+***REMOVED***
+.footable.breakpoint.toggle-arrow-alt > tbody > tr.footable-detail-show > td > span.footable-toggle:before {
+  content: "\e017";
+***REMOVED***
+.footable.breakpoint.toggle-arrow-alt > tbody > tr > td > span.footable-toggle:before {
+  content: "\e019";
+***REMOVED***
+.footable.breakpoint.toggle-medium > tbody > tr > td > span.footable-toggle {
+  font-size: 18px;
+***REMOVED***
+.footable.breakpoint.toggle-large > tbody > tr > td > span.footable-toggle {
+  font-size: 24px;
+***REMOVED***
+.footable > thead > tr > th {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  user-select: none;
+***REMOVED***
+.footable > thead > tr > th.footable-sortable:hover {
+  cursor: pointer;
+***REMOVED***
+.footable > thead > tr > th.footable-sorted > span.footable-sort-indicator:before {
+  content: "\e013";
+***REMOVED***
+.footable > thead > tr > th.footable-sorted-desc > span.footable-sort-indicator:before {
+  content: "\e012";
+***REMOVED***
+.footable > thead > tr > th > span.footable-sort-indicator {
+  display: inline-block;
+  font-family: 'footable';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  padding-left: 5px;
+***REMOVED***
+.footable > thead > tr > th > span.footable-sort-indicator:before {
+  content: "\e022";
+***REMOVED***
+.footable > tfoot .pagination {
+  margin: 0;
+***REMOVED***
+.footable.no-paging .hide-if-no-paging {
+  display: none;
+***REMOVED***
+.footable-row-detail{
+  background-color:#f5f5f5
+***REMOVED***
+.footable-row-detail-inner {
+  display: table;  
+***REMOVED***
+.footable-row-detail-row {
+  display: table-row;
+  line-height: 1.5em;
+***REMOVED***
+.footable-row-detail-group {
+  display: block;
+  line-height: 2em;
+  font-size: 1.2em;
+  font-weight: bold;
+***REMOVED***
+.footable-row-detail-name {
+  display: table-cell;
+  font-weight: 500;
+  padding-right: 1em;
+  padding-bottom: 5px;
+***REMOVED***
+.footable-row-detail-value {
+  display: table-cell;
+***REMOVED***
+.footable-odd {
+  background-color: #f7f7f7;
+***REMOVED***

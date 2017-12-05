@@ -1,0 +1,44 @@
+/* EXTRAS
+ * -------------------------- */
+
+/* Stacked and layered icon */
+
+/* Animated rotating icon */
+.#{$fa-css-prefix***REMOVED***-spin {
+  -webkit-animation: spin 2s infinite linear;
+  -moz-animation: spin 2s infinite linear;
+  -o-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+***REMOVED***
+
+@-moz-keyframes spin {
+  0% { -moz-transform: rotate(0deg); ***REMOVED***
+  100% { -moz-transform: rotate(359deg); ***REMOVED***
+***REMOVED***
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); ***REMOVED***
+  100% { -webkit-transform: rotate(359deg); ***REMOVED***
+***REMOVED***
+@-o-keyframes spin {
+  0% { -o-transform: rotate(0deg); ***REMOVED***
+  100% { -o-transform: rotate(359deg); ***REMOVED***
+***REMOVED***
+@-ms-keyframes spin {
+  0% { -ms-transform: rotate(0deg); ***REMOVED***
+  100% { -ms-transform: rotate(359deg); ***REMOVED***
+***REMOVED***
+@keyframes spin {
+  0% { transform: rotate(0deg); ***REMOVED***
+  100% { transform: rotate(359deg); ***REMOVED***
+***REMOVED***
+
+
+// Icon rotations & flipping
+// -------------------------
+
+.#{$fa-css-prefix***REMOVED***-rotate-90  { @include fa-icon-rotate(90deg, 1);  ***REMOVED***
+.#{$fa-css-prefix***REMOVED***-rotate-180 { @include fa-icon-rotate(180deg, 2); ***REMOVED***
+.#{$fa-css-prefix***REMOVED***-rotate-270 { @include fa-icon-rotate(270deg, 3); ***REMOVED***
+
+.#{$fa-css-prefix***REMOVED***-flip-horizontal { @include fa-icon-flip(-1, 1, 0); ***REMOVED***
+.#{$fa-css-prefix***REMOVED***-flip-vertical   { @include fa-icon-flip(1, -1, 2); ***REMOVED***

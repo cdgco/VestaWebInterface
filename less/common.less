@@ -1,0 +1,2964 @@
+@import "variables.less";
+// Global Styles
+* {
+    outline: none !important;
+***REMOVED***
+
+body {
+    background: @sidebar;
+    font-family: @basefont1;
+    margin: 0;
+    overflow-x: hidden;
+    color: @bodytext;
+    font-weight: 300;
+***REMOVED***
+
+html {
+    position: relative;
+    min-height: 100%;
+    background: @white;
+***REMOVED***
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: @headingtext;
+    font-family: @basefont2;
+    margin: 10px 0;
+    font-weight: 300;
+***REMOVED***
+
+h1 {
+    line-height: 48px;
+    font-size: 36px
+***REMOVED***
+
+h2 {
+    line-height: 36px;
+    font-size: 24px
+***REMOVED***
+
+h3 {
+    line-height: 30px;
+    font-size: 21px
+***REMOVED***
+
+h4 {
+    line-height: 22px;
+    font-size: 18px
+***REMOVED***
+
+h5 {
+    font-size: 18px;
+    font-size: 16px
+***REMOVED***
+
+h5 {
+    font-size: 16px;
+    font-size: 14px
+***REMOVED***
+
+.dn {
+    display: none;
+***REMOVED***
+
+.db {
+    display: block;
+***REMOVED***
+
+.light_op_text {
+    color: rgba(255, 255, 255, 0.5);
+***REMOVED***
+
+blockquote {
+    border-left: 5px solid @themecolor!important;
+    border: 1px solid @border;
+***REMOVED***
+
+p {
+    line-height: 1.6;
+***REMOVED***
+
+b {
+    font-weight: 500;
+***REMOVED***
+
+a {
+    &:hover {
+        outline: 0;
+        text-decoration: none;
+    ***REMOVED***
+    &:active {
+        outline: 0;
+        text-decoration: none;
+    ***REMOVED***
+    &:focus {
+        outline: 0;
+        text-decoration: none;
+    ***REMOVED***
+***REMOVED***
+
+.clear {
+    clear: both;
+***REMOVED***
+
+.font-12 {
+    font-size: 12px;
+***REMOVED***
+
+hr {
+    border-color: @border;
+***REMOVED***
+
+.b-t {
+    border-top: 1px solid @border;
+***REMOVED***
+
+.b-b {
+    border-bottom: 1px solid @border;
+***REMOVED***
+
+.b-l {
+    border-left: 1px solid @border;
+***REMOVED***
+
+.b-r {
+    border-right: 1px solid @border;
+***REMOVED***
+
+.b-all {
+    border: 1px solid @border;
+***REMOVED***
+
+.b-none {
+    border: 0px!important;
+***REMOVED***
+
+.max-height {
+    height: 310px;
+    overflow: auto;
+***REMOVED***
+
+.p-0 {
+    padding: 0px !important;
+***REMOVED***
+
+.p-10 {
+    padding: 10px !important;
+***REMOVED***
+
+.p-20 {
+    padding: 20px !important;
+***REMOVED***
+
+.p-30 {
+    padding: 30px !important;
+***REMOVED***
+
+.p-l-0 {
+    padding-left: 0px !important;
+***REMOVED***
+
+.p-l-10 {
+    padding-left: 10px !important;
+***REMOVED***
+
+.p-l-20 {
+    padding-left: 20px !important;
+***REMOVED***
+
+.p-l-30 {
+    padding-left: 30px !important;
+***REMOVED***
+
+.p-r-0 {
+    padding-right: 0px !important;
+***REMOVED***
+
+.p-r-10 {
+    padding-right: 10px !important;
+***REMOVED***
+
+.p-r-20 {
+    padding-right: 20px !important;
+***REMOVED***
+
+.p-r-30 {
+    padding-right: 30px !important;
+***REMOVED***
+
+.p-r-40 {
+    padding-right: 40px !important;
+***REMOVED***
+
+.p-t-0 {
+    padding-top: 0px !important;
+***REMOVED***
+
+.p-t-10 {
+    padding-top: 10px !important;
+***REMOVED***
+
+.p-t-20 {
+    padding-top: 20px !important;
+***REMOVED***
+
+.p-t-30 {
+    padding-top: 30px !important;
+***REMOVED***
+
+.p-b-0 {
+    padding-bottom: 0px !important;
+***REMOVED***
+
+.p-b-10 {
+    padding-bottom: 10px !important;
+***REMOVED***
+
+.p-b-20 {
+    padding-bottom: 20px !important;
+***REMOVED***
+
+.p-b-30 {
+    padding-bottom: 30px !important;
+***REMOVED***
+
+.p-b-40 {
+    padding-bottom: 40px !important;
+***REMOVED***
+
+.m-0 {
+    margin: 0px !important;
+***REMOVED***
+
+.m-l-5 {
+    margin-left: 5px !important;
+***REMOVED***
+
+.m-l-10 {
+    margin-left: 10px !important;
+***REMOVED***
+
+.m-l-15 {
+    margin-left: 15px !important;
+***REMOVED***
+
+.m-l-20 {
+    margin-left: 20px !important;
+***REMOVED***
+
+.m-l-30 {
+    margin-left: 30px !important;
+***REMOVED***
+
+.m-l-40 {
+    margin-left: 40px !important;
+***REMOVED***
+
+.m-r-5 {
+    margin-right: 5px !important;
+***REMOVED***
+
+.m-r-10 {
+    margin-right: 10px !important;
+***REMOVED***
+
+.m-r-15 {
+    margin-right: 15px !important;
+***REMOVED***
+
+.m-r-20 {
+    margin-right: 20px !important;
+***REMOVED***
+
+.m-r-30 {
+    margin-right: 30px !important;
+***REMOVED***
+
+.m-r-40 {
+    margin-right: 40px !important;
+***REMOVED***
+
+.m-t-5 {
+    margin-top: 5px !important;
+***REMOVED***
+
+.m-t-0 {
+    margin-top: 0px !important;
+***REMOVED***
+
+.m-t-10 {
+    margin-top: 10px !important;
+***REMOVED***
+
+.m-t-15 {
+    margin-top: 15px !important;
+***REMOVED***
+
+.m-t-20 {
+    margin-top: 20px !important;
+***REMOVED***
+
+.m-t-30 {
+    margin-top: 30px !important;
+***REMOVED***
+
+.m-t-40 {
+    margin-top: 40px !important;
+***REMOVED***
+
+.m-b-0 {
+    margin-bottom: 0px !important;
+***REMOVED***
+
+.m-b-5 {
+    margin-bottom: 5px !important;
+***REMOVED***
+
+.m-b-10 {
+    margin-bottom: 10px !important;
+***REMOVED***
+
+.m-b-15 {
+    margin-bottom: 15px !important;
+***REMOVED***
+
+.m-b-20 {
+    margin-bottom: 20px !important;
+***REMOVED***
+
+.m-b-30 {
+    margin-bottom: 30px !important;
+***REMOVED***
+
+.m-b-40 {
+    margin-bottom: 40px !important;
+***REMOVED***
+
+.vt {
+    vertical-align: top;
+***REMOVED***
+
+.vb {
+    vertical-align: bottom;
+***REMOVED***
+
+.font-bold {
+    font-weight: 700;
+***REMOVED***
+
+.font-medium {
+    font-weight: 500;
+***REMOVED***
+
+.font-normal {
+    font-weight: normal;
+***REMOVED***
+
+.font-light {
+    font-weight: 300;
+***REMOVED***
+
+.pull-in {
+    margin-left: -15px;
+    margin-right: -15px;
+***REMOVED***
+
+.b-0 {
+    border: none !important;
+***REMOVED***
+
+.vertical-middle,
+.vm {
+    vertical-align: middle;
+***REMOVED***
+
+.mdi{
+    font-size:17px;
+***REMOVED***
+.bx-shadow {
+    -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+***REMOVED***
+
+.mx-box {
+    max-height: 380px;
+    min-height: 380px;
+***REMOVED***
+
+.thumb-sm {
+    height: 32px;
+    width: 32px;
+***REMOVED***
+
+.thumb-md {
+    height: 48px;
+    width: 48px;
+***REMOVED***
+
+.thumb-lg {
+    height: 88px;
+    width: 88px;
+***REMOVED***
+
+.txt-oflo {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+***REMOVED***
+
+.di {
+    display: inline-block;
+***REMOVED***
+
+.get-code {
+    color: @dark;
+    cursor: pointer;
+    border-radius: 100%;
+    background: @white;
+    padding: 4px 5px;
+    font-size: 10px;
+    margin: 0 5px;
+    vertical-align: middle;
+***REMOVED***
+
+
+/* Badge */
+
+.badge {
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 3px 5px;
+    font-size: 12px;
+    margin-top: 1px;
+    background-color: @warning;
+***REMOVED***
+
+.badge-xs {
+    font-size: 9px;
+***REMOVED***
+
+.badge-xs,
+.badge-sm {
+    -webkit-transform: translate(0, -2px);
+    -ms-transform: translate(0, -2px);
+    -o-transform: translate(0, -2px);
+    transform: translate(0, -2px);
+***REMOVED***
+
+.badge-success {
+    background-color: @success;
+***REMOVED***
+
+.badge-info {
+    background-color: @info;
+***REMOVED***
+
+.badge-warning {
+    background-color: @warning;
+***REMOVED***
+
+.badge-danger {
+    background-color: @danger;
+***REMOVED***
+
+.badge-purple {
+    background-color: @purple;
+***REMOVED***
+
+.badge-red {
+    background-color: @red;
+***REMOVED***
+
+.badge-inverse {
+    background-color: @inverse;
+***REMOVED***
+
+
+/*notify*/
+
+.notify {
+    position: relative;
+    margin-top: -30px;
+    .heartbit {
+        position: absolute;
+        top: -20px;
+        right: -16px;
+        height: 25px;
+        width: 25px;
+        z-index: 10;
+        border: 5px solid @danger;
+        border-radius: 70px;
+        -moz-animation: heartbit 1s ease-out;
+        -moz-animation-iteration-count: infinite;
+        -o-animation: heartbit 1s ease-out;
+        -o-animation-iteration-count: infinite;
+        -webkit-animation: heartbit 1s ease-out;
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+    ***REMOVED***
+    .point {
+        width: 6px;
+        height: 6px;
+        -webkit-border-radius: 30px;
+        -moz-border-radius: 30px;
+        border-radius: 30px;
+        background-color: @danger;
+        position: absolute;
+        right: -6px;
+        top: -10px;
+    ***REMOVED***
+***REMOVED***
+
+@-moz-keyframes heartbit {
+    0% {
+        -moz-transform: scale(0);
+        opacity: 0.0;
+    ***REMOVED***
+    25% {
+        -moz-transform: scale(0.1);
+        opacity: 0.1;
+    ***REMOVED***
+    50% {
+        -moz-transform: scale(0.5);
+        opacity: 0.3;
+    ***REMOVED***
+    75% {
+        -moz-transform: scale(0.8);
+        opacity: 0.5;
+    ***REMOVED***
+    100% {
+        -moz-transform: scale(1);
+        opacity: 0.0;
+    ***REMOVED***
+***REMOVED***
+
+@-webkit-keyframes heartbit {
+    0% {
+        -webkit-transform: scale(0);
+        opacity: 0.0;
+    ***REMOVED***
+    25% {
+        -webkit-transform: scale(0.1);
+        opacity: 0.1;
+    ***REMOVED***
+    50% {
+        -webkit-transform: scale(0.5);
+        opacity: 0.3;
+    ***REMOVED***
+    75% {
+        -webkit-transform: scale(0.8);
+        opacity: 0.5;
+    ***REMOVED***
+    100% {
+        -webkit-transform: scale(1);
+        opacity: 0.0;
+    ***REMOVED***
+***REMOVED***
+
+
+/* Text colors */
+
+.text-white {
+    color: @white;
+***REMOVED***
+
+.text-danger {
+    color: @danger;
+***REMOVED***
+
+.text-muted {
+    color: #8d9ea7;
+***REMOVED***
+
+.text-warning {
+    color: @warning;
+***REMOVED***
+
+.text-success {
+    color: @success;
+***REMOVED***
+
+.text-info {
+    color: @info;
+***REMOVED***
+
+.text-inverse {
+    color: @inverse;
+***REMOVED***
+
+.text-blue {
+    color: @blue;
+***REMOVED***
+
+.text-purple {
+    color: @purple;
+***REMOVED***
+
+.text-primary {
+    color: @primary;
+***REMOVED***
+
+.text-megna {
+    color: @megna;
+***REMOVED***
+
+.text-dark {
+    color: @bodytext !important;
+***REMOVED***
+
+.fw-500 {
+    font-weight: 500;
+***REMOVED***
+
+
+/* Background colors */
+
+.bg-primary {
+    background-color: @primary !important;
+***REMOVED***
+
+.bg-success {
+    background-color: @success !important;
+***REMOVED***
+
+.bg-info {
+    background-color: @info !important;
+***REMOVED***
+
+.bg-warning {
+    background-color: @warning !important;
+***REMOVED***
+
+.bg-danger {
+    background-color: @danger !important;
+***REMOVED***
+.bg-theme-alt {
+    background-color: @themealt !important;
+***REMOVED***
+.bg-theme {
+    background-color: @themecolor !important;
+***REMOVED***
+
+.bg-theme-dark {
+    background-color: @dark-themecolor !important;
+***REMOVED***
+
+.bg-inverse {
+    background-color: @inverse !important;
+***REMOVED***
+
+.bg-purple {
+    background-color: @purple !important;
+***REMOVED***
+
+.bg-white {
+    background-color: @white !important;
+***REMOVED***
+
+.bg-light {
+    background-color: @light !important;
+***REMOVED***
+
+.bg-extralight {
+    background-color: @extralight !important;
+***REMOVED***
+
+/* Labels */
+
+.label {
+    letter-spacing: 0.05em;
+    border-radius: 60px;
+    padding: 4px 12px 3px;
+    font-weight: 500;
+***REMOVED***
+
+.label-rounded,
+.label-rouded {
+    border-radius: 60px;
+    padding: 4px 12px 3px;
+    font-weight: 500;
+***REMOVED***
+
+.label-custom {
+    background-color: @megna;
+***REMOVED***
+
+.label-success {
+    background-color: @success;
+***REMOVED***
+
+.label-info {
+    background-color: @info;
+***REMOVED***
+
+.label-warning {
+    background-color: @warning;
+***REMOVED***
+
+.label-danger {
+    background-color: @danger;
+***REMOVED***
+
+.label-megna {
+    background-color: @megna;
+***REMOVED***
+
+.label-primary {
+    background-color: @primary;
+***REMOVED***
+
+.label-purple {
+    background-color: @purple;
+***REMOVED***
+
+.label-red {
+    background-color: @red;
+***REMOVED***
+
+.label-inverse {
+    background-color: @inverse;
+***REMOVED***
+
+.label-white {
+    background-color: @white;
+***REMOVED***
+
+.label-default {
+    background-color: @light;
+***REMOVED***
+
+
+/*Bootstrap overight*/
+
+.dropdown-menu {
+    border: 1px solid @border;
+    border-radius: @radius;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, .05)!important;
+    -webkit-box-shadow: 0px!important;
+    -moz-box-shadow: 0px!important;
+    padding-bottom: 8px;
+    margin-top: 0px;
+***REMOVED***
+
+.dropdown-menu > li > a {
+    padding: 9px 20px;
+***REMOVED***
+
+.dropdown-menu>li>a:focus,
+.dropdown-menu>li>a:hover {
+    background: @extralight;
+***REMOVED***
+
+.navbar-top-links .progress {
+    margin-bottom: 6px;
+***REMOVED***
+
+label {
+    font-weight: 500;
+***REMOVED***
+
+.btn {
+    border-radius: @radius-alt;
+***REMOVED***
+
+.form-control {
+    background-color: #ffffff;
+    border: 1px solid @light;
+    border-radius: 4px;
+    box-shadow: none;
+    color: #565656;
+    height: 38px;
+    max-width: 100%;
+    padding: 7px 12px;
+    transition: all 300ms linear 0s;
+    &:focus {
+        box-shadow: none;
+        border-color: @dark;
+    ***REMOVED***
+***REMOVED***
+
+.input-sm {
+    height: 30px;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+***REMOVED***
+
+.input-lg {
+    height: 44px;
+    padding: 5px 10px;
+    font-size: 18px;
+***REMOVED***
+
+.bootstrap-tagsinput {
+    border: 1px solid @light;
+    border-radius: @radius;
+    box-shadow: none;
+    display: block;
+    padding: 7px 12px;
+***REMOVED***
+
+.bootstrap-touchspin .input-group-btn-vertical>.btn {
+    padding: 9px 10px;
+***REMOVED***
+
+.bootstrap-touchspin .input-group-btn-vertical .bootstrap-touchspin-up,
+.bootstrap-touchspin .input-group-btn-vertical .bootstrap-touchspin-down {
+    border-radius: @radius;
+***REMOVED***
+
+.input-group-btn .btn {
+    padding: 8px 12px;
+***REMOVED***
+
+.form-horizontal .form-group {
+    
+    margin-bottom: 25px;
+***REMOVED***
+
+.form-group {
+    margin-bottom: 25px;
+***REMOVED***
+
+.select2-container-multi .select2-choices {
+    border: 1px solid @light;
+***REMOVED***
+
+.list-group-item,
+.list-group-item:first-child,
+.list-group-item:last-child {
+    border-radius: @radius;
+    border-color: @border;
+***REMOVED***
+
+.list-group-item.active,
+.list-group-item.active:focus,
+.list-group-item.active:hover {
+    background: @info;
+    border-color: @info;
+***REMOVED***
+
+.list-task .list-group-item,
+.list-task .list-group-item:first-child {
+    border-radius: @radius;
+    border: 0px;
+***REMOVED***
+
+.list-task .list-group-item:last-child {
+    border-radius: 0px;
+    border: 0px
+***REMOVED***
+
+.media {
+    border: 1px solid @border;
+    margin-bottom: 10px;
+    padding: 15px;
+    .media-heading {
+        font-weight: 500;
+    ***REMOVED***
+***REMOVED***
+
+.well,
+pre {
+    background: @white;
+    border-radius: @radius;
+***REMOVED***
+
+.nav-tabs > li > a {
+    border-radius: @radius;
+    color: @dark;
+    &:hover,
+    &:focus {
+        background: @white;
+    ***REMOVED***
+***REMOVED***
+
+.modal-content {
+    border-radius: @radius;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+***REMOVED***
+
+.alert {
+    border-radius: @radius;
+***REMOVED***
+
+.carousel-control {
+    width: 8%;
+    span {
+        position: absolute;
+        top: 50%;
+        /* pushes the icon in the middle of the height */
+        z-index: 5;
+        display: inline-block;
+        font-size: 30px;
+    ***REMOVED***
+***REMOVED***
+
+.popover {
+    border-radius: @radius;
+    z-index: 100;
+***REMOVED***
+
+.popover-title {
+    padding: 5px 14px;
+***REMOVED***
+
+.container-fluid {
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 15px;
+***REMOVED***
+
+
+/*
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+  padding-left:7.5px;
+  padding-right:7.5px;
+***REMOVED***
+.row {
+    margin-right: -7.5px;
+    margin-left: -7.5px;
+***REMOVED****/
+
+.btn-group-vertical>.btn:first-child:not(:last-child),
+.btn-group-vertical>.btn:last-child:not(:first-child) {
+    border-radius: @radius;
+***REMOVED***
+
+.table-responsive {
+    overflow-y: hidden;
+***REMOVED***
+
+
+/* Pagination/ Pager */
+
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+    border-bottom-left-radius: @radius;
+    border-top-left-radius: @radius;
+***REMOVED***
+
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+    border-bottom-right-radius: @radius;
+    border-top-right-radius: @radius;
+***REMOVED***
+
+.pagination > li > a,
+.pagination > li > span {
+    color: @dark;
+***REMOVED***
+
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+    background-color: @light;
+***REMOVED***
+
+.pagination-split li {
+    margin-left: 5px;
+    display: inline-block;
+    float: left;
+***REMOVED***
+
+.pagination-split li:first-child {
+    margin-left: 0;
+***REMOVED***
+
+.pagination-split li a {
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+    border-radius: @radius;
+***REMOVED***
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+    background-color: @themecolor;
+    border-color: @themecolor;
+***REMOVED***
+
+.pager li > a,
+.pager li > span {
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+    border-radius: @radius;
+    color: @dark;
+***REMOVED***
+
+// table-cell
+.table-box {
+    display: table;
+    width: 100%;
+***REMOVED***
+
+.cell {
+    display: table-cell;
+    vertical-align: middle;
+***REMOVED***
+
+.jqstooltip {
+    width: auto !important;
+    height: auto !important;
+***REMOVED***
+
+// text-align
+// Wrappers
+#wrapper {
+    width: 100%;
+***REMOVED***
+
+#page-wrapper {
+    padding: 0px;
+    min-height: 568px;
+    background: @bodycolor;
+    padding-bottom: 60px;
+***REMOVED***
+
+.footer {
+    bottom: 0;
+    color: #58666e;
+    left: 0px;
+    padding: 20px 30px;
+    position: absolute;
+    right: 0;
+    background: @white;
+***REMOVED***
+
+// Page title
+.bg-title {
+    background: @white;
+    overflow: hidden;
+    padding: 15px 10px 9px;
+    margin-bottom: 25px;
+    margin-left: -25.5px;
+    margin-right: -25.5px;
+    h4 {
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: 500;
+        margin-top: 6px;
+    ***REMOVED***
+    .breadcrumb {
+        background: none;
+        margin-bottom: 0px;
+        float: right;
+        padding: 0;
+        margin-top: 8px;
+        a {
+            color: rgba(0, 0, 0, 0.5);
+            &:hover {
+                color: rgba(0, 0, 0, 1);
+            ***REMOVED***
+        ***REMOVED***
+        .active {
+            color: @themecolor;
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+// Navigation
+// --Topbar
+.logo b {
+    /*background:@themecolor;*/
+    height: 60px;
+    float: @lft;
+    padding-left:10px;
+    width: auto;
+    line-height: 59px;
+    text-align: center;
+***REMOVED***
+
+.logo i {
+    color: @white;
+***REMOVED***
+
+.top-left-part {
+    width: 220px;
+    float: left;
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
+    a {
+        color: @white;
+        line-height: 59px;
+        font-size: 18px;
+        padding-left: 10px;
+        text-transform: uppercase;
+    ***REMOVED***
+    .light-logo {
+        display: none;
+    ***REMOVED***
+***REMOVED***
+
+.navbar-header {
+    width: 100%;
+    background: @topbar;
+    border: 0px;
+***REMOVED***
+
+.navbar-default {
+    border: 0px;
+***REMOVED***
+
+.navbar-top-links {
+    margin-right: 0;
+***REMOVED***
+
+.navbar-top-links .badge {
+    position: absolute;
+    right: 6px;
+    top: 15px;
+***REMOVED***
+
+.navbar-top-links > li {
+    float: left;
+***REMOVED***
+
+.navbar-top-links > li > a {
+    color: @white;
+    padding: 0 14px;
+    line-height: 60px;
+    min-height: 60px;
+    &:hover {
+        background: rgba(0, 0, 0, 0.1)
+    ***REMOVED***
+    &:focus {
+        background: rgba(0, 0, 0, 0.0);
+    ***REMOVED***
+***REMOVED***
+
+.nav .open > a,
+.nav .open > a:focus,
+.nav .open > a:hover {
+    background: rgba(255, 255, 255, 0.2)
+***REMOVED***
+
+.navbar-top-links .dropdown-menu li {
+    display: block;
+***REMOVED***
+
+.navbar-top-links .dropdown-menu li:last-child {
+    margin-right: 0;
+***REMOVED***
+
+.navbar-top-links .dropdown-menu li a div {
+    white-space: normal;
+***REMOVED***
+
+.navbar-top-links .dropdown-messages,
+.navbar-top-links .dropdown-tasks,
+.navbar-top-links .dropdown-alerts {
+    width: 310px;
+    min-width: 0;
+***REMOVED***
+
+.navbar-top-links .dropdown-messages {
+    margin-left: 5px;
+***REMOVED***
+
+.navbar-top-links .dropdown-tasks {
+    margin-left: -59px;
+***REMOVED***
+
+.navbar-top-links .dropdown-alerts {
+    margin-left: -123px;
+***REMOVED***
+
+.navbar-top-links .dropdown-user {
+    right: 0;
+    left: auto;
+    width: 280px;
+    .dw-user-box{
+        padding: 15px;
+        .u-img{
+            width: 80px;
+            display: inline-block;
+            vertical-align: top;
+            img{
+                width: 100%;
+                border-radius: 5px;
+            ***REMOVED***
+        ***REMOVED***
+        .u-text{
+            display: inline-block;
+            padding-left: 10px;
+            h4{
+                margin: 0px;
+            ***REMOVED***
+            p{
+                margin-bottom: 3px;
+            ***REMOVED***
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.navbar-header .navbar-toggle {
+    float: none;
+    padding: 0 15px;
+    line-height: 60px;
+    border: 0px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0px;
+    display: inline-block;
+    border-radius: 0px;
+    &:hover,
+    &:focus {
+        background: rgba(0, 0, 0, 0.3);
+        color: rgba(255, 255, 255, 1);
+    ***REMOVED***
+***REMOVED***
+
+// Search
+
+/*Search*/
+
+.app-search {
+    position: relative;
+    margin: 0px;
+***REMOVED***
+
+.app-search a {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    color: @inverse;
+***REMOVED***
+
+.app-search .form-control,
+.app-search .form-control:focus {
+    border: none;
+    font-size: 13px;
+    color: @inverse;
+    padding-left: 20px;
+    padding-right: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: none;
+    height: 30px;
+    font-weight: 600;
+    width: 180px;
+    display: inline-block;
+    line-height: 30px;
+    margin-top: 15px;
+    border-radius: 40px;
+    transition: 0.5s ease-out;
+***REMOVED***
+
+.app-search .form-control::-moz-placeholder {
+    color: @inverse;
+    opacity: 0.5;
+***REMOVED***
+
+.app-search .form-control::-webkit-input-placeholder {
+    color: @inverse;
+    opacity: 0.5;
+***REMOVED***
+
+.app-search .form-control::-ms-placeholder {
+    color: @inverse;
+    opacity: 0.5;
+***REMOVED***
+
+.nav-small-cap {
+    color: #a6afbb;
+    cursor: default;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.035em;
+    padding: 12px 15px !important;
+    pointer-events: none;
+    margin: 20px 0 0 -15px;
+***REMOVED***
+
+.profile-pic {
+    padding: 0px 20px;
+    line-height: 50px;
+    img {
+        margin-right: 10px;
+    ***REMOVED***
+***REMOVED***
+
+.drop-title {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: @dark;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 11px 20px 15px;
+***REMOVED***
+
+// Buttons
+.btn-outline {
+    color: inherit;
+    background-color: transparent;
+    transition: all .5s;
+***REMOVED***
+
+.btn-rounded {
+    border-radius: 60px;
+***REMOVED***
+
+.btn-custom,
+.btn-custom.disabled {
+    background: @themecolor;
+    border: 1px solid @themecolor;
+    color: @white;
+    &:hover,
+    &:focus,
+    &.focus {
+        background: @themecolor;
+        opacity: 0.8;
+        color: @white;
+        border: 1px solid @themecolor;
+    ***REMOVED***
+***REMOVED***
+
+.btn-primary,
+.btn-primary.disabled {
+    background: @primary;
+    border: 1px solid @primary;
+    &:hover,
+    &:focus,
+    &.focus {
+        background: @primary;
+        opacity: 0.8;
+        border: 1px solid @primary;
+    ***REMOVED***
+***REMOVED***
+
+.btn-success,
+.btn-success.disabled {
+    background: @success;
+    border: 1px solid @success;
+    &:hover,
+    &:focus,
+    &.focus {
+        background: @success;
+        opacity: 0.8;
+        border: 1px solid @success;
+    ***REMOVED***
+***REMOVED***
+
+.btn-info,
+.btn-info.disabled {
+    background: @info;
+    border: 1px solid @info;
+    &:hover,
+    &:focus,
+    &.focus {
+        background: @info;
+        opacity: 0.8;
+        border: 1px solid @info;
+    ***REMOVED***
+***REMOVED***
+
+.btn-warning,
+.btn-warning.disabled {
+    background: @warning;
+    border: 1px solid @warning;
+    &:hover,
+    &:focus,
+    &.focus {
+        background: @warning;
+        opacity: 0.8;
+        border: 1px solid @warning;
+    ***REMOVED***
+***REMOVED***
+
+.btn-danger,
+.btn-danger.disabled {
+    background: @danger;
+    border: 1px solid @danger;
+    &:hover,
+    &:focus,
+    &.focus {
+        background: @danger;
+        opacity: 0.8;
+        border: 1px solid @danger;
+    ***REMOVED***
+***REMOVED***
+
+.btn-default,
+.btn-default.disabled {
+    background: @light;
+    border: 1px solid @light;
+    &:hover,
+    &:focus,
+    &.focus {
+        opacity: 0.8;
+        border: 1px solid @light;
+        background: @light;
+    ***REMOVED***
+***REMOVED***
+
+.btn-default.btn-outline {
+    background-color: @white;
+    &:hover,
+    &:focus,
+    &.focus {
+        background: @light;
+    ***REMOVED***
+***REMOVED***
+
+.btn-primary.btn-outline {
+    color: @primary;
+    background-color: @white;
+    &:hover,
+    &:focus,
+    &.focus {
+        background: @primary;
+        color: @white;
+    ***REMOVED***
+***REMOVED***
+
+.btn-success.btn-outline {
+    color: @success;
+    background-color: transparent;
+    &:hover,
+    &:focus,
+    &.focus {
+        background: @success;
+        color: @white;
+    ***REMOVED***
+***REMOVED***
+
+.btn-info.btn-outline {
+    color: @info;
+    background-color: transparent;
+    &:hover,
+    &:focus,
+    &.focus {
+        background: @info;
+        color: @white;
+    ***REMOVED***
+***REMOVED***
+
+.btn-warning.btn-outline {
+    color: @warning;
+    background-color: transparent;
+    &:hover,
+    &:focus,
+    &.focus {
+        background: @warning;
+        color: @white;
+    ***REMOVED***
+***REMOVED***
+
+.btn-danger.btn-outline {
+    color: @danger;
+    background-color: transparent;
+    &:hover,
+    &:focus,
+    &.focus {
+        background: @danger;
+        color: @white;
+    ***REMOVED***
+***REMOVED***
+
+.button-box .btn {
+    margin: 0 8px 8px 0px;
+***REMOVED***
+
+.btn-primary.btn-outline:hover,
+.btn-success.btn-outline:hover,
+.btn-info.btn-outline:hover,
+.btn-warning.btn-outline:hover,
+.btn-danger.btn-outline:hover {
+    color: white;
+***REMOVED***
+
+.btn-label {
+    background: rgba(0, 0, 0, 0.05);
+    display: inline-block;
+    margin: -6px 12px -6px -14px;
+    padding: 7px 15px;
+***REMOVED***
+
+.btn-facebook {
+    color: @white !important;
+    background-color: #3b5998 !important;
+***REMOVED***
+
+.btn-twitter {
+    color: @white !important;
+    background-color: #55acee !important;
+***REMOVED***
+
+.btn-linkedin {
+    color: @white !important;
+    background-color: #007bb6 !important;
+***REMOVED***
+
+.btn-dribbble {
+    color: @white !important;
+    background-color: #ea4c89 !important;
+***REMOVED***
+
+.btn-googleplus {
+    color: @white !important;
+    background-color: #dd4b39 !important;
+***REMOVED***
+
+.btn-instagram {
+    color: @white !important;
+    background-color: #3f729b !important;
+***REMOVED***
+
+.btn-pinterest {
+    color: @white !important;
+    background-color: #cb2027 !important;
+***REMOVED***
+
+.btn-dropbox {
+    color: @white !important;
+    background-color: #007ee5 !important;
+***REMOVED***
+
+.btn-flickr {
+    color: @white !important;
+    background-color: #ff0084 !important;
+***REMOVED***
+
+.btn-tumblr {
+    color: @white !important;
+    background-color: #32506d !important;
+***REMOVED***
+
+.btn-skype {
+    color: @white !important;
+    background-color: #00aff0 !important;
+***REMOVED***
+
+.btn-youtube {
+    color: @white !important;
+    background-color: #bb0000 !important;
+***REMOVED***
+
+.btn-github {
+    color: @white !important;
+    background-color: #171515 !important;
+***REMOVED***
+
+.btn-primary.active.focus,
+.btn-primary.active:focus,
+.btn-primary.active:hover,
+.btn-primary.focus:active,
+.btn-primary:active:focus,
+.btn-primary:active:hover,
+.open > .dropdown-toggle.btn-primary.focus,
+.open > .dropdown-toggle.btn-primary:focus,
+.open > .dropdown-toggle.btn-primary:hover,
+.btn-primary.focus,
+.btn-primary:focus {
+    background-color: @primary ;
+    border: 1px solid @primary;
+***REMOVED***
+
+.btn-success.active.focus,
+.btn-success.active:focus,
+.btn-success.active:hover,
+.btn-success.focus:active,
+.btn-success:active:focus,
+.btn-success:active:hover,
+.open > .dropdown-toggle.btn-success.focus,
+.open > .dropdown-toggle.btn-success:focus,
+.open > .dropdown-toggle.btn-success:hover,
+.btn-success.focus,
+.btn-success:focus {
+    background-color: @success;
+    border: 1px solid @success;
+***REMOVED***
+
+.btn-info.active.focus,
+.btn-info.active:focus,
+.btn-info.active:hover,
+.btn-info.focus:active,
+.btn-info:active:focus,
+.btn-info:active:hover,
+.open > .dropdown-toggle.btn-info.focus,
+.open > .dropdown-toggle.btn-info:focus,
+.open > .dropdown-toggle.btn-info:hover,
+.btn-info.focus,
+.btn-info:focus {
+    background-color: @info;
+    border: 1px solid @info;
+***REMOVED***
+
+.btn-warning.active.focus,
+.btn-warning.active:focus,
+.btn-warning.active:hover,
+.btn-warning.focus:active,
+.btn-warning:active:focus,
+.btn-warning:active:hover,
+.open > .dropdown-toggle.btn-warning.focus,
+.open > .dropdown-toggle.btn-warning:focus,
+.open > .dropdown-toggle.btn-warning:hover,
+.btn-warning.focus,
+.btn-warning:focus {
+    background-color: @warning;
+    border: 1px solid @warning;
+***REMOVED***
+
+.btn-danger.active.focus,
+.btn-danger.active:focus,
+.btn-danger.active:hover,
+.btn-danger.focus:active,
+.btn-danger:active:focus,
+.btn-danger:active:hover,
+.open > .dropdown-toggle.btn-danger.focus,
+.open > .dropdown-toggle.btn-danger:focus,
+.open > .dropdown-toggle.btn-danger:hover,
+.btn-danger.focus,
+.btn-danger:focus {
+    background-color: @danger;
+    border: 1px solid @danger;
+***REMOVED***
+
+.btn-inverse,
+.btn-inverse:hover,
+.btn-inverse:focus,
+.btn-inverse:active,
+.btn-inverse.active,
+.btn-inverse.focus,
+.btn-inverse:active,
+.btn-inverse:focus,
+.btn-inverse:hover,
+.open > .dropdown-toggle.btn-inverse {
+    background-color: @inverse;
+    border: 1px solid @inverse;
+    color: @white;
+***REMOVED***
+
+// Chat Widget
+.chat {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+***REMOVED***
+
+.chat li {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted @border;
+***REMOVED***
+
+.chat li.left .chat-body {
+    margin-left: 60px;
+***REMOVED***
+
+.chat li.right .chat-body {
+    margin-right: 60px;
+***REMOVED***
+
+.chat li .chat-body p {
+    margin: 0;
+***REMOVED***
+
+.panel .slidedown .glyphicon,
+.chat .glyphicon {
+    margin-right: 5px;
+***REMOVED***
+
+.chat-panel .panel-body {
+    height: 350px;
+    overflow-y: scroll;
+***REMOVED***
+
+// Login Page
+.login-panel {
+    margin-top: 25%;
+***REMOVED***
+
+// Flot Charts Containers
+.flot-chart {
+    display: block;
+    height: 400px;
+***REMOVED***
+
+.flot-chart-content {
+    width: 100%;
+    height: 100%;
+***REMOVED***
+
+// DataTables Overrides
+table.dataTable thead .sorting,
+table.dataTable thead .sorting_asc,
+table.dataTable thead .sorting_desc,
+table.dataTable thead .sorting_asc_disabled,
+table.dataTable thead .sorting_desc_disabled {
+    background: transparent;
+***REMOVED***
+
+table.dataTable thead .sorting_asc:after {
+    content: "\f0de";
+    float: right;
+    font-family: fontawesome;
+***REMOVED***
+
+table.dataTable thead .sorting_desc:after {
+    content: "\f0dd";
+    float: right;
+    font-family: fontawesome;
+***REMOVED***
+
+table.dataTable thead .sorting:after {
+    content: "\f0dc";
+    float: right;
+    font-family: fontawesome;
+    color: rgba(50, 50, 50, .5);
+***REMOVED***
+
+// Circle Buttons 
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.428571429;
+***REMOVED***
+
+.btn-circle.btn-lg {
+    width: 50px;
+    height: 50px;
+    padding: 10px 16px;
+    border-radius: 25px;
+    font-size: 18px;
+    line-height: 1.33;
+***REMOVED***
+
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
+***REMOVED***
+
+// Grid Demo Elements
+.show-grid [class^="col-"] {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid @border;
+    background-color: @extralight;
+***REMOVED***
+
+.show-grid {
+    margin: 15px 0;
+***REMOVED***
+
+// Custom Colored Panels
+.huge {
+    font-size: 40px;
+***REMOVED***
+
+.white-box {
+    background: @white;
+    padding: 25px;
+    margin-bottom: 30px;
+    .box-title {
+        margin: 0px 0px 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 16px;
+    ***REMOVED***
+***REMOVED***
+
+.panel {
+    border-radius: @radius;
+    margin-bottom: 30px;
+    border: 0px;
+    box-shadow: none;
+    .panel-heading {
+        border-radius: @radius;
+        font-weight: 500;
+        font-size: 16px;
+        padding: 20px 25px;
+        .panel-title {
+            font-size: 16px;
+            color: @dark;
+        ***REMOVED***
+        a {
+            i {
+                font-size: 12px;
+                margin-left: 8px;
+            ***REMOVED***
+        ***REMOVED***
+    ***REMOVED***
+    .panel-action {
+        float: @rgt;
+        a {
+            opacity: 0.5;
+            &:hover {
+                opacity: 1;
+            ***REMOVED***
+        ***REMOVED***
+    ***REMOVED***
+    .panel-body {
+        padding: 25px;
+        &:first-child h3 {
+            margin-top: 0px;
+            font-weight: 500;
+            font-family: @basefont1;
+            font-size: 14px;
+            text-transform: uppercase;
+        ***REMOVED***
+    ***REMOVED***
+    .panel-footer {
+        background: @white;
+        border-radius: @radius;
+        padding: 20px 25px;
+    ***REMOVED***
+***REMOVED***
+
+.panel-green,
+.panel-success {
+    border-color: @success;
+    .panel-heading {
+        border-color: @success;
+        color: white;
+        background-color: @success;
+        a {
+            color: @white;
+            &:hover {
+                color: rgba(255, 255, 255, 0.5);
+            ***REMOVED***
+        ***REMOVED***
+    ***REMOVED***
+    a {
+        color: @success;
+        &:hover {
+            color: darken(@success, 15%);
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.panel-black,
+.panel-inverse {
+    border-color: @inverse;
+    .panel-heading {
+        border-color: @inverse;
+        color: white;
+        background-color: @inverse;
+        a {
+            color: @white;
+            &:hover {
+                color: rgba(255, 255, 255, 0.5);
+            ***REMOVED***
+        ***REMOVED***
+    ***REMOVED***
+    a {
+        color: @inverse;
+        &:hover {
+            color: darken(@inverse, 15%);
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.panel-darkblue,
+.panel-primary {
+    border-color: @primary;
+    .panel-heading {
+        border-color: @primary;
+        color: white;
+        background-color: @primary;
+        a {
+            color: @white;
+            &:hover {
+                color: rgba(255, 255, 255, 0.5);
+            ***REMOVED***
+        ***REMOVED***
+    ***REMOVED***
+    a {
+        color: @primary;
+        &:hover {
+            color: darken(@primary, 15%);
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.panel-blue,
+.panel-info {
+    border-color: @info;
+    .panel-heading {
+        border-color: @info;
+        color: white;
+        background-color: @info;
+        a {
+            color: @white;
+            &:hover {
+                color: rgba(255, 255, 255, 0.5);
+            ***REMOVED***
+        ***REMOVED***
+    ***REMOVED***
+    a {
+        color: @info;
+        &:hover {
+            color: darken(@info, 15%);
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.panel-red,
+.panel-danger {
+    border-color: @danger;
+    .panel-heading {
+        border-color: @danger;
+        color: white;
+        background-color: @danger;
+        a {
+            color: @white;
+            &:hover {
+                color: rgba(255, 255, 255, 0.5);
+            ***REMOVED***
+        ***REMOVED***
+    ***REMOVED***
+    a {
+        color: @danger;
+        &:hover {
+            color: darken(@danger, 15%);
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.panel-yellow,
+.panel-warning {
+    border-color: @warning;
+    .panel-heading {
+        border-color: @warning;
+        color: white;
+        background-color: @warning;
+        a {
+            color: @white;
+            &:hover {
+                color: rgba(255, 255, 255, 0.5);
+            ***REMOVED***
+        ***REMOVED***
+    ***REMOVED***
+    a {
+        color: @warning;
+        &:hover {
+            color: darken(@warning, 15%);
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+.panel-themecolor,
+.panel-theme {
+    border-color: @themecolor;
+    .panel-heading {
+        border-color: @themecolor;
+        color: white;
+        background-color: @themecolor;
+        a {
+            color: @white;
+            &:hover {
+                color: rgba(255, 255, 255, 0.5);
+            ***REMOVED***
+        ***REMOVED***
+    ***REMOVED***
+    a {
+        color: @themecolor;
+        &:hover {
+            color: darken(@themecolor, 15%);
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+.panel-white,
+.panel-default {
+    border-color: @border;
+    .panel-heading {
+        color: @dark;
+        background-color: @white;
+        border-bottom: 1px solid @border;
+    ***REMOVED***
+    .panel-body {
+        color: @dark;
+    ***REMOVED***
+    .panel-action a {
+        color: @dark;
+        opacity: 0.5;
+        &:hover {
+            opacity: 1;
+            color: @dark;
+        ***REMOVED***
+    ***REMOVED***
+    .panel-footer {
+        background: @white;
+        color: @dark;
+        border-top: 1px solid @border;
+    ***REMOVED***
+***REMOVED***
+
+.full-panel-info {
+    border-color: @info;
+    .panel-heading {
+        border-color: @info;
+        color: white;
+        background-color: @info;
+        border-bottom: 1px solid @border;
+    ***REMOVED***
+    .panel-body {
+        background: @info;
+        color: @white;
+    ***REMOVED***
+    .panel-footer {
+        background: @info;
+        color: @white;
+        border-top: 1px solid @border;
+    ***REMOVED***
+    a {
+        color: @info;
+        &:hover {
+            color: darken(@info, 15%);
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.full-panel-warning {
+    border-color: @warning;
+    .panel-heading {
+        border-color: @warning;
+        color: white;
+        background-color: @warning;
+        border-bottom: 1px solid @border;
+    ***REMOVED***
+    .panel-body {
+        background: @warning;
+        color: @white;
+    ***REMOVED***
+    .panel-footer {
+        background: @warning;
+        color: @white;
+        border-top: 1px solid @border;
+    ***REMOVED***
+    a {
+        color: @warning;
+        &:hover {
+            color: darken(@warning, 15%);
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.full-panel-success {
+    border-color: @success;
+    .panel-heading {
+        border-color: @success;
+        color: white;
+        background-color: @success;
+        border-bottom: 1px solid @border;
+    ***REMOVED***
+    .panel-body {
+        background: @success;
+        color: @white;
+    ***REMOVED***
+    .panel-footer {
+        background: @success;
+        color: @white;
+        border-top: 1px solid @border;
+    ***REMOVED***
+    a {
+        color: @success;
+        &:hover {
+            color: darken(@success, 15%);
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.full-panel-purple {
+    border-color: @purple;
+    .panel-heading {
+        color: white;
+        background-color: @purple;
+        border-bottom: 1px solid @border;
+    ***REMOVED***
+    .panel-body {
+        background: @purple;
+        color: @white;
+    ***REMOVED***
+    .panel-footer {
+        background: @purple;
+        color: @white;
+        border-top: 1px solid @border;
+    ***REMOVED***
+    a {
+        color: @purple;
+        &:hover {
+            color: darken(@purple, 15%);
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.full-panel-danger {
+    border-color: @danger;
+    .panel-heading {
+        border-color: @danger;
+        color: white;
+        background-color: @danger;
+        border-bottom: 1px solid @border;
+    ***REMOVED***
+    .panel-body {
+        background: @danger;
+        color: @white;
+    ***REMOVED***
+    .panel-footer {
+        background: @danger;
+        color: @white;
+        border-top: 1px solid @border;
+    ***REMOVED***
+    a {
+        color: @danger;
+        &:hover {
+            color: darken(@danger, 15%);
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.full-panel-inverse {
+    border-color: @inverse;
+    .panel-heading {
+        border-color: @inverse;
+        color: white;
+        background-color: @inverse;
+        border-bottom: 1px solid @border;
+    ***REMOVED***
+    .panel-body {
+        background: @inverse;
+        color: @white;
+    ***REMOVED***
+    .panel-footer {
+        background: @inverse;
+        color: @white;
+        border-top: 1px solid @border;
+    ***REMOVED***
+    a {
+        color: @inverse;
+        &:hover {
+            color: darken(@inverse, 15%);
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.full-panel-default {
+    border-color: @border;
+    .panel-heading {
+        color: @dark;
+        background-color: @white;
+        border-bottom: 1px solid @border;
+    ***REMOVED***
+    .panel-body {
+        color: @dark;
+    ***REMOVED***
+    .panel-footer {
+        background: @white;
+        color: @dark;
+        border-top: 1px solid @border;
+    ***REMOVED***
+    a {
+        color: @dark;
+        &:hover {
+            color: darken(@inverse, 15%);
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.panel-opcl {
+    float: right;
+    i {
+        margin-left: 8px;
+        font-size: 10px;
+        cursor: pointer;
+    ***REMOVED***
+***REMOVED***
+
+.fa-fw {
+    width: 20px!important;
+    display: inline-block !important;
+    text-align: left !important;
+***REMOVED***
+
+
+/*Wave Effeects*/
+
+.waves-transition (@transition) {
+    -webkit-transition: @transition;
+    -moz-transition: @transition;
+    -o-transition: @transition;
+    transition: @transition;
+***REMOVED***
+
+.waves-transform(@string) {
+    -webkit-transform: @string;
+    -moz-transform: @string;
+    -ms-transform: @string;
+    -o-transform: @string;
+    transform: @string;
+***REMOVED***
+
+.waves-box-shadow(@shadow) {
+    -webkit-box-shadow: @shadow;
+    box-shadow: @shadow;
+***REMOVED***
+
+.waves-effect {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    .waves-ripple {
+        position: absolute;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        margin-top: -10px;
+        margin-left: -10px;
+        opacity: 0;
+        background: rgba(0, 0, 0, 0.08);
+        .waves-transition(all 0.5s ease-out);
+        -webkit-transition-property: -webkit-transform, opacity;
+        -moz-transition-property: -moz-transform, opacity;
+        -o-transition-property: -o-transform, opacity;
+        transition-property: transform, opacity;
+        .waves-transform(scale(0) translate(0, 0));
+        -webkit-transform: scale(0);
+        -moz-transform: scale(0);
+        -ms-transform: scale(0);
+        -o-transform: scale(0);
+        transform: scale(0);
+        pointer-events: none;
+    ***REMOVED***
+    &.waves-light .waves-ripple {
+        background: rgba(255, 255, 255, 0.4);
+        @gradient: rgba(255, 255, 255, 0.2) 0,
+        rgba(255, 255, 255, .3) 40%,
+        rgba(255, 255, 255, .4) 50%,
+        rgba(255, 255, 255, .5) 60%,
+        rgba(255, 255, 255, 0) 70%;
+        background: -webkit-radial-gradient(@gradient);
+        background: -o-radial-gradient(@gradient);
+        background: -moz-radial-gradient(@gradient);
+        background: radial-gradient(@gradient);
+    ***REMOVED***
+    &.waves-classic .waves-ripple {
+        background: rgba(0, 0, 0, 0.2);
+    ***REMOVED***
+    &.waves-classic.waves-light .waves-ripple {
+        background: rgba(255, 255, 255, 0.4);
+    ***REMOVED***
+***REMOVED***
+
+.waves-notransition {
+    .waves-transition(none ~'!important');
+***REMOVED***
+
+.waves-button,
+.waves-circle {
+    .waves-transform(translateZ(0));
+    -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
+***REMOVED***
+
+.waves-button,
+.waves-button:hover,
+.waves-button:visited,
+.waves-button-input {
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    color: inherit;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 1em;
+    line-height: 1em;
+    text-align: center;
+    text-decoration: none;
+    z-index: 1;
+***REMOVED***
+
+.waves-button {
+    padding: 0.85em 1.1em;
+    border-radius: 0.2em;
+***REMOVED***
+
+.waves-button-input {
+    margin: 0;
+    padding: 0.85em 1.1em;
+***REMOVED***
+
+.waves-input-wrapper {
+    border-radius: 0.2em;
+    vertical-align: bottom;
+    &.waves-button {
+        padding: 0;
+    ***REMOVED***
+    .waves-button-input {
+        position: relative;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    ***REMOVED***
+***REMOVED***
+
+.waves-circle {
+    text-align: center;
+    width: 2.5em;
+    height: 2.5em;
+    line-height: 2.5em;
+    border-radius: 50%;
+***REMOVED***
+
+.waves-float {
+    -webkit-mask-image: none;
+    .waves-box-shadow(0px 1px 1.5px 1px rgba(0, 0, 0, 0.12));
+    .waves-transition(all 300ms);
+    &:active {
+        .waves-box-shadow(0px 8px 20px 1px rgba(0, 0, 0, 0.30));
+    ***REMOVED***
+***REMOVED***
+
+.waves-block {
+    display: block;
+***REMOVED***
+
+/*common ul Listing*/
+
+.common-list {
+    margin: 0px;
+    padding: 0px;
+    li {
+        list-style: none;
+        display: block;
+        a {
+            padding: 12px 0px;
+            color: @bodytext;
+            display: block;
+            &:hover {
+                color: @themecolor;
+            ***REMOVED***
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+/* =============
+   Checkbox and Radios
+============= */
+
+.checkbox {
+    padding-left: 20px;
+    label {
+        display: inline-block;
+        padding-left: 5px;
+        position: relative;
+        &::before {
+            -o-transition: 0.3s ease-in-out;
+            -webkit-transition: 0.3s ease-in-out;
+            background-color: @white;
+            border-radius: 1px;
+            border: 1px solid @border;
+            content: "";
+            display: inline-block;
+            height: 17px;
+            left: 0;
+            margin-left: -20px;
+            position: absolute;
+            transition: 0.3s ease-in-out;
+            width: 17px;
+            outline: none !important;
+        ***REMOVED***
+        &::after {
+            color: @dark;
+            display: inline-block;
+            font-size: 11px;
+            height: 16px;
+            left: 0;
+            margin-left: -20px;
+            padding-left: 3px;
+            padding-top: 1px;
+            position: absolute;
+            top: 0;
+            width: 16px;
+        ***REMOVED***
+    ***REMOVED***
+    input[type="checkbox"] {
+        cursor: pointer;
+        opacity: 0;
+        z-index: 1;
+        outline: none !important;
+        &:disabled + label {
+            opacity: 0.65;
+        ***REMOVED***
+    ***REMOVED***
+    input[type="checkbox"]:focus + label {
+        &::before {
+            outline-offset: -2px;
+            outline: none;
+            outline: thin dotted;
+        ***REMOVED***
+    ***REMOVED***
+    input[type="checkbox"]:checked + label {
+        &::after {
+            content: "\f00c";
+            font-family: 'FontAwesome';
+        ***REMOVED***
+    ***REMOVED***
+    input[type="checkbox"]:disabled + label {
+        &::before {
+            background-color: @light;
+            cursor: not-allowed;
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.checkbox.checkbox-circle {
+    label {
+        &::before {
+            border-radius: 50%;
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.checkbox.checkbox-inline {
+    margin-top: 0;
+***REMOVED***
+
+.checkbox.checkbox-single {
+    label {
+        height: 17px;
+    ***REMOVED***
+***REMOVED***
+
+.checkbox-primary {
+    input[type="checkbox"]:checked + label {
+        &::before {
+            background-color: @primary;
+            border-color: @primary;
+        ***REMOVED***
+        &::after {
+            color: @white;
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.checkbox-danger {
+    input[type="checkbox"]:checked + label {
+        &::before {
+            background-color: @danger;
+            border-color: @danger;
+        ***REMOVED***
+        &::after {
+            color: @white;
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.checkbox-info {
+    input[type="checkbox"]:checked + label {
+        &::before {
+            background-color: @info;
+            border-color: @info;
+        ***REMOVED***
+        &::after {
+            color: @white;
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.checkbox-warning {
+    input[type="checkbox"]:checked + label {
+        &::before {
+            background-color: @warning;
+            border-color: @warning;
+        ***REMOVED***
+        &::after {
+            color: @white;
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.checkbox-success {
+    input[type="checkbox"]:checked + label {
+        &::before {
+            background-color: @success;
+            border-color: @success;
+        ***REMOVED***
+        &::after {
+            color: @white;
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.checkbox-purple {
+    input[type="checkbox"]:checked + label {
+        &::before {
+            background-color: @purple;
+            border-color: @purple;
+        ***REMOVED***
+        &::after {
+            color: @white;
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.checkbox-red {
+    input[type="checkbox"]:checked + label {
+        &::before {
+            background-color: @danger;
+            border-color: @danger;
+        ***REMOVED***
+        &::after {
+            color: @white;
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.checkbox-inverse {
+    input[type="checkbox"]:checked + label {
+        &::before {
+            background-color: @inverse;
+            border-color: @inverse;
+        ***REMOVED***
+        &::after {
+            color: @white;
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+
+/* Radios */
+
+.radio {
+    padding-left: 20px;
+    label {
+        display: inline-block;
+        padding-left: 5px;
+        position: relative;
+        &::before {
+            -o-transition: border 0.5s ease-in-out;
+            -webkit-transition: border 0.5s ease-in-out;
+            background-color: @white;
+            border-radius: 50%;
+            border: 1px solid @border;
+            content: "";
+            display: inline-block;
+            height: 17px;
+            left: 0;
+            margin-left: -20px;
+            outline: none !important;
+            position: absolute;
+            transition: border 0.5s ease-in-out;
+            width: 17px;
+            outline: none !important;
+        ***REMOVED***
+        &::after {
+            -moz-transition: -moz-transform 0.3s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+            -ms-transform: scale(0, 0);
+            -o-transform: scale(0, 0);
+            -o-transition: -o-transform 0.3s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+            -webkit-transform: scale(0, 0);
+            -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+            background-color: @dark;
+            border-radius: 50%;
+            content: " ";
+            display: inline-block;
+            height: 7px;
+            left: 5px;
+            margin-left: -20px;
+            position: absolute;
+            top: 5px;
+            transform: scale(0, 0);
+            transition: transform 0.3s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+            width: 7px;
+        ***REMOVED***
+    ***REMOVED***
+    input[type="radio"] {
+        cursor: pointer;
+        opacity: 0;
+        z-index: 1;
+        outline: none !important;
+        &:disabled + label {
+            opacity: 0.65;
+        ***REMOVED***
+    ***REMOVED***
+    input[type="radio"]:focus + label {
+        &::before {
+            outline-offset: -2px;
+            outline: 5px auto -webkit-focus-ring-color;
+            outline: thin dotted;
+        ***REMOVED***
+    ***REMOVED***
+    input[type="radio"]:checked + label {
+        &::after {
+            -ms-transform: scale(1, 1);
+            -o-transform: scale(1, 1);
+            -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+        ***REMOVED***
+    ***REMOVED***
+    input[type="radio"]:disabled + label {
+        &::before {
+            cursor: not-allowed;
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.radio.radio-inline {
+    margin-top: 0;
+***REMOVED***
+
+.radio.radio-single {
+    label {
+        height: 17px;
+    ***REMOVED***
+***REMOVED***
+
+.radio-primary {
+    input[type="radio"] + label {
+        &::after {
+            background-color: @primary;
+        ***REMOVED***
+    ***REMOVED***
+    input[type="radio"]:checked + label {
+        &::before {
+            border-color: @primary;
+        ***REMOVED***
+        &::after {
+            background-color: @primary;
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.radio-danger {
+    input[type="radio"] + label {
+        &::after {
+            background-color: @danger;
+        ***REMOVED***
+    ***REMOVED***
+    input[type="radio"]:checked + label {
+        &::before {
+            border-color: @danger;
+        ***REMOVED***
+        &::after {
+            background-color: @danger;
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.radio-info {
+    input[type="radio"] + label {
+        &::after {
+            background-color: @info;
+        ***REMOVED***
+    ***REMOVED***
+    input[type="radio"]:checked + label {
+        &::before {
+            border-color: @info;
+        ***REMOVED***
+        &::after {
+            background-color: @info;
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.radio-warning {
+    input[type="radio"] + label {
+        &::after {
+            background-color: @warning;
+        ***REMOVED***
+    ***REMOVED***
+    input[type="radio"]:checked + label {
+        &::before {
+            border-color: @warning;
+        ***REMOVED***
+        &::after {
+            background-color: @warning;
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.radio-success {
+    input[type="radio"] + label {
+        &::after {
+            background-color: @success;
+        ***REMOVED***
+    ***REMOVED***
+    input[type="radio"]:checked + label {
+        &::before {
+            border-color: @success;
+        ***REMOVED***
+        &::after {
+            background-color: @success;
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.radio-purple {
+    input[type="radio"] + label {
+        &::after {
+            background-color: @purple;
+        ***REMOVED***
+    ***REMOVED***
+    input[type="radio"]:checked + label {
+        &::before {
+            border-color: @purple;
+        ***REMOVED***
+        &::after {
+            background-color: @purple;
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.radio-red {
+    input[type="radio"] + label {
+        &::after {
+            background-color: @danger;
+        ***REMOVED***
+    ***REMOVED***
+    input[type="radio"]:checked + label {
+        &::before {
+            border-color: @danger;
+        ***REMOVED***
+        &::after {
+            background-color: @danger;
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+
+/* File Upload */
+
+.fileupload {
+    overflow: hidden;
+    position: relative;
+    input.upload {
+        cursor: pointer;
+        filter: alpha(opacity=0);
+        font-size: 20px;
+        margin: 0;
+        opacity: 0;
+        padding: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+    ***REMOVED***
+***REMOVED***
+
+
+/** Models **/
+
+.model_img {
+    cursor: pointer;
+***REMOVED***
+
+
+/*Nestable*/
+
+.myadmin-dd {
+    .dd-list {
+        .dd-item {
+            .dd-handle {
+                background: @white;
+                border: 1px solid @border;
+                padding: 8px 16px;
+                height: auto;
+                font-weight: 600;
+                border-radius: @radius;
+                &:hover {
+                    color: @info;
+                ***REMOVED***
+            ***REMOVED***
+            button {
+                height: auto;
+                font-size: 17px;
+                margin: 8px auto;
+                color: @dark;
+                width: 30px;
+            ***REMOVED***
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.myadmin-dd-empty {
+    .dd-list {
+        .dd3-handle {
+            border: 1px solid @border;
+            border-bottom: 0px;
+            background: @white;
+            height: 36px;
+            width: 36px;
+            &:before {
+                color: inherit;
+                top: 7px;
+            ***REMOVED***
+            &:hover {
+                color: @info;
+            ***REMOVED***
+        ***REMOVED***
+        .dd3-content {
+            height: auto;
+            border: 1px solid @border;
+            padding: 8px 16px 8px 46px;
+            background: @white;
+            font-weight: 600;
+            &:hover {
+                color: @info;
+            ***REMOVED***
+        ***REMOVED***
+        button {
+            width: 26px;
+            height: 26px;
+            font-size: 16px;
+            font-weight: 600;
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+
+/*Setting box*/
+
+.settings_box {
+    position: absolute;
+    top: 75px;
+    right: 0px;
+    z-index: 100;
+    a {
+        background: @white;
+        padding: 15px;
+        display: inline-block;
+        vertical-align: top;
+        i {
+            display: block;
+            -webkit-animation-name: rotate;
+            -webkit-animation-duration: 2s;
+            -moz-animation-name: rotate;
+            -moz-animation-duration: 2s;
+            -moz-animation-iteration-count: infinite;
+            -moz-animation-timing-function: linear;
+            animation-name: rotate;
+            font-size: 16px;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+@-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+    ***REMOVED***
+    to {
+        -webkit-transform: rotate(360deg);
+    ***REMOVED***
+***REMOVED***
+
+@-moz-keyframes rotate {
+    from {
+        -moz-transform: rotate(0deg);
+    ***REMOVED***
+    to {
+        -moz-transform: rotate(360deg);
+    ***REMOVED***
+***REMOVED***
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    ***REMOVED***
+    to {
+        transform: rotate(360deg);
+    ***REMOVED***
+***REMOVED***
+
+.theme_color {
+    margin: 0px;
+    padding: 0px;
+    display: inline-block;
+    overflow: hidden;
+    width: 0px;
+    transition: 0.5s ease-out;
+    background: @white;
+    li {
+        list-style: none;
+        width: 30%;
+        float: left;
+        margin: 0 1.5%;
+        a {
+            padding: 5px;
+            height: 50px;
+            display: block;
+        ***REMOVED***
+        a.theme-green {
+            background: @success
+        ***REMOVED***
+        a.theme-red {
+            background: @danger
+        ***REMOVED***
+        a.theme-dark {
+            background: @inverse
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+.theme_block {
+    width: 200px;
+    padding: 30px;
+***REMOVED***
+
+
+/*Common Ul*/
+
+ul.common li {
+    display: inline-block;
+    line-height: 40px;
+    list-style: outside none none;
+    width: 48%;
+    a {
+        color: @bodytext;
+        &:hover {
+            color: @info;
+        ***REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+
+/*Circles*/
+
+.circle {
+    border-radius: 100%;
+    text-align: center;
+    color: @white;
+***REMOVED***
+
+.circle-sm {
+    width: 40px;
+    padding-top: 12px;
+    height: 40px;
+    font-size: 14px!important;
+***REMOVED***
+
+.circle-md {
+    width: 60px;
+    padding-top: 15px;
+    height: 60px;
+    font-size: 24px!important;
+***REMOVED***
+
+.circle-lg {
+    width: 80px;
+    padding-top: 20px;
+    height: 80px;
+    font-size: 30px!important;
+***REMOVED***

@@ -1,0 +1,53 @@
+.tablesaw-sortable,
+.tablesaw-sortable thead,
+.tablesaw-sortable thead tr, 
+.tablesaw-sortable thead tr th {
+	position: relative;
+***REMOVED***
+.tablesaw-sortable thead tr th {
+	padding-right: 1.6em;
+	vertical-align: top;
+***REMOVED***
+.tablesaw-sortable th.tablesaw-sortable-head,
+.tablesaw-sortable tr:first-child th.tablesaw-sortable-head {
+	padding: 0;
+***REMOVED***
+.tablesaw-sortable th.tablesaw-sortable-head button {
+	padding-top: .9em;
+	padding-bottom: .7em;
+	padding-left: .6em;
+	padding-right: 1.6em;
+***REMOVED***
+.tablesaw-sortable .tablesaw-sortable-head button {
+	min-width: 100%;
+	color: inherit;
+	background: transparent;
+	border: 0;
+	padding: 0;
+	text-align: left;
+	font: inherit;
+	text-transform: inherit;
+	position: relative;
+***REMOVED***
+.tablesaw-sortable .tablesaw-sortable-head.tablesaw-sortable-ascending button:after,
+.tablesaw-sortable .tablesaw-sortable-head.tablesaw-sortable-descending button:after {
+	width: 7px;
+	height: 10px;
+	content: "\0020";
+	position: absolute;
+	right: .5em;
+***REMOVED***
+.tablesaw-sortable .tablesaw-sortable-head.tablesaw-sortable-ascending button:after {
+	content: "\2191";
+***REMOVED***
+.tablesaw-sortable .tablesaw-sortable-head.tablesaw-sortable-descending button:after {
+	content: "\2193";
+***REMOVED***
+
+.tablesaw-sortable .not-applicable:after {
+	content: "--";
+	display: block;
+***REMOVED***
+.tablesaw-sortable .not-applicable span {
+	display: none;
+***REMOVED***

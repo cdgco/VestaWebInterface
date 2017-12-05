@@ -1,0 +1,949 @@
+// Default Variables
+$simple-line-font-path: "../fonts/" !default;
+$simple-line-font-family: "simple-line-icons" !default;
+$simple-line-icon-prefix: "icon-" !default;
+
+// Fonts
+@if $simple-line-font-family == "simple-line-icons" {
+  @font-face {
+    font-family: '#{$simple-line-font-family***REMOVED***';
+    src: url('#{$simple-line-font-path***REMOVED***Simple-Line-Icons.eot?-i3a2kk');
+    src: url('#{$simple-line-font-path***REMOVED***Simple-Line-Icons.eot?#iefix-i3a2kk') format('embedded-opentype'),
+    url('#{$simple-line-font-path***REMOVED***Simple-Line-Icons.ttf?-i3a2kk') format('truetype'),
+    url('#{$simple-line-font-path***REMOVED***Simple-Line-Icons.woff2?-i3a2kk') format('woff2'),
+    url('#{$simple-line-font-path***REMOVED***Simple-Line-Icons.woff?-i3a2kk') format('woff'),
+    url('#{$simple-line-font-path***REMOVED***Simple-Line-Icons.svg?-i3a2kk#simple-line-icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  ***REMOVED***
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED*** {
+  &user,
+  &people,
+  &user-female,
+  &user-follow,
+  &user-following,
+  &user-unfollow,
+  &login,
+  &logout,
+  &emotsmile,
+  &phone,
+  &call-end,
+  &call-in,
+  &call-out,
+  &map,
+  &location-pin,
+  &direction,
+  &directions,
+  &compass,
+  &layers,
+  &menu,
+  &list,
+  &options-vertical,
+  &options,
+  &arrow-down,
+  &arrow-left,
+  &arrow-right,
+  &arrow-up,
+  &arrow-up-circle,
+  &arrow-left-circle,
+  &arrow-right-circle,
+  &arrow-down-circle,
+  &check,
+  &clock,
+  &plus,
+  &close,
+  &trophy,
+  &screen-smartphone,
+  &screen-desktop,
+  &plane,
+  &notebook,
+  &mustache,
+  &mouse,
+  &magnet,
+  &energy,
+  &disc,
+  &cursor,
+  &cursor-move,
+  &crop,
+  &chemistry,
+  &speedometer,
+  &shield,
+  &screen-tablet,
+  &magic-wand,
+  &hourglass,
+  &graduation,
+  &ghost,
+  &game-controller,
+  &fire,
+  &eyeglass,
+  &envelope-open,
+  &envelope-letter,
+  &bell,
+  &badge,
+  &anchor,
+  &wallet,
+  &vector,
+  &speech,
+  &puzzle,
+  &printer,
+  &present,
+  &playlist,
+  &pin,
+  &picture,
+  &handbag,
+  &globe-alt,
+  &globe,
+  &folder-alt,
+  &folder,
+  &film,
+  &feed,
+  &drop,
+  &drawar,
+  &docs,
+  &doc,
+  &diamond,
+  &cup,
+  &calculator,
+  &bubbles,
+  &briefcase,
+  &book-open,
+  &basket-loaded,
+  &basket,
+  &bag,
+  &action-undo,
+  &action-redo,
+  &wrench,
+  &umbrella,
+  &trash,
+  &tag,
+  &support,
+  &frame,
+  &size-fullscreen,
+  &size-actual,
+  &shuffle,
+  &share-alt,
+  &share,
+  &rocket,
+  &question,
+  &pie-chart,
+  &pencil,
+  &note,
+  &loop,
+  &home,
+  &grid,
+  &graph,
+  &microphone,
+  &music-tone-alt,
+  &music-tone,
+  &earphones-alt,
+  &earphones,
+  &equalizer,
+  &like,
+  &dislike,
+  &control-start,
+  &control-rewind,
+  &control-play,
+  &control-pause,
+  &control-forward,
+  &control-end,
+  &volume-1,
+  &volume-2,
+  &volume-off,
+  &calender,
+  &bulb,
+  &chart,
+  &ban,
+  &bubble,
+  &camrecorder,
+  &camera,
+  &cloud-download,
+  &cloud-upload,
+  &envelope,
+  &eye,
+  &flag,
+  &heart,
+  &info,
+  &key,
+  &link,
+  &lock,
+  &lock-open,
+  &magnifier,
+  &magnifier-add,
+  &magnifier-remove,
+  &paper-clip,
+  &paper-plane,
+  &power,
+  &refresh,
+  &reload,
+  &settings,
+  &star,
+  &symble-female,
+  &symbol-male,
+  &target,
+  &credit-card,
+  &paypal,
+  &social-tumblr,
+  &social-twitter,
+  &social-facebook,
+  &social-instagram,
+  &social-linkedin,
+  &social-pintarest,
+  &social-github,
+  &social-gplus,
+  &social-reddit,
+  &social-skype,
+  &social-dribbble,
+  &social-behance,
+  &social-foursqare,
+  &social-soundcloud,
+  &social-spotify,
+  &social-stumbleupon,
+  &social-youtube,
+  &social-dropbox {
+    font-family: '#{$simple-line-font-family***REMOVED***';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+ ***REMOVED***
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***user:before {
+  content: "\e005";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***people:before {
+  content: "\e001";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***user-female:before {
+  content: "\e000";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***user-follow:before {
+  content: "\e002";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***user-following:before {
+  content: "\e003";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***user-unfollow:before {
+  content: "\e004";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***login:before {
+  content: "\e066";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***logout:before {
+  content: "\e065";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***emotsmile:before {
+  content: "\e021";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***phone:before {
+  content: "\e600";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***call-end:before {
+  content: "\e048";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***call-in:before {
+  content: "\e047";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***call-out:before {
+  content: "\e046";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***map:before {
+  content: "\e033";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***location-pin:before {
+  content: "\e096";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***direction:before {
+  content: "\e042";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***directions:before {
+  content: "\e041";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***compass:before {
+  content: "\e045";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***layers:before {
+  content: "\e034";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***menu:before {
+  content: "\e601";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***list:before {
+  content: "\e067";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***options-vertical:before {
+  content: "\e602";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***options:before {
+  content: "\e603";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***arrow-down:before {
+  content: "\e604";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***arrow-left:before {
+  content: "\e605";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***arrow-right:before {
+  content: "\e606";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***arrow-up:before {
+  content: "\e607";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***arrow-up-circle:before {
+  content: "\e078";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***arrow-left-circle:before {
+  content: "\e07a";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***arrow-right-circle:before {
+  content: "\e079";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***arrow-down-circle:before {
+  content: "\e07b";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***check:before {
+  content: "\e080";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***clock:before {
+  content: "\e081";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***plus:before {
+  content: "\e095";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***close:before {
+  content: "\e082";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***trophy:before {
+  content: "\e006";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***screen-smartphone:before {
+  content: "\e010";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***screen-desktop:before {
+  content: "\e011";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***plane:before {
+  content: "\e012";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***notebook:before {
+  content: "\e013";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***mustache:before {
+  content: "\e014";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***mouse:before {
+  content: "\e015";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***magnet:before {
+  content: "\e016";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***energy:before {
+  content: "\e020";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***disc:before {
+  content: "\e022";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***cursor:before {
+  content: "\e06e";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***cursor-move:before {
+  content: "\e023";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***crop:before {
+  content: "\e024";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***chemistry:before {
+  content: "\e026";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***speedometer:before {
+  content: "\e007";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***shield:before {
+  content: "\e00e";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***screen-tablet:before {
+  content: "\e00f";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***magic-wand:before {
+  content: "\e017";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***hourglass:before {
+  content: "\e018";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***graduation:before {
+  content: "\e019";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***ghost:before {
+  content: "\e01a";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***game-controller:before {
+  content: "\e01b";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***fire:before {
+  content: "\e01c";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***eyeglass:before {
+  content: "\e01d";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***envelope-open:before {
+  content: "\e01e";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***envelope-letter:before {
+  content: "\e01f";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***bell:before {
+  content: "\e027";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***badge:before {
+  content: "\e028";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***anchor:before {
+  content: "\e029";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***wallet:before {
+  content: "\e02a";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***vector:before {
+  content: "\e02b";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***speech:before {
+  content: "\e02c";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***puzzle:before {
+  content: "\e02d";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***printer:before {
+  content: "\e02e";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***present:before {
+  content: "\e02f";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***playlist:before {
+  content: "\e030";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***pin:before {
+  content: "\e031";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***picture:before {
+  content: "\e032";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***handbag:before {
+  content: "\e035";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***globe-alt:before {
+  content: "\e036";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***globe:before {
+  content: "\e037";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***folder-alt:before {
+  content: "\e039";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***folder:before {
+  content: "\e089";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***film:before {
+  content: "\e03a";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***feed:before {
+  content: "\e03b";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***drop:before {
+  content: "\e03e";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***drawar:before {
+  content: "\e03f";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***docs:before {
+  content: "\e040";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***doc:before {
+  content: "\e085";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***diamond:before {
+  content: "\e043";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***cup:before {
+  content: "\e044";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***calculator:before {
+  content: "\e049";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***bubbles:before {
+  content: "\e04a";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***briefcase:before {
+  content: "\e04b";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***book-open:before {
+  content: "\e04c";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***basket-loaded:before {
+  content: "\e04d";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***basket:before {
+  content: "\e04e";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***bag:before {
+  content: "\e04f";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***action-undo:before {
+  content: "\e050";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***action-redo:before {
+  content: "\e051";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***wrench:before {
+  content: "\e052";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***umbrella:before {
+  content: "\e053";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***trash:before {
+  content: "\e054";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***tag:before {
+  content: "\e055";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***support:before {
+  content: "\e056";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***frame:before {
+  content: "\e038";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***size-fullscreen:before {
+  content: "\e057";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***size-actual:before {
+  content: "\e058";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***shuffle:before {
+  content: "\e059";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***share-alt:before {
+  content: "\e05a";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***share:before {
+  content: "\e05b";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***rocket:before {
+  content: "\e05c";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***question:before {
+  content: "\e05d";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***pie-chart:before {
+  content: "\e05e";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***pencil:before {
+  content: "\e05f";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***note:before {
+  content: "\e060";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***loop:before {
+  content: "\e064";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***home:before {
+  content: "\e069";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***grid:before {
+  content: "\e06a";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***graph:before {
+  content: "\e06b";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***microphone:before {
+  content: "\e063";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***music-tone-alt:before {
+  content: "\e061";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***music-tone:before {
+  content: "\e062";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***earphones-alt:before {
+  content: "\e03c";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***earphones:before {
+  content: "\e03d";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***equalizer:before {
+  content: "\e06c";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***like:before {
+  content: "\e068";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***dislike:before {
+  content: "\e06d";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***control-start:before {
+  content: "\e06f";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***control-rewind:before {
+  content: "\e070";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***control-play:before {
+  content: "\e071";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***control-pause:before {
+  content: "\e072";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***control-forward:before {
+  content: "\e073";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***control-end:before {
+  content: "\e074";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***volume-1:before {
+  content: "\e09f";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***volume-2:before {
+  content: "\e0a0";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***volume-off:before {
+  content: "\e0a1";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***calender:before {
+  content: "\e075";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***bulb:before {
+  content: "\e076";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***chart:before {
+  content: "\e077";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***ban:before {
+  content: "\e07c";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***bubble:before {
+  content: "\e07d";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***camrecorder:before {
+  content: "\e07e";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***camera:before {
+  content: "\e07f";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***cloud-download:before {
+  content: "\e083";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***cloud-upload:before {
+  content: "\e084";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***envelope:before {
+  content: "\e086";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***eye:before {
+  content: "\e087";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***flag:before {
+  content: "\e088";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***heart:before {
+  content: "\e08a";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***info:before {
+  content: "\e08b";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***key:before {
+  content: "\e08c";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***link:before {
+  content: "\e08d";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***lock:before {
+  content: "\e08e";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***lock-open:before {
+  content: "\e08f";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***magnifier:before {
+  content: "\e090";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***magnifier-add:before {
+  content: "\e091";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***magnifier-remove:before {
+  content: "\e092";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***paper-clip:before {
+  content: "\e093";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***paper-plane:before {
+  content: "\e094";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***power:before {
+  content: "\e097";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***refresh:before {
+  content: "\e098";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***reload:before {
+  content: "\e099";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***settings:before {
+  content: "\e09a";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***star:before {
+  content: "\e09b";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***symble-female:before {
+  content: "\e09c";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***symbol-male:before {
+  content: "\e09d";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***target:before {
+  content: "\e09e";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***credit-card:before {
+  content: "\e025";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***paypal:before {
+  content: "\e608";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***social-tumblr:before {
+  content: "\e00a";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***social-twitter:before {
+  content: "\e009";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***social-facebook:before {
+  content: "\e00b";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***social-instagram:before {
+  content: "\e609";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***social-linkedin:before {
+  content: "\e60a";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***social-pintarest:before {
+  content: "\e60b";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***social-github:before {
+  content: "\e60c";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***social-gplus:before {
+  content: "\e60d";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***social-reddit:before {
+  content: "\e60e";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***social-skype:before {
+  content: "\e60f";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***social-dribbble:before {
+  content: "\e00d";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***social-behance:before {
+  content: "\e610";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***social-foursqare:before {
+  content: "\e611";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***social-soundcloud:before {
+  content: "\e612";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***social-spotify:before {
+  content: "\e613";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***social-stumbleupon:before {
+  content: "\e614";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***social-youtube:before {
+  content: "\e008";
+***REMOVED***
+
+.#{$simple-line-icon-prefix***REMOVED***social-dropbox:before {
+  content: "\e00c";
+***REMOVED***
