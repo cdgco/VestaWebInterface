@@ -1,11 +1,8 @@
 # Vesta Web Interface
 
-Code Coming Soon!
-
-
 Preview Available for CDG Host Users (https://host.cdgtech.one)
 
-Development Directory: https://cpanel.cdgtech.one
+Development Directory: http://ide.cdgtech.one/dev/
 
 Live Demos:
 
