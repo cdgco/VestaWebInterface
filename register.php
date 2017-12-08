@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
-    <title>Company Name - Register</title>
+    <title>***REMOVED*** echo $sitetitle; ***REMOVED*** - Register</title>
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="bootstrap/dist/css/bootstrap-select.min.css" rel="stylesheet">
@@ -55,14 +55,14 @@ select:-webkit-autofill:focus {
             <div class="inner-panel">
                 <a href="javascript:void(0)" class="p-20 di"><img src="plugins/images/admin-logo.png"></a>
                 <div class="lg-content">
-                    <h2>Company Name Control Panel <br></h2><p>Beta v2.0</p> </div>
+                    <h2>CDG Host Control Panel <br></h2><p>Beta v2.0</p> </div>
             </div>
         </div>
 
         <div class="new-login-box">
             <div class="white-box">
-                <h3 class="box-title m-b-0">Sign UP FOR Company Name</h3> <small>Enter your details below</small>
-                <form class="form-horizontal new-lg-form" method="post" id="loginform" action="process.php">
+                <h3 class="box-title m-b-0">Sign UP FOR CDG Host</h3> <small>Enter your details below</small>
+                <form class="form-horizontal new-lg-form" method="post" id="loginform" action="process/process.php">
                     <div class="form-group ">
                         <div class="col-xs-12">
                             <input class="form-control" type="text" style="width:49%; float:left;" required="" name="fname" required x-autocompletetype="given-name" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,27***REMOVED***$" placeholder="First Name" title="2 to 28 Letters Only. Apostrophes and hyphens allowed." autocomplete="on"> 
