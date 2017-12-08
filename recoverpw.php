@@ -18,7 +18,7 @@ $confirm = "block";
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
-<title>Company Name - Recover</title>
+<title><?php echo $sitetitle; ?> - Recover</title>
 <!-- Bootstrap Core CSS -->
 <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- animation CSS -->
@@ -43,7 +43,7 @@ $confirm = "block";
 <section style="display:<?php print_r($code); ?>" id="wrapper" class="login-register">
   <div class="login-box">
     <div class="white-box">
-      <form class="form-horizontal form-material" id="loginform" action="#">
+      <form class="form-horizontal form-material" id="loginform" action="https://host.cdgtech.one:8083/reset/reset.php">
         <h3 class="box-title m-b-20">Recover Password</h3>
         <div class="form-group ">
           <div class="col-xs-12">
@@ -64,7 +64,7 @@ $confirm = "block";
 <section style="display:<?php print_r($confirm); ?>" id="wrapper" class="login-register">
   <div class="login-box">
     <div class="white-box">
-      <form class="form-horizontal form-material" id="loginform" action="#">
+      <form class="form-horizontal form-material" id="loginform" action="https://host.cdgtech.one:8083/reset/reset1.php">
         <h3 class="box-title m-b-20">Confirm Password</h3>
         <div class="form-group ">
           <div class="col-xs-12">

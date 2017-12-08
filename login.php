@@ -1,15 +1,13 @@
 <?php
-require 'config.php';
+require 'includes/config.php';
 if(isset($_COOKIE['loggedin'])) { 
 if(base64_decode($_COOKIE['loggedin']) == 'true') { header('Location: index.php'); }
 }
 
-// Server credentials
-$vst_returncode = '';
+// Setup API Call
 $vst_command = 'v-check-user-password';
 
 if(isset($_POST['username'])){
-
 
     if(isset($_POST['password'])){
 
@@ -26,7 +24,7 @@ if(isset($_POST['username'])){
           'arg2' => $password
       );
       $postdata = http_build_query($postvars);
-      
+
       // Send POST query via cURL
       $postdata = http_build_query($postvars);
       $curl = curl_init();
@@ -48,8 +46,8 @@ if(isset($_POST['username'])){
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="icon" type="image/ico" href="favicon.ico">
-<title>Company Name - Login</title>
+<link rel="icon" type="image/ico" href="plugins/images/favicon.ico">
+<title><?php echo $sitetitle; ?> - Login</title>
 <!-- Bootstrap Core CSS -->
 <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- animation CSS -->
@@ -141,14 +139,14 @@ if($answer == 20) {
               <div class="inner-panel">
 <a href="javascript:void(0)" class="p-20 di"><img src="plugins/images/admin-logo.png"></a>
                   <div class="lg-content">
-                      <h2>Company Name Control Panel <br></h2><p>Beta v2.0</p>
+                      <h2>CDG Host Control Panel <br></h2><p>Beta v2.0</p>
                      
                   </div>
               </div>
       </div>
       <div class="new-login-box">
                 <div class="white-box">
-                    <h3 class="box-title m-b-0">Sign In to Company Name CP</h3>
+                    <h3 class="box-title m-b-0">Sign In to CDG Host CP</h3>
                     <small>Enter your details below</small>
 
                   <form class="form-horizontal new-lg-form" id="loginform" method="post" action="login.php">
@@ -202,7 +200,7 @@ ob_start();
                       </div>
                     </div>
                   </form>
-                  <form class="form-horizontal" id="recoverform" method="post" action="#">
+                  <form class="form-horizontal" id="recoverform" method="post" action="https://host.cdgtech.one:8083/reset/reset.php">
                     <div class="form-group ">
                       <div class="col-xs-12">
                         <h3>Recover Password</h3>

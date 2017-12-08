@@ -1,5 +1,5 @@
 <?php
-    require 'config.php';
+    require 'includes/config.php';
 
     if(base64_decode($_COOKIE['loggedin']) == 'true') {}
       else { header('Location: login.php'); }
@@ -49,17 +49,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <link rel="icon" type="image/ico" href="favicon.ico">
-        <title>Company Name - Dashboard</title>
+        <link rel="icon" type="image/ico" href="plugins/images/favicon.ico">
+        <title><?php echo $sitetitle; ?> - Dashboard</title>
         <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="bootstrap/dist/css/bootstrap-select.min.css" rel="stylesheet">
         <link href="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
-        <link href="plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
-        <link href="plugins/bower_components/chartist-js/dist/chartist.min.css" rel="stylesheet">
-        <link href="plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
-<link href="plugins/bower_components/footable/css/footable.bootstrap.css" rel="stylesheet">
-<link href="plugins/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
-        <link href="plugins/bower_components/calendar/dist/fullcalendar.css" rel="stylesheet" />
+        <link href="plugins/bower_components/footable/css/footable.bootstrap.css" rel="stylesheet">
+        <link href="plugins/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
         <link href="css/animate.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.css" />
@@ -71,20 +67,20 @@
     </head>
 
     <body class="fix-header">
-<script>
+<?php if(INTERAKT_APP_ID != ''){ echo '<script>
 	window.mySettings = {
-	first_name: '<?php echo $admindata[FNAME]; ?>',
-	last_name: '<?php echo $admindata[LNAME]; ?>',
-	suspended: '<?php echo $admindata[SUSPENDED]; ?>',
-	package: '<?php echo $admindata[PACKAGE]; ?>',
-	language: '<?php echo $admindata[LANGUAGE]; ?>',
-	uname: '<?php echo $username; ?>',
-	email: '<?php echo $admindata[CONTACT]; ?>',
-	created_at: <?php echo strtotime($admindata[DATE] . ' ' . $admindata[TIME]); ?>,
-	joined_at: '<?php echo $admindata[DATE] . ' ' . $admindata[TIME]; ?>',
-	app_id: 'APPIDGOESHERE'
+	first_name: "' . $admindata[FNAME] . '",
+	last_name: "' . $admindata[LNAME] . '",
+	suspended: "' . $admindata[SUSPENDED] . '",
+	package: "' . $admindata[PACKAGE] . '",
+	language: "' . $admindata[LANGUAGE] . '",
+	uname: "' . $username . '",
+	email: "' . $admindata[CONTACT] . '",
+	created_at: ' . strtotime($admindata[DATE] . ' ' . $admindata[TIME]) . ',
+	joined_at: "' . $admindata[DATE] . ' ' . $admindata[TIME] . '",
+	app_id: "' . INTERAKT_APP_ID . '"
 	};
-</script>
+</script>'; } ?>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.js"></script>
         <?php
 
@@ -131,7 +127,7 @@ echo "<script> swal({title: '"; echo "Action Complete!', type: 'success'})</scri
                                     <li><a href="profile.php"><i class="ti-home"></i> My Account</a></li>
                                     <li><a href="profile.php?settings=open"><i class="ti-settings"></i> Account Setting</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
+                                    <li><a href="process/logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
                                 </ul>
                             </li>
 
@@ -165,35 +161,30 @@ echo "<script> swal({title: '"; echo "Action Complete!', type: 'success'})</scri
                                     <li> <a href="profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> Account Setting</span></a></li>
                                 </ul>
                             </li>
-                            <li class="devider"></li>
+                            <?php if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '<li class="devider"></li>
                             <li> <a href="#" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">Management <span class="fa arrow"></span> </span></a>
-                                <ul class="nav nav-second-level">
-                                    <li> <a href="web.php"><i class="ti-world fa-fw"></i><span class="hide-menu">Web</span></a> </li>
-                                    <li> <a href="dns.php"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">DNS</span></a> </li>
-                                    <li> <a href="mail.php"><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">Mail</span></a> </li>
-                                    <li> <a href="db.php"><i class="fa fa-database fa-fw"></i><span class="hide-menu">Database</span></a> </li>
-                                </ul>
-                            </li>
-                            <li> <a href="cron.php" class="waves-effect"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">Cron Jobs</span></a> </li>
-                            <li> <a href="backups.php" class="waves-effect"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu">Backups</span></a> </li>
-                            <li class="devider"></li>
+                                <ul class="nav nav-second-level">'; } ?>
+                                    <?php if ($webenabled == 'true') { echo '<li> <a href="list/web.php"><i class="ti-world fa-fw"></i><span class="hide-menu">Web</span></a> </li>'; } ?>
+                                    <?php if ($dnsenabled == 'true') { echo '<li> <a href="list/dns.php"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">DNS</span></a> </li>'; } ?>
+                                    <?php if ($mailenabled == 'true') { echo '<li> <a href="list/mail.php"><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">Mail</span></a> </li>'; } ?>
+                                    <?php if ($dbenabled == 'true') { echo '<li> <a href="list/db.php"><i class="fa fa-database fa-fw"></i><span class="hide-menu">Database</span></a> </li>'; } ?>
+                                 <?php if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '</ul>
+                            </li>'; } ?>
+                            <li> <a href="list/cron.php" class="waves-effect"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">Cron Jobs</span></a> </li>
+                            <li> <a href="list/backups.php" class="waves-effect"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu">Backups</span></a> </li>
+                            <?php if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {} else { echo '<li class="devider"></li>
                             <li><a href="#" class="waves-effect"><i class="mdi mdi-apps fa-fw"></i> <span class="hide-menu">Apps<span class="fa arrow"></span></span></a>
-                                <ul class="nav nav-second-level">
-                                    <li><a href="#"><i class="fa fa-file-code-o fa-fw"></i><span class="hide-menu">FTP</span></a></li>
-                                    <li><a href="#"><i class="fa fa-envelope-o fa-fw"></i><span class="hide-menu">Webmail</span></a></li>
-                                    <li><a href="#"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">phpMyAdmin</span></a></li>
-
-                                </ul>
-                            </li>
+                                <ul class="nav nav-second-level">'; } ?>
+                                    <?php if ($ftpurl != '') { echo '<li><a href="' . $ftpurl . '"><i class="fa fa-file-code-o fa-fw"></i><span class="hide-menu">FTP</span></a></li>';} ?>
+                                    <?php if ($webmailurl != '') { echo '<li><a href="' . $webmailurl . '"><i class="fa fa-envelope-o fa-fw"></i><span class="hide-menu">Webmail</span></a></li>';} ?>
+                                    <?php if ($phpmyadmin != '') { echo '<li><a href="' . $phpmyadmin . '"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">phpMyAdmin</span></a></li>';} ?>
+                                    <?php if ($phppgadmin != '') { echo '<li><a href="' . $phppgadmin . '"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">phpPgAdmin</span></a></li>';} ?>
+                                <?php if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {} else { echo '</ul></li>';} ?>
                             <li class="devider"></li>
-                            <li><a href="logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
-                            <li class="devider"></li>
-                            <li>
-                                <a href="#" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> Control Panel v1</span></a>
-                            </li>
-                            <li>
-                                <a href="#" class="waves-effect"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">Support</span></a>
-                            </li>
+                            <li><a href="process/logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
+                            <?php if ($oldcplink == '' && $supporturl == '') {} else { echo '<li class="devider"></li>'; } ?>
+                            <?php if ($oldcplink != '') { echo '<li><a href="' . $oldcplink . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> Control Panel v1</span></a></li>'; } ?>
+                            <?php if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">Support</span></a></li>'; } ?>
                         </ul>
                     </div>
                 </div>
@@ -209,13 +200,13 @@ echo "<script> swal({title: '"; echo "Action Complete!', type: 'success'})</scri
 
                             <div class="col-lg-2 col-sm-8 col-md-8 col-xs-12 pull-right">
                                 <div style="margin-right:257px;" class="btn-group bootstrap-select input-group-btn">
-                                    <form id="rebuildform" action="rebuild.php" method="post">
+                                    <form id="rebuildform" action="process/rebuild.php" method="post">
                                         <select class="selectpicker pull-right m-l-20" name="action" data-style="form-control">
                                             <option value="rebuild-user">Rebuild Account</option>
-                                            <option value="rebuild-web-domains">Rebuild Web</option>
-                                            <option value="rebuild-dns-domains">Rebuild DNS</option>
-                                            <option value="rebuild-mail-domains">Rebuild Mail</option>
-                                            <option value="rebuild-databases">Rebuild DB</option>
+                                            <?php if ($webenabled == 'true') { echo '<option value="rebuild-web-domains">Rebuild Web</option>'; } ?>
+                                            <?php if ($dnsenabled == 'true') { echo '<option value="rebuild-dns-domains">Rebuild DNS</option>'; } ?>
+                                            <?php if ($mailenabled == 'true') { echo '<option value="rebuild-mail-domains">Rebuild Mail</option>'; } ?>
+                                            <?php if ($dbenabled == 'true') { echo '<option value="rebuild-databases">Rebuild DB</option>'; } ?>
                                             <option value="rebuild-cron-jobs">Rebuild Cron</option>
                                             <option value="update-user-counters">Update Counters</option>
                                     </select>
@@ -332,19 +323,21 @@ echo "<script> swal({title: '"; echo "Action Complete!', type: 'success'})</scri
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+
+                <div class="row">
                             <div class="col-md-8 col-lg-9">
                                 <div class="manage-users">
                                     <div class="sttabs tabs-style-iconbox">
                                         <nav>
                                             <ul>
-                                                <li><a href="#section-iconbox-1" class="sticon ti-world"><span>Web</span></a></li>
-                                                <li><a href="#section-iconbox-2" class="sticon fa fa-sitemap"><span>DNS</span></a></li>
-                                                <li><a href="#section-iconbox-3" class="sticon fa fa-envelope"><span>Mail</span></a></li>
-                                                <li><a href="#section-iconbox-4" class="sticon fa fa-database"><span>Database</span></a></li>
+                                                <?php if ($webenabled == 'true') { echo '<li><a href="#section-iconbox-1" class="sticon ti-world"><span>Web</span></a></li>'; } ?>
+                                                <?php if ($dnsenabled == 'true') { echo '<li><a href="#section-iconbox-2" class="sticon fa fa-sitemap"><span>DNS</span></a></li>'; } ?>
+                                                <?php if ($mailenabled == 'true') { echo '<li><a href="#section-iconbox-3" class="sticon fa fa-envelope"><span>Mail</span></a></li>'; } ?>
+                                                <?php if ($dbenabled == 'true') { echo '<li><a href="#section-iconbox-4" class="sticon fa fa-database"><span>Database</span></a></li>'; } ?>
                                             </ul>
                                         </nav>
                                         <div class="content-wrap">
+                                            <?php if ($webenabled != 'true') { echo '<!--';} ?>
                                             <section id="section-iconbox-1">
                                                 <div class="p-20 row">
                                                     <div class="col-sm-6">
@@ -352,8 +345,8 @@ echo "<script> swal({title: '"; echo "Action Complete!', type: 'success'})</scri
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <ul class="side-icon-text pull-right">
-                                                            <li><a href="web.php#add"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span>Add Domain</span></a></li>
-                                                            <li><a href="web.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span>Manage</span></a></li>
+                                                            <li><a href="add/web.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span>Add Domain</span></a></li>
+                                                            <li><a href="list/web.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span>Manage</span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -368,9 +361,8 @@ echo "<script> swal({title: '"; echo "Action Complete!', type: 'success'})</scri
                                                                 <th>STATUS</th>
                                                             </tr>
                                                         </thead>
-                                                        <tbody>
-                                                            <?php 
-if($domainname[0] != '') {
+                                                        <tbody><?php
+                                                            if($domainname[0] != '') {
                                                                 $x1 = 0; 
 
                                                                 do {
@@ -393,12 +385,13 @@ if($domainname[0] != '') {
                                                                 </tr>';
                                                                     $x1++;
                                                                 } while ($domainname[$x1] != ''); }
-                                                            ?>
-                                                        </tbody>
+
+                                                       ?></tbody>
                                                     </table>
                                                 </div>
 
-                                            </section>
+                                            </section><?php if ($webenabled != 'true') { echo '-->';} ?>
+                                            <?php if ($dnsenabled != 'true') { echo '<!--';} ?>
                                             <section id="section-iconbox-2">
                                                 <div class="p-20 row">
                                                     <div class="col-sm-6">
@@ -406,8 +399,8 @@ if($domainname[0] != '') {
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <ul class="side-icon-text pull-right">
-                                                            <li><a href="dns.php#add"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span>Add DNS</span></a></li>
-                                                            <li><a href="dns.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span>Manage</span></a></li>
+                                                            <li><a href="add/dns.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span>Add DNS</span></a></li>
+                                                            <li><a href="list/dns.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span>Manage</span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -420,8 +413,8 @@ if($domainname[0] != '') {
                                                                 <th>STATUS</th>
                                                             </tr>
                                                         </thead>
-                                                        <tbody>
-                                                            <?php if($dnsname[0] != '') {
+                                                        <tbody><?php
+                                                            if($dnsname[0] != '') {
                                                                 $x2 = 0; 
 
                                                                 do {
@@ -437,11 +430,12 @@ if($domainname[0] != '') {
                                                                 </tr>';
                                                                     $x2++;
                                                                 } while ($dnsname[$x2] != ''); }
-                                                            ?>
-                                                        </tbody>
+
+                                                       ?></tbody>
                                                     </table>
                                                 </div>
-                                            </section>
+                                            </section><?php if ($dnsenabled != 'true') { echo '-->';} ?>
+                                            <?php if ($mailenabled != 'true') { echo '<!--';} ?>
                                             <section id="section-iconbox-3">
                                                 <div class="p-20 row">
                                                     <div class="col-sm-6">
@@ -449,8 +443,8 @@ if($domainname[0] != '') {
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <ul class="side-icon-text pull-right">
-                                                            <li><a href="mail.php#add"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span>Add Mail</span></a></li>
-                                                            <li><a href="mail.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span>Manage</span></a></li>
+                                                            <li><a href="add/mail.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span>Add Mail</span></a></li>
+                                                            <li><a href="list/mail.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span>Manage</span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -463,8 +457,8 @@ if($domainname[0] != '') {
                                                                 <th>STATUS</th>
                                                             </tr>
                                                         </thead>
-                                                        <tbody>
-                                                            <?php  if($mailname[0] != '') {
+                                                        <tbody><?php
+                                                            if($mailname[0] != '') {
                                                                 $x3 = 0; 
 
                                                                 do {
@@ -480,11 +474,12 @@ if($domainname[0] != '') {
                                                                 </tr>';
                                                                     $x3++;
                                                                 } while ($mailname[$x3] != ''); }
-                                                            ?>
-                                                        </tbody>
+
+                                                        ?>/tbody>
                                                     </table>
                                                 </div>
-                                            </section>
+                                            </section><?php if ($mailenabled != 'true') { echo '-->';} ?>
+                                           <?php if ($dbenabled != 'true') { echo '<!--';} ?>
                                             <section id="section-iconbox-4">
                                                 <div class="p-20 row">
                                                     <div class="col-sm-6">
@@ -492,8 +487,8 @@ if($domainname[0] != '') {
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <ul class="side-icon-text pull-right">
-                                                            <li><a href="db.php#add"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span>Add Database</span></a></li>
-                                                            <li><a href="db.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span>Manage</span></a></li>
+                                                            <li><a href="add/db.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span>Add Database</span></a></li>
+                                                            <li><a href="list/db.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span>Manage</span></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -506,8 +501,8 @@ if($domainname[0] != '') {
                                                                 <th>STATUS</th>
                                                             </tr>
                                                         </thead>
-                                                        <tbody>
-                                                            <?php if($dbname[0] != '') {
+                                                        <tbody><?php
+                                                            if($dbname[0] != '') {
                                                                 $x4 = 0; 
 
                                                                 do {
@@ -523,16 +518,16 @@ if($domainname[0] != '') {
                                                                 </tr>';
                                                                     $x4++;
                                                                 } while ($dbname[$x4] != ''); }
-                                                            ?>
-                                                        </tbody>
+
+                                                        ?>/tbody>
                                                     </table>
                                                 </div>
-                                            </section>
+                                            </section><?php if ($dbenabled != 'true') { echo '-->';} ?>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6">
+                                </div> 
+                            </div> 
+                            <div <?php if ($webenabled != 'true' && $dnsenabled != 'true' && $mailenabled != 'true' && $dbenabled != 'true') {echo 'style="display:none;"';} ?> class="col-lg-3 col-md-6">
                                 <div class="white-box">
                                     <h3 class="box-title">Disk Quota Used</h3>
                                     <ul class="country-state  p-t-20">
@@ -738,7 +733,7 @@ if($domainname[0] != '') {
 
                             </div>
                         </div>
-                        <footer class="footer text-center">&copy; 2017 Complex Design Groups. All Rights Reserved. Powered by VestaCP & WrapPixel.</footer>
+                        <footer class="footer text-center">&copy; Copyright <?php echo date("Y") . ' ' . $sitetitle; ?>. All Rights Reserved. Powered by VestaCP, CDG Web Services, & WrapPixel.</footer>
                     </div>
         </div>
             </div>
@@ -749,21 +744,13 @@ if($domainname[0] != '') {
                 <script src="js/jquery.slimscroll.js"></script>
                 <script src="js/waves.js"></script>
                 <script src="js/jquery.overlaps.js"></script>
-                <script src="plugins/bower_components/waypoints/lib/jquery.waypoints.js"></script>
-                <script src="plugins/bower_components/counterup/jquery.counterup.min.js"></script>
-                <script src="plugins/bower_components/raphael/raphael-min.js"></script>
-                <script src="plugins/bower_components/chartist-js/dist/chartist.min.js"></script>
-                <script src="plugins/bower_components/toast-master/js/jquery.toast.js"></script>
                 <script src="plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
-                <script src="plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
                 <script src="plugins/bower_components/moment/moment.js"></script>
-                <script src='plugins/bower_components/calendar/dist/fullcalendar.min.js'></script>
-                <script src="plugins/bower_components/calendar/dist/cal-init.js"></script>
                 <script src="js/dashboard1.js"></script>
                 <script src="js/cbpFWTabs.js"></script>
-<script src="plugins/bower_components/footable/js/footable.min.js"></script>
-<script src="plugins/bower_components/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
-<script src="js/footable-init.js"></script>
+                <script src="plugins/bower_components/footable/js/footable.min.js"></script>
+                <script src="plugins/bower_components/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
+                <script src="js/footable-init.js"></script>
                 <script type="text/javascript">
 
                     (function() {
@@ -789,15 +776,16 @@ jQuery(function($){
 });
                 </script>
                 <script src="js/custom.js"></script>
-<!--Interakt.co integration
+<?php if(INTERAKT_APP_ID != ''){ echo '
 <script>
   (function() {
-  var interakt = document.createElement('script');
-  interakt.type = 'text/javascript'; interakt.async = true;
-  interakt.src = "//cdn.interakt.co/interakt/INTERAKTCODEHERE.js";
-  var scrpt = document.getElementsByTagName('script')[0];
+  var interakt = document.createElement("script");
+  interakt.type = "text/javascript"; interakt.async = true;
+  interakt.src = "//cdn.interakt.co/interakt/' . INTERAKT_APP_ID . '.js";
+  var scrpt = document.getElementsByTagName("script")[0];
   scrpt.parentNode.insertBefore(interakt, scrpt);
-  })() -->
-</script>
-    </body>
+  })()
+</script>'; } ?>
+
+</body>
 </html>

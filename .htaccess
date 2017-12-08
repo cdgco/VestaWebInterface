@@ -1,3 +1,4 @@
+
 ErrorDocument 400     /light/error-pages/400.html
 ErrorDocument 403     /light/error-pages/403.html
 ErrorDocument 404     /light/error-pages/404.html
