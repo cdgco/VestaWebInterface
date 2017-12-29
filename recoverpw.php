@@ -1,4 +1,6 @@
-<?php 
+<?php
+require 'includes/config.php';
+
 if($_GET['action'] == "code"){
 $code = "block";
 $confirm = "none";
@@ -36,10 +38,6 @@ $confirm = "block";
 
 </head>
 <body>
-<!-- Preloader -->
-<div class="preloader">
-  <div class="cssload-speeding-wheel"></div>
-</div>
 <section style="display:<?php print_r($code); ?>" id="wrapper" class="login-register">
   <div class="login-box">
     <div class="white-box">

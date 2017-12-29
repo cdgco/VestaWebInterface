@@ -112,12 +112,12 @@ $admindata = json_decode(curl_exec($curl0), true)[$username];
                     <div class="top-left-part">
                         <a class="logo" href="index.php">
                             <b>
-                                <img src="plugins/images/admin-logo.png" alt="home" class="dark-logo" />
-                                <img src="plugins/images/admin-logo-dark.png" alt="home" class="light-logo" />
+                                <img src="plugins/images/admin-logo.png" alt="home" class="logo-1 dark-logo" />
+                                <img src="plugins/images/admin-logo-dark.png" alt="home" class="logo-1 light-logo" />
                             </b>
                             <span class="hidden-xs">
-                                <img src="plugins/images/admin-text.png" alt="home" class="dark-logo" />
-                                <img src="plugins/images/admin-text-dark.png" alt="home" class="light-logo" />
+                                <img src="plugins/images/admin-text.png" alt="home" class="hidden-xs dark-logo" />
+                                <img src="plugins/images/admin-text-dark.png" alt="home" class="hidden-xs light-logo" />
                             </span> 
                         </a>
                     </div>
