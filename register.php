@@ -1,3 +1,6 @@
+***REMOVED***
+require 'includes/config.php';
+***REMOVED***
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,6 +20,9 @@
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
 <style>
+    html {
+  overflow-y: scroll;
+***REMOVED***
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus
@@ -44,22 +50,16 @@ select:-webkit-autofill:focus {
 </head>
 
 <body>
-    <!-- Preloader -->
-    <div class="preloader">
-        <svg class="circular" viewBox="25 25 50 50">
-            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
-        </svg>
-    </div>
     <section id="wrapper" class="new-login-register">
         <div class="lg-info-panel">
             <div class="inner-panel">
-                <a href="javascript:void(0)" class="p-20 di"><img src="plugins/images/admin-logo.png"></a>
+                <a href="javascript:void(0)" class="p-20 di"><img src="plugins/images/admin-logo.png" class="logo-1"></a>
                 <div class="lg-content">
                     <h2>CDG Host Control Panel <br></h2><p>Beta v2.0</p> </div>
             </div>
         </div>
 
-        <div class="new-login-box">
+        <div class="new-login-box" style="position:relative;top:-18%">
             <div class="white-box">
                 <h3 class="box-title m-b-0">Sign UP FOR CDG Host</h3> <small>Enter your details below</small>
                 <form class="form-horizontal new-lg-form" method="post" id="loginform" action="process/process.php">
