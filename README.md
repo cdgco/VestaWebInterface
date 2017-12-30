@@ -8,14 +8,14 @@ Live Demo: https://cpanel.cdgtech.one/
 
 ## To-Do:
 - [ ] List Backup (Restore)
-- [x] List Backup Exclusions
+- [X] List Backup Exclusions
 - [X] Edit Backup Exclusions
-- [x] CSR Support
+- [X] CSR Support
 - [ ] Upload PW Reset System
 - [ ] Make Script to Install PW Reset System
 - [ ] Fix Backup Download System
 - [ ] Additional FTP Support
-- [ ] Let's Encrypt Support
+- [X] Let's Encrypt Support
 - [ ] Scripts for all 'add' and 'edit' Pages
 - [ ] Format, Unify, Minify and Fix Compiling Issues
 - [ ] Update Menu Items
