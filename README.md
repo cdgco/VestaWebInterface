@@ -8,9 +8,9 @@ Live Demo: https://cpanel.cdgtech.one/
 
 ## To-Do:
 - [ ] List Backup (Restore)
-- [ ] List Backup Exclusions
+- [x] List Backup Exclusions
 - [X] Edit Backup Exclusions
-- [ ] CSR Support
+- [x] CSR Support
 - [ ] Upload PW Reset System
 - [ ] Make Script to Install PW Reset System
 - [ ] Fix Backup Download System
