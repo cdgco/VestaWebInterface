@@ -137,7 +137,7 @@ if($answer == 20) {
 <section id="wrapper" class="new-login-register">
       <div class="lg-info-panel">
               <div class="inner-panel">
-<a href="javascript:void(0)" class="p-20 di"><img src="plugins/images/admin-logo.png"></a>
+<a href="javascript:void(0)" class="p-20 di"><img src="plugins/images/admin-logo.png" class="logo-1"></a>
                   <div class="lg-content">
                       <h2>CDG Host Control Panel <br></h2><p>Beta v2.0</p>
                      

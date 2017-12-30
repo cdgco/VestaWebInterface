@@ -4,3 +4,4 @@ ErrorDocument 403     /light/error-pages/403.html
 ErrorDocument 404     /light/error-pages/404.html
 ErrorDocument 500     /light/error-pages/500.html
 ErrorDocument 503     /light/error-pages/503.html
+php_flag display_errors Off

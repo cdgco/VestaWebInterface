@@ -41,7 +41,7 @@
 ***REMOVED***  
 
     <!DOCTYPE html>
-    <html lang="en">
+    <w lang="en">
 
     <head>
         <meta charset="utf-8">
@@ -92,14 +92,14 @@ echo "<script> swal({title: '"; echo "Action Complete!', type: 'success'***REMOV
                 <nav class="navbar navbar-default navbar-static-top m-b-0">
                     <div class="navbar-header">
                         <div class="top-left-part">
-                            <a class="logo" href="index.html">
+                            <a class="logo" href="index.php">
                                 <b>
-                                    <img src="plugins/images/admin-logo.png" alt="home" class="dark-logo" />
-                                    <img src="plugins/images/admin-logo-dark.png" alt="home" class="light-logo" />
+                                    <img src="plugins/images/admin-logo.png" alt="home" class="logo-1 dark-logo" />
+                                    <img src="plugins/images/admin-logo-dark.png" alt="home" class="logo-1 light-logo" />
                                 </b>
                                 <span class="hidden-xs">
-                                    <img src="plugins/images/admin-text.png" alt="home" class="dark-logo" />
-                                    <img src="plugins/images/admin-text-dark.png" alt="home" class="light-logo" />
+                                    <img src="plugins/images/admin-text.png" alt="home" class="hidden-xs dark-logo" />
+                                    <img src="plugins/images/admin-text-dark.png" alt="home" class="hidden-xs light-logo" />
                                 </span> 
                             </a>
                         </div>
@@ -345,7 +345,7 @@ echo "<script> swal({title: '"; echo "Action Complete!', type: 'success'***REMOV
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <ul class="side-icon-text pull-right">
-                                                            <li><a href="add/web.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span>Add Domain</span></a></li>
+                                                            <li><a href="add/domain.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span>Add Domain</span></a></li>
                                                             <li><a href="list/web.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span>Manage</span></a></li>
                                                         </ul>
                                                     </div>
@@ -366,7 +366,7 @@ echo "<script> swal({title: '"; echo "Action Complete!', type: 'success'***REMOV
                                                                 $x1 = 0; 
 
                                                                 do {
-                                                                    echo '<tr class="advance-table-row clickable-row" data-href="web.php?domain='.$domainname[$x1].'">
+                                                                    echo '<tr class="advance-table-row clickable-row" data-href="edit/domain.php?domain='.$domainname[$x1].'">
                                                                     <td>' . $domainname[$x1] . '</td>
                                                                     <td data-sort-value="' . $domaindata[$x1][U_DISK] . '">' . $domaindata[$x1][U_DISK] . ' mb</td>
                                                                     <td data-sort-value="' . $domaindata[$x1][U_BANDWIDTH] . '">' . $domaindata[$x1][U_BANDWIDTH] . ' mb</td>
@@ -418,7 +418,7 @@ echo "<script> swal({title: '"; echo "Action Complete!', type: 'success'***REMOV
                                                                 $x2 = 0; 
 
                                                                 do {
-                                                                    echo '<tr class="advance-table-row clickable-row" data-href="dns.php?domain='.$dnsname[$x2].'">
+                                                                    echo '<tr class="advance-table-row clickable-row" data-href="list/dnsdomain.php?domain='.$dnsname[$x2].'">
                                                                     <td>' . $dnsname[$x2] . '</td>
                                                                     <td data-sort-value="' . $dnsdata[$x2][RECORDS] . '">' . $dnsdata[$x2][RECORDS] . '</td>
                                                                     <td>';                                                                   
@@ -462,7 +462,7 @@ echo "<script> swal({title: '"; echo "Action Complete!', type: 'success'***REMOV
                                                                 $x3 = 0; 
 
                                                                 do {
-                                                                    echo '<tr class="advance-table-row clickable-row" data-href="mail.php?domain='.$mailname[$x3].'">
+                                                                    echo '<tr class="advance-table-row clickable-row" data-href="list/maildomain.php?domain='.$mailname[$x3].'">
                                                                     <td>' . $mailname[$x3] . '</td>
                                                                     <td data-sort-value="' . $maildata[$x3][ACCOUNTS] . '">' . $maildata[$x3][ACCOUNTS] . '</td>
                                                                     <td>';                                                                   
@@ -475,7 +475,7 @@ echo "<script> swal({title: '"; echo "Action Complete!', type: 'success'***REMOV
                                                                     $x3++;
                                                                 ***REMOVED*** while ($mailname[$x3] != ''); ***REMOVED***
 
-                                                        ***REMOVED***/tbody>
+                                                        ***REMOVED***</tbody>
                                                     </table>
                                                 </div>
                                             </section>***REMOVED*** if ($mailenabled != 'true') { echo '-->';***REMOVED*** ***REMOVED***
@@ -506,7 +506,7 @@ echo "<script> swal({title: '"; echo "Action Complete!', type: 'success'***REMOV
                                                                 $x4 = 0; 
 
                                                                 do {
-                                                                    echo '<tr class="advance-table-row clickable-row" data-href="db.php?database='.$dbdata[$x4][DATABASE].'">
+                                                                    echo '<tr class="advance-table-row clickable-row" data-href="edit/db.php?db='.$dbdata[$x4][DATABASE].'">
                                                                     <td>' . $dbdata[$x4][DATABASE] . '</td>
                                                                     <td>' . $dbdata[$x4][DBUSER] . '</td>
                                                                     <td>';                                                                   
@@ -519,7 +519,7 @@ echo "<script> swal({title: '"; echo "Action Complete!', type: 'success'***REMOV
                                                                     $x4++;
                                                                 ***REMOVED*** while ($dbname[$x4] != ''); ***REMOVED***
 
-                                                        ***REMOVED***/tbody>
+                                                        ***REMOVED***</tbody>
                                                     </table>
                                                 </div>
                                             </section>***REMOVED*** if ($dbenabled != 'true') { echo '-->';***REMOVED*** ***REMOVED***
@@ -536,7 +536,7 @@ echo "<script> swal({title: '"; echo "Action Complete!', type: 'success'***REMOV
                                             <h2>
                                                 ***REMOVED*** print_r($admindata[U_DISK]); ***REMOVED*** mb</h2> <small>Total Disk Space</small>
                                             <div class="pull-right">
-                                                ***REMOVED*** $diskpercent = (($admindata[U_DISK] / $admindata[DISK_QUOTA]) * 100); if(is_infinite($diskpercent)){ echo "0";***REMOVED******REMOVED***echo $diskpercent;***REMOVED*** ***REMOVED***%</div>
+                                                ***REMOVED*** $diskpercent = (($admindata[U_DISK] / $admindata[DISK_QUOTA]) * 100); if(is_infinite($diskpercent)){ echo "0";***REMOVED***elseif(!is_int($diskpercent)){echo '0';***REMOVED******REMOVED***echo $diskpercent;***REMOVED*** ***REMOVED***%</div>
                                             <div class="progress">
                                                 <div class="progress-bar progress-bar-inverse" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent == "INF"){ echo "0";***REMOVED******REMOVED***echo $diskpercent;***REMOVED*** ***REMOVED***%;">% Complete</span></div>
                                             </div>
@@ -548,7 +548,7 @@ echo "<script> swal({title: '"; echo "Action Complete!', type: 'success'***REMOV
                                             <h2>
                                                 ***REMOVED*** $diskpercent1 = (($admindata[U_DISK_WEB] / $admindata[U_DISK]) * 100); echo $admindata[U_DISK_WEB]; ***REMOVED*** mb</h2> <small>Web Data</small>
                                             <div class="pull-right">
-                                                ***REMOVED*** if($diskpercent1 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent1);***REMOVED*** ***REMOVED***%</div>
+                                                ***REMOVED*** if($diskpercent1 == "INF"){ echo "0";***REMOVED***elseif(!is_int($diskpercent1)){echo '0';***REMOVED******REMOVED***echo round($diskpercent1);***REMOVED*** ***REMOVED***%</div>
                                             <div class="progress">
                                                 <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent1 == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent1;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent1 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent1);***REMOVED*** ***REMOVED***% Complete</span></div>
                                             </div>
@@ -557,7 +557,7 @@ echo "<script> swal({title: '"; echo "Action Complete!', type: 'success'***REMOV
                                             <h2>
                                                 ***REMOVED*** $diskpercent2 = (($admindata[U_DISK_MAIL] / $admindata[U_DISK]) * 100); echo $admindata[U_DISK_MAIL]; ***REMOVED*** mb</h2> <small>Mail Data</small>
                                             <div class="pull-right">
-                                                ***REMOVED*** if($diskpercent2 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent2);***REMOVED*** ***REMOVED***%</div>
+                                                ***REMOVED*** if($diskpercent2 == "INF"){ echo "0";***REMOVED***elseif(!is_int($diskpercent2)){echo '0';***REMOVED******REMOVED***echo round($diskpercent2);***REMOVED*** ***REMOVED***%</div>
                                             <div class="progress">
                                                 <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent2 == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent2;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent2 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent2);***REMOVED*** ***REMOVED***% Complete</span></div>
                                             </div>
@@ -566,7 +566,7 @@ echo "<script> swal({title: '"; echo "Action Complete!', type: 'success'***REMOV
                                             <h2>
                                                 ***REMOVED*** $diskpercent3 = (($admindata[U_DISK_DB] / $admindata[U_DISK]) * 100); echo $admindata[U_DISK_DB]; ***REMOVED*** mb</h2> <small>Databases</small>
                                             <div class="pull-right">
-                                                ***REMOVED*** if($diskpercent3 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent3);***REMOVED*** ***REMOVED***%</div>
+                                                ***REMOVED*** if($diskpercent3 == "INF"){ echo "0";***REMOVED***elseif(!is_int($diskpercent3)){echo '0';***REMOVED******REMOVED***echo round($diskpercent3);***REMOVED*** ***REMOVED***%</div>
                                             <div class="progress">
                                                 <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent3 == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent3;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent3 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent3);***REMOVED*** ***REMOVED***% Complete</span></div>
                                             </div>
@@ -575,7 +575,7 @@ echo "<script> swal({title: '"; echo "Action Complete!', type: 'success'***REMOV
                                             <h2>
                                                 ***REMOVED*** $diskpercent4 = (($admindata[U_DISK_DIRS] / $admindata[U_DISK]) * 100); echo $admindata[U_DISK_DIRS]; ***REMOVED*** mb</h2> <small>User Directories</small>
                                             <div class="pull-right">
-                                                ***REMOVED*** if($diskpercent4 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent4);***REMOVED*** ***REMOVED***%</div>
+                                                ***REMOVED*** if($diskpercent4 == "INF"){ echo "0";***REMOVED***elseif(!is_int($diskpercent4)){echo '0';***REMOVED******REMOVED***echo round($diskpercent4);***REMOVED*** ***REMOVED***%</div>
                                             <div class="progress">
                                                 <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent4 == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent4;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent4 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent4);***REMOVED*** ***REMOVED***% Complete</span></div>
                                             </div>
@@ -649,7 +649,7 @@ echo "<script> swal({title: '"; echo "Action Complete!', type: 'success'***REMOV
                                         <div class="vcarousel slide" style="margin:14px;">
                                             <div class="carousel-inner" style="height:415px;">
                                                 <div class="active item">
-                                                    <div class="overlaybg"><img src="plugins/images/heading-bg/slide6.jpg" /></div>
+                                                    <div class="overlaybg"><img src="plugins/images/profile-menu.png" /></div>
                                                     <div class="news-content"><span class="label label-danger label-rounded">Account Details</span><br>
 
                                                         <div class="columnleft" style="margin-top:10px; float: left;">
