@@ -14,7 +14,8 @@ Live Demo: https://cpanel.cdgtech.one/
 - [X] PW Reset System
 - [ ] Script to Install PW Reset System
 - [X] Backup Download System
-- [ ] Additional FTP Support
+- [X] Additional FTP Support
+- [ ] Support More Than 1 FTP Additional FTP Account Per Domain
 - [X] Let's Encrypt Support
 - [ ] Scripts for all 'add' and 'edit' Pages
 - [ ] Format, Unify, Minify and Fix Compiling Issues
