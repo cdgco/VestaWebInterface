@@ -15,6 +15,7 @@ Live Demo: https://cpanel.cdgtech.one/
 - [X] PW Reset System
 - [X] 'Backups' Download System
 - [X] Additional FTP Support
+- [ ] Support for Web Stats Users
 - [ ] Support More Than 1 FTP Additional FTP Account Per Domain
 - [ ] Scripts for all 'add' and 'edit' Pages
 - [ ] Add Delete Buttons to 'edit' Pages
