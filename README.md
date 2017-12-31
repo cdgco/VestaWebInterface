@@ -7,13 +7,13 @@ Development Directory: https://ide.cdgtech.one/dev
 Live Demo: https://cpanel.cdgtech.one/
 
 ## To-Do:
-- [ ] List Backup (Restore)
+- [X] List Backup (Restore)
 - [X] List Backup Exclusions
 - [X] Edit Backup Exclusions
 - [X] CSR Support
 - [ ] Upload PW Reset System
 - [ ] Make Script to Install PW Reset System
-- [ ] Fix Backup Download System
+- [X] Fix Backup Download System
 - [ ] Additional FTP Support
 - [X] Let's Encrypt Support
 - [ ] Scripts for all 'add' and 'edit' Pages
