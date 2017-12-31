@@ -11,9 +11,9 @@ Live Demo: https://cpanel.cdgtech.one/
 - [X] List Backup Exclusions
 - [X] Edit Backup Exclusions
 - [X] CSR Support
-- [ ] Upload PW Reset System
-- [ ] Make Script to Install PW Reset System
-- [X] Fix Backup Download System
+- [X] PW Reset System
+- [ ] Script to Install PW Reset System
+- [X] Backup Download System
 - [ ] Additional FTP Support
 - [X] Let's Encrypt Support
 - [ ] Scripts for all 'add' and 'edit' Pages
