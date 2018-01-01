@@ -8,6 +8,7 @@
 ***REMOVED***
 ***REMOVED***
 DEFINE('SITE_NAME', 'My Host'); // Site name for use in page titles. Ex: 'My Host Company'.
+***REMOVED***
 
 ***REMOVED***
 DEFINE('VESTA_HOST_ADDRESS', 'myhost.com'); // URL or IP Address of VestaCP. Ex: 'myhost.com' or '12.34.56.78'.
@@ -88,6 +89,7 @@ DEFINE('SUPPORT_URL', 'disabled'); // Support URL. Leave blank or set to 'disabl
    ***REMOVED***
 ***REMOVED***
 
+***REMOVED***
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
