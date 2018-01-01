@@ -31,3 +31,7 @@ Live Demo: https://cpanel.cdgtech.one/
 - [ ] Admin Panel
 - [ ] Integrations
 - [ ] Feature Additions
+
+## Support
+
+For support regarding Vesta Web Interface, you can email me at support [at] cdgtech.one, visit the support portal online at http://support.cdgtech.one, or click the buttons in the bottom left and right hand corners of the live demo to chat or leave feedback.
