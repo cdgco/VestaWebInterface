@@ -40,7 +40,7 @@ select:-webkit-autofill:focus {
 ***REMOVED***
 </style>
     <!-- color CSS -->
-    <link href="css/colors/blue.css" id="theme" rel="stylesheet">
+    <link href="css/colors/***REMOVED*** echo $themecolor; ***REMOVED***" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
