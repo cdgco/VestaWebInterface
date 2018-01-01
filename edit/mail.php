@@ -220,18 +220,23 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="white-box">
-                            <form class="form-horizontal form-material">
+                            <form class="form-horizontal form-material" method="post" action="../change/mail.php">
                                 <div class="form-group">
                                     <label class="col-md-12">Domain</label>
                                     <div class="col-md-12">
                                         <input type="text" disabled value="<? print_r($mailname[0]); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
+                                        <input type="hidden" name="v_domain" value="<? print_r($mailname[0]); ?>"> 
+                                        <input type="hidden" name="v_antispam-x" value="<? print_r($maildata[0][ANTISPAM]); ?>"> 
+                                        <input type="hidden" name="v_antivirus-x" value="<? print_r($maildata[0][ANTIVIRUS]); ?>"> 
+                                        <input type="hidden" name="v_dkim-x" value="<? print_r($maildata[0][DKIM]); ?>"> 
+                                        <input type="hidden" name="v_catchall-x" value="<? print_r($maildata[0][CATCHALL]); ?>"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">AntiSpam Support</label>
                                     <div class="col-md-12">
                                         <div class="checkbox checkbox-info">
-                                            <input id="checkbox5" type="checkbox" <?php if($maildata[0][ANTIVIRUS] == 'no') {} else {echo 'checked';} ?> >
+                                            <input id="checkbox5" type="checkbox" name="v_antispam" <?php if($maildata[0][ANTISPAM] == 'no') {} else {echo 'checked';} ?> >
                                             <label for="checkbox5"> Enabled </label>
                                         </div>
                                     </div>
@@ -240,7 +245,7 @@
                                     <label class="col-md-12">AntiVirus Support</label>
                                     <div class="col-md-12">
                                         <div class="checkbox checkbox-info">
-                                            <input id="checkbox6" type="checkbox" <?php if($maildata[0][ANTISPAM] == 'no') {} else {echo 'checked';} ?> >
+                                            <input id="checkbox6" type="checkbox" name="v_antivirus" <?php if($maildata[0][ANTIVIRUS] == 'no') {} else {echo 'checked';} ?> >
                                             <label for="checkbox6"> Enabled </label>
                                         </div>
                                     </div>
@@ -249,7 +254,7 @@
                                     <label class="col-md-12">DKIM Support</label>
                                     <div class="col-md-12">
                                         <div class="checkbox checkbox-info">
-                                            <input id="checkbox7" type="checkbox" <?php if($maildata[0][DKIM] == 'no') {} else {echo 'checked';} ?> >
+                                            <input id="checkbox7" type="checkbox" name="v_dkim" <?php if($maildata[0][DKIM] == 'no') {} else {echo 'checked';} ?> >
                                             <label for="checkbox7"> Enabled </label>
                                         </div>
                                     </div>
@@ -257,13 +262,13 @@
                                 <div class="form-group">
                                     <label for="email" class="col-md-12">Catchall Email</label>
                                     <div class="col-md-12">
-                                        <input type="email" value="<? print_r($maildata[0][CATCHALL]); ?>" class="form-control form-control-line" name="email" id="email"> 
+                                        <input type="email" name="v_catchall" value="<? print_r($maildata[0][CATCHALL]); ?>" class="form-control form-control-line" name="email" id="email"> 
                                         <small class="form-text text-muted">Optional</small>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <button disabled class="btn btn-success">Update Record</button>
+                                        <button class="btn btn-success">Update Domain</button>
                                     </div>
                                 </div>
                             </form>

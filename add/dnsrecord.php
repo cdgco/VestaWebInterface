@@ -168,23 +168,24 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="white-box">
-                            <form class="form-horizontal form-material">
+                            <form class="form-horizontal form-material" method="post" action="../create/dnsrecord.php">
                                 <div class="form-group">
                                     <label class="col-md-12">Domain</label>
                                     <div class="col-md-12">
-                                        <input type="text" disabled value="<? print_r($requestdns); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
+                                        <input type="text" disabled value="<? print_r($requestdns); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;" class="form-control uneditable-input form-control-static"> 
+                                        <input type="hidden" name="v_domain" value="<? print_r($requestdns); ?>"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">Record</label>
                                     <div class="col-md-12">
-                                        <input type="text" class="form-control form-control-line"> 
+                                        <input type="text" name="v_record" class="form-control form-control-line"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">Type</label>
                                     <div class="col-md-12">
-                                        <select class="form-control select3" name="language" id="select3">
+                                        <select class="form-control" name="v_type">
                                         <option value="A">A</option>
                                         <option value="AAAA">AAAA</option>
                                         <option value="NS">NS</option>
@@ -204,18 +205,18 @@
                                 <div class="form-group">
                                     <label for="email" class="col-md-12">IP or Value</label>
                                     <div class="col-md-12">
-                                        <input type="text" value="<? print_r($recorddata[$requestrecord][VALUE]); ?>" class="form-control form-control-line" name="email" id="email"> </div>
+                                        <input type="text" name="v_value" value="<? print_r($recorddata[$requestrecord][VALUE]); ?>" class="form-control form-control-line"> </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="email" class="col-md-12">Priority</label>
                                     <div class="col-md-12">
-                                        <input type="text" value="<? print_r($recorddata[$requestrecord][PRIORITY]); ?>" class="form-control form-control-line" name="email" id="email"> 
+                                        <input type="text" name="v_priority" value="<? print_r($recorddata[$requestrecord][PRIORITY]); ?>" class="form-control form-control-line"> 
                                         <small class="form-text text-muted">Optional</small>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <button disabled class="btn btn-success">Add Record</button>
+                                        <button class="btn btn-success">Add Record</button>
                                     </div>
                                 </div>
                             </form>
@@ -248,8 +249,7 @@ $('.datepicker').datepicker();
                 [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {
                 new CBPFWTabs(el);
             });
-        })();
-        document.getElementById('select2').value = '<? print_r($dnsdata[0][TPL]); ?>'; 
+        })(); 
         jQuery(function($){
             $('.footable').footable();
         });

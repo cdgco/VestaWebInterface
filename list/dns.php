@@ -250,7 +250,7 @@ require '../includes/config.php';
                                         <th data-toggle="true"> Domain Name </th>
                                         <th data-type="number"> Records </th>
                                         <th> Status </th>
-                                        <th data-type="date" data-format-string="YYYY-MM-DD"> Created </th>
+                                        <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> Created </th>
                                         <th data-sortable="false"> Action </th>
                                         <th data-breakpoints="all"> IP </th>
                                         <th data-breakpoints="all"> SOA (Start of Authority) </th>

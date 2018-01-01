@@ -221,11 +221,12 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="white-box">
-                            <form class="form-horizontal form-material">
+                            <form class="form-horizontal form-material" method="post" action="../change/database.php">
                                 <div class="form-group">
                                     <label class="col-md-12">Database</label>
                                     <div class="col-md-12">
                                         <input type="text" disabled value="<? print_r($dbname[0]); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
+                                        <input type="hidden" name="v_database" value="<? print_r($dbname[0]); ?>"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -234,7 +235,7 @@
                                          <label class="sr-only" for="inlineFormInputGroup">Username</label>
                                             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                                 <div class="input-group-addon"><?php print_r($uname); ?>_</div>
-                                                <input type="text" class="form-control" style="padding-left: 0.5%;" value="<?php $prefix = $uname . '_'; $str = $dbdata[0][DBUSER]; if (substr($str, 0, strlen($prefix)) == $prefix) { $str = substr($str, strlen($prefix));} print_r($str); ?>">
+                                                <input type="text" class="form-control" name="v_dbuser" style="padding-left: 0.5%;" value="<?php $prefix = $uname . '_'; $str = $dbdata[0][DBUSER]; if (substr($str, 0, strlen($prefix)) == $prefix) { $str = substr($str, strlen($prefix));} print_r($str); ?>">
                                             </div>
                                     </div>
                                 </div>
@@ -265,7 +266,7 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <button disabled class="btn btn-success">Update Database</button>
+                                        <button class="btn btn-success">Update Database</button>
                                     </div>
                                 </div>
                             </form>

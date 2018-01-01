@@ -40,7 +40,7 @@ require '../includes/config.php';
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/ico" href="../plugins/images/favicon.ico">
-    <title><?php echo $sitetitle; ?> - Databases</title>
+    <title><?php echo $sitetitle; ?> - Backup</title>
     <link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
     <link href="../plugins/bower_components/footable/css/footable.bootstrap.css" rel="stylesheet">
@@ -50,20 +50,48 @@ require '../includes/config.php';
     <link href="../css/colors/blue.css" id="theme" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.min.css" />
     <!--[if lt IE 9]>
-       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+    </head>
 
-<body class="fix-header">
-    <!-- ============================================================== -->
-    <!-- Preloader -->
-    <!-- ============================================================== -->
-    <div class="preloader">
-        <svg class="circular" viewBox="25 25 50 50">
-            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
-        </svg>
-    </div>
+    <body class="fix-header">
+        <script>
+            
+            /* async function getPassword() {
+                const {value: password} = await swal({
+                    title: 'Enter your password',
+                    input: 'password',
+                    inputPlaceholder: 'Enter your password',
+                    inputAttributes: {
+                        'maxlength': 10,
+                        'autocapitalize': 'off',
+                        'autocorrect': 'off'
+                    }
+                })
+
+                if (password) {
+                    document.getElementById('pwinput').value = password;
+                    document.getElementById('download').submit();
+                }
+            }    */
+
+            function getPassword() {
+                var password = prompt("Please Enter Password to Download.");
+                document.getElementById('pwinput').value = password;
+                document.getElementById('download').target = "downloadWin";
+                window.open("","downloadWin","width=400,height=300,toolbar=0");
+                document.getElementById('download').submit();
+            }
+        </script>
+        <!-- ============================================================== -->
+        <!-- Preloader -->
+        <!-- ============================================================== -->
+        <div class="preloader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
+            </svg>
+        </div>
     <!-- ============================================================== -->
     <!-- Wrapper -->
     <!-- ============================================================== -->
@@ -130,9 +158,9 @@ require '../includes/config.php';
                     <li>
                         <a active href="#" class="waves-effect"><i  class="ti-user fa-fw"></i> <span class="hide-menu"> <?php print_r($uname); ?><span class="fa arrow"></span></span>
                         </a>
-                        <ul class="nav nav-second-level collapse" aria-expanded="true">
+                        <ul class="nav nav-second-level collapse" >
                             <li> <a href="../profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> My Account</span></a></li>
-                            <li> <a active href="../profile.php?settings=open" class="active"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> Account Setting</span></a></li>
+                            <li> <a href="../profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> Account Setting</span></a></li>
                         </ul>
                     </li>
                     <li class="devider"></li>
@@ -145,7 +173,7 @@ require '../includes/config.php';
                         </ul>
                     </li>
                     <li> <a href="../list/cron.php" class="waves-effect"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">Cron Jobs</span></a> </li>
-                    <li> <a href="../list/backups.php" class="waves-effect"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu">Backups</span></a> </li>   
+                    <li> <a href="../list/backups.php" class="waves-effect active"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu">Backups</span></a> </li>   
                     <li class="devider"></li>                
                     <li><a href="#" class="waves-effect"><i class="mdi mdi-apps fa-fw"></i> <span class="hide-menu">Apps<span class="fa arrow"></span></span></a>
                         <ul class="nav nav-second-level">
@@ -196,7 +224,7 @@ require '../includes/config.php';
                                         <center>BACKUPS</center>
                                     </div>
                                     <div class="panel-body">
-   <center><h2><?php print_r($admindata[U_BACKUPS]); ?></h2></center>
+   <center><h2><?php print_r($admindata['U_BACKUPS']); ?></h2></center>
                                 </div>
                                 </div>
                                 
@@ -206,15 +234,19 @@ require '../includes/config.php';
                     <!-- /.col -->
                 </div>
                 <!-- .row -->
-<!-- .row -->
+                <!-- .row -->
+
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="white-box"> <ul class="side-icon-text pull-right">
-                                                        <li><a href="../add/backup.php"><span class="circle circle-sm bg-inverse di"><i class="fa fa-calendar-check-o"></i></span><span>Schedule Backup</span></a></li>
-<li><a href="../backupexclusions.php"><span class="circle circle-sm bg-inverse di"><i class="fa fa-ban"></i></span><span>Backup Exclusions</span></a></li>
-                                                    </ul>
+                            <li><a href="../add/backup.php?verified=yes"><span class="circle circle-sm bg-inverse di"><i class="fa fa-calendar-check-o"></i></span><span>Schedule Backup</span></a></li>
+                            <li><a href="../edit/backupexclusions.php"><span class="circle circle-sm bg-inverse di"><i class="fa fa-ban"></i></span><span>Backup Exclusions</span></a></li>
+                            </ul>
                             <h3 class="box-title m-b-0">Backups</h3><br>
-
+                            <form id="download" target="_blank" method="post">
+                                <input type="hidden" name="user" value="<?php echo $username; ?>"/>
+                                <input type="hidden" name="password" id="pwinput"/>
+                            </form>
                             <table class="table footable m-b-0" data-paging-size="10" data-paging="true" data-sorting="true">
                                 <thead>
                                     <tr>
@@ -222,7 +254,7 @@ require '../includes/config.php';
                                         <th> Type </th>
                                         <th data-type="numeric"> Size </th>
                                         <th data-type="numeric"> Runtime </th>
-                                        <th data-type="date" data-format-string="YYYY-MM-DD"> Created </th>
+                                        <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> Created </th>
                                         <th data-sortable="false"> Action </th>
                                         <th data-breakpoints="all"> Web </th>
                                         <th data-breakpoints="all"> DNS </th>
@@ -240,27 +272,27 @@ if($backupname[0] != '') {
                                                                 do {
                                                                     echo '<tr>
                                                                     <td>' . $backupname[$x1] . '</td>
-                                                                    <td>' . $backupdata[$x1][TYPE] . '</td>
-                                                                    <td data-sort-value="' . $backupdata[$x1][SIZE] . '">' . $backupdata[$x1][SIZE] . ' mb</td>
-                                                                    <td data-sort-value="' . $backupdata[$x1][RUNTIME] . '">' . $backupdata[$x1][RUNTIME] . ' min</td>
-                                                                    <td data-sort-value="' . $backupdata[$x1][DATE] . '">' . $backupdata[$x1][DATE] . '</td><td>
-                                            
-<button type="button" onclick="window.location=\'' . $url8083 . '/download/backup/?backup=' . $backupname[$x1] . '\';" data-toggle="tooltip" data-original-title="Download" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="fa fa-download"></i></button>
-<button onclick="window.location=\'../edit/backup.php?backup=' . $backupname[$x1] . '\';" type="button" data-toggle="tooltip" data-original-title="Configure" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="fa fa-cog"></i></button>
+                                                                    <td>' . $backupdata[$x1]['TYPE'] . '</td>
+                                                                    <td data-sort-value="' . $backupdata[$x1]['SIZE'] . '">' . $backupdata[$x1]['SIZE'] . ' mb</td>
+                                                                    <td data-sort-value="' . $backupdata[$x1]['RUNTIME'] . '">' . $backupdata[$x1]['RUNTIME'] . ' min</td>
+                                                                    <td data-sort-value="' . $backupdata[$x1]['DATE'] . '">' . $backupdata[$x1]['DATE'] . '</td><td>
+
+<button onclick="document.getElementById(\'download\').action = \'' . $url8083 . '/login/backup.php?backup=' . $backupname[$x1] . '\';getPassword();" type="button" data-toggle="tooltip" data-original-title="Download" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="fa fa-download"></i></button>
+<button onclick="window.location=\'../list/backup.php?backup=' . $backupname[$x1] . '\';" type="button" data-toggle="tooltip" data-original-title="Configure Restore" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="fa fa-cog"></i></button>
 <button onclick="confirmDelete(\'' . $backupname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="Delete" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
                                         </td>
 <td>'; 
 
-if(implode(', ', explode(",", $backupdata[$x1][WEB])) == "") { echo "Not Backed Up";} else{ print_r(implode(', ', explode(",", $backupdata[$x1][WEB]))); } echo '<br><br></td>
+if(implode(', ', explode(",", $backupdata[$x1]['WEB'])) == "") { echo "Not Backed Up";} else{ print_r(implode(', ', explode(",", $backupdata[$x1]['WEB']))); } echo '<br><br></td>
 <td>'; 
 
-if(implode(', ', explode(",", $backupdata[$x1][DNS])) == "") { echo "Not Backed Up";} else{ print_r(implode(', ', explode(",", $backupdata[$x1][DNS]))); } echo '<br><br></td>
+if(implode(', ', explode(",", $backupdata[$x1]['DNS'])) == "") { echo "Not Backed Up";} else{ print_r(implode(', ', explode(",", $backupdata[$x1]['DNS']))); } echo '<br><br></td>
 <td>';
- if(implode(', ', explode(",", $backupdata[$x1][MAIL])) == "") { echo "Not Backed Up";} else{ print_r(implode(', ', explode(",", $backupdata[$x1][MAIL]))); } echo '<br><br></td>
+ if(implode(', ', explode(",", $backupdata[$x1]['MAIL'])) == "") { echo "Not Backed Up";} else{ print_r(implode(', ', explode(",", $backupdata[$x1]['MAIL']))); } echo '<br><br></td>
 
-<td>'; if(implode(', ', explode(",", $backupdata[$x1][DB])) == "") { echo "Not Backed Up";} else{ print_r(implode(', ', explode(",", $backupdata[$x1][DB]))); } echo '<br><br></td>
-<td>'; if(implode(', ', explode(",", $backupdata[$x1][CRON])) == "") { echo "Not Backed Up";} else{ print_r(implode(', ', explode(",", $backupdata[$x1][CRON]))); } echo '<br><br></td>
-<td>'; if(implode(', ', explode(",", $backupdata[$x1][UDIR])) == "") { echo "Not Backed Up";} else{ print_r(implode(', ', explode(",", $backupdata[$x1][UDIR]))); } echo '</td>
+<td>'; if(implode(', ', explode(",", $backupdata[$x1]['DB'])) == "") { echo "Not Backed Up";} else{ print_r(implode(', ', explode(",", $backupdata[$x1]['DB']))); } echo '<br><br></td>
+<td>'; if(implode(', ', explode(",", $backupdata[$x1]['CRON'])) == "") { echo "Not Backed Up";} else{ print_r(implode(', ', explode(",", $backupdata[$x1]['CRON']))); } echo '<br><br></td>
+<td>'; if(implode(', ', explode(",", $backupdata[$x1]['UDIR'])) == "") { echo "Not Backed Up";} else{ print_r(implode(', ', explode(",", $backupdata[$x1]['UDIR']))); } echo '</td>
                                                                     </tr>';
                                                                     $x1++;
                                                                 } while ($backupname[$x1] != ''); }
@@ -338,17 +370,23 @@ $.ajax({
     } 
 });
 })}
-
 <?php
 
-$dbcode = $_GET['delcode'];
+    $bkcode = $_GET['delcode'];
 
-if($dbcode == "0") {
-    echo "swal({title:'Successfully Deleted!', type:'success'});";
-} 
-if($dbcode > "0") { echo "swal({title:'Please try again later or contact support.', type:'error'});";}
-?>
+    if($bkcode == "0") {
+        echo "swal({title:'Successfully Deleted!', type:'success'});";
+    } 
+    if($bkcode > "0") { echo "swal({title:'Please try again later or contact support.', type:'error'});";}
+
+     $addcode = $_GET['addcode'];
+
+    if($addcode == "0") {
+        echo "swal({title:'Backup Scheduled!', type:'success'});";
+    } 
+    if($addcode > "0") { echo "swal({title:'Please try again later or contact support.', type:'error'});";}
+    ?>
+    </script>
 </script>
-</body>
 
 </html>

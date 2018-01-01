@@ -31,7 +31,7 @@ while($curlstart <= 1) {
 $admindata = json_decode(curl_exec($curl0), true)[$username];
 $useremail = $admindata[CONTACT];
 $mailname = array_keys(json_decode(curl_exec($curl1), true));
-if ($mailname[0] == '') { header('Location: ../list/mail.php'); }
+/* if ($mailname[0] == '') { header('Location: ../list/mail.php'); } */
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +59,7 @@ if ($mailname[0] == '') { header('Location: ../list/mail.php'); }
 <![endif]-->
     </head>
 
-    <body class="fix-header">
+    <body class="fix-header" onload="checkDiv();">
         <!-- ============================================================== -->
         <!-- Preloader -->
         <!-- ============================================================== -->
@@ -133,8 +133,8 @@ if ($mailname[0] == '') { header('Location: ../list/mail.php'); }
                         <li class="active"> <a href="#" class="awaves-effect"><i class="mdi mdi-av-timer fa-fw" aria-expanded="true" data-icon="v"></i> <span class="hide-menu">Management <span class="fa arrow"></span> </span></a>
                             <ul class="nav nav-second-level">
                                 <li> <a href="../list/web.php"><i class="ti-world fa-fw"></i><span class="hide-menu">Web</span></a> </li>
-                                <li> <a href="../list/dns.php" class="active"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">DNS</span></a> </li>
-                                <li> <a href="../list/mail.php"><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">Mail</span></a> </li>
+                                <li> <a href="../list/dns.php"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">DNS</span></a> </li>
+                                <li> <a href="../list/mail.php" class="active"><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">Mail</span></a> </li>
                                 <li> <a href="../list/db.php"><i class="fa fa-database fa-fw"></i><span class="hide-menu">Database</span></a> </li>
                             </ul>
                         </li>
@@ -167,18 +167,19 @@ if ($mailname[0] == '') { header('Location: ../list/mail.php'); }
                     <div class="row">
                         <div class="col-md-8 col-xs-12">
                             <div class="white-box">
-                                <form class="form-horizontal form-material">
+                                <form class="form-horizontal form-material" method="post" action="../create/mailaccount.php">
                                     <div class="form-group">
                                         <label class="col-md-12">Domain</label>
                                         <div class="col-md-12">
                                             <input type="text" disabled value="<? echo $requestdomain; ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
+                                            <input type="hidden" name="v_domain" value="<? echo $requestdomain; ?>"> 
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Account</label>
                                         <div class="col-md-12">
                                             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                                                <input type="text" onkeyup="fillSpan2()" class="form-control" id="accountname" style="padding-left: 0.5%;">
+                                                <input type="text" name="v_account" onkeyup="fillSpan2()" class="form-control" id="accountname" style="padding-left: 0.5%;">
                                                 <div class="input-group-addon">@<?php print_r($requestdomain); ?></div>
                                             </div>
                                         </div>
@@ -197,38 +198,40 @@ if ($mailname[0] == '') { header('Location: ../list/mail.php'); }
                                     <div class="form-group">
                                         <label for="email" class="col-md-12">Quota</label>
                                         <div class="col-md-12">
-                                            <input type="text" class="form-control"> 
+                                            <input type="text" name="v_quota" class="form-control"> 
                                             <small class="form-text text-muted">In Megabytes</small>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Aliases</label>
                                         <div class="col-md-12">
-                                            <textarea class="form-control" rows="4"></textarea>
+                                            <textarea class="form-control"  name="v_alias" rows="4"></textarea>
                                             <small class="form-text text-muted">Use Local-Part</small>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Forward To</label>
                                         <div class="col-md-12">
-                                            <textarea class="form-control" rows="4"></textarea>
+                                            <textarea class="form-control" id="fwdto" name="v_fwd" rows="4"></textarea>
                                             <small class="form-text text-muted">One Or More Email Addresses</small>
                                         </div>
                                     </div>
+                                          <div id="togglediv2" style="display:none;">
                                     <div class="form-group">
                                         <label class="col-md-12">Don't Store Forwarded Mail</label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
-                                                <input id="checkbox4" type="checkbox">
+                                                <input id="checkbox4"  name="v_fwd_only" type="checkbox">
                                                 <label for="checkbox4"> Enabled </label>
                                             </div>
                                         </div>
                                     </div>
+                                        </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Autoreply</label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
-                                                <input id="checkbox5" type="checkbox" onclick="checkDiv();">
+                                                <input id="checkbox5" type="checkbox"  name="v_autoreply" onclick="checkDiv();">
                                                 <label for="checkbox5"> Enabled </label>
                                             </div>
                                         </div>
@@ -236,12 +239,12 @@ if ($mailname[0] == '') { header('Location: ../list/mail.php'); }
                                     <div class="form-group" id="msg-div" style="margin-left: 4%;">
                                         <label class="col-md-12">Message</label>
                                         <div class="col-md-12">
-                                            <textarea class="form-control" rows="4"> </textarea>
+                                            <textarea class="form-control"  name="v_message" rows="4"> </textarea>
                                         </div>
                                     </div></div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button disabled class="btn btn-success">Update Account</button>
+                                            <button class="btn btn-success">Add Account</button>
                                         </div>
                                     </div>
                                 </form>
@@ -527,6 +530,12 @@ if ($mailname[0] == '') { header('Location: ../list/mail.php'); }
                 else
                     e.style.display = 'block';
             }
+                $('#fwdto').keyup(function(){
+                    if($(this).val().length)
+                        $('#togglediv2').show();
+                    else
+                        $('#togglediv2').hide();
+                });
             $('.datepicker').datepicker();
             (function () {
                 [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {

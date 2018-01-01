@@ -235,7 +235,7 @@ require '../includes/config.php';
                                         <th> Username </th>
                                         <th data-type="numeric"> Disk Usage </th>
                                         <th> Status </th>
-                                        <th data-type="date" data-format-string="YYYY-MM-DD"> Created </th>
+                                        <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> Created </th>
                                         <th data-sortable="false"> Action </th>
                                         <th data-breakpoints="all"> Host </th>
                                         <th data-breakpoints="all"> Type </th>
