@@ -28,7 +28,6 @@ require_once '../includes/cronparser.php';
     $useremail = $admindata[CONTACT];
     $cronname = array_keys(json_decode(curl_exec($curl1), true));
     $crondata = array_values(json_decode(curl_exec($curl1), true));
-
 ***REMOVED***
 
 <!DOCTYPE html>
@@ -131,9 +130,9 @@ require_once '../includes/cronparser.php';
                     <li>
                         <a active href="#" class="waves-effect"><i  class="ti-user fa-fw"></i> </i> <span class="hide-menu"> ***REMOVED*** print_r($uname); ***REMOVED***<span class="fa arrow"></span></span>
                         </a>
-                        <ul class="nav nav-second-level collapse" aria-expanded="true">
+                        <ul class="nav nav-second-level collapse">
                             <li> <a href="../profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> My Account</span></a></li>
-                            <li> <a active href="../profile.php?settings=open" class="active"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> Account Setting</span></a></li>
+                            <li> <a href="../profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> Account Setting</span></a></li>
                         </ul>
                     </li>
                     <li class="devider"></li>
@@ -239,7 +238,7 @@ require_once '../includes/cronparser.php';
                                         <th data-toggle="true" data-type="numeric"> Job</th>
                                         <th> Command </th>
                                         <th> Status </th>
-                                        <th data-type="date" data-format-string="YYYY-MM-DD"> Created </th>
+                                        <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> Created </th>
                                         <th data-sortable="false"> Action </th>
                                         <th data-breakpoints="all"> Frequency </th>
                                     </tr>
@@ -415,21 +414,20 @@ swal({
 $.ajax({  
     type: "POST",  
     url: "../delete/cron.php",  
-    data: { 'cron':e1, 'verified':'yes' ***REMOVED***,      
-    success: function(data){
-       window.location="cron.php?delcode=" + data;
-    ***REMOVED*** 
-***REMOVED***);
+    data: { 'job':e1, 'verified':'yes' ***REMOVED***,      
+    success:  function(){ window.location = "cron.php?delcode=0"; ***REMOVED***,
+    error:  function(){ window.location = "cron.php?delcode=0"; ***REMOVED***
+    ***REMOVED***);
 ***REMOVED***)***REMOVED***
 
 ***REMOVED***
 
-$dbcode = $_GET['delcode'];
+$xcode = $_GET['delcode'];
 
-if($dbcode == "0") {
+if($xcode == "0") {
     echo "swal({title:'Successfully Deleted!', type:'success'***REMOVED***);";
 ***REMOVED*** 
-if($dbcode > "0") { echo "swal({title:'Please try again later or contact support.', type:'error'***REMOVED***);";***REMOVED***
+if($xcode > "0") { echo "swal({title:'Please try again later or contact support.', type:'error'***REMOVED***);";***REMOVED***
 ***REMOVED***
 </script>
 </body>

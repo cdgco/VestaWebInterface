@@ -13,13 +13,16 @@ else { header('Location: ../list/mail.php'); ***REMOVED***
 
 $postvars = array(
     array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-mail-account','arg1' => $username,'arg2' => $requestdomain, 'arg3' => $requestaccount, 'arg4' => 'json'));
+    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-mail-account','arg1' => $username,'arg2' => $requestdomain, 'arg3' => $requestaccount, 'arg4' => 'json'),
+    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-mail-account-autoreply','arg1' => $username,'arg2' => $requestdomain, 'arg3' => $requestaccount, 'arg4' => 'json'));
+
 
 $curl0 = curl_init();
 $curl1 = curl_init();
+$curl2 = curl_init();
 $curlstart = 0; 
 
-while($curlstart <= 1) {
+while($curlstart <= 2) {
     curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_URL, $vst_url);
     curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_RETURNTRANSFER,true);
     curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_SSL_VERIFYPEER, false);
@@ -33,6 +36,8 @@ $admindata = json_decode(curl_exec($curl0), true)[$username];
 $useremail = $admindata[CONTACT];
 $maildata = array_values(json_decode(curl_exec($curl1), true));
 $mailname = array_keys(json_decode(curl_exec($curl1), true));
+$autoreplydata = array_values(json_decode(curl_exec($curl2), true));
+$autoreplyname = array_keys(json_decode(curl_exec($curl2), true));
 /* if ($mailname[0] == '') { header('Location: ../list/mail.php'); ***REMOVED*** */
 ***REMOVED***
 
@@ -135,8 +140,8 @@ $mailname = array_keys(json_decode(curl_exec($curl1), true));
                         <li class="active"> <a href="#" class="awaves-effect"><i class="mdi mdi-av-timer fa-fw" aria-expanded="true" data-icon="v"></i> <span class="hide-menu">Management <span class="fa arrow"></span> </span></a>
                             <ul class="nav nav-second-level">
                                 <li> <a href="../list/web.php"><i class="ti-world fa-fw"></i><span class="hide-menu">Web</span></a> </li>
-                                <li> <a href="../list/dns.php" class="active"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">DNS</span></a> </li>
-                                <li> <a href="../list/mail.php"><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">Mail</span></a> </li>
+                                <li> <a href="../list/dns.php"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">DNS</span></a> </li>
+                                <li> <a href="../list/mail.php" class="active"><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">Mail</span></a> </li>
                                 <li> <a href="../list/db.php"><i class="fa fa-database fa-fw"></i><span class="hide-menu">Database</span></a> </li>
                             </ul>
                         </li>
@@ -207,11 +212,13 @@ $mailname = array_keys(json_decode(curl_exec($curl1), true));
                     <div class="row">
                         <div class="col-md-8 col-xs-12">
                             <div class="white-box">
-                                <form class="form-horizontal form-material">
+                                <form class="form-horizontal form-material" method="post">
                                     <div class="form-group">
                                         <label class="col-md-12">Email Address</label>
                                         <div class="col-md-12">
                                             <input type="text" disabled value="<? echo $requestaccount . '@' . $requestdomain; ***REMOVED***" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
+                                            <input type="hidden" name="v_domain" value="<? echo $requestdomain; ***REMOVED***"> 
+                                            <input type="hidden" name="v_account" value="<? echo $requestaccount; ***REMOVED***"> 
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -231,14 +238,16 @@ $mailname = array_keys(json_decode(curl_exec($curl1), true));
                                     <div class="form-group">
                                         <label class="col-md-12">Aliases</label>
                                         <div class="col-md-12">
-                                            <textarea class="form-control" rows="4" id="aliasTextArea">***REMOVED*** $aliasArray = explode(',', ($maildata[0][ALIAS]));foreach ($aliasArray as &$value) {$value = $value . "&#013;&#010;";***REMOVED*** foreach($aliasArray as $val) {echo $val;***REMOVED******REMOVED***</textarea>
+                                            <input type="hidden" name="v_alias-x" value="***REMOVED*** $aliasArray = explode(',', ($maildata[0][ALIAS]));foreach ($aliasArray as &$value) {$value = $value . "&#013;&#010;";***REMOVED*** foreach($aliasArray as $val) {echo $val;***REMOVED******REMOVED***">
+                                            <textarea class="form-control" name="v_alias" rows="4" id="aliasTextArea">***REMOVED*** $aliasArray = explode(',', ($maildata[0][ALIAS]));foreach ($aliasArray as &$value) {$value = $value . "&#013;&#010;";***REMOVED*** foreach($aliasArray as $val) {echo $val;***REMOVED******REMOVED***</textarea>
                                             <small class="form-text text-muted">Use Local-Part</small>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Forward To</label>
                                         <div class="col-md-12">
-                                            <textarea class="form-control" rows="4" id="forwardTextArea">***REMOVED*** $fwdArray = explode(',', ($maildata[0][FWD]));foreach ($fwdArray as &$value1) {$value1 = $value1. "&#013;&#010;";***REMOVED***foreach($fwdArray as $val1){echo $val1;***REMOVED******REMOVED***</textarea>
+                                            <input type="hidden" name="v_forward-x" value="***REMOVED*** $fwdArray = explode(',', ($maildata[0][FWD]));foreach ($fwdArray as &$value1) {$value1 = $value1. "&#013;&#010;";***REMOVED***foreach($fwdArray as $val1){echo $val1;***REMOVED******REMOVED***">
+                                            <textarea class="form-control" name="v_forward" rows="4" id="forwardTextArea">***REMOVED*** $fwdArray = explode(',', ($maildata[0][FWD]));foreach ($fwdArray as &$value1) {$value1 = $value1. "&#013;&#010;";***REMOVED***foreach($fwdArray as $val1){echo $val1;***REMOVED******REMOVED***</textarea>
                                             <small class="form-text text-muted">One Or More Email Addresses</small>
                                         </div>
                                     </div>
@@ -246,7 +255,8 @@ $mailname = array_keys(json_decode(curl_exec($curl1), true));
                                         <label class="col-md-12">Don't Store Forwarded Mail</label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
-                                                <input id="checkbox4" type="checkbox" ***REMOVED*** if($maildata[0][FWD_ONLY] == 'yes') {echo 'checked';***REMOVED*** ***REMOVED*** >
+                                                <input type="hidden" name="v_fwd_to_x" value="***REMOVED*** echo $maildata[0][FWD_ONLY]; ***REMOVED***">
+                                                <input id="checkbox4" name="v_fwd_to" type="checkbox" ***REMOVED*** if($maildata[0][FWD_ONLY] == 'yes') {echo 'checked';***REMOVED*** ***REMOVED*** >
                                                 <label for="checkbox4"> Enabled </label>
                                             </div>
                                         </div>
@@ -255,7 +265,8 @@ $mailname = array_keys(json_decode(curl_exec($curl1), true));
                                         <label class="col-md-12">Autoreply</label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
-                                                <input id="checkbox5" type="checkbox" onclick="checkDiv();" ***REMOVED*** if($maildata[0][AUTOREPLY] == 'yes') {echo 'checked';***REMOVED*** ***REMOVED*** >
+                                                <input type="hidden" name="v_autoreply-x" value="***REMOVED*** echo $maildata[0][AUTOREPLY]; ***REMOVED***">
+                                                <input id="checkbox5" name="v_autoreply" type="checkbox" onclick="checkDiv();" ***REMOVED*** if($maildata[0][AUTOREPLY] == 'yes') {echo 'checked';***REMOVED*** ***REMOVED*** >
                                                 <label for="checkbox5"> Enabled </label>
                                             </div>
                                         </div>
@@ -263,16 +274,14 @@ $mailname = array_keys(json_decode(curl_exec($curl1), true));
                                     <div class="form-group" id="msg-div" style="margin-left: 4%;">
                                         <label class="col-md-12">Message</label>
                                         <div class="col-md-12">
-                                            <textarea class="form-control" rows="4">
-                                                ***REMOVED*** $aliasArray = explode(',', ($domaindata[0][ALIAS]));
-
+                                            <input type="hidden" name="v_message_x" value="***REMOVED*** $aliasArray = explode(',', ($autoreplydata[0][MSG]));
                                                 foreach ($aliasArray as &$value) {
-                                                    $value = $value . "&#013;&#010;";
-                                                ***REMOVED***
-                                                foreach($aliasArray as $val) {
-                                                    echo $val;
-                                                ***REMOVED*** ***REMOVED***
-                                            </textarea>
+                                                    echo str_replace("\r\n", "\n", $value);
+                                                ***REMOVED*** ***REMOVED***">
+                                            <textarea class="form-control" name="v_message" rows="4">***REMOVED*** $aliasArray = explode(',', ($autoreplydata[0][MSG]));
+                                                foreach ($aliasArray as &$value) {
+                                                    echo str_replace("\r\n", "\n", $value);
+                                                ***REMOVED*** ***REMOVED***</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">

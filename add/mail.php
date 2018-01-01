@@ -158,18 +158,18 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="white-box">
-                            <form class="form-horizontal form-material">
+                            <form class="form-horizontal form-material" method="post" action="../create/maildomain.php">
                                 <div class="form-group">
                                     <label class="col-md-12">Domain</label>
                                     <div class="col-md-12">
-                                        <input type="text" class="form-control"> 
+                                        <input type="text" name="v_domain" class="form-control"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">AntiSpam Support</label>
                                     <div class="col-md-12">
                                         <div class="checkbox checkbox-info">
-                                            <input id="checkbox5" type="checkbox">
+                                            <input id="checkbox5" name="v_antispam" type="checkbox" checked>
                                             <label for="checkbox5"> Enabled </label>
                                         </div>
                                     </div>
@@ -178,7 +178,7 @@
                                     <label class="col-md-12">AntiVirus Support</label>
                                     <div class="col-md-12">
                                         <div class="checkbox checkbox-info">
-                                            <input id="checkbox6" type="checkbox">
+                                            <input id="checkbox6" name="v_antivirus" type="checkbox" checked>
                                             <label for="checkbox6"> Enabled </label>
                                         </div>
                                     </div>
@@ -187,14 +187,14 @@
                                     <label class="col-md-12">DKIM Support</label>
                                     <div class="col-md-12">
                                         <div class="checkbox checkbox-info">
-                                            <input id="checkbox7" type="checkbox">
+                                            <input id="checkbox7" name="v_dkim" type="checkbox">
                                             <label for="checkbox7"> Enabled </label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <button disabled class="btn btn-success">Add Domain</button>
+                                        <button class="btn btn-success">Add Domain</button>
                                     </div>
                                 </div>
                             </form>
