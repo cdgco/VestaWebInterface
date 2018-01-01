@@ -15,7 +15,7 @@
 <!-- Custom CSS -->
 <link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@CDN-Test-v0.1/css/style.css" rel="stylesheet">
 <!-- color CSS -->
-<link href="https://ide.cdgtech.one/dev/css/colors/default.css" id="theme"  rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@CDN-Test-v0.1/css/colors/default.css" id="theme"  rel="stylesheet">
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
