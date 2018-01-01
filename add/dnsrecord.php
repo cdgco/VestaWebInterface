@@ -216,7 +216,8 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <button class="btn btn-success">Add Record</button>
+                                        <button class="btn btn-success">Add Record</button> &nbsp;
+                                            <a href="../list/dnsdomain.php?domain=<? echo $requestdns; ***REMOVED***" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">Back</button></a>
                                     </div>
                                 </div>
                             </form>

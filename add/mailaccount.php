@@ -244,7 +244,8 @@ $mailname = array_keys(json_decode(curl_exec($curl1), true));
                                     </div></div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success">Add Account</button>
+                                            <button class="btn btn-success">Add Account</button> &nbsp;
+                                            <a href="../list/maildomain.php?domain=<? echo $requestdomain; ***REMOVED***" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">Back</button></a>
                                         </div>
                                     </div>
                                 </form>

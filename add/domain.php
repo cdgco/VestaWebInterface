@@ -373,7 +373,8 @@ $webstats = array_values(json_decode(curl_exec($curl3), true));
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success">Add Domain</button>
+                                            <button class="btn btn-success">Add Domain</button> &nbsp;
+                                            <a href="../list/web.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">Back</button></a>
                                         </div>
                                     </div>
                                 </form>
