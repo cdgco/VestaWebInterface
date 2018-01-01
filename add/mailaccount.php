@@ -167,7 +167,7 @@ $mailname = array_keys(json_decode(curl_exec($curl1), true));
                     <div class="row">
                         <div class="col-md-8 col-xs-12">
                             <div class="white-box">
-                                <form class="form-horizontal form-material" method="post" action="../create/mailaccount.php">
+                                <form class="form-horizontal form-material" autocomplete="off" method="post" action="../create/mailaccount.php">
                                     <div class="form-group">
                                         <label class="col-md-12">Domain</label>
                                         <div class="col-md-12">
@@ -179,7 +179,7 @@ $mailname = array_keys(json_decode(curl_exec($curl1), true));
                                         <label class="col-md-12">Account</label>
                                         <div class="col-md-12">
                                             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                                                <input type="text" name="v_account" onkeyup="fillSpan2()" class="form-control" id="accountname" style="padding-left: 0.5%;">
+                                                <input type="text" name="v_account" onkeyup="fillSpan2()" autocomplete="new-password" class="form-control" id="accountname" style="padding-left: 0.5%;">
                                                 <div class="input-group-addon">@***REMOVED*** print_r($requestdomain); ***REMOVED***</div>
                                             </div>
                                         </div>
@@ -187,7 +187,7 @@ $mailname = array_keys(json_decode(curl_exec($curl1), true));
                                     <div class="form-group">
                                         <label for="password" class="col-md-12">Password / <a style="cursor:pointer" onclick="generatePassword(10)"> Generate</a></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
-                                            <input type="password" style="padding-left: 0.5%;" onkeyup="fillSpan()" class="form-control form-control-line" name="password" id="password">                                    <span class="input-group-btn"> 
+                                            <input type="password" style="padding-left: 0.5%;" autocomplete="new-password" onkeyup="fillSpan()" class="form-control form-control-line" name="password" id="password">                                    <span class="input-group-btn"> 
                                             <button class="btn btn-info" style="margin-right: 15px;" name="Show" onclick="toggler(this)" id="tg" type="button"><i class="ti-eye"></i></button> 
                                             </span>  </div>
                                     </div>

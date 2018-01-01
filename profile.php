@@ -275,7 +275,7 @@ $admindata = json_decode(curl_exec($curl0), true)[$username];
 
                                 </div>
                                 <div class="tab-pane ***REMOVED*** if($_GET['settings'] == "open") { echo "active"; ***REMOVED*** ***REMOVED***" id="settings">
-                                    <form class="form-horizontal form-material" action="process/updatesettings.php" method="post">
+                                    <form class="form-horizontal form-material" autocomplete="off" action="process/updatesettings.php" method="post">
                                         <div class="form-group">
                                             <label for="username" class="col-md-12">Username</label>
                                             <div class="col-md-12">
@@ -284,7 +284,7 @@ $admindata = json_decode(curl_exec($curl0), true)[$username];
                                         <div class="form-group">
                                             <label for="password" class="col-md-12">Password / <a style="cursor:pointer" onclick="generatePassword(10)"> Generate</a></label>
                                             <div class="col-md-12 input-group" style="padding-left: 15px;">
-                                                <input type="password" class="form-control form-control-line" name="password" id="password">                                    <span class="input-group-btn"> 
+                                                <input type="password" class="form-control form-control-line" autocomplete="new-password" name="password" id="password">                                    <span class="input-group-btn"> 
                                                 <button class="btn btn-info" style="margin-right: 15px;" name="Show" onclick="toggler(this)" id="tg" type="button"><i class="ti-eye"></i></button> 
                                                 </span>  </div>
                                         </div>

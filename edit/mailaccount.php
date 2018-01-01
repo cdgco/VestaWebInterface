@@ -212,7 +212,7 @@ $autoreplyname = array_keys(json_decode(curl_exec($curl2), true));
                     <div class="row">
                         <div class="col-md-8 col-xs-12">
                             <div class="white-box">
-                                <form class="form-horizontal form-material" method="post">
+                                <form class="form-horizontal form-material" autocomplete="off" method="post">
                                     <div class="form-group">
                                         <label class="col-md-12">Email Address</label>
                                         <div class="col-md-12">
@@ -224,7 +224,7 @@ $autoreplyname = array_keys(json_decode(curl_exec($curl2), true));
                                     <div class="form-group">
                                         <label for="password" class="col-md-12">Password / <a style="cursor:pointer" onclick="generatePassword(10)"> Generate</a></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
-                                            <input type="password" onkeyup="fillSpan()" class="form-control form-control-line" name="password" id="password">                                    <span class="input-group-btn"> 
+                                            <input type="password" onkeyup="fillSpan()" autocomplete="new-password" class="form-control form-control-line" name="password" id="password">                                    <span class="input-group-btn"> 
                                             <button class="btn btn-info" style="margin-right: 15px;" name="Show" onclick="toggler(this)" id="tg" type="button"><i class="ti-eye"></i></button> 
                                             </span>  </div>
                                     </div>
