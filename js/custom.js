@@ -148,19 +148,19 @@ $('.slimscrollright').slimScroll({
     , position: 'right'
     , size: "5px"
     , color: '#dcdcdc'
-, });
+    , opacity: 0
+}).mouseover(function() {
+    $(this).next('.slimScrollBar').css('opacity', 0.4);
+});
 $('.slimscrollsidebar').slimScroll({
-      height: '100%'
+    height: '100%'
     , position: 'left'
     , size: "6px"
     , color: 'rgba(0,0,0,0.5)'
-, });
-$('.chat-list').slimScroll({
-    height: '100%'
-    , position: 'right'
-    , size: "0px"
-    , color: '#dcdcdc'
-, });
+    , opacity: 0
+}).mouseover(function() {
+$(this).next('.slimScrollBar').css('opacity', 0.4);
+});
 // Resize all elements
 $("body").trigger("resize");
 // visited ul li
