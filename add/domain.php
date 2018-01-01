@@ -1,37 +1,37 @@
 <?php
 
-    require '../includes/config.php';
+require '../includes/config.php';
 
-    if(base64_decode($_COOKIE['loggedin']) == 'true') {}
-    else { header('Location: ../login.php'); }
+if(base64_decode($_COOKIE['loggedin']) == 'true') {}
+else { header('Location: ../login.php'); }
 
-    $postvars = array(
-        array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
-        array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user-ips','arg1' => $username,'arg2' => 'json'),
-        array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-templates-proxy','arg1' => 'json'),
-        array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-stats','arg1' => 'json'));
+$postvars = array(
+    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
+    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user-ips','arg1' => $username,'arg2' => 'json'),
+    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-templates-proxy','arg1' => 'json'),
+    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-stats','arg1' => 'json'));
 
-    $curl0 = curl_init();
-    $curl1 = curl_init();
-    $curl2 = curl_init();
-    $curl3 = curl_init();
-    $curlstart = 0; 
+$curl0 = curl_init();
+$curl1 = curl_init();
+$curl2 = curl_init();
+$curl3 = curl_init();
+$curlstart = 0; 
 
-    while($curlstart <= 3) {
-        curl_setopt(${'curl' . $curlstart}, CURLOPT_URL, $vst_url);
-        curl_setopt(${'curl' . $curlstart}, CURLOPT_RETURNTRANSFER,true);
-        curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt(${'curl' . $curlstart}, CURLOPT_POST, true);
-        curl_setopt(${'curl' . $curlstart}, CURLOPT_POSTFIELDS, http_build_query($postvars[$curlstart]));
-        $curlstart++;
-    } 
+while($curlstart <= 3) {
+    curl_setopt(${'curl' . $curlstart}, CURLOPT_URL, $vst_url);
+    curl_setopt(${'curl' . $curlstart}, CURLOPT_RETURNTRANSFER,true);
+    curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt(${'curl' . $curlstart}, CURLOPT_POST, true);
+    curl_setopt(${'curl' . $curlstart}, CURLOPT_POSTFIELDS, http_build_query($postvars[$curlstart]));
+    $curlstart++;
+} 
 
-    $admindata = json_decode(curl_exec($curl0), true)[$username];
-    $useremail = $admindata[CONTACT];
-    $userips = array_keys(json_decode(curl_exec($curl1), true));
-    $proxytemplates = array_values(json_decode(curl_exec($curl2), true));
-    $webstats = array_values(json_decode(curl_exec($curl3), true));
+$admindata = json_decode(curl_exec($curl0), true)[$username];
+$useremail = $admindata[CONTACT];
+$userips = array_keys(json_decode(curl_exec($curl1), true));
+$proxytemplates = array_values(json_decode(curl_exec($curl2), true));
+$webstats = array_values(json_decode(curl_exec($curl3), true));
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +59,7 @@
 <![endif]-->
     </head>
 
-    <body class="fix-header" onload="checkDiv3();">
+    <body class="fix-header" onload="checkDiv3();checkDiv4();checkDiv5();showauth();">
         <!-- ============================================================== -->
         <!-- Preloader -->
         <!-- ============================================================== -->
@@ -167,17 +167,17 @@
                     <div class="row">
                         <div class="col-md-12 col-xs-12">
                             <div class="white-box">
-                                <form class="form-horizontal form-material">
+                                <form class="form-horizontal form-material" method="post" action="../create/domain.php">
                                     <div class="form-group">
                                         <label class="col-md-12">Domain</label>
                                         <div class="col-md-12">
-                                            <input type="text" id="domain" onkeyup="checkwww();" class="form-control"> 
+                                            <input type="text" name="v_domain" id="domain" onkeyup="checkwww();csrlink();" class="form-control"> 
                                         </div>
                                     </div>
                                     <div class="form-group" style="overflow: visible;">
                                         <label class="col-md-12">IP Address</label>
                                         <div class="col-md-12">
-                                            <select class="form-control select1" name="language" id="select1">
+                                            <select class="form-control" name="v_ip">
                                                 <?php
                                                 if($userips[0] != '') {
                                                     $x4 = 0; 
@@ -195,16 +195,16 @@
                                         <label class="col-md-12">DNS Support</label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
-                                                <input id="checkbox1" type="checkbox" checked>
+                                                <input id="checkbox1" name="v_dnsenabled" type="checkbox" checked>
                                                 <label for="checkbox1"> Enabled </label>
                                             </div>
                                         </div>
                                     </div>
-                                                                        <div class="form-group">
+                                    <div class="form-group">
                                         <label class="col-md-12">Mail Support</label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
-                                                <input id="checkbox2" type="checkbox" checked>
+                                                <input id="checkbox2" name="v_mailenabled" type="checkbox" checked>
                                                 <label for="checkbox2"> Enabled </label>
                                             </div>
                                         </div>
@@ -213,98 +213,80 @@
                                         <label class="col-md-12"><a style="cursor: pointer;" onclick="toggle_visibility('togglediv');">Advanced Options</a></label>
                                     </div>
                                     <div id="togglediv" style="display:none;">
-                                    <div class="form-group">
-                                        <label class="col-md-12">Aliases</label>
-                                        <div class="col-md-12">
-                                            <textarea class="form-control aliasfill" rows="4"></textarea>
-                                        </div>
-                                    </div>
                                         <div class="form-group">
-                                    <label class="col-md-12">Proxy Support</label>
-                                    <div class="col-md-12">
-                                        <div class="checkbox checkbox-info">
-                                            <input id="checkbox4" type="checkbox" onclick="checkDiv();" checked >
-                                            <label for="checkbox4"> Enabled </label>
+                                            <label class="col-md-12">Aliases</label>
+                                            <div class="col-md-12">
+                                                <textarea class="form-control aliasfill" name="v_alias" rows="4"></textarea>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div id="prxy-div" style="margin-left: 4%;">
-                                   <div class="form-group">
-                                        <label class="col-md-12">Proxy Template</label>
-                                        <div class="col-md-12">
-                                            <select class="form-control select3" name="prxtmp" id="select3">
-                                                <?php
-                                                        if($proxytemplates[0] != '') {
-                                                            $x2 = 0; 
-
-                                                            do {
-                                                                echo '<option value="' . $proxytemplates[$x2] . '">' . $proxytemplates[$x2] . '</option>';
-                                                                $x2++;
-                                                            } while ($proxytemplates[$x2] != ''); }
-
-                                                    ?>
-                                                </select>
-                                        </div>
-                                    </div>
-                                   <div class="form-group">
-                                       <label class="col-md-12">Proxy Extensions</label>
-                                       <div class="col-md-12">
-                                           <textarea class="form-control" rows="4" id="prxTextArea">jpeg, jpg, png, gif, bmp, ico, svg, tif, tiff, css, js, htm, html, ttf, otf, webp, woff, txt, csv, rtf, doc, docx, xls, xlsx, ppt, pptx, odf, odp, ods, odt, pdf, psd, ai, eot, eps, ps, zip, tar, tgz, gz, rar, bz2, 7z, aac, m4a, mp3, mp4, ogg, wav, wma, 3gp, avi, flv, m4v, mkv, mov, mp4, mpeg, mpg, wmv, exe, iso, dmg, swf</textarea>
-                                       </div>
-                                    </div>
-                                </div>
                                         <div class="form-group">
-                                    <label class="col-md-12">SSL Support</label>
-                                    <div class="col-md-12">
-                                        <div class="checkbox checkbox-info">
-                                            <input id="checkbox8" type="checkbox" onclick="checkDiv3();">
-                                            <label for="checkbox8"> Enabled </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="ssl-div" style="margin-left: 4%;">
-                                    <div class="form-group">
-                                        <label class="col-md-12">Let's Encrypt Support</label>
-                                            <div class="col-md-12" data-toggle="tooltip" data-placement="left" title="Coming Soon">
-                                                <div class="checkbox checkbox-info" style="cursor: no-drop;">
-                                                    <input id="checkbox6" type="checkbox" disabled style="cursor: no-drop;">
-                                                    <label for="checkbox6" style="cursor: no-drop;"> Enabled </label>
+                                            <label class="col-md-12">Proxy Support</label>
+                                            <div class="col-md-12">
+                                                <div class="checkbox checkbox-info">
+                                                    <input id="checkbox4" type="checkbox" name="v_proxyenabled" onclick="checkDiv();" checked >
+                                                    <label for="checkbox4"> Enabled </label>
                                                 </div>
                                             </div>
-                                    </div>
-                                    <br>
-                                    <div class="form-group">
-                                        <label class="col-md-12">SSL Directory</label>
-                                        <div class="col-md-12">
-                                                <select class="form-control select4" name="language" id="select4">
-                                                  <option value="public_html" selected>public_html</option>
-                                                  <option value="public_shtml">public_shtml</option>
-                                                </select>
+                                        </div>
+                                        <div class="form-group" id="prxextdiv" style="margin-left: 2%;">
+                                            <label class="col-md-12">Proxy Extensions</label>
+                                            <div class="col-md-12">
+                                                <textarea class="form-control" rows="4" name="v_prxext" id="prxTextArea">jpeg, jpg, png, gif, bmp, ico, svg, tif, tiff, css, js, htm, html, ttf, otf, webp, woff, txt, csv, rtf, doc, docx, xls, xlsx, ppt, pptx, odf, odp, ods, odt, pdf, psd, ai, eot, eps, ps, zip, tar, tgz, gz, rar, bz2, 7z, aac, m4a, mp3, mp4, ogg, wav, wma, 3gp, avi, flv, m4v, mkv, mov, mp4, mpeg, mpg, wmv, exe, iso, dmg, swf</textarea>
                                             </div>
-                                    </div>
-                                    <div class="form-group">
-                                       <label class="col-md-12">SSL Certificate / <a data-toggle="tooltip" data-placement="right" title="Coming Soon" style="cursor: no-drop;">Generate CSR</a></label>
-                                       <div class="col-md-12">
-                                            <textarea class="form-control" rows="4"></textarea>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">SSL Key</label>
-                                        <div class="col-md-12">
-                                            <textarea class="form-control" rows="4"></textarea>
+
+                                        <div class="form-group">
+                                            <label class="col-md-12">SSL Support</label>
+                                            <div class="col-md-12">
+                                                <div class="checkbox checkbox-info">
+                                                    <input id="checkbox8" type="checkbox" name="v_sslenabled" onclick="checkDiv3();">
+                                                    <label for="checkbox8"> Enabled </label>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">SSL Certificate Authority / Intermediate</label>
-                                        <div class="col-md-12">
-                                            <textarea class="form-control" rows="4"></textarea>
-                                        </div>
-                                   </div>
+                                        <div id="ssl-div" style="margin-left: 4%;">
+                                            <div class="form-group">
+                                                <label class="col-md-12">Let's Encrypt Support</label>
+                                                <div class="col-md-12">
+                                                    <div class="checkbox checkbox-info">
+                                                        <input id="checkbox6" type="checkbox" name="v_leenabled">
+                                                        <label for="checkbox6"> Enabled </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="form-group">
+                                                <label class="col-md-12">SSL Directory</label>
+                                                <div class="col-md-12">
+                                                    <select disabled name="v_ssldir" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static">
+                                                        <option value="public_html" selected>public_html</option>
+                                                        <option value="public_shtml">public_shtml</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-12">SSL Certificate / <a class="sslfill">Generate CSR</a></label>
+                                                <div class="col-md-12">
+                                                    <textarea style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_sslcrt" rows="4"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-12">SSL Key</label>
+                                                <div class="col-md-12">
+                                                    <textarea style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_sslkey" rows="4"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-12">SSL Certificate Authority / Intermediate</label>
+                                                <div class="col-md-12">
+                                                    <textarea style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_sslca" rows="4"></textarea>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12">Web Statistics</label>
                                             <div class="col-md-12">
-                                                <select class="form-control select7" name="webstats" id="select7">
+                                                <select class="form-control select7" onchange="showauth()"name="v_webstats" id="select7">
                                                     <?php
                                                     if($webstats[0] != '') {
                                                         $x6 = 0; 
@@ -318,18 +300,80 @@
                                                 </select>
                                             </div>
                                         </div>
-                                <div class="form-group" style="cursor: no-drop;">
-                                    <label class="col-md-12">Additional FTP</label>
-                                    <div class="col-md-12" data-toggle="tooltip" data-placement="left" title="Coming Soon">
-                                        <div class="checkbox checkbox-info">
-                                            <input id="checkbox6" style="cursor: no-drop;" type="checkbox" disabled>
-                                            <label for="checkbox6" style="cursor: no-drop;"> Enabled </label>
+                                        <div id="statsauth" style="margin-left: 4%;">
+                                            <div class="form-group">
+                                                <label class="col-md-12">Statistics Authorization</label>
+                                                <div class="col-md-12">
+                                                    <div class="checkbox checkbox-info">
+                                                        <input id="checkbox10" type="checkbox" name="v_statsuserenabled" onclick="checkDiv5();">
+                                                        <label for="checkbox10"> Enabled </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="stats-div" style="margin-left: 4%;">
+                                            <div class="form-group">
+                                                <label class="col-md-12">Username</label><br>
+                                                <div class="col-md-12">
+                                                    <input type="text" name="v_statsuname" class="form-control"> 
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="v_statspassword" class="col-md-12">Password / <a style="cursor:pointer" onclick="generatePassword2(10)"> Generate</a></label>
+                                                <div class="col-md-12 input-group" style="padding-left: 15px;">
+                                                    <input type="password" class="form-control form-control-line" name="v_statspassword" id="statspassword">                                    <span class="input-group-btn"> 
+                                                    <button class="btn btn-info" style="margin-right: 15px;" name="Show" onclick="toggler2(this)" id="tg2" type="button"><i class="ti-eye"></i></button> 
+                                                    </span>  
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12">Additional FTP</label>
+                                            <div class="col-md-12">
+                                                <div class="checkbox checkbox-info">
+                                                    <input id="checkbox9" disabled type="checkbox" name="v_additionalftpenabled" onclick="checkDiv4();">
+                                                    <label for="checkbox9"> Enabled </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="ftp-div" style="margin-left: 4%;">
+
+                                            <div class="form-group">
+                                                <label class="col-md-12">Username</label><br>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                                        <div class="input-group-addon"><?php print_r($uname); ?>_</div>
+                                                        <input type="text" class="form-control" name="v_ftpuname" style="padding-left: 0.5%;">    
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="password" class="col-md-12">Password / <a style="cursor:pointer" onclick="generatePassword(10)"> Generate</a></label>
+                                                <div class="col-md-12 input-group" style="padding-left: 15px;">
+                                                    <input type="password" class="form-control form-control-line" name="password" id="password">                                    <span class="input-group-btn"> 
+                                                    <button class="btn btn-info" style="margin-right: 15px;" name="Show" onclick="toggler(this)" id="tg" type="button"><i class="ti-eye"></i></button> 
+                                                    </span>  </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-12">Path</label>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                                        <div class="input-group-addon" id="dirfill"></div>
+                                                        <input type="text" class="form-control" name="v_ftpdir" value="<?php echo $ftpdir[0]; ?>" style="padding-left: 0.5%;">    
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-12">Send FTP Credentials to Email:</label>
+                                                <div class="col-md-12">
+                                                    <input type="text" name="v_ftpnotification" class="form-control"> 
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button disabled class="btn btn-success">Update Account</button>
+                                            <button class="btn btn-success">Add Domain</button>
                                         </div>
                                     </div>
                                 </form>
@@ -357,22 +401,29 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.all.js"></script>
         <script src="../plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
         <script type="text/javascript">
+            document.getElementById('select7').value = 'none'; 
+            function showauth(){
+                if(document.getElementById('select7').value != 'none') {
+                    document.getElementById('statsauth').style.display = "block";
+            }
+            else {
+                document.getElementById('statsauth').style.display = "none";
+            }}
             function checkwww() {
                 var domain = document.getElementById('domain').value;
                 document.getElementsByClassName("aliasfill")[0].innerHTML = 'www.' + domain;
-                }
-            for (i = 0; i < document.getElementById("select3").length; ++i){
-                if (document.getElementById("select3").options[i].value == "default"){
-                     document.getElementById('select3').value = 'default'; 
-                }
+                var dirDomain = document.getElementById("dirfill");
+                dirDomain.innerHTML = '/home/<?php print_r($uname); ?>/web/' + domain;
             }
-            document.getElementById('select7').value = 'none'; 
-
+            function csrlink() {
+                var domain = document.getElementById('domain').value;
+                document.getElementsByClassName("sslfill")[0].href =  '../process/generatecsr.php?domain=' + domain;
+            }
             function checkDiv(){
                 if(document.getElementById("checkbox4").checked) {
-                    document.getElementById('prxy-div').style.display = 'block';
+                    document.getElementById('prxextdiv').style.display = 'block';
                 }
-                else {document.getElementById('prxy-div').style.display = 'none';}
+                else {document.getElementById('prxextdiv').style.display = 'none';}
             }
             function checkDiv2(){
                 if(document.getElementById("checkbox5").checked) {
@@ -380,18 +431,48 @@
                 }
                 else {document.getElementById('msg-div').style.display = 'none';}
             } 
-                    function checkDiv3(){
-            if(document.getElementById("checkbox8").checked) {
-                document.getElementById('ssl-div').style.display = 'block';
+            function checkDiv3(){
+                if(document.getElementById("checkbox8").checked) {
+                    document.getElementById('ssl-div').style.display = 'block';
+                }
+                else {document.getElementById('ssl-div').style.display = 'none';}
             }
-            else {document.getElementById('ssl-div').style.display = 'none';}
-        }
+            function checkDiv4(){
+                if(document.getElementById("checkbox9").checked) {
+                    document.getElementById('ftp-div').style.display = 'block';
+                }
+                else {document.getElementById('ftp-div').style.display = 'none';}
+            }
+            function checkDiv5(){
+                if(document.getElementById("checkbox10").checked) {
+                    document.getElementById('stats-div').style.display = 'block';
+                }
+                else {document.getElementById('stats-div').style.display = 'none';}
+            }
             function toggle_visibility(id) {
                 var e = document.getElementById(id);
                 if(e.style.display == 'block')
                     e.style.display = 'none';
                 else
                     e.style.display = 'block';
+            }
+            function toggler(e) {
+                if( e.name == 'Hide' ) {
+                    e.name = 'Show'
+                    document.getElementById('password').type="password";
+                } else {
+                    e.name = 'Hide'
+                    document.getElementById('password').type="text";
+                }
+            }
+            function toggler2(e) {
+                if( e.name == 'Hide' ) {
+                    e.name = 'Show'
+                    document.getElementById('statspassword').type="password";
+                } else {
+                    e.name = 'Hide'
+                    document.getElementById('statspassword').type="text";
+                }
             }
             $('.datepicker').datepicker();
             (function () {
@@ -403,7 +484,30 @@
             jQuery(function($){
                 $('.footable').footable();
             });
+            function generatePassword(length) {
+                var password = '', character; 
+                while (length > password.length) {
+                    if (password.indexOf(character = String.fromCharCode(Math.floor(Math.random() * 94) + 33), Math.floor(password.length / 94) * 94) < 0) {
+                        password += character;
+                    }
+                }
+                document.getElementById('password').value = password;
+                document.getElementById('tg').name='Hide';
+                document.getElementById('password').type="text";
+                fillSpan();
+            }
+            function generatePassword2(length) {
+                var password = '', character; 
+                while (length > password.length) {
+                    if (password.indexOf(character = String.fromCharCode(Math.floor(Math.random() * 94) + 33), Math.floor(password.length / 94) * 94) < 0) {
+                        password += character;
+                    }
+                }
+                document.getElementById('statspassword').value = password;
+                document.getElementById('tg2').name='Hide';
+                document.getElementById('statspassword').type="text";
+                fillSpan();
+            }
         </script>
     </body>
-
 </html>

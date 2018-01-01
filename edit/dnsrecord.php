@@ -1,16 +1,21 @@
 <?php
 
+    // Include settings & variables
     require '../includes/config.php';
 
+    // Check if cookie exists, decrypt, then redirect if not logged in
     if(base64_decode($_COOKIE['loggedin']) == 'true') {}
       else { header('Location: ../login.php'); }
 
+    // Define request variables
     $requestdns = $_GET['domain'];
     $requestrecord = $_GET['record'];
 
+    // If request vars are unset, redirect
     if (isset($requestdns) && $requestdns != '' && isset($requestrecord) && $requestrecord != '') {}
       else { header('Location: ../list/dns.php'); }
 
+    // API Call
     $postvars = array(
       array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
       array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-dns-records','arg1' => $username,'arg2' => $requestdns, 'arg3' => 'json'));
@@ -29,14 +34,19 @@
         $curlstart++;
     } 
 
+    // Create arrays & vars from API result
     $admindata = json_decode(curl_exec($curl0), true)[$username];
     $useremail = $admindata[CONTACT];
     $recorddata = array_values(json_decode(curl_exec($curl1), true));
     $recordnumber = array_keys(json_decode(curl_exec($curl1), true));
-    $requestrecord = $requestrecord - 1;
-    if ($recordnumber[$requestrecord] == '') { header('Location: ../list/dns.php'); }
-?>
 
+    // Search through array to match requested id number to array number
+    $requestArr = array_column(json_decode(curl_exec($curl1), true), 'ID');
+    $requestrecord = array_search($_GET['record'], $requestArr);
+
+    // Redirect if requested id does not exist in array
+    if ($requestrecord == '') { header('Location: ../list/dns.php'); }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -222,11 +232,13 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="white-box">
-                            <form class="form-horizontal form-material">
+                            <form class="form-horizontal form-material" method="post" action="../change/dnsrecord.php">
                                 <div class="form-group">
                                     <label class="col-md-12">Domain</label>
                                     <div class="col-md-12">
                                         <input type="text" disabled value="<? print_r($requestdns); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
+                                        <input type="hidden" name="v_domain" value="<? print_r($requestdns); ?>"> 
+                                        <input type="hidden" name="v_id" value="<? print_r($recordnumber[$requestrecord]); ?>"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -244,12 +256,13 @@
                                 <div class="form-group">
                                     <label for="email" class="col-md-12">IP or Value</label>
                                     <div class="col-md-12">
-                                        <input type="text" value="<? print_r($recorddata[$requestrecord][VALUE]); ?>" class="form-control form-control-line" name="email" id="email"> </div>
+                                        <input type="text" name="v_value" value="<? print_r($recorddata[$requestrecord][VALUE]); ?>" class="form-control form-control-line" >
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="email" class="col-md-12">Priority</label>
                                     <div class="col-md-12">
-                                        <input type="text" value="<? print_r($recorddata[$requestrecord][PRIORITY]); ?>" class="form-control form-control-line" name="email" id="email"> 
+                                        <input type="text" name="v_priority" value="<? print_r($recorddata[$requestrecord][PRIORITY]); ?>" class="form-control form-control-line"> 
                                         <small class="form-text text-muted">Optional</small>
                                     </div>
                                 </div>
@@ -257,13 +270,13 @@
                                 <div class="form-group">
                                     <label for="email" class="col-md-12">Order</label>
                                     <div class="col-md-12">
-                                        <input type="text" value="<? print_r($recorddata[$requestrecord][ID]); ?>" class="form-control form-control-line" name="email" id="email"> 
+                                        <input type="text" name="v_id2" value="<? print_r($recorddata[$requestrecord][ID]); ?>" class="form-control form-control-line"> 
                                         <small class="form-text text-muted">Optional</small>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <button disabled class="btn btn-success">Update Record</button>
+                                        <button class="btn btn-success">Update Record</button>
                                     </div>
                                 </div>
                             </form>

@@ -132,17 +132,17 @@ $maildata = array_values(json_decode(curl_exec($curl1), true));
                         <li>
                             <a active href="#" class="waves-effect"><i  class="ti-user fa-fw"></i> </i> <span class="hide-menu"> <?php print_r($uname); ?><span class="fa arrow"></span></span>
                         </a>
-                    <ul class="nav nav-second-level collapse" aria-expanded="true">
+                    <ul class="nav nav-second-level collapse">
                         <li> <a href="../profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> My Account</span></a></li>
-                        <li> <a active href="../profile.php?settings=open" class="active"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> Account Setting</span></a></li>
+                        <li> <a active href="../profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> Account Setting</span></a></li>
                     </ul>
                     </li>
                 <li class="devider"></li>
-                <li> <a href="#" class="awaves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">Management <span class="fa arrow"></span> </span></a>
+                <li class="active"> <a href="#" class="awaves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">Management <span class="fa arrow"></span> </span></a>
                     <ul class="nav nav-second-level">
                         <li> <a href="../list/web.php"><i class="ti-world fa-fw"></i><span class="hide-menu">Web</span></a> </li>
                         <li> <a href="../list/dns.php"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">DNS</span></a> </li>
-                        <li> <a href="../list/mail.php"><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">Mail</span></a> </li>
+                        <li> <a href="../list/mail.php" class="active"><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">Mail</span></a> </li>
                         <li> <a href="../list/db.php"><i class="fa fa-database fa-fw"></i><span class="hide-menu">Database</span></a> </li>
                     </ul>
                 </li>
@@ -219,7 +219,7 @@ $maildata = array_values(json_decode(curl_exec($curl1), true));
                                     <th data-toggle="true"> Email Address </th>
                                     <th data-type="numeric"> Disk Usage </th>
                                     <th> Status </th>
-                                    <th data-type="date" data-format-string="YYYY-MM-DD"> Created </th>
+                                    <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> Created </th>
                                     <th data-sortable="false"> Action </th>
                                     <th data-breakpoints="all"> Quota </th>
                                     <th data-breakpoints="all"> Aliases </th>

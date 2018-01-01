@@ -223,22 +223,23 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="white-box">
-                            <form class="form-horizontal form-material">
+                            <form class="form-horizontal form-material" method="post" action="../change/dns.php">
                                 <div class="form-group">
                                     <label class="col-md-12">Domain</label>
                                     <div class="col-md-12">
                                         <input type="text" disabled value="<? print_r($dnsname[0]); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
+                                        <input type="hidden" name="v_domain" value="<? print_r($dnsname[0]); ?>"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="email" class="col-md-12">IP Address</label>
                                     <div class="col-md-12">
-                                        <input type="text" value="<? print_r($dnsdata[0][IP]); ?>" class="form-control form-control-line" name="email" id="email"> </div>
+                                        <input type="text" name="v_ip" value="<? print_r($dnsdata[0][IP]); ?>" class="form-control form-control-line" name="email" id="email"> </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">DNS Template</label>
                                     <div class="col-md-12">
-                                        <select class="form-control select2" name="language" id="select2">
+                                        <select class="form-control select2" name="v_tpl" id="select2">
                                             <?php
                                                     if($dnstpl[0] != '') {
                                                         $x1 = 0; 
@@ -257,7 +258,7 @@
 
                                     <div class="col-md-12">
                                         <div class="input-group date">
-                                            <input type="text" class="form-control datepicker" value="<?php echo date("m/d/Y", strtotime($dnsdata[0][EXP])); ?>">
+                                            <input type="text" class="form-control datepicker" name="v_exp" value="<?php echo date("m/d/Y", strtotime($dnsdata[0][EXP])); ?>">
                                             <span class="input-group-addon">
                                                 <i class="icon-calender">
                                                 </i>
@@ -269,16 +270,16 @@
                                 <div class="form-group">
                                     <label for="email" class="col-md-12">SOA (Start of Authority)</label>
                                     <div class="col-md-12">
-                                        <input type="text" value="<? print_r($dnsdata[0][SOA]); ?>" class="form-control form-control-line" name="email" id="email"> </div>
+                                        <input type="text" name="v_soa" value="<? print_r($dnsdata[0][SOA]); ?>" class="form-control form-control-line" name="email" id="email"> </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="email" class="col-md-12">TTL (Time To Live)</label>
                                     <div class="col-md-12">
-                                        <input type="text" value="<? print_r($dnsdata[0][TTL]); ?>" class="form-control form-control-line" name="email" id="email"> </div>
+                                        <input type="text" name="v_ttl" value="<? print_r($dnsdata[0][TTL]); ?>" class="form-control form-control-line" name="email" id="email"> </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <button disabled class="btn btn-success">Update Domain</button>
+                                        <button class="btn btn-success">Update Domain</button>
                                     </div>
                                 </div>
                             </form>
