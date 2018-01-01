@@ -41,7 +41,7 @@
 ***REMOVED***  
 
     <!DOCTYPE html>
-    <w lang="en">
+    <html lang="en">
 
     <head>
         <meta charset="utf-8">
@@ -536,7 +536,7 @@ echo "<script> swal({title: '"; echo "Action Complete!', type: 'success'***REMOV
                                             <h2>
                                                 ***REMOVED*** print_r($admindata[U_DISK]); ***REMOVED*** mb</h2> <small>Total Disk Space</small>
                                             <div class="pull-right">
-                                                ***REMOVED*** $diskpercent = (($admindata[U_DISK] / $admindata[DISK_QUOTA]) * 100); if(is_infinite($diskpercent)){ echo "0";***REMOVED***elseif(!is_int($diskpercent)){echo '0';***REMOVED******REMOVED***echo $diskpercent;***REMOVED*** ***REMOVED***%</div>
+                                                ***REMOVED*** $diskpercent = (($admindata[U_DISK] / $admindata[DISK_QUOTA]) * 100); if(is_infinite($diskpercent)){ echo "0";***REMOVED******REMOVED***echo $diskpercent;***REMOVED*** ***REMOVED***%</div>
                                             <div class="progress">
                                                 <div class="progress-bar progress-bar-inverse" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent == "INF"){ echo "0";***REMOVED******REMOVED***echo $diskpercent;***REMOVED*** ***REMOVED***%;">% Complete</span></div>
                                             </div>
@@ -548,7 +548,7 @@ echo "<script> swal({title: '"; echo "Action Complete!', type: 'success'***REMOV
                                             <h2>
                                                 ***REMOVED*** $diskpercent1 = (($admindata[U_DISK_WEB] / $admindata[U_DISK]) * 100); echo $admindata[U_DISK_WEB]; ***REMOVED*** mb</h2> <small>Web Data</small>
                                             <div class="pull-right">
-                                                ***REMOVED*** if($diskpercent1 == "INF"){ echo "0";***REMOVED***elseif(!is_int($diskpercent1)){echo '0';***REMOVED******REMOVED***echo round($diskpercent1);***REMOVED*** ***REMOVED***%</div>
+                                                ***REMOVED*** if($diskpercent1 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent1);***REMOVED*** ***REMOVED***%</div>
                                             <div class="progress">
                                                 <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent1 == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent1;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent1 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent1);***REMOVED*** ***REMOVED***% Complete</span></div>
                                             </div>
@@ -557,7 +557,7 @@ echo "<script> swal({title: '"; echo "Action Complete!', type: 'success'***REMOV
                                             <h2>
                                                 ***REMOVED*** $diskpercent2 = (($admindata[U_DISK_MAIL] / $admindata[U_DISK]) * 100); echo $admindata[U_DISK_MAIL]; ***REMOVED*** mb</h2> <small>Mail Data</small>
                                             <div class="pull-right">
-                                                ***REMOVED*** if($diskpercent2 == "INF"){ echo "0";***REMOVED***elseif(!is_int($diskpercent2)){echo '0';***REMOVED******REMOVED***echo round($diskpercent2);***REMOVED*** ***REMOVED***%</div>
+                                                ***REMOVED*** if($diskpercent2 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent2);***REMOVED*** ***REMOVED***%</div>
                                             <div class="progress">
                                                 <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent2 == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent2;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent2 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent2);***REMOVED*** ***REMOVED***% Complete</span></div>
                                             </div>
@@ -566,7 +566,7 @@ echo "<script> swal({title: '"; echo "Action Complete!', type: 'success'***REMOV
                                             <h2>
                                                 ***REMOVED*** $diskpercent3 = (($admindata[U_DISK_DB] / $admindata[U_DISK]) * 100); echo $admindata[U_DISK_DB]; ***REMOVED*** mb</h2> <small>Databases</small>
                                             <div class="pull-right">
-                                                ***REMOVED*** if($diskpercent3 == "INF"){ echo "0";***REMOVED***elseif(!is_int($diskpercent3)){echo '0';***REMOVED******REMOVED***echo round($diskpercent3);***REMOVED*** ***REMOVED***%</div>
+                                                ***REMOVED*** if($diskpercent3 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent3);***REMOVED*** ***REMOVED***%</div>
                                             <div class="progress">
                                                 <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent3 == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent3;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent3 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent3);***REMOVED*** ***REMOVED***% Complete</span></div>
                                             </div>
@@ -575,7 +575,7 @@ echo "<script> swal({title: '"; echo "Action Complete!', type: 'success'***REMOV
                                             <h2>
                                                 ***REMOVED*** $diskpercent4 = (($admindata[U_DISK_DIRS] / $admindata[U_DISK]) * 100); echo $admindata[U_DISK_DIRS]; ***REMOVED*** mb</h2> <small>User Directories</small>
                                             <div class="pull-right">
-                                                ***REMOVED*** if($diskpercent4 == "INF"){ echo "0";***REMOVED***elseif(!is_int($diskpercent4)){echo '0';***REMOVED******REMOVED***echo round($diskpercent4);***REMOVED*** ***REMOVED***%</div>
+                                                ***REMOVED*** if($diskpercent4 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent4);***REMOVED*** ***REMOVED***%</div>
                                             <div class="progress">
                                                 <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent4 == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent4;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent4 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent4);***REMOVED*** ***REMOVED***% Complete</span></div>
                                             </div>
