@@ -244,13 +244,13 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                             <input type="hidden" name="v_ip-x" value="***REMOVED*** echo $domaindata[0][IP]; ***REMOVED***">
                                             <select class="form-control select1" name="v_ip" id="select1">
                                                 ***REMOVED***
-    if($userips[0] != '') {
-        $x4 = 0; 
+                                                if($userips[0] != '') {
+                                                    $x4 = 0; 
 
-        do {
-            echo '<option value="' . $userips[$x4] . '">' . $userips[$x4] . '</option>';
-            $x4++;
-        ***REMOVED*** while ($userips[$x4] != ''); ***REMOVED***
+                                                    do {
+                                                        echo '<option value="' . $userips[$x4] . '">' . $userips[$x4] . '</option>';
+                                                        $x4++;
+                                                    ***REMOVED*** while ($userips[$x4] != ''); ***REMOVED***
 
                                                 ***REMOVED***
                                             </select>
@@ -261,14 +261,14 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                         <div class="col-md-12">
                                             <input type="hidden" name="v_alias-x" value="***REMOVED*** echo $domaindata[0][ALIAS]; ***REMOVED***"> 
                                             <textarea class="form-control" rows="4" name="v_alias">***REMOVED*** 
-    $aliasArray = explode(',', ($domaindata[0][ALIAS]));
+                                                $aliasArray = explode(',', ($domaindata[0][ALIAS]));
 
-                                                   foreach ($aliasArray as &$value) {
-                                                       $value = $value . "&#013;&#010;";
-                                                   ***REMOVED***
-                                                   foreach($aliasArray as $val) {
-                                                       echo $val;
-                                                   ***REMOVED*** ***REMOVED***</textarea>
+                                                foreach ($aliasArray as &$value) {
+                                                    $value = $value . "&#013;&#010;";
+                                                ***REMOVED***
+                                                foreach($aliasArray as $val) {
+                                                    echo $val;
+                                                ***REMOVED*** ***REMOVED***</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -276,13 +276,13 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                         <div class="col-md-12">
                                             <input type="hidden" name="v_tpl-x" value="***REMOVED*** echo $domaindata[0][TPL]; ***REMOVED***">
                                             <select class="form-control select2" name="v_tpl" id="select2">***REMOVED***
-    if($webtemplates[0] != '') {
-        $x1 = 0; 
+                                                if($webtemplates[0] != '') {
+                                                    $x1 = 0; 
 
-        do {
-            echo '<option value="' . $webtemplates[$x1] . '">' . $webtemplates[$x1] . '</option>';
-            $x1++;
-        ***REMOVED*** while ($webtemplates[$x1] != ''); ***REMOVED***
+                                                    do {
+                                                        echo '<option value="' . $webtemplates[$x1] . '">' . $webtemplates[$x1] . '</option>';
+                                                        $x1++;
+                                                    ***REMOVED*** while ($webtemplates[$x1] != ''); ***REMOVED***
 
                                                 ***REMOVED***</select>
                                         </div>
@@ -304,13 +304,13 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                                 <input type="hidden" name="v_prxtpl-x" value="***REMOVED*** echo $domaindata[0][PROXY]; ***REMOVED***">
                                                 <select class="form-control select3" name="v_prxtpl" id="select3">
                                                     ***REMOVED***
-    if($proxytemplates[0] != '') {
-        $x2 = 0; 
+                                                    if($proxytemplates[0] != '') {
+                                                        $x2 = 0; 
 
-        do {
-            echo '<option value="' . $proxytemplates[$x2] . '">' . $proxytemplates[$x2] . '</option>';
-            $x2++;
-        ***REMOVED*** while ($proxytemplates[$x2] != ''); ***REMOVED***
+                                                        do {
+                                                            echo '<option value="' . $proxytemplates[$x2] . '">' . $proxytemplates[$x2] . '</option>';
+                                                            $x2++;
+                                                        ***REMOVED*** while ($proxytemplates[$x2] != ''); ***REMOVED***
 
                                                     ***REMOVED***
                                                 </select>
@@ -395,13 +395,13 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                             <input type="hidden" name="v_webstats-x" value="***REMOVED*** if ($domaindata[0][STATS] == '') {echo 'none'; ***REMOVED*** else { echo $domaindata[0][STATS]; ***REMOVED*** ***REMOVED***">
                                             <select class="form-control select6" name="v_webstats" onchange="showauth()" id="select6">
                                                 ***REMOVED***
-    if($webstats[0] != '') {
-        $x6 = 0; 
+                                                if($webstats[0] != '') {
+                                                    $x6 = 0; 
 
-        do {
-            echo '<option value="' . $webstats[$x6] . '">' . $webstats[$x6] . '</option>';
-            $x6++;
-        ***REMOVED*** while ($webstats[$x6] != ''); ***REMOVED***
+                                                    do {
+                                                        echo '<option value="' . $webstats[$x6] . '">' . $webstats[$x6] . '</option>';
+                                                        $x6++;
+                                                    ***REMOVED*** while ($webstats[$x6] != ''); ***REMOVED***
 
                                                 ***REMOVED***
                                             </select>
@@ -483,7 +483,8 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success">Update Domain</button>
+                                            <button class="btn btn-success" type="submit">Update Domain</button> &nbsp;
+                                            <a href="../list/web.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">Back</button></a>
                                         </div>
                                     </div>
                                 </form>

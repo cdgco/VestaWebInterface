@@ -205,7 +205,8 @@ $useremail = $admindata[CONTACT];
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success">Add Cron</button>
+                                            <button class="btn btn-success">Add Cron</button> &nbsp;
+                                            <a href="../list/cron.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">Back</button></a>
                                         </div>
                                     </div>
                                 </div>

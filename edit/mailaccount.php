@@ -286,7 +286,8 @@ $autoreplyname = array_keys(json_decode(curl_exec($curl2), true));
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button disabled class="btn btn-success">Update Account</button>
+                                            <button disabled class="btn btn-success">Update Account</button> &nbsp;
+                                            <a href="../list/maildomain.php?domain=***REMOVED*** echo $requestdomain; ***REMOVED***" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">Back</button></a>
                                         </div>
                                     </div>
                                 </form>
