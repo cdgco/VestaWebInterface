@@ -1,4 +1,5 @@
-# Vesta Web Interface
+![VWI Banner](https://raw.githubusercontent.com/cdgco/VestaWebInterface/master/VWI%20Banner.png)
+
 
 Preview Available for CDG Host Users (https://host.cdgtech.one)
 
