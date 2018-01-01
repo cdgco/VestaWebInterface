@@ -236,7 +236,7 @@
     <script src="../plugins/bower_components/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
     <script src="../plugins/bower_components/custom-select/custom-select.min.js"></script>
     <script src="../js/footable-init.js"></script>
-    <script src="../js/custom.min.js"></script>
+    <script src="../js/custom.js"></script>
     <script src="../js/dashboard1.js"></script>
     <script src="../js/cbpFWTabs.js"></script>
     <script src="../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>

@@ -234,7 +234,7 @@ ob_start();
 <!--Wave Effects -->
 <script src="js/waves.js"></script>
 <!-- Custom Theme JavaScript -->
-<script src="js/custom.min.js"></script>
+<script src="js/custom.js"></script>
 <!--Style Switcher -->
 <script src="plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
 </body>
