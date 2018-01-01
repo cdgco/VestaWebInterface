@@ -254,7 +254,8 @@ if ($cronname[0] == '') { header('Location: ../list/cron.php'); }
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success">Update Cron</button>
+                                            <button class="btn btn-success">Update Cron</button> &nbsp;
+                                            <a href="../list/cron.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">Back</button></a>
                                         </div>
                                     </div>
                                 </div>

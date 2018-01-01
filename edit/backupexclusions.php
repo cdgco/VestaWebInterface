@@ -226,7 +226,8 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button disabled class="btn btn-success">Save</button>
+                                            <button disabled class="btn btn-success">Save</button> &nbsp;
+                                            <a href="../list/backups.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">Back</button></a>
                                         </div>
                                     </div>
                                 </form>
