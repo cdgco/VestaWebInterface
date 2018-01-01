@@ -9,9 +9,11 @@ Live Demo: https://cpanel.cdgtech.one/
 ## To-Do
 
 #### Basic Functions:
-- [ ] Additional FTP Support (Needs Backend Integration)
+- [ ] Addition FTP Support
+- [ ] Multiple Additional FTP Support (Possible Backend Integration)
 - [ ] Custom SSL Support (Needs Backend Integration)
 - [ ] Process Backup Exclusions (Needs Backend Integration)
+- [ ] Email Notifications (Possible Backend Integration)
 
 #### Added Functionality / Bug Fixes / Code Cleanup:
 - [ ] Add Delete Buttons to 'edit' Pages
