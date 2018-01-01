@@ -1,11 +1,8 @@
 ![VWI Banner](https://raw.githubusercontent.com/cdgco/VestaWebInterface/master/VWI%20Banner.png)
 
-
 Preview Available for CDG Host Users (https://host.cdgtech.one)
 
-Development Directory: https://ide.cdgtech.one/dev
-
-Live Demo: https://cpanel.cdgtech.one/
+Live Preview: https://ide.cdgtech.one/dev
 
 ## Install
 1. Download and install the latest release to a web server (does not have to be running vesta).
