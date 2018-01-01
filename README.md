@@ -9,7 +9,6 @@ Live Demo: https://cpanel.cdgtech.one/
 ## To-Do
 
 #### Basic Functions:
-- [ ] Process Edit Mail Account
 - [ ] Additional FTP Support (Needs Backend Integration)
 - [ ] Custom SSL Support (Needs Backend Integration)
 - [ ] Process Backup Exclusions (Needs Backend Integration)
