@@ -9,13 +9,6 @@ Live Demo: https://cpanel.cdgtech.one/
 ## To-Do
 
 #### Basic Functions:
-- [X] List Backup (Restore)
-- [X] List Backup Exclusions
-- [X] CSR Support
-- [X] Let's Encrypt Support
-- [X] PW Reset System (Backend Integration)
-- [X] 'Backups' Download System (Backend Integration)
-- [X] Support for Web Stats Users
 - [ ] Additional FTP Support (Possible Backend Integration)
 - [ ] SSL Support (Needs Backend Integration)
 - [ ] Process Edit Backup Exclusions (Needs Backend Integration)
