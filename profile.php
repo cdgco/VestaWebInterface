@@ -42,7 +42,7 @@ $admindata = json_decode(curl_exec($curl0), true)[$username];
         <link href="plugins/bower_components/custom-select/custom-select.css" rel="stylesheet">
         <link href="css/animate.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-        <link href="css/colors/blue.css" id="theme" rel="stylesheet">
+        <link href="css/colors/<?php echo $themecolor; ?>" id="theme" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.css" rel="stylesheet" />
         <style>
             .select2-results{

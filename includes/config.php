@@ -8,6 +8,7 @@
 // CPANEL SETTINGS //
 date_default_timezone_set('America/Los_Angeles'); // Server Time Zone - See http://php.net/manual/en/timezones.php for syntax.
 DEFINE('SITE_NAME', 'My Host'); // Site name for use in page titles. Ex: 'My Host Company'.
+DEFINE('THEME', 'default'); // Accepted options are 'default', 'blue', 'purple' and 'orange'
 
 // VESTA API SETTINGS //
 DEFINE('VESTA_HOST_ADDRESS', 'myhost.com'); // URL or IP Address of VestaCP. Ex: 'myhost.com' or '12.34.56.78'.
@@ -92,6 +93,7 @@ $vst_url = $vst_ssl . VESTA_HOST_ADDRESS . ':' . $vesta_port . '/api/';
 $url8083 = $vst_ssl . VESTA_HOST_ADDRESS . ':' . $vesta_port;
 $vst_username = VESTA_ADMIN_UNAME;
 $vst_password = VESTA_ADMIN_PW;
+$themecolor = THEME . '.css';
 $uname = base64_decode($_COOKIE['username']);
 $loggedin = base64_decode($_COOKIE['loggedin']);
 $username = $uname;
