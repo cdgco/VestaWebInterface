@@ -9,7 +9,7 @@ Live Demo: https://cpanel.cdgtech.one/
 
 ## Install
 1. Download and install the latest release to a web server (does not have to be running vesta).
-2. Edit the config file in the includes folder.
+2. Edit the config-example.php file in the includes folder and rename it to config.php
 3. Copy the contents of the 'install/web' folder to your vesta server (/usr/local/vesta/web) over sftp or by running the install script (coming soon).
 
 ## To-Do
