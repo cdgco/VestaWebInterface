@@ -22,7 +22,6 @@ Live Demo: https://cpanel.cdgtech.one/
 
 #### Added Functionality / Bug Fixes / Code Cleanup:
 - [ ] Add Delete Buttons to 'edit' Pages
-- [ ] Fix Divide By 0 Errors
 - [ ] Process Loaders & Response Code Notifications
 - [ ] Format, Unify, Minify and Fix Compiling Issues
 - [ ] Update Menu Items
