@@ -169,7 +169,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="white-box">
-                            <form class="form-horizontal form-material" method="post" action="csr.php">
+                            <form class="form-horizontal form-material" autocomplete="off" method="post" action="csr.php">
                                 <div class="form-group">
                                     <label class="col-md-12">Domain</label>
                                     <div class="col-md-12">
@@ -179,7 +179,7 @@
                                 <div class="form-group">
                                     <label class="col-md-12">Email</label>
                                     <div class="col-md-12">
-                                        <input type="email" name="email" value="admin@***REMOVED*** echo $requestdomain; ***REMOVED***" class="form-control"> 
+                                        <input type="email" name="email" autocomplete="new-password" value="admin@***REMOVED*** echo $requestdomain; ***REMOVED***" class="form-control"> 
                                     </div>
                                 </div>
                                 <div class="form-group">

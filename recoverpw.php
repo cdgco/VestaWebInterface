@@ -41,7 +41,7 @@ $confirm = "block";
 <section style="display:***REMOVED*** print_r($code); ***REMOVED***" id="wrapper" class="login-register">
   <div class="login-box">
     <div class="white-box">
-      <form class="form-horizontal form-material" id="loginform" action="https://host.cdgtech.one:8083/reset/reset.php">
+      <form class="form-horizontal form-material" autocomplete="off" id="loginform" action="https://host.cdgtech.one:8083/reset/reset.php">
         <h3 class="box-title m-b-20">Recover Password</h3>
         <div class="form-group ">
           <div class="col-xs-12">
@@ -62,15 +62,15 @@ $confirm = "block";
 <section style="display:***REMOVED*** print_r($confirm); ***REMOVED***" id="wrapper" class="login-register">
   <div class="login-box">
     <div class="white-box">
-      <form class="form-horizontal form-material" id="loginform" action="https://host.cdgtech.one:8083/reset/reset1.php">
+      <form class="form-horizontal form-material" autocomplete="off" id="loginform" action="https://host.cdgtech.one:8083/reset/reset1.php">
         <h3 class="box-title m-b-20">Confirm Password</h3>
         <div class="form-group ">
           <div class="col-xs-12">
             <input type="hidden" name="action" value="confirm">
             <input type="hidden" name="user" value="***REMOVED*** print_r($_GET['user']); ***REMOVED***">
             <input type="hidden" name="user" value="***REMOVED*** print_r($_GET['code']); ***REMOVED***">
-            <input class="form-control" type="password" name="password" required="" placeholder="New Password">
-            <input class="form-control" type="password" name="password_confirm" required="" placeholder="Confirm Password">
+            <input class="form-control" type="password" autocomplete="new-password" name="password" required="" placeholder="New Password">
+            <input class="form-control" type="password" autocomplete="new-password" name="password_confirm" required="" placeholder="Confirm Password">
           </div>
         </div>
         <div class="form-group text-center m-t-20">

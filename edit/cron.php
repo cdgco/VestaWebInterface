@@ -218,7 +218,7 @@ if ($cronname[0] == '') { header('Location: ../list/cron.php'); ***REMOVED***
                         </div>
                     </div>
                     <div class="row">
-                        <form class="form-horizontal form-material" id="vstobjects" method="post" action="../change/cron.php">
+                        <form class="form-horizontal form-material" autocomplete="off" id="vstobjects" method="post" action="../change/cron.php">
                             <input type="hidden" name="v_job" value="***REMOVED*** echo $requestjob; ***REMOVED***"> 
                             <div class="col-md-8 col-xs-12">
                                 <div class="white-box">
@@ -282,7 +282,7 @@ if ($cronname[0] == '') { header('Location: ../list/cron.php'); ***REMOVED***
                                         </ul>
                                         <div class="tab-content  generator">
                                             <div class="tab-pane active" id="1">
-                                                <form class="form-horizontal form-material" action="javascript:void(0);">
+                                                <form class="form-horizontal form-material" autocomplete="off" action="javascript:void(0);">
                                                     <div class="form-group">
                                                         <label class="col-md-12">Run Command</label>
                                                         <div class="col-md-12">
@@ -308,7 +308,7 @@ if ($cronname[0] == '') { header('Location: ../list/cron.php'); ***REMOVED***
                                                 </form>
                                             </div>
                                             <div class="tab-pane" id="2">
-                                                <form class="form-horizontal form-material" action="javascript:void(0);">
+                                                <form class="form-horizontal form-material" autocomplete="off" action="javascript:void(0);">
                                                     <input type="hidden" name="h_day" value="*">
                                                     <input type="hidden" name="h_month" value="*">
                                                     <input type="hidden" name="h_wday" value="*">
@@ -342,7 +342,7 @@ if ($cronname[0] == '') { header('Location: ../list/cron.php'); ***REMOVED***
                                                 </form>
                                             </div>
                                             <div class="tab-pane" id="3">
-                                                <form class="form-horizontal form-material" action="javascript:void(0);">
+                                                <form class="form-horizontal form-material" autocomplete="off" action="javascript:void(0);">
                                                     <input type="hidden" name="h_month" value="*">
                                                     <input type="hidden" name="h_wday" value="*">
                                                     <div class="form-group">
@@ -417,7 +417,7 @@ if ($cronname[0] == '') { header('Location: ../list/cron.php'); ***REMOVED***
                                                 </form>
                                             </div>
                                             <div class="tab-pane" id="4">
-                                                <form class="form-horizontal form-material" action="javascript:void(0);">
+                                                <form class="form-horizontal form-material" autocomplete="off" action="javascript:void(0);">
                                                     <input type="hidden" name="h_month" value="*">
                                                     <input type="hidden" name="h_day" value="*">
                                                     <div class="form-group">
@@ -494,7 +494,7 @@ if ($cronname[0] == '') { header('Location: ../list/cron.php'); ***REMOVED***
                                                 </form>
                                             </div>
                                             <div class="tab-pane" id="5">
-                                                <form class="form-horizontal form-material" action="javascript:void(0);">
+                                                <form class="form-horizontal form-material" autocomplete="off" action="javascript:void(0);">
                                                     <input type="hidden" name="h_wday" value="*">
                                                     <div class="form-group">
                                                         <label class="col-md-12">Run Command</label>

@@ -32,7 +32,7 @@
 <section id="wrapper" class="login-register">
   <div class="login-box">
     <div class="white-box">
-      <form class="form-horizontal form-material" id="loginform" action="/reset/reset.php">
+      <form class="form-horizontal form-material" autocomplete="off" id="loginform" action="/reset/reset.php">
 <div class="alert alert-info alert-dismissable">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> Please check your email and enter the verification code below.</div>
 <div style="height:20px">***REMOVED*** if (isset($ERROR)) echo $ERROR ***REMOVED***</div>

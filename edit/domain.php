@@ -236,7 +236,7 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box">
-                                <form class="form-horizontal form-material" autocomplete="off" method="post" action="../change/domain.php">
+                                <form class="form-horizontal form-material" autocomplete="off" autocomplete="off" method="post" action="../change/domain.php">
                                     <div class="form-group" style="overflow: visible;">
                                         <label class="col-md-12">IP Address</label>
                                         <div class="col-md-12">

@@ -32,7 +32,7 @@
 <section id="wrapper" class="login-register">
   <div class="login-box">
     <div class="white-box">
-      <form class="form-horizontal form-material" id="loginform" method="post">
+      <form class="form-horizontal form-material" autocomplete="off" id="loginform" method="post">
         <h3 class="box-title m-b-20">Confirm Password</h3>
         <div class="form-group ">
           <div class="col-xs-12">

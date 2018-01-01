@@ -168,7 +168,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="white-box">
-                            <form class="form-horizontal form-material" method="post" action="../create/dnsrecord.php">
+                            <form class="form-horizontal form-material" autocomplete="off" method="post" action="../create/dnsrecord.php">
                                 <div class="form-group">
                                     <label class="col-md-12">Domain</label>
                                     <div class="col-md-12">
@@ -179,7 +179,7 @@
                                 <div class="form-group">
                                     <label class="col-md-12">Record</label>
                                     <div class="col-md-12">
-                                        <input type="text" name="v_record" class="form-control form-control-line"> 
+                                        <input type="text" name="v_record" autocomplete="new-password" class="form-control form-control-line"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -205,12 +205,12 @@
                                 <div class="form-group">
                                     <label for="email" class="col-md-12">IP or Value</label>
                                     <div class="col-md-12">
-                                        <input type="text" name="v_value" value="<? print_r($recorddata[$requestrecord][VALUE]); ***REMOVED***" class="form-control form-control-line"> </div>
+                                        <input type="text" name="v_value" autocomplete="new-password" value="<? print_r($recorddata[$requestrecord][VALUE]); ***REMOVED***" class="form-control form-control-line"> </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="email" class="col-md-12">Priority</label>
                                     <div class="col-md-12">
-                                        <input type="text" name="v_priority" value="<? print_r($recorddata[$requestrecord][PRIORITY]); ***REMOVED***" class="form-control form-control-line"> 
+                                        <input type="text" name="v_priority" autocomplete="new-password" value="<? print_r($recorddata[$requestrecord][PRIORITY]); ***REMOVED***" class="form-control form-control-line"> 
                                         <small class="form-text text-muted">Optional</small>
                                     </div>
                                 </div>
