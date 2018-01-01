@@ -236,19 +236,21 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box">
-                                <form class="form-horizontal form-material" autocomplete="off">
+                                <form class="form-horizontal form-material" autocomplete="off" method="post" action="../change/domain.php">
                                     <div class="form-group" style="overflow: visible;">
                                         <label class="col-md-12">IP Address</label>
                                         <div class="col-md-12">
-                                            <select class="form-control select1" name="language" id="select1">
+                                            <input type="hidden" name="v_domain" value="***REMOVED*** echo $requestdomain; ***REMOVED***">
+                                            <input type="hidden" name="v_ip-x" value="***REMOVED*** echo $domaindata[0][IP]; ***REMOVED***">
+                                            <select class="form-control select1" name="v_ip" id="select1">
                                                 ***REMOVED***
-                                                if($userips[0] != '') {
-                                                    $x4 = 0; 
+    if($userips[0] != '') {
+        $x4 = 0; 
 
-                                                    do {
-                                                        echo '<option value="' . $userips[$x4] . '">' . $userips[$x4] . '</option>';
-                                                        $x4++;
-                                                    ***REMOVED*** while ($userips[$x4] != ''); ***REMOVED***
+        do {
+            echo '<option value="' . $userips[$x4] . '">' . $userips[$x4] . '</option>';
+            $x4++;
+        ***REMOVED*** while ($userips[$x4] != ''); ***REMOVED***
 
                                                 ***REMOVED***
                                             </select>
@@ -257,40 +259,40 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                     <div class="form-group">
                                         <label class="col-md-12">Aliases</label>
                                         <div class="col-md-12">
-                                            <textarea class="form-control" rows="4" id="aliasTextArea">
-                                                ***REMOVED*** $aliasArray = explode(',', ($domaindata[0][ALIAS]));
+                                            <input type="hidden" name="v_alias-x" value="***REMOVED*** echo $domaindata[0][ALIAS]; ***REMOVED***"> 
+                                            <textarea class="form-control" rows="4" name="v_alias">***REMOVED*** 
+    $aliasArray = explode(',', ($domaindata[0][ALIAS]));
 
-                                                foreach ($aliasArray as &$value) {
-                                                    $value = $value . "&#013;&#010;";
-                                                ***REMOVED***
-                                                foreach($aliasArray as $val) {
-                                                    echo $val;
-                                                ***REMOVED*** ***REMOVED***
-                                            </textarea>
+                                                   foreach ($aliasArray as &$value) {
+                                                       $value = $value . "&#013;&#010;";
+                                                   ***REMOVED***
+                                                   foreach($aliasArray as $val) {
+                                                       echo $val;
+                                                   ***REMOVED*** ***REMOVED***</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Web Template</label>
                                         <div class="col-md-12">
-                                            <select class="form-control select2" name="language" id="select2">
-                                                ***REMOVED***
-                                                if($webtemplates[0] != '') {
-                                                    $x1 = 0; 
+                                            <input type="hidden" name="v_tpl-x" value="***REMOVED*** echo $domaindata[0][TPL]; ***REMOVED***">
+                                            <select class="form-control select2" name="v_tpl" id="select2">***REMOVED***
+    if($webtemplates[0] != '') {
+        $x1 = 0; 
 
-                                                    do {
-                                                        echo '<option value="' . $webtemplates[$x1] . '">' . $webtemplates[$x1] . '</option>';
-                                                        $x1++;
-                                                    ***REMOVED*** while ($webtemplates[$x1] != ''); ***REMOVED***
+        do {
+            echo '<option value="' . $webtemplates[$x1] . '">' . $webtemplates[$x1] . '</option>';
+            $x1++;
+        ***REMOVED*** while ($webtemplates[$x1] != ''); ***REMOVED***
 
-                                                ***REMOVED***
-                                            </select>
+                                                ***REMOVED***</select>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Proxy Support</label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
-                                                <input id="checkbox4" type="checkbox" onclick="checkDiv();" ***REMOVED*** if($domaindata[0][PROXY] == '') {***REMOVED*** else {echo 'checked';***REMOVED*** ***REMOVED*** >
+                                                <input type="hidden" name="v_prxenabled-x" value="***REMOVED*** if($domaindata[0][PROXY] != '') {echo 'yes';***REMOVED*** ***REMOVED***">
+                                                <input id="checkbox4" type="checkbox" name="v_prxenabled" onclick="checkDiv();" ***REMOVED*** if($domaindata[0][PROXY] != '') {echo 'checked';***REMOVED*** ***REMOVED*** >
                                                 <label for="checkbox4"> Enabled </label>
                                             </div>
                                         </div>
@@ -299,15 +301,16 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                         <div class="form-group">
                                             <label class="col-md-12">Proxy Template</label>
                                             <div class="col-md-12">
-                                                <select class="form-control select3" name="language" id="select3">
+                                                <input type="hidden" name="v_prxtpl-x" value="***REMOVED*** echo $domaindata[0][PROXY]; ***REMOVED***">
+                                                <select class="form-control select3" name="v_prxtpl" id="select3">
                                                     ***REMOVED***
-                                                    if($proxytemplates[0] != '') {
-                                                        $x2 = 0; 
+    if($proxytemplates[0] != '') {
+        $x2 = 0; 
 
-                                                        do {
-                                                            echo '<option value="' . $proxytemplates[$x2] . '">' . $proxytemplates[$x2] . '</option>';
-                                                            $x2++;
-                                                        ***REMOVED*** while ($proxytemplates[$x2] != ''); ***REMOVED***
+        do {
+            echo '<option value="' . $proxytemplates[$x2] . '">' . $proxytemplates[$x2] . '</option>';
+            $x2++;
+        ***REMOVED*** while ($proxytemplates[$x2] != ''); ***REMOVED***
 
                                                     ***REMOVED***
                                                 </select>
@@ -316,9 +319,8 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                         <div class="form-group">
                                             <label class="col-md-12">Proxy Extensions</label>
                                             <div class="col-md-12">
-                                                <textarea class="form-control" rows="2" id="prxTextArea">
-                                                    ***REMOVED*** echo $domaindata[0][PROXY_EXT]; ***REMOVED***
-                                                </textarea>
+                                                <input type="hidden" name="v_prxext-x" value="***REMOVED*** echo $domaindata[0][PROXY_EXT]; ***REMOVED***">
+                                                <textarea class="form-control" rows="2" id="prxext" name="v_prxext">***REMOVED*** echo $domaindata[0][PROXY_EXT]; ***REMOVED***</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -326,7 +328,8 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                         <label class="col-md-12">SSL Support</label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
-                                                <input id="checkbox5" type="checkbox" onclick="checkDiv2();" ***REMOVED*** if($domaindata[0][SSL] == 'no') {***REMOVED*** else {echo 'checked';***REMOVED*** ***REMOVED*** >
+                                                <input type="hidden" name="v_sslenabled-x" value="***REMOVED*** echo $domaindata[0][SSL]; ***REMOVED***">
+                                                <input id="checkbox5" type="checkbox" name="v_sslenabled" onclick="checkDiv2();" ***REMOVED*** if($domaindata[0][SSL] == 'no') {***REMOVED*** else {echo 'checked';***REMOVED*** ***REMOVED*** >
                                                 <label for="checkbox5"> Enabled </label>
                                             </div>
                                         </div>
@@ -336,7 +339,8 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                             <label class="col-md-12">Let's Encrypt Support</label>
                                             <div class="col-md-12">
                                                 <div class="checkbox checkbox-info">
-                                                    <input id="checkbox6" type="checkbox">
+                                                    <input type="hidden" name="v_leeanbled-x" value="***REMOVED*** echo $domaindata[0][LETSENCRYPT]; ***REMOVED***">
+                                                    <input id="checkbox6" name="v_leenabled" type="checkbox" ***REMOVED*** if($domaindata[0][LETSENCRYPT] == 'no') {***REMOVED*** else {echo 'checked';***REMOVED*** ***REMOVED***>
                                                     <label for="checkbox6"> Enabled </label>
                                                 </div>
                                             </div>
@@ -345,31 +349,32 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                         <div class="form-group">
                                             <label class="col-md-12">SSL Directory</label>
                                             <div class="col-md-12">
-                                                <select class="form-control select3" name="language" id="select3">
-                                                    <option value="public_html" ***REMOVED*** if($domaindata[0][SSL_HOME] == 'same') {echo 'selected';***REMOVED*** ***REMOVED***>public_html</option>
-                                                    <option value="public_shtml" ***REMOVED*** if($domaindata[0][SSL_HOME] == 'single') {echo 'selected';***REMOVED*** ***REMOVED***>public_shtml</option>
+                                                <input type="hidden" name="v_ssldir-x" value="***REMOVED*** echo $domaindata[0][SSL_HOME]; ***REMOVED***">
+                                                <select class="form-control" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_ssldir">
+                                                    <option value="same" ***REMOVED*** if($domaindata[0][SSL_HOME] == 'same') {echo 'selected';***REMOVED*** ***REMOVED***>public_html</option>
+                                                    <option value="single" ***REMOVED*** if($domaindata[0][SSL_HOME] == 'single') {echo 'selected';***REMOVED*** ***REMOVED***>public_shtml</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12">SSL Certificate / <a href="../process/generatecsr.php?domain=***REMOVED*** echo $requestdomain; ***REMOVED***">Generate CSR</a></label>
                                             <div class="col-md-12">
-                                                <textarea class="form-control" rows="4" id="crtTextArea">
-                                                    ***REMOVED*** print_r($domainssl[0][CRT]); ***REMOVED***</textarea>
+                                                <input type="hidden" name="v_sslcrt-x" value="***REMOVED*** echo $domaindata[0][CRT]; ***REMOVED***">
+                                                <textarea class="form-control" rows="4" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_sslcrt">***REMOVED*** print_r($domainssl[0][CRT]); ***REMOVED***</textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12">SSL Key</label>
                                             <div class="col-md-12">
-                                                <textarea class="form-control" rows="4" id="keyTextArea">
-                                                    ***REMOVED*** print_r($domainssl[0][KEY]); ***REMOVED***</textarea>
+                                                <input type="hidden" name="v_sslkey-x" value="***REMOVED*** echo $domaindata[0][KEY]; ***REMOVED***">
+                                                <textarea class="form-control" rows="4" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_sslkey">***REMOVED*** print_r($domainssl[0][KEY]); ***REMOVED***</textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12">SSL Certificate Authority / Intermediate</label>
                                             <div class="col-md-12">
-                                                <textarea class="form-control" rows="4" id="caTextArea">
-                                                    ***REMOVED*** print_r($domainssl[0][CA]); ***REMOVED***</textarea>
+                                                <input type="hidden" name="v_sslca-x" value="***REMOVED*** echo $domaindata[0][CA]; ***REMOVED***">
+                                                <textarea class="form-control" rows="4" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_sslca">***REMOVED*** print_r($domainssl[0][CA]); ***REMOVED***</textarea>
                                             </div>
                                         </div>
                                         <div class="form-group" style="margin-left: 0.1%;display:<? if($domainssl[0][CRT] != ''){echo 'block';***REMOVED*** else { echo 'none';***REMOVED*** ***REMOVED***">
@@ -387,15 +392,16 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                     <div class="form-group">
                                         <label class="col-md-12">Web Statistics</label>
                                         <div class="col-md-12">
+                                            <input type="hidden" name="v_webstats-x" value="***REMOVED*** if ($domaindata[0][STATS] == '') {echo 'none'; ***REMOVED*** else { echo $domaindata[0][STATS]; ***REMOVED*** ***REMOVED***">
                                             <select class="form-control select6" name="v_webstats" onchange="showauth()" id="select6">
                                                 ***REMOVED***
-                                                if($webstats[0] != '') {
-                                                    $x6 = 0; 
+    if($webstats[0] != '') {
+        $x6 = 0; 
 
-                                                    do {
-                                                        echo '<option value="' . $webstats[$x6] . '">' . $webstats[$x6] . '</option>';
-                                                        $x6++;
-                                                    ***REMOVED*** while ($webstats[$x6] != ''); ***REMOVED***
+        do {
+            echo '<option value="' . $webstats[$x6] . '">' . $webstats[$x6] . '</option>';
+            $x6++;
+        ***REMOVED*** while ($webstats[$x6] != ''); ***REMOVED***
 
                                                 ***REMOVED***
                                             </select>
@@ -406,7 +412,8 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                             <label class="col-md-12">Statistics Authorization</label>
                                             <div class="col-md-12">
                                                 <div class="checkbox checkbox-info">
-                                                    <input id="checkbox10" type="checkbox" ***REMOVED*** if($domaindata[0][STATS_USER] != '') {echo 'checked';***REMOVED*** ***REMOVED*** onclick="checkDiv4();">
+                                                    <input type="hidden" name="v_statsuserenabled-x" value="***REMOVED*** if($domaindata[0][STATS_USER] == '') {echo '';***REMOVED*** else {echo 'yes';***REMOVED*** ***REMOVED***">
+                                                    <input id="checkbox10" type="checkbox" name="v_statsuserenabled" ***REMOVED*** if($domaindata[0][STATS_USER] != '') {echo 'checked';***REMOVED*** ***REMOVED*** onclick="checkDiv4();">
                                                     <label for="checkbox10"> Enabled </label>
                                                 </div>
                                             </div>
@@ -416,6 +423,7 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                         <div class="form-group">
                                             <label class="col-md-12">Username</label><br>
                                             <div class="col-md-12">
+                                                <input type="hidden" name="v_statsuname-x" value="***REMOVED*** echo $domaindata[0][STATS_USER]; ***REMOVED***">
                                                 <input type="text" name="v_statsuname" autocomplete="new-password" class="form-control" value="***REMOVED*** echo $domaindata[0][STATS_USER]; ***REMOVED***"> 
                                             </div>
                                         </div>
@@ -436,7 +444,8 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                         <label class="col-md-12">Additional FTP</label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
-                                                <input id="checkbox9" type="checkbox" ***REMOVED*** if($ftpuser[0]) {echo 'checked';***REMOVED*** ***REMOVED*** onclick="checkDiv3();">
+                                                <input type="hidden" name="v_additionalftpenabled-x" value="***REMOVED*** if($ftpuser[0]) {echo 'yes';***REMOVED*** else { echo 'no'; ***REMOVED******REMOVED***">
+                                                <input id="checkbox9" disabled type="checkbox" name="v_addittionalftpenabled" ***REMOVED*** if($ftpuser[0]) {echo 'checked';***REMOVED*** ***REMOVED*** onclick="checkDiv3();">
                                                 <label for="checkbox9"> Enabled </label>
                                             </div>
                                         </div>
@@ -449,7 +458,8 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                             <div class="col-md-12">
                                                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                                     <div class="input-group-addon">***REMOVED*** print_r($uname); ***REMOVED***_</div>
-                                                    <input type="text" class="form-control" value="***REMOVED*** $prefix = $uname . '_'; $str = $ftpuser[0]; if (substr($str, 0, strlen($prefix)) == $prefix) { $str = substr($str, strlen($prefix));***REMOVED*** print_r($str); ***REMOVED***" style="padding-left: 0.5%;">    
+                                                    <input type="hidden" name="v_ftpuname-x" value="***REMOVED*** $prefix = $uname . '_'; $str = $ftpuser[0]; if (substr($str, 0, strlen($prefix)) == $prefix) { $str = substr($str, strlen($prefix));***REMOVED*** print_r($str); ***REMOVED***">
+                                                    <input type="text" class="form-control" name="v_ftpuname" value="***REMOVED*** $prefix = $uname . '_'; $str = $ftpuser[0]; if (substr($str, 0, strlen($prefix)) == $prefix) { $str = substr($str, strlen($prefix));***REMOVED*** print_r($str); ***REMOVED***" style="padding-left: 0.5%;">    
                                                 </div>
                                             </div>
                                         </div>
@@ -464,15 +474,16 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                             <label class="col-md-12">Path</label>
                                             <div class="col-md-12">
                                                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                                                    <div class="input-group-addon">/home/***REMOVED*** print_r($uname); ***REMOVED***/web/***REMOVED*** print_r($requestdomain); ***REMOVED***</div>
-                                                    <input type="text" class="form-control" value="***REMOVED*** echo $ftpdir[0]; ***REMOVED***" style="padding-left: 0.5%;">    
+                                                    <input type="hidden" name="v_ftpdir-x" value="***REMOVED*** echo $ftpdir[0]; ***REMOVED***">
+                                                    <div class="input-group-addon">/home/***REMOVED*** print_r($uname); ***REMOVED***/web/***REMOVED*** print_r($requestdomain); ***REMOVED***/</div>
+                                                    <input type="text" class="form-control" name="v_ftpdir" value="***REMOVED*** echo $ftpdir[0]; ***REMOVED***" style="padding-left: 0.5%;">    
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button disabled class="btn btn-success">Update Domain</button>
+                                            <button class="btn btn-success">Update Domain</button>
                                         </div>
                                     </div>
                                 </form>
@@ -505,33 +516,23 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                 ***REMOVED***);
             ***REMOVED***)();
 
-            var myTxtArea = document.getElementById('aliasTextArea');
-            var myTxtArea2 = document.getElementById('prxTextArea');
-            var myTxtArea3 = document.getElementById('crtTextArea');
-            var myTxtArea4 = document.getElementById('keyTextArea');
-            var myTxtArea5 = document.getElementById('caTextArea');
-
-            myTxtArea.value = myTxtArea.value.replace(/^\s*|\s*$/g,'');
-            myTxtArea2.value = myTxtArea2.value.replace(/^\s*|\s*$/g,'');
-            myTxtArea3.value = myTxtArea3.value.replace(/^\s*|\s*$/g,'');
-            myTxtArea4.value = myTxtArea4.value.replace(/^\s*|\s*$/g,'');
-            myTxtArea5.value = myTxtArea5.value.replace(/^\s*|\s*$/g,'');
-
-            document.getElementById('select2').value = '<? print_r($domaindata[0][TPL]); ***REMOVED***'; 
+            document.getElementById('select1').value = '***REMOVED*** print_r($domaindata[0][IP]); ***REMOVED***'; 
+            document.getElementById('select2').value = '***REMOVED*** print_r($domaindata[0][TPL]); ***REMOVED***'; 
 
             if ('<? print_r($domaindata[0][PROXY]); ***REMOVED***' == '') {  document.getElementById('select3').value = 'default';  ***REMOVED***
             else { document.getElementById('select3').value = '<? print_r($domaindata[0][PROXY]); ***REMOVED***'; ***REMOVED***
-            if ('<? print_r($domaindata[0][PROXY_EXT]); ***REMOVED***' == '') {  document.getElementById('select3').value = 'jpg,jpeg,gif,png,ico,svg,css,zip,tgz,gz,rar,bz2,doc,xls,exe,pdf,ppt,txt,odt,ods,odp,odf,tar,wav,bmp,rtf,js,mp3,avi,mpeg,flv,html,htm';  ***REMOVED***
-            else { document.getElementById('select3').value = '<? print_r($domaindata[0][PROXY]); ***REMOVED***'; ***REMOVED***
+            if ('<? print_r($domaindata[0][PROXY_EXT]); ***REMOVED***' == '') {  document.getElementById('prxext').value = 'jpeg, jpg, png, gif, bmp, ico, svg, tif, tiff, css, js, htm, html, ttf, otf, webp, woff, txt, csv, rtf, doc, docx, xls, xlsx, ppt, pptx, odf, odp, ods, odt, pdf, psd, ai, eot, eps, ps, zip, tar, tgz, gz, rar, bz2, 7z, aac, m4a, mp3, mp4, ogg, wav, wma, 3gp, avi, flv, m4v, mkv, mov, mp4, mpeg, mpg, wmv, exe, iso, dmg, swf';  ***REMOVED***
+            else { document.getElementById('prxext').value = '<? print_r($domaindata[0][PROXY_EXT]); ***REMOVED***'; ***REMOVED***
             if ('<? print_r($domaindata[0][STATS]); ***REMOVED***' == '') {  document.getElementById('select6').value = 'none';  ***REMOVED***
             else { document.getElementById('select6').value = '<? print_r($domaindata[0][STATS]); ***REMOVED***'; ***REMOVED***
+
             function showauth(){
                 if(document.getElementById('select6').value != 'none') {
                     document.getElementById('statsauth').style.display = "block";
-            ***REMOVED***
-            else {
-                document.getElementById('statsauth').style.display = "none";
-            ***REMOVED******REMOVED***
+                ***REMOVED***
+                else {
+                    document.getElementById('statsauth').style.display = "none";
+                ***REMOVED******REMOVED***
             function checkDiv(){
                 if(document.getElementById("checkbox4").checked) {
                     document.getElementById('prxy-div').style.display = 'block';
