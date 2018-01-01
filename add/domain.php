@@ -132,8 +132,8 @@ $webstats = array_values(json_decode(curl_exec($curl3), true));
                         <li class="devider"></li>
                         <li class="active"> <a href="#" class="awaves-effect"><i class="mdi mdi-av-timer fa-fw" aria-expanded="true" data-icon="v"></i> <span class="hide-menu">Management <span class="fa arrow"></span> </span></a>
                             <ul class="nav nav-second-level">
-                                <li> <a href="../list/web.php"><i class="ti-world fa-fw"></i><span class="hide-menu">Web</span></a> </li>
-                                <li> <a href="../list/dns.php" class="active"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">DNS</span></a> </li>
+                                <li> <a href="../list/web.php" class="active"><i class="ti-world fa-fw"></i><span class="hide-menu">Web</span></a> </li>
+                                <li> <a href="../list/dns.php"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">DNS</span></a> </li>
                                 <li> <a href="../list/mail.php"><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">Mail</span></a> </li>
                                 <li> <a href="../list/db.php"><i class="fa fa-database fa-fw"></i><span class="hide-menu">Database</span></a> </li>
                             </ul>
@@ -413,7 +413,7 @@ $webstats = array_values(json_decode(curl_exec($curl3), true));
                 var domain = document.getElementById('domain').value;
                 document.getElementsByClassName("aliasfill")[0].innerHTML = 'www.' + domain;
                 var dirDomain = document.getElementById("dirfill");
-                dirDomain.innerHTML = '/home/***REMOVED*** print_r($uname); ***REMOVED***/web/' + domain;
+                dirDomain.innerHTML = '/home/***REMOVED*** print_r($uname); ***REMOVED***/web/' + domain + '/';
             ***REMOVED***
             function csrlink() {
                 var domain = document.getElementById('domain').value;
