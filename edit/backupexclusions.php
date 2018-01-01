@@ -163,7 +163,7 @@
                     <div class="row">
                         <div class="col-md-12 col-xs-12">
                             <div class="white-box">
-                                <form class="form-horizontal form-material" method="post">
+                                <form class="form-horizontal form-material" autocomplete="off" method="post">
                                     <div class="form-group">
                                         <label class="col-md-12">Web Domains</label>
                                         <div class="col-md-12">
