@@ -31,6 +31,7 @@ Live Demo: https://cpanel.cdgtech.one/
 - [ ] Admin Panel
 - [ ] Integrations
 - [ ] Feature Additions
+- [ ] Multi Server Support
 
 ## Support
 
