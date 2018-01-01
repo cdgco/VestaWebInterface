@@ -220,7 +220,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="white-box">
-                            <form class="form-horizontal form-material" method="post" action="../change/mail.php">
+                            <form class="form-horizontal form-material" autocomplete="off" method="post" action="../change/mail.php">
                                 <div class="form-group">
                                     <label class="col-md-12">Domain</label>
                                     <div class="col-md-12">

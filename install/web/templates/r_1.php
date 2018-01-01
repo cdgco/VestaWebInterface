@@ -32,7 +32,7 @@
 <section id="wrapper" class="login-register">
   <div class="login-box">
     <div class="white-box">
-      <form class="form-horizontal form-material" id="loginform" method="post" action="/reset/reset.php">
+      <form class="form-horizontal form-material" autocomplete="off" id="loginform" method="post" action="/reset/reset.php">
         <h3 class="box-title m-b-20">Recover Password</h3>
 <div style="height:20px"><?php if (isset($ERROR)) echo $ERROR ?></div>
 

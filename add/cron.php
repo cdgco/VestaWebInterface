@@ -170,7 +170,7 @@ $useremail = $admindata[CONTACT];
                         </div>
                     </div>
                     <div class="row">
-                        <form class="form-horizontal form-material" id="vstobjects" method="post" action="../create/cron.php">
+                        <form class="form-horizontal form-material" autocomplete="off" id="vstobjects" method="post" action="../create/cron.php">
                             <div class="col-md-8 col-xs-12">
                                 <div class="white-box">
                                     <div class="form-group">
@@ -233,7 +233,7 @@ $useremail = $admindata[CONTACT];
                                         </ul>
                                         <div class="tab-content  generator">
                                             <div class="tab-pane active" id="1">
-                                                <form class="form-horizontal form-material" action="javascript:void(0);">
+                                                <form class="form-horizontal form-material" autocomplete="off" action="javascript:void(0);">
                                                     <div class="form-group">
                                                         <label class="col-md-12">Run Command</label>
                                                         <div class="col-md-12">
@@ -259,7 +259,7 @@ $useremail = $admindata[CONTACT];
                                                 </form>
                                             </div>
                                             <div class="tab-pane" id="2">
-                                                <form class="form-horizontal form-material" action="javascript:void(0);">
+                                                <form class="form-horizontal form-material" autocomplete="off" action="javascript:void(0);">
                                                     <input type="hidden" name="h_day" value="*">
                                                     <input type="hidden" name="h_month" value="*">
                                                     <input type="hidden" name="h_wday" value="*">
@@ -293,7 +293,7 @@ $useremail = $admindata[CONTACT];
                                                 </form>
                                             </div>
                                             <div class="tab-pane" id="3">
-                                                <form class="form-horizontal form-material" action="javascript:void(0);">
+                                                <form class="form-horizontal form-material" autocomplete="off" action="javascript:void(0);">
                                                     <input type="hidden" name="h_month" value="*">
                                                     <input type="hidden" name="h_wday" value="*">
                                                     <div class="form-group">
@@ -368,7 +368,7 @@ $useremail = $admindata[CONTACT];
                                                 </form>
                                             </div>
                                             <div class="tab-pane" id="4">
-                                                <form class="form-horizontal form-material" action="javascript:void(0);">
+                                                <form class="form-horizontal form-material" autocomplete="off" action="javascript:void(0);">
                                                     <input type="hidden" name="h_month" value="*">
                                                     <input type="hidden" name="h_day" value="*">
                                                     <div class="form-group">
@@ -445,7 +445,7 @@ $useremail = $admindata[CONTACT];
                                                 </form>
                                             </div>
                                             <div class="tab-pane" id="5">
-                                                <form class="form-horizontal form-material" action="javascript:void(0);">
+                                                <form class="form-horizontal form-material" autocomplete="off" action="javascript:void(0);">
                                                     <input type="hidden" name="h_wday" value="*">
                                                     <div class="form-group">
                                                         <label class="col-md-12">Run Command</label>

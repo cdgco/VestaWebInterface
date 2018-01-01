@@ -167,11 +167,11 @@ $webstats = array_values(json_decode(curl_exec($curl3), true));
                     <div class="row">
                         <div class="col-md-12 col-xs-12">
                             <div class="white-box">
-                                <form class="form-horizontal form-material" method="post" action="../create/domain.php">
+                                <form class="form-horizontal form-material" autocomplete="off" method="post" action="../create/domain.php">
                                     <div class="form-group">
                                         <label class="col-md-12">Domain</label>
                                         <div class="col-md-12">
-                                            <input type="text" name="v_domain" id="domain" onkeyup="checkwww();csrlink();" class="form-control"> 
+                                            <input type="text" name="v_domain" autocomplete="new-password" id="domain" onkeyup="checkwww();csrlink();" class="form-control"> 
                                         </div>
                                     </div>
                                     <div class="form-group" style="overflow: visible;">
@@ -315,13 +315,13 @@ $webstats = array_values(json_decode(curl_exec($curl3), true));
                                             <div class="form-group">
                                                 <label class="col-md-12">Username</label><br>
                                                 <div class="col-md-12">
-                                                    <input type="text" name="v_statsuname" class="form-control"> 
+                                                    <input type="text" autocomplete="new-password" name="v_statsuname" class="form-control"> 
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="v_statspassword" class="col-md-12">Password / <a style="cursor:pointer" onclick="generatePassword2(10)"> Generate</a></label>
                                                 <div class="col-md-12 input-group" style="padding-left: 15px;">
-                                                    <input type="password" class="form-control form-control-line" name="v_statspassword" id="statspassword">                                    <span class="input-group-btn"> 
+                                                    <input type="password" class="form-control form-control-line" autocomplete="new-password" name="v_statspassword" id="statspassword">                                    <span class="input-group-btn"> 
                                                     <button class="btn btn-info" style="margin-right: 15px;" name="Show" onclick="toggler2(this)" id="tg2" type="button"><i class="ti-eye"></i></button> 
                                                     </span>  
                                                 </div>
@@ -343,14 +343,14 @@ $webstats = array_values(json_decode(curl_exec($curl3), true));
                                                 <div class="col-md-12">
                                                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                                         <div class="input-group-addon"><?php print_r($uname); ?>_</div>
-                                                        <input type="text" class="form-control" name="v_ftpuname" style="padding-left: 0.5%;">    
+                                                        <input type="text" class="form-control" autocomplete="new-password" name="v_ftpuname" style="padding-left: 0.5%;">    
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="password" class="col-md-12">Password / <a style="cursor:pointer" onclick="generatePassword(10)"> Generate</a></label>
                                                 <div class="col-md-12 input-group" style="padding-left: 15px;">
-                                                    <input type="password" class="form-control form-control-line" name="password" id="password">                                    <span class="input-group-btn"> 
+                                                    <input type="password" class="form-control form-control-line" autocomplete="new-password" name="password" id="password">                                    <span class="input-group-btn"> 
                                                     <button class="btn btn-info" style="margin-right: 15px;" name="Show" onclick="toggler(this)" id="tg" type="button"><i class="ti-eye"></i></button> 
                                                     </span>  </div>
                                             </div>
@@ -366,7 +366,7 @@ $webstats = array_values(json_decode(curl_exec($curl3), true));
                                             <div class="form-group">
                                                 <label class="col-md-12">Send FTP Credentials to Email:</label>
                                                 <div class="col-md-12">
-                                                    <input type="text" name="v_ftpnotification" class="form-control"> 
+                                                    <input type="email" name="v_ftpnotification" autocomplete="new-password" class="form-control"> 
                                                 </div>
                                             </div>
                                         </div>
