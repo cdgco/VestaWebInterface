@@ -285,7 +285,7 @@ if ($backupname[0] == '') { header('Location: ../list/backups.php'); ***REMOVED*
 
                 </div>
                 <!-- /.container-fluid -->
-                <footer class="footer text-center">&copy; Copyright ***REMOVED*** echo date("Y") . ' ' . $sitetitle; ***REMOVED***. All Rights Reserved. Powered by VestaCP, CDG Web Services, & WrapPixel.</footer>        </div>
+                <footer class="footer text-center">&copy; Copyright ***REMOVED*** echo date("Y") . ' ' . $sitetitle; ***REMOVED***. All Rights Reserved. Vesta Web Interface ***REMOVED*** require 'includes/versioncheck.php' ***REMOVED*** by CDG Web Services.</footer>        </div>
 
         </div>
         <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
