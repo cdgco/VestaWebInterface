@@ -1,6 +1,6 @@
 ***REMOVED***
 
-require '../includes/config.php';
+require '../includes/vars.php';
 
 if(base64_decode($_COOKIE['loggedin']) == 'true') {***REMOVED***
 else { header('Location: ../login.php'); ***REMOVED***
@@ -551,7 +551,7 @@ $autoreplyname = array_keys(json_decode(curl_exec($curl2), true));
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; Copyright ***REMOVED*** echo date("Y") . ' ' . $sitetitle; ***REMOVED***. All Rights Reserved. Vesta Web Interface ***REMOVED*** require 'includes/versioncheck.php' ***REMOVED*** by CDG Web Services.</footer>
+                <footer class="footer text-center">&copy; Copyright ***REMOVED*** echo date("Y") . ' ' . $sitetitle; ***REMOVED***. All Rights Reserved. Vesta Web Interface ***REMOVED*** require '../includes/versioncheck.php'; ***REMOVED*** by CDG Web Services.</footer>
             </div>
         </div>
         <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>

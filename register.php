@@ -1,5 +1,5 @@
 ***REMOVED***
-require 'includes/config.php';
+require 'includes/vars.php';
 ***REMOVED***
 <!DOCTYPE html>
 <html lang="en">

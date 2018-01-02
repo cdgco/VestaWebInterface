@@ -1,6 +1,6 @@
 ***REMOVED***
 
-require '../includes/config.php';
+require '../includes/vars.php';
 require_once '../includes/cronparser.php';
 
     if(base64_decode($_COOKIE['loggedin']) == 'true') {***REMOVED***
@@ -284,7 +284,7 @@ if($cronname[0] != '') {
 
             </div>
             <!-- /.container-fluid -->
-<footer class="footer text-center">&copy; Copyright ***REMOVED*** echo date("Y") . ' ' . $sitetitle; ***REMOVED***. All Rights Reserved. Vesta Web Interface ***REMOVED*** require 'includes/versioncheck.php' ***REMOVED*** by CDG Web Services.</footer>        </div>
+<footer class="footer text-center">&copy; Copyright ***REMOVED*** echo date("Y") . ' ' . $sitetitle; ***REMOVED***. All Rights Reserved. Vesta Web Interface ***REMOVED*** require '../includes/versioncheck.php'; ***REMOVED*** by CDG Web Services.</footer>        </div>
 
     </div>
 

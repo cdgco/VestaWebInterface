@@ -1,6 +1,6 @@
 ***REMOVED***
 
-require '../includes/config.php';
+require '../includes/vars.php';
     if(base64_decode($_COOKIE['loggedin']) == 'true') {***REMOVED***
       else { header('Location: ../login.php'); ***REMOVED***
 

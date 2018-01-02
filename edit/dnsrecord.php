@@ -1,7 +1,7 @@
 ***REMOVED***
 
     // Include settings & variables
-    require '../includes/config.php';
+    require '../includes/vars.php';
 
     // Check if cookie exists, decrypt, then redirect if not logged in
     if(base64_decode($_COOKIE['loggedin']) == 'true') {***REMOVED***
@@ -290,7 +290,7 @@
                     </div>
                 </div>
             </div>
-           <footer class="footer text-center">&copy; Copyright ***REMOVED*** echo date("Y") . ' ' . $sitetitle; ***REMOVED***. All Rights Reserved. Vesta Web Interface ***REMOVED*** require 'includes/versioncheck.php' ***REMOVED*** by CDG Web Services.</footer>
+           <footer class="footer text-center">&copy; Copyright ***REMOVED*** echo date("Y") . ' ' . $sitetitle; ***REMOVED***. All Rights Reserved. Vesta Web Interface ***REMOVED*** require '../includes/versioncheck.php'; ***REMOVED*** by CDG Web Services.</footer>
     </div>
     </div>
     <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
