@@ -1,5 +1,5 @@
 <?php
-require 'includes/vars.php';
+require 'includes/config.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

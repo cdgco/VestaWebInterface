@@ -1,6 +1,6 @@
 <?php
 
-require '../includes/vars.php';
+require '../includes/config.php';
 
 $vst_returncode = 'yes';
 $vst_command = 'v-add-user';
