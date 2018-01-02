@@ -36,7 +36,7 @@ while($curlstart <= 1) {
 } 
 
 $admindata = json_decode(curl_exec($curl0), true)[$username];
-$useremail = $admindata[CONTACT];
+$useremail = $admindata['CONTACT'];
 $sslname = array_keys(json_decode(curl_exec($curl1), true));
 $ssldata = array_values(json_decode(curl_exec($curl1), true));
 
@@ -180,19 +180,19 @@ $ssldata = array_values(json_decode(curl_exec($curl1), true));
                                     <div class="form-group">
                                         <label class="col-md-12">SSL CSR</label>
                                         <div class="col-md-12">
-                                            <textarea class="form-control" rows="5"><?php echo $ssldata[0][CSR]; ?></textarea>
+                                            <textarea class="form-control" rows="5"><?php echo $ssldata[0]['CSR']; ?></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">SSL Certificate</label>
                                         <div class="col-md-12">
-                                            <textarea class="form-control" rows="5"><?php echo $ssldata[0][CRT]; ?></textarea>
+                                            <textarea class="form-control" rows="5"><?php echo $ssldata[0]['CRT']; ?></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">SSL Key</label>
                                         <div class="col-md-12">
-                                            <textarea class="form-control" rows="5"><?php echo $ssldata[0][KEY]; ?></textarea>
+                                            <textarea class="form-control" rows="5"><?php echo $ssldata[0]['KEY']; ?></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">

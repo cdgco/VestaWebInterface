@@ -1,5 +1,4 @@
 <?php
-
 function FileSizeConvert($bytes)
 {
     $bytes = floatval($bytes);
@@ -26,11 +25,12 @@ function FileSizeConvert($bytes)
     {
         if($bytes >= $arItem["VALUE"])
         {
-            $result = $bytes / $arItem["VALUE"];
-            $result = str_replace(".", "." , strval(round($result, 2)))." ".$arItem["UNIT"];
+            $funcresult = $bytes / $arItem["VALUE"];
+            $funcresult = str_replace(".", "." , strval(round($funcresult, 2)))." ".$arItem["UNIT"];
             break;
         }
     }
-    return $result;
+    global $funcresult;
+    return $funcresult;
 }
 ?>

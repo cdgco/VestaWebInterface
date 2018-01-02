@@ -25,7 +25,7 @@ require_once '../includes/cronparser.php';
     } 
 
     $admindata = json_decode(curl_exec($curl0), true)[$username];
-    $useremail = $admindata[CONTACT];
+    $useremail = $admindata['CONTACT'];
     $cronname = array_keys(json_decode(curl_exec($curl1), true));
     $crondata = array_values(json_decode(curl_exec($curl1), true));
 ?>
@@ -125,46 +125,46 @@ require_once '../includes/cronparser.php';
                 <div class="sidebar-head">
                     <h3><span class="fa-fw open-close"><i class="ti-menu hidden-xs"></i><i class="ti-close visible-xs"></i></span> <span class="hide-menu">Navigation</span></h3> </div>
                 <ul class="nav" id="side-menu">
-                    <li> <a href="../index.php" class="waves-effect"><i class="mdi mdi-home fa-fw"></i> <span class="hide-menu">Dashboard</span></a> </li>
-                    <li class="devider"></li>
-                    <li>
-                        <a active href="#" class="waves-effect"><i  class="ti-user fa-fw"></i> </i> <span class="hide-menu"> <?php print_r($uname); ?><span class="fa arrow"></span></span>
-                        </a>
-                        <ul class="nav nav-second-level collapse">
-                            <li> <a href="../profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> My Account</span></a></li>
-                            <li> <a href="../profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> Account Setting</span></a></li>
-                        </ul>
-                    </li>
-                    <li class="devider"></li>
-                    <li> <a href="#" class="awaves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">Management <span class="fa arrow"></span> </span></a>
-                        <ul class="nav nav-second-level">
-                            <li> <a href="../list/web.php"><i class="ti-world fa-fw"></i><span class="hide-menu">Web</span></a> </li>
-                            <li> <a href="../list/dns.php"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">DNS</span></a> </li>
-                            <li> <a href="../list/mail.php"><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">Mail</span></a> </li>
-                            <li> <a href="../list/db.php"><i class="fa fa-database fa-fw"></i><span class="hide-menu">Database</span></a> </li>
-                        </ul>
-                    </li>
-                    <li> <a href="../list/cron.php" class="waves-effect"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">Cron Jobs</span></a> </li>
-                    <li> <a href="../list/backups.php" class="waves-effect"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu">Backups</span></a> </li>   
-                    <li class="devider"></li>                
-                    <li><a href="#" class="waves-effect"><i class="mdi mdi-apps fa-fw"></i> <span class="hide-menu">Apps<span class="fa arrow"></span></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="https://webftp.cdgtech.one"><i class="fa fa-file-code-o fa-fw"></i><span class="hide-menu">FTP</span></a></li>
-                            <li><a href="https://usermail.cdgtech.one"><i class="fa fa-envelope-o fa-fw"></i><span class="hide-menu">Webmail</span></a></li>
-                            <li><a href="https://host.cdgtech.one/phpmyadmin"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">phpMyAdmin</span></a></li>
-    
-                        </ul>
-                    </li>
-                    <li class="devider"></li>
-                    <li><a href="logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
-                    <li class="devider"></li>
-                            <li>
-                                <a href="https://host.cdgtech.one:8083" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> Control Panel v1</span></a>
+                            <li> 
+                                <a href="../index.php" class="waves-effect">
+                                    <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu">Dashboard</span>
+                                </a> 
                             </li>
+
+                            <li class="devider"></li>
                             <li>
-                                <a href="http://cdgsupport.epizy.com" class="waves-effect"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">Support</span></a>
+                                <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> <?php print_r($uname); ?><span class="fa arrow"></span></span>
+                                </a>
+                                <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+                                    <li> <a href="../profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> My Account</span></a></li>
+                                    <li> <a href="../profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> Account Setting</span></a></li>
+                                </ul>
                             </li>
-                </ul>
+                            <?php if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '<li class="devider"></li>
+                                <li> <a href="#" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">Management <span class="fa arrow"></span> </span></a>
+                                    <ul class="nav nav-second-level">'; } ?>
+                            <?php if ($webenabled == 'true') { echo '<li> <a href="../list/web.php"><i class="ti-world fa-fw"></i><span class="hide-menu">Web</span></a> </li>'; } ?>
+                            <?php if ($dnsenabled == 'true') { echo '<li> <a href="../list/dns.php"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">DNS</span></a> </li>'; } ?>
+                            <?php if ($mailenabled == 'true') { echo '<li> <a href="../list/mail.php"><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">Mail</span></a> </li>'; } ?>
+                            <?php if ($dbenabled == 'true') { echo '<li> <a href="../list/db.php"><i class="fa fa-database fa-fw"></i><span class="hide-menu">Database</span></a> </li>'; } ?>
+                            <?php if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '</ul>
+                                </li>'; } ?>
+                            <li> <a href="../list/cron.php" class="waves-effect"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">Cron Jobs</span></a> </li>
+                            <li> <a href="../list/backups.php" class="waves-effect"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu">Backups</span></a> </li>
+                            <?php if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {} else { echo '<li class="devider"></li>
+                                <li><a href="#" class="waves-effect"><i class="mdi mdi-apps fa-fw"></i> <span class="hide-menu">Apps<span class="fa arrow"></span></span></a>
+                                    <ul class="nav nav-second-level">'; } ?>
+                            <?php if ($ftpurl != '') { echo '<li><a href="' . $ftpurl . '"><i class="fa fa-file-code-o fa-fw"></i><span class="hide-menu">FTP</span></a></li>';} ?>
+                            <?php if ($webmailurl != '') { echo '<li><a href="' . $webmailurl . '"><i class="fa fa-envelope-o fa-fw"></i><span class="hide-menu">Webmail</span></a></li>';} ?>
+                            <?php if ($phpmyadmin != '') { echo '<li><a href="' . $phpmyadmin . '"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">phpMyAdmin</span></a></li>';} ?>
+                            <?php if ($phppgadmin != '') { echo '<li><a href="' . $phppgadmin . '"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">phpPgAdmin</span></a></li>';} ?>
+                            <?php if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {} else { echo '</ul></li>';} ?>
+                            <li class="devider"></li>
+                            <li><a href="process/logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
+                            <?php if ($oldcpurl == '' || $supporturl == '') {} else { echo '<li class="devider"></li>'; } ?>
+                            <?php if ($oldcpurl != '') { echo '<li><a href="' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> Control Panel v1</span></a></li>'; } ?>
+                            <?php if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">Support</span></a></li>'; } ?>
+                        </ul>
             </div>
         </div>
         <!-- ============================================================== -->
@@ -196,7 +196,7 @@ require_once '../includes/cronparser.php';
                                         <center>CRON JOBS</center>
                                     </div>
                                     <div class="panel-body">
-   <center><h2><?php print_r($admindata[U_CRON_JOBS]); ?></h2></center>
+   <center><h2><?php print_r($admindata['U_CRON_JOBS']); ?></h2></center>
                                 </div>
                                 </div>
                                 
@@ -213,7 +213,7 @@ require_once '../includes/cronparser.php';
                                         <center>SUSPENDED</center>
                                     </div>
                                     <div class="panel-body">
-   <center><h2><?php print_r($admindata[SUSPENDED_CRON]); ?></h2></center>
+   <center><h2><?php print_r($admindata['SUSPENDED_CRON']); ?></h2></center>
                                 </div>
                                 </div>
                                 
@@ -228,7 +228,7 @@ require_once '../includes/cronparser.php';
                     <div class="col-lg-12">
                         <div class="white-box"> <ul class="side-icon-text pull-right">
                                                         <li><a href="../add/cron.php"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="fa fa-calendar-check-o"></i></span><span>Add Cron Job</span></a></li>
-<?php if($admindata[CRON_REPORTS] == "yes"){ echo '<li><a href="#" onclick="notifyOff()"><span class="circle circle-sm bg-danger di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><span>Disable Cron Notifications</span></a></li>';} if($admindata[CRON_REPORTS] == "no"){ echo '<li><a href="#" onclick="notifyOn()"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><span>Enable Cron Notifications</span></a></li>';} ?>
+<?php if($admindata['CRON_REPORTS'] == "yes"){ echo '<li><a href="#" onclick="notifyOff()"><span class="circle circle-sm bg-danger di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><span>Disable Cron Notifications</span></a></li>';} if($admindata['CRON_REPORTS'] == "no"){ echo '<li><a href="#" onclick="notifyOn()"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><span>Enable Cron Notifications</span></a></li>';} ?>
                                                     </ul>
                             <h3 class="box-title m-b-0">Cron Jobs</h3><br>
 
@@ -249,23 +249,23 @@ if($cronname[0] != '') {
                                                                 $x1 = 0; 
 
                                                                 do {
-    $c1 = $crondata[$x1][MIN];
-    $c2 = $crondata[$x1][HOUR];
-    $c3 = $crondata[$x1][DAY];
-    $c4 = $crondata[$x1][MONTH];
-    $c5 = $crondata[$x1][WDAY];
+    $c1 = $crondata[$x1]['MIN'];
+    $c2 = $crondata[$x1]['HOUR'];
+    $c3 = $crondata[$x1]['DAY'];
+    $c4 = $crondata[$x1]['MONTH'];
+    $c5 = $crondata[$x1]['WDAY'];
     $crontime = $c1 .' '.$c2 .' '.$c3 .' '.$c4 .' '.$c5;
     $schedule = CronSchedule::fromCronString($crontime);
                                                                     echo '<tr>
                                                                     <td data-sort-value="' . $cronname[$x1] . '">' . $cronname[$x1] . '</td>
-                                                                    <td>' . $crondata[$x1][CMD] . '</td>
+                                                                    <td>' . $crondata[$x1]['CMD'] . '</td>
 <td>';                                                                   
-                                                                    if($crondata[$x1][SUSPENDED] == "no"){ 
+                                                                    if($crondata[$x1]['SUSPENDED'] == "no"){ 
                                                                              echo '<span class="label label-table label-success">Active</span>';} 
                                                                            else{ 
                                                                              echo '<span class="label label-table label-danger">Suspended</span>';} 
                                                                            echo '</td>
-                                                                    <td data-sort-value="' . $crondata[$x1][DATE] . '">' . $crondata[$x1][DATE] . '</td><td>
+                                                                    <td data-sort-value="' . $crondata[$x1]['DATE'] . '">' . $crondata[$x1]['DATE'] . '</td><td>
                                             
 <button onclick="window.location=\'../edit/cron.php?job=' . $cronname[$x1] . '\';" type="button" data-toggle="tooltip" data-original-title="Edit" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="fa fa-cog"></i></button>
 <button onclick="confirmDelete(\'' . $cronname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="Delete" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>

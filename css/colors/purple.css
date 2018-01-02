@@ -130,9 +130,6 @@ body {
 .fc-button {
   background-color: #707cd2 !important;
 }
-.bg-theme {
-  background: #6c6f86 !important;
-}
 .table tbody tr.advance-table-row.active,
 .fc-button {
   border-color: #707cd2;
