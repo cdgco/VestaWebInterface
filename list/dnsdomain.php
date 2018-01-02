@@ -256,7 +256,7 @@ $dnsdata = array_values(json_decode(curl_exec($curl1), true));
 
         </div>
         <!-- /.container-fluid -->
-        <footer class="footer text-center">&copy; Copyright <?php echo date("Y") . ' ' . $sitetitle; ?>. All Rights Reserved. Powered by VestaCP, CDG Web Services, & WrapPixel.</footer>
+        <footer class="footer text-center">&copy; Copyright <?php echo date("Y") . ' ' . $sitetitle; ?>. All Rights Reserved. Vesta Web Interface <?php require 'includes/versioncheck.php' ?> by CDG Web Services.</footer>
     </div>
 
     </div>
