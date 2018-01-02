@@ -1,6 +1,6 @@
 <?php
 
-require '../includes/config.php';
+require '../includes/vars.php';
 require_once '../includes/cronparser.php';
 
     if(base64_decode($_COOKIE['loggedin']) == 'true') {}
@@ -284,7 +284,7 @@ if($cronname[0] != '') {
 
             </div>
             <!-- /.container-fluid -->
-<footer class="footer text-center">&copy; Copyright <?php echo date("Y") . ' ' . $sitetitle; ?>. All Rights Reserved. Vesta Web Interface <?php require 'includes/versioncheck.php' ?> by CDG Web Services.</footer>        </div>
+<footer class="footer text-center">&copy; Copyright <?php echo date("Y") . ' ' . $sitetitle; ?>. All Rights Reserved. Vesta Web Interface <?php require '../includes/versioncheck.php'; ?> by CDG Web Services.</footer>        </div>
 
     </div>
 
