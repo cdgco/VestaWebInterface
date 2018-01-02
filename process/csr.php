@@ -36,7 +36,7 @@ while($curlstart <= 1) {
 ***REMOVED*** 
 
 $admindata = json_decode(curl_exec($curl0), true)[$username];
-$useremail = $admindata[CONTACT];
+$useremail = $admindata['CONTACT'];
 $sslname = array_keys(json_decode(curl_exec($curl1), true));
 $ssldata = array_values(json_decode(curl_exec($curl1), true));
 
@@ -180,19 +180,19 @@ $ssldata = array_values(json_decode(curl_exec($curl1), true));
                                     <div class="form-group">
                                         <label class="col-md-12">SSL CSR</label>
                                         <div class="col-md-12">
-                                            <textarea class="form-control" rows="5">***REMOVED*** echo $ssldata[0][CSR]; ***REMOVED***</textarea>
+                                            <textarea class="form-control" rows="5">***REMOVED*** echo $ssldata[0]['CSR']; ***REMOVED***</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">SSL Certificate</label>
                                         <div class="col-md-12">
-                                            <textarea class="form-control" rows="5">***REMOVED*** echo $ssldata[0][CRT]; ***REMOVED***</textarea>
+                                            <textarea class="form-control" rows="5">***REMOVED*** echo $ssldata[0]['CRT']; ***REMOVED***</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">SSL Key</label>
                                         <div class="col-md-12">
-                                            <textarea class="form-control" rows="5">***REMOVED*** echo $ssldata[0][KEY]; ***REMOVED***</textarea>
+                                            <textarea class="form-control" rows="5">***REMOVED*** echo $ssldata[0]['KEY']; ***REMOVED***</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">

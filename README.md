@@ -12,7 +12,7 @@ Live Preview: https://ide.cdgtech.one/dev
 ## To-Do
 
 #### Basic Functions:
-- [ ] Additional FTP Support
+- [ ] Addition FTP Support
 - [ ] Multiple Additional FTP Support (Possible Backend Integration)
 - [ ] Custom SSL Support (Needs Backend Integration)
 - [ ] Process Backup Exclusions (Needs Backend Integration)
@@ -22,6 +22,7 @@ Live Preview: https://ide.cdgtech.one/dev
 - [ ] Add Delete Buttons to 'edit' Pages
 - [ ] Process Loaders & Response Code Notifications
 - [ ] Format, Unify, Minify and Fix Compiling Issues
+- [ ] Update Menu Items
 - [ ] Fix PHP Errors
 - [ ] Script to Install Backend
 

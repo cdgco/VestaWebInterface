@@ -29,7 +29,7 @@
     ***REMOVED*** 
 
     $admindata = json_decode(curl_exec($curl0), true)[$username];
-    $useremail = $admindata[CONTACT];
+    $useremail = $admindata['CONTACT'];
     $dbname = array_keys(json_decode(curl_exec($curl1), true));
     $dbdata = array_values(json_decode(curl_exec($curl1), true));
 
