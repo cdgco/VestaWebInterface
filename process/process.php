@@ -1,6 +1,6 @@
 ***REMOVED***
 
-require '../includes/config.php';
+require '../includes/vars.php';
 
 $vst_returncode = 'yes';
 $vst_command = 'v-add-user';

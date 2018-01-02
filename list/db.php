@@ -1,6 +1,6 @@
 ***REMOVED***
 
-require '../includes/config.php';
+require '../includes/vars.php';
 
     $postvars = array(
       array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
@@ -277,7 +277,7 @@ if($dbname[0] != '') {
 
             </div>
             <!-- /.container-fluid -->
-<footer class="footer text-center">&copy; Copyright ***REMOVED*** echo date("Y") . ' ' . $sitetitle; ***REMOVED***. All Rights Reserved. Vesta Web Interface ***REMOVED*** require 'includes/versioncheck.php' ***REMOVED*** by CDG Web Services.</footer>        </div>
+<footer class="footer text-center">&copy; Copyright ***REMOVED*** echo date("Y") . ' ' . $sitetitle; ***REMOVED***. All Rights Reserved. Vesta Web Interface ***REMOVED*** require '../includes/versioncheck.php'; ***REMOVED*** by CDG Web Services.</footer>        </div>
 
     </div>
 
