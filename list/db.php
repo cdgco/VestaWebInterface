@@ -1,6 +1,6 @@
 ***REMOVED***
 
-require '../includes/vars.php';
+require '../includes/config.php';
 
     $postvars = array(
       array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),

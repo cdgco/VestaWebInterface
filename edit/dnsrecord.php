@@ -1,7 +1,7 @@
 ***REMOVED***
 
     // Include settings & variables
-    require '../includes/vars.php';
+    require '../includes/config.php';
 
     // Check if cookie exists, decrypt, then redirect if not logged in
     if(base64_decode($_COOKIE['loggedin']) == 'true') {***REMOVED***
