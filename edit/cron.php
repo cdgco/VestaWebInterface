@@ -29,7 +29,7 @@ while($curlstart <= 1) {
 } 
 
 $admindata = json_decode(curl_exec($curl0), true)[$username];
-$useremail = $admindata[CONTACT];
+$useremail = $admindata['CONTACT'];
 $crondata = array_values(json_decode(curl_exec($curl1), true));
 $cronname = array_keys(json_decode(curl_exec($curl1), true));
 if ($cronname[0] == '') { header('Location: ../list/cron.php'); }
@@ -120,42 +120,47 @@ if ($cronname[0] == '') { header('Location: ../list/cron.php'); }
                             <span class="hide-menu">Navigation</span>
                         </h3>  
                     </div>
-                    <ul class="nav" id="side-menu">
-                        <li> <a href="../index.php" class="waves-effect"><i class="mdi mdi-home fa-fw"></i> <span class="hide-menu">Dashboard</span></a> </li>
-                        <li class="devider"></li>
-                        <li>
-                            <a active href="#" class="waves-effect"><i class="ti-user fa-fw"></i><span class="hide-menu"> <?php print_r($uname); ?><span class="fa arrow"></span></span></a>
-                            <ul class="nav nav-second-level collapse">
-                                <li> <a href="../profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> My Account</span></a></li>
-                                <li> <a active href="../profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> Account Setting</span></a></li>
-                            </ul>
-                        </li>
-                        <li class="devider"></li>
-                        <li> <a href="#" class="awaves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">Management <span class="fa arrow"></span> </span></a>
-                            <ul class="nav nav-second-level">
-                                <li> <a href="../list/web.php"><i class="ti-world fa-fw"></i><span class="hide-menu">Web</span></a> </li>
-                                <li> <a href="../list/dns.php"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">DNS</span></a> </li>
-                                <li> <a href="../list/mail.php"><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">Mail</span></a> </li>
-                                <li> <a href="../list/db.php"><i class="fa fa-database fa-fw"></i><span class="hide-menu">Database</span></a> </li>
-                            </ul>
-                        </li>
-                        <li> <a href="../list/cron.php" class="waves-effect active"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">Cron Jobs</span></a> </li>
-                        <li> <a href="../list/backups.php" class="waves-effect"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu">Backups</span></a> </li>   
-                        <li class="devider"></li>                
-                        <li><a href="#" class="waves-effect"><i class="mdi mdi-apps fa-fw"></i> <span class="hide-menu">Apps<span class="fa arrow"></span></span></a>
-                            <ul class="nav nav-second-level">
-                                <li><a href="https://webftp.cdgtech.one"><i class="fa fa-file-code-o fa-fw"></i><span class="hide-menu">FTP</span></a></li>
-                                <li><a href="https://usermail.cdgtech.one"><i class="fa fa-envelope-o fa-fw"></i><span class="hide-menu">Webmail</span></a></li>
-                                <li><a href="https://host.cdgtech.one/phpmyadmin"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">phpMyAdmin</span></a></li>
+                   <ul class="nav" id="side-menu">
+                            <li> 
+                                <a href="../index.php" class="waves-effect">
+                                    <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu">Dashboard</span>
+                                </a> 
+                            </li>
 
-                            </ul>
-                        </li>
-                        <li class="devider"></li>
-                        <li><a href="../process/logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
-                        <li class="devider"></li>
-                        <li><a href="https://host.cdgtech.one:8083" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> Control Panel v1</span></a></li>
-                        <li><a href="http://cdgsupport.epizy.com" class="waves-effect"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">Support</span></a></li>
-                    </ul>
+                            <li class="devider"></li>
+                            <li>
+                                <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> <?php print_r($uname); ?><span class="fa arrow"></span></span>
+                                </a>
+                                <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+                                    <li> <a href="../profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> My Account</span></a></li>
+                                    <li> <a href="../profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> Account Setting</span></a></li>
+                                </ul>
+                            </li>
+                            <?php if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '<li class="devider"></li>
+                                <li> <a href="#" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">Management <span class="fa arrow"></span> </span></a>
+                                    <ul class="nav nav-second-level">'; } ?>
+                            <?php if ($webenabled == 'true') { echo '<li> <a href="../list/web.php"><i class="ti-world fa-fw"></i><span class="hide-menu">Web</span></a> </li>'; } ?>
+                            <?php if ($dnsenabled == 'true') { echo '<li> <a href="../list/dns.php"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">DNS</span></a> </li>'; } ?>
+                            <?php if ($mailenabled == 'true') { echo '<li> <a href="../list/mail.php"><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">Mail</span></a> </li>'; } ?>
+                            <?php if ($dbenabled == 'true') { echo '<li> <a href="../list/db.php"><i class="fa fa-database fa-fw"></i><span class="hide-menu">Database</span></a> </li>'; } ?>
+                            <?php if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '</ul>
+                                </li>'; } ?>
+                            <li> <a href="../list/cron.php" class="waves-effect active"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">Cron Jobs</span></a> </li>
+                            <li> <a href="../list/backups.php" class="waves-effect"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu">Backups</span></a> </li>
+                            <?php if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {} else { echo '<li class="devider"></li>
+                                <li><a href="#" class="waves-effect"><i class="mdi mdi-apps fa-fw"></i> <span class="hide-menu">Apps<span class="fa arrow"></span></span></a>
+                                    <ul class="nav nav-second-level">'; } ?>
+                            <?php if ($ftpurl != '') { echo '<li><a href="' . $ftpurl . '"><i class="fa fa-file-code-o fa-fw"></i><span class="hide-menu">FTP</span></a></li>';} ?>
+                            <?php if ($webmailurl != '') { echo '<li><a href="' . $webmailurl . '"><i class="fa fa-envelope-o fa-fw"></i><span class="hide-menu">Webmail</span></a></li>';} ?>
+                            <?php if ($phpmyadmin != '') { echo '<li><a href="' . $phpmyadmin . '"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">phpMyAdmin</span></a></li>';} ?>
+                            <?php if ($phppgadmin != '') { echo '<li><a href="' . $phppgadmin . '"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">phpPgAdmin</span></a></li>';} ?>
+                            <?php if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {} else { echo '</ul></li>';} ?>
+                            <li class="devider"></li>
+                            <li><a href="process/logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
+                            <?php if ($oldcpurl == '' || $supporturl == '') {} else { echo '<li class="devider"></li>'; } ?>
+                            <?php if ($oldcpurl != '') { echo '<li><a href="' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> Control Panel v1</span></a></li>'; } ?>
+                            <?php if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">Support</span></a></li>'; } ?>
+                        </ul>
                 </div>
             </div>
             <div id="page-wrapper">
@@ -176,7 +181,7 @@ if ($cronname[0] == '') { header('Location: ../list/cron.php'); }
                                         <div class="panel-body">
                                             <center>
                                                 <h2>
-                                                    <?php $date=date_create($crondata[0][DATE] . ' ' . $crondata[0][TIME]); echo date_format($date,"F j, Y - g:i A"); ?>
+                                                    <?php $date=date_create($crondata[0]['DATE'] . ' ' . $crondata[0]['TIME']); echo date_format($date,"F j, Y - g:i A"); ?>
                                                 </h2>
                                             </center>
                                         </div>
@@ -194,7 +199,7 @@ if ($cronname[0] == '') { header('Location: ../list/cron.php'); }
                                         <div class="panel-body">
                                             <center>
                                                 <h2>
-                                                    <?php if ($crondata[0][SUSPENDED] == 'no') {echo 'Active';} else {echo 'Suspended';}?>
+                                                    <?php if ($crondata[0]['SUSPENDED'] == 'no') {echo 'Active';} else {echo 'Suspended';}?>
                                                 </h2>
                                             </center>
                                         </div>
@@ -210,7 +215,7 @@ if ($cronname[0] == '') { header('Location: ../list/cron.php'); }
                                     <div class="form-group">
                                         <label class="col-md-12">Command</label>
                                         <div class="col-md-12">
-                                            <input type="text" form="vstobjects" name="v_cmd" value="<?php echo $crondata[0][CMD]; ?>" class="form-control"> 
+                                            <input type="text" form="vstobjects" name="v_cmd" value="<?php echo $crondata[0]['CMD']; ?>" class="form-control"> 
                                         </div>
                                     </div>
                                 </div>
@@ -225,31 +230,31 @@ if ($cronname[0] == '') { header('Location: ../list/cron.php'); }
                                     <div class="form-group">
                                         <label class="col-md-12">Minute</label>
                                         <div class="col-md-12">
-                                            <input type="text" name="v_min" value="<?php echo $crondata[0][MIN]; ?>" class="form-control"> 
+                                            <input type="text" name="v_min" value="<?php echo $crondata[0]['MIN']; ?>" class="form-control"> 
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Hour</label>
                                         <div class="col-md-12">
-                                            <input type="text" name="v_hour" value="<?php echo $crondata[0][HOUR]; ?>" class="form-control"> 
+                                            <input type="text" name="v_hour" value="<?php echo $crondata[0]['HOUR']; ?>" class="form-control"> 
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Day</label>
                                         <div class="col-md-12">
-                                            <input type="text" name="v_day" value="<?php echo $crondata[0][DAY]; ?>" class="form-control"> 
+                                            <input type="text" name="v_day" value="<?php echo $crondata[0]['DAY']; ?>" class="form-control"> 
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Month</label>
                                         <div class="col-md-12">
-                                            <input type="text" name="v_month" value="<?php echo $crondata[0][MONTH]; ?>" class="form-control"> 
+                                            <input type="text" name="v_month" value="<?php echo $crondata[0]['MONTH']; ?>" class="form-control"> 
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Day of Week</label>
                                         <div class="col-md-12">
-                                            <input type="text" name="v_wday" value="<?php echo $crondata[0][WDAY]; ?>" class="form-control"> 
+                                            <input type="text" name="v_wday" value="<?php echo $crondata[0]['WDAY']; ?>" class="form-control"> 
                                         </div>
                                     </div>
                                     <div class="form-group">

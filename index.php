@@ -38,9 +38,7 @@
     $maildata = array_values(json_decode(curl_exec($curl3), true));
     $dbname = array_keys(json_decode(curl_exec($curl4), true));
     $dbdata = array_values(json_decode(curl_exec($curl4), true));
-    ?>  
-
-    <!DOCTYPE html>
+    ?><!DOCTYPE html>
     <html lang="en">
 
         <head>
@@ -68,23 +66,23 @@
 
         <body class="fix-header">
             <?php if(INTERAKT_APP_ID != ''){ echo '<script>
-        window.mySettings = {
-        first_name: "' . $admindata[FNAME] . '",
-        last_name: "' . $admindata[LNAME] . '",
-        suspended: "' . $admindata[SUSPENDED] . '",
-        package: "' . $admindata[PACKAGE] . '",
-        language: "' . $admindata[LANGUAGE] . '",
-        uname: "' . $username . '",
-        email: "' . $admindata[CONTACT] . '",
-        created_at: ' . strtotime($admindata[DATE] . ' ' . $admindata[TIME]) . ',
-        joined_at: "' . $admindata[DATE] . ' ' . $admindata[TIME] . '",
-        app_id: "' . INTERAKT_APP_ID . '"
-        };
+	window.mySettings = {
+	first_name: "' . $admindata['FNAME'] . '",
+	last_name: "' . $admindata['LNAME'] . '",
+	suspended: "' . $admindata['SUSPENDED'] . '",
+	package: "' . $admindata['PACKAGE'] . '",
+	language: "' . $admindata['LANGUAGE'] . '",
+	uname: "' . $username . '",
+	email: "' . $admindata['CONTACT'] . '",
+	created_at: ' . strtotime($admindata['DATE'] . ' ' . $admindata['TIME']) . ',
+	joined_at: "' . $admindata['DATE'] . ' ' . $admindata['TIME'] . '",
+	app_id: "' . INTERAKT_APP_ID . '"
+	};
     </script>'; } ?>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.js"></script>
             <?php
 
-            if($_GET['rebuild'] != ''){
+            if(isset($_GET['rebuild'])){
                 echo "<script> swal({title: '"; echo "Action Complete!', type: 'success'})</script>";}
             ?>
             <div class="preloader">
@@ -122,7 +120,7 @@
                                                     <?php print_r($uname); ?>
                                                 </h4>
                                                 <p class="text-muted">
-                                                    <?php print_r($admindata[CONTACT]); ?>
+                                                    <?php print_r($admindata['CONTACT']); ?>
                                                 </p>
                                             </div>
                                         </div>
@@ -186,8 +184,8 @@
                             <?php if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {} else { echo '</ul></li>';} ?>
                             <li class="devider"></li>
                             <li><a href="process/logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
-                            <?php if ($oldcplink == '' && $supporturl == '') {} else { echo '<li class="devider"></li>'; } ?>
-                            <?php if ($oldcplink != '') { echo '<li><a href="' . $oldcplink . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> Control Panel v1</span></a></li>'; } ?>
+                            <?php if ($oldcpurl == '' || $supporturl == '') {} else { echo '<li class="devider"></li>'; } ?>
+                            <?php if ($oldcpurl != '') { echo '<li><a href="' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> Control Panel v1</span></a></li>'; } ?>
                             <?php if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">Support</span></a></li>'; } ?>
                         </ul>
                     </div>
@@ -247,11 +245,11 @@
                                                     <span class="circle circle-md bg-danger"><i class="fa fa-cloud"></i></span>
                                                 <li class="col-last">
                                                     <h3 style="font-size:36px;" class="counter text-right m-t-15">
-                                                        <?php if(empty(explode(' ', FileSizeConvert($admindata[U_BANDWIDTH]), 2)[0])){echo "0";} else{ print_r(explode(' ', FileSizeConvert($admindata[U_BANDWIDTH]), 2)[0]);} ?>
+                                                        <?php if(empty(explode(' ', FileSizeConvert($admindata['U_BANDWIDTH']), 2)[0])){echo "0";} else{ print_r(explode(' ', FileSizeConvert($admindata['U_BANDWIDTH']), 2)[0]);} ?>
                                                     </h3>
                                                     <center>
                                                         <h6>
-                                                            <?php if(empty(explode(' ', FileSizeConvert($admindata[U_BANDWIDTH]), 2)[1])){echo "mb";} else{ print_r(explode(' ', FileSizeConvert($admindata[U_BANDWIDTH]), 2)[1]);} ?>
+                                                            <?php if(empty(explode(' ', FileSizeConvert($admindata['U_BANDWIDTH']), 2)[1])){echo "mb";} else{ print_r(explode(' ', FileSizeConvert($admindata['U_BANDWIDTH']), 2)[1]);} ?>
                                                         </h6>
                                                     </center>
                                                 </li>
@@ -270,11 +268,11 @@
                                             </li>
                                             <li class="col-last">
                                                 <h3 style="font-size:36px;" class="counter text-right m-t-15">
-                                                    <?php if(empty(explode(' ', FileSizeConvert($admindata[U_DISK]), 2)[0])){echo "0";} else{ print_r(explode(' ', FileSizeConvert($admindata[U_DISK]), 2)[0]);} ?>
+                                                    <?php if(empty(explode(' ', FileSizeConvert($admindata['U_DISK']), 2)[0])){echo "0";} else{ print_r(explode(' ', FileSizeConvert($admindata['U_DISK']), 2)[0]);} ?>
                                                 </h3>
                                                 <center>
                                                     <h6>
-                                                        <?php if(empty(explode(' ', FileSizeConvert($admindata[U_DISK]), 2)[1])){echo "mb";} else{ print_r(explode(' ', FileSizeConvert($admindata[U_DISK]), 2)[1]);} ?>
+                                                        <?php if(empty(explode(' ', FileSizeConvert($admindata['U_DISK']), 2)[1])){echo "mb";} else{ print_r(explode(' ', FileSizeConvert($admindata['U_DISK']), 2)[1]);} ?>
                                                     </h6>
                                                 </center>
                                             </li>
@@ -294,8 +292,8 @@
                                         </li>
                                         <li class="col-last">
                                             <h3 style="font-size:36px;" class="text-right m-t-15">
-                                                <?php print_r($admindata[U_WEB_DOMAINS]); ?> /
-                                                <?php if($admindata[WEB_DOMAINS] == "unlimited"){echo "&#8734;";} else{ print_r($admindata[WEB_DOMAINS]); } ?>
+                                                <?php print_r($admindata['U_WEB_DOMAINS']); ?> /
+                                                <?php if($admindata['WEB_DOMAINS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['WEB_DOMAINS']); } ?>
                                             </h3>
                                         </li><br><br>
                                         <li class="col-middle">
@@ -312,8 +310,8 @@
                                         </li>
                                         <li class="col-last">
                                             <h3 style="font-size:36px;" class="text-right m-t-15">
-                                                <?php print_r($admindata[U_MAIL_ACCOUNTS]); ?> /
-                                                <?php if($admindata[MAIL_ACCOUNTS] == "unlimited"){echo "&#8734;";} else{ print_r($admindata[MAIL_ACCOUNTS] * $admindata[MAIL_DOMAINS]); } ?>
+                                                <?php print_r($admindata['U_MAIL_ACCOUNTS']); ?> /
+                                                <?php if($admindata['MAIL_ACCOUNTS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['MAIL_ACCOUNTS'] * $admindata['MAIL_DOMAINS']); } ?>
                                             </h3>
                                         </li><br><br>
                                         <li class="col-middle">
@@ -372,23 +370,23 @@
                                                         do {
                                                             echo '<tr class="advance-table-row clickable-row" data-href="edit/domain.php?domain='.$domainname[$x1].'">
                                                                         <td>' . $domainname[$x1] . '</td>
-                                                                        <td data-sort-value="' . $domaindata[$x1][U_DISK] . '">' . $domaindata[$x1][U_DISK] . ' mb</td>
-                                                                        <td data-sort-value="' . $domaindata[$x1][U_BANDWIDTH] . '">' . $domaindata[$x1][U_BANDWIDTH] . ' mb</td>
+                                                                        <td data-sort-value="' . $domaindata[$x1]['U_DISK'] . '">' . $domaindata[$x1]['U_DISK'] . ' mb</td>
+                                                                        <td data-sort-value="' . $domaindata[$x1]['U_BANDWIDTH'] . '">' . $domaindata[$x1]['U_BANDWIDTH'] . ' mb</td>
                                                                                                                                             <td>';                                                                   
-                                                            if($domaindata[$x1][SSL] == "yes"){ 
+                                                            if($domaindata[$x1]['SSL'] == "yes"){ 
                                                                 echo '<span class="label label-table label-success">Enabled</span>';} 
                                                             else{ 
                                                                 echo '<span class="label label-table label-danger">Disabled</span>';} 
                                                             echo '</td>
                                                                         <td>';                                                                   
-                                                            if($domaindata[$x1][SUSPENDED] == "no"){ 
+                                                            if($domaindata[$x1]['SUSPENDED'] == "no"){ 
                                                                 echo '<span class="label label-table label-success">Active</span>';} 
                                                             else{ 
                                                                 echo '<span class="label label-table label-danger">Suspended</span>';} 
                                                             echo '</td>
                                                                     </tr>';
                                                             $x1++;
-                                                        } while ($domainname[$x1] != ''); }
+                                                        } while (isset($domainname[$x1])); }
 
                                                     ?></tbody>
                                             </table>
@@ -424,16 +422,16 @@
                                                         do {
                                                             echo '<tr class="advance-table-row clickable-row" data-href="list/dnsdomain.php?domain='.$dnsname[$x2].'">
                                                                         <td>' . $dnsname[$x2] . '</td>
-                                                                        <td data-sort-value="' . $dnsdata[$x2][RECORDS] . '">' . $dnsdata[$x2][RECORDS] . '</td>
+                                                                        <td data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>
                                                                         <td>';                                                                   
-                                                            if($dnsdata[$x2][SUSPENDED] == "no"){ 
+                                                            if($dnsdata[$x2]['SUSPENDED'] == "no"){ 
                                                                 echo '<span class="label label-table label-success">Active</span>';} 
                                                             else{ 
                                                                 echo '<span class="label label-table label-danger">Suspended</span>';} 
                                                             echo '</td>
                                                                     </tr>';
                                                             $x2++;
-                                                        } while ($dnsname[$x2] != ''); }
+                                                        } while (isset($dnsname[$x2])); }
 
                                                     ?></tbody>
                                             </table>
@@ -468,16 +466,16 @@
                                                         do {
                                                             echo '<tr class="advance-table-row clickable-row" data-href="list/maildomain.php?domain='.$mailname[$x3].'">
                                                                         <td>' . $mailname[$x3] . '</td>
-                                                                        <td data-sort-value="' . $maildata[$x3][ACCOUNTS] . '">' . $maildata[$x3][ACCOUNTS] . '</td>
+                                                                        <td data-sort-value="' . $maildata[$x3]['ACCOUNTS'] . '">' . $maildata[$x3]['ACCOUNTS'] . '</td>
                                                                         <td>';                                                                   
-                                                            if($maildata[$x3][SUSPENDED] == "no"){ 
+                                                            if($maildata[$x3]['SUSPENDED'] == "no"){ 
                                                                 echo '<span class="label label-table label-success">Active</span>';} 
                                                             else{ 
                                                                 echo '<span class="label label-table label-danger">Suspended</span>';} 
                                                             echo '</td>
                                                                     </tr>';
                                                             $x3++;
-                                                        } while ($mailname[$x3] != ''); }
+                                                        } while (isset($mailname[$x3])); }
 
                                                     ?></tbody>
                                             </table>
@@ -510,18 +508,18 @@
                                                         $x4 = 0; 
 
                                                         do {
-                                                            echo '<tr class="advance-table-row clickable-row" data-href="edit/db.php?db='.$dbdata[$x4][DATABASE].'">
-                                                                        <td>' . $dbdata[$x4][DATABASE] . '</td>
-                                                                        <td>' . $dbdata[$x4][DBUSER] . '</td>
+                                                            echo '<tr class="advance-table-row clickable-row" data-href="edit/db.php?db='.$dbdata[$x4]['DATABASE'].'">
+                                                                        <td>' . $dbdata[$x4]['DATABASE'] . '</td>
+                                                                        <td>' . $dbdata[$x4]['DBUSER'] . '</td>
                                                                         <td>';                                                                   
-                                                            if($dbdata[$x4][SUSPENDED] == "no"){ 
+                                                            if($dbdata[$x4]['SUSPENDED'] == "no"){ 
                                                                 echo '<span class="label label-table label-success">Active</span>';} 
                                                             else{ 
                                                                 echo '<span class="label label-table label-danger">Suspended</span>';} 
                                                             echo '</td>
                                                                     </tr>';
                                                             $x4++;
-                                                        } while ($dbname[$x4] != ''); }
+                                                        } while (isset($dbname[$x4])); }
 
                                                     ?></tbody>
                                             </table>
@@ -538,10 +536,10 @@
 
                                 <li>
                                     <h2>
-                                        <?php print_r($admindata[U_DISK]); ?> mb</h2> <small>Total Disk Space</small>
+                                        <?php print_r($admindata['U_DISK']); ?> mb</h2> <small>Total Disk Space</small>
                                     <div class="pull-right"><?php 
-                                        if ($admindata[U_DISK] + $admindata[DISK_QUOTA] != '0') {
-                                            $diskpercent = (($admindata[U_DISK] / $admindata[DISK_QUOTA]) * 100);
+                                        if ($admindata['DISK_QUOTA'] != 0) {
+                                            $diskpercent = (($admindata['U_DISK'] / $admindata['DISK_QUOTA']) * 100);
                                         } else { $diskpercent = '0'; }
                                         if(is_infinite($diskpercent)){ echo "0";}else{echo $diskpercent;} ?>%</div>
                                     <div class="progress">
@@ -552,9 +550,9 @@
                             <h3 class="box-title">Disk Usage Breakdown</h3>
                             <ul class="country-state  p-t-20">
                                 <li>
-                                    <h2><?php  if ($admindata[U_DISK_WEB] + $admindata[U_DISK] != '0') {
-                                            $diskpercent1 = (($admindata[U_DISK_WEB] / $admindata[U_DISK]) * 100);
-                                        } else { $diskpercent1 = '0'; } echo $admindata[U_DISK_WEB]; ?> mb</h2> <small>Web Data</small>
+                                    <h2><?php  if ($admindata['U_DISK'] != 0) {
+                                            $diskpercent1 = (($admindata['U_DISK_WEB'] / $admindata['U_DISK']) * 100);
+                                        } else { $diskpercent1 = '0'; } echo $admindata['U_DISK_WEB']; ?> mb</h2> <small>Web Data</small>
                                     <div class="pull-right">
                                         <?php if($diskpercent1 == "INF"){ echo "0";}else{echo round($diskpercent1);} ?>%</div>
                                     <div class="progress">
@@ -562,9 +560,9 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <h2><?php if ($admindata[U_DISK_MAIL] + $admindata[U_DISK] != '0') {
-                                            $diskpercent2 = (($admindata[U_DISK_MAIL] / $admindata[U_DISK]) * 100);
-                                        } else { $diskpercent2 = '0'; } echo $admindata[U_DISK_MAIL]; ?> mb</h2> <small>Mail Data</small>
+                                    <h2><?php if ($admindata['U_DISK'] != '0') {
+                                            $diskpercent2 = (($admindata['U_DISK_MAIL'] / $admindata['U_DISK']) * 100);
+                                        } else { $diskpercent2 = '0'; } echo $admindata['U_DISK_MAIL']; ?> mb</h2> <small>Mail Data</small>
                                     <div class="pull-right">
                                         <?php if($diskpercent2 == "INF"){ echo "0";}else{echo round($diskpercent2);} ?>%</div>
                                     <div class="progress">
@@ -573,9 +571,9 @@
                                 </li>
                                 <li>
                                     <h2>
-                                        <?php if ($admindata[U_DISK_DB] + $admindata[U_DISK] != '0') {
-                                            $diskpercent3 = (($admindata[U_DISK_DB] / $admindata[U_DISK]) * 100);
-                                        } else { $diskpercent3 = '0'; }; echo $admindata[U_DISK_DB]; ?> mb</h2> <small>Databases</small>
+                                        <?php if ($admindata['U_DISK'] != '0') {
+                                            $diskpercent3 = (($admindata['U_DISK_DB'] / $admindata['U_DISK']) * 100);
+                                        } else { $diskpercent3 = '0'; }; echo $admindata['U_DISK_DB']; ?> mb</h2> <small>Databases</small>
                                     <div class="pull-right">
                                         <?php if($diskpercent3 == "INF"){ echo "0";}else{echo round($diskpercent3);} ?>%</div>
                                     <div class="progress">
@@ -584,9 +582,9 @@
                                 </li>
                                 <li>
                                     <h2>
-                                        <?php if ($admindata[U_DISK_DIRS] + $admindata[U_DISK] != '0') {
-                                            $diskpercent4 = (($admindata[U_DISK_DIRS] / $admindata[U_DISK]) * 100);
-                                        } else { $diskpercent4 = '0'; } echo $admindata[U_DISK_DIRS]; ?> mb</h2> <small>User Directories</small>
+                                        <?php if ($admindata['U_DISK'] != '0') {
+                                            $diskpercent4 = (($admindata['U_DISK_DIRS'] / $admindata['U_DISK']) * 100);
+                                        } else { $diskpercent4 = '0'; } echo $admindata['U_DISK_DIRS']; ?> mb</h2> <small>User Directories</small>
                                     <div class="pull-right">
                                         <?php if($diskpercent4 == "INF"){ echo "0";}else{echo round($diskpercent4);} ?>%</div>
                                     <div class="progress">
@@ -606,8 +604,8 @@
                                             <li><i class="fa fa-list-alt text-danger"></i></li>
                                             <li class="text-right">
                                                 <h1>
-                                                    <?php echo $admindata[U_DNS_DOMAINS]; ?> /
-                                                    <?php if($admindata[DNS_DOMAINS] == "unlimited"){echo "&#8734;";} else{ print_r($admindata[DNS_DOMAINS]); } ?>
+                                                    <?php echo $admindata['U_DNS_DOMAINS']; ?> /
+                                                    <?php if($admindata['DNS_DOMAINS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['DNS_DOMAINS']); } ?>
                                                 </h1>
                                             </li><br><br>
                                         </ul>
@@ -620,8 +618,8 @@
                                             <li><i class="fa fa-sitemap text-danger"></i></li>
                                             <li class="text-right">
                                                 <h1>
-                                                    <?php echo $admindata[U_DNS_RECORDS]; ?> /
-                                                    <?php if($admindata[DNS_RECORDS] == "unlimited"){echo "&#8734;";} else{ print_r($admindata[DNS_DOMAINS] * $admindata[DNS_RECORDS]); } ?>
+                                                    <?php echo $admindata['U_DNS_RECORDS']; ?> /
+                                                    <?php if($admindata['DNS_RECORDS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['DNS_DOMAINS'] * $admindata['DNS_RECORDS']); } ?>
                                                 </h1>
                                             </li><br><br>
                                         </ul>
@@ -634,8 +632,8 @@
                                             <li><i class="fa fa-envelope-square text-warning"></i></li>
                                             <li class="text-right">
                                                 <h1>
-                                                    <?php echo $admindata[U_MAIL_DOMAINS]; ?> /
-                                                    <?php if($admindata[MAIL_DOMAINS] == "unlimited"){echo "&#8734;";} else{ print_r($admindata[MAIL_DOMAINS]); } ?>
+                                                    <?php echo $admindata['U_MAIL_DOMAINS']; ?> /
+                                                    <?php if($admindata['MAIL_DOMAINS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['MAIL_DOMAINS']); } ?>
                                                 </h1>
                                             </li><br><br>
                                         </ul>
@@ -648,8 +646,8 @@
                                             <li><i class="ti-cloud-up text-info"></i></li>
                                             <li class="text-right">
                                                 <h1>
-                                                    <?php echo $admindata[U_BACKUPS]; ?> /
-                                                    <?php if($admindata[BACKUPS] == "unlimited"){echo "&#8734;";} else{ print_r($admindata[BACKUPS]); } ?>
+                                                    <?php echo $admindata['U_BACKUPS']; ?> /
+                                                    <?php if($admindata['BACKUPS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['BACKUPS']); } ?>
                                                 </h1>
                                             </li><br><br>
                                         </ul>
@@ -668,10 +666,10 @@
                                                 <div class="columnleft" style="margin-top:10px; float: left;">
                                                     <h2 style="width: 200%;">Username:
                                                         <?php print_r($username); ?><br>Email:
-                                                        <?php print_r($admindata[CONTACT]); ?><br><br> Plan:
-                                                        <?php print_r($admindata[PACKAGE]); ?><br>Bandwidth:
-                                                        <?php if($admindata[BANDWIDTH] == "unlimited"){ echo "Unlimited";} else { print_r($admindata[BANDWIDTH] . " mb");} ?> <br>Disk Quota:
-                                                        <?php if($admindata[DISK_QUOTA] == "unlimited"){ echo "Unlimited";} else { print_r($admindata[DISK_QUOTA] . " mb");} ?>
+                                                        <?php print_r($admindata['CONTACT']); ?><br><br> Plan:
+                                                        <?php print_r($admindata['PACKAGE']); ?><br>Bandwidth:
+                                                        <?php if($admindata['BANDWIDTH'] == "unlimited"){ echo "Unlimited";} else { print_r($admindata['BANDWIDTH'] . " mb");} ?> <br>Disk Quota:
+                                                        <?php if($admindata['DISK_QUOTA'] == "unlimited"){ echo "Unlimited";} else { print_r($admindata['DISK_QUOTA'] . " mb");} ?>
                                                     </h2>
 
 
@@ -681,7 +679,7 @@
                                                     <h2>Nameservers: <br>
                                                         <ul class="dashed">
                                                             <?php 
-                                                            $nsArray = explode(',', ($admindata[NS])); 
+                                                            $nsArray = explode(',', ($admindata['NS'])); 
 
                                                             foreach ($nsArray as &$value) {
                                                                 $value = "<li>" . $value . "</li>";
@@ -708,8 +706,8 @@
                                     <li><i class="fa fa-database text-purple"></i></li>
                                     <li class="text-right">
                                         <h1>
-                                            <?php echo $admindata[U_DATABASES]; ?> /
-                                            <?php if($admindata[DATABASES] == "unlimited"){echo "&#8734;";} else{ print_r($admindata[DATABASES]); } ?>
+                                            <?php echo $admindata['U_DATABASES']; ?> /
+                                            <?php if($admindata['DATABASES'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['DATABASES']); } ?>
                                         </h1>
                                     </li>
                                 </ul>
@@ -722,8 +720,8 @@
                                     <li><i class="ti-timer text-inverse"></i></li>
                                     <li class="text-right">
                                         <h1>
-                                            <?php echo $admindata[U_CRON_JOBS]; ?> /
-                                            <?php if($admindata[CRON_JOBS] == "unlimited"){echo "&#8734;";} else{ print_r($admindata[CRON_JOBS]); } ?>
+                                            <?php echo $admindata['U_CRON_JOBS']; ?> /
+                                            <?php if($admindata['CRON_JOBS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['CRON_JOBS']); } ?>
                                         </h1>
                                     </li>
                                 </ul>
@@ -736,8 +734,8 @@
                                     <li><i class="ti-layers text-success"></i></li>
                                     <li class="text-right">
                                         <h1>
-                                            <?php echo $admindata[U_WEB_ALIASES]; ?> /
-                                            <?php if($admindata[WEB_ALIASES] == "unlimited"){echo "&#8734;";} else{ print_r($admindata[WEB_ALIASES] * $admindata[WEB_DOMAINS]); } ?>
+                                            <?php echo $admindata['U_WEB_ALIASES']; ?> /
+                                            <?php if($admindata['WEB_ALIASES'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['WEB_ALIASES'] * $admindata['WEB_DOMAINS']); } ?>
                                         </h1>
                                     </li>
                                 </ul>

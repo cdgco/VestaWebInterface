@@ -11,9 +11,9 @@ DEFINE('SITE_NAME', 'My Host'); // Site name for use in page titles. Ex: 'My Hos
 DEFINE('THEME', 'default'); // Accepted options are 'default', 'blue', 'purple' and 'orange'
 
 // VESTA API SETTINGS //
-DEFINE('VESTA_HOST_ADDRESS', 'myhost.com'); // URL or IP Address of VestaCP. Ex: 'myhost.com' or '12.34.56.78'.
+DEFINE('VESTA_HOST_ADDRESS', ''); // URL or IP Address of VestaCP. Ex: 'myhost.com' or '12.34.56.78'.
 DEFINE('VESTA_SSL_ENABLED', 'true'); // If ssl is enabled on VestaCP - Ex: 'true' or 'false'.
-DEFINE('VESTA_PORT', ''); // VestaCP port. Leave blank for VestCP default. Ex: '8083'.
+DEFINE('VESTA_PORT', '8083'); // VestaCP port. Ex: '8083'.
 DEFINE('VESTA_ADMIN_UNAME', 'admin'); // Username of VestaCP Admin account. Ex: 'admin'.
 DEFINE('VESTA_ADMIN_PW', ''); // Password for VestaCP Admin account. Ex: 'MyPassword1'.
 
@@ -120,7 +120,7 @@ else{
 }
 
 if(PHPPGADMIN_URL == ''){
-    $phpmyadmin = $vst_ssl . VESTA_HOST_ADDRESS . '/phppgadmin';
+    $phppgadmin = $vst_ssl . VESTA_HOST_ADDRESS . '/phppgadmin';
 }
 elseif(PHPPGADMIN_URL == 'disabled'){
     $phppgadmin = '';
