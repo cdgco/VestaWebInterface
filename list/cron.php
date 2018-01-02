@@ -1,6 +1,6 @@
 ***REMOVED***
 
-require '../includes/vars.php';
+require '../includes/config.php';
 require_once '../includes/cronparser.php';
 
     if(base64_decode($_COOKIE['loggedin']) == 'true') {***REMOVED***
