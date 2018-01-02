@@ -137,7 +137,7 @@ if(isset($_POST['username'])){
                 <div class="inner-panel">
                     <a href="javascript:void(0)" class="p-20 di"><img src="plugins/images/admin-logo.png" class="logo-1"></a>
                     <div class="lg-content">
-                        <h2>***REMOVED*** echo $sitetitle; ***REMOVED*** Control Panel <br></h2><p>Beta v2.0</p>
+                        <h2>***REMOVED*** echo $sitetitle; ***REMOVED*** Control Panel <br></h2><p>***REMOVED*** require 'includes/versioncheck.php' ***REMOVED***</p>
 
                     </div>
                 </div>
