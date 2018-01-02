@@ -1,5 +1,5 @@
 <?php
-require '../includes/config.php';
+require '../includes/vars.php';
 
     if(base64_decode($_COOKIE['loggedin']) == 'true') {}
       else { header('Location: ../login.php'); }

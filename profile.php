@@ -1,5 +1,5 @@
 <?php
-require 'includes/config.php';
+require 'includes/vars.php';
 require 'includes/carray.php';
 
 if(base64_decode($_COOKIE['loggedin']) == 'true') {}
@@ -374,7 +374,7 @@ $admindata = json_decode(curl_exec($curl0), true)[$username];
                     </div>
                 </div>
             </div>
-            <footer class="footer text-center">&copy; Copyright <?php echo date("Y") . ' ' . $sitetitle; ?>. All Rights Reserved. Vesta Web Interface <?php require 'includes/versioncheck.php' ?> by CDG Web Services.</footer>
+            <footer class="footer text-center">&copy; Copyright <?php echo date("Y") . ' ' . $sitetitle; ?>. All Rights Reserved. Vesta Web Interface <?php require 'includes/versioncheck.php'; ?> by CDG Web Services.</footer>
         </div>
         </div>
     <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>

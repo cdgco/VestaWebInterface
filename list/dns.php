@@ -1,6 +1,6 @@
 <?php
 
-require '../includes/config.php';
+require '../includes/vars.php';
 
     $postvars = array(
       array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
@@ -305,7 +305,7 @@ if($dnsname[0] != '') {
 
             </div>
             <!-- /.container-fluid -->
-<footer class="footer text-center">&copy; Copyright <?php echo date("Y") . ' ' . $sitetitle; ?>. All Rights Reserved. Vesta Web Interface <?php require 'includes/versioncheck.php' ?> by CDG Web Services.</footer>        </div>
+<footer class="footer text-center">&copy; Copyright <?php echo date("Y") . ' ' . $sitetitle; ?>. All Rights Reserved. Vesta Web Interface <?php require '../includes/versioncheck.php'; ?> by CDG Web Services.</footer>        </div>
 
     </div>
     <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>

@@ -1,5 +1,5 @@
 <?php
-require 'includes/config.php';
+if (file_exists( 'includes/config.php' )) { require( 'includes/config.php'); }  else { header( 'Location: install' );};
 if(isset($_COOKIE['loggedin'])) { 
     if(base64_decode($_COOKIE['loggedin']) == 'true') { header('Location: index.php'); }
 }
@@ -137,7 +137,7 @@ if(isset($_POST['username'])){
                 <div class="inner-panel">
                     <a href="javascript:void(0)" class="p-20 di"><img src="plugins/images/admin-logo.png" class="logo-1"></a>
                     <div class="lg-content">
-                        <h2><?php echo $sitetitle; ?> Control Panel <br></h2><p><?php require 'includes/versioncheck.php' ?></p>
+                        <h2><?php echo $sitetitle; ?> Control Panel <br></h2><p><?php require 'includes/versioncheck.php'; ?></p>
 
                     </div>
                 </div>
