@@ -56,53 +56,53 @@ $admindata = json_decode(curl_exec($curl0), true)[$username];
             ***REMOVED***
         </style>
         <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
     </head>
     <body class="fix-header">
-    ***REMOVED*** if(INTERAKT_APP_ID != ''){ echo '<script>
+        ***REMOVED*** if(INTERAKT_APP_ID != ''){ echo '<script>
 	window.mySettings = {
-	first_name: "' . $admindata[FNAME] . '",
-	last_name: "' . $admindata[LNAME] . '",
-	suspended: "' . $admindata[SUSPENDED] . '",
-	package: "' . $admindata[PACKAGE] . '",
-	language: "' . $admindata[LANGUAGE] . '",
+	first_name: "' . $admindata['FNAME'] . '",
+	last_name: "' . $admindata['LNAME'] . '",
+	suspended: "' . $admindata['SUSPENDED'] . '",
+	package: "' . $admindata['PACKAGE'] . '",
+	language: "' . $admindata['LANGUAGE'] . '",
 	uname: "' . $username . '",
-	email: "' . $admindata[CONTACT] . '",
-	created_at: ' . strtotime($admindata[DATE] . ' ' . $admindata[TIME]) . ',
-	joined_at: "' . $admindata[DATE] . ' ' . $admindata[TIME] . '",
+	email: "' . $admindata['CONTACT'] . '",
+	created_at: ' . strtotime($admindata['DATE'] . ' ' . $admindata['TIME']) . ',
+	joined_at: "' . $admindata['DATE'] . ' ' . $admindata['TIME'] . '",
 	app_id: "' . INTERAKT_APP_ID . '"
 	***REMOVED***;
     </script>'; ***REMOVED*** ***REMOVED***
         <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.js"></script>
         ***REMOVED***
 
-        $pwcode = $_GET['password'];
-        $emailcode = $_GET['email'];
-        $langcode = $_GET['lang'];
-        $nscode = $_GET['ns'];
-        $namecode = $_GET['name'];
-        $answer1 = $pwcode + $emailcode + $langcode + $nscode + $namecode;
-        $answer = (int)$answer1;
-        if($pwcode != '' || $emailcode != '' || $langcode != '' || $nscode != '' || $namecode != ''){
+        if(isset($_GET['password'])) { $pwcode = $_GET['password']; ***REMOVED***
+        if(isset($_GET['email'])) { $emailcode = $_GET['email']; ***REMOVED***
+        if(isset($_GET['lang'])) { $langcode = $_GET['lang']; ***REMOVED***
+        if(isset($_GET['ns'])) { $nscode = $_GET['ns']; ***REMOVED***
+        if(isset($_GET['name'])) { $namecode = $_GET['name']; ***REMOVED***
+        if(isset($_GET['password']) && isset($_GET['email']) && isset($_GET['lang']) && isset($_GET['ns']) && isset($_GET['name'])) { $answer1 = $pwcode + $emailcode + $langcode + $nscode + $namecode; ***REMOVED***
+        if(isset($answer1)) { $answer = (int)$answer1; ***REMOVED***
+        if(isset($pwcode) || isset($emailcode) || isset($langcode) || isset($nscode) || isset($namecode)){
             if($answer == "0") {
                 echo "<script> swal({title:'Successfully Updated!', type:'success'***REMOVED***)</script>";
             ***REMOVED*** 
-            if($answer == "1" || $answer == "2") { echo "<script> swal('Invalid data entered in form.<br> Please try again.', '<br>"; 
-                                                  if($pwcode != '' && $pwcode != "0"){ echo " P: " . $pwcode;***REMOVED***
-                                                  if($emailcode != '' && $emailcode != "0"){ echo " E: " . $emailcode;***REMOVED***
-                                                  if($langcode != '' && $langcode != "0"){ echo " L: " . $langcode;***REMOVED***
-                                                  if($nscode != '' && $nscode != "0"){ echo " NS: " . $nscode;***REMOVED***
-                                                  if($namecode != '' && $namecode != "0"){ echo " N: " . $namecode;***REMOVED***
-                                                  echo "', 'error')</script>";***REMOVED***
-            if($answer > "2") { echo "<script> swal('Please try again or contact support.', '<br>"; 
-                               if($pwcode != '' && $pwcode != "0"){ echo " P: " . $pwcode;***REMOVED***
-                               if($emailcode != '' && $emailcode != "0"){ echo " E: " . $emailcode;***REMOVED***
-                               if($langcode != '' && $langcode != "0"){ echo " L: " . $langcode;***REMOVED***
-                               if($nscode != '' && $nscode != "0"){ echo " NS: " . $nscode;***REMOVED***
-                               if($namecode != '' && $namecode != "0"){ echo " N: " . $namecode;***REMOVED***
-                               echo "', 'error')</script>";***REMOVED***
+            if(isset($answer) && $answer == "1" || isset($answer) && $answer == "2") { echo "<script> swal('Invalid data entered in form.<br> Please try again.', '<br>"; 
+                                                                                      if(isset($pwcode) && $pwcode != "0"){ echo " P: " . $pwcode;***REMOVED***
+                                                                                      if(isset($emailcode) && $emailcode != "0"){ echo " E: " . $emailcode;***REMOVED***
+                                                                                      if(isset($langcode) && $langcode != "0"){ echo " L: " . $langcode;***REMOVED***
+                                                                                      if(isset($nscode) && $nscode != "0"){ echo " NS: " . $nscode;***REMOVED***
+                                                                                      if(isset($namecode) && $namecode != "0"){ echo " N: " . $namecode;***REMOVED***
+                                                                                      echo "', 'error')</script>";***REMOVED***
+            if(isset($answer) && $answer > "2") { echo "<script> swal('Please try again or contact support.', '<br>"; 
+                                                 if(isset($pwcode) && $pwcode != "0"){ echo " P: " . $pwcode;***REMOVED***
+                                                 if(isset($emailcode) && $emailcode != "0"){ echo " E: " . $emailcode;***REMOVED***
+                                                 if(isset($langcode) && $langcode != "0"){ echo " L: " . $langcode;***REMOVED***
+                                                 if(isset($nscode) && $nscode != "0"){ echo " NS: " . $nscode;***REMOVED***
+                                                 if(isset($namecode) && $namecode != "0"){ echo " N: " . $namecode;***REMOVED***
+                                                 echo "', 'error')</script>";***REMOVED***
         ***REMOVED***
         ***REMOVED***
 
@@ -136,7 +136,7 @@ $admindata = json_decode(curl_exec($curl0), true)[$username];
                                                 ***REMOVED*** print_r($uname); ***REMOVED***
                                             </h4>
                                             <p class="text-muted">
-                                                ***REMOVED*** print_r($admindata[CONTACT]); ***REMOVED***
+                                                ***REMOVED*** print_r($admindata['CONTACT']); ***REMOVED***
                                             </p>
                                         </div>
                                     </div>
@@ -165,7 +165,7 @@ $admindata = json_decode(curl_exec($curl0), true)[$username];
                     </div>
                     <ul class="nav" id="side-menu">
                         <li> 
-                            <a active href="index.php" class="active waves-effect">
+                            <a href="index.php" class="waves-effect">
                                 <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu">Dashboard</span>
                             </a> 
                         </li>
@@ -175,7 +175,7 @@ $admindata = json_decode(curl_exec($curl0), true)[$username];
                             <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> ***REMOVED*** print_r($uname); ***REMOVED***<span class="fa arrow"></span></span>
                             </a>
                             <ul class="nav nav-second-level collapse" >
-                                <li> <a href="profile.php" id="profileactive"><i class="ti-home fa-fw ***REMOVED*** if($_GET['settings'] == "open") { echo 'text-inverse';***REMOVED*** ***REMOVED***"></i> <span style="***REMOVED*** if($_GET['settings'] == "open") { echo 'color:#54667a;font-weight:300;';***REMOVED*** ***REMOVED***" class="hide-menu"> My Account</span></a></li>
+                                <li> <a href="profile.php" id="profileactive"><i class="ti-home fa-fw ***REMOVED*** if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo 'text-inverse';***REMOVED*** ***REMOVED***"></i> <span style="***REMOVED*** if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo 'color:#54667a;font-weight:300;';***REMOVED*** ***REMOVED***" class="hide-menu"> My Account</span></a></li>
                                 <li> <a href="profile.php?settings=open" id="settingsactive"><i class="ti-settings fa-fw "></i> <span class="hide-menu"> Account Setting</span></a></li>
                             </ul>
                         </li>
@@ -200,8 +200,8 @@ $admindata = json_decode(curl_exec($curl0), true)[$username];
                         ***REMOVED*** if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {***REMOVED*** else { echo '</ul></li>';***REMOVED*** ***REMOVED***
                         <li class="devider"></li>
                         <li><a href="process/logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
-                        ***REMOVED*** if ($oldcplink == '' && $supporturl == '') {***REMOVED*** else { echo '<li class="devider"></li>'; ***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($oldcplink != '') { echo '<li><a href="' . $oldcplink . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> Control Panel v1</span></a></li>'; ***REMOVED*** ***REMOVED***
+                        ***REMOVED*** if ($oldcpurl == '' || $supporturl == '') {***REMOVED*** else { echo '<li class="devider"></li>'; ***REMOVED*** ***REMOVED***
+                        ***REMOVED*** if ($oldcpurl != '') { echo '<li><a href="' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> Control Panel v1</span></a></li>'; ***REMOVED*** ***REMOVED***
                         ***REMOVED*** if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">Support</span></a></li>'; ***REMOVED*** ***REMOVED***
                     </ul>
                 </div>
@@ -216,11 +216,11 @@ $admindata = json_decode(curl_exec($curl0), true)[$username];
                     <div class="row">
                         <div class="col-md-4 col-xs-12">
                             <div class="white-box">
-                                <div class="user-bg"> 
-                                    <div class="overlay-box" style="background: #2cabe3;">
+                                <div class="user-bg bg-theme"> 
+                                    <div class="overlay-box bg-theme">
                                         <div class="user-content"><br><br>
                                             <h4 class="text-white">***REMOVED*** print_r($username); ***REMOVED***</h4>
-                                            <h5 class="text-white">***REMOVED*** print_r($admindata[CONTACT]); ***REMOVED***</h5> </div>
+                                            <h5 class="text-white">***REMOVED*** print_r($admindata['CONTACT']); ***REMOVED***</h5> </div>
                                     </div>
                                 </div>
 
@@ -229,39 +229,39 @@ $admindata = json_decode(curl_exec($curl0), true)[$username];
                         <div class="col-md-8 col-xs-12">
                             <div class="white-box">
                                 <ul class="nav nav-tabs tabs customtab">
-                                    <li class="***REMOVED*** if($_GET['settings'] != "open") { echo "active tab"; ***REMOVED*** else { echo "tab"; ***REMOVED*** ***REMOVED***" >
+                                    <li class="***REMOVED*** if(!isset($_GET['settings']) || isset($_GET['settings']) && $_GET['settings'] != "open") { echo "active tab"; ***REMOVED*** else { echo "tab"; ***REMOVED*** ***REMOVED***" >
                                         <a href="profile.php"> <span class="visible-xs"><i class="fa fa-user"></i></span> <span class="hidden-xs">Account</span> </a>
                                     </li>
-                                    <li class="***REMOVED*** if($_GET['settings'] == "open") { echo "active tab"; ***REMOVED*** else { echo "tab"; ***REMOVED*** ***REMOVED***">
+                                    <li class="***REMOVED*** if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo "active tab"; ***REMOVED*** else { echo "tab"; ***REMOVED*** ***REMOVED***">
                                         <a href="profile.php?settings=open"> <span class="visible-xs"><i class="fa fa-cog"></i></span> <span class="hidden-xs">Settings</span> </a>
                                     </li>
                                 </ul>
                                 <div class="tab-content ">
-                                    <div class="tab-pane ***REMOVED*** if($_GET['settings'] != "open") { echo "active"; ***REMOVED*** ***REMOVED***" id="profile">
+                                    <div class="tab-pane ***REMOVED*** if(!isset($_GET['settings']) || isset($_GET['settings']) && $_GET['settings'] != "open") { echo "active"; ***REMOVED*** ***REMOVED***" id="profile">
                                         <div class="row">
                                             <div class="col-md-3 col-xs-6 b-r"> <strong>Name</strong>
                                                 <br>
-                                                <p class="text-muted">***REMOVED*** print_r($admindata[FNAME] . ' ' . $admindata[LNAME]); ***REMOVED***</p>
+                                                <p class="text-muted">***REMOVED*** print_r($admindata['FNAME'] . ' ' . $admindata['LNAME']); ***REMOVED***</p>
                                             </div>
                                             <div class="col-md-3 col-xs-6 b-r"> <strong>Joined</strong>
                                                 <br>
-                                                <p class="text-muted">***REMOVED*** $date=date_create($admindata[DATE] . ' ' . $admindata[TIME]);
+                                                <p class="text-muted">***REMOVED*** $date=date_create($admindata['DATE'] . ' ' . $admindata['TIME']);
                                                     echo date_format($date,"F j, Y - g:i A"); ***REMOVED***</p>
                                             </div>
                                             <div class="col-md-3 col-xs-6 b-r"> <strong>Plan</strong>
                                                 <br>
-                                                <p class="text-muted">***REMOVED*** print_r(ucfirst($admindata[PACKAGE])); ***REMOVED***</p>
+                                                <p class="text-muted">***REMOVED*** print_r(ucfirst($admindata['PACKAGE'])); ***REMOVED***</p>
                                             </div>
                                             <div class="col-md-3 col-xs-6"> <strong>Language</strong>
                                                 <br>
-                                                <p class="text-muted">***REMOVED*** if($admindata[LANGUAGE] == ""){echo "Not Set";***REMOVED*** ***REMOVED*** print_r($countries[$admindata[LANGUAGE]]);***REMOVED*** ***REMOVED***</p>
+                                                <p class="text-muted">***REMOVED*** if($admindata['LANGUAGE'] == ""){echo "Not Set";***REMOVED*** ***REMOVED*** print_r($countries[$admindata['LANGUAGE']]);***REMOVED*** ***REMOVED***</p>
                                             </div>
                                         </div>
                                         <hr>
                                         <strong>Nameservers:</strong><p class="m-t-30">
                                         <ul class="dashed">
                                             ***REMOVED*** 
-                                            $nsArray = explode(',', ($admindata[NS])); 
+                                            $nsArray = explode(',', ($admindata['NS'])); 
 
                                             foreach ($nsArray as &$value) {
                                                 $value = "<li>" . $value . "</li>";
@@ -274,12 +274,12 @@ $admindata = json_decode(curl_exec($curl0), true)[$username];
                                         </p>
 
                                 </div>
-                                <div class="tab-pane ***REMOVED*** if($_GET['settings'] == "open") { echo "active"; ***REMOVED*** ***REMOVED***" id="settings">
+                                <div class="tab-pane ***REMOVED*** if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo "active"; ***REMOVED*** ***REMOVED***" id="settings">
                                     <form class="form-horizontal form-material" autocomplete="off" action="process/updatesettings.php" method="post">
                                         <div class="form-group">
                                             <label for="username" class="col-md-12">Username</label>
                                             <div class="col-md-12">
-                                                <input type="text" disabled value="<? print_r($username); ***REMOVED***" class="form-control form-control-line" name="username" id="username"> </div>
+                                                <input type="text" disabled value="***REMOVED*** print_r($username); ***REMOVED***" class="form-control form-control-line" name="username" id="username"> </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="password" class="col-md-12">Password / <a style="cursor:pointer" onclick="generatePassword(10)"> Generate</a></label>
@@ -293,50 +293,50 @@ $admindata = json_decode(curl_exec($curl0), true)[$username];
                                         <div class="form-group">
                                             <label class="col-sm-6 pull-left">First Name</label><label class="col-sm-6 pull-right">Last Name</label>
                                             <div class="col-sm-6 pull-left">
-                                                <input type="text" name="fname" value="<? print_r($admindata[FNAME]); ***REMOVED***" class="form-control form-control-line"> </div>
+                                                <input type="text" name="fname" value="***REMOVED*** print_r($admindata['FNAME']); ***REMOVED***" class="form-control form-control-line"> </div>
                                             <div class="col-sm-6 pull-right">
-                                                <input type="text" name="lname" value="<? print_r($admindata[LNAME]); ***REMOVED***" class="form-control form-control-line"> </div>
+                                                <input type="text" name="lname" value="***REMOVED*** print_r($admindata['LNAME']); ***REMOVED***" class="form-control form-control-line"> </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="email" class="col-md-12">Email</label>
                                             <div class="col-md-12">
-                                                <input type="email" value="<? print_r($admindata[CONTACT]); ***REMOVED***" class="form-control form-control-line" name="email" id="email"> </div>
+                                                <input type="email" value="***REMOVED*** print_r($admindata['CONTACT']); ***REMOVED***" class="form-control form-control-line" name="email" id="email"> </div>
                                         </div>
                                         <div class="form-group" style="overflow: visible;">
                                             <label class="col-md-12">Language</label>
                                             <div class="col-md-12">
                                                 <select class="form-control select2" name="language" id="select2">
 
-                                                    <option value="ar">***REMOVED*** print_r($countries[ar]); ***REMOVED***</option>
-                                                    <option value="bs">***REMOVED*** print_r($countries[bs]); ***REMOVED***</option>
-                                                    <option value="cn">***REMOVED*** print_r($countries[cn]); ***REMOVED***</option>
-                                                    <option value="cz">***REMOVED*** print_r($countries[cz]); ***REMOVED***</option>
-                                                    <option value="da">***REMOVED*** print_r($countries[da]); ***REMOVED***</option>
-                                                    <option value="de">***REMOVED*** print_r($countries[de]); ***REMOVED***</option>
-                                                    <option value="el">***REMOVED*** print_r($countries[el]); ***REMOVED***</option>
-                                                    <option value="en">***REMOVED*** print_r($countries[en]); ***REMOVED***</option>
-                                                    <option value="es">***REMOVED*** print_r($countries[es]); ***REMOVED***</option>
-                                                    <option value="fa">***REMOVED*** print_r($countries[fa]); ***REMOVED***</option>
-                                                    <option value="fi">***REMOVED*** print_r($countries[fi]); ***REMOVED***</option>
-                                                    <option value="fr">***REMOVED*** print_r($countries[fr]); ***REMOVED***</option>
-                                                    <option value="hu">***REMOVED*** print_r($countries[hu]); ***REMOVED***</option>
-                                                    <option value="id">***REMOVED*** print_r($countries[id]); ***REMOVED***</option>
-                                                    <option value="it">***REMOVED*** print_r($countries[it]); ***REMOVED***</option>
-                                                    <option value="ja">***REMOVED*** print_r($countries[ja]); ***REMOVED***</option>
-                                                    <option value="ka">***REMOVED*** print_r($countries[ka]); ***REMOVED***</option>
-                                                    <option value="nl">***REMOVED*** print_r($countries[nl]); ***REMOVED***</option>
-                                                    <option value="no">***REMOVED*** print_r($countries[no]); ***REMOVED***</option>
-                                                    <option value="pl">***REMOVED*** print_r($countries[pl]); ***REMOVED***</option>
-                                                    <option value="pt-BR">***REMOVED*** print_r($countries[pt-BR]); ***REMOVED***</option>
-                                                    <option value="pt">***REMOVED*** print_r($countries[pt]); ***REMOVED***</option>
-                                                    <option value="ro">***REMOVED*** print_r($countries[ro]); ***REMOVED***</option>
-                                                    <option value="ru">***REMOVED*** print_r($countries[ru]); ***REMOVED***</option>
-                                                    <option value="se">***REMOVED*** print_r($countries[se]); ***REMOVED***</option>
-                                                    <option value="tr">***REMOVED*** print_r($countries[tr]); ***REMOVED***</option>
-                                                    <option value="tw">***REMOVED*** print_r($countries[tw]); ***REMOVED***</option>
-                                                    <option value="ua">***REMOVED*** print_r($countries[ua]); ***REMOVED***</option>
-                                                    <option value="vi">***REMOVED*** print_r($countries[vi]); ***REMOVED***</option>
+                                                    <option value="ar">***REMOVED*** print_r($countries['ar']); ***REMOVED***</option>
+                                                    <option value="bs">***REMOVED*** print_r($countries['bs']); ***REMOVED***</option>
+                                                    <option value="cn">***REMOVED*** print_r($countries['cn']); ***REMOVED***</option>
+                                                    <option value="cz">***REMOVED*** print_r($countries['cz']); ***REMOVED***</option>
+                                                    <option value="da">***REMOVED*** print_r($countries['da']); ***REMOVED***</option>
+                                                    <option value="de">***REMOVED*** print_r($countries['de']); ***REMOVED***</option>
+                                                    <option value="el">***REMOVED*** print_r($countries['el']); ***REMOVED***</option>
+                                                    <option value="en">***REMOVED*** print_r($countries['en']); ***REMOVED***</option>
+                                                    <option value="es">***REMOVED*** print_r($countries['es']); ***REMOVED***</option>
+                                                    <option value="fa">***REMOVED*** print_r($countries['fa']); ***REMOVED***</option>
+                                                    <option value="fi">***REMOVED*** print_r($countries['fi']); ***REMOVED***</option>
+                                                    <option value="fr">***REMOVED*** print_r($countries['fr']); ***REMOVED***</option>
+                                                    <option value="hu">***REMOVED*** print_r($countries['hu']); ***REMOVED***</option>
+                                                    <option value="id">***REMOVED*** print_r($countries['id']); ***REMOVED***</option>
+                                                    <option value="it">***REMOVED*** print_r($countries['it']); ***REMOVED***</option>
+                                                    <option value="ja">***REMOVED*** print_r($countries['ja']); ***REMOVED***</option>
+                                                    <option value="ka">***REMOVED*** print_r($countries['ka']); ***REMOVED***</option>
+                                                    <option value="nl">***REMOVED*** print_r($countries['nl']); ***REMOVED***</option>
+                                                    <option value="no">***REMOVED*** print_r($countries['no']); ***REMOVED***</option>
+                                                    <option value="pl">***REMOVED*** print_r($countries['pl']); ***REMOVED***</option>
+                                                    <option value="pt-BR">***REMOVED*** print_r($countries['pt-BR']); ***REMOVED***</option>
+                                                    <option value="pt">***REMOVED*** print_r($countries['pt']); ***REMOVED***</option>
+                                                    <option value="ro">***REMOVED*** print_r($countries['ro']); ***REMOVED***</option>
+                                                    <option value="ru">***REMOVED*** print_r($countries['ru']); ***REMOVED***</option>
+                                                    <option value="se">***REMOVED*** print_r($countries['se']); ***REMOVED***</option>
+                                                    <option value="tr">***REMOVED*** print_r($countries['tr']); ***REMOVED***</option>
+                                                    <option value="tw">***REMOVED*** print_r($countries['tw']); ***REMOVED***</option>
+                                                    <option value="ua">***REMOVED*** print_r($countries['ua']); ***REMOVED***</option>
+                                                    <option value="vi">***REMOVED*** print_r($countries['vi']); ***REMOVED***</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -344,27 +344,27 @@ $admindata = json_decode(curl_exec($curl0), true)[$username];
                                             <label class="col-md-12">Default Nameservers</label>
                                             <div class="col-md-12">
 
-                                                <div><input type="text" value="***REMOVED*** print_r(explode(',', ($admindata[NS]))[0]); ***REMOVED***" class="form-control form-control-line" name="ns1" id="ns1x"><br></div>
+                                                <div><input type="text" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[0]); ***REMOVED***" class="form-control form-control-line" name="ns1" id="ns1x"><br></div>
 
-                                                <div><input type="text" value="***REMOVED*** print_r(explode(',', ($admindata[NS]))[1]); ***REMOVED***" class="form-control form-control-line" name="ns2" id="ns2x"><br><div id="ns2wrapper"><a style="cursor:pointer;" id="addmore" onclick="add1();">Add One</a></div></div>
+                                                <div><input type="text" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[1]); ***REMOVED***" class="form-control form-control-line" name="ns2" id="ns2x"><br><div id="ns2wrapper"><a style="cursor:pointer;" id="addmore" onclick="add1();">Add One</a></div></div>
 
-                                                <div id="ns3" style="display:***REMOVED*** if(explode(',', ($admindata[NS]))[2] == ''){ echo "none"; ***REMOVED*** else { echo "block"; ***REMOVED*** ***REMOVED***"><input type="text" value="***REMOVED*** print_r(explode(',', ($admindata[NS]))[2]); ***REMOVED***" class="form-control form-control-line" name="ns3" id="ns3x"><br><div id="ns3wrapper"><a style="cursor:pointer;" id="addmore1" onclick="add2();">Add One</a> / <a style="cursor:pointer;" id="remove1" onclick="rem2();">Remove One</a></div></div>
+                                                <div id="ns3" style="display:***REMOVED*** if(explode(',', ($admindata['NS']))[2] == ''){ echo "none"; ***REMOVED*** else { echo "block"; ***REMOVED*** ***REMOVED***"><input type="text" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[2]); ***REMOVED***" class="form-control form-control-line" name="ns3" id="ns3x"><br><div id="ns3wrapper"><a style="cursor:pointer;" id="addmore1" onclick="add2();">Add One</a> / <a style="cursor:pointer;" id="remove1" onclick="rem2();">Remove One</a></div></div>
 
-                                                <div id="ns4" style="display:***REMOVED*** if(explode(',', ($admindata[NS]))[3] == ''){ echo "none"; ***REMOVED*** else { echo "block"; ***REMOVED*** ***REMOVED***"><input type="text" value="***REMOVED*** print_r(explode(',', ($admindata[NS]))[3]); ***REMOVED***" class="form-control form-control-line" name="ns4" id="ns4x"><br><div id="ns4wrapper"><a style="cursor:pointer;" id="addmore2" onclick="add3();">Add One</a> / <a style="cursor:pointer;" id="remove2" onclick="rem3();">Remove One</a></div></div>
+                                                <div id="ns4" style="display:***REMOVED*** if(explode(',', ($admindata['NS']))[3] == ''){ echo "none"; ***REMOVED*** else { echo "block"; ***REMOVED*** ***REMOVED***"><input type="text" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[3]); ***REMOVED***" class="form-control form-control-line" name="ns4" id="ns4x"><br><div id="ns4wrapper"><a style="cursor:pointer;" id="addmore2" onclick="add3();">Add One</a> / <a style="cursor:pointer;" id="remove2" onclick="rem3();">Remove One</a></div></div>
 
-                                                <div id="ns5" style="display:***REMOVED*** if(explode(',', ($admindata[NS]))[4] == ''){ echo "none"; ***REMOVED*** else { echo "block"; ***REMOVED*** ***REMOVED***"><input type="text" value="***REMOVED*** print_r(explode(',', ($admindata[NS]))[4]); ***REMOVED***" class="form-control form-control-line" name="ns5" id="ns5x"><br><div id="ns5wrapper"><a style="cursor:pointer;" id="addmore3" onclick="add4();">Add One</a> / <a style="cursor:pointer;" id="remove3" onclick="rem4();">Remove One</a></div></div>
+                                                <div id="ns5" style="display:***REMOVED*** if(explode(',', ($admindata['NS']))[4] == ''){ echo "none"; ***REMOVED*** else { echo "block"; ***REMOVED*** ***REMOVED***"><input type="text" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[4]); ***REMOVED***" class="form-control form-control-line" name="ns5" id="ns5x"><br><div id="ns5wrapper"><a style="cursor:pointer;" id="addmore3" onclick="add4();">Add One</a> / <a style="cursor:pointer;" id="remove3" onclick="rem4();">Remove One</a></div></div>
 
-                                                <div id="ns6" style="display:***REMOVED*** if(explode(',', ($admindata[NS]))[5] == ''){ echo "none"; ***REMOVED*** else { echo "block"; ***REMOVED*** ***REMOVED***"><input type="text" value="***REMOVED*** print_r(explode(',', ($admindata[NS]))[5]); ***REMOVED***" class="form-control form-control-line" name="ns6" id="ns6x"><br><div id="ns6wrapper"><a style="cursor:pointer;" id="addmore4" onclick="add5();">Add One</a> / <a style="cursor:pointer;" id="remove4" onclick="rem5();">Remove One</a></div></div>
+                                                <div id="ns6" style="display:***REMOVED*** if(explode(',', ($admindata['NS']))[5] == ''){ echo "none"; ***REMOVED*** else { echo "block"; ***REMOVED*** ***REMOVED***"><input type="text" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[5]); ***REMOVED***" class="form-control form-control-line" name="ns6" id="ns6x"><br><div id="ns6wrapper"><a style="cursor:pointer;" id="addmore4" onclick="add5();">Add One</a> / <a style="cursor:pointer;" id="remove4" onclick="rem5();">Remove One</a></div></div>
 
-                                                <div id="ns7" style="display:***REMOVED*** if(explode(',', ($admindata[NS]))[6] == ''){ echo "none"; ***REMOVED*** else { echo "block"; ***REMOVED*** ***REMOVED***"><input type="text" value="***REMOVED*** print_r(explode(',', ($admindata[NS]))[6]); ***REMOVED***" class="form-control form-control-line" name="ns7" id="ns7x"><br><div id="ns7wrapper"><a style="cursor:pointer;" id="addmore5" onclick="add6();">Add One</a> / <a style="cursor:pointer;" id="remove5" onclick="rem6();">Remove One</a></div></div>
+                                                <div id="ns7" style="display:***REMOVED*** if(explode(',', ($admindata['NS']))[6] == ''){ echo "none"; ***REMOVED*** else { echo "block"; ***REMOVED*** ***REMOVED***"><input type="text" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[6]); ***REMOVED***" class="form-control form-control-line" name="ns7" id="ns7x"><br><div id="ns7wrapper"><a style="cursor:pointer;" id="addmore5" onclick="add6();">Add One</a> / <a style="cursor:pointer;" id="remove5" onclick="rem6();">Remove One</a></div></div>
 
-                                                <div id="ns8" style="display:***REMOVED*** if(explode(',', ($admindata[NS]))[7] == ''){ echo "none"; ***REMOVED*** else { echo "block"; ***REMOVED*** ***REMOVED***"><input type="text" value="***REMOVED*** print_r(explode(',', ($admindata[NS]))[7]); ***REMOVED***" class="form-control form-control-line" name="ns8" id="ns8x"><br><div id="ns8wrapper"><a style="cursor:pointer;" id="remove6" onclick="rem7();">Remove One</a></div></div>
+                                                <div id="ns8" style="display:***REMOVED*** if(explode(',', ($admindata['NS']))[7] == ''){ echo "none"; ***REMOVED*** else { echo "block"; ***REMOVED*** ***REMOVED***"><input type="text" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[7]); ***REMOVED***" class="form-control form-control-line" name="ns8" id="ns8x"><br><div id="ns8wrapper"><a style="cursor:pointer;" id="remove6" onclick="rem7();">Remove One</a></div></div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-12">
                                                 <button class="btn btn-success">Update Profile</button> &nbsp;
-                                            <a href="profile.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">Back</button></a>
+                                                <a href="profile.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">Back</button></a>
                                             </div>
                                         </div>
                                     </form>
@@ -411,7 +411,7 @@ $admindata = json_decode(curl_exec($curl0), true)[$username];
             $('.select2').select2();
         ***REMOVED***);
 
-        document.getElementById('select2').value = '<? print_r($admindata[LANGUAGE]); ***REMOVED***';  
+        document.getElementById('select2').value = '***REMOVED*** print_r($admindata['LANGUAGE']); ***REMOVED***';  
 
 
         ***REMOVED*** 

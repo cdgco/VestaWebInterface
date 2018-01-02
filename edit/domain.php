@@ -39,7 +39,7 @@ while($curlstart <= 6) {
 ***REMOVED*** 
 
 $admindata = json_decode(curl_exec($curl0), true)[$username];
-$useremail = $admindata[CONTACT];
+$useremail = $admindata['CONTACT'];
 $domainname = array_keys(json_decode(curl_exec($curl1), true));
 $domaindata = array_values(json_decode(curl_exec($curl1), true));
 $webtemplates = array_values(json_decode(curl_exec($curl2), true));
@@ -136,42 +136,47 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                             <span class="hide-menu">Navigation</span>
                         </h3>  
                     </div>
-                    <ul class="nav" id="side-menu">
-                        <li> <a href="../index.php" class="waves-effect"><i class="mdi mdi-home fa-fw"></i> <span class="hide-menu">Dashboard</span></a> </li>
-                        <li class="devider"></li>
-                        <li>
-                            <a active href="#" class="waves-effect"><i class="ti-user fa-fw"></i><span class="hide-menu"> ***REMOVED*** print_r($uname); ***REMOVED***<span class="fa arrow"></span></span></a>
-                            <ul class="nav nav-second-level collapse">
-                                <li> <a href="../profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> My Account</span></a></li>
-                                <li> <a active href="../profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> Account Setting</span></a></li>
-                            </ul>
-                        </li>
-                        <li class="devider"></li>
-                        <li class="active"> <a href="#" class="awaves-effect"><i class="mdi mdi-av-timer fa-fw" aria-expanded="true" data-icon="v"></i> <span class="hide-menu">Management <span class="fa arrow"></span> </span></a>
-                            <ul class="nav nav-second-level">
-                                <li> <a href="../list/web.php" class="active"><i class="ti-world fa-fw"></i><span class="hide-menu">Web</span></a> </li>
-                                <li> <a href="../list/dns.php"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">DNS</span></a> </li>
-                                <li> <a href="../list/mail.php"><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">Mail</span></a> </li>
-                                <li> <a href="../list/db.php"><i class="fa fa-database fa-fw"></i><span class="hide-menu">Database</span></a> </li>
-                            </ul>
-                        </li>
-                        <li> <a href="../list/cron.php" class="waves-effect"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">Cron Jobs</span></a> </li>
-                        <li> <a href="../list/backups.php" class="waves-effect"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu">Backups</span></a> </li>   
-                        <li class="devider"></li>                
-                        <li><a href="#" class="waves-effect"><i class="mdi mdi-apps fa-fw"></i> <span class="hide-menu">Apps<span class="fa arrow"></span></span></a>
-                            <ul class="nav nav-second-level">
-                                <li><a href="https://webftp.cdgtech.one"><i class="fa fa-file-code-o fa-fw"></i><span class="hide-menu">FTP</span></a></li>
-                                <li><a href="https://usermail.cdgtech.one"><i class="fa fa-envelope-o fa-fw"></i><span class="hide-menu">Webmail</span></a></li>
-                                <li><a href="https://host.cdgtech.one/phpmyadmin"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">phpMyAdmin</span></a></li>
+                   <ul class="nav" id="side-menu">
+                            <li> 
+                                <a href="../index.php" class="waves-effect">
+                                    <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu">Dashboard</span>
+                                </a> 
+                            </li>
 
-                            </ul>
-                        </li>
-                        <li class="devider"></li>
-                        <li><a href="../process/logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
-                        <li class="devider"></li>
-                        <li><a href="https://host.cdgtech.one:8083" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> Control Panel v1</span></a></li>
-                        <li><a href="http://cdgsupport.epizy.com" class="waves-effect"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">Support</span></a></li>
-                    </ul>
+                            <li class="devider"></li>
+                            <li>
+                                <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> ***REMOVED*** print_r($uname); ***REMOVED***<span class="fa arrow"></span></span>
+                                </a>
+                                <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+                                    <li> <a href="../profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> My Account</span></a></li>
+                                    <li> <a href="../profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> Account Setting</span></a></li>
+                                </ul>
+                            </li>
+                            ***REMOVED*** if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '<li class="devider"></li>
+                                <li class="active"> <a href="#" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">Management <span class="fa arrow"></span> </span></a>
+                                    <ul class="nav nav-second-level">'; ***REMOVED*** ***REMOVED***
+                            ***REMOVED*** if ($webenabled == 'true') { echo '<li> <a href="../list/web.php" class="active"><i class="ti-world fa-fw"></i><span class="hide-menu">Web</span></a> </li>'; ***REMOVED*** ***REMOVED***
+                            ***REMOVED*** if ($dnsenabled == 'true') { echo '<li> <a href="../list/dns.php"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">DNS</span></a> </li>'; ***REMOVED*** ***REMOVED***
+                            ***REMOVED*** if ($mailenabled == 'true') { echo '<li> <a href="../list/mail.php"><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">Mail</span></a> </li>'; ***REMOVED*** ***REMOVED***
+                            ***REMOVED*** if ($dbenabled == 'true') { echo '<li> <a href="../list/db.php"><i class="fa fa-database fa-fw"></i><span class="hide-menu">Database</span></a> </li>'; ***REMOVED*** ***REMOVED***
+                            ***REMOVED*** if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '</ul>
+                                </li>'; ***REMOVED*** ***REMOVED***
+                            <li> <a href="../list/cron.php" class="waves-effect"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">Cron Jobs</span></a> </li>
+                            <li> <a href="../list/backups.php" class="waves-effect"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu">Backups</span></a> </li>
+                            ***REMOVED*** if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {***REMOVED*** else { echo '<li class="devider"></li>
+                                <li><a href="#" class="waves-effect"><i class="mdi mdi-apps fa-fw"></i> <span class="hide-menu">Apps<span class="fa arrow"></span></span></a>
+                                    <ul class="nav nav-second-level">'; ***REMOVED*** ***REMOVED***
+                            ***REMOVED*** if ($ftpurl != '') { echo '<li><a href="' . $ftpurl . '"><i class="fa fa-file-code-o fa-fw"></i><span class="hide-menu">FTP</span></a></li>';***REMOVED*** ***REMOVED***
+                            ***REMOVED*** if ($webmailurl != '') { echo '<li><a href="' . $webmailurl . '"><i class="fa fa-envelope-o fa-fw"></i><span class="hide-menu">Webmail</span></a></li>';***REMOVED*** ***REMOVED***
+                            ***REMOVED*** if ($phpmyadmin != '') { echo '<li><a href="' . $phpmyadmin . '"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">phpMyAdmin</span></a></li>';***REMOVED*** ***REMOVED***
+                            ***REMOVED*** if ($phppgadmin != '') { echo '<li><a href="' . $phppgadmin . '"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">phpPgAdmin</span></a></li>';***REMOVED*** ***REMOVED***
+                            ***REMOVED*** if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {***REMOVED*** else { echo '</ul></li>';***REMOVED*** ***REMOVED***
+                            <li class="devider"></li>
+                            <li><a href="process/logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
+                            ***REMOVED*** if ($oldcpurl == '' || $supporturl == '') {***REMOVED*** else { echo '<li class="devider"></li>'; ***REMOVED*** ***REMOVED***
+                            ***REMOVED*** if ($oldcpurl != '') { echo '<li><a href="' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> Control Panel v1</span></a></li>'; ***REMOVED*** ***REMOVED***
+                            ***REMOVED*** if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">Support</span></a></li>'; ***REMOVED*** ***REMOVED***
+                        </ul>
                 </div>
             </div>
             <div id="page-wrapper">
@@ -206,7 +211,7 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                         <div class="panel-body">
                                             <center>
                                                 <h2>
-                                                    ***REMOVED*** $date=date_create($domaindata[0][DATE] . ' ' . $domaindata[0][TIME]); echo date_format($date,"F j, Y - g:i A"); ***REMOVED***
+                                                    ***REMOVED*** $date=date_create($domaindata[0]['DATE'] . ' ' . $domaindata[0]['TIME']); echo date_format($date,"F j, Y - g:i A"); ***REMOVED***
                                                 </h2>
                                             </center>
                                         </div>
@@ -224,7 +229,7 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                         <div class="panel-body">
                                             <center>
                                                 <h2>
-                                                    ***REMOVED*** if ($domaindata[0][SUSPENDED] == 'no') {echo 'Active';***REMOVED*** else {echo 'Suspended';***REMOVED******REMOVED***
+                                                    ***REMOVED*** if ($domaindata[0]['SUSPENDED'] == 'no') {echo 'Active';***REMOVED*** else {echo 'Suspended';***REMOVED******REMOVED***
                                                 </h2>
                                             </center>
                                         </div>
@@ -241,7 +246,7 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                         <label class="col-md-12">IP Address</label>
                                         <div class="col-md-12">
                                             <input type="hidden" name="v_domain" value="***REMOVED*** echo $requestdomain; ***REMOVED***">
-                                            <input type="hidden" name="v_ip-x" value="***REMOVED*** echo $domaindata[0][IP]; ***REMOVED***">
+                                            <input type="hidden" name="v_ip-x" value="***REMOVED*** echo $domaindata[0]['IP']; ***REMOVED***">
                                             <select class="form-control select1" name="v_ip" id="select1">
                                                 ***REMOVED***
                                                 if($userips[0] != '') {
@@ -259,9 +264,9 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                     <div class="form-group">
                                         <label class="col-md-12">Aliases</label>
                                         <div class="col-md-12">
-                                            <input type="hidden" name="v_alias-x" value="***REMOVED*** echo $domaindata[0][ALIAS]; ***REMOVED***"> 
+                                            <input type="hidden" name="v_alias-x" value="***REMOVED*** echo $domaindata[0]['ALIAS']; ***REMOVED***"> 
                                             <textarea class="form-control" rows="4" name="v_alias">***REMOVED*** 
-                                                $aliasArray = explode(',', ($domaindata[0][ALIAS]));
+                                                $aliasArray = explode(',', ($domaindata[0]['ALIAS']));
 
                                                 foreach ($aliasArray as &$value) {
                                                     $value = $value . "&#013;&#010;";
@@ -274,7 +279,7 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                     <div class="form-group">
                                         <label class="col-md-12">Web Template</label>
                                         <div class="col-md-12">
-                                            <input type="hidden" name="v_tpl-x" value="***REMOVED*** echo $domaindata[0][TPL]; ***REMOVED***">
+                                            <input type="hidden" name="v_tpl-x" value="***REMOVED*** echo $domaindata[0]['TPL']; ***REMOVED***">
                                             <select class="form-control select2" name="v_tpl" id="select2">***REMOVED***
                                                 if($webtemplates[0] != '') {
                                                     $x1 = 0; 
@@ -291,8 +296,8 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                         <label class="col-md-12">Proxy Support</label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
-                                                <input type="hidden" name="v_prxenabled-x" value="***REMOVED*** if($domaindata[0][PROXY] != '') {echo 'yes';***REMOVED*** ***REMOVED***">
-                                                <input id="checkbox4" type="checkbox" name="v_prxenabled" onclick="checkDiv();" ***REMOVED*** if($domaindata[0][PROXY] != '') {echo 'checked';***REMOVED*** ***REMOVED*** >
+                                                <input type="hidden" name="v_prxenabled-x" value="***REMOVED*** if($domaindata[0]['PROXY'] != '') {echo 'yes';***REMOVED*** ***REMOVED***">
+                                                <input id="checkbox4" type="checkbox" name="v_prxenabled" onclick="checkDiv();" ***REMOVED*** if($domaindata[0]['PROXY'] != '') {echo 'checked';***REMOVED*** ***REMOVED*** >
                                                 <label for="checkbox4"> Enabled </label>
                                             </div>
                                         </div>
@@ -301,7 +306,7 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                         <div class="form-group">
                                             <label class="col-md-12">Proxy Template</label>
                                             <div class="col-md-12">
-                                                <input type="hidden" name="v_prxtpl-x" value="***REMOVED*** echo $domaindata[0][PROXY]; ***REMOVED***">
+                                                <input type="hidden" name="v_prxtpl-x" value="***REMOVED*** echo $domaindata[0]['PROXY']; ***REMOVED***">
                                                 <select class="form-control select3" name="v_prxtpl" id="select3">
                                                     ***REMOVED***
                                                     if($proxytemplates[0] != '') {
@@ -319,8 +324,8 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                         <div class="form-group">
                                             <label class="col-md-12">Proxy Extensions</label>
                                             <div class="col-md-12">
-                                                <input type="hidden" name="v_prxext-x" value="***REMOVED*** echo $domaindata[0][PROXY_EXT]; ***REMOVED***">
-                                                <textarea class="form-control" rows="2" id="prxext" name="v_prxext">***REMOVED*** echo $domaindata[0][PROXY_EXT]; ***REMOVED***</textarea>
+                                                <input type="hidden" name="v_prxext-x" value="***REMOVED*** echo $domaindata[0]['PROXY_EXT']; ***REMOVED***">
+                                                <textarea class="form-control" rows="2" id="prxext" name="v_prxext">***REMOVED*** echo $domaindata[0]['PROXY_EXT']; ***REMOVED***</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -328,8 +333,8 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                         <label class="col-md-12">SSL Support</label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
-                                                <input type="hidden" name="v_sslenabled-x" value="***REMOVED*** echo $domaindata[0][SSL]; ***REMOVED***">
-                                                <input id="checkbox5" type="checkbox" name="v_sslenabled" onclick="checkDiv2();" ***REMOVED*** if($domaindata[0][SSL] == 'no') {***REMOVED*** else {echo 'checked';***REMOVED*** ***REMOVED*** >
+                                                <input type="hidden" name="v_sslenabled-x" value="***REMOVED*** echo $domaindata[0]['SSL']; ***REMOVED***">
+                                                <input id="checkbox5" type="checkbox" name="v_sslenabled" onclick="checkDiv2();" ***REMOVED*** if($domaindata[0]['SSL'] == 'no') {***REMOVED*** else {echo 'checked';***REMOVED*** ***REMOVED*** >
                                                 <label for="checkbox5"> Enabled </label>
                                             </div>
                                         </div>
@@ -339,8 +344,8 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                             <label class="col-md-12">Let's Encrypt Support</label>
                                             <div class="col-md-12">
                                                 <div class="checkbox checkbox-info">
-                                                    <input type="hidden" name="v_leeanbled-x" value="***REMOVED*** echo $domaindata[0][LETSENCRYPT]; ***REMOVED***">
-                                                    <input id="checkbox6" name="v_leenabled" type="checkbox" ***REMOVED*** if($domaindata[0][LETSENCRYPT] == 'no') {***REMOVED*** else {echo 'checked';***REMOVED*** ***REMOVED***>
+                                                    <input type="hidden" name="v_leeanbled-x" value="***REMOVED*** echo $domaindata[0]['LETSENCRYPT']; ***REMOVED***">
+                                                    <input id="checkbox6" name="v_leenabled" type="checkbox" ***REMOVED*** if($domaindata[0]['LETSENCRYPT'] == 'no') {***REMOVED*** else {echo 'checked';***REMOVED*** ***REMOVED***>
                                                     <label for="checkbox6"> Enabled </label>
                                                 </div>
                                             </div>
@@ -349,50 +354,50 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                         <div class="form-group">
                                             <label class="col-md-12">SSL Directory</label>
                                             <div class="col-md-12">
-                                                <input type="hidden" name="v_ssldir-x" value="***REMOVED*** echo $domaindata[0][SSL_HOME]; ***REMOVED***">
+                                                <input type="hidden" name="v_ssldir-x" value="***REMOVED*** echo $domaindata[0]['SSL_HOME']; ***REMOVED***">
                                                 <select class="form-control" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_ssldir">
-                                                    <option value="same" ***REMOVED*** if($domaindata[0][SSL_HOME] == 'same') {echo 'selected';***REMOVED*** ***REMOVED***>public_html</option>
-                                                    <option value="single" ***REMOVED*** if($domaindata[0][SSL_HOME] == 'single') {echo 'selected';***REMOVED*** ***REMOVED***>public_shtml</option>
+                                                    <option value="same" ***REMOVED*** if($domaindata[0]['SSL_HOME'] == 'same') {echo 'selected';***REMOVED*** ***REMOVED***>public_html</option>
+                                                    <option value="single" ***REMOVED*** if($domaindata[0]['SSL_HOME'] == 'single') {echo 'selected';***REMOVED*** ***REMOVED***>public_shtml</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12">SSL Certificate / <a href="../process/generatecsr.php?domain=***REMOVED*** echo $requestdomain; ***REMOVED***">Generate CSR</a></label>
                                             <div class="col-md-12">
-                                                <input type="hidden" name="v_sslcrt-x" value="***REMOVED*** echo $domaindata[0][CRT]; ***REMOVED***">
-                                                <textarea class="form-control" rows="4" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_sslcrt">***REMOVED*** print_r($domainssl[0][CRT]); ***REMOVED***</textarea>
+                                                <input type="hidden" name="v_sslcrt-x" value="***REMOVED*** echo $domaindata[0]['CRT']; ***REMOVED***">
+                                                <textarea class="form-control" rows="4" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_sslcrt">***REMOVED*** print_r($domainssl[0]['CRT']); ***REMOVED***</textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12">SSL Key</label>
                                             <div class="col-md-12">
-                                                <input type="hidden" name="v_sslkey-x" value="***REMOVED*** echo $domaindata[0][KEY]; ***REMOVED***">
-                                                <textarea class="form-control" rows="4" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_sslkey">***REMOVED*** print_r($domainssl[0][KEY]); ***REMOVED***</textarea>
+                                                <input type="hidden" name="v_sslkey-x" value="***REMOVED*** echo $domaindata[0]['KEY']; ***REMOVED***">
+                                                <textarea class="form-control" rows="4" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_sslkey">***REMOVED*** print_r($domainssl[0]['KEY']); ***REMOVED***</textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12">SSL Certificate Authority / Intermediate</label>
                                             <div class="col-md-12">
-                                                <input type="hidden" name="v_sslca-x" value="***REMOVED*** echo $domaindata[0][CA]; ***REMOVED***">
-                                                <textarea class="form-control" rows="4" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_sslca">***REMOVED*** print_r($domainssl[0][CA]); ***REMOVED***</textarea>
+                                                <input type="hidden" name="v_sslca-x" value="***REMOVED*** echo $domaindata[0]['CA']; ***REMOVED***">
+                                                <textarea class="form-control" rows="4" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_sslca">***REMOVED*** print_r($domainssl[0]['CA']); ***REMOVED***</textarea>
                                             </div>
                                         </div>
-                                        <div class="form-group" style="margin-left: 0.1%;display:<? if($domainssl[0][CRT] != ''){echo 'block';***REMOVED*** else { echo 'none';***REMOVED*** ***REMOVED***">
+                                        <div class="form-group" style="margin-left: 0.1%;display:<? if($domainssl[0]['CRT'] != ''){echo 'block';***REMOVED*** else { echo 'none';***REMOVED*** ***REMOVED***">
                                             <ul class="list-unstyled">
-                                                <li>Subject:  ***REMOVED*** print_r($domainssl[0][SUBJECT]); ***REMOVED***</li>
-                                                <li>Aliases:  ***REMOVED*** print_r($domainssl[0][ALIASES]); ***REMOVED***</li>
-                                                <li>Not Before:  ***REMOVED*** print_r($domainssl[0][NOT_BEFORE]); ***REMOVED***</li>
-                                                <li>Not After:  ***REMOVED*** print_r($domainssl[0][NOT_AFTER]); ***REMOVED***</li>
-                                                <li>Signature:  ***REMOVED*** print_r($domainssl[0][SIGNATURE]); ***REMOVED***</li>
-                                                <li>Pub Key:  ***REMOVED*** print_r($domainssl[0][PUB_KEY]); ***REMOVED***</li>
-                                                <li>Issuer:  ***REMOVED*** print_r($domainssl[0][ISSUER]); ***REMOVED***</li>
+                                                <li>Subject:  ***REMOVED*** print_r($domainssl[0]['SUBJECT']); ***REMOVED***</li>
+                                                <li>Aliases:  ***REMOVED*** print_r($domainssl[0]['ALIASES']); ***REMOVED***</li>
+                                                <li>Not Before:  ***REMOVED*** print_r($domainssl[0]['NOT_BEFORE']); ***REMOVED***</li>
+                                                <li>Not After:  ***REMOVED*** print_r($domainssl[0]['NOT_AFTER']); ***REMOVED***</li>
+                                                <li>Signature:  ***REMOVED*** print_r($domainssl[0]['SIGNATURE']); ***REMOVED***</li>
+                                                <li>Pub Key:  ***REMOVED*** print_r($domainssl[0]['PUB_KEY']); ***REMOVED***</li>
+                                                <li>Issuer:  ***REMOVED*** print_r($domainssl[0]['ISSUER']); ***REMOVED***</li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Web Statistics</label>
                                         <div class="col-md-12">
-                                            <input type="hidden" name="v_webstats-x" value="***REMOVED*** if ($domaindata[0][STATS] == '') {echo 'none'; ***REMOVED*** else { echo $domaindata[0][STATS]; ***REMOVED*** ***REMOVED***">
+                                            <input type="hidden" name="v_webstats-x" value="***REMOVED*** if ($domaindata[0]['STATS'] == '') {echo 'none'; ***REMOVED*** else { echo $domaindata[0]['STATS']; ***REMOVED*** ***REMOVED***">
                                             <select class="form-control select6" name="v_webstats" onchange="showauth()" id="select6">
                                                 ***REMOVED***
                                                 if($webstats[0] != '') {
@@ -412,8 +417,8 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                             <label class="col-md-12">Statistics Authorization</label>
                                             <div class="col-md-12">
                                                 <div class="checkbox checkbox-info">
-                                                    <input type="hidden" name="v_statsuserenabled-x" value="***REMOVED*** if($domaindata[0][STATS_USER] == '') {echo '';***REMOVED*** else {echo 'yes';***REMOVED*** ***REMOVED***">
-                                                    <input id="checkbox10" type="checkbox" name="v_statsuserenabled" ***REMOVED*** if($domaindata[0][STATS_USER] != '') {echo 'checked';***REMOVED*** ***REMOVED*** onclick="checkDiv4();">
+                                                    <input type="hidden" name="v_statsuserenabled-x" value="***REMOVED*** if($domaindata[0]['STATS_USER'] == '') {echo '';***REMOVED*** else {echo 'yes';***REMOVED*** ***REMOVED***">
+                                                    <input id="checkbox10" type="checkbox" name="v_statsuserenabled" ***REMOVED*** if($domaindata[0]['STATS_USER'] != '') {echo 'checked';***REMOVED*** ***REMOVED*** onclick="checkDiv4();">
                                                     <label for="checkbox10"> Enabled </label>
                                                 </div>
                                             </div>
@@ -423,8 +428,8 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                         <div class="form-group">
                                             <label class="col-md-12">Username</label><br>
                                             <div class="col-md-12">
-                                                <input type="hidden" name="v_statsuname-x" value="***REMOVED*** echo $domaindata[0][STATS_USER]; ***REMOVED***">
-                                                <input type="text" name="v_statsuname" autocomplete="new-password" class="form-control" value="***REMOVED*** echo $domaindata[0][STATS_USER]; ***REMOVED***"> 
+                                                <input type="hidden" name="v_statsuname-x" value="***REMOVED*** echo $domaindata[0]['STATS_USER']; ***REMOVED***">
+                                                <input type="text" name="v_statsuname" autocomplete="new-password" class="form-control" value="***REMOVED*** echo $domaindata[0]['STATS_USER']; ***REMOVED***"> 
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -437,8 +442,8 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                                         </div>
                                     </div>
                                     ***REMOVED***
-                                    $ftpuser = explode(':', ($domaindata[0][FTP_USER])); 
-                                    $ftpdir = explode(':', ($domaindata[0][FTP_PATH])); 
+                                    $ftpuser = explode(':', ($domaindata[0]['FTP_USER'])); 
+                                    $ftpdir = explode(':', ($domaindata[0]['FTP_PATH'])); 
                                     ***REMOVED***
                                     <div class="form-group">
                                         <label class="col-md-12">Additional FTP</label>
@@ -517,15 +522,15 @@ if ($domainname[0] == '') { header('Location: ../list/web.php'); ***REMOVED***
                 ***REMOVED***);
             ***REMOVED***)();
 
-            document.getElementById('select1').value = '***REMOVED*** print_r($domaindata[0][IP]); ***REMOVED***'; 
-            document.getElementById('select2').value = '***REMOVED*** print_r($domaindata[0][TPL]); ***REMOVED***'; 
+            document.getElementById('select1').value = '***REMOVED*** print_r($domaindata[0]['IP']); ***REMOVED***'; 
+            document.getElementById('select2').value = '***REMOVED*** print_r($domaindata[0]['TPL']); ***REMOVED***'; 
 
-            if ('<? print_r($domaindata[0][PROXY]); ***REMOVED***' == '') {  document.getElementById('select3').value = 'default';  ***REMOVED***
-            else { document.getElementById('select3').value = '<? print_r($domaindata[0][PROXY]); ***REMOVED***'; ***REMOVED***
-            if ('<? print_r($domaindata[0][PROXY_EXT]); ***REMOVED***' == '') {  document.getElementById('prxext').value = 'jpeg, jpg, png, gif, bmp, ico, svg, tif, tiff, css, js, htm, html, ttf, otf, webp, woff, txt, csv, rtf, doc, docx, xls, xlsx, ppt, pptx, odf, odp, ods, odt, pdf, psd, ai, eot, eps, ps, zip, tar, tgz, gz, rar, bz2, 7z, aac, m4a, mp3, mp4, ogg, wav, wma, 3gp, avi, flv, m4v, mkv, mov, mp4, mpeg, mpg, wmv, exe, iso, dmg, swf';  ***REMOVED***
-            else { document.getElementById('prxext').value = '<? print_r($domaindata[0][PROXY_EXT]); ***REMOVED***'; ***REMOVED***
-            if ('<? print_r($domaindata[0][STATS]); ***REMOVED***' == '') {  document.getElementById('select6').value = 'none';  ***REMOVED***
-            else { document.getElementById('select6').value = '<? print_r($domaindata[0][STATS]); ***REMOVED***'; ***REMOVED***
+            if ('<? print_r($domaindata[0]['PROXY']); ***REMOVED***' == '') {  document.getElementById('select3').value = 'default';  ***REMOVED***
+            else { document.getElementById('select3').value = '<? print_r($domaindata[0]['PROXY']); ***REMOVED***'; ***REMOVED***
+            if ('<? print_r($domaindata[0]['PROXY_EXT']); ***REMOVED***' == '') {  document.getElementById('prxext').value = 'jpeg, jpg, png, gif, bmp, ico, svg, tif, tiff, css, js, htm, html, ttf, otf, webp, woff, txt, csv, rtf, doc, docx, xls, xlsx, ppt, pptx, odf, odp, ods, odt, pdf, psd, ai, eot, eps, ps, zip, tar, tgz, gz, rar, bz2, 7z, aac, m4a, mp3, mp4, ogg, wav, wma, 3gp, avi, flv, m4v, mkv, mov, mp4, mpeg, mpg, wmv, exe, iso, dmg, swf';  ***REMOVED***
+            else { document.getElementById('prxext').value = '<? print_r($domaindata[0]['PROXY_EXT']); ***REMOVED***'; ***REMOVED***
+            if ('<? print_r($domaindata[0]['STATS']); ***REMOVED***' == '') {  document.getElementById('select6').value = 'none';  ***REMOVED***
+            else { document.getElementById('select6').value = '<? print_r($domaindata[0]['STATS']); ***REMOVED***'; ***REMOVED***
 
             function showauth(){
                 if(document.getElementById('select6').value != 'none') {

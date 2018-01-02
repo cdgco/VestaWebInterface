@@ -11,9 +11,9 @@ DEFINE('SITE_NAME', 'My Host'); // Site name for use in page titles. Ex: 'My Hos
 ***REMOVED***
 
 ***REMOVED***
-DEFINE('VESTA_HOST_ADDRESS', 'myhost.com'); // URL or IP Address of VestaCP. Ex: 'myhost.com' or '12.34.56.78'.
+DEFINE('VESTA_HOST_ADDRESS', ''); // URL or IP Address of VestaCP. Ex: 'myhost.com' or '12.34.56.78'.
 ***REMOVED***
-DEFINE('VESTA_PORT', ''); // VestaCP port. Leave blank for VestCP default. Ex: '8083'.
+***REMOVED***
 ***REMOVED***
 DEFINE('VESTA_ADMIN_PW', ''); // Password for VestaCP Admin account. Ex: 'MyPassword1'.
 
@@ -120,7 +120,7 @@ $loggedin = base64_decode($_COOKIE['loggedin']);
 ***REMOVED***
 
 ***REMOVED***
-    $phpmyadmin = $vst_ssl . VESTA_HOST_ADDRESS . '/phppgadmin';
+   ***REMOVED***
 ***REMOVED***
 ***REMOVED***
    ***REMOVED***

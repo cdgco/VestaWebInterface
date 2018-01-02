@@ -174,8 +174,10 @@ $('.visited li a').click(function (e) {
 ***REMOVED***);
 // Login and recover password
 $('#to-recover').click(function () {
-    $("#loginform").slideUp();
-    $("#recoverform").fadeIn();
+    $("#loginform").fadeOut('fast', function() {$("#recoverform").fadeIn();***REMOVED***);
+***REMOVED***);
+$('#to-login').click(function () {
+    $("#recoverform").fadeOut('fast', function() {$("#loginform").fadeIn();***REMOVED***);
 ***REMOVED***);
 // Update 1.5
 // this is for close icon when navigation open in mobile view
