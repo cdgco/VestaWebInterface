@@ -551,7 +551,7 @@ $autoreplyname = array_keys(json_decode(curl_exec($curl2), true));
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; Copyright <?php echo date("Y") . ' ' . $sitetitle; ?>. All Rights Reserved. Powered by VestaCP, CDG Web Services, & WrapPixel.</footer>
+                <footer class="footer text-center">&copy; Copyright <?php echo date("Y") . ' ' . $sitetitle; ?>. All Rights Reserved. Vesta Web Interface <?php require 'includes/versioncheck.php' ?> by CDG Web Services.</footer>
             </div>
         </div>
         <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
