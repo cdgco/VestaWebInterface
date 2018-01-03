@@ -1,7 +1,7 @@
 ***REMOVED***
 
     // Include settings & variables
-    require '../includes/config.php';
+    if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); ***REMOVED***  else { header( 'Location: ../install' );***REMOVED***;
 
     // Check if cookie exists, decrypt, then redirect if not logged in
     if(base64_decode($_COOKIE['loggedin']) == 'true') {***REMOVED***

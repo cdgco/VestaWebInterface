@@ -1,6 +1,6 @@
 ***REMOVED***
 
-require '../includes/config.php';
+if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); ***REMOVED***  else { header( 'Location: ../install' );***REMOVED***;
 require_once '../includes/cronparser.php';
 
     if(base64_decode($_COOKIE['loggedin']) == 'true') {***REMOVED***
