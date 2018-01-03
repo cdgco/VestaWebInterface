@@ -11,6 +11,7 @@ Live Preview: https://ide.cdgtech.one/dev
 1. Run the command `bash <(curl -s -L https://git.io/vbjO7)` while inside of the desired website directory on the machine with VestaCP installed.
 2. Visit the url of the web directory (or follow step 3 of method 3) to complete configuration.
 3. Chmod 'includes' folder to 755 (`chmod 755 includes`) after configuration is complete.
+
 #### Method 2
 
 1. Download and extract (or clone) the latest release to a web server (Does not have to be running VestaCP).
