@@ -5,12 +5,16 @@ if [ "x$(id -u)" != 'x0' ]; then
     exit 1
 fi
 
-function InstallVestaCPFrontEnd()
+function InstallVestaWebInterface()
 {
 	echo "Installing Vesta Web Interface Backend ..."
+	
 	wget https://raw.githubusercontent.com/cdgco/VestaWebInterface/master/install/web.tar.gz
-  tar xf web.tar.gz -C /usr/local/vesta/web --overwrite
+	
+        tar xf web.tar.gz --overwrite -C /usr/local/vesta/web 
+	
 	fi
 
 	echo "Done!";
 }
+InstallVestaWebInterface
