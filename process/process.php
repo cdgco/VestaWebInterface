@@ -1,6 +1,6 @@
 ***REMOVED***
 
-require '../includes/config.php';
+if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); ***REMOVED***  else { header( 'Location: ../install' );***REMOVED***;
 
 $vst_returncode = 'yes';
 $vst_command = 'v-add-user';

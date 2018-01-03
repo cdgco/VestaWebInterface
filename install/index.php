@@ -1,8 +1,9 @@
+***REMOVED*** if (file_exists( '../includes/config.php' )) { header( 'Location: ../index.php' );***REMOVED***; ***REMOVED***
 <!DOCTYPE html>
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Install GooGifs</title>
+  <title>Install Vesta Web Interface</title>
   <script src="https://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
 
 
@@ -131,7 +132,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Site Name</label>  
   <div class="col-md-4">
-  <input id="textinput" name="textinput" type="text" placeholder="My Host" class="form-control input-md" required="">
+  <input id="textinput" name="SITENAME" type="text" placeholder="My Host" class="form-control input-md" required="">
     
   </div>
 </div>
@@ -153,7 +154,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="VESTA_HOST_ADDRESS">Vesta Host Address</label>  
   <div class="col-md-4">
-  <input id="VESTA_HOST_ADDRESS" name="VESTA_HOST_ADDRESS" type="text" placeholder="'myhost.com' or '12.34.56.78'" class="form-control input-md" required="">
+  <input id="VESTA_HOST_ADDRESS" name="VESTA_HOST_ADDRESS" type="text" placeholder="myhost.com or 12.34.56.78" class="form-control input-md" required="">
   <span class="help-block">VestaCP Host URL or IP Address</span>  
   </div>
 </div>

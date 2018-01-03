@@ -1,5 +1,5 @@
 ***REMOVED***
-require 'includes/config.php';
+if (file_exists( 'includes/config.php' )) { require( 'includes/config.php'); ***REMOVED***  else { header( 'Location: install' );***REMOVED***;
 ***REMOVED***
 <!DOCTYPE html>
 <html lang="en">

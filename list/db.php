@@ -1,6 +1,6 @@
 ***REMOVED***
 
-require '../includes/config.php';
+if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); ***REMOVED***  else { header( 'Location: ../install' );***REMOVED***;
 
     $postvars = array(
       array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
