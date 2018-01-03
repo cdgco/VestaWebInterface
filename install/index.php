@@ -8,7 +8,7 @@
 
 
   
-  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
 <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css'>
 <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css'>
 
@@ -29,6 +29,7 @@
         <center>
     <h3>Server Configuration</h3>
 </center><br>
+    <input type="hidden" value="1" name="x"/>
 <!-- Select Basic -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="timezone">Server Timezone</label>
