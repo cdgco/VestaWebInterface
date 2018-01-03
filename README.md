@@ -36,15 +36,12 @@ Live Preview: https://ide.cdgtech.one/dev
 - [ ] Add Delete Buttons to 'edit' Pages
 - [ ] Process Loaders & Response Code Notifications
 - [ ] Format, Unify, Minify and Fix Compiling Issues
-- [ ] Update Menu Items
 - [ ] Fix PHP Errors
-- [ ] Script to Install Backend
 
 #### Long Term Plans:
 - [ ] Better Download & PW Reset Systems
 - [ ] Finish Dark Theme
 - [ ] Create Theme Switcher
-- [ ] Web Based Installation
 - [ ] Admin Panel
 - [ ] Integrations
 - [ ] Feature Additions
