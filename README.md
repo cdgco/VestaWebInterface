@@ -16,7 +16,7 @@ Live Preview: https://ide.cdgtech.one/dev
 1. Download and extract (or clone) the latest release to a web server (Does not have to be running VestaCP).
 2. Run the command `bash <(curl -s -L https://git.io/vbjOd)` on your vesta server to install the backend files.
 3. Visit the url of the web directory (or follow step 3 of method 3) to complete configuration.
-4. Delete install directory (`rm install -r`) and chmod 'includes' folder to 755 (`chmod 755 includes`) after configuration is complete.
+4. Delete install directory (`rm install -r`) after configuration is complete.
 
 
 #### Method 3
