@@ -1,6 +1,6 @@
 <?php
 
-require '../includes/config.php';
+if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); }  else { header( 'Location: ../install' );};
 
 $vst_returncode = 'yes';
 $vst_command = 'v-add-user';
