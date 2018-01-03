@@ -5,9 +5,16 @@ Preview Available for CDG Host Users (https://host.cdgtech.one)
 Live Preview: https://ide.cdgtech.one/dev
 
 ## Install
-1. Download and install the latest release to a web server (does not have to be running vesta).
-2. Edit the config-example.php file in the includes folder and rename it to config.php
-3. Copy the contents of the 'install/web' folder to your vesta server (/usr/local/vesta/web) over sftp or by running the install script (coming soon).
+
+#### Automatic Install
+1. Download and extract the latest release to a web server (does not have to be running vesta).
+2. Visit the url of the web directory of the extracted release and follow the on screen directions.
+3. Run the command `bash <(curl -s -L https://git.io/vbjYy)` to install the backend files.
+
+#### Manual Install
+1. Download and extract the latest release to a web server (does not have to be running vesta).
+2. Edit the 'includes/config-example.php' file and rename it to config.php.
+3. Copy the contents of the 'install/web' folder in the release to the '/usr/local/vesta/web' directory of your vesta server.
 
 ## To-Do
 
