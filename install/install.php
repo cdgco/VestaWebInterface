@@ -193,7 +193,7 @@ body {
     <div class="container">
       <div class="starter-template">
         <h1>Configuration Complete!</h1><br>
-        <p class="lead">Please delete the 'install' directory to prevent any security issues. <br><br>If you have not already installed the VWI Backend,<br> run the command "bash <(curl -s -L https://git.io/vbjOd)" <br>on your vesta server or follow the instructions on the <a href="https://github.com/cdgco/VestaWebInterface">GitHub Repo</a></p><br>
+        <p class="lead">IMPORTANT: Delete the 'install' directory and chmod the 'includes' directory to 755. <br><br>If you have not already installed the VWI Backend,<br> run the command "bash <(curl -s -L https://git.io/vbjOd)" <br>on your vesta server or follow the instructions on the <a href="https://github.com/cdgco/VestaWebInterface">GitHub Repo</a></p><br>
           <a href="../index.php"><button class="btn btn-info btn-lg">Launch Control Panel</button></a>
       </div>
     </div>
