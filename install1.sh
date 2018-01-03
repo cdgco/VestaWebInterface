@@ -31,6 +31,7 @@ rm install1.sh
 rm install2.sh
 rm README.md
 rm 'VWI Banner.png'
+chmod 777 includes
 printf '\n'
 sleep .5
 wget -qO- https://raw.githubusercontent.com/cdgco/VestaWebInterface/master/install/web.tar.gz | tar xz -C /usr/local/vesta/web
