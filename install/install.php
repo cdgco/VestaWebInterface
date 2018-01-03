@@ -1,4 +1,5 @@
 <?php
+if ($_POST['x'] != '1') { if (file_exists( '../includes/config.php' )) { header( 'Location: ../index.php' );}; }
 
 if($_POST['VESTA_SSL_ENABLED'] == 'on'){ $sslenabled = 'true'; }
 else { $sslenabled = 'false'; }
@@ -165,164 +166,38 @@ include 'functions.php'
 
 file_put_contents('../includes/config.php', $writestr);
 ?>
-<html>
-    <head>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Install Vesta Web Interface</title>
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-weight: 300;
-}
 body {
-  font-family: 'Source Sans Pro', sans-serif;
-  color: white;
-  font-weight: 300;
+  padding-top: 50px;
 }
-.wrapper {
-  background: #50a3a2;
-  background: linear-gradient(to left, #141E30, #243B55);
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  bottom: 0;
-  overflow: hidden;
-}
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 80px 0;
-  height: 400px;
+.starter-template {
+  padding: 40px 15px;
   text-align: center;
 }
-.container h1 {
-  font-size: 40px;
-  transition-duration: 1s;
-  transition-timing-function: ease-in-put;
-  font-weight: 200;
-}
-.bg-bubbles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-.bg-bubbles li {
-  position: absolute;
-  list-style: none;
-  display: block;
-  width: 40px;
-  height: 40px;
-  background-color: rgba(255, 255, 255, 0.15);
-  bottom: -160px;
-  -webkit-animation: square 25s infinite;
-  animation: square 25s infinite;
-  -webkit-transition-timing-function: linear;
-  transition-timing-function: linear;
-}
-.bg-bubbles li:nth-child(1) {
-  left: 10%;
-}
-.bg-bubbles li:nth-child(2) {
-  left: 20%;
-  width: 80px;
-  height: 80px;
-  animation-delay: 2s;
-  animation-duration: 17s;
-}
-.bg-bubbles li:nth-child(3) {
-  left: 25%;
-  animation-delay: 4s;
-}
-.bg-bubbles li:nth-child(4) {
-  left: 40%;
-  width: 60px;
-  height: 60px;
-  animation-duration: 22s;
-  background-color: rgba(255, 255, 255, 0.25);
-}
-.bg-bubbles li:nth-child(5) {
-  left: 70%;
-}
-.bg-bubbles li:nth-child(6) {
-  left: 80%;
-  width: 120px;
-  height: 120px;
-  animation-delay: 3s;
-  background-color: rgba(255, 255, 255, 0.2);
-}
-.bg-bubbles li:nth-child(7) {
-  left: 32%;
-  width: 160px;
-  height: 160px;
-  animation-delay: 7s;
-}
-.bg-bubbles li:nth-child(8) {
-  left: 55%;
-  width: 20px;
-  height: 20px;
-  animation-delay: 15s;
-  animation-duration: 40s;
-}
-.bg-bubbles li:nth-child(9) {
-  left: 25%;
-  width: 10px;
-  height: 10px;
-  animation-delay: 2s;
-  animation-duration: 40s;
-  background-color: rgba(255, 255, 255, 0.3);
-}
-.bg-bubbles li:nth-child(10) {
-  left: 90%;
-  width: 160px;
-  height: 160px;
-  animation-delay: 11s;
-}
-@-webkit-keyframes square {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-700px) rotate(600deg);
-  }
-}
-@keyframes square {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-700px) rotate(600deg);
-  }
-}
-p {
-  background: linear-gradient(to left, #141E30, #243B55);
-  font-size: 21px;
-  padding: 15px;
-  border-radius: 5px;
-  margin: 10px;
-}
 </style>
-    </head>
-    <body>
-<div class="wrapper">
-	<div class="container"> 
-<div> 		<h1>Configuration Complete</h1>
-    <p> Please delete the 'install' directory to prevent any security issues. <br><br>If you have not already installed the VWI Backend, run the command "bash <(curl -s -L https://git.io/vbjOd)" on your vesta server or follow the instructions on the <a href="https://github.com/cdgco/VestaWebInterface">GitHub Repo</a><br> <br>    <a href="../index.php">Launch Control Panel</a></p>
-   </div>
-	<ul class="bg-bubbles">
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-	</ul>
-</div>
-        </div></body></html>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="starter-template">
+        <h1>Configuration Complete!</h1><br>
+        <p class="lead">Please delete the 'install' directory to prevent any security issues. <br><br>If you have not already installed the VWI Backend,<br> run the command "bash <(curl -s -L https://git.io/vbjOd)" <br>on your vesta server or follow the instructions on the <a href="https://github.com/cdgco/VestaWebInterface">GitHub Repo</a></p><br>
+          <a href="../index.php"><button class="btn btn-info btn-lg">Launch Control Panel</button></a>
+      </div>
+    </div>
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
