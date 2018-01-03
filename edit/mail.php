@@ -1,6 +1,6 @@
 <?php
 
-    require '../includes/config.php';
+    if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); }  else { header( 'Location: ../install' );};
 
     if(base64_decode($_COOKIE['loggedin']) == 'true') {}
       else { header('Location: ../login.php'); }
