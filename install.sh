@@ -18,7 +18,7 @@ printf "\n"
 printf "Installing Vesta Web Interface Backend ..."
 printf "\n"
 sleep .5
-wget -qO- https://raw.githubusercontent.com/cdgco/VestaWebInterface/master/install/web.tar.gz | tar xvz -C /usr/local/vesta/web
+wget -qO- https://raw.githubusercontent.com/cdgco/VestaWebInterface/master/install/web.tar.gz | tar xz -C /usr/local/vesta/web
 printf "\n"
 printf "Installation Complete!"
 printf "\n"
