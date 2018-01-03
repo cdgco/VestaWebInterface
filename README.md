@@ -9,18 +9,19 @@ Live Preview: https://ide.cdgtech.one/dev
 #### Method 1
 
 1. Run `bash <(curl -s -L https://git.io/vbjO7)` while inside of the desired website directory on the machine with VestaCP installed.
-
+2. Visit the url of the web directory of the extracted release and follow the on screen directions.
 #### Method 2
 
 1. Download and extract (or clone) the latest release to a web server (Does not have to be running VestaCP).
-2. Visit the url of the web directory of the extracted release and follow the on screen directions.
-3. Run the command `bash <(curl -s -L https://git.io/vbjOd)` on your vesta server to install the backend files.
+2. Run the command `bash <(curl -s -L https://git.io/vbjOd)` on your vesta server to install the backend files.
+3. Visit the url of the web directory of the extracted release and follow the on screen directions.
+
 
 #### Method 3
 
 1. Download and extract (or clone) the latest release to a web server (Does not have to be running VestaCP).
-2. Edit the 'includes/config-example.php' file and rename it to config.php.
-3. Copy the contents of the 'install/web' folder in the release to the '/usr/local/vesta/web' directory of your vesta server.
+2. Copy the contents of the 'install/web' folder in the release to the '/usr/local/vesta/web' directory of your vesta server.
+3. Edit the 'includes/config-example.php' file and rename it to config.php.
 
 ## To-Do
 
