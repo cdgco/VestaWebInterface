@@ -26,7 +26,7 @@ if ! wget "https://raw.githubusercontent.com/cdgco/VestaWebInterface/master/inst
 fi
 
 # extract archive
-if [ ! tar xf web.tar.gz --overwrite -C /usr/local/vesta/web ]; then
+if [ ! tar xf web.tar.gz -C /usr/local/vesta/web ]; then
   echo "ERROR: Archive not found" >&2
   exit 1
 fi
