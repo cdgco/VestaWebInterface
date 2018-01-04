@@ -1,6 +1,22 @@
 ***REMOVED***
 if (file_exists( 'includes/config.php' )) { require( 'includes/config.php'); ***REMOVED***  else { header( 'Location: install' );***REMOVED***;
+if(isset($_COOKIE['loggedin'])) {
+    if(base64_decode($_COOKIE['loggedin']) == 'true') { header('Location: index.php'); ***REMOVED***
 ***REMOVED***
+
+    $postvars0 = array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-info','arg1' => 'json');
+
+    $curl0 = curl_init();
+    curl_setopt($curl0, CURLOPT_URL, $vst_url);
+    curl_setopt($curl0, CURLOPT_RETURNTRANSFER,true);
+    curl_setopt($curl0, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($curl0, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt($curl0, CURLOPT_POST, true);
+    curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query($postvars0));
+    $serverconnection = array_values(json_decode(curl_exec($curl0), true))['OS'];
+
+***REMOVED***
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,6 +35,7 @@ if (file_exists( 'includes/config.php' )) { require( 'includes/config.php'); ***
         <link href="css/animate.css" rel="stylesheet">
         <!-- Custom CSS -->
         <link href="css/style.css" rel="stylesheet">
+        <link href="plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
         <style>
             html {
                 overflow-y: scroll;
@@ -119,6 +136,7 @@ if (file_exists( 'includes/config.php' )) { require( 'includes/config.php'); ***
         </script>
         <!-- jQuery -->
         <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
         <!-- Bootstrap Core JavaScript -->
         <script src="bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="bootstrap/dist/js/bootstrap-select.min.js"></script>
@@ -132,6 +150,19 @@ if (file_exists( 'includes/config.php' )) { require( 'includes/config.php'); ***
         <script src="js/custom.js"></script>
         <!--Style Switcher -->
         <script src="plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+        <script>
+        ***REMOVED*** if(!isset($serverconnection)){
+            echo "$.toast({
+                        heading: 'Error',
+                        , text: 'Error:Connection to backend server failed.'
+                        , icon: 'error'
+                        , position: 'top-right'
+                        , loaderBg: '#fff'
+                        , icon: 'danger'
+                        , hideAfter: false
+                    ***REMOVED***)";
+                ***REMOVED*** ***REMOVED***
+        </script>
     </body>
 
 </html>
