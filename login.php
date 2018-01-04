@@ -251,13 +251,22 @@ if(isset($_COOKIE['loggedin'])) {
         ***REMOVED*** if(!isset($serverconnection)){
             echo "$.toast({
                         heading: 'Error'
-                        , text: 'Error:Connection to backend server failed.'
+                        , text: 'Failed to connect to server.<br>Please check config.php'
                         , icon: 'error'
                         , position: 'top-right'
-                        , loaderBg: '#fff'
-                        , icon: 'danger'
                         , hideAfter: false
-                    ***REMOVED***)";
+                        , allowToastClose: false
+                    ***REMOVED***);"; ***REMOVED***
+if(substr(sprintf('%o', fileperms('includes')), -4) == '0777') {
+         echo "$.toast({
+                        heading: 'Warning'
+                        , text: 'Includes folder has not been secured.'
+                        , icon: 'warning'
+                        , position: 'top-right'
+                        , hideAfter: 3500
+                        , bgColor: '#ff8000'
+                    ***REMOVED***);";
+        
                 ***REMOVED*** ***REMOVED***
         </script>
     </body>
