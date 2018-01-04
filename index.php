@@ -10,6 +10,7 @@
         array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-dns-domains','arg1' => $username,'arg2' => 'json'),
         array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-mail-domains','arg1' => $username,'arg2' => 'json'),
         array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-databases','arg1' => $username,'arg2' => 'json'),
+        array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-info','arg1' => 'json')
     );
 
     $curl0 = curl_init();
@@ -17,9 +18,10 @@
     $curl2 = curl_init();
     $curl3 = curl_init();
     $curl4 = curl_init();
+    $curl5 = curl_init();
     $curlstart = 0; 
 
-    while($curlstart <= 4) {
+    while($curlstart <= 5) {
         curl_setopt(${'curl' . $curlstart}, CURLOPT_URL, $vst_url);
         curl_setopt(${'curl' . $curlstart}, CURLOPT_RETURNTRANSFER,true);
         curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYPEER, false);
@@ -38,6 +40,7 @@
     $maildata = array_values(json_decode(curl_exec($curl3), true));
     $dbname = array_keys(json_decode(curl_exec($curl4), true));
     $dbdata = array_values(json_decode(curl_exec($curl4), true));
+    $serverconnection = array_values(json_decode(curl_exec($curl0), true))['OS'];
     ?><!DOCTYPE html>
     <html lang="en">
 
@@ -56,6 +59,7 @@
             <link href="plugins/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
             <link href="css/animate.css" rel="stylesheet">
             <link href="css/style.css" rel="stylesheet">
+            <link href="plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.css" />
             <link href="css/colors/<?php echo $themecolor; ?>" id="theme" rel="stylesheet">
             <!--[if lt IE 9]>
@@ -749,6 +753,7 @@
             </div>
         </div>
     <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="plugins/bower_components/toast-master/js/jquery.toast.js"></script>
     <script src="bootstrap/dist/js/bootstrap-select.min.js"></script>
     <script src="bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
@@ -769,9 +774,7 @@
                 new CBPFWTabs(el);
             });
         })();
-
-    </script>
-    <script>
+ 
         window.onresize = function(event) {
             if ($('#columnleft').overlaps('#columnright')) {
                 $('#columnright').hide();
@@ -785,6 +788,17 @@
         jQuery(function($){
             $('.footable').footable();
         });
+        <?php if(!isset($serverconnection)){
+            echo "$.toast({
+                        heading: 'Error',
+                        , text: 'Error:Connection to backend server failed.'
+                        , icon: 'error'
+                        , position: 'top-right'
+                        , loaderBg: '#fff'
+                        , icon: 'danger'
+                        , hideAfter: false
+                    })";
+                } ?>
     </script>
     <script src="js/custom.js"></script>
     <?php if(INTERAKT_APP_ID != ''){ echo '
