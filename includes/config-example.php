@@ -146,5 +146,4 @@ else{
     $oldcpurl = $url8083;
 }
 
-include 'functions.php'
 ?>
