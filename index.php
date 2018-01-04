@@ -790,7 +790,7 @@
         });
         <?php if(!isset($serverconnection)){
             echo "$.toast({
-                        heading: 'Error',
+                        heading: 'Error'
                         , text: 'Error:Connection to backend server failed.'
                         , icon: 'error'
                         , position: 'top-right'
