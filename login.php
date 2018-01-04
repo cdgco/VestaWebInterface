@@ -1,42 +1,42 @@
 ***REMOVED***
 if (file_exists( 'includes/config.php' )) { require( 'includes/config.php'); ***REMOVED***  else { header( 'Location: install' );***REMOVED***;
-if(isset($_COOKIE['loggedin'])) { 
+if(isset($_COOKIE['loggedin'])) {
     if(base64_decode($_COOKIE['loggedin']) == 'true') { header('Location: index.php'); ***REMOVED***
 ***REMOVED***
 
-// Setup API Call
-$vst_command = 'v-check-user-password';
-if(isset($_POST['username'])){
+    $postvars0 = array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-info','arg1' => 'json');
 
-    if(isset($_POST['password'])){
+    $curl0 = curl_init();
+    curl_setopt($curl0, CURLOPT_URL, $vst_url);
+    curl_setopt($curl0, CURLOPT_RETURNTRANSFER,true);
+    curl_setopt($curl0, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($curl0, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt($curl0, CURLOPT_POST, true);
+    curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query($postvars0));
+    $serverconnection = array_values(json_decode(curl_exec($curl0), true))['OS'];
+    if(isset($_POST['username'])){
 
-        // Account
-        $username2 = $_POST['username'];
-        $password = $_POST['password'];
+        if(isset($_POST['password'])){
 
-        // Prepare POST query
-        $postvars = array(
-            'user' => $vst_username,
-            'password' => $vst_password,
-            'cmd' => $vst_command,
-            'arg1' => $username2,
-            'arg2' => $password
-        );
-        $postdata = http_build_query($postvars);
+            // Account
+            $username2 = $_POST['username'];
+            $password = $_POST['password'];
 
-        // Send POST query via cURL
-        $postdata = http_build_query($postvars);
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, $vst_url);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER,true);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($curl, CURLOPT_POST, true);
-        curl_setopt($curl, CURLOPT_POSTFIELDS, $postdata);
-        $answer = curl_exec($curl);
-    ***REMOVED***      
+            // Prepare POST query
+            $postvars = array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-check-user-password','arg1' => $username2,'arg2' => $password);
+
+            $curl = curl_init();
+            curl_setopt($curl, CURLOPT_URL, $vst_url);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER,true);
+            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+            curl_setopt($curl, CURLOPT_POST, true);
+            curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($postvars));
+            $answer = curl_exec($curl);
+        ***REMOVED***
+    ***REMOVED***
 ***REMOVED***
-***REMOVED***
+
 <!DOCTYPE html>  
 <html lang="en">
     <head>
@@ -53,6 +53,7 @@ if(isset($_POST['username'])){
         <link href="css/animate.css" rel="stylesheet">
         <!-- Custom CSS -->
         <link href="css/style.css" rel="stylesheet">
+        <link href="plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
         <style>
             input:-webkit-autofill,
             input:-webkit-autofill:hover, 
@@ -233,6 +234,7 @@ if(isset($_POST['username'])){
         </section>
         <!-- jQuery -->
         <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
         <!-- Bootstrap Core JavaScript -->
         <script src="bootstrap/dist/js/bootstrap.min.js"></script>
         <!-- Menu Plugin JavaScript -->
@@ -245,5 +247,18 @@ if(isset($_POST['username'])){
         <script src="js/custom.js"></script>
         <!--Style Switcher -->
         <script src="plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+        <script>
+        ***REMOVED*** if(!isset($serverconnection)){
+            echo "$.toast({
+                        heading: 'Error',
+                        , text: 'Error:Connection to backend server failed.'
+                        , icon: 'error'
+                        , position: 'top-right'
+                        , loaderBg: '#fff'
+                        , icon: 'danger'
+                        , hideAfter: false
+                    ***REMOVED***)";
+                ***REMOVED*** ***REMOVED***
+        </script>
     </body>
 </html>
