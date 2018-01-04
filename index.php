@@ -29,10 +29,9 @@
     $curl2 = curl_init();
     $curl3 = curl_init();
     $curl4 = curl_init();
-    $curl5 = curl_init();
     $curlstart = 0; 
 
-    while($curlstart <= 5) {
+    while($curlstart <= 4) {
         curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_URL, $vst_url);
         curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_RETURNTRANSFER,true);
         curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_SSL_VERIFYPEER, false);
@@ -51,6 +50,7 @@
     $maildata = array_values(json_decode(curl_exec($curl3), true));
     $dbname = array_keys(json_decode(curl_exec($curl4), true));
     $dbdata = array_values(json_decode(curl_exec($curl4), true));
+
     ***REMOVED***<!DOCTYPE html>
     <html lang="en">
 
@@ -259,11 +259,11 @@
                                                     <span class="circle circle-md bg-danger"><i class="fa fa-cloud"></i></span>
                                                 <li class="col-last">
                                                     <h3 style="font-size:36px;" class="counter text-right m-t-15">
-                                                        ***REMOVED*** if(empty(explode(' ', FileSizeConvert($admindata['U_BANDWIDTH']), 2)[0])){echo "0";***REMOVED*** ***REMOVED*** print_r(explode(' ', FileSizeConvert($admindata['U_BANDWIDTH']), 2)[0]);***REMOVED*** ***REMOVED***
+                                                        ***REMOVED*** if(empty($admindata['U_BANDWIDTH'])){echo "0";***REMOVED*** ***REMOVED*** if($admindata['U_BANDWIDTH'] < 1024) { echo $admindata['U_BANDWIDTH']; ***REMOVED*** else { echo round($admindata['U_BANDWIDTH'] / 1024, 2) ; ***REMOVED******REMOVED*** ***REMOVED***
                                                     </h3>
                                                     <center>
                                                         <h6>
-                                                            ***REMOVED*** if(empty(explode(' ', FileSizeConvert($admindata['U_BANDWIDTH']), 2)[1])){echo "mb";***REMOVED*** ***REMOVED*** print_r(explode(' ', FileSizeConvert($admindata['U_BANDWIDTH']), 2)[1]);***REMOVED*** ***REMOVED***
+                                                            ***REMOVED*** if(empty($admindata['U_BANDWIDTH'])){echo "mb";***REMOVED*** ***REMOVED*** if($admindata['U_BANDWIDTH'] < 1024) { echo 'mb'; ***REMOVED*** else { echo 'gb'; ***REMOVED******REMOVED*** ***REMOVED***
                                                         </h6>
                                                     </center>
                                                 </li>
@@ -281,13 +281,14 @@
                                                 <span class="circle circle-md bg-info"><i class="ti-harddrive"></i></span>
                                             </li>
                                             <li class="col-last">
-                                                <h3 style="font-size:36px;" class="counter text-right m-t-15">
-                                                    ***REMOVED*** if(empty(explode(' ', FileSizeConvert($admindata['U_DISK']), 2)[0])){echo "0";***REMOVED*** ***REMOVED*** print_r(explode(' ', FileSizeConvert($admindata['U_DISK']), 2)[0]);***REMOVED*** ***REMOVED***
-                                                </h3>
-                                                <center>
-                                                    <h6>
-                                                        ***REMOVED*** if(empty(explode(' ', FileSizeConvert($admindata['U_DISK']), 2)[1])){echo "mb";***REMOVED*** ***REMOVED*** print_r(explode(' ', FileSizeConvert($admindata['U_DISK']), 2)[1]);***REMOVED*** ***REMOVED***
-                                                    </h6>
+                                                     <h3 style="font-size:36px;" class="counter text-right m-t-15">
+                                                        ***REMOVED*** if(empty($admindata['U_DISK'])){echo "0";***REMOVED*** ***REMOVED*** if($admindata['U_DISK'] < 1024) { echo $admindata['U_DISK']; ***REMOVED*** else { echo round($admindata['U_DISK'] / 1024, 2) ; ***REMOVED******REMOVED*** ***REMOVED***
+                                                    </h3>
+                                                    <center>
+                                                        <h6>
+                                                            ***REMOVED*** if(empty($admindata['U_DISK'])){echo "mb";***REMOVED*** ***REMOVED*** if($admindata['U_DISK'] < 1024) { echo 'mb'; ***REMOVED*** else { echo 'gb'; ***REMOVED******REMOVED*** ***REMOVED***
+                                                        </h6>
+                                                    </center>
                                                 </center>
                                             </li>
                                             </li><br><br>
