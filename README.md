@@ -4,26 +4,36 @@ Preview Available for CDG Host Users (https://host.cdgtech.one)
 
 Live Preview: https://ide.cdgtech.one/dev
 
+## Requirements
+* Server with root access and VestaCP installed (Tested on versions 0.9.8-17 & 0.9.8-18).
+* Web server with php and php-curl installed (Does not have to be powered by VestaCP. Tested on php 7.0)
+
 ## Install
 
 #### Method 1
 
-1. Run the command `bash <(curl -s -L https://git.io/vbjO7)` while inside of the desired website directory on the machine with VestaCP installed.
-2. Visit the url of the web directory (or follow step 3 of method 3) to complete configuration.
+1. Run the command `bash <(curl -s -L https://git.io/vbjO7)` while inside of the desired web directory on the VestaCP machine.
+2. Visit the url of the web directory to complete configuration.
 3. Chmod 'includes' folder to 755 (`chmod 755 includes`) after configuration is complete.
 
 #### Method 2
 
-1. Download and extract (or clone) the latest release to a web server (Does not have to be running VestaCP).
+1. Download and extract the latest release to a web server (Does not have to be running VestaCP).
 2. Run the command `bash <(curl -s -L https://git.io/vbjOd)` on your vesta server to install the backend files.
-3. Visit the url of the web directory (or follow step 3 of method 3) to complete configuration.
+3. Visit the url of the web directory to complete configuration.
 
 
 #### Method 3
 
-1. Download and extract (or clone) the latest release to a web server (Does not have to be running VestaCP).
+1. Download and extract the latest release to a web server (Does not have to be running VestaCP).
 2. Copy the contents of the 'install/web' folder in the release to the '/usr/local/vesta/web' directory of your vesta server.
 3. Edit the 'includes/config-example.php' file and rename it to config.php.
+
+## What method should I use?
+
+* Method 1 is used to install VWI automatically if the frontend is on the same server as VestaCP.
+* Method 2 is used to intsall the VWI frontend manually and the backend automatically if the frontend is not hosted by a VestaCP server. 
+* Method 3 is used to install VWI manually in case of any errors or other circumstances with other installation methods.
 
 ## To-Do
 
