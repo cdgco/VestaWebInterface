@@ -161,7 +161,6 @@ else{
  \$oldcpurl = \$url8083;
 }
 
-include 'functions.php'
 ?>";
 
 file_put_contents('../includes/config.php', $writestr);
