@@ -217,7 +217,7 @@ $autoreplyname = array_keys(json_decode(curl_exec($curl2), true));
                     <div class="row">
                         <div class="col-md-8 col-xs-12">
                             <div class="white-box">
-                                <form class="form-horizontal form-material" autocomplete="off" method="post">
+                                <form class="form-horizontal form-material" autocomplete="off" method="post" action="../change/mailaccount.php">
                                     <div class="form-group">
                                         <label class="col-md-12">Email Address</label>
                                         <div class="col-md-12">
@@ -291,7 +291,7 @@ $autoreplyname = array_keys(json_decode(curl_exec($curl2), true));
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button disabled class="btn btn-success">Update Account</button> &nbsp;
+                                            <button class="btn btn-success">Update Account</button> &nbsp;
                                             <a href="../list/maildomain.php?domain=<?php echo $requestdomain; ?>" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">Back</button></a>
                                         </div>
                                     </div>
