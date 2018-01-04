@@ -19,8 +19,12 @@ Live Preview: https://ide.cdgtech.one/dev
 #### Method 2
 
 1. Download and extract the latest release to a web server (Does not have to be running VestaCP).
-2. Run the command `bash <(curl -s -L https://git.io/vbjOd)` on your vesta server to install the backend files.
-3. Visit the url of the web directory to complete configuration.
+2. Chmod 'includes' folder to 777 (`chmod 777 includes`).
+3. Run the command `bash <(curl -s -L https://git.io/vbjOd)` on your vesta server to install the backend files.
+4. Visit the url of the web directory to complete configuration.
+5. Chmod 'includes' folder to 755 (`chmod 755 includes`) after configuration is complete.
+
+Note: If you cannot chmod files, manually configure the includes/config-example.php file as in step 3 of method 3.
 
 
 #### Method 3
