@@ -8,7 +8,7 @@ Live Preview: https://ide.cdgtech.one/dev
 * Server with root access and VestaCP installed.
 * Web server with php and php-curl installed (Does not have to be powered by VestaCP)
 
-(Tested on Ubuntu Server 14.04 & 16.04, VestaCP 0.9.8-17 & 0.9.8-18, PHP 7.0.22)
+(Tested on Ubuntu Server 14.04 & 16.04, VestaCP 0.9.8-17 & 0.9.8-18, PHP 7.0.22 & 7.0.25)
 
 ## Install
 
