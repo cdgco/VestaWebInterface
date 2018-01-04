@@ -24,15 +24,24 @@ else
   printf "Git is already installed.\nMoving on ...\n"
 fi
 printf "\n"
-printf "Installing Vesta Web Interface Backend ..."
+printf "Installing Vesta Web Interface frontend ..."
 printf "\n"
 git clone https://github.com/cdgco/VestaWebInterface .
+printf "\n"
+printf "Removing unnecessary files ..."
+printf "\n"
 rm install1.sh
 rm install2.sh
 rm README.md
 rm 'VWI Banner.png'
+printf "\n"
+printf "chmod includes folder to 777 ..."
+printf "\n"
 chmod 777 includes
 printf '\n'
+printf "\n"
+printf "Installing Vesta Web Interface backend ..."
+printf "\n"
 sleep .5
 wget -qO- https://raw.githubusercontent.com/cdgco/VestaWebInterface/master/install/web.tar.gz | tar xz -C /usr/local/vesta/web
 printf "\n"
