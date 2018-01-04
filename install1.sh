@@ -15,7 +15,7 @@ elif [ ! -x "$tar" ]; then
   exit 1
 fi
 printf "\n"
-PKG_OK=$(dpkg-query -W --showformat='${Status}\n' git|grep "install ok installed")
+PKG_OK=$(dpkg-query -W --showformat='${Status}\n' git|grep "Found")
 echo Checking for GIT: $PKG_OK
 if [ "" == "$PKG_OK" ]; then
   echo "Git not found. Setting up Git."
@@ -23,7 +23,6 @@ if [ "" == "$PKG_OK" ]; then
 else
   printf "Git is already installed.\nMoving on ...\n"
 fi
-printf "\n"
 printf "Installing Vesta Web Interface frontend ..."
 printf "\n"
 git clone https://github.com/cdgco/VestaWebInterface .
@@ -35,11 +34,9 @@ rm install2.sh
 rm README.md
 rm 'VWI Banner.png'
 printf "\n"
-printf "chmod includes folder to 777 ..."
+printf "CHMODing includes folder to 777 ..."
 printf "\n"
 chmod 777 includes
-printf '\n'
-printf "\n"
 printf "Installing Vesta Web Interface backend ..."
 printf "\n"
 sleep .5
