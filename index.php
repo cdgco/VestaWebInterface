@@ -13,7 +13,7 @@
     curl_setopt($curlx, CURLOPT_SSL_VERIFYHOST, false);
     curl_setopt($curlx, CURLOPT_POST, true);
     curl_setopt($curlx, CURLOPT_POSTFIELDS, http_build_query($postvarsx));
-    $serverconnection = array_values(json_decode(curl_exec($curlx), true))['OS'];
+    $serverconnection = array_values(json_decode(curl_exec($curlx), true))[0]['OS'];
     if(!isset($serverconnection)) { unset($_COOKIE['username']); setcookie('username', null, -1, '/'); unset($_COOKIE['loggedin']); setcookie('loggedin', null, -1, '/'); header('Location: ../login.php'); exit;***REMOVED***
                 
     $postvars = array(
@@ -790,7 +790,6 @@
                     ***REMOVED***);";
         
         ***REMOVED*** ***REMOVED***
-        </script>
         (function() {
             [].slice.call(document.querySelectorAll('.sttabs')).forEach(function(el) {
                 new CBPFWTabs(el);
