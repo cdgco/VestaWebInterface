@@ -5,8 +5,10 @@ Preview Available for CDG Host Users (https://host.cdgtech.one)
 Live Preview: https://ide.cdgtech.one/dev
 
 ## Requirements
-* Server with root access and VestaCP installed (Tested on versions 0.9.8-17 & 0.9.8-18).
-* Web server with php and php-curl installed (Does not have to be powered by VestaCP. Tested on php 7.0)
+* Server with root access and VestaCP installed.
+* Web server with php and php-curl installed (Does not have to be powered by VestaCP)
+
+(Tested on Ubuntu Server 14.04 & 16.04, VestaCP 0.9.8-17 & 0.9.8-18, PHP 7.0.22)
 
 ## Install
 
