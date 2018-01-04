@@ -146,5 +146,4 @@ $loggedin = base64_decode($_COOKIE['loggedin']);
    ***REMOVED***
 ***REMOVED***
 
-include 'functions.php'
 ***REMOVED***
