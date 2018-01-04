@@ -13,7 +13,7 @@ if(isset($_COOKIE['loggedin'])) {
     curl_setopt($curl0, CURLOPT_SSL_VERIFYHOST, false);
     curl_setopt($curl0, CURLOPT_POST, true);
     curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query($postvars0));
-    $serverconnection = array_values(json_decode(curl_exec($curl0), true))['OS'];
+    $serverconnection = array_values(json_decode(curl_exec($curl0), true))[0]['OS'];
     if(isset($_POST['username'])){
 
         if(isset($_POST['password'])){
