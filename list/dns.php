@@ -43,6 +43,7 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'
     <link href="../plugins/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
     <link href="../css/animate.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
+    <link href="../plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
     <link href="../css/colors/<?php echo $themecolor; ?>" id="theme" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.min.css" />
     <!--[if lt IE 9]>
@@ -309,6 +310,7 @@ if($dnsname[0] != '') {
 
     </div>
     <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
     <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
     <script src="../js/jquery.slimscroll.js"></script>
