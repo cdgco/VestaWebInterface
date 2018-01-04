@@ -4,13 +4,24 @@
     if(base64_decode($_COOKIE['loggedin']) == 'true') {}
     else { header('Location: login.php'); }
 
+    $postvarsx = array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-info','arg1' => 'json');
+
+    $curlx = curl_init();
+    curl_setopt($curlx, CURLOPT_URL, $vst_url);
+    curl_setopt($curlx, CURLOPT_RETURNTRANSFER,true);
+    curl_setopt($curlx, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($curlx, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt($curlx, CURLOPT_POST, true);
+    curl_setopt($curlx, CURLOPT_POSTFIELDS, http_build_query($postvarsx));
+    $serverconnection = array_values(json_decode(curl_exec($curlx), true))['OS'];
+    if(!isset($serverconnection)) { unset($_COOKIE['username']); setcookie('username', null, -1, '/'); unset($_COOKIE['loggedin']); setcookie('loggedin', null, -1, '/'); header('Location: ../login.php'); exit;}
+                
     $postvars = array(
         array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
         array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-domains','arg1' => $username,'arg2' => 'json'),
         array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-dns-domains','arg1' => $username,'arg2' => 'json'),
         array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-mail-domains','arg1' => $username,'arg2' => 'json'),
-        array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-databases','arg1' => $username,'arg2' => 'json'),
-        array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-info','arg1' => 'json')
+        array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-databases','arg1' => $username,'arg2' => 'json')
     );
 
     $curl0 = curl_init();
@@ -40,7 +51,6 @@
     $maildata = array_values(json_decode(curl_exec($curl3), true));
     $dbname = array_keys(json_decode(curl_exec($curl4), true));
     $dbdata = array_values(json_decode(curl_exec($curl4), true));
-    $serverconnection = array_values(json_decode(curl_exec($curl0), true))['OS'];
     ?><!DOCTYPE html>
     <html lang="en">
 
@@ -768,7 +778,19 @@
     <script src="plugins/bower_components/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
     <script src="js/footable-init.js"></script>
     <script type="text/javascript">
-
+        <?php 
+        if(substr(sprintf('%o', fileperms('includes')), -4) == '0777') {
+            echo "$.toast({
+                        heading: 'Warning'
+                        , text: 'Includes folder has not been secured.'
+                        , icon: 'warning'
+                        , position: 'top-right'
+                        , hideAfter: 3500
+                        , bgColor: '#ff8000'
+                    });";
+        
+        } ?>
+        </script>
         (function() {
             [].slice.call(document.querySelectorAll('.sttabs')).forEach(function(el) {
                 new CBPFWTabs(el);
@@ -788,17 +810,6 @@
         jQuery(function($){
             $('.footable').footable();
         });
-        <?php if(!isset($serverconnection)){
-            echo "$.toast({
-                        heading: 'Error'
-                        , text: 'Error:Connection to backend server failed.'
-                        , icon: 'error'
-                        , position: 'top-right'
-                        , loaderBg: '#fff'
-                        , icon: 'danger'
-                        , hideAfter: false
-                    })";
-                } ?>
     </script>
     <script src="js/custom.js"></script>
     <?php if(INTERAKT_APP_ID != ''){ echo '
