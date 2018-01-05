@@ -1,8 +1,10 @@
 ![VWI Banner](https://raw.githubusercontent.com/cdgco/VestaWebInterface/master/VWI%20Banner.png)
 
-Preview Available for CDG Host Users (https://host.cdgtech.one)
+Demo: http://cdgphp70.epizy.com
 
-Live Preview: https://ide.cdgtech.one/dev
+Username: demo
+
+Password: demo123
 
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7e9666795d6b4aa1a7838f7af599b720)](https://www.codacy.com/app/carter/VestaWebInterface?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=cdgco/VestaWebInterface&amp;utm_campaign=Badge_Grade)
@@ -11,7 +13,7 @@ Live Preview: https://ide.cdgtech.one/dev
 * Server with root access and VestaCP installed.
 * Web server with php and php-curl installed (Does not have to be powered by VestaCP)
 
-(Tested on Ubuntu Server 14.04 & 16.04, VestaCP 0.9.8-17 & 0.9.8-18, PHP 5.4, 5.5, 5.6 & 7.0)
+(Tested on Ubuntu Server 14.04 & 16.04, VestaCP 0.9.8-17 & 0.9.8-18, PHP 5.4 - 7.0)
 
 ## Install
 
@@ -41,32 +43,19 @@ Note: If you cannot chmod files, manually configure the includes/config-example.
 ## What method should I use?
 
 * Method 1 is used to install VWI automatically if the frontend is on the same server as VestaCP.
-* Method 2 is used to intsall the VWI frontend manually and the backend automatically if the frontend is not hosted by a VestaCP server. 
+* Method 2 is used to install the VWI frontend manually and the backend automatically if the frontend is not hosted by a VestaCP server. 
 * Method 3 is used to install VWI manually in case of any errors or other circumstances with other installation methods.
 
-## To-Do
-
-#### Basic Functions:
+## To-Do:
 - [ ] Addition FTP Support
-- [ ] Multiple Additional FTP Support (Possible Backend Integration)
-- [ ] Custom SSL Support (Needs Backend Integration)
-- [ ] Process Backup Exclusions (Needs Backend Integration)
-- [ ] Email Notifications (Possible Backend Integration)
-
-#### Added Functionality / Bug Fixes / Code Cleanup:
+- [ ] Custom SSL Support (Backend)
+- [ ] Process Backup Exclusions (Backend)
+- [ ] Email Notifications (Backend)
 - [ ] Add Delete Buttons to 'edit' Pages
-- [ ] Process Loaders & Response Code Notifications
-- [ ] Format, Unify, Minify and Fix Compiling Issues
-- [ ] Fix PHP Errors
-
-#### Long Term Plans:
-- [ ] Better Download & PW Reset Systems
-- [ ] Finish Dark Theme
-- [ ] Create Theme Switcher
-- [ ] Admin Panel
-- [ ] Integrations
-- [ ] Feature Additions
-- [ ] Multi Server Support
+- [ ] Process Animations & Response Code Notifications
+- [ ] Upgrade Backup Download & PW Reset Systems
+- [ ] Dark Theme
+- [ ] Theme Switcher
 
 ## Support
 
