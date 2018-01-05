@@ -57,7 +57,7 @@ if(isset($_COOKIE['loggedin'])) {
             }
         </style>
         <!-- color CSS -->
-        <link href="css/colors/<?php echo $themecolor; ?>" id="theme" rel="stylesheet">
+        <link href="css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
