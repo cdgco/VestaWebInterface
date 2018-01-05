@@ -56,6 +56,7 @@ Note: If you cannot chmod files, manually configure the includes/config-example.
 - [ ] Upgrade Backup Download & PW Reset Systems
 - [ ] Dark Theme
 - [ ] Theme Switcher
+- [ ] Softaculous Support
 
 ## Support
 
