@@ -5,6 +5,9 @@ Preview Available for CDG Host Users (https://host.cdgtech.one)
 Live Preview: https://ide.cdgtech.one/dev
 
 ## Requirements
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/88a9ad8854164921a60073c7a9c2ea64)](https://www.codacy.com/app/carter/VestaWebInterface?utm_source=github.com&utm_medium=referral&utm_content=cdgco/VestaWebInterface&utm_campaign=badger)
+
 * Server with root access and VestaCP installed.
 * Web server with php and php-curl installed (Does not have to be powered by VestaCP)
 
