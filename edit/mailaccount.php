@@ -59,7 +59,7 @@ $autoreplyname = array_keys(json_decode(curl_exec($curl2), true));
         <link href="../css/animate.css" rel="stylesheet">
         <link href="../css/style.css" rel="stylesheet">
         <link href="../plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
-        <link href="../css/colors/***REMOVED*** echo $themecolor; ***REMOVED***" id="theme" rel="stylesheet">
+        <link href="../css/colors/***REMOVED*** if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); ***REMOVED*** else {echo $themecolor; ***REMOVED*** ***REMOVED***" id="theme" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.min.css" />
         <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
