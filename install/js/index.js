@@ -1,10 +1,10 @@
   $(document).ready(function() {
-    $('#contact_form').bootstrapValidator({
+    $("#contact_form").bootstrapValidator({
         // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
         feedbackIcons: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
+            valid: "glyphicon glyphicon-ok",
+            invalid: "glyphicon glyphicon-remove",
+            validating: "glyphicon glyphicon-refresh"
         },
         fields: {
             first_name: {
@@ -13,7 +13,7 @@
                         min: 2,
                     },
                         notEmpty: {
-                        message: 'Please supply your first name'
+                        message: "Please supply your first name"
                     }
                 }
             },
@@ -23,28 +23,28 @@
                         min: 2,
                     },
                     notEmpty: {
-                        message: 'Please supply your last name'
+                        message: "Please supply your last name"
                     }
                 }
             },
             email: {
                 validators: {
                     notEmpty: {
-                        message: 'Please supply your email address'
+                        message: "Please supply your email address"
                     },
                     emailAddress: {
-                        message: 'Please supply a valid email address'
+                        message: "Please supply a valid email address"
                     }
                 }
             },
             phone: {
                 validators: {
                     notEmpty: {
-                        message: 'Please supply your phone number'
+                        message: "Please supply your phone number"
                     },
                     phone: {
-                        country: 'US',
-                        message: 'Please supply a vaild phone number with area code'
+                        country: "US",
+                        message: "Please supply a vaild phone number with area code"
                     }
                 }
             },
@@ -54,7 +54,7 @@
                         min: 8,
                     },
                     notEmpty: {
-                        message: 'Please supply your street address'
+                        message: "Please supply your street address"
                     }
                 }
             },
@@ -64,25 +64,25 @@
                         min: 4,
                     },
                     notEmpty: {
-                        message: 'Please supply your city'
+                        message: "Please supply your city"
                     }
                 }
             },
             state: {
                 validators: {
                     notEmpty: {
-                        message: 'Please select your state'
+                        message: "Please select your state"
                     }
                 }
             },
             zip: {
                 validators: {
                     notEmpty: {
-                        message: 'Please supply your zip code'
+                        message: "Please supply your zip code"
                     },
                     zipCode: {
-                        country: 'US',
-                        message: 'Please supply a vaild zip code'
+                        country: "US",
+                        message: "Please supply a vaild zip code"
                     }
                 }
             },
@@ -91,18 +91,18 @@
                       stringLength: {
                         min: 10,
                         max: 200,
-                        message:'Please enter at least 10 characters and no more than 200'
+                        message:"Please enter at least 10 characters and no more than 200"
                     },
                     notEmpty: {
-                        message: 'Please supply a description of your project'
+                        message: "Please supply a description of your project"
                     }
                     }
                 }
             }
         })
-        .on('success.form.bv', function(e) {
-            $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
-                $('#contact_form').data('bootstrapValidator').resetForm();
+        .on("success.form.bv", function(e) {
+            $("#success_message").slideDown({ opacity: "show" }, "slow");
+            $("#contact_form").data("bootstrapValidator").resetForm();
 
             // Prevent form submission
             e.preventDefault();
@@ -114,8 +114,8 @@
             var bv = $form.data('bootstrapValidator');
 
             // Use Ajax to submit form data
-            $.post($form.attr('action'), $form.serialize(), function(result) {
-                console.log(result);
-            }, 'json');
+            $.post($form.attr("action"), $form.serialize(), function(result) {
+                Console.log(result);
+            }, "json");
         });
 });
