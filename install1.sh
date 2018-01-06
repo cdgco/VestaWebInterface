@@ -23,12 +23,17 @@ if [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; then
 	if [ ! -z "$(ls -A ./)" ]; then
 		printf "Error: Directory not empty.\nVWI must be installed in clean directory. Exiting ...\n"
 		exit 1
-	elif [ $(dpkg-query -W -f='${Status}' wget 2>/dev/null | grep -c "tar found") -eq 1 ]; then
-		apt-get install wget;
+	fi
+	printf "Checking for required packages ...\n"
+	if [ $(dpkg-query -W -f='${Status}' wget 2>/dev/null | grep -c "wget found") -eq 1 ]; then
+		echo "wget not found. Instaling ..."
+                apt-get install wget
 	elif [ $(dpkg-query -W -f='${Status}' tar 2>/dev/null | grep -c "tar found") -eq 1 ]; then
-		apt-get install tar;
+		echo "tar not found. Installing ..."
+		apt-get install tar
 	elif [ $(dpkg-query -W -f='${Status}' git 2>/dev/null | grep -c "git found") -eq 1 ]; then
-		apt-get install git;
+		echo "git not found. Installing ..."
+		apt-get install git
 	fi
 	printf "\nInstalling Vesta Web Interface frontend ...\n"
 	git clone --quiet https://github.com/cdgco/VestaWebInterface . > /dev/null
@@ -55,11 +60,27 @@ elif [ "$OS" == "CentOS Linux" ] || [ "$OS" == "RHEL" ]; then
 	if [ ! -z "$(ls -A ./)" ]; then
 		printf "Error: Directory not empty.\nVWI must be installed in clean directory. Exiting ...\n"
 		exit 1
-	elif [ $(rpm -q wget | grep "not installed") ]; then
+	fi
+	printf "Checking for required packages ...\n"
+        if rpm -q wget > /dev/null
+	then
+		echo "wget found"
+	else
+		echo "wget not found. Installing ..."
 		yum -y install wget
-	elif [ $(rpm -q tar | grep "not installed") ]; then
+	fi
+	if rpm -q tar > /dev/null
+	then
+		echo "tar found"
+	else
+		echo "tar not found. Installing ..."
 		yum -y install tar
-	elif [ $(rpm -q git | grep "not installed") ]; then
+	fi
+	if rpm -q git > /dev/null
+	then
+		echo "git found"
+	else
+		echo "git not found. Installing ..."
 		yum -y install git
 	fi
 	printf "\nInstalling Vesta Web Interface frontend ...\n"	
