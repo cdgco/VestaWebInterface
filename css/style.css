@@ -1,14 +1,5 @@
-/*!
-Template Name : Ample Admin - The Ultimate Dashboad Template
-Author : WrapPixel (http://www.wrappixel.com)
- */
 @charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900);
-/*Theme Colors*/
-/*bootstrap Color*/
-/*Normal Color*/
-/*Border radius*/
-/*Preloader*/
 @import "spinners.css";
 @import "icons/material-design-iconic-font/css/materialdesignicons.min.css";
 ul.dashed {
