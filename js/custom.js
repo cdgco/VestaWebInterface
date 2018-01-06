@@ -1,7 +1,3 @@
-/*!
-Template Name : Ample Admin - The Ultimate Dashboad Template
-Author : WrapPixel (http://www.wrappixel.com)
- */
 $(window).load(function(){
     $(function () {
         $(".preloader").fadeOut();
@@ -110,8 +106,6 @@ $(window).load(function(){
         $(document).on('click', panelSelector, function (e) {
             e.preventDefault();
             var parent = $(this).closest('.panel');
-            removeElement();
-
             function removeElement() {
                 var col = parent.parent();
                 parent.remove();
@@ -120,6 +114,8 @@ $(window).load(function(){
                     return (el.is('[class*="col-"]') && el.children('*').length === 0);
                 ***REMOVED***).remove();
             ***REMOVED***
+            removeElement();
+
         ***REMOVED***);
     ***REMOVED***(jQuery, window, document));
     //tooltip
