@@ -1,20 +1,20 @@
 // This is for Vertical carousel
-$('.vcarousel').carousel({
+$(".vcarousel").carousel({
             interval: 3000
-})
+});
 
 
 //gauge chart
 $(".mtbutton").click(function () {
             var randomNum = Math.floor((Math.random() * 100));
-            $('#gaugeDemo .gauge-arrow').trigger('updateGauge', randomNum);
+            $("#gaugeDemo .gauge-arrow").trigger("updateGauge", randomNum);
 });
-$('#gaugeDemo .gauge-arrow').cmGauge();
+$("#gaugeDemo .gauge-arrow").cmGauge();
 
 
 //chartist-chart
-var chart = new Chartist.Line('#ct-sales', {
-  labels: ['1', '2', '3', '4', '5', '6'],
+var chart = new Chartist.Line("#ct-sales", {
+  labels: ["1", "2", "3", "4", "5", "6"],
   series: [
     [1, -2, 5, 2, 6, 5.5]
     
@@ -39,9 +39,9 @@ var chart = new Chartist.Line('#ct-sales', {
     Chartist.plugins.tooltip()
   ]
 });
-chart.on('draw', function(data) {
+chart.on("draw", function(data) {
 
-  if(data.type === 'line' || data.type === 'area') {
+  if(data.type === "line" || data.type === "area") {
     data.element.animate({
 
       d: {
@@ -57,8 +57,8 @@ chart.on('draw', function(data) {
 
 
 // ct-weather
-var chart = new Chartist.Line('#ct-weather', {
-  labels: ['1', '2', '3', '4', '5', '6'],
+var chart = new Chartist.Line("#ct-weather", {
+  labels: ["1", "2", "3", "4", "5", "6"],
   series: [
     [1, 0, 5, 3, 2, 2.5]
     
@@ -84,8 +84,8 @@ var chart = new Chartist.Line('#ct-weather', {
 
 
 //extra-chart
-var chart = new Chartist.Line('#ct-extra', {
-  labels: ['1', '2', '3', '4', '5', '6'],
+var chart = new Chartist.Line("#ct-extra", {
+  labels: ["1", "2", "3", "4", "5", "6"],
   series: [
     [1, -2, 5, 3, 0, 2.5]
     
@@ -114,8 +114,8 @@ var chart = new Chartist.Line('#ct-extra', {
 
 
 //ct-main-balance-chart
-var chart = new Chartist.Line('#ct-main-bal', {
-  labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
+var chart = new Chartist.Line("#ct-main-bal", {
+  labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
   series: [
     [1, 2, 5, 3, 4, 2.5, 5, 3, 1],
     [1, 4, 2, 5, 2, 5.5, 3, 4, 1]
@@ -145,8 +145,8 @@ var chart = new Chartist.Line('#ct-main-bal', {
 
 
 //ct-bar-chart
-new Chartist.Bar('#ct-bar-chart', {
-  labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+new Chartist.Bar("#ct-bar-chart", {
+  labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
   series: [
     [5, 4, 3, 7, 5, 2, 3]
     
@@ -156,7 +156,7 @@ new Chartist.Bar('#ct-bar-chart', {
     showLabel: false,
     showGrid: false,
     // On the x-axis start means top and end means bottom
-    position: 'start'
+    position: "start"
   },
   
   chartPadding: {
@@ -166,7 +166,7 @@ new Chartist.Bar('#ct-bar-chart', {
     showLabel: false,
     showGrid: false,
     // On the y-axis start means left and end means right
-    position: 'end'
+    position: "end"
   },
   height:65,
   plugins: [
@@ -176,8 +176,8 @@ new Chartist.Bar('#ct-bar-chart', {
 
 
 //ct-visits
-new Chartist.Line('#ct-visits', {
-  labels: ['12AM', '2AM','6AM', '9AM', '12AM', '3PM', '6PM', '9PM'],
+new Chartist.Line("#ct-visits", {
+  labels: ["12AM", "2AM","6AM", "9AM", "12AM", "3PM", "6PM", "9PM"],
   series: [
     [5, 2, 7, 4, 5, 3, 5, 4],
     [2, 5, 2, 6, 2, 5, 2, 4]
@@ -194,7 +194,7 @@ new Chartist.Line('#ct-visits', {
   ],
   axisY: {
     labelInterpolationFnc: function(value) {
-      return (value / 1) + 'k';
+      return (value / 1) + "k";
     }
   },
   showArea: true
@@ -203,7 +203,7 @@ new Chartist.Line('#ct-visits', {
 
 //ct-weather
 new Chartist.Line('#ct-city-wth', {
-  labels: ['12AM', '2AM','6AM', '9AM', '12AM', '3PM', '6PM', '9PM'],
+  labels:  ["12AM", "2AM","6AM", "9AM", "12AM", "3PM", "6PM", "9PM"],
   series: [
     [5, 2, 7, 4, 5, 3, 5, 4]
   ]
@@ -232,7 +232,7 @@ new Chartist.Line('#ct-city-wth', {
 
 
 //polar chart
-new Chartist.Line('#ct-polar-chart', {
+new Chartist.Line("#ct-polar-chart", {
   labels: [1, 2, 3, 4, 5, 6, 7, 8],
   series: [
     [1, 2, 3, 1, -2, 0, 1, 0],
@@ -267,7 +267,7 @@ new Chartist.Line('#ct-polar-chart', {
 
 // Morris donut chart
 Morris.Donut({
-    element: 'morris-donut-chart'
+    element: "morris-donut-chart"
     , data: [{
         label: "Jan"
         , value: 15
@@ -282,52 +282,52 @@ Morris.Donut({
         , value: 105
         }]
     , resize: true
-    , colors: ['#ff7676', '#2cabe3', '#53e69d', '#7bcef3']
+    , colors: ["#ff7676", "#2cabe3", "#53e69d", "#7bcef3"]
 });
 Morris.Area({
-    element: 'morris-area-chart2'
+    element: "morris-area-chart2"
     , data: [{
-            period: '2010'
+            period: "2010"
             , SiteA: 50
             , SiteB: 0
         , }, {
-            period: '2011'
+            period: "2011"
             , SiteA: 160
             , SiteB: 100
         , }, {
-            period: '2012'
+            period: "2012"
             , SiteA: 110
             , SiteB: 60
         , }, {
-            period: '2013'
+            period: "2013"
             , SiteA: 60
             , SiteB: 200
         , }, {
-            period: '2014'
+            period: "2014"
             , SiteA: 130
             , SiteB: 150
         , }, {
-            period: '2015'
+            period: "2015"
             , SiteA: 200
             , SiteB: 90
         , }
         , {
-            period: '2016'
+            period: "2016"
             , SiteA: 100
             , SiteB: 150
         , }]
-    , xkey: 'period'
-    , ykeys: ['SiteA', 'SiteB']
-    , labels: ['Site A', 'Site B']
+    , xkey: "period"
+    , ykeys: ["SiteA", "SiteB"]
+    , labels: ["Site A", "Site B"]
     , pointSize: 0
     , fillOpacity: 0.1
-    , pointStrokeColors: ['#ff7878', '#2cabe3']
+    , pointStrokeColors: ["#ff7878", "#2cabe3"]
     , behaveLikeLine: true
-    , gridLineColor: '#ffffff'
+    , gridLineColor: "#ffffff"
     , lineWidth: 2
     , smooth: true
-    , hideHover: 'auto'
-    , lineColors: ['#ff7878', '#2cabe3']
+    , hideHover: "auto"
+    , lineColors: ["#ff7878", "#2cabe3"]
     , resize: true
 });
 
@@ -335,54 +335,54 @@ Morris.Area({
 Morris.Area({
         element: 'morris-area-chart3',
         data: [{
-            period: '2010',
+            period: "2010",
             SiteA: 0,
             SiteB: 0,
             
         }, {
-            period: '2011',
+            period: "2011",
             SiteA: 130,
             SiteB: 100,
             
         }, {
-            period: '2012',
+            period: "2012",
             SiteA: 80,
             SiteB: 60,
             
         }, {
-            period: '2013',
+            period: "2013",
             SiteA: 70,
             SiteB: 200,
             
         }, {
-            period: '2014',
+            period: "2014",
             SiteA: 180,
             SiteB: 150,
             
         }, {
-            period: '2015',
+            period: "2015",
             SiteA: 105,
             SiteB: 90,
             
         },
          {
-            period: '2016',
+            period: "2016",
             SiteA: 250,
             SiteB: 150,
            
         }],
-        xkey: 'period',
-        ykeys: ['SiteA', 'SiteB'],
-        labels: ['Site A', 'Site B'],
+        xkey: "period",
+        ykeys: ["SiteA", "SiteB"],
+        labels: ["Site A", "Site B"],
         pointSize: 0,
         fillOpacity: 0.4,
-        pointStrokeColors:['#b4becb', '#2cabe3'],
+        pointStrokeColors:["#b4becb", "#2cabe3"],
         behaveLikeLine: true,
-        gridLineColor: '#e0e0e0',
+        gridLineColor: "#e0e0e0",
         lineWidth: 0,
         smooth: false,
-        hideHover: 'auto',
-        lineColors: ['#b4becb', '#2cabe3'],
+        hideHover: "auto",
+        lineColors: ["#b4becb", "#2cabe3"],
         resize: true
         
     });
@@ -443,7 +443,7 @@ var plot = $.plot("#placeholder", [getRandomData()], {
         color: "#e45f5f"
         , hoverable: true
         , borderWidth: 0
-        , backgroundColor: '#ff7676'
+        , backgroundColor: "#ff7676"
     }
     , tooltip: true
     , tooltipOpts: {
@@ -459,7 +459,7 @@ function update() {
     setTimeout(update, updateInterval);
 }
 $(window).resize(function () {
-    $.plot($('#placeholder'), [getRandomData()]);
+    $.plot($("#placeholder"), [getRandomData()]);
 });
 update();
 
@@ -468,89 +468,89 @@ update();
 
    var sparklineLogin = function() { 
         $("#sparkline1dash").sparkline([0, 23, 43, 35, 44, 45, 56, 37, 40, 45, 56, 7, 10], {
-            type: 'line',
-            width: '100%',
-            height: '70',
-            lineColor: '#fff',
-            fillColor: 'transparent',
-            spotColor: '#fff',
+            type: "line",
+            width: "100%",
+            height: "70",
+            lineColor: "#fff",
+            fillColor: "transparent",
+            spotColor: "#fff",
             minSpotColor: undefined,
             maxSpotColor: undefined,
             highlightSpotColor: undefined,
             highlightLineColor: undefined
         }); 
-        $('#sparkline2dash').sparkline([10, 12, 9, 6, 10, 9, 11, 9, 10, 12, 9, 11, 9, 10, 12,], {
-            type: 'bar',
-            height: '70',
-            barWidth: '5',
+        $("#sparkline2dash").sparkline([10, 12, 9, 6, 10, 9, 11, 9, 10, 12, 9, 11, 9, 10, 12,], {
+            type: "bar",
+            height: "70",
+            barWidth: "5",
             resize: true,
-            barSpacing: '10',
-            barColor: '#fff'
+            barSpacing: "10",
+            barColor: "#fff"
         });
          $("#sparkline3dash").sparkline([0, 23, 43, 35, 44, 45, 56, 37, 40, 45, 56, 7, 10], {
-            type: 'line',
-            width: '100%',
-            height: '70',
-            lineColor: '#fff',
-            fillColor: 'transparent',
-            spotColor: '#fff',
+            type: "line",
+            width: "100%",
+            height: "70",
+            lineColor: "#fff",
+            fillColor: "transparent",
+            spotColor: "#fff",
             minSpotColor: undefined,
             maxSpotColor: undefined,
             highlightSpotColor: undefined,
             highlightLineColor: undefined
         });
-        $('#sparkline4dash').sparkline([10, 12, 9, 6, 10, 9, 11, 9, 10, 12, 9, 11, 9, 10, 12,], {
-            type: 'bar',
-            height: '70',
-            barWidth: '5',
+        $("#sparkline4dash").sparkline([10, 12, 9, 6, 10, 9, 11, 9, 10, 12, 9, 11, 9, 10, 12,], {
+            type: "bar",
+            height: "70",
+            barWidth: "5",
             resize: true,
-            barSpacing: '10',
-            barColor: '#fff'
+            barSpacing: "10",
+            barColor: "#fff"
         });
-        $('#sales1').sparkline([20, 40, 30], {
-            type: 'pie',
-            height: '100',
+        $("#sales1").sparkline([20, 40, 30], {
+            type: "pie",
+            height: "100",
             resize: true,
-            sliceColors: ['#808f8f', '#fecd36', '#f1f2f7']
+            sliceColors: ["#808f8f", "#fecd36", "#f1f2f7"]
         });
-        $('#sales2').sparkline([6, 10, 9, 11, 9, 10, 12], {
-            type: 'bar',
-            height: '154',
-            barWidth: '4',
+        $("#sales2").sparkline([6, 10, 9, 11, 9, 10, 12], {
+            type: "bar",
+            height: "154",
+            barWidth: "4",
             resize: true,
-            barSpacing: '10',
-            barColor: '#2cabe3'
+            barSpacing: "10",
+            barColor: "#2cabe3"
         });
         $("#sparkline8").sparkline([2,4,4,6,8,5,6,4,8,6,6,2 ], {
-            type: 'line',
-            width: '100%',
-            height: '50',
-            lineColor: '#53e69d',
-            fillColor: '#53e69d',
-            maxSpotColor: '#53e69d',
-            highlightLineColor: 'rgba(0, 0, 0, 0.2)',
-            highlightSpotColor: '#53e69d'
+            type: "line",
+            width: "100%",
+            height: "50",
+            lineColor: "#53e69d",
+            fillColor: "#53e69d",
+            maxSpotColor: "#53e69d",
+            highlightLineColor: "rgba(0, 0, 0, 0.2)",
+            highlightSpotColor: "#53e69d"
         });
         $("#sparkline9").sparkline([0,2,8,6,8,5,6,4,8,6,6,2 ], {
-            type: 'line',
-            width: '100%',
-            height: '50',
-            lineColor: '#2cabe3',
-            fillColor: '#2cabe3',
-            minSpotColor:'#2cabe3',
-            maxSpotColor: '#2cabe3',
-            highlightLineColor: 'rgba(0, 0, 0, 0.2)',
-            highlightSpotColor: '#2cabe3'
+            type: "line",
+            width: "100%",
+            height: "50",
+            lineColor: "#2cabe3",
+            fillColor: "#2cabe3",
+            minSpotColor:"#2cabe3",
+            maxSpotColor: "#2cabe3",
+            highlightLineColor: "rgba(0, 0, 0, 0.2)",
+            highlightSpotColor: "#2cabe3"
         });
         $("#sparkline10").sparkline([2,4,4,6,8,5,6,4,8,6,6,2], {
-            type: 'line',
-            width: '100%',
-            height: '50',
-            lineColor: '#ff754b',
-            fillColor: '#ff754b',
-            maxSpotColor: '#ff754b',
-            highlightLineColor: 'rgba(0, 0, 0, 0.2)',
-            highlightSpotColor: '#ff754b'
+            type: "line",
+            width: "100%",
+            height: "50",
+            lineColor: "#ff754b",
+            fillColor: "#ff754b",
+            maxSpotColor: "#ff754b",
+            highlightLineColor: "rgba(0, 0, 0, 0.2)",
+            highlightSpotColor: "#ff754b"
         });
 
    }
