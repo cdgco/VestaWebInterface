@@ -7,15 +7,15 @@
             tableClass: "jsgrid-table table table-striped table-hover"
         }), jsGrid.setDefaults("text", {
             _createTextBox: function() {
-                return $("<input>").attr("type", "text").attr("class", "form-control input-sm")
+                return $("<input>").attr("type", "text").attr("class", "form-control input-sm");
             }
         }), jsGrid.setDefaults("number", {
             _createTextBox: function() {
-                return $("<input>").attr("type", "number").attr("class", "form-control input-sm")
+                return $("<input>").attr("type", "number").attr("class", "form-control input-sm");
             }
         }), jsGrid.setDefaults("textarea", {
             _createTextBox: function() {
-                return $("<input>").attr("type", "textarea").attr("class", "form-control")
+                return $("<input>").attr("type", "textarea").attr("class", "form-control");
             }
         }), jsGrid.setDefaults("control", {
             _createGridButton: function(cls, tooltip, clickHandler) {
@@ -24,8 +24,8 @@
                     type: "button",
                     title: tooltip
                 }).on("click", function(e) {
-                    clickHandler(grid, e)
-                })
+                    clickHandler(grid, e);
+                });
             }
         }), jsGrid.setDefaults("select", {
             _createSelect: function() {
@@ -37,8 +37,8 @@
                     var value = valueField ? item[valueField] : index,
                         text = textField ? item[textField] : item,
                         $option = $("<option>").attr("value", value).text(text).appendTo($result);
-                    $option.prop("selected", selectedIndex === index)
-                }), $result
+                    $option.prop("selected", selectedIndex === index);
+                }), $result;
             }
         }),
         function() {
@@ -148,40 +148,40 @@
             }), $("#sortingField").on("change", function() {
                 var field = $(this).val();
                 $("#exampleSorting").jsGrid("sort", field)
-            })
+            });
         }(),
         
         function() {
             var MyDateField = function(config) {
-                jsGrid.Field.call(this, config)
+                jsGrid.Field.call(this, config);
             };
             MyDateField.prototype = new jsGrid.Field({
                 sorter: function(date1, date2) {
-                    return new Date(date1) - new Date(date2)
+                    return new Date(date1) - new Date(date2);
                 },
                 itemTemplate: function(value) {
-                    return new Date(value).toDateString()
+                    return new Date(value).toDateString();
                 },
                 insertTemplate: function() {
-                    if (!this.inserting) return "";
+                    if (!this.inserting) { return ""; }
                     var $result = this.insertControl = this._createTextBox();
                     return $result
                 },
                 editTemplate: function(value) {
                     if (!this.editing) return this.itemTemplate(value);
                     var $result = this.editControl = this._createTextBox();
-                    return $result.val(value), $result
+                    return $result.val(value), $result;
                 },
                 insertValue: function() {
-                    return this.insertControl.datepicker("getDate")
+                    return this.insertControl.datepicker("getDate");
                 },
                 editValue: function() {
-                    return this.editControl.datepicker("getDate")
+                    return this.editControl.datepicker("getDate");
                 },
                 _createTextBox: function() {
                     return $("<input>").attr("type", "text").addClass("form-control input-sm").datepicker({
                         autoclose: !0
-                    })
+                    });
                 }
             }), jsGrid.fields.myDateField = MyDateField, $("#exampleCustomGridField").jsGrid({
                 height: "500px",
@@ -209,5 +209,5 @@
                     modeSwitchButton: !1
                 }]
             })
-        }()
+        }();
 }(document, window, jQuery);
