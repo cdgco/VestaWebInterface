@@ -44,15 +44,6 @@ $(window).on('load', function() {
 		filtering.trigger('footable_filter', {filter: $(this).val()***REMOVED***);
 	***REMOVED***);
 
-
-	
-
-	// Search input
-	$('#demo-input-search2').on('input', function (e) {
-		e.preventDefault();
-		addrow.trigger('footable_filter', {filter: $(this).val()***REMOVED***);
-	***REMOVED***);
-	
 	// Add & Remove Row
 	var addrow = $('#demo-foo-addrow');
 	addrow.footable().on('click', '.delete-row-btn', function() {
@@ -66,6 +57,13 @@ $(window).on('load', function() {
 		//delete the row
 		footable.removeRow(row);
 	***REMOVED***);
+	
+	// Search input
+	$('#demo-input-search2').on('input', function (e) {
+		e.preventDefault();
+		addrow.trigger('footable_filter', {filter: $(this).val()***REMOVED***);
+	***REMOVED***);
+	
 	// Add Row Button
 	$('#demo-btn-addrow').click(function() {
 
