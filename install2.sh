@@ -21,13 +21,20 @@ fi
 
 if [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; then 
 	printf "Checking for required packages ...\n"
-	if [ $(dpkg-query -W -f='${Status}' wget 2>/dev/null | grep -c "wget found") -eq 1 ]; then
-		echo "wget not found. Instaling ..."
-                apt-get install wget
-	elif [ $(dpkg-query -W -f='${Status}' tar 2>/dev/null | grep -c "tar found") -eq 1 ]; then
-		echo "tar not found. Installing ..."
-		apt-get install tar
-	fi
+	if dpkg -s wget &> /dev/null
+        then
+                echo "wget found"
+        else
+                echo "wget not found. Installing ..."
+                apt-get install -y wget > /dev/null
+        fi
+        if dpkg -s tar &> /dev/null
+        then
+                echo "tar found"
+        else
+                echo "tar not found. Installing ..."
+                apt-get install -y tar > /dev/null
+        fi
 	printf "Installing Vesta Web Interface backend ...\n"
 	sleep .5
 	wget -q https://raw.githubusercontent.com/cdgco/VestaWebInterface/master/install/web.tar.gz
@@ -38,21 +45,21 @@ if [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; then
 	printf "\nInstallation Complete! Please visit your website online to finish configuration.\n"
 elif [ "$OS" == "CentOS Linux" ] || [ "$OS" == "RHEL" ]; then
 	printf "Checking for required packages ...\n"
-        if rpm -q wget > /dev/null
+        if rpm -q wget &> /dev/null
 	then
 		echo "wget found"
 	else
 		echo "wget not found. Installing ..."
 		yum -y install wget
 	fi
-	if rpm -q tar > /dev/null
+	if rpm -q tar &> /dev/null
 	then
 		echo "tar found"
 	else
 		echo "tar not found. Installing ..."
 		yum -y install tar
-	fi	
-	printf "Installing Vesta Web Interface backend ...\n"	
+	fi
+	printf "Installing Vesta Web Interface backend ...\n"
 	sleep .5
 	wget -q https://raw.githubusercontent.com/cdgco/VestaWebInterface/master/install/web.tar.gz
 	if [ -f web.tar.gz ] ; then
