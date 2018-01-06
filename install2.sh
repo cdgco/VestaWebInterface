@@ -18,16 +18,15 @@ elif [ -f /etc/redhat-release ]; then
 else
     OS=$(uname -s)
 fi
-if [ $OS == "Ubuntu" ] || [ $OS == "Debian" ]; then
-	if [ ! -z "$(ls -A ./)" ]; then
-		printf "Error: Directory not empty.\nVWI must be installed in clean directory. Exiting ...\n"
-		exit 1
-	elif [ $(dpkg-query -W -f='${Status***REMOVED***' wget 2>/dev/null | grep -c "tar found") -eq 1 ]; then
-		apt-get install wget;
+
+if [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; then 
+	printf "Checking for required packages ...\n"
+	if [ $(dpkg-query -W -f='${Status***REMOVED***' wget 2>/dev/null | grep -c "wget found") -eq 1 ]; then
+		echo "wget not found. Instaling ..."
+                apt-get install wget
 	elif [ $(dpkg-query -W -f='${Status***REMOVED***' tar 2>/dev/null | grep -c "tar found") -eq 1 ]; then
-		apt-get install tar;
-	elif [ $(dpkg-query -W -f='${Status***REMOVED***' git 2>/dev/null | grep -c "git found") -eq 1 ]; then
-		apt-get install git;
+		echo "tar not found. Installing ..."
+		apt-get install tar
 	fi
 	printf "Installing Vesta Web Interface backend ...\n"
 	sleep .5
@@ -37,18 +36,23 @@ if [ $OS == "Ubuntu" ] || [ $OS == "Debian" ]; then
 		rm web.tar.gz
 	fi
 	printf "\nInstallation Complete! Please visit your website online to finish configuration.\n"
-elif [ $OS == "CentOS Linux" ] || [ $OS == "RHEL" ]; then
-	if [ ! -z "$(ls -A ./)" ]; then
-		printf "Error: Directory not empty.\nVWI must be installed in clean directory. Exiting ...\n"
-		exit 1
-	elif [ ! yum list installed wget >/dev/null 2>&1 ]; then
+elif [ "$OS" == "CentOS Linux" ] || [ "$OS" == "RHEL" ]; then
+	printf "Checking for required packages ...\n"
+        if rpm -q wget > /dev/null
+	then
+		echo "wget found"
+	else
+		echo "wget not found. Installing ..."
 		yum -y install wget
-	elif [ ! yum list installed tar >/dev/null 2>&1 ]; then
-		yum -y install tar
-	elif [ ! yum list installed git >/dev/null 2>&1 ]; then
-		yum -y install git
 	fi
-	printf "Installing Vesta Web Interface backend ...\n"
+	if rpm -q tar > /dev/null
+	then
+		echo "tar found"
+	else
+		echo "tar not found. Installing ..."
+		yum -y install tar
+	fi	
+	printf "Installing Vesta Web Interface backend ...\n"	
 	sleep .5
 	wget -q https://raw.githubusercontent.com/cdgco/VestaWebInterface/master/install/web.tar.gz
 	if [ -f web.tar.gz ] ; then
