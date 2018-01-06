@@ -3,9 +3,9 @@
 
         function getRandomData() {
 
-            if (data.length > 0)
+            if (data.length > 0) {
                 data = data.slice(1);
-
+            ***REMOVED***
             while (data.length < totalPoints) {
 
                 var prev = data.length > 0 ? data[data.length - 1] : 50,
@@ -22,7 +22,7 @@
 
             var res = [];
             for (var i = 0; i < data.length; ++i) {
-                res.push([i, data[i]])
+                res.push([i, data[i]]);
             ***REMOVED***
 
             return res;
@@ -110,7 +110,7 @@ $(document).ready(function() {
                 color: "#AFAFAF",
                 hoverable: true,
                 borderWidth: 0,
-                backgroundColor: '#FFF'
+                backgroundColor: "#FFF"
             ***REMOVED***,
             tooltip: true,
             tooltipOpts: {
@@ -334,17 +334,17 @@ $(function() {
     $(function() {
         //some data
         var d1 = [];
-        for (var i = 0; i <= 10; i += 1)
+        for (var i = 0; i <= 10; i += 1) {
             d1.push([i, parseInt(Math.random() * 60)]);
-
+        ***REMOVED***
         var d2 = [];
-        for (var i = 0; i <= 10; i += 1)
+        for (var i = 0; i <= 10; i += 1) {
             d2.push([i, parseInt(Math.random() * 40)]);
-
+        ***REMOVED***
         var d3 = [];
-        for (var i = 0; i <= 10; i += 1)
+        for (var i = 0; i <= 10; i += 1) {
             d3.push([i, parseInt(Math.random() * 25)]);
-
+        ***REMOVED***
         var ds = new Array();
 
         ds.push({
@@ -391,7 +391,7 @@ $(function() {
                 hoverable : true,
                 autoHighlight : false,
                 mouseActiveRadius : 20,
-                borderColor : '#f5f5f5'
+                borderColor : "#f5f5f5"
             ***REMOVED***,
             series : {
                 stack : stack
@@ -403,21 +403,21 @@ $(function() {
                 labelBoxBorderColor : null,
                 labelFormatter : function(label, series) {
                     // just add some space to labes
-                    return '' + label + '&nbsp;&nbsp;';
+                    return "" + label + "&nbsp;&nbsp;";
                 ***REMOVED***,
                 width : 30,
                 height : 5
             ***REMOVED***,
             yaxis : {
-                tickColor : '#f5f5f5',
+                tickColor : "#f5f5f5",
                 font : {
-                    color : '#bdbdbd'
+                    color : "#bdbdbd"
                 ***REMOVED***
             ***REMOVED***,
             xaxis : {
-                tickColor : '#f5f5f5',
+                tickColor : "#f5f5f5",
                 font : {
-                    color : '#bdbdbd'
+                    color : "#bdbdbd"
                 ***REMOVED***
             ***REMOVED***,
             colors : ["#4F5467", "#01c0c8", "#fb9678"],
