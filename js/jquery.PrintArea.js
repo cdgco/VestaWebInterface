@@ -44,25 +44,6 @@
 
     var settings = {};//global settings
 
-    $.fn.printArea = function( options )
-    {
-        $.extend( settings, defaults, options );
-
-        counter++;
-        var idPrefix = "printArea_";
-        $( "[id^=" + idPrefix + "]" ).remove();
-
-        settings.id = idPrefix + counter;
-
-        var $printSource = $(this);
-
-        var PrintAreaWindow = PrintArea.getPrintWindow();
-
-        PrintArea.write( PrintAreaWindow.doc, $printSource );
-
-        setTimeout( function () { PrintArea.print( PrintAreaWindow ); }, 1000 );
-    };
-
     var PrintArea = {
         print : function( PAWindow ) {
             var paWindow = PAWindow.win;
@@ -189,5 +170,23 @@
 
             return newWin;
         }
+    };
+        $.fn.printArea = function( options )
+    {
+        $.extend( settings, defaults, options );
+
+        counter++;
+        var idPrefix = "printArea_";
+        $( "[id^=" + idPrefix + "]" ).remove();
+
+        settings.id = idPrefix + counter;
+
+        var $printSource = $(this);
+
+        var PrintAreaWindow = PrintArea.getPrintWindow();
+
+        PrintArea.write( PrintAreaWindow.doc, $printSource );
+
+        setTimeout( function () { PrintArea.print( PrintAreaWindow ); }, 1000 );
     };
 })(jQuery);
