@@ -57,9 +57,8 @@ if [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; then
 		rm README.md
 	elif [ -f 'VWI Banner.png' ] ; then
 		rm 'VWI Banner.png'
-	elif [ -d includes ] ; then
-		chmod 777 includes
 	fi
+	chmod 777 includes
 	printf "Installing Vesta Web Interface backend ...\n"
 	sleep .5
 	wget -q https://raw.githubusercontent.com/cdgco/VestaWebInterface/master/install/web.tar.gz
