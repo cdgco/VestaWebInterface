@@ -1,3 +1,4 @@
+#!/bin/bash
 
 if [ "x$(id -u)" != 'x0' ]; then
 	echo 'Error: this script can only be executed by root'
