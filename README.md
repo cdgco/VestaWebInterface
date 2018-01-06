@@ -49,18 +49,6 @@ Note: If you cannot chmod files, manually configure the includes/config-example.
 * Method 2 is used to install the VWI frontend manually and the backend automatically if the frontend is not hosted by a VestaCP server. 
 * Method 3 is used to install VWI manually in case of any errors or other circumstances with other installation methods.
 
-## To-Do:
-- [ ] Addition FTP Support
-- [ ] Custom SSL Support (Backend)
-- [ ] Process Backup Exclusions (Backend)
-- [ ] Email Notifications (Backend)
-- [ ] Add Delete Buttons to 'edit' Pages
-- [ ] Process Animations & Response Code Notifications
-- [ ] Upgrade Backup Download & PW Reset Systems
-- [ ] Dark Theme
-- [ ] Theme Switcher
-- [ ] Softaculous Support
-
 ## Support
 
 For support regarding Vesta Web Interface, you can email me at support [at] cdgtech.one, visit the support portal online at http://support.cdgtech.one, or click the buttons in the bottom left and right hand corners of the live demo to chat or leave feedback.
