@@ -55,11 +55,11 @@ elif [ "$OS" == "CentOS Linux" ] || [ "$OS" == "RHEL" ]; then
 	if [ ! -z "$(ls -A ./)" ]; then
 		printf "Error: Directory not empty.\nVWI must be installed in clean directory. Exiting ...\n"
 		exit 1
-	elif [ ! rpm -qa | grep -qw wget ]; then
+	elif [ rpm -q wget | grep "not installed" > /dev/null ]; then
 		yum -y install wget
-	elif [ ! rpm -qa | grep -qw tar ]; then
+	elif [ rpm -q tar | grep "not installed" > /dev/null ]; then
 		yum -y install tar
-	elif [ ! rpm -qa | grep -qw git ]; then
+	elif [ rpm -q git | grep "not installed" > /dev/null ]; then
 		yum -y install git
 	fi
 	printf "\nInstalling Vesta Web Interface frontend ...\n"	
