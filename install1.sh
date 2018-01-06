@@ -25,16 +25,28 @@ if [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; then
 		exit 1
 	fi
 	printf "Checking for required packages ...\n"
-	if [ $(dpkg-query -W -f='${Status}' wget 2>/dev/null | grep -c "wget found") -eq 1 ]; then
-		echo "wget not found. Instaling ..."
-                apt-get install wget
-	elif [ $(dpkg-query -W -f='${Status}' tar 2>/dev/null | grep -c "tar found") -eq 1 ]; then
-		echo "tar not found. Installing ..."
-		apt-get install tar
-	elif [ $(dpkg-query -W -f='${Status}' git 2>/dev/null | grep -c "git found") -eq 1 ]; then
-		echo "git not found. Installing ..."
-		apt-get install git
-	fi
+	if dpkg -s wget &> /dev/null
+        then
+                echo "wget found"
+        else
+                echo "wget not found. Installing ..."
+                apt-get install -y wget > /dev/null
+        fi
+        if dpkg -s tar &> /dev/null
+        then
+                echo "tar found"
+        else
+                echo "tar not found. Installing ..."
+                apt-get install -y tar > /dev/null
+        fi
+        if dpkg -s git &> /dev/null
+        then
+                echo "git found"
+        else
+                echo "git not found. Installing ..."
+                apt-get install -y git > /dev/null
+        fi
+
 	printf "\nInstalling Vesta Web Interface frontend ...\n"
 	git clone --quiet https://github.com/cdgco/VestaWebInterface . > /dev/null
 	if [ -f install1.sh ] ; then
@@ -46,7 +58,7 @@ if [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; then
 	elif [ -f 'VWI Banner.png' ] ; then
 		rm 'VWI Banner.png'
 	elif [ -d includes ] ; then
-		chmod 777 includes	
+		chmod 777 includes
 	fi
 	printf "Installing Vesta Web Interface backend ...\n"
 	sleep .5
@@ -62,28 +74,28 @@ elif [ "$OS" == "CentOS Linux" ] || [ "$OS" == "RHEL" ]; then
 		exit 1
 	fi
 	printf "Checking for required packages ...\n"
-        if rpm -q wget > /dev/null
+        if rpm -q wget &> /dev/null
 	then
 		echo "wget found"
 	else
 		echo "wget not found. Installing ..."
 		yum -y install wget
 	fi
-	if rpm -q tar > /dev/null
+	if rpm -q tar &> /dev/null
 	then
 		echo "tar found"
 	else
 		echo "tar not found. Installing ..."
 		yum -y install tar
 	fi
-	if rpm -q git > /dev/null
+	if rpm -q git &> /dev/null
 	then
 		echo "git found"
 	else
 		echo "git not found. Installing ..."
 		yum -y install git
 	fi
-	printf "\nInstalling Vesta Web Interface frontend ...\n"	
+	printf "\nInstalling Vesta Web Interface frontend ...\n"
 	git clone --quiet https://github.com/cdgco/VestaWebInterface . > /dev/null
 	if [ -f install1.sh ] ; then
 		rm install1.sh
@@ -94,9 +106,9 @@ elif [ "$OS" == "CentOS Linux" ] || [ "$OS" == "RHEL" ]; then
 	elif [ -f 'VWI Banner.png' ] ; then
 		rm 'VWI Banner.png'
 	elif [ -d includes ] ; then
-		chmod 777 includes	
-	fi	
-	printf "Installing Vesta Web Interface backend ...\n"	
+		chmod 777 includes
+	fi
+	printf "Installing Vesta Web Interface backend ...\n"
 	sleep .5
 	wget -q https://raw.githubusercontent.com/cdgco/VestaWebInterface/master/install/web.tar.gz
 	if [ -f web.tar.gz ] ; then
