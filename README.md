@@ -16,7 +16,7 @@ Password: demo123
 * Server with root access and VestaCP installed.
 * Web server with php and php-curl installed (Does not have to be powered by VestaCP)
 
-(Tested on Ubuntu Server 14.04 & 16.04, VestaCP 0.9.8-17 & 0.9.8-18, PHP 5.4 - 7.0)
+(Tested on Ubuntu Server 14.04 - 16.04, VestaCP 0.9.8-17 - 0.9.8-18, PHP 5.4 - 7.0)
 
 ## Install
 
