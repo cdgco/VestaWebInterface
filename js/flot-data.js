@@ -1,6 +1,3 @@
-// Real Time chart
-        
-
         var data = [],
             totalPoints = 300;
 
@@ -8,8 +5,6 @@
 
             if (data.length > 0)
                 data = data.slice(1);
-
-            // Do a random walk
 
             while (data.length < totalPoints) {
 
@@ -25,8 +20,6 @@
                 data.push(y);
             }
 
-            // Zip the generated y values with the x values
-
             var res = [];
             for (var i = 0; i < data.length; ++i) {
                 res.push([i, data[i]])
@@ -34,8 +27,6 @@
 
             return res;
         }
-
-        // Set up the control widget
 
         var updateInterval = 30;
         $("#updateInterval").val(updateInterval).change(function () {
@@ -63,12 +54,6 @@
                 show: false
             },
             colors: ["#fb9678"],
-            grid: {
-                color: "#AFAFAF",
-                hoverable: true,
-                borderWidth: 0,
-                backgroundColor: '#FFF'
-            },
             tooltip: true,
             tooltipOpts: {
                 content: "Y: %y",
@@ -94,7 +79,6 @@
 $(document).ready(function() {
     console.log("document ready");
     var offset = 0;
-    plot();
 
     function plot() {
         var sin = [],
@@ -103,7 +87,7 @@ $(document).ready(function() {
             sin.push([i, Math.sin(i + offset)]);
             cos.push([i, Math.cos(i + offset)]);
         }
-
+        plot();
         var options = {
             series: {
                 lines: {
