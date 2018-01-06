@@ -1,16 +1,9 @@
 @charset "UTF-8";
 
-// Color variables (appears count calculates by raw css)
-@color0: #fbde4a; // Appears 10 times
-@color1: #d8e0e5; // Appears 4 times
-@color2: #162a36; // Appears 2 times
-
-
-
 .glyphs.character-mapping {
   -webkit-border-radius:3px;
   border-radius:3px;
-  border:1px solid @color1;
+  border:1px solid #d8e0e5;
   color:rgba(0,0,0,0.5);
   margin:0 0 20px 0;
   padding:20px 0 20px 30px;
@@ -22,7 +15,7 @@
   .icon {
     -webkit-border-radius:3px;
     border-radius:3px;
-    color:@color2 !important;
+    color:#162a36 !important;
     font-size:32px;
     height:55px;
     margin:10px 0 10px 15px;
@@ -37,7 +30,7 @@
   input {
     -webkit-border-radius:5px;
     border-radius:5px;
-    border:1px solid @color1;
+    border:1px solid #d8e0e5;
     display:block;
     font-size:12px;
     line-height:12px;
@@ -47,20 +40,20 @@
     text-align:center;
     width:100%;
     &:focus {
-      -webkit-box-shadow:inset 0 0 3px @color0;
-      border:1px solid @color0;
-      box-shadow:inset 0 0 3px @color0;
+      -webkit-box-shadow:inset 0 0 3px #fbde4a;
+      border:1px solid #fbde4a;
+      box-shadow:inset 0 0 3px #fbde4a;
     ***REMOVED***
     &:hover {
-      -webkit-box-shadow:inset 0 0 3px @color0;
-      box-shadow:inset 0 0 3px @color0;
+      -webkit-box-shadow:inset 0 0 3px #fbde4a;
+      box-shadow:inset 0 0 3px #fbde4a;
     ***REMOVED***
   ***REMOVED***
 ***REMOVED***
 .glyphs.css-mapping {
   -webkit-border-radius:3px;
   border-radius:3px;
-  border:1px solid @color1;
+  border:1px solid #d8e0e5;
   color:rgba(0,0,0,0.5);
   margin:0 0 60px 0;
   padding:30px 0 20px 30px;
@@ -71,7 +64,7 @@
     padding:0;
   ***REMOVED***
   .icon {
-    color:@color2 !important;
+    color:#162a36 !important;
     float:left;
     font-size:24px;
     height:50px;
@@ -85,7 +78,7 @@
     -webkit-border-radius:5px;
     background:#ffffff;
     border-radius:5px;
-    border:1px solid @color1;
+    border:1px solid #d8e0e5;
     display:block;
     float:right;
     font-size:16px;
@@ -97,13 +90,13 @@
     padding:8px;
     width:150px;
     &:focus {
-      -webkit-box-shadow:inset 0 0 3px @color0;
-      border:1px solid @color0;
-      box-shadow:inset 0 0 3px @color0;
+      -webkit-box-shadow:inset 0 0 3px #fbde4a;
+      border:1px solid #fbde4a;
+      box-shadow:inset 0 0 3px #fbde4a;
     ***REMOVED***
     &:hover {
-      -webkit-box-shadow:inset 0 0 3px @color0;
-      box-shadow:inset 0 0 3px @color0;
+      -webkit-box-shadow:inset 0 0 3px #fbde4a;
+      box-shadow:inset 0 0 3px #fbde4a;
     ***REMOVED***
   ***REMOVED***
 ***REMOVED***
