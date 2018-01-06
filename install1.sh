@@ -19,7 +19,7 @@ else
     OS=$(uname -s)
 fi
 
-if [ $OS == "Ubuntu" ]; then 
+if [ "$OS" == "Ubuntu" ]; then 
 	if [ ! -z "$(ls -A ./)" ]; then
 		printf "Error: Directory not empty.\nVWI must be installed in clean directory. Exiting ...\n"
 		exit 1
@@ -51,7 +51,7 @@ if [ $OS == "Ubuntu" ]; then
 		rm web.tar.gz
 	fi
 	printf "\nInstallation Complete! Please visit your website online to finish configuration.\n"
-elif [ $OS == "Debian" ]; then 
+elif [ "$OS" == "Debian" ]; then 
 	if [ ! -z "$(ls -A ./)" ]; then
 		printf "Error: Directory not empty.\nVWI must be installed in clean directory. Exiting ...\n"
 		exit 1
@@ -83,7 +83,7 @@ elif [ $OS == "Debian" ]; then
 		rm web.tar.gz
 	fi
 	printf "\nInstallation Complete! Please visit your website online to finish configuration.\n"
-elif [ $OS == "CentOS Linux" ]; then
+elif [ "$OS" == "CentOS Linux" ]; then
 	if [ ! -z "$(ls -A ./)" ]; then
 		printf "Error: Directory not empty.\nVWI must be installed in clean directory. Exiting ...\n"
 		exit 1
@@ -115,7 +115,7 @@ elif [ $OS == "CentOS Linux" ]; then
 		rm web.tar.gz
 	fi
 	printf "\nInstallation Complete! Please visit your website online to finish configuration.\n"
-elif [ $OS == "RHEL" ]; then
+elif [ "$OS" == "RHEL" ]; then
 	if [ ! -z "$(ls -A ./)" ]; then
 		printf "Error: Directory not empty.\nVWI must be installed in clean directory. Exiting ...\n"
 		exit 1
