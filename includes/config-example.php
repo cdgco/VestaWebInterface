@@ -94,8 +94,8 @@ DEFINE('SUPPORT_URL', 'disabled'); // Support URL. Leave blank or set to 'disabl
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
-$uname = base64_decode($_COOKIE['username']);
-$loggedin = base64_decode($_COOKIE['loggedin']);
+***REMOVED***
+***REMOVED***
 ***REMOVED***
 ***REMOVED***
 

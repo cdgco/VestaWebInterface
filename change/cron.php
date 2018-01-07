@@ -1,7 +1,9 @@
 ***REMOVED***
 
+session_start();
+
     if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); ***REMOVED***  else { header( 'Location: ../install' );***REMOVED***;
-    if(base64_decode($_COOKIE['loggedin']) != 'true') { header('Location: ../login.php'); ***REMOVED***
+    if(base64_decode($_SESSION['loggedin']) != 'true') { header('Location: ../login.php'); ***REMOVED***
 
     if (isset($_POST['v_min']) { $v_min = $_POST['v_min']; ***REMOVED***
     elseif (isset($_POST['v_hour']) { $v_hour = $_POST['v_hour']; ***REMOVED***

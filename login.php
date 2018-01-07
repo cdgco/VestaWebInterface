@@ -1,7 +1,10 @@
 ***REMOVED***
+
+session_start();
+
 if (file_exists( 'includes/config.php' )) { require( 'includes/config.php'); ***REMOVED***  else { header( 'Location: install' );***REMOVED***;
-if(isset($_COOKIE['loggedin'])) {
-    if(base64_decode($_COOKIE['loggedin']) == 'true') { header('Location: index.php'); ***REMOVED***
+if(isset($_SESSION['loggedin'])) {
+    if(base64_decode($_SESSION['loggedin']) == 'true') { header('Location: index.php'); ***REMOVED***
 ***REMOVED***
 
     $postvars0 = array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-info','arg1' => 'json');
@@ -71,7 +74,7 @@ if(isset($_COOKIE['loggedin'])) {
                 transition: background-color 5000s ease-in-out 0s;
             ***REMOVED***</style>
         <!-- color CSS -->
-        <link href="css/colors/***REMOVED*** if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); ***REMOVED*** else {echo $themecolor; ***REMOVED*** ***REMOVED***" id="theme"  rel="stylesheet">
+        <link href="css/colors/***REMOVED*** if(isset($_SESSION['theme'])) { echo base64_decode($_SESSION['theme']); ***REMOVED*** else {echo $themecolor; ***REMOVED*** ***REMOVED***" id="theme"  rel="stylesheet">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -155,12 +158,9 @@ if(isset($_COOKIE['loggedin'])) {
 
                                 // Check result
                                 if($answer == "OK") {
-                                    $cookie1 = base64_encode ( 'true' );
-                                    $cookie2 = base64_encode ( $username2 );
-                                    setcookie('loggedin', $cookie1, time() + (86400 * 30), "/");
-                                    setcookie('username', $cookie2, time() + (86400 * 30), "/");
-
-                                    ob_start();
+                                    $_SESSION['loggedin'] = base64_encode ( 'true' );
+                                    $_SESSION['username'] = base64_encode ( $username2 );
+                                    
                                     echo '<br><br>
                                         <div style="color: #000;" class="alert alert-success alert-dismissable">
                                             <button type="button" style="color: #000;" class="close text-inverse" aria-hidden="true">

@@ -1,7 +1,9 @@
 ***REMOVED***
 
+session_start();
+
 if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); ***REMOVED***  else { header( 'Location: ../install' );***REMOVED***;
-if(base64_decode($_COOKIE['loggedin']) == 'true') {***REMOVED***
+if(base64_decode($_SESSION['loggedin']) == 'true') {***REMOVED***
 else { header('Location: ../login.php'); ***REMOVED***
 
 $postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-cron-job','arg1' => $username,'arg2' => $_POST['job']);
