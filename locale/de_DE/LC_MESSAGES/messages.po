@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2018-01-07 11:29-0800\n"
-"PO-Revision-Date: 2018-01-07 11:31-0800\n"
+"PO-Revision-Date: 2018-01-07 11:49-0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -183,7 +183,7 @@ msgstr "STATUS"
 
 #: index.php:399
 msgid "Enabled"
-msgstr "aktiviert"
+msgstr "Aktiviert"
 
 #: index.php:401
 msgid "Disabled"
@@ -251,7 +251,7 @@ msgstr "Komplett"
 
 #: index.php:572
 msgid "Disk Usage Breakdown"
-msgstr "Festplattenverbrauchsaufschlüsselung"
+msgstr "Quotenanalyse"
 
 #: index.php:577
 msgid "Web Data"
@@ -328,7 +328,7 @@ msgstr "Warnung"
 
 #: index.php:793 login.php:268 register.php:173
 msgid "Includes folder has not been secured"
-msgstr "'includes' ordner wurde nicht gesichert"
+msgstr "includes ordner wurde nicht gesichert"
 
 #: login.php:57 login.php:227
 msgid "Login"
@@ -478,7 +478,7 @@ msgstr "Bitte versuchen Sie es erneut oder wenden Sie sich an den Support."
 
 #: profile.php:244
 msgid "Settings"
-msgstr "die Einstellungen"
+msgstr "Die Einstellungen"
 
 #: profile.php:250
 msgid "Name"
@@ -544,7 +544,7 @@ msgstr "Ungültige E-Mail-Adresse"
 
 #: register.php:101
 msgid "2 to 28 Characters A-Z, 0-9, '-' '.' and '_' Only."
-msgstr "2 bis 28 Zeichen AZ, 0-9, '-' '.' und nur."
+msgstr "2 bis 28 Zeichen AZ, 0-9, - . und nur."
 
 #: register.php:105
 msgid ""

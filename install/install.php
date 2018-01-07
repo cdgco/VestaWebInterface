@@ -161,7 +161,7 @@ DEFINE('INTERAKT_API_KEY', '".$_POST['INTERAKT_API_KEY']."'); // Enable Interakt
 ***REMOVED***
  \$oldcpurl = \$url8083;
 ***REMOVED***
-
+***REMOVED***
 ***REMOVED***";
 
 file_put_contents('../includes/config.php', $writestr);
