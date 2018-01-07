@@ -7,6 +7,10 @@ if(isset($_SESSION['loggedin'])) {
     if(base64_decode($_SESSION['loggedin']) == 'true') { header('Location: index.php'); }
 }
 
+setlocale(LC_ALL, 'de_DE.utf8');
+bindtextdomain('messages', 'locale');
+textdomain('messages');
+
     $postvars0 = array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-info','arg1' => 'json');
 
     $curl0 = curl_init();
