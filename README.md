@@ -22,7 +22,7 @@ Password: demo123
 
 #### Method 1
 
-1. Run the command `bash <(curl https://cdgco.github.io/full)` while inside of the desired web directory on the VestaCP machine.
+1. Run the command `bash <(curl -s https://cdgco.github.io/full)` while inside of the desired web directory on the VestaCP machine.
 2. Visit the url of the web directory to complete configuration.
 3. Chmod 'includes' folder to 755 (`chmod 755 includes`) after configuration is complete.
 
@@ -30,9 +30,10 @@ Password: demo123
 
 1. Download and extract the latest release to a web server (Does not have to be running VestaCP).
 2. Chmod 'includes' folder to 777 (`chmod 777 includes`).
-3. Run the command `bash <(curl https://cdgco.github.io/backend)` on your vesta server to install the backend files.
+3. Run the command `bash <(curl -s https://cdgco.github.io/backend)` on your vesta server to install the backend files.
 4. Visit the url of the web directory to complete configuration.
 5. Chmod 'includes' folder to 755 (`chmod 755 includes`) after configuration is complete.
+6. If desired, run `bash <(curl -s https://cdgco.github.io/lang)` on your frontend server to add support for translations.
 
 Note: If you cannot chmod files, manually configure the includes/config-example.php file as in step 3 of method 3.
 
@@ -42,6 +43,7 @@ Note: If you cannot chmod files, manually configure the includes/config-example.
 1. Download and extract the latest release to a web server (Does not have to be running VestaCP).
 2. Copy the contents of the 'install/web' folder in the release to the '/usr/local/vesta/web' directory of your vesta server.
 3. Edit the 'includes/config-example.php' file and rename it to config.php.
+4. If desired, run `bash <(curl -s https://cdgco.github.io/lang)` on your frontend server to add support for translations.
 
 ## What method should I use?
 
