@@ -55,7 +55,8 @@ session_start();
     $dbdata = array_values(json_decode(curl_exec($curl4), true));
 
     if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; ***REMOVED***
-    setlocale(LC_ALL, $locale);
+    setlocale(LC_CTYPE, $locale);
+    setlocale(LC_MESSAGES, $locale);
     bindtextdomain('messages', 'locale');
     textdomain('messages');
     ***REMOVED***<!DOCTYPE html>
