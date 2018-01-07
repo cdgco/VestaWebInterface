@@ -8,12 +8,12 @@
  * Copyright 2014, Codrops
  * http://www.codrops.com
  */
-( function( window ) {
+(function (window) {
 	
 	"use strict";
 
-	function extend( a, b ) {
-		for( var key in b ) { 
+	function extend(a, b) {
+		for (var key in b) { 
 			if( b.hasOwnProperty( key ) ) {
 				a[key] = b[key];
 			***REMOVED***
@@ -21,10 +21,10 @@
 		return a;
 	***REMOVED***
 
-	function CBPFWTabs( el, options ) {
+	function CBPFWTabs(el, options) {
 		this.el = el;
-		this.options = extend( {***REMOVED***, this.options );
-		extend( this.options, options );
+		this.options = extend({***REMOVED***, this.options);
+		extend(this.options, options);
 		this._init();
 	***REMOVED***
 
@@ -32,11 +32,11 @@
 		start : 0
 	***REMOVED***;
 
-	CBPFWTabs.prototype._init = function() {
+	CBPFWTabs.prototype._init = function () {
 		// tabs elems
-		this.tabs = [].slice.call( this.el.querySelectorAll( "nav > ul > li" ) );
+		this.tabs = [].slice.call(this.el.querySelectorAll("nav > ul > li"));
 		// content items
-		this.items = [].slice.call( this.el.querySelectorAll( ".content-wrap > section" ) );
+		this.items = [].slice.call(this.el.querySelectorAll(".content-wrap > section"));
 		// current index
 		this.current = -1;
 		// show current content item
@@ -45,27 +45,27 @@
 		this._initEvents();
 	***REMOVED***;
 
-	CBPFWTabs.prototype._initEvents = function() {
+	CBPFWTabs.prototype._initEvents = function () {
 		var self = this;
-		this.tabs.forEach( function( tab, idx ) {
-			tab.addEventListener( "click", function( ev ) {
+		this.tabs.forEach(function (tab, idx) {
+			tab.addEventListener("click", function (ev) {
 				ev.preventDefault();
-				self._show( idx );
-			***REMOVED*** );
-		***REMOVED*** );
+				self._show(idx);
+			***REMOVED***);
+		***REMOVED***);
 	***REMOVED***;
 
-	CBPFWTabs.prototype._show = function( idx ) {
-		if( this.current >= 0 ) {
-			this.tabs[ this.current ].className = this.items[ this.current ].className = "";
+	CBPFWTabs.prototype._show = function (idx) {
+		if (this.current >= 0) {
+			this.tabs[this.current].className = this.items[this.current].className = "";
 		***REMOVED***
 		// change current
 		this.current = idx !== undefined ? idx : this.options.start >= 0 && this.options.start < this.items.length ? this.options.start : 0;
-		this.tabs[ this.current ].className = "tab-current";
-		this.items[ this.current ].className = "content-current";
+		this.tabs[this.current].className = "tab-current";
+		this.items[this.current].className = "content-current";
 	***REMOVED***;
 
 	// add to global namespace
 	window.CBPFWTabs = CBPFWTabs;
 
-***REMOVED***)( window );
+***REMOVED***)(window);
