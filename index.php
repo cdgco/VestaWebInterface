@@ -17,7 +17,7 @@ session_start();
     curl_setopt($curlx, CURLOPT_POST, true);
     curl_setopt($curlx, CURLOPT_POSTFIELDS, http_build_query($postvarsx));
     $serverconnection = array_values(json_decode(curl_exec($curlx), true))[0]['OS'];
-    if(!isset($serverconnection)) { unset($_SESSION['username']); setcookie('username', null, -1, '/'); unset($_SESSION['loggedin']); setcookie('loggedin', null, -1, '/'); header('Location: ../login.php'); exit;***REMOVED***
+    if(!isset($serverconnection)) { unset($_SESSION['username']); setcookie('username', null, -1, '/'); unset($_SESSION['loggedin']); setcookie('loggedin', null, -1, '/'); header('Location: login.php'); exit;***REMOVED***
                 
     $postvars = array(
         array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
