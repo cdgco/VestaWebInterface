@@ -109,8 +109,8 @@ else{
 \$vst_username = VESTA_ADMIN_UNAME;
 \$vst_password = VESTA_ADMIN_PW;
 \$themecolor = THEME . '.css';
-\$uname = base64_decode(\$_COOKIE['username']);
-\$loggedin = base64_decode(\$_COOKIE['loggedin']);
+\$uname = base64_decode(\$_SESSION['username']);
+\$loggedin = base64_decode(\$_SESSION['loggedin']);
 \$username = \$uname;
 \$sitetitle = SITE_NAME;
 

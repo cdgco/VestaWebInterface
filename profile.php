@@ -1,8 +1,11 @@
 <?php
+
+session_start();
+
 if (file_exists( 'includes/config.php' )) { require( 'includes/config.php'); }  else { header( 'Location: install' );};
 require 'includes/carray.php';
 
-if(base64_decode($_COOKIE['loggedin']) == 'true') {}
+if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: login.php'); }
 
 $postvars = array(array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'));
@@ -43,7 +46,7 @@ $admindata = json_decode(curl_exec($curl0), true)[$username];
         <link href="css/animate.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
         <link href="plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
-        <link href="css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
+        <link href="css/colors/<?php if(isset($_SESSION['theme'])) { echo base64_decode($_SESSION['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.css" rel="stylesheet" />
         <style>
             .select2-results{

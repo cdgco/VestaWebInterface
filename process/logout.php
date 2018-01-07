@@ -1,9 +1,7 @@
 <?php 
 
-unset($_COOKIE['username']);
-setcookie('username', null, -1, '/');
-unset($_COOKIE['loggedin']);
-setcookie('loggedin', null, -1, '/');
+session_start()
+session_destroy()
 
 header('Location: ../login.php'); 
 exit;
