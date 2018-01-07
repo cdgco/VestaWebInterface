@@ -39,9 +39,10 @@ if(isset($_SESSION['loggedin'])) {
         ***REMOVED***
     ***REMOVED***
 
-setlocale(LC_ALL, $locale);
-bindtextdomain('messages', 'locale');
-textdomain('messages');
+    setlocale(LC_CTYPE, $locale);
+    setlocale(LC_MESSAGES, $locale);
+    bindtextdomain('messages', 'locale');
+    textdomain('messages');
 
 ***REMOVED***
 

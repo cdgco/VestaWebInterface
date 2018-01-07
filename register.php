@@ -18,7 +18,8 @@ if(isset($_SESSION['loggedin'])) {
     curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query($postvars0));
     $serverconnection = array_values(json_decode(curl_exec($curl0), true))[0]['OS'];
 
-    setlocale(LC_ALL, $locale);
+    setlocale(LC_CTYPE, $locale);
+    setlocale(LC_MESSAGES, $locale);
     bindtextdomain('messages', 'locale');
     textdomain('messages');
 
