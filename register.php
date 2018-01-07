@@ -7,6 +7,10 @@ if(isset($_SESSION['loggedin'])) {
     if(base64_decode($_SESSION['loggedin']) == 'true') { header('Location: index.php'); }
 }
 
+setlocale(LC_ALL, 'de_DE.utf8');
+bindtextdomain('messages', 'locale');
+textdomain('messages');
+
     $postvars0 = array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-info','arg1' => 'json');
 
     $curl0 = curl_init();
@@ -30,7 +34,7 @@ if(isset($_SESSION['loggedin'])) {
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
-        <title><?php echo $sitetitle; ?> - Register</title>
+        <title><?php echo $sitetitle; ?> - <?php echo _('Register'); ?></title>
         <!-- Bootstrap Core CSS -->
         <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="bootstrap/dist/css/bootstrap-select.min.css" rel="stylesheet">
@@ -75,47 +79,47 @@ if(isset($_SESSION['loggedin'])) {
                 <div class="inner-panel">
                     <a href="javascript:void(0)" class="p-20 di"><img src="plugins/images/admin-logo.png" class="logo-1"></a>
                     <div class="lg-content">
-                        <h2><?php echo $sitetitle; ?> Control Panel <br></h2><p><?php require 'includes/versioncheck.php'; ?></p> </div>
+                        <h2><?php echo $sitetitle; ?> <?php echo _('Control Panel'); ?> <br></h2><p><?php require 'includes/versioncheck.php'; ?></p> </div>
                 </div>
             </div>
 
             <div class="new-login-box" style="position:relative;top:-10%">
                 <div class="white-box">
-                    <h3 class="box-title m-b-0">Sign UP FOR <?php echo $sitetitle; ?></h3> <small>Enter your details below</small>
+                    <h3 class="box-title m-b-0"><?php echo _('Sign up for'); ?> <?php echo $sitetitle; ?></h3> <small><?php echo _('Enter your details below'); ?></small>
                     <form class="form-horizontal new-lg-form" method="post" id="loginform" action="process/process.php">
                         <div class="form-group ">
                             <div class="col-xs-12">
-                                <input class="form-control" type="text" style="width:49%; float:left;" required="" name="fname" required x-autocompletetype="given-name" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,27}$" placeholder="First Name" title="2 to 28 Letters Only. Apostrophes and hyphens allowed." autocomplete="on"> 
-                                <input class="form-control" type="text" style="width:49%; float:right;" required="" name="lname" required x-autocompletetype="family-name" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,27}$" placeholder="Last Name" title="2 to 28 Letters Only. Apostrophes and hyphens allowed." autocomplete="on"></div>
+                                <input class="form-control" type="text" style="width:49%; float:left;" required="" name="fname" required x-autocompletetype="given-name" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,27}$" placeholder="<?php echo _('First Name'); ?>" title="<?php echo _('2 to 28 Letters Only. Apostrophes and hyphens allowed.'); ?>" autocomplete="on"> 
+                                <input class="form-control" type="text" style="width:49%; float:right;" required="" name="lname" required x-autocompletetype="family-name" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,27}$" placeholder="<?php echo _('Last Name'); ?>" title="<?php echo _('2 to 28 Letters Only. Apostrophes and hyphens allowed.'); ?>" autocomplete="on"></div>
                         </div>
                         <div class="form-group ">
                             <div class="col-xs-12">
-                                <input class="form-control" type="text" name="email" x-autocompletetype="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$" title="Invalid Email Address" autocomplete="on" required="" placeholder="Email"> </div>
+                                <input class="form-control" type="text" name="email" x-autocompletetype="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$" title="<?php echo _('Invalid Email Address'); ?>" autocomplete="on" required="" placeholder="<?php echo _('Email'); ?>"> </div>
                         </div>   
                         <div class="form-group ">
                             <div class="col-xs-12">
-                                <input class="form-control" type="text" name="username" required autocomplete="on" pattern="^[a-zA-Z][a-zA-Z0-9-_.]{1,27}$" title="2 to 28 Characters A-Z, 0-9, '-' '.' and '_' Only." placeholder="Username" /> </div>
+                                <input class="form-control" type="text" name="username" required autocomplete="on" pattern="^[a-zA-Z][a-zA-Z0-9-_.]{1,27}$" title="<?php echo _('2 to 28 Characters A-Z, 0-9, \'-\' \'.\' and \'_\' Only.'); ?>" placeholder="<?php echo _('Username'); ?>" /> </div>
                         </div>       
                         <div class="form-group ">
                             <div class="col-xs-12">
-                                <input class="form-control" type="password" name="password" title="Minimum 6 Characters: One uppercase letter, lowercase letter and number required." id="pass" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$" autocomplete="new-password" required="" placeholder="Password" style="width:49%; float:left;">
+                                <input class="form-control" type="password" name="password" title="<?php echo _('Minimum 6 Characters: One uppercade letter, lowercase letter and number reuired.'); ?>" id="pass" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$" autocomplete="new-password" required="" placeholder="<?php echo _('Password'); ?>" style="width:49%; float:left;">
 
-                                <input class="form-control" type="password" id="cpass" autocomplete="new-password" required="" placeholder="Confirm Pass" style="width:49%; float:right;"></div>
+                                <input class="form-control" type="password" id="cpass" autocomplete="new-password" required="" placeholder="<?php echo _('Confirm Pass'); ?>" style="width:49%; float:right;"></div>
                         </div>
                         <div class="form-group ">
                             <div class="col-xs-12">
                                 <select class="selectpicker m-b-20 m-r-10" name="plan" data-style="btn btn-info bg-theme" style="border:none;">
-                                    <option value="default" data-tokens="default">Default</option>
+                                    <option value="default" data-tokens="default"><?php echo _('Default'); ?></option>
                                 </select>
                             </div></div>
                         <div class="form-group text-center m-t-20">
                             <div class="col-xs-12">
-                                <button disabled class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light bg-theme" style="border:none;" type="submit">Sign Up</button>
+                                <button disabled class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light bg-theme" style="border:none;" type="submit"><?php echo _('Sign Up'); ?></button>
                             </div>
                         </div>
                         <div class="form-group m-b-0">
                             <div class="col-sm-12 text-center">
-                                <p>Already have an account? <a href="login.php" class="text-danger m-l-5"><b>Sign In</b></a></p>
+                                <p><?php echo _('Already have an account?'); ?> <a href="login.php" class="text-danger m-l-5"><b><?php echo _('Sign in'); ?></b></a></p>
                             </div>
                         </div>
                     </form>
@@ -128,7 +132,7 @@ if(isset($_SESSION['loggedin'])) {
 
             function validatePassword(){
                 if(password.value != confirm_password.value) {
-                    confirm_password.setCustomValidity("Passwords Don't Match");
+                    confirm_password.setCustomValidity("<?php echo _('Passwords do not match'); ?>");
                 } else {
                     confirm_password.setCustomValidity('');
                 }
@@ -156,8 +160,8 @@ if(isset($_SESSION['loggedin'])) {
         <script>
         <?php if(!isset($serverconnection)){
             echo "$.toast({
-                        heading: 'Error'
-                        , text: 'Failed to connect to server.<br>Please check config.php'
+                        heading: '" . _("Error") . "'
+                        , text: '" . _("Failed to connect to server.") . "<br>" . _("Please check config.php") . "'
                         , icon: 'error'
                         , position: 'top-right'
                         , hideAfter: false
@@ -165,8 +169,8 @@ if(isset($_SESSION['loggedin'])) {
                     });"; }
 if(substr(sprintf('%o', fileperms('includes')), -4) == '0777') {
          echo "$.toast({
-                        heading: 'Warning'
-                        , text: 'Includes folder has not been secured.'
+                        heading: '" . _("Warning") . "'
+                        , text: '" . _("Includes folder has not been secured") . "'
                         , icon: 'warning'
                         , position: 'top-right'
                         , hideAfter: 3500

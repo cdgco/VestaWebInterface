@@ -1,0 +1,214 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2018-01-07 06:30-0800\n"
+"PO-Revision-Date: 2018-01-07 06:53-0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.5\n"
+"X-Poedit-Basepath: ../../../../VestaWebInterface\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: plugins\n"
+"X-Poedit-SearchPathExcluded-1: install/web\n"
+"X-Poedit-SearchPathExcluded-2: bootstrap\n"
+
+#: login.php:52 login.php:222
+msgid "Login"
+msgstr "Anmeldung"
+
+#: login.php:94
+msgid "Account has been successfully created!"
+msgstr "Konto wurde erfolgreich erstellt!"
+
+#: login.php:96
+msgid "Please fill out all sections of the form."
+msgstr "Bitte füllen Sie alle Abschnitte des Formulars aus."
+
+#: login.php:99
+msgid "Invalid data entered in form. Please try again."
+msgstr "Ungültige Daten im Formular eingegeben. Bitte versuche es erneut."
+
+#: login.php:102
+msgid "Server or form error (Code: 3). Please contact support."
+msgstr "Server- oder Formularfehler (Code: 3). Bitte kontaktieren Sie den Support."
+
+#: login.php:105
+msgid "Account already exists under same username."
+msgstr "Konto existiert bereits unter demselben Benutzernamen."
+
+#: login.php:108
+msgid "System Error (Code: 12). Please contact support."
+msgstr "Systemfehler (Code: 12). Bitte kontaktieren Sie den Support."
+
+#: login.php:111
+msgid "Server Error (Code: 13). Please contact support."
+msgstr "Serverfehler (Code: 13). Bitte kontaktieren Sie den Support."
+
+#: login.php:114
+msgid "Server Error (Code: 14). Please contact support."
+msgstr "Serverfehler (Code: 14). Bitte kontaktieren Sie den Support."
+
+#: login.php:117
+msgid "System Error (Code: 15). Please contact support."
+msgstr "Systemfehler (Code: 15). Bitte kontaktieren Sie den Support."
+
+#: login.php:120
+msgid "Server Error (Code: 16). Please contact support."
+msgstr "Serverfehler (Code: 16). Bitte kontaktieren Sie den Support."
+
+#: login.php:123
+msgid "Server Error (Code: 17). Please contact support."
+msgstr "Serverfehler (Code: 17). Bitte kontaktieren Sie den Support."
+
+#: login.php:126
+msgid "Process Error (Code: 18). Please contact support."
+msgstr "Prozessfehler (Code: 18). Bitte kontaktieren Sie den Support."
+
+#: login.php:129
+msgid "Process Error (Code: 19). Please contact support."
+msgstr "Prozessfehler (Code: 19). Bitte kontaktieren Sie den Support."
+
+#: login.php:132
+msgid "Fatal Error (Code: 20). Please contact support."
+msgstr "Schwerwiegender Fehler (Code: 20). Bitte kontaktieren Sie den Support."
+
+#: login.php:144 register.php:78
+msgid "Control Panel"
+msgstr "Schalttafel"
+
+#: login.php:152
+msgid "Sign In to"
+msgstr "Anmelden bei"
+
+#: login.php:152
+msgid "CP"
+msgstr "CP"
+
+#: login.php:153 register.php:84
+msgid "Enter your details below"
+msgstr "Geben Sie Ihre Daten unten ein"
+
+#: login.php:169
+msgid "Loading Dashboard"
+msgstr "Dashboard wird geladen"
+
+#: login.php:173
+msgid "Error: Incorrect Login."
+msgstr "Fehler: Falsche Anmeldung."
+
+#: login.php:180 login.php:181 login.php:216 register.php:97
+msgid "Username"
+msgstr "Nutzername"
+
+#: login.php:186 login.php:187 register.php:101
+msgid "Password"
+msgstr "Passwort"
+
+#: login.php:193
+msgid "Forgot pwd?"
+msgstr "Passwort vergessen?"
+
+#: login.php:197
+msgid "Log in"
+msgstr "Einloggen"
+
+#: login.php:203
+msgid "Don't have an account?"
+msgstr "Hast du kein Konto?"
+
+#: login.php:203 register.php:113
+msgid "Sign Up"
+msgstr "Anmelden"
+
+#: login.php:210
+msgid "Recover Password"
+msgstr "Passwort wiederherstellen"
+
+#: login.php:211
+msgid "Enter your username and instructions will be sent to you."
+msgstr "Geben Sie Ihren Benutzernamen ein und die Anweisungen werden Ihnen zugesandt."
+
+#: login.php:226
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: login.php:253 register.php:159
+msgid "Error"
+msgstr "Error"
+
+#: login.php:254 register.php:160
+msgid "Failed to connect to server."
+msgstr "Verbindung zum Server fehlgeschlagen."
+
+#: login.php:254 register.php:160
+msgid "Please check config.php"
+msgstr "Bitte überprüfen Sie die config.php"
+
+#: login.php:262 register.php:168
+msgid "Warning"
+msgstr "Warnung"
+
+#: login.php:263 register.php:169
+msgid "Includes folder has not been secured"
+msgstr "'includes' ordner wurde nicht gesichert"
+
+#: register.php:33
+msgid "Register"
+msgstr "Registrieren"
+
+#: register.php:84
+msgid "Sign up for"
+msgstr "Melden Sie sich an für"
+
+#: register.php:88
+msgid "First Name"
+msgstr "Vorname"
+
+#: register.php:88 register.php:89
+msgid "2 to 28 Letters Only. Apostrophes and hyphens allowed."
+msgstr "Nur 2 bis 28 Buchstaben. Apostrophe und Bindestriche erlaubt."
+
+#: register.php:89
+msgid "Last Name"
+msgstr "Familienname"
+
+#: register.php:93
+msgid "Invalid Email Address"
+msgstr "Ungültige E-Mail-Adresse"
+
+#: register.php:93
+msgid "Email"
+msgstr "Email"
+
+#: register.php:97
+msgid "2 to 28 Characters A-Z, 0-9, '-' '.' and '_' Only."
+msgstr "2 bis 28 Zeichen AZ, 0-9, '-' '.' und nur."
+
+#: register.php:101
+msgid "Minimum 6 Characters: One uppercade letter, lowercase letter and number reuired."
+msgstr "Mindestens 6 Zeichen: Ein Großbuchstaben, Kleinbuchstaben und Zahl erforderlich."
+
+#: register.php:103
+msgid "Confirm Pass"
+msgstr "Bestätige das Passwort"
+
+#: register.php:108
+msgid "Default"
+msgstr "Standard"
+
+#: register.php:118
+msgid "Already have an account?"
+msgstr "Hast du schon ein Konto?"
+
+#: register.php:118
+msgid "Sign in"
+msgstr "Anmelden"
+
+#: register.php:131
+msgid "Passwords do not match"
+msgstr "Passwörter stimmen nicht überein"

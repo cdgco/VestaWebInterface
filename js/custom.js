@@ -1,5 +1,7 @@
 $(window).load(function () {
+    "use strict";
     $(function () {
+            
         $(".preloader").fadeOut();
         $("#side-menu").metisMenu();
     });
@@ -115,6 +117,7 @@ $(window).load(function () {
     });
 });
 $(".collapseble").click(function () {
+    "use strict";
     $(".collapseblebox").fadeToggle(350);
 });
 $(".slimscrollright").slimScroll({
@@ -124,6 +127,7 @@ $(".slimscrollright").slimScroll({
     color: "#dcdcdc",
     opacity: 0
 }).mouseover(function () {
+    "use strict";
     $(this).next(".slimScrollBar").css("opacity", 0.4);
 });
 $(".slimscrollsidebar").slimScroll({
@@ -133,11 +137,13 @@ $(".slimscrollsidebar").slimScroll({
     color: "rgba(0,0,0,0.5)",
     opacity: 0
 }).mouseover(function () {
+    "use strict";
     $(this).next(".slimScrollBar").css("opacity", 0.4);
 });
 $("body").trigger("resize");
 // visited ul li
 $(".visited li a").click(function (e) {
+    "use strict";
     $(".visited li").removeClass("active");
     var $parent = $(this).parent();
     if (!$parent.hasClass("active")) {
@@ -146,12 +152,15 @@ $(".visited li a").click(function (e) {
     e.preventDefault();
 });
 $("#to-recover").click(function () {
+    "use strict";
     $("#loginform").fadeOut("fast", function () {$("#recoverform").fadeIn(); });
 });
 $('#to-login').click(function () {
+    "use strict";
     $("#recoverform").fadeOut("fast", function () {$("#loginform").fadeIn(); });
 });
 $(".navbar-toggle").click(function () {
+    "use strict";
     $(".navbar-toggle i").toggleClass("ti-menu");
     $(".navbar-toggle i").addClass("ti-close");
 });
