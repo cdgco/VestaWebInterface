@@ -1,5 +1,5 @@
 
-$(window).on("load", function() {
+$(window).on("load", function () {
 
 	// Row Toggler
 	// -----------------------------------------------------------------
@@ -7,8 +7,8 @@ $(window).on("load", function() {
 
 	// Accordion
 	// -----------------------------------------------------------------
-	$("#demo-foo-accordion").footable().on("footable_row_expanded", function(e) {
-		$("#demo-foo-accordion tbody tr.footable-detail-show").not(e.row).each(function() {
+	$("#demo-foo-accordion").footable().on("footable_row_expanded", function (e) {
+		$("#demo-foo-accordion tbody tr.footable-detail-show").not(e.row).each(function () {
 			$("#demo-foo-accordion").data("footable").toggleDetail(this);
 		***REMOVED***);
 	***REMOVED***);
@@ -46,7 +46,7 @@ $(window).on("load", function() {
 
 	// Add & Remove Row
 	var addrow = $("#demo-foo-addrow");
-	addrow.footable().on("click", ".delete-row-btn", function() {
+	addrow.footable().on("click", ".delete-row-btn", function () {
 		
 		//get the footable object
 		var footable = addrow.data("footable");
@@ -63,7 +63,7 @@ $(window).on("load", function() {
 	***REMOVED***);
 	
 	// Add Row Button
-	$("#demo-btn-addrow").click(function() {
+	$("#demo-btn-addrow").click(function () {
 		
 		//get the footable object
 		var footable = addrow.data("footable");
