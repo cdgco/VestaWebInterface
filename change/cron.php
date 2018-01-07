@@ -3,15 +3,14 @@
     if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); ***REMOVED***  else { header( 'Location: ../install' );***REMOVED***;
     if(base64_decode($_COOKIE['loggedin']) != 'true') { header('Location: ../login.php'); ***REMOVED***
 
-    if(isset($_POST['v_min']) { $v_min = $_POST['v_min']; ***REMOVED***
-    if(isset($_POST['v_hour']) { $v_hour = $_POST['v_hour']; ***REMOVED***
-    if(isset($_POST['v_day']) { $v_month = $_POST['v_month']; ***REMOVED***
-    if(isset($_POST['v_month']) { $v_month = $_POST['v_month']; ***REMOVED***
-    if(isset($_POST['v_wday']) { $v_wday = $_POST['v_wday']; ***REMOVED***
-    if(isset($_POST['v_cmd']) { $v_cmd = $_POST['v_cmd']; ***REMOVED***
-    if(isset($_POST['v_job']) { $v_job = $_POST['v_job']; ***REMOVED***
-       
-    if (!isset($v_min)) { header('Location: ../edit/cron.php?returncode=1&job=' . $v_job);***REMOVED***
+    if (isset($_POST['v_min']) { $v_min = $_POST['v_min']; ***REMOVED***
+    elseif (isset($_POST['v_hour']) { $v_hour = $_POST['v_hour']; ***REMOVED***
+    elseif (isset($_POST['v_day']) { $v_month = $_POST['v_month']; ***REMOVED***
+    elseif (isset($_POST['v_month']) { $v_month = $_POST['v_month']; ***REMOVED***
+    elseif (isset($_POST['v_wday']) { $v_wday = $_POST['v_wday']; ***REMOVED***
+    elseif (isset($_POST['v_cmd']) { $v_cmd = $_POST['v_cmd']; ***REMOVED***
+    elseif (isset($_POST['v_job']) { $v_job = $_POST['v_job']; 
+    elseif (!isset($v_min)) { header('Location: ../edit/cron.php?returncode=1&job=' . $v_job);***REMOVED***
     elseif (!isset($v_hour)) { header('Location: ../edit/cron.php?returncode=1&job=' . $v_job);***REMOVED***
     elseif (!isset($v_day) { header('Location: ../edit/cron.php?returncode=1&job=' . $v_job);***REMOVED***
     elseif (!isset($v_month)) { header('Location: ../edit/cron.php?returncode=1&job=' . $v_job);***REMOVED***
