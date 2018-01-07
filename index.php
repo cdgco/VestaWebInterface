@@ -565,7 +565,7 @@ session_start();
                                         } else { $diskpercent = '0'; }
                                         if(is_infinite($diskpercent)){ echo "0";}else{echo $diskpercent;} ?>%</div>
                                     <div class="progress">
-                                        <div class="progress-bar progress-bar-inverse" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?php if($diskpercent == " INF "){ echo "0 ";}else{echo $diskpercent;} ?>%;"> <span class="sr-only"><?php if($diskpercent == "INF"){ echo "0";}else{echo $diskpercent;} ?>%;">% <?php echo _("Complete"); ?></span></div>
+                                        <div class="progress-bar progress-bar-inverse" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?php if($diskpercent == " INF "){ echo "0 ";}else{echo $diskpercent;} ?>%;"> <span class="sr-only"><?php if($diskpercent == "INF"){ echo "0";}else{echo $diskpercent;} ?>%;">% Complete</span></div>
                                     </div>
                                 </li>
                             </ul><br><br>
@@ -578,7 +578,7 @@ session_start();
                                     <div class="pull-right">
                                         <?php if($diskpercent1 == "INF"){ echo "0";}else{echo round($diskpercent1);} ?>%</div>
                                     <div class="progress">
-                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?php if($diskpercent1 == " INF "){ echo "0 ";}else{echo $diskpercent1;} ?>%;"> <span class="sr-only"><?php if($diskpercent1 == "INF"){ echo "0";}else{echo round($diskpercent1);} ?>% <?php echo _("Complete"); ?></span></div>
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?php if($diskpercent1 == " INF "){ echo "0 ";}else{echo $diskpercent1;} ?>%;"> <span class="sr-only"><?php if($diskpercent1 == "INF"){ echo "0";}else{echo round($diskpercent1);} ?>% Complete</span></div>
                                     </div>
                                 </li>
                                 <li>
@@ -588,7 +588,7 @@ session_start();
                                     <div class="pull-right">
                                         <?php if($diskpercent2 == "INF"){ echo "0";}else{echo round($diskpercent2);} ?>%</div>
                                     <div class="progress">
-                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?php if($diskpercent2 == " INF "){ echo "0 ";}else{echo $diskpercent2;} ?>%;"> <span class="sr-only"><?php if($diskpercent2 == "INF"){ echo "0";}else{echo round($diskpercent2);} ?>% <?php echo _("Complete"); ?></span></div>
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?php if($diskpercent2 == " INF "){ echo "0 ";}else{echo $diskpercent2;} ?>%;"> <span class="sr-only"><?php if($diskpercent2 == "INF"){ echo "0";}else{echo round($diskpercent2);} ?>% Complete</span></div>
                                     </div>
                                 </li>
                                 <li>
@@ -599,7 +599,7 @@ session_start();
                                     <div class="pull-right">
                                         <?php if($diskpercent3 == "INF"){ echo "0";}else{echo round($diskpercent3);} ?>%</div>
                                     <div class="progress">
-                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?php if($diskpercent3 == " INF "){ echo "0 ";}else{echo $diskpercent3;} ?>%;"> <span class="sr-only"><?php if($diskpercent3 == "INF"){ echo "0";}else{echo round($diskpercent3);} ?>% <?php echo _("Complete"); ?></span></div>
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?php if($diskpercent3 == " INF "){ echo "0 ";}else{echo $diskpercent3;} ?>%;"> <span class="sr-only"><?php if($diskpercent3 == "INF"){ echo "0";}else{echo round($diskpercent3);} ?>% Complete</span></div>
                                     </div>
                                 </li>
                                 <li>
@@ -610,7 +610,7 @@ session_start();
                                     <div class="pull-right">
                                         <?php if($diskpercent4 == "INF"){ echo "0";}else{echo round($diskpercent4);} ?>%</div>
                                     <div class="progress">
-                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?php if($diskpercent4 == " INF "){ echo "0 ";}else{echo $diskpercent4;} ?>%;"> <span class="sr-only"><?php if($diskpercent4 == "INF"){ echo "0";}else{echo round($diskpercent4);} ?>% <?php echo _("Complete"); ?></span></div>
+                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?php if($diskpercent4 == " INF "){ echo "0 ";}else{echo $diskpercent4;} ?>%;"> <span class="sr-only"><?php if($diskpercent4 == "INF"){ echo "0";}else{echo round($diskpercent4);} ?>% Complete</span></div>
                                     </div>
                                 </li>
                             </ul>
