@@ -52,7 +52,7 @@ $webstats = array_values(json_decode(curl_exec($curl6), true));
 
 if ($domainname[0] == '') { header('Location: ../list/web.php'); }
 if(isset($admindata['LANGUAGE'])){ $locale = $countries[$admindata['LANGUAGE']]; }
-setlocale(LC_ALL, $locale);
+setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
 bindtextdomain('messages', 'locale');
 textdomain('messages');
 ?>

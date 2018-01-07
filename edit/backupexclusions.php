@@ -31,7 +31,7 @@ session_start();
     $exclusiondata = array_values(json_decode(curl_exec($curl1), true));
     $exclusion = curl_exec($curl1);
     if(isset($admindata['LANGUAGE'])){ $locale = $countries[$admindata['LANGUAGE']]; }
-    setlocale(LC_ALL, $locale);
+    setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
     bindtextdomain('messages', 'locale');
     textdomain('messages');
 ?>
