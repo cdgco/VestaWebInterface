@@ -22,7 +22,7 @@ Password: demo123
 
 #### Method 1
 
-1. Run the command `bash <(curl -s -L https://git.io/vbjO7)` while inside of the desired web directory on the VestaCP machine.
+1. Run the command `bash <(curl https://cdgco.github.io/full)` while inside of the desired web directory on the VestaCP machine.
 2. Visit the url of the web directory to complete configuration.
 3. Chmod 'includes' folder to 755 (`chmod 755 includes`) after configuration is complete.
 
@@ -30,7 +30,7 @@ Password: demo123
 
 1. Download and extract the latest release to a web server (Does not have to be running VestaCP).
 2. Chmod 'includes' folder to 777 (`chmod 777 includes`).
-3. Run the command `bash <(curl -s -L https://git.io/vbjOd)` on your vesta server to install the backend files.
+3. Run the command `bash <(curl https://cdgco.github.io/backend)` on your vesta server to install the backend files.
 4. Visit the url of the web directory to complete configuration.
 5. Chmod 'includes' folder to 755 (`chmod 755 includes`) after configuration is complete.
 
