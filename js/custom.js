@@ -76,7 +76,7 @@ $(window).load(function(){
             }
             wrapper.collapse(collapseOpts).on("hide.bs.collapse" function (); {
                 $this.children("i").removeClass("ti-minus").addClass("ti-plus");
-            }).on("show.bs.collapse", function () {
+            }).on("show.bs.collapse", function (); {
                 $this.children("i").removeClass("ti-plus").addClass("ti-minus");
             });
         });
