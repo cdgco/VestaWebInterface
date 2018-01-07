@@ -30,7 +30,7 @@ if(isset($_SESSION['loggedin'])) {
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
-        <title>***REMOVED*** echo $sitetitle; ***REMOVED*** - Register</title>
+        <title>***REMOVED*** echo $sitetitle; ***REMOVED*** - ***REMOVED*** echo _('Register'); ***REMOVED***</title>
         <!-- Bootstrap Core CSS -->
         <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="bootstrap/dist/css/bootstrap-select.min.css" rel="stylesheet">
@@ -75,47 +75,47 @@ if(isset($_SESSION['loggedin'])) {
                 <div class="inner-panel">
                     <a href="javascript:void(0)" class="p-20 di"><img src="plugins/images/admin-logo.png" class="logo-1"></a>
                     <div class="lg-content">
-                        <h2>***REMOVED*** echo $sitetitle; ***REMOVED*** Control Panel <br></h2><p>***REMOVED*** require 'includes/versioncheck.php'; ***REMOVED***</p> </div>
+                        <h2>***REMOVED*** echo $sitetitle; ***REMOVED*** ***REMOVED*** echo _('Control Panel'); ***REMOVED*** <br></h2><p>***REMOVED*** require 'includes/versioncheck.php'; ***REMOVED***</p> </div>
                 </div>
             </div>
 
             <div class="new-login-box" style="position:relative;top:-10%">
                 <div class="white-box">
-                    <h3 class="box-title m-b-0">Sign UP FOR ***REMOVED*** echo $sitetitle; ***REMOVED***</h3> <small>Enter your details below</small>
+                    <h3 class="box-title m-b-0">***REMOVED*** echo _('Sign up for'); ***REMOVED*** ***REMOVED*** echo $sitetitle; ***REMOVED***</h3> <small>***REMOVED*** echo _('Enter your details below'); ***REMOVED***</small>
                     <form class="form-horizontal new-lg-form" method="post" id="loginform" action="process/process.php">
                         <div class="form-group ">
                             <div class="col-xs-12">
-                                <input class="form-control" type="text" style="width:49%; float:left;" required="" name="fname" required x-autocompletetype="given-name" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,27***REMOVED***$" placeholder="First Name" title="2 to 28 Letters Only. Apostrophes and hyphens allowed." autocomplete="on"> 
-                                <input class="form-control" type="text" style="width:49%; float:right;" required="" name="lname" required x-autocompletetype="family-name" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,27***REMOVED***$" placeholder="Last Name" title="2 to 28 Letters Only. Apostrophes and hyphens allowed." autocomplete="on"></div>
+                                <input class="form-control" type="text" style="width:49%; float:left;" required="" name="fname" required x-autocompletetype="given-name" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,27***REMOVED***$" placeholder="***REMOVED*** echo _('First Name'); ***REMOVED***" title="***REMOVED*** echo _('2 to 28 Letters Only. Apostrophes and hyphens allowed.'); ***REMOVED***" autocomplete="on"> 
+                                <input class="form-control" type="text" style="width:49%; float:right;" required="" name="lname" required x-autocompletetype="family-name" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,27***REMOVED***$" placeholder="***REMOVED*** echo _('Last Name'); ***REMOVED***" title="***REMOVED*** echo _('2 to 28 Letters Only. Apostrophes and hyphens allowed.'); ***REMOVED***" autocomplete="on"></div>
                         </div>
                         <div class="form-group ">
                             <div class="col-xs-12">
-                                <input class="form-control" type="text" name="email" x-autocompletetype="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20***REMOVED***$" title="Invalid Email Address" autocomplete="on" required="" placeholder="Email"> </div>
+                                <input class="form-control" type="text" name="email" x-autocompletetype="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20***REMOVED***$" title="***REMOVED*** echo _('Invalid Email Address'); ***REMOVED***" autocomplete="on" required="" placeholder="***REMOVED*** echo _('Email'); ***REMOVED***"> </div>
                         </div>   
                         <div class="form-group ">
                             <div class="col-xs-12">
-                                <input class="form-control" type="text" name="username" required autocomplete="on" pattern="^[a-zA-Z][a-zA-Z0-9-_.]{1,27***REMOVED***$" title="2 to 28 Characters A-Z, 0-9, '-' '.' and '_' Only." placeholder="Username" /> </div>
+                                <input class="form-control" type="text" name="username" required autocomplete="on" pattern="^[a-zA-Z][a-zA-Z0-9-_.]{1,27***REMOVED***$" title="***REMOVED*** echo _('2 to 28 Characters A-Z, 0-9, \'-\' \'.\' and \'_\' Only.'); ***REMOVED***" placeholder="***REMOVED*** echo _('Username'); ***REMOVED***" /> </div>
                         </div>       
                         <div class="form-group ">
                             <div class="col-xs-12">
-                                <input class="form-control" type="password" name="password" title="Minimum 6 Characters: One uppercase letter, lowercase letter and number required." id="pass" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,***REMOVED***$" autocomplete="new-password" required="" placeholder="Password" style="width:49%; float:left;">
+                                <input class="form-control" type="password" name="password" title="***REMOVED*** echo _('Minimum 6 Characters: One uppercade letter, lowercase letter and number reuired.'); ***REMOVED***" id="pass" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,***REMOVED***$" autocomplete="new-password" required="" placeholder="***REMOVED*** echo _('Password'); ***REMOVED***" style="width:49%; float:left;">
 
-                                <input class="form-control" type="password" id="cpass" autocomplete="new-password" required="" placeholder="Confirm Pass" style="width:49%; float:right;"></div>
+                                <input class="form-control" type="password" id="cpass" autocomplete="new-password" required="" placeholder="***REMOVED*** echo _('Confirm Pass'); ***REMOVED***" style="width:49%; float:right;"></div>
                         </div>
                         <div class="form-group ">
                             <div class="col-xs-12">
                                 <select class="selectpicker m-b-20 m-r-10" name="plan" data-style="btn btn-info bg-theme" style="border:none;">
-                                    <option value="default" data-tokens="default">Default</option>
+                                    <option value="default" data-tokens="default">***REMOVED*** echo _('Default'); ***REMOVED***</option>
                                 </select>
                             </div></div>
                         <div class="form-group text-center m-t-20">
                             <div class="col-xs-12">
-                                <button disabled class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light bg-theme" style="border:none;" type="submit">Sign Up</button>
+                                <button disabled class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light bg-theme" style="border:none;" type="submit">***REMOVED*** echo _('Sign Up'); ***REMOVED***</button>
                             </div>
                         </div>
                         <div class="form-group m-b-0">
                             <div class="col-sm-12 text-center">
-                                <p>Already have an account? <a href="login.php" class="text-danger m-l-5"><b>Sign In</b></a></p>
+                                <p>***REMOVED*** echo _('Already have an account?'); ***REMOVED*** <a href="login.php" class="text-danger m-l-5"><b>***REMOVED*** echo _('Sign in'); ***REMOVED***</b></a></p>
                             </div>
                         </div>
                     </form>
@@ -128,7 +128,7 @@ if(isset($_SESSION['loggedin'])) {
 
             function validatePassword(){
                 if(password.value != confirm_password.value) {
-                    confirm_password.setCustomValidity("Passwords Don't Match");
+                    confirm_password.setCustomValidity("***REMOVED*** echo _('Passwords do not match'); ***REMOVED***");
                 ***REMOVED*** else {
                     confirm_password.setCustomValidity('');
                 ***REMOVED***
@@ -156,8 +156,8 @@ if(isset($_SESSION['loggedin'])) {
         <script>
         ***REMOVED*** if(!isset($serverconnection)){
             echo "$.toast({
-                        heading: 'Error'
-                        , text: 'Failed to connect to server.<br>Please check config.php'
+                        heading: '" . _("Error") . "'
+                        , text: '" . _("Failed to connect to server.") . "<br>" . _("Please check config.php") . "'
                         , icon: 'error'
                         , position: 'top-right'
                         , hideAfter: false
@@ -165,8 +165,8 @@ if(isset($_SESSION['loggedin'])) {
                     ***REMOVED***);"; ***REMOVED***
 if(substr(sprintf('%o', fileperms('includes')), -4) == '0777') {
          echo "$.toast({
-                        heading: 'Warning'
-                        , text: 'Includes folder has not been secured.'
+                        heading: '" . _("Warning") . "'
+                        , text: '" . _("Includes folder has not been secured") . "'
                         , icon: 'warning'
                         , position: 'top-right'
                         , hideAfter: 3500
