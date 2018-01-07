@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-01-07 06:30-0800\n"
-"PO-Revision-Date: 2018-01-07 07:01-0800\n"
+"POT-Creation-Date: 2018-01-07 13:11-0800\n"
+"PO-Revision-Date: 2018-01-07 13:11-0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -17,179 +17,534 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-1: install/web\n"
 "X-Poedit-SearchPathExcluded-2: bootstrap\n"
 
-#: login.php:52 login.php:222
-msgid "Login"
-msgstr "Login"
+#: index.php:71 index.php:174 profile.php:177
+msgid "Dashboard"
+msgstr ""
 
-#: login.php:94
-msgid "Account has been successfully created!"
-msgstr "Account has been successfully created!"
+#: index.php:150 index.php:183 profile.php:153 profile.php:186 profile.php:221
+msgid "My Account"
+msgstr ""
 
-#: login.php:96
-msgid "Please fill out all sections of the form."
-msgstr "Please fill out all sections of the form."
+#: index.php:151 index.php:184 profile.php:154 profile.php:187
+msgid "Account Settings"
+msgstr ""
 
-#: login.php:99
-msgid "Invalid data entered in form. Please try again."
-msgstr "Invalid data entered in form. Please try again."
+#: index.php:153 profile.php:156
+msgid "Logout"
+msgstr ""
 
-#: login.php:102
-msgid "Server or form error (Code: 3). Please contact support."
-msgstr "Server or form error (Code: 3). Please contact support."
+#: index.php:168 profile.php:171
+msgid "Navigation"
+msgstr ""
 
-#: login.php:105
-msgid "Account already exists under same username."
-msgstr "Account already exists under same username."
+#: index.php:190 index.php:357 profile.php:193
+msgid "Web"
+msgstr ""
 
-#: login.php:108
-msgid "System Error (Code: 12). Please contact support."
-msgstr "System Error (Code: 12). Please contact support."
+#: index.php:191 index.php:358 profile.php:194
+msgid "DNS"
+msgstr ""
 
-#: login.php:111
-msgid "Server Error (Code: 13). Please contact support."
-msgstr "Server Error (Code: 13). Please contact support."
+#: index.php:192 index.php:359 profile.php:195
+msgid "Mail"
+msgstr ""
 
-#: login.php:114
-msgid "Server Error (Code: 14). Please contact support."
-msgstr "Server Error (Code: 14). Please contact support."
+#: index.php:193 index.php:360 profile.php:196
+msgid "Database"
+msgstr ""
 
-#: login.php:117
-msgid "System Error (Code: 15). Please contact support."
-msgstr "System Error (Code: 15). Please contact support."
+#: index.php:196 index.php:740 profile.php:199
+msgid "Cron Jobs"
+msgstr ""
 
-#: login.php:120
-msgid "Server Error (Code: 16). Please contact support."
-msgstr "Server Error (Code: 16). Please contact support."
+#: index.php:197 index.php:666 profile.php:200
+msgid "Backups"
+msgstr ""
 
-#: login.php:123
-msgid "Server Error (Code: 17). Please contact support."
-msgstr "Server Error (Code: 17). Please contact support."
+#: index.php:199 profile.php:202
+msgid "Apps"
+msgstr ""
 
-#: login.php:126
-msgid "Process Error (Code: 18). Please contact support."
-msgstr "Process Error (Code: 18). Please contact support."
+#: index.php:201 profile.php:204
+msgid "FTP"
+msgstr ""
 
-#: login.php:129
-msgid "Process Error (Code: 19). Please contact support."
-msgstr "Process Error (Code: 19). Please contact support."
+#: index.php:202 profile.php:205
+msgid "Webmail"
+msgstr ""
 
-#: login.php:132
-msgid "Fatal Error (Code: 20). Please contact support."
-msgstr "Fatal Error (Code: 20). Please contact support."
+#: index.php:203 profile.php:206
+msgid "phpMyAdmin"
+msgstr ""
 
-#: login.php:144 register.php:78
-msgid "Control Panel"
-msgstr "Control Panel"
+#: index.php:204 profile.php:207
+msgid "phpPgAdmin"
+msgstr ""
 
-#: login.php:152
-msgid "Sign In to"
-msgstr "Sign In to"
+#: index.php:207 profile.php:210
+msgid "Log out"
+msgstr ""
 
-#: login.php:152
-msgid "CP"
-msgstr "CP"
+#: index.php:209 profile.php:212
+msgid "Control Panel v1"
+msgstr ""
 
-#: login.php:153 register.php:84
-msgid "Enter your details below"
-msgstr "Enter your details below"
+#: index.php:210 profile.php:213
+msgid "Support"
+msgstr ""
 
-#: login.php:169
-msgid "Loading Dashboard"
-msgstr "Loading Dashboard"
+#: index.php:218
+msgid "Host Dashboard"
+msgstr ""
 
-#: login.php:173
-msgid "Error: Incorrect Login."
-msgstr "Error: Incorrect Login."
+#: index.php:228
+msgid "Rebuild Account"
+msgstr ""
 
-#: login.php:180 login.php:181 login.php:216 register.php:97
+#: index.php:229
+msgid "Rebuild Web"
+msgstr ""
+
+#: index.php:230
+msgid "Rebuild DNS"
+msgstr ""
+
+#: index.php:231
+msgid "Rebuild Mail"
+msgstr ""
+
+#: index.php:232
+msgid "Rebuild DB"
+msgstr ""
+
+#: index.php:233
+msgid "Rebuild Cron"
+msgstr ""
+
+#: index.php:234
+msgid "Update Counters"
+msgstr ""
+
+#: index.php:241
+msgid "Processing"
+msgstr ""
+
+#: index.php:252
+msgid "I was closed by the timer"
+msgstr ""
+
+#: index.php:279 index.php:692
+msgid "Bandwidth"
+msgstr ""
+
+#: index.php:303
+msgid "Disk Space"
+msgstr ""
+
+#: index.php:322
+msgid "Web Domains"
+msgstr ""
+
+#: index.php:340
+msgid "Email Addresses"
+msgstr ""
+
+#: index.php:368
+msgid "Manage Web Domains"
+msgstr ""
+
+#: index.php:372
+msgid "Add Domain"
+msgstr ""
+
+#: index.php:373 index.php:427 index.php:471 index.php:515
+msgid "Manage"
+msgstr ""
+
+#: index.php:381 index.php:435 index.php:479
+msgid "DOMAIN"
+msgstr ""
+
+#: index.php:382
+msgid "DISK"
+msgstr ""
+
+#: index.php:383
+msgid "BANDWIDTH"
+msgstr ""
+
+#: index.php:384
+msgid "SSL"
+msgstr ""
+
+#: index.php:385 index.php:437 index.php:481 index.php:525
+msgid "STATUS"
+msgstr ""
+
+#: index.php:399
+msgid "Enabled"
+msgstr ""
+
+#: index.php:401
+msgid "Disabled"
+msgstr ""
+
+#: index.php:405 index.php:450 index.php:494
+msgid "Active"
+msgstr ""
+
+#: index.php:407 index.php:452 index.php:496
+msgid "Suspended"
+msgstr ""
+
+#: index.php:422
+msgid "Manage DNS Domains"
+msgstr ""
+
+#: index.php:426
+msgid "Add DNS"
+msgstr ""
+
+#: index.php:436
+msgid "RECORDS"
+msgstr ""
+
+#: index.php:466
+msgid "Manage Mail Domains"
+msgstr ""
+
+#: index.php:470
+msgid "Add Mail"
+msgstr ""
+
+#: index.php:480
+msgid "ACCOUNTS"
+msgstr ""
+
+#: index.php:510
+msgid "Manage Databases"
+msgstr ""
+
+#: index.php:514
+msgid "Add Database"
+msgstr ""
+
+#: index.php:523
+msgid "DATABASE"
+msgstr ""
+
+#: index.php:524
+msgid "USER"
+msgstr ""
+
+#: index.php:556
+msgid "Disk Quota Used"
+msgstr ""
+
+#: index.php:561
+msgid "Total Disk Space"
+msgstr ""
+
+#: index.php:568 index.php:581 index.php:591 index.php:602 index.php:613
+msgid "Complete"
+msgstr ""
+
+#: index.php:572
+msgid "Disk Usage Breakdown"
+msgstr ""
+
+#: index.php:577
+msgid "Web Data"
+msgstr ""
+
+#: index.php:587
+msgid "Mail Data"
+msgstr ""
+
+#: index.php:598 index.php:726
+msgid "Databases"
+msgstr ""
+
+#: index.php:609
+msgid "User Directories"
+msgstr ""
+
+#: index.php:624
+msgid "DNS Domains"
+msgstr ""
+
+#: index.php:638
+msgid "DNS Records"
+msgstr ""
+
+#: index.php:652
+msgid "Mail Domains"
+msgstr ""
+
+#: index.php:686
+msgid "Account Details"
+msgstr ""
+
+#: index.php:689 login.php:185 login.php:186 login.php:221 profile.php:288
+#: register.php:101
 msgid "Username"
 msgstr "Username"
 
-#: login.php:186 login.php:187 register.php:101
-msgid "Password"
-msgstr "Password"
-
-#: login.php:193
-msgid "Forgot pwd?"
-msgstr "Forgot pwd?"
-
-#: login.php:197
-msgid "Log in"
-msgstr "Log in"
-
-#: login.php:203
-msgid "Don't have an account?"
-msgstr "Don't have an account?"
-
-#: login.php:203 register.php:113
-msgid "Sign Up"
-msgstr "Sign Up"
-
-#: login.php:210
-msgid "Recover Password"
-msgstr "Recover Password"
-
-#: login.php:211
-msgid "Enter your username and instructions will be sent to you."
-msgstr "Enter your username and instructions will be sent to you."
-
-#: login.php:226
-msgid "Reset"
-msgstr "Reset"
-
-#: login.php:253 register.php:159
-msgid "Error"
-msgstr "Error"
-
-#: login.php:254 register.php:160
-msgid "Failed to connect to server."
-msgstr "Failed to connect to server."
-
-#: login.php:254 register.php:160
-msgid "Please check config.php"
-msgstr "Please check config.php"
-
-#: login.php:262 register.php:168
-msgid "Warning"
-msgstr "Warning"
-
-#: login.php:263 register.php:169
-msgid "Includes folder has not been secured"
-msgstr "Includes folder has not been secured"
-
-#: register.php:33
-msgid "Register"
-msgstr "Register"
-
-#: register.php:84
-msgid "Sign up for"
-msgstr "Sign up for"
-
-#: register.php:88
-msgid "First Name"
-msgstr "First Name"
-
-#: register.php:88 register.php:89
-msgid "2 to 28 Letters Only. Apostrophes and hyphens allowed."
-msgstr "2 to 28 Letters Only. Apostrophes and hyphens allowed."
-
-#: register.php:89
-msgid "Last Name"
-msgstr "Last Name"
-
-#: register.php:93
-msgid "Invalid Email Address"
-msgstr "Invalid Email Address"
-
-#: register.php:93
+#: index.php:690 profile.php:310 register.php:97
 msgid "Email"
 msgstr "Email"
 
+#: index.php:691 profile.php:259
+msgid "Plan"
+msgstr ""
+
+#: index.php:693
+msgid "Disk Quota"
+msgstr ""
+
+#: index.php:701 profile.php:269
+msgid "Nameservers"
+msgstr ""
+
+#: index.php:754
+msgid "Web Aliases"
+msgstr ""
+
+#: index.php:769 profile.php:385
+msgid "Copyright"
+msgstr ""
+
+#: index.php:769 profile.php:385
+msgid "All Rights Reserved. Vesta Web Interface"
+msgstr ""
+
+#: index.php:769 profile.php:385
+msgid "by CDG Web Services"
+msgstr ""
+
+#: index.php:792 login.php:267 register.php:172
+msgid "Warning"
+msgstr "Warning"
+
+#: index.php:793 login.php:268 register.php:173
+msgid "Includes folder has not been secured"
+msgstr "Includes folder has not been secured"
+
+#: login.php:57 login.php:227
+msgid "Login"
+msgstr "Login"
+
+#: login.php:99
+msgid "Account has been successfully created!"
+msgstr "Account has been successfully created!"
+
+#: login.php:101
+msgid "Please fill out all sections of the form."
+msgstr "Please fill out all sections of the form."
+
+#: login.php:104
+msgid "Invalid data entered in form. Please try again."
+msgstr "Invalid data entered in form. Please try again."
+
+#: login.php:107
+msgid "Server or form error (Code: 3). Please contact support."
+msgstr "Server or form error (Code: 3). Please contact support."
+
+#: login.php:110
+msgid "Account already exists under same username."
+msgstr "Account already exists under same username."
+
+#: login.php:113
+msgid "System Error (Code: 12). Please contact support."
+msgstr "System Error (Code: 12). Please contact support."
+
+#: login.php:116
+msgid "Server Error (Code: 13). Please contact support."
+msgstr "Server Error (Code: 13). Please contact support."
+
+#: login.php:119
+msgid "Server Error (Code: 14). Please contact support."
+msgstr "Server Error (Code: 14). Please contact support."
+
+#: login.php:122
+msgid "System Error (Code: 15). Please contact support."
+msgstr "System Error (Code: 15). Please contact support."
+
+#: login.php:125
+msgid "Server Error (Code: 16). Please contact support."
+msgstr "Server Error (Code: 16). Please contact support."
+
+#: login.php:128
+msgid "Server Error (Code: 17). Please contact support."
+msgstr "Server Error (Code: 17). Please contact support."
+
+#: login.php:131
+msgid "Process Error (Code: 18). Please contact support."
+msgstr "Process Error (Code: 18). Please contact support."
+
+#: login.php:134
+msgid "Process Error (Code: 19). Please contact support."
+msgstr "Process Error (Code: 19). Please contact support."
+
+#: login.php:137
+msgid "Fatal Error (Code: 20). Please contact support."
+msgstr "Fatal Error (Code: 20). Please contact support."
+
+#: login.php:149 register.php:82
+msgid "Control Panel"
+msgstr "Control Panel"
+
+#: login.php:157
+msgid "Sign In to"
+msgstr "Sign In to"
+
+#: login.php:157
+msgid "CP"
+msgstr "CP"
+
+#: login.php:158 register.php:88
+msgid "Enter your details below"
+msgstr "Enter your details below"
+
+#: login.php:174
+msgid "Loading Dashboard"
+msgstr "Loading Dashboard"
+
+#: login.php:178
+msgid "Error: Incorrect Login."
+msgstr "Error: Incorrect Login."
+
+#: login.php:191 login.php:192 profile.php:293 register.php:105
+msgid "Password"
+msgstr "Password"
+
+#: login.php:198
+msgid "Forgot pwd?"
+msgstr "Forgot pwd?"
+
+#: login.php:202
+msgid "Log in"
+msgstr "Log in"
+
+#: login.php:208
+msgid "Don't have an account?"
+msgstr "Don't have an account?"
+
+#: login.php:208 register.php:117
+msgid "Sign Up"
+msgstr "Sign Up"
+
+#: login.php:215
+msgid "Recover Password"
+msgstr "Recover Password"
+
+#: login.php:216
+msgid "Enter your username and instructions will be sent to you."
+msgstr "Enter your username and instructions will be sent to you."
+
+#: login.php:231
+msgid "Reset"
+msgstr "Reset"
+
+#: login.php:258 register.php:163
+msgid "Error"
+msgstr "Error"
+
+#: login.php:259 register.php:164
+msgid "Failed to connect to server."
+msgstr "Failed to connect to server."
+
+#: login.php:259 register.php:164
+msgid "Please check config.php"
+msgstr "Please check config.php"
+
+#: profile.php:45 profile.php:241
+msgid "Account"
+msgstr ""
+
+#: profile.php:100
+msgid "Invalid data entered in form."
+msgstr ""
+
+#: profile.php:100
+msgid "Please try again."
+msgstr ""
+
+#: profile.php:107
+msgid "Please try again or contact support."
+msgstr ""
+
+#: profile.php:244
+msgid "Settings"
+msgstr ""
+
+#: profile.php:250
+msgid "Name"
+msgstr ""
+
+#: profile.php:254
+msgid "Joined"
+msgstr ""
+
+#: profile.php:263 profile.php:315
+msgid "Language"
+msgstr ""
+
+#: profile.php:293
+msgid "Generate"
+msgstr ""
+
+#: profile.php:302 register.php:92
+msgid "First Name"
+msgstr "First Name"
+
+#: profile.php:302 register.php:93
+msgid "Last Name"
+msgstr "Last Name"
+
+#: profile.php:352
+msgid "Default Nameservers"
+msgstr ""
+
+#: profile.php:357 profile.php:359 profile.php:361 profile.php:363
+#: profile.php:365 profile.php:367
+msgid "Add One"
+msgstr ""
+
+#: profile.php:359 profile.php:361 profile.php:363 profile.php:365
+#: profile.php:367 profile.php:369
+msgid "Remove One"
+msgstr ""
+
+#: profile.php:374
+msgid "Update Profile"
+msgstr ""
+
+#: profile.php:375
+msgid "Back"
+msgstr ""
+
+#: register.php:37
+msgid "Register"
+msgstr "Register"
+
+#: register.php:88
+msgid "Sign up for"
+msgstr "Sign up for"
+
+#: register.php:92 register.php:93
+msgid "2 to 28 Letters Only. Apostrophes and hyphens allowed."
+msgstr "2 to 28 Letters Only. Apostrophes and hyphens allowed."
+
 #: register.php:97
+msgid "Invalid Email Address"
+msgstr "Invalid Email Address"
+
+#: register.php:101
 msgid "2 to 28 Characters A-Z, 0-9, '-' '.' and '_' Only."
 msgstr "2 to 28 Characters A-Z, 0-9, '-' '.' and '_' Only."
 
-#: register.php:101
+#: register.php:105
 msgid ""
 "Minimum 6 Characters: One uppercade letter, lowercase letter and number "
 "reuired."
@@ -197,22 +552,22 @@ msgstr ""
 "Minimum 6 Characters: One uppercade letter, lowercase letter and number "
 "reuired."
 
-#: register.php:103
+#: register.php:107
 msgid "Confirm Pass"
 msgstr "Confirm Pass"
 
-#: register.php:108
+#: register.php:112
 msgid "Default"
 msgstr "Default"
 
-#: register.php:118
+#: register.php:122
 msgid "Already have an account?"
 msgstr "Already have an account?"
 
-#: register.php:118
+#: register.php:122
 msgid "Sign in"
 msgstr "Sign in"
 
-#: register.php:131
+#: register.php:135
 msgid "Passwords do not match"
 msgstr "Passwords do not match"
