@@ -565,7 +565,7 @@ session_start();
                                         ***REMOVED*** else { $diskpercent = '0'; ***REMOVED***
                                         if(is_infinite($diskpercent)){ echo "0";***REMOVED******REMOVED***echo $diskpercent;***REMOVED*** ***REMOVED***%</div>
                                     <div class="progress">
-                                        <div class="progress-bar progress-bar-inverse" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent == "INF"){ echo "0";***REMOVED******REMOVED***echo $diskpercent;***REMOVED*** ***REMOVED***%;">% ***REMOVED*** echo _("Complete"); ***REMOVED***</span></div>
+                                        <div class="progress-bar progress-bar-inverse" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent == "INF"){ echo "0";***REMOVED******REMOVED***echo $diskpercent;***REMOVED*** ***REMOVED***%;">% Complete</span></div>
                                     </div>
                                 </li>
                             </ul><br><br>
@@ -578,7 +578,7 @@ session_start();
                                     <div class="pull-right">
                                         ***REMOVED*** if($diskpercent1 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent1);***REMOVED*** ***REMOVED***%</div>
                                     <div class="progress">
-                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent1 == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent1;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent1 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent1);***REMOVED*** ***REMOVED***% ***REMOVED*** echo _("Complete"); ***REMOVED***</span></div>
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent1 == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent1;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent1 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent1);***REMOVED*** ***REMOVED***% Complete</span></div>
                                     </div>
                                 </li>
                                 <li>
@@ -588,7 +588,7 @@ session_start();
                                     <div class="pull-right">
                                         ***REMOVED*** if($diskpercent2 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent2);***REMOVED*** ***REMOVED***%</div>
                                     <div class="progress">
-                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent2 == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent2;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent2 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent2);***REMOVED*** ***REMOVED***% ***REMOVED*** echo _("Complete"); ***REMOVED***</span></div>
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent2 == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent2;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent2 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent2);***REMOVED*** ***REMOVED***% Complete</span></div>
                                     </div>
                                 </li>
                                 <li>
@@ -599,7 +599,7 @@ session_start();
                                     <div class="pull-right">
                                         ***REMOVED*** if($diskpercent3 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent3);***REMOVED*** ***REMOVED***%</div>
                                     <div class="progress">
-                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent3 == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent3;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent3 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent3);***REMOVED*** ***REMOVED***% ***REMOVED*** echo _("Complete"); ***REMOVED***</span></div>
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent3 == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent3;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent3 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent3);***REMOVED*** ***REMOVED***% Complete</span></div>
                                     </div>
                                 </li>
                                 <li>
@@ -610,7 +610,7 @@ session_start();
                                     <div class="pull-right">
                                         ***REMOVED*** if($diskpercent4 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent4);***REMOVED*** ***REMOVED***%</div>
                                     <div class="progress">
-                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent4 == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent4;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent4 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent4);***REMOVED*** ***REMOVED***% ***REMOVED*** echo _("Complete"); ***REMOVED***</span></div>
+                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent4 == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent4;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent4 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent4);***REMOVED*** ***REMOVED***% Complete</span></div>
                                     </div>
                                 </li>
                             </ul>
