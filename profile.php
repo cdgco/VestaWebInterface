@@ -95,7 +95,7 @@ textdomain('messages');
         if(isset($answer1)) { $answer = (int)$answer1; ***REMOVED***
         if(isset($pwcode) || isset($emailcode) || isset($langcode) || isset($nscode) || isset($namecode)){
             if($answer == "0") {
-                echo "<script> swal({title:'***REMOVED*** echo _("Successfully Updated"); ***REMOVED***!', type:'success'***REMOVED***)</script>";
+                echo "<script> swal({title:'" . _("Successfully Updated") . "'!', type:'success'***REMOVED***)</script>";
             ***REMOVED*** 
             if(isset($answer) && $answer == "1" || isset($answer) && $answer == "2") { echo "<script> swal('" . _("Invalid data entered in form.") . "<br>" .  _("Please try again.") . "', '<br>"; 
                                                                                       if(isset($pwcode) && $pwcode != "0"){ echo " P: " . $pwcode;***REMOVED***
