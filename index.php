@@ -1,7 +1,10 @@
 ***REMOVED***
+
+session_start();
+
    if (file_exists( 'includes/config.php' )) { require 'includes/config.php'; ***REMOVED***  else { header( 'Location: install' );***REMOVED***
 
-    if(base64_decode($_COOKIE['loggedin']) == 'true') {***REMOVED***
+    if(base64_decode($_SESSION['loggedin']) == 'true') {***REMOVED***
     else { header('Location: login.php'); ***REMOVED***
 
     $postvarsx = array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-info','arg1' => 'json');
@@ -14,7 +17,7 @@
     curl_setopt($curlx, CURLOPT_POST, true);
     curl_setopt($curlx, CURLOPT_POSTFIELDS, http_build_query($postvarsx));
     $serverconnection = array_values(json_decode(curl_exec($curlx), true))[0]['OS'];
-    if(!isset($serverconnection)) { unset($_COOKIE['username']); setcookie('username', null, -1, '/'); unset($_COOKIE['loggedin']); setcookie('loggedin', null, -1, '/'); header('Location: ../login.php'); exit;***REMOVED***
+    if(!isset($serverconnection)) { unset($_SESSION['username']); setcookie('username', null, -1, '/'); unset($_SESSION['loggedin']); setcookie('loggedin', null, -1, '/'); header('Location: ../login.php'); exit;***REMOVED***
                 
     $postvars = array(
         array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
@@ -71,7 +74,7 @@
             <link href="css/style.css" rel="stylesheet">
             <link href="plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.css" />
-            <link href="css/colors/***REMOVED*** if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); ***REMOVED*** else {echo $themecolor; ***REMOVED*** ***REMOVED***" id="theme" rel="stylesheet">
+            <link href="css/colors/***REMOVED*** if(isset($_SESSION['theme'])) { echo base64_decode($_SESSION['theme']); ***REMOVED*** else {echo $themecolor; ***REMOVED*** ***REMOVED***" id="theme" rel="stylesheet">
             <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
