@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-01-07 13:11-0800\n"
-"PO-Revision-Date: 2018-01-07 13:19-0800\n"
+"POT-Creation-Date: 2018-01-07 13:41-0800\n"
+"PO-Revision-Date: 2018-01-07 13:42-0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -17,536 +17,536 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-1: install/web\n"
 "X-Poedit-SearchPathExcluded-2: bootstrap\n"
 
-#: index.php:71 index.php:174 profile.php:177
+#: index.php:72 index.php:175 profile.php:178
 msgid "Dashboard"
 msgstr "Instrumententafel"
 
-#: index.php:150 index.php:183 profile.php:153 profile.php:186 profile.php:221
+#: index.php:151 index.php:184 profile.php:154 profile.php:187 profile.php:222
 msgid "My Account"
 msgstr "Mein Konto"
 
-#: index.php:151 index.php:184 profile.php:154 profile.php:187
+#: index.php:152 index.php:185 profile.php:155 profile.php:188
 msgid "Account Settings"
 msgstr "Account Einstellungen"
 
-#: index.php:153 profile.php:156
+#: index.php:154 profile.php:157
 msgid "Logout"
 msgstr "Ausloggen"
 
-#: index.php:168 profile.php:171
+#: index.php:169 profile.php:172
 msgid "Navigation"
 msgstr "Navigation"
 
-#: index.php:190 index.php:357 profile.php:193
+#: index.php:191 index.php:358 profile.php:194
 msgid "Web"
 msgstr "Net"
 
-#: index.php:191 index.php:358 profile.php:194
+#: index.php:192 index.php:359 profile.php:195
 msgid "DNS"
 msgstr "DNS"
 
-#: index.php:192 index.php:359 profile.php:195
+#: index.php:193 index.php:360 profile.php:196
 msgid "Mail"
 msgstr "Mail"
 
-#: index.php:193 index.php:360 profile.php:196
+#: index.php:194 index.php:361 profile.php:197
 msgid "Database"
 msgstr "Datenbank"
 
-#: index.php:196 index.php:740 profile.php:199
+#: index.php:197 index.php:741 profile.php:200
 msgid "Cron Jobs"
 msgstr "Cron-Jobs"
 
-#: index.php:197 index.php:666 profile.php:200
+#: index.php:198 index.php:667 profile.php:201
 msgid "Backups"
 msgstr "Sicherungen"
 
-#: index.php:199 profile.php:202
+#: index.php:200 profile.php:203
 msgid "Apps"
 msgstr "Apps"
 
-#: index.php:201 profile.php:204
+#: index.php:202 profile.php:205
 msgid "FTP"
 msgstr "FTP"
 
-#: index.php:202 profile.php:205
+#: index.php:203 profile.php:206
 msgid "Webmail"
 msgstr "Webmail"
 
-#: index.php:203 profile.php:206
+#: index.php:204 profile.php:207
 msgid "phpMyAdmin"
 msgstr "phpMyAdmin"
 
-#: index.php:204 profile.php:207
+#: index.php:205 profile.php:208
 msgid "phpPgAdmin"
 msgstr "phpPgAdmin"
 
-#: index.php:207 profile.php:210
+#: index.php:208 profile.php:211
 msgid "Log out"
 msgstr "Ausloggen"
 
-#: index.php:209 profile.php:212
+#: index.php:210 profile.php:213
 msgid "Control Panel v1"
 msgstr "Systemsteuerung v1"
 
-#: index.php:210 profile.php:213
+#: index.php:211 profile.php:214
 msgid "Support"
 msgstr "Unterstützung"
 
-#: index.php:218
+#: index.php:219
 msgid "Host Dashboard"
 msgstr "Host-Dashboard"
 
-#: index.php:228
+#: index.php:229
 msgid "Rebuild Account"
 msgstr "Konto neu erstellen"
 
-#: index.php:229
+#: index.php:230
 msgid "Rebuild Web"
 msgstr "Web neu erstellen"
 
-#: index.php:230
+#: index.php:231
 msgid "Rebuild DNS"
 msgstr "DNS neu erstellen"
 
-#: index.php:231
+#: index.php:232
 msgid "Rebuild Mail"
 msgstr "Mail neu erstellen"
 
-#: index.php:232
+#: index.php:233
 msgid "Rebuild DB"
 msgstr "Datenbank neu erstellen"
 
-#: index.php:233
+#: index.php:234
 msgid "Rebuild Cron"
 msgstr "Baue Cron neu auf"
 
-#: index.php:234
+#: index.php:235
 msgid "Update Counters"
 msgstr "Zähler aktualisieren"
 
-#: index.php:241
+#: index.php:242
 msgid "Processing"
 msgstr "Wird bearbeitet"
 
-#: index.php:252
+#: index.php:253
 msgid "I was closed by the timer"
 msgstr "Ich wurde vom Timer geschlossen"
 
-#: index.php:279 index.php:692
+#: index.php:280 index.php:693
 msgid "Bandwidth"
 msgstr "Bandbreite"
 
-#: index.php:303
+#: index.php:304
 msgid "Disk Space"
 msgstr "Festplattenspeicher"
 
-#: index.php:322
+#: index.php:323
 msgid "Web Domains"
 msgstr "Webdomänen"
 
-#: index.php:340
+#: index.php:341
 msgid "Email Addresses"
 msgstr "E-mailadressen"
 
-#: index.php:368
+#: index.php:369
 msgid "Manage Web Domains"
 msgstr "Verwalten Sie Web-Domains"
 
-#: index.php:372
+#: index.php:373
 msgid "Add Domain"
 msgstr "Domäne hinzufügen"
 
-#: index.php:373 index.php:427 index.php:471 index.php:515
+#: index.php:374 index.php:428 index.php:472 index.php:516
 msgid "Manage"
 msgstr "Verwalten"
 
-#: index.php:381 index.php:435 index.php:479
+#: index.php:382 index.php:436 index.php:480
 msgid "DOMAIN"
 msgstr "DOMAIN"
 
-#: index.php:382
+#: index.php:383
 msgid "DISK"
 msgstr "SCHEIBE"
 
-#: index.php:383
+#: index.php:384
 msgid "BANDWIDTH"
 msgstr "BANDBREITE"
 
-#: index.php:384
+#: index.php:385
 msgid "SSL"
 msgstr "SSL"
 
-#: index.php:385 index.php:437 index.php:481 index.php:525
+#: index.php:386 index.php:438 index.php:482 index.php:526
 msgid "STATUS"
 msgstr "STATUS"
 
-#: index.php:399
+#: index.php:400
 msgid "Enabled"
 msgstr "Aktiviert"
 
-#: index.php:401
+#: index.php:402
 msgid "Disabled"
 msgstr "Behindert"
 
-#: index.php:405 index.php:450 index.php:494
+#: index.php:406 index.php:451 index.php:495
 msgid "Active"
 msgstr "Aktiv"
 
-#: index.php:407 index.php:452 index.php:496
+#: index.php:408 index.php:453 index.php:497
 msgid "Suspended"
 msgstr "Suspendiert"
 
-#: index.php:422
+#: index.php:423
 msgid "Manage DNS Domains"
 msgstr "Verwalten Sie DNS-Domänen"
 
-#: index.php:426
+#: index.php:427
 msgid "Add DNS"
 msgstr "Fügen Sie DNS hinzu"
 
-#: index.php:436
+#: index.php:437
 msgid "RECORDS"
 msgstr "AUFZEICHNUNGEN"
 
-#: index.php:466
+#: index.php:467
 msgid "Manage Mail Domains"
 msgstr "Mail-Domains verwalten"
 
-#: index.php:470
+#: index.php:471
 msgid "Add Mail"
 msgstr "E-Mail hinzufügen"
 
-#: index.php:480
+#: index.php:481
 msgid "ACCOUNTS"
 msgstr "KONTEN"
 
-#: index.php:510
+#: index.php:511
 msgid "Manage Databases"
 msgstr "Datenbanken verwalten"
 
-#: index.php:514
+#: index.php:515
 msgid "Add Database"
 msgstr "Datenbank hinzufügen"
 
-#: index.php:523
+#: index.php:524
 msgid "DATABASE"
 msgstr "DATENBANK"
 
-#: index.php:524
+#: index.php:525
 msgid "USER"
 msgstr "BENUTZER"
 
-#: index.php:556
+#: index.php:557
 msgid "Disk Quota Used"
 msgstr "Verwendete Festplattenquota"
 
-#: index.php:561
+#: index.php:562
 msgid "Total Disk Space"
 msgstr "Gesamter Festplattenspeicher"
 
-#: index.php:568 index.php:581 index.php:591 index.php:602 index.php:613
-msgid "Complete"
-msgstr "Komplett"
-
-#: index.php:572
+#: index.php:573
 msgid "Disk Usage Breakdown"
 msgstr "Quotenanalyse"
 
-#: index.php:577
+#: index.php:578
 msgid "Web Data"
 msgstr "Webdaten"
 
-#: index.php:587
+#: index.php:588
 msgid "Mail Data"
 msgstr "Mail-Daten"
 
-#: index.php:598 index.php:726
+#: index.php:599 index.php:727
 msgid "Databases"
 msgstr "Datenbanken"
 
-#: index.php:609
+#: index.php:610
 msgid "User Directories"
 msgstr "Benutzerverzeichnisse"
 
-#: index.php:624
+#: index.php:625
 msgid "DNS Domains"
 msgstr "DNS-Domänen"
 
-#: index.php:638
+#: index.php:639
 msgid "DNS Records"
 msgstr "DNS-Datensätze"
 
-#: index.php:652
+#: index.php:653
 msgid "Mail Domains"
 msgstr "Mail-Domänen"
 
-#: index.php:686
+#: index.php:687
 msgid "Account Details"
 msgstr "Kontodetails"
 
-#: index.php:689 login.php:185 login.php:186 login.php:221 profile.php:288
-#: register.php:101
+#: index.php:690 login.php:186 login.php:187 login.php:222 profile.php:289
+#: register.php:102
 msgid "Username"
 msgstr "Nutzername"
 
-#: index.php:690 profile.php:310 register.php:97
+#: index.php:691 profile.php:311 register.php:98
 msgid "Email"
 msgstr "Email"
 
-#: index.php:691 profile.php:259
+#: index.php:692 profile.php:260
 msgid "Plan"
 msgstr "Planen"
 
-#: index.php:693
+#: index.php:694
 msgid "Disk Quota"
 msgstr "Datenträgerkontingent"
 
-#: index.php:701 profile.php:269
+#: index.php:702 profile.php:270
 msgid "Nameservers"
 msgstr "Nameserver"
 
-#: index.php:754
+#: index.php:755
 msgid "Web Aliases"
 msgstr "Web-Aliase"
 
-#: index.php:769 profile.php:385
+#: index.php:770 profile.php:386
 msgid "Copyright"
 msgstr "Urheberrechte"
 
-#: index.php:769 profile.php:385
+#: index.php:770 profile.php:386
 msgid "All Rights Reserved. Vesta Web Interface"
 msgstr "Alle Rechte vorbehalten. Vesta Webschnittstelle"
 
-#: index.php:769 profile.php:385
+#: index.php:770 profile.php:386
 msgid "by CDG Web Services"
 msgstr "von CDG Web Services"
 
-#: index.php:792 login.php:267 register.php:172
+#: index.php:793 login.php:268 register.php:173
 msgid "Warning"
 msgstr "Warnung"
 
-#: index.php:793 login.php:268 register.php:173
+#: index.php:794 login.php:269 register.php:174
 msgid "Includes folder has not been secured"
 msgstr "Includes ordner wurde nicht gesichert"
 
-#: login.php:57 login.php:227
+#: login.php:58 login.php:228
 msgid "Login"
 msgstr "Anmeldung"
 
-#: login.php:99
+#: login.php:100
 msgid "Account has been successfully created!"
 msgstr "Konto wurde erfolgreich erstellt!"
 
-#: login.php:101
+#: login.php:102
 msgid "Please fill out all sections of the form."
 msgstr "Bitte füllen Sie alle Abschnitte des Formulars aus."
 
-#: login.php:104
+#: login.php:105
 msgid "Invalid data entered in form. Please try again."
 msgstr "Ungültige Daten im Formular eingegeben. Bitte versuche es erneut."
 
-#: login.php:107
+#: login.php:108
 msgid "Server or form error (Code: 3). Please contact support."
 msgstr ""
 "Server- oder Formularfehler (Code: 3). Bitte kontaktieren Sie den Support."
 
-#: login.php:110
+#: login.php:111
 msgid "Account already exists under same username."
 msgstr "Konto existiert bereits unter demselben Benutzernamen."
 
-#: login.php:113
+#: login.php:114
 msgid "System Error (Code: 12). Please contact support."
 msgstr "Systemfehler (Code: 12). Bitte kontaktieren Sie den Support."
 
-#: login.php:116
+#: login.php:117
 msgid "Server Error (Code: 13). Please contact support."
 msgstr "Serverfehler (Code: 13). Bitte kontaktieren Sie den Support."
 
-#: login.php:119
+#: login.php:120
 msgid "Server Error (Code: 14). Please contact support."
 msgstr "Serverfehler (Code: 14). Bitte kontaktieren Sie den Support."
 
-#: login.php:122
+#: login.php:123
 msgid "System Error (Code: 15). Please contact support."
 msgstr "Systemfehler (Code: 15). Bitte kontaktieren Sie den Support."
 
-#: login.php:125
+#: login.php:126
 msgid "Server Error (Code: 16). Please contact support."
 msgstr "Serverfehler (Code: 16). Bitte kontaktieren Sie den Support."
 
-#: login.php:128
+#: login.php:129
 msgid "Server Error (Code: 17). Please contact support."
 msgstr "Serverfehler (Code: 17). Bitte kontaktieren Sie den Support."
 
-#: login.php:131
+#: login.php:132
 msgid "Process Error (Code: 18). Please contact support."
 msgstr "Prozessfehler (Code: 18). Bitte kontaktieren Sie den Support."
 
-#: login.php:134
+#: login.php:135
 msgid "Process Error (Code: 19). Please contact support."
 msgstr "Prozessfehler (Code: 19). Bitte kontaktieren Sie den Support."
 
-#: login.php:137
+#: login.php:138
 msgid "Fatal Error (Code: 20). Please contact support."
 msgstr "Schwerwiegender Fehler (Code: 20). Bitte kontaktieren Sie den Support."
 
-#: login.php:149 register.php:82
+#: login.php:150 register.php:83
 msgid "Control Panel"
 msgstr "Schalttafel"
 
-#: login.php:157
+#: login.php:158
 msgid "Sign In to"
 msgstr "Anmelden bei"
 
-#: login.php:157
+#: login.php:158
 msgid "CP"
 msgstr "CP"
 
-#: login.php:158 register.php:88
+#: login.php:159 register.php:89
 msgid "Enter your details below"
 msgstr "Geben Sie Ihre Daten unten ein"
 
-#: login.php:174
+#: login.php:175
 msgid "Loading Dashboard"
 msgstr "Dashboard wird geladen"
 
-#: login.php:178
+#: login.php:179
 msgid "Error: Incorrect Login."
 msgstr "Fehler: Falsche Anmeldung."
 
-#: login.php:191 login.php:192 profile.php:293 register.php:105
+#: login.php:192 login.php:193 profile.php:294 register.php:106
 msgid "Password"
 msgstr "Passwort"
 
-#: login.php:198
+#: login.php:199
 msgid "Forgot pwd?"
 msgstr "Passwort vergessen?"
 
-#: login.php:202
+#: login.php:203
 msgid "Log in"
 msgstr "Einloggen"
 
-#: login.php:208
+#: login.php:209
 msgid "Don't have an account?"
 msgstr "Hast du kein Konto?"
 
-#: login.php:208 register.php:117
+#: login.php:209 register.php:118
 msgid "Sign Up"
 msgstr "Anmelden"
 
-#: login.php:215
+#: login.php:216
 msgid "Recover Password"
 msgstr "Passwort wiederherstellen"
 
-#: login.php:216
+#: login.php:217
 msgid "Enter your username and instructions will be sent to you."
 msgstr ""
 "Geben Sie Ihren Benutzernamen ein und die Anweisungen werden Ihnen zugesandt."
 
-#: login.php:231
+#: login.php:232
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: login.php:258 register.php:163
+#: login.php:259 register.php:164
 msgid "Error"
 msgstr "Error"
 
-#: login.php:259 register.php:164
+#: login.php:260 register.php:165
 msgid "Failed to connect to server."
 msgstr "Verbindung zum Server fehlgeschlagen."
 
-#: login.php:259 register.php:164
+#: login.php:260 register.php:165
 msgid "Please check config.php"
 msgstr "Bitte überprüfen Sie die config.php"
 
-#: profile.php:45 profile.php:241
+#: profile.php:46 profile.php:242
 msgid "Account"
 msgstr "Konto"
 
-#: profile.php:100
+#: profile.php:99
+msgid "Successfully Updated"
+msgstr "Erfolgreich aktualisiert"
+
+#: profile.php:101
 msgid "Invalid data entered in form."
 msgstr "Ungültige Daten im Formular eingegeben."
 
-#: profile.php:100
+#: profile.php:101
 msgid "Please try again."
 msgstr "Bitte versuche es erneut."
 
-#: profile.php:107
+#: profile.php:108
 msgid "Please try again or contact support."
 msgstr "Bitte versuchen Sie es erneut oder wenden Sie sich an den Support."
 
-#: profile.php:244
+#: profile.php:245
 msgid "Settings"
 msgstr "Die Einstellungen"
 
-#: profile.php:250
+#: profile.php:251
 msgid "Name"
 msgstr "Name"
 
-#: profile.php:254
+#: profile.php:255
 msgid "Joined"
 msgstr "Beigetreten"
 
-#: profile.php:263 profile.php:315
+#: profile.php:264 profile.php:316
 msgid "Language"
 msgstr "Sprache"
 
-#: profile.php:293
+#: profile.php:294
 msgid "Generate"
 msgstr "Generieren"
 
-#: profile.php:302 register.php:92
+#: profile.php:303 register.php:93
 msgid "First Name"
 msgstr "Vorname"
 
-#: profile.php:302 register.php:93
+#: profile.php:303 register.php:94
 msgid "Last Name"
 msgstr "Familienname"
 
-#: profile.php:352
+#: profile.php:353
 msgid "Default Nameservers"
 msgstr "Standard-Nameserver"
 
-#: profile.php:357 profile.php:359 profile.php:361 profile.php:363
-#: profile.php:365 profile.php:367
+#: profile.php:358 profile.php:360 profile.php:362 profile.php:364
+#: profile.php:366 profile.php:368
 msgid "Add One"
 msgstr "Füge eins hinzu"
 
-#: profile.php:359 profile.php:361 profile.php:363 profile.php:365
-#: profile.php:367 profile.php:369
+#: profile.php:360 profile.php:362 profile.php:364 profile.php:366
+#: profile.php:368 profile.php:370
 msgid "Remove One"
 msgstr "Entferne eins"
 
-#: profile.php:374
+#: profile.php:375
 msgid "Update Profile"
 msgstr "Profil aktualisieren"
 
-#: profile.php:375
+#: profile.php:376
 msgid "Back"
 msgstr "Zurück"
 
-#: register.php:37
+#: register.php:38
 msgid "Register"
 msgstr "Registrieren"
 
-#: register.php:88
+#: register.php:89
 msgid "Sign up for"
 msgstr "Melden Sie sich an für"
 
-#: register.php:92 register.php:93
+#: register.php:93 register.php:94
 msgid "2 to 28 Letters Only. Apostrophes and hyphens allowed."
 msgstr "Nur 2 bis 28 Buchstaben. Apostrophe und Bindestriche erlaubt."
 
-#: register.php:97
+#: register.php:98
 msgid "Invalid Email Address"
 msgstr "Ungültige E-Mail-Adresse"
 
-#: register.php:101
+#: register.php:102
 msgid "2 to 28 Characters A-Z, 0-9, '-' '.' and '_' Only."
 msgstr "2 bis 28 Zeichen AZ, 0-9, - . und nur."
 
-#: register.php:105
+#: register.php:106
 msgid ""
 "Minimum 6 Characters: One uppercade letter, lowercase letter and number "
 "reuired."
@@ -554,22 +554,25 @@ msgstr ""
 "Mindestens 6 Zeichen: Ein Großbuchstaben, Kleinbuchstaben und Zahl "
 "erforderlich."
 
-#: register.php:107
+#: register.php:108
 msgid "Confirm Pass"
 msgstr "Bestätige das Passwort"
 
-#: register.php:112
+#: register.php:113
 msgid "Default"
 msgstr "Standard"
 
-#: register.php:122
+#: register.php:123
 msgid "Already have an account?"
 msgstr "Hast du schon ein Konto?"
 
-#: register.php:122
+#: register.php:123
 msgid "Sign in"
 msgstr "Anmelden"
 
-#: register.php:135
+#: register.php:136
 msgid "Passwords do not match"
 msgstr "Passwörter stimmen nicht überein"
+
+#~ msgid "Complete"
+#~ msgstr "Komplett"
