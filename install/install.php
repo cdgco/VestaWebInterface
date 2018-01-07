@@ -111,6 +111,7 @@ DEFINE('INTERAKT_API_KEY', '".$_POST['INTERAKT_API_KEY']."'); // Enable Interakt
 \***REMOVED***
 \$uname = base64_decode(\$_SESSION['username']);
 \$loggedin = base64_decode(\$_SESSION['loggedin']);
+\***REMOVED***
 \$username = \$uname;
 \***REMOVED***
 
