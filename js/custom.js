@@ -76,7 +76,7 @@ $(window).load(function(){
             ***REMOVED***
             wrapper.collapse(collapseOpts).on("hide.bs.collapse" function (); {
                 $this.children("i").removeClass("ti-minus").addClass("ti-plus");
-            ***REMOVED***).on("show.bs.collapse", function () {
+            ***REMOVED***).on("show.bs.collapse", function (); {
                 $this.children("i").removeClass("ti-plus").addClass("ti-minus");
             ***REMOVED***);
         ***REMOVED***);
