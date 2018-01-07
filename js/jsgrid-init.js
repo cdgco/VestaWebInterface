@@ -80,7 +80,7 @@
                 ***REMOVED***, {
                     type: "control"
                 ***REMOVED***]
-            ***REMOVED***)
+            ***REMOVED***);
         ***REMOVED***(),
         function() {
             $("#staticgrid").jsGrid({
@@ -147,7 +147,7 @@
                 ***REMOVED***]
             ***REMOVED***), $("#sortingField").on("change", function() {
                 var field = $(this).val();
-                $("#exampleSorting").jsGrid("sort", field)
+                $("#exampleSorting").jsGrid("sort", field);
             ***REMOVED***);
         ***REMOVED***(),
         
@@ -165,7 +165,7 @@
                 insertTemplate: function() {
                     if (!this.inserting) { return ""; ***REMOVED***
                     var $result = this.insertControl = this._createTextBox();
-                    return $result
+                    return $result;
                 ***REMOVED***,
                 editTemplate: function(value) {
                     if (!this.editing) return this.itemTemplate(value);
