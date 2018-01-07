@@ -39,7 +39,7 @@ session_start();
     $dnstpl = array_values(json_decode(curl_exec($curl2), true));
     if ($dnsname[0] == '') { header('Location: ../list/dns.php'); ***REMOVED***
     if(isset($admindata['LANGUAGE'])){ $locale = $countries[$admindata['LANGUAGE']]; ***REMOVED***
-    setlocale(LC_ALL, $locale);
+    setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
     bindtextdomain('messages', 'locale');
     textdomain('messages');
 ***REMOVED***

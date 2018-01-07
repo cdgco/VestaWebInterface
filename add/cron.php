@@ -26,7 +26,7 @@ while($curlstart <= 0) {
 $admindata = json_decode(curl_exec($curl0), true)[$username];
 $useremail = $admindata['CONTACT'];
 if(isset($admindata['LANGUAGE'])){ $locale = $countries[$admindata['LANGUAGE']]; ***REMOVED***
-setlocale(LC_ALL, $locale);
+setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
 bindtextdomain('messages', 'locale');
 textdomain('messages');
 ***REMOVED***
@@ -41,7 +41,7 @@ textdomain('messages');
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="icon" type="image/ico" href="../plugins/images/favicon.ico">
-        <title>***REMOVED*** echo $sitetitle; ***REMOVED*** - Cron Jobs</title>
+        <title>***REMOVED*** echo $sitetitle; ***REMOVED*** - ***REMOVED*** echo _("Cron Jobs"); ***REMOVED***</title>
         <link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
         <link href="../plugins/bower_components/footable/css/footable.bootstrap.css" rel="stylesheet">
@@ -97,10 +97,10 @@ textdomain('messages');
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../profile.php"><i class="ti-home"></i> My Account</a></li>
-                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> Account Setting</a></li>
+                                <li><a href="../profile.php"><i class="ti-home"></i> ***REMOVED*** echo _("My Account"); ***REMOVED***</a></li>
+                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> ***REMOVED*** echo _("Account Settings"); ***REMOVED***</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
+                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> ***REMOVED*** echo _("Logout"); ***REMOVED***</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -114,13 +114,13 @@ textdomain('messages');
                                 <i class="ti-menu hidden-xs"></i>
                                 <i class="ti-close visible-xs"></i>
                             </span> 
-                            <span class="hide-menu">Navigation</span>
+                            <span class="hide-menu">***REMOVED*** echo _("Navigation"); ***REMOVED***</span>
                         </h3>  
                     </div>
                    <ul class="nav" id="side-menu">
                             <li> 
                                 <a href="../index.php" class="waves-effect">
-                                    <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu">Dashboard</span>
+                                    <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu">***REMOVED*** echo _("Dashboard"); ***REMOVED***</span>
                                 </a> 
                             </li>
 
@@ -129,34 +129,34 @@ textdomain('messages');
                                 <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> ***REMOVED*** print_r($uname); ***REMOVED***<span class="fa arrow"></span></span>
                                 </a>
                                 <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
-                                    <li> <a href="../profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> My Account</span></a></li>
-                                    <li> <a href="../profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> Account Setting</span></a></li>
+                                    <li> <a href="../profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> ***REMOVED*** echo _("My Account"); ***REMOVED***</span></a></li>
+                                    <li> <a href="../profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> ***REMOVED*** echo _("Account Settings"); ***REMOVED***</span></a></li>
                                 </ul>
                             </li>
-                            ***REMOVED*** if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '<li class="devider"></li>
-                                <li> <a href="#" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">Management <span class="fa arrow"></span> </span></a>
-                                    <ul class="nav nav-second-level">'; ***REMOVED*** ***REMOVED***
-                            ***REMOVED*** if ($webenabled == 'true') { echo '<li> <a href="../list/web.php"><i class="ti-world fa-fw"></i><span class="hide-menu">Web</span></a> </li>'; ***REMOVED*** ***REMOVED***
-                            ***REMOVED*** if ($dnsenabled == 'true') { echo '<li> <a href="../list/dns.php"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">DNS</span></a> </li>'; ***REMOVED*** ***REMOVED***
-                            ***REMOVED*** if ($mailenabled == 'true') { echo '<li> <a href="../list/mail.php"><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">Mail</span></a> </li>'; ***REMOVED*** ***REMOVED***
-                            ***REMOVED*** if ($dbenabled == 'true') { echo '<li> <a href="../list/db.php"><i class="fa fa-database fa-fw"></i><span class="hide-menu">Database</span></a> </li>'; ***REMOVED*** ***REMOVED***
-                            ***REMOVED*** if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '</ul>
-                                </li>'; ***REMOVED*** ***REMOVED***
-                            <li> <a href="../list/cron.php" class="waves-effect active"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">Cron Jobs</span></a> </li>
-                            <li> <a href="../list/backups.php" class="waves-effect"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu">Backups</span></a> </li>
-                            ***REMOVED*** if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {***REMOVED*** else { echo '<li class="devider"></li>
-                                <li><a href="#" class="waves-effect"><i class="mdi mdi-apps fa-fw"></i> <span class="hide-menu">Apps<span class="fa arrow"></span></span></a>
-                                    <ul class="nav nav-second-level">'; ***REMOVED*** ***REMOVED***
-                            ***REMOVED*** if ($ftpurl != '') { echo '<li><a href="' . $ftpurl . '" target="_blank"><i class="fa fa-file-code-o fa-fw"></i><span class="hide-menu">FTP</span></a></li>';***REMOVED*** ***REMOVED***
-                            ***REMOVED*** if ($webmailurl != '') { echo '<li><a href="' . $webmailurl . '" target="_blank"><i class="fa fa-envelope-o fa-fw"></i><span class="hide-menu">Webmail</span></a></li>';***REMOVED*** ***REMOVED***
-                            ***REMOVED*** if ($phpmyadmin != '') { echo '<li><a href="' . $phpmyadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">phpMyAdmin</span></a></li>';***REMOVED*** ***REMOVED***
-                            ***REMOVED*** if ($phppgadmin != '') { echo '<li><a href="' . $phppgadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">phpPgAdmin</span></a></li>';***REMOVED*** ***REMOVED***
-                            ***REMOVED*** if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {***REMOVED*** else { echo '</ul></li>';***REMOVED*** ***REMOVED***
-                            <li class="devider"></li>
-                            <li><a href="process/logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
-                            ***REMOVED*** if ($oldcpurl == '' || $supporturl == '') {***REMOVED*** else { echo '<li class="devider"></li>'; ***REMOVED*** ***REMOVED***
-                            ***REMOVED*** if ($oldcpurl != '') { echo '<li><a href="' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> Control Panel v1</span></a></li>'; ***REMOVED*** ***REMOVED***
-                            ***REMOVED*** if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">Support</span></a></li>'; ***REMOVED*** ***REMOVED***
+                        ***REMOVED*** if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '<li class="devider"></li>
+                            <li> <a href="#" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">'. _("Management") . '<span class="fa arrow"></span> </span></a>
+                                <ul class="nav nav-second-level">'; ***REMOVED*** ***REMOVED***
+                        ***REMOVED*** if ($webenabled == 'true') { echo '<li> <a href="../list/web.php"><i class="ti-world fa-fw"></i><span class="hide-menu">' . _("Web") . '</span></a> </li>'; ***REMOVED*** ***REMOVED***
+                        ***REMOVED*** if ($dnsenabled == 'true') { echo '<li> <a href="../list/dns.php"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">' . _("DNS") . '</span></a> </li>'; ***REMOVED*** ***REMOVED***
+                        ***REMOVED*** if ($mailenabled == 'true') { echo '<li> <a href="../list/mail.php"><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">' . _("Mail") . '</span></a> </li>'; ***REMOVED*** ***REMOVED***
+                        ***REMOVED*** if ($dbenabled == 'true') { echo '<li> <a href="../list/db.php"><i class="fa fa-database fa-fw"></i><span class="hide-menu">' . _("Database") . '</span></a> </li>'; ***REMOVED*** ***REMOVED***
+                        ***REMOVED*** if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '</ul>
+                            </li>'; ***REMOVED*** ***REMOVED***
+                        <li> <a href="../list/cron.php" class="waves-effect" class="active"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">***REMOVED*** echo _("Cron Jobs"); ***REMOVED***</span></a> </li>
+                        <li> <a href="../list/backups.php" class="waves-effect"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu">***REMOVED*** echo _("Backups"); ***REMOVED***</span></a> </li>
+                        ***REMOVED*** if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {***REMOVED*** else { echo '<li class="devider"></li>
+                            <li><a href="#" class="waves-effect"><i class="mdi mdi-apps fa-fw"></i> <span class="hide-menu">' . _("Apps") . '<span class="fa arrow"></span></span></a>
+                                <ul class="nav nav-second-level">'; ***REMOVED*** ***REMOVED***
+                        ***REMOVED*** if ($ftpurl != '') { echo '<li><a href="' . $ftpurl . '" target="_blank"><i class="fa fa-file-code-o fa-fw"></i><span class="hide-menu">' . _("FTP") . '</span></a></li>';***REMOVED*** ***REMOVED***
+                        ***REMOVED*** if ($webmailurl != '') { echo '<li><a href="' . $webmailurl . '" target="_blank"><i class="fa fa-envelope-o fa-fw"></i><span class="hide-menu">' . _("Webmail") . '</span></a></li>';***REMOVED*** ***REMOVED***
+                        ***REMOVED*** if ($phpmyadmin != '') { echo '<li><a href="' . $phpmyadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . _("phpMyAdmin") . '</span></a></li>';***REMOVED*** ***REMOVED***
+                        ***REMOVED*** if ($phppgadmin != '') { echo '<li><a href="' . $phppgadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . _("phpPgAdmin") . '</span></a></li>';***REMOVED*** ***REMOVED***
+                        ***REMOVED*** if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {***REMOVED*** else { echo '</ul></li>';***REMOVED*** ***REMOVED***
+                        <li class="devider"></li>
+                        <li><a href="../process/logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu">***REMOVED*** echo _("Log out"); ***REMOVED***</span></a></li>
+                        ***REMOVED*** if ($oldcpurl == '' || $supporturl == '') {***REMOVED*** else { echo '<li class="devider"></li>'; ***REMOVED*** ***REMOVED***
+                        ***REMOVED*** if ($oldcpurl != '') { echo '<li><a href="' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> ' . _("Control Panel v1") . '</span></a></li>'; ***REMOVED*** ***REMOVED***
+                        ***REMOVED*** if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">' . _("Support") . '</span></a></li>'; ***REMOVED*** ***REMOVED***
                         </ul>
                 </div>
             </div>
@@ -164,7 +164,7 @@ textdomain('messages');
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-12 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title">Add Cron Job</h4>
+                            <h4 class="page-title">***REMOVED*** echo _("Add Cron Job"); ***REMOVED***</h4>
                         </div>
                     </div>
                     <div class="row">
@@ -172,7 +172,7 @@ textdomain('messages');
                             <div class="col-md-12 col-xs-12">
                                 <div class="white-box">
                                     <div class="form-group">
-                                        <label class="col-md-12">Command</label>
+                                        <label class="col-md-12">***REMOVED*** echo _("Command"); ***REMOVED***</label>
                                         <div class="col-md-12">
                                             <input type="text" form="vstobjects" name="v_cmd" class="form-control"> 
                                         </div>
@@ -186,39 +186,39 @@ textdomain('messages');
                             <div class="col-md-8 col-xs-12">
                                 <div class="white-box">
                                     <div class="form-group">
-                                        <label class="col-md-12">Minute</label>
+                                        <label class="col-md-12">***REMOVED*** echo _("Minute"); ***REMOVED***</label>
                                         <div class="col-md-12">
                                             <input type="text" name="v_min" class="form-control"> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Hour</label>
+                                        <label class="col-md-12">***REMOVED*** echo _("Hour"); ***REMOVED***</label>
                                         <div class="col-md-12">
                                             <input type="text" name="v_hour" class="form-control"> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Day</label>
+                                        <label class="col-md-12">***REMOVED*** echo _("Day"); ***REMOVED***</label>
                                         <div class="col-md-12">
                                             <input type="text" name="v_day" class="form-control"> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Month</label>
+                                        <label class="col-md-12">***REMOVED*** echo _("Month"); ***REMOVED***</label>
                                         <div class="col-md-12">
                                             <input type="text" name="v_month" class="form-control"> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Day of Week</label>
+                                        <label class="col-md-12">***REMOVED*** echo _("Day of Week"); ***REMOVED***</label>
                                         <div class="col-md-12">
                                             <input type="text" name="v_wday" class="form-control"> 
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success">Add Cron</button> &nbsp;
-                                            <a href="../list/cron.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">Back</button></a>
+                                            <button class="btn btn-success">***REMOVED*** echo _("Add Cron"); ***REMOVED***</button> &nbsp;
+                                            <a href="../list/cron.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">***REMOVED*** echo _("Back"); ***REMOVED***</button></a>
                                         </div>
                                     </div>
                                 </div>
@@ -228,35 +228,35 @@ textdomain('messages');
                                 <div> 
                                     <center>
                                         <h3>
-                                            Cron Generator
+                                            ***REMOVED*** echo _("Cron Generator"); ***REMOVED***
                                         </h3>
                                     </center><br>
                                     <div class="overlay-box" style="background: #fff;">
                                         <ul class="nav nav-tabs">
-                                            <li class="active"><a  href="#1" data-toggle="tab">Minutes</a>
+                                            <li class="active"><a  href="#1" data-toggle="tab">***REMOVED*** echo _("Minutes"); ***REMOVED***</a>
                                             </li>
-                                            <li><a href="#2" data-toggle="tab">Hourly</a>
+                                            <li><a href="#2" data-toggle="tab">***REMOVED*** echo _("Hourly"); ***REMOVED***</a>
                                             </li>
-                                            <li><a href="#3" data-toggle="tab">Daily</a>
+                                            <li><a href="#3" data-toggle="tab">***REMOVED*** echo _("Daily"); ***REMOVED***</a>
                                             </li>
-                                            <li><a href="#4" data-toggle="tab">Weekly</a>
+                                            <li><a href="#4" data-toggle="tab">***REMOVED*** echo _("Weekly"); ***REMOVED***</a>
                                             </li>
-                                            <li><a href="#5" data-toggle="tab">Monthly</a>
+                                            <li><a href="#5" data-toggle="tab">***REMOVED*** echo _("Monthly"); ***REMOVED***</a>
                                             </li>
                                         </ul>
                                         <div class="tab-content  generator">
                                             <div class="tab-pane active" id="1">
                                                 <form class="form-horizontal form-material" autocomplete="off" action="javascript:void(0);">
                                                     <div class="form-group">
-                                                        <label class="col-md-12">Run Command</label>
+                                                        <label class="col-md-12">***REMOVED*** echo _("Run Command"); ***REMOVED***</label>
                                                         <div class="col-md-12">
                                                             <select class="form-control" name="h_min" >
-                                                                <option value="*" selected="selected">every minute</option>
-                                                                <option value="*/2">every two minutes</option>
-                                                                <option value="*/5">every 5</option>
-                                                                <option value="*/10">every 10</option>
-                                                                <option value="*/15">every 15</option>
-                                                                <option value="*/30">every 30</option>
+                                                                <option value="*" selected="selected">***REMOVED*** echo _("every minute"); ***REMOVED***</option>
+                                                                <option value="*/2">***REMOVED*** echo _("every two minutes"); ***REMOVED***</option>
+                                                                <option value="*/5">***REMOVED*** echo _("every"); ***REMOVED*** 5</option>
+                                                                <option value="*/10">***REMOVED*** echo _("every"); ***REMOVED*** 10</option>
+                                                                <option value="*/15">***REMOVED*** echo _("every"); ***REMOVED*** 15</option>
+                                                                <option value="*/30">***REMOVED*** echo _("every"); ***REMOVED*** 30</option>
                                                             </select>
                                                     <input type="hidden" name="h_hour" value="*">
                                                     <input type="hidden" name="h_day" value="*">
@@ -266,7 +266,7 @@ textdomain('messages');
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-sm-12">
-                                                            <button class="btn btn-success">Generate</button>
+                                                            <button class="btn btn-success">***REMOVED*** echo _("Generate"); ***REMOVED***</button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -280,15 +280,15 @@ textdomain('messages');
                                                         <label class="col-md-12">Run Command</label>
                                                         <div class="col-md-12">
                                                             <select class="form-control" name="h_hour">
-                                                                <option value="*" selected="selected">every hour</option>
-                                                                <option value="*/2">every two hours</option>
-                                                                <option value="*/6">every 6</option>
-                                                                <option value="*/12">every 12</option>
+                                                                <option value="*" selected="selected">***REMOVED*** echo _("every hour"); ***REMOVED***</option>
+                                                                <option value="*/2">***REMOVED*** echo _("every two hours"); ***REMOVED***</option>
+                                                                <option value="*/6">***REMOVED*** echo _("every"); ***REMOVED*** 6</option>
+                                                                <option value="*/12">***REMOVED*** echo _("every"); ***REMOVED*** 12</option>
                                                             </select>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-md-12">Minute</label>
+                                                        <label class="col-md-12">***REMOVED*** echo _("Minute"); ***REMOVED***</label>
                                                     <div class="col-md-12">
                                                         <select class="form-control" name="h_min">
                                                             <option value="0" selected="selected">00</option>
@@ -300,7 +300,7 @@ textdomain('messages');
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="col-sm-12">
-                                                        <button class="btn btn-success">Generate</button>
+                                                        <button class="btn btn-success">***REMOVED*** echo _("Generate"); ***REMOVED***</button>
                                                     </div>
                                                     </div>
                                                 </form>
@@ -310,22 +310,22 @@ textdomain('messages');
                                                     <input type="hidden" name="h_month" value="*">
                                                     <input type="hidden" name="h_wday" value="*">
                                                     <div class="form-group">
-                                                        <label class="col-md-12">Run Command</label>
+                                                        <label class="col-md-12">***REMOVED*** echo _("Run Command"); ***REMOVED***</label>
                                                         <div class="col-md-12">
                                                             <select class="form-control" name="h_day">
-                                                                <option value="*" selected="selected">every day</option>
-                                                                <option value="1-31/2">every odd day</option>
-                                                                <option value="*/2">every even day</option>
-                                                                <option value="*/3">every 3</option>
-                                                                <option value="*/5">every 5</option>
-                                                                <option value="*/10">every 10</option>
-                                                                <option value="*/15">every 15</option>
+                                                                <option value="*" selected="selected">***REMOVED*** echo _("every day"); ***REMOVED***</option>
+                                                                <option value="1-31/2">***REMOVED*** echo _("every odd day"); ***REMOVED***</option>
+                                                                <option value="*/2">***REMOVED*** echo _("every even day"); ***REMOVED***</option>
+                                                                <option value="*/3">***REMOVED*** echo _("every"); ***REMOVED*** 3</option>
+                                                                <option value="*/5">***REMOVED*** echo _("every"); ***REMOVED*** 5</option>
+                                                                <option value="*/10">***REMOVED*** echo _("every"); ***REMOVED*** 10</option>
+                                                                <option value="*/15">***REMOVED*** echo _("every"); ***REMOVED*** 15</option>
                                                             </select>
                                                         </div>
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label class="col-sm-6 pull-left">Hour</label><label class="col-sm-6 pull-right">Minute</label>
+                                                        <label class="col-sm-6 pull-left"***REMOVED*** echo _("Hour"); ***REMOVED***</label><label class="col-sm-6 pull-right">***REMOVED*** echo _("Minute"); ***REMOVED***</label>
                                                         <div class="col-sm-6 pull-left">
                                                             <select class="form-control" name="h_hour">
                                                                 <option value="0">00</option>
@@ -375,7 +375,7 @@ textdomain('messages');
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-sm-12">
-                                                            <button class="btn btn-success">Generate</button>
+                                                            <button class="btn btn-success">***REMOVED*** echo _("Generate"); ***REMOVED***</button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -385,24 +385,24 @@ textdomain('messages');
                                                     <input type="hidden" name="h_month" value="*">
                                                     <input type="hidden" name="h_day" value="*">
                                                     <div class="form-group">
-                                                        <label class="col-md-12">Run Command</label>
+                                                        <label class="col-md-12">***REMOVED*** echo _("Run Command"); ***REMOVED***</label>
                                                         <div class="col-md-12">
                                                             <select class="form-control" name="h_wday">
-                                                                <option value="*" selected="selected">every day</option>
-                                                                <option value="1,2,3,4,5">weekdays (5 days)</option>
-                                                                <option value="0,6">weekend (2 days)</option>
-                                                                <option value="1">Monday</option>
-                                                                <option value="2">Tuesday</option>
-                                                                <option value="3">Wednesday</option>
-                                                                <option value="4">Thursday</option>
-                                                                <option value="5">Friday</option>
-                                                                <option value="6">Saturday</option>
-                                                                <option value="0">Sunday</option>
+                                                                <option value="*" selected="selected">***REMOVED*** echo _("every day"); ***REMOVED***</option>
+                                                                <option value="1,2,3,4,5">***REMOVED*** echo _("weekdays (5 days)"); ***REMOVED***</option>
+                                                                <option value="0,6">***REMOVED*** echo _("weekend (2 days)"); ***REMOVED***</option>
+                                                                <option value="1">***REMOVED*** echo _("Monday"); ***REMOVED***</option>
+                                                                <option value="2">***REMOVED*** echo _("Tuesday"); ***REMOVED***</option>
+                                                                <option value="3">***REMOVED*** echo _("Wednesday"); ***REMOVED***</option>
+                                                                <option value="4">***REMOVED*** echo _("Thursday"); ***REMOVED***</option>
+                                                                <option value="5">***REMOVED*** echo _("Friday"); ***REMOVED***</option>
+                                                                <option value="6">***REMOVED*** echo _("Saturday"); ***REMOVED***</option>
+                                                                <option value="0">***REMOVED*** echo _("Sunday"); ***REMOVED***</option>
                                                             </select>
                                                         </div>
                                                     </div>
                                                 <div class="form-group">
-                                                    <label class="col-sm-6 pull-left">Hour</label><label class="col-sm-6 pull-right">Minute</label>
+                                                    <label class="col-sm-6 pull-left">***REMOVED*** echo _("Hour"); ***REMOVED***</label><label class="col-sm-6 pull-right">***REMOVED*** echo _("Minute"); ***REMOVED***</label>
                                                     <div class="col-sm-6 pull-left">
                                                         <select class="form-control" name="h_hour">
                                                             <option value="0">00</option>
@@ -452,7 +452,7 @@ textdomain('messages');
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="col-sm-12">
-                                                        <button class="btn btn-success">Generate</button>
+                                                        <button class="btn btn-success">***REMOVED*** echo _("Generate"); ***REMOVED***</button>
                                                     </div>
                                                 </div>
                                                 </form>
@@ -461,31 +461,31 @@ textdomain('messages');
                                                 <form class="form-horizontal form-material" autocomplete="off" action="javascript:void(0);">
                                                     <input type="hidden" name="h_wday" value="*">
                                                     <div class="form-group">
-                                                        <label class="col-md-12">Run Command</label>
+                                                        <label class="col-md-12">***REMOVED*** echo _("Run Command"); ***REMOVED***</label>
                                                         <div class="col-md-12">
                                                             <select class="form-control" name="h_month">
-                                                                <option value="*" selected="selected">every month</option>
-                                                                <option value="1-11/2">every odd month</option>
-                                                                <option value="*/2">every even month</option>
-                                                                <option value="*/3">every 3</option>
-                                                                <option value="*/6">every 6</option>
-                                                                <option value="1">Jan</option>
-                                                                <option value="2">Feb</option>
-                                                                <option value="3">Mar</option>
-                                                                <option value="4">Apr</option>
-                                                                <option value="5">May</option>
-                                                                <option value="6">Jun</option>
-                                                                <option value="7">Jul</option>
-                                                                <option value="8">Aug</option>
-                                                                <option value="9">Sep</option>
-                                                                <option value="10">Oct</option>
-                                                                <option value="11">Nov</option>
-                                                                <option value="12">Dec</option>
+                                                                <option value="*" selected="selected">***REMOVED*** echo _("every month"); ***REMOVED***</option>
+                                                                <option value="1-11/2">***REMOVED*** echo _("every odd month"); ***REMOVED***</option>
+                                                                <option value="*/2">***REMOVED*** echo _("every even month"); ***REMOVED***</option>
+                                                                <option value="*/3">***REMOVED*** echo _("every"); ***REMOVED*** 3</option>
+                                                                <option value="*/6">***REMOVED*** echo _("every"); ***REMOVED*** 6</option>
+                                                                <option value="1">***REMOVED*** echo _("January"); ***REMOVED***</option>
+                                                                <option value="2">***REMOVED*** echo _("February"); ***REMOVED***</option>
+                                                                <option value="3">***REMOVED*** echo _("March"); ***REMOVED***</option>
+                                                                <option value="4">***REMOVED*** echo _("April"); ***REMOVED***</option>
+                                                                <option value="5">***REMOVED*** echo _("May"); ***REMOVED***</option>
+                                                                <option value="6">***REMOVED*** echo _("June"); ***REMOVED***</option>
+                                                                <option value="7">***REMOVED*** echo _("July"); ***REMOVED***</option>
+                                                                <option value="8">***REMOVED*** echo _("August"); ***REMOVED***</option>
+                                                                <option value="9">***REMOVED*** echo _("September"); ***REMOVED***</option>
+                                                                <option value="10">***REMOVED*** echo _("October"); ***REMOVED***</option>
+                                                                <option value="11">***REMOVED*** echo _("November"); ***REMOVED***</option>
+                                                                <option value="12">***REMOVED*** echo _("December"); ***REMOVED***</option>
                                                             </select>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-md-12">Date</label>
+                                                        <label class="col-md-12">***REMOVED*** echo _("Date"); ***REMOVED***</label>
                                                         <div class="col-md-12">
                                                             <select class="form-control" name="h_day">
                                                                 <option value="1" selected="selected">1</option>
@@ -523,7 +523,7 @@ textdomain('messages');
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-sm-6 pull-left">Hour</label><label class="col-sm-6 pull-right">Minute</label>
+                                                        <label class="col-sm-6 pull-left">***REMOVED*** echo _("Hour"); ***REMOVED***</label><label class="col-sm-6 pull-right">***REMOVED*** echo _("Minute"); ***REMOVED***</label>
                                                         <div class="col-sm-6 pull-left">
                                                             <select class="form-control" name="h_hour">
                                                                 <option value="0">00</option>
@@ -573,7 +573,7 @@ textdomain('messages');
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-sm-12">
-                                                            <button class="btn btn-success">Generate</button>
+                                                            <button class="btn btn-success">***REMOVED*** echo _("Generate"); ***REMOVED***</button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -585,7 +585,7 @@ textdomain('messages');
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; Copyright ***REMOVED*** echo date("Y") . ' ' . $sitetitle; ***REMOVED***. All Rights Reserved. Vesta Web Interface ***REMOVED*** require '../includes/versioncheck.php'; ***REMOVED*** by CDG Web Services.</footer>
+                 <footer class="footer text-center">&copy; ***REMOVED*** echo _("Copyright"); ***REMOVED*** ***REMOVED*** echo date("Y") . ' ' . $sitetitle; ***REMOVED***. ***REMOVED*** echo _("All Rights Reserved. Vesta Web Interface"); ***REMOVED*** ***REMOVED*** require '../includes/versioncheck.php'; ***REMOVED*** ***REMOVED*** echo _("by CDG Web Services"); ***REMOVED***.</footer>
             </div>
         </div>
         <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
