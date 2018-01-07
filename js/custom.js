@@ -42,7 +42,7 @@ $(window).load(function(){
         ***REMOVED***);
         var url = window.location;
         var element = $("ul.nav a").filter(function () {
-            return this.href === url || url.href.indexOf(this.href) == 0;
+            return this.href === url || url.href.indexOf(this.href) === 0;
         ***REMOVED***).addClass("active").parent().parent().addClass("in").parent();
         if (element.is("li")) {
             element.addClass("active");
@@ -74,7 +74,7 @@ $(window).load(function(){
                 wrapper = parent.children(".panel-heading").nextAll().wrapAll("<div/>").parent().addClass("panel-wrapper");
                 collapseOpts = {***REMOVED***;
             ***REMOVED***
-            wrapper.collapse(collapseOpts).on("hide.bs.collapse" function () {
+            wrapper.collapse(collapseOpts).on("hide.bs.collapse" function (); {
                 $this.children("i").removeClass("ti-minus").addClass("ti-plus");
             ***REMOVED***).on("show.bs.collapse", function () {
                 $this.children("i").removeClass("ti-plus").addClass("ti-minus");
@@ -106,7 +106,7 @@ $(window).load(function(){
     //tooltip
     $(function () {
             $('[data-toggle="tooltip"]').tooltip();
-        ***REMOVED***)
+        ***REMOVED***);
     $(function () {
             $('[data-toggle="popover"]').popover();
         ***REMOVED***)
