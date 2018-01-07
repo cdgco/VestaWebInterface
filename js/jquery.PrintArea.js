@@ -36,10 +36,10 @@
                      popWd      : 400,
                      popX       : 200,
                      popY       : 200,
-                     popTitle   : '',
+                     popTitle   : "",
                      popClose   : false,
-                     extraCss   : '',
-                     extraHead  : '',
+                     extraCss   : "",
+                     extraHead  : "",
                      retainAttr : ["id","class","style"] ***REMOVED***;
 
     var settings = {***REMOVED***;//global settings
@@ -52,8 +52,9 @@
                 paWindow.focus();
                 paWindow.print();
 
-                if ( settings.mode == modes.popup && settings.popClose )
+                if ( settings.mode === modes.popup && settings.popClose ) {
                     setTimeout(function() { paWindow.close(); ***REMOVED***, 2000);
+                ***REMOVED***
             ***REMOVED***);
         ***REMOVED***,
         write : function ( PADocument, $ele ) {
@@ -62,12 +63,11 @@
             PADocument.close();
         ***REMOVED***,
         docType : function() {
-            if ( settings.mode == modes.iframe ) return "";
+            if ( settings.mode === modes.iframe ) { return ""; ***REMOVED***
+            if ( settings.standard === standards.html5 ) { return "<!DOCTYPE html>"; ***REMOVED***
 
-            if ( settings.standard == standards.html5 ) return "<!DOCTYPE html>";
-
-            var transitional = settings.standard == standards.loose ? " Transitional" : "";
-            var dtd = settings.standard == standards.loose ? "loose" : "strict";
+            var transitional = settings.standard === standards.loose ? " Transitional" : "";
+            var dtd = settings.standard === standards.loose ? "loose" : "strict";
 
             return '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01' + transitional + '//EN" "http://www.w3.org/TR/html4/' + dtd +  '.dtd">';
         ***REMOVED***,
@@ -75,21 +75,21 @@
             var extraHead = "";
             var links = "";
 
-            if ( settings.extraHead ) settings.extraHead.replace( /([^,]+)/g, function(m){ extraHead += m ***REMOVED***);
+            if ( settings.extraHead ) { settings.extraHead.replace( /([^,]+)/g, function(m){ extraHead += m ***REMOVED***); ***REMOVED***
 
             $(document).find("link")
                 .filter(function(){ // Requirement: <link> element MUST have rel="stylesheet" to be considered in print document
                         var relAttr = $(this).attr("rel");
-                        return ($.type(relAttr) === 'undefined') == false && relAttr.toLowerCase() == 'stylesheet';
+                        return ($.type(relAttr) === "undefined") === false && relAttr.toLowerCase() === "stylesheet";
                     ***REMOVED***)
                 .filter(function(){ // Include if media is undefined, empty, print or all
                         var mediaAttr = $(this).attr("media");
-                        return $.type(mediaAttr) === 'undefined' || mediaAttr == "" || mediaAttr.toLowerCase() == 'print' || mediaAttr.toLowerCase() == 'all'
+                        return $.type(mediaAttr) === "undefined" || mediaAttr == "" || mediaAttr.toLowerCase() == "print" || mediaAttr.toLowerCase() == "all";
                     ***REMOVED***)
                 .each(function(){
                         links += '<link type="text/css" rel="stylesheet" href="' + $(this).attr("href") + '" >';
                     ***REMOVED***);
-            if ( settings.extraCss ) settings.extraCss.replace( /([^,\s]+)/g, function(m){ links += '<link type="text/css" rel="stylesheet" href="' + m + '">' ***REMOVED***);
+            if ( settings.extraCss ) { settings.extraCss.replace( /([^,\s]+)/g, function(m){ links += '<link type="text/css" rel="stylesheet" href="' + m + '">' ***REMOVED***); ***REMOVED***
 
             return "<head><title>" + settings.popTitle + "</title>" + extraHead + links + "</head>";
         ***REMOVED***,
@@ -99,14 +99,14 @@
             elements.each(function() {
                 var ele = PrintArea.getFormData( $(this) );
 
-                var attributes = ""
+                var attributes = "";
                 for ( var x = 0; x < attrs.length; x++ )
                 {
                     var eleAttr = $(ele).attr( attrs[x] );
-                    if ( eleAttr ) attributes += (attributes.length > 0 ? " ":"") + attrs[x] + "='" + eleAttr + "'";
+                    if ( eleAttr ) { attributes += (attributes.length > 0 ? " ":"") + attrs[x] + "='" + eleAttr + "'"; ***REMOVED***
                 ***REMOVED***
 
-                htm += '<div ' + attributes + '>' + $(ele).html() + '</div>';
+                htm += "<div " + attributes + ">" + $(ele).html() + "</div>";
             ***REMOVED***);
 
             return "<body>" + htm + "</body>";
@@ -116,16 +116,17 @@
             var copiedInputs = $("input,select,textarea", copy);
             $("input,select,textarea", ele).each(function( i ){
                 var typeInput = $(this).attr("type");
-                if ($.type(typeInput) === 'undefined') typeInput = $(this).is("select") ? "select" : $(this).is("textarea") ? "textarea" : "";
+                if ($.type(typeInput) === "undefined") { typeInput = $(this).is("select") ? "select" : $(this).is("textarea") ? "textarea" : ""; ***REMOVED***
                 var copiedInput = copiedInputs.eq( i );
 
-                if ( typeInput == "radio" || typeInput == "checkbox" ) copiedInput.attr( "checked", $(this).is(":checked") );
-                else if ( typeInput == "text" ) copiedInput.attr( "value", $(this).val() );
-                else if ( typeInput == "select" )
+                if ( typeInput === "radio" || typeInput === "checkbox" ) { copiedInput.attr( "checked", $(this).is(":checked") ); ***REMOVED***
+                else if ( typeInput === "text" ) { copiedInput.attr( "value", $(this).val() ); ***REMOVED***
+                else if ( typeInput === "select" ) {
                     $(this).find( "option" ).each( function( i ) {
                         if ( $(this).is(":selected") ) $("option", copiedInput).eq( i ).attr( "selected", true );
                     ***REMOVED***);
-                else if ( typeInput == "textarea" ) copiedInput.text( $(this).val() );
+                ***REMOVED***
+                else if ( typeInput == "textarea" ) { copiedInput.text( $(this).val() ); ***REMOVED***
             ***REMOVED***);
             return copy;
         ***REMOVED***,
@@ -142,12 +143,12 @@
         ***REMOVED***,
         Iframe : function () {
             var frameId = settings.id;
-            var iframeStyle = 'border:0;position:absolute;width:0px;height:0px;right:0px;top:0px;';
+            var iframeStyle = "border:0;position:absolute;width:0px;height:0px;right:0px;top:0px;";
             var iframe;
 
             try
             {
-                iframe = document.createElement('iframe');
+                iframe = document.createElement("iframe");
                 document.body.appendChild(iframe);
                 $(iframe).attr({ style: iframeStyle, id: frameId, src: "#" + new Date().getTime() ***REMOVED***);
                 iframe.doc = null;
