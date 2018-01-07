@@ -68,7 +68,7 @@ session_start();
             <meta name="description" content="">
             <meta name="author" content="">
             <link rel="icon" type="image/ico" href="plugins/images/favicon.ico">
-            <title>***REMOVED*** echo $sitetitle; ***REMOVED*** - Dashboard</title>
+            <title>***REMOVED*** echo $sitetitle; ***REMOVED*** - ***REMOVED*** echo _("Dashboard"); ***REMOVED***</title>
             <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
             <link href="bootstrap/dist/css/bootstrap-select.min.css" rel="stylesheet">
             <link href="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
@@ -146,11 +146,11 @@ session_start();
                                             </div>
                                         </div>
                                     </li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="profile.php"><i class="ti-home"></i> My Account</a></li>
-                                    <li><a href="profile.php?settings=open"><i class="ti-settings"></i> Account Setting</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="process/logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="profile.php"><i class="ti-home"></i> ***REMOVED*** echo _("My Account"); ***REMOVED***</a></li>
+                                <li><a href="profile.php?settings=open"><i class="ti-settings"></i> ***REMOVED*** echo _("Account Settings"); ***REMOVED***</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="process/logout.php"><i class="fa fa-power-off"></i> ***REMOVED*** echo _("Logout"); ***REMOVED***</a></li>
                                 </ul>
                             </li>
 
@@ -165,13 +165,13 @@ session_start();
                                     <i class="ti-menu hidden-xs"></i>
                                     <i class="ti-close visible-xs"></i>
                                 </span> 
-                                <span class="hide-menu">Navigation</span>
+                                <span class="hide-menu">***REMOVED*** echo _("Navigation"); ***REMOVED***</span>
                             </h3>
                         </div>
                         <ul class="nav" id="side-menu">
                             <li> 
                                 <a active href="index.php" class="active waves-effect">
-                                    <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu">Dashboard</span>
+                                    <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu">***REMOVED*** echo _("Dashboard"); ***REMOVED***</span>
                                 </a> 
                             </li>
 
@@ -180,34 +180,34 @@ session_start();
                                 <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> ***REMOVED*** print_r($uname); ***REMOVED***<span class="fa arrow"></span></span>
                                 </a>
                                 <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
-                                    <li> <a href="profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> My Account</span></a></li>
-                                    <li> <a href="profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> Account Setting</span></a></li>
+                                    <li> <a href="profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> ***REMOVED*** echo _("My Account"); ***REMOVED***</span></a></li>
+                                    <li> <a href="profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> ***REMOVED*** echo _("Account Settings"); ***REMOVED***</span></a></li>
                                 </ul>
                             </li>
-                            ***REMOVED*** if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '<li class="devider"></li>
-                                <li> <a href="#" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">Management <span class="fa arrow"></span> </span></a>
-                                    <ul class="nav nav-second-level">'; ***REMOVED*** ***REMOVED***
-                            ***REMOVED*** if ($webenabled == 'true') { echo '<li> <a href="list/web.php"><i class="ti-world fa-fw"></i><span class="hide-menu">Web</span></a> </li>'; ***REMOVED*** ***REMOVED***
-                            ***REMOVED*** if ($dnsenabled == 'true') { echo '<li> <a href="list/dns.php"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">DNS</span></a> </li>'; ***REMOVED*** ***REMOVED***
-                            ***REMOVED*** if ($mailenabled == 'true') { echo '<li> <a href="list/mail.php"><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">Mail</span></a> </li>'; ***REMOVED*** ***REMOVED***
-                            ***REMOVED*** if ($dbenabled == 'true') { echo '<li> <a href="list/db.php"><i class="fa fa-database fa-fw"></i><span class="hide-menu">Database</span></a> </li>'; ***REMOVED*** ***REMOVED***
-                            ***REMOVED*** if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '</ul>
-                                </li>'; ***REMOVED*** ***REMOVED***
-                            <li> <a href="list/cron.php" class="waves-effect"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">Cron Jobs</span></a> </li>
-                            <li> <a href="list/backups.php" class="waves-effect"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu">Backups</span></a> </li>
-                            ***REMOVED*** if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {***REMOVED*** else { echo '<li class="devider"></li>
-                                <li><a href="#" class="waves-effect"><i class="mdi mdi-apps fa-fw"></i> <span class="hide-menu">Apps<span class="fa arrow"></span></span></a>
-                                    <ul class="nav nav-second-level">'; ***REMOVED*** ***REMOVED***
-                            ***REMOVED*** if ($ftpurl != '') { echo '<li><a href="' . $ftpurl . '" target="_blank"><i class="fa fa-file-code-o fa-fw"></i><span class="hide-menu">FTP</span></a></li>';***REMOVED*** ***REMOVED***
-                            ***REMOVED*** if ($webmailurl != '') { echo '<li><a href="' . $webmailurl . '" target="_blank"><i class="fa fa-envelope-o fa-fw"></i><span class="hide-menu">Webmail</span></a></li>';***REMOVED*** ***REMOVED***
-                            ***REMOVED*** if ($phpmyadmin != '') { echo '<li><a href="' . $phpmyadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">phpMyAdmin</span></a></li>';***REMOVED*** ***REMOVED***
-                            ***REMOVED*** if ($phppgadmin != '') { echo '<li><a href="' . $phppgadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">phpPgAdmin</span></a></li>';***REMOVED*** ***REMOVED***
-                            ***REMOVED*** if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {***REMOVED*** else { echo '</ul></li>';***REMOVED*** ***REMOVED***
-                            <li class="devider"></li>
-                            <li><a href="process/logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
-                            ***REMOVED*** if ($oldcpurl == '' || $supporturl == '') {***REMOVED*** else { echo '<li class="devider"></li>'; ***REMOVED*** ***REMOVED***
-                            ***REMOVED*** if ($oldcpurl != '') { echo '<li><a href="' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> Control Panel v1</span></a></li>'; ***REMOVED*** ***REMOVED***
-                            ***REMOVED*** if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">Support</span></a></li>'; ***REMOVED*** ***REMOVED***
+                        ***REMOVED*** if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '<li class="devider"></li>
+                            <li> <a href="#" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">Management <span class="fa arrow"></span> </span></a>
+                                <ul class="nav nav-second-level">'; ***REMOVED*** ***REMOVED***
+                        ***REMOVED*** if ($webenabled == 'true') { echo '<li> <a href="list/web.php"><i class="ti-world fa-fw"></i><span class="hide-menu">' . _("Web") . '</span></a> </li>'; ***REMOVED*** ***REMOVED***
+                        ***REMOVED*** if ($dnsenabled == 'true') { echo '<li> <a href="list/dns.php"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">' . _("DNS") . '</span></a> </li>'; ***REMOVED*** ***REMOVED***
+                        ***REMOVED*** if ($mailenabled == 'true') { echo '<li> <a href="list/mail.php"><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">' . _("Mail") . '</span></a> </li>'; ***REMOVED*** ***REMOVED***
+                        ***REMOVED*** if ($dbenabled == 'true') { echo '<li> <a href="list/db.php"><i class="fa fa-database fa-fw"></i><span class="hide-menu">' . _("Database") . '</span></a> </li>'; ***REMOVED*** ***REMOVED***
+                        ***REMOVED*** if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '</ul>
+                            </li>'; ***REMOVED*** ***REMOVED***
+                        <li> <a href="list/cron.php" class="waves-effect"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">***REMOVED*** echo _("Cron Jobs"); ***REMOVED***</span></a> </li>
+                        <li> <a href="list/backups.php" class="waves-effect"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu">***REMOVED*** echo _("Backups"); ***REMOVED***</span></a> </li>
+                        ***REMOVED*** if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {***REMOVED*** else { echo '<li class="devider"></li>
+                            <li><a href="#" class="waves-effect"><i class="mdi mdi-apps fa-fw"></i> <span class="hide-menu">' . _("Apps") . '<span class="fa arrow"></span></span></a>
+                                <ul class="nav nav-second-level">'; ***REMOVED*** ***REMOVED***
+                        ***REMOVED*** if ($ftpurl != '') { echo '<li><a href="' . $ftpurl . '" target="_blank"><i class="fa fa-file-code-o fa-fw"></i><span class="hide-menu">' . _("FTP") . '</span></a></li>';***REMOVED*** ***REMOVED***
+                        ***REMOVED*** if ($webmailurl != '') { echo '<li><a href="' . $webmailurl . '" target="_blank"><i class="fa fa-envelope-o fa-fw"></i><span class="hide-menu">' . _("Webmail") . '</span></a></li>';***REMOVED*** ***REMOVED***
+                        ***REMOVED*** if ($phpmyadmin != '') { echo '<li><a href="' . $phpmyadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . _("phpMyAdmin") . '</span></a></li>';***REMOVED*** ***REMOVED***
+                        ***REMOVED*** if ($phppgadmin != '') { echo '<li><a href="' . $phppgadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . _("phpPgAdmin") . '</span></a></li>';***REMOVED*** ***REMOVED***
+                        ***REMOVED*** if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {***REMOVED*** else { echo '</ul></li>';***REMOVED*** ***REMOVED***
+                        <li class="devider"></li>
+                        <li><a href="process/logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu">***REMOVED*** echo _("Log out"); ***REMOVED***</span></a></li>
+                        ***REMOVED*** if ($oldcpurl == '' || $supporturl == '') {***REMOVED*** else { echo '<li class="devider"></li>'; ***REMOVED*** ***REMOVED***
+                        ***REMOVED*** if ($oldcpurl != '') { echo '<li><a href="' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> ' . _("Control Panel v1") . '</span></a></li>'; ***REMOVED*** ***REMOVED***
+                        ***REMOVED*** if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">' . _("Support") . '</span></a></li>'; ***REMOVED*** ***REMOVED***
                         </ul>
                     </div>
                 </div>
@@ -215,7 +215,7 @@ session_start();
                     <div class="container-fluid">
                         <div class="row bg-title" style="overflow: visible;">
                             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                                <h4 class="page-title">Host Dashboard</h4>
+                                <h4 class="page-title">***REMOVED*** echo _("Host Dashboard"); ***REMOVED***</h4>
                             </div>
 
 
@@ -225,20 +225,20 @@ session_start();
                                 <div style="margin-right:257px;" class="btn-group bootstrap-select input-group-btn">
                                     <form id="rebuildform" action="process/rebuild.php" method="post">
                                         <select class="selectpicker pull-right m-l-20" name="action" data-style="form-control">
-                                            <option value="rebuild-user">Rebuild Account</option>
-                                            ***REMOVED*** if ($webenabled == 'true') { echo '<option value="rebuild-web-domains">Rebuild Web</option>'; ***REMOVED*** ***REMOVED***
-                                            ***REMOVED*** if ($dnsenabled == 'true') { echo '<option value="rebuild-dns-domains">Rebuild DNS</option>'; ***REMOVED*** ***REMOVED***
-                                            ***REMOVED*** if ($mailenabled == 'true') { echo '<option value="rebuild-mail-domains">Rebuild Mail</option>'; ***REMOVED*** ***REMOVED***
-                                            ***REMOVED*** if ($dbenabled == 'true') { echo '<option value="rebuild-databases">Rebuild DB</option>'; ***REMOVED*** ***REMOVED***
-                                            <option value="rebuild-cron-jobs">Rebuild Cron</option>
-                                            <option value="update-user-counters">Update Counters</option>
+                                            <option value="rebuild-user">***REMOVED*** echo _("Rebuild Account"); ***REMOVED***</option>
+                                            ***REMOVED*** if ($webenabled == 'true') { echo '<option value="rebuild-web-domains">' . _("Rebuild Web") . '</option>'; ***REMOVED*** ***REMOVED***
+                                            ***REMOVED*** if ($dnsenabled == 'true') { echo '<option value="rebuild-dns-domains">' . _("Rebuild DNS") . '</option>'; ***REMOVED*** ***REMOVED***
+                                            ***REMOVED*** if ($mailenabled == 'true') { echo '<option value="rebuild-mail-domains">' . _("Rebuild Mail") . '</option>'; ***REMOVED*** ***REMOVED***
+                                            ***REMOVED*** if ($dbenabled == 'true') { echo '<option value="rebuild-databases">' . _("Rebuild DB") . '</option>'; ***REMOVED*** ***REMOVED***
+                                            <option value="rebuild-cron-jobs">***REMOVED*** echo _("Rebuild Cron"); ***REMOVED***</option>
+                                            <option value="update-user-counters">***REMOVED*** echo _("Update Counters"); ***REMOVED***</option>
                                         </select>
                                         <input type="hidden" name="user" value="***REMOVED*** echo $username; ***REMOVED***" />
                                     </form>
                                 </div>
                                 <div class="input-group-btn">
                                     <button type="button" onclick="document.getElementById('rebuildform').submit();swal({
-                                                                   title: 'Processing',
+                                                                   title: '***REMOVED*** echo _("Processing"); ***REMOVED***',
                                                                    text: '',
                                                                    timer: 5000,
                                                                    onOpen: function () {
@@ -249,7 +249,7 @@ session_start();
                                                                    // handling the promise rejection
                                                                    function (dismiss) {
                                                                    if (dismiss === 'timer') {
-                                                                   console.log('I was closed by the timer')
+                                                                   console.log('***REMOVED*** echo _("I was closed by the timer"); ***REMOVED***')
                                                                    ***REMOVED***
                                                                    ***REMOVED***
                                                                    )" class=" pull-right btn waves-effect waves-light btn-info"><i class="ti-angle-right"></i></button>
@@ -276,7 +276,7 @@ session_start();
                                                 </li>
                                                 </li><br><br>
                                             <li class="col-middle">
-                                                <h4 style="width:200%">Bandwidth</h4>
+                                                <h4 style="width:200%">***REMOVED*** echo _("Bandwidth"); ***REMOVED***</h4>
                                             </li>
 
 
@@ -300,7 +300,7 @@ session_start();
                                             </li>
                                             </li><br><br>
                                         <li class="col-middle">
-                                            <h4 style="width:200%">Disk Space</h4>
+                                            <h4 style="width:200%">***REMOVED*** echo _("Disk Space"); ***REMOVED***</h4>
 
                                         </li>
 
@@ -319,7 +319,7 @@ session_start();
                                             </h3>
                                         </li><br><br>
                                         <li class="col-middle">
-                                            <h4 style="width:200%">Web Domains</h4>
+                                            <h4 style="width:200%">***REMOVED*** echo _("Web Domains"); ***REMOVED***</h4>
 
                                         </li>
 
@@ -337,7 +337,7 @@ session_start();
                                             </h3>
                                         </li><br><br>
                                         <li class="col-middle">
-                                            <h4 style="width:200%">Email Addresses</h4>
+                                            <h4 style="width:200%">***REMOVED*** echo _("Email Addresses"); ***REMOVED***</h4>
 
                                         </li>
 
@@ -354,10 +354,10 @@ session_start();
                             <div class="sttabs tabs-style-iconbox">
                                 <nav>
                                     <ul>
-                                        ***REMOVED*** if ($webenabled == 'true') { echo '<li><a href="#section-iconbox-1" class="sticon ti-world"><span>Web</span></a></li>'; ***REMOVED*** ***REMOVED***
-                                        ***REMOVED*** if ($dnsenabled == 'true') { echo '<li><a href="#section-iconbox-2" class="sticon fa fa-sitemap"><span>DNS</span></a></li>'; ***REMOVED*** ***REMOVED***
-                                        ***REMOVED*** if ($mailenabled == 'true') { echo '<li><a href="#section-iconbox-3" class="sticon fa fa-envelope"><span>Mail</span></a></li>'; ***REMOVED*** ***REMOVED***
-                                        ***REMOVED*** if ($dbenabled == 'true') { echo '<li><a href="#section-iconbox-4" class="sticon fa fa-database"><span>Database</span></a></li>'; ***REMOVED*** ***REMOVED***
+                                        ***REMOVED*** if ($webenabled == 'true') { echo '<li><a href="#section-iconbox-1" class="sticon ti-world"><span>' . _("Web") . '</span></a></li>'; ***REMOVED*** ***REMOVED***
+                                        ***REMOVED*** if ($dnsenabled == 'true') { echo '<li><a href="#section-iconbox-2" class="sticon fa fa-sitemap"><span>' . _("DNS") . '</span></a></li>'; ***REMOVED*** ***REMOVED***
+                                        ***REMOVED*** if ($mailenabled == 'true') { echo '<li><a href="#section-iconbox-3" class="sticon fa fa-envelope"><span>' . _("Mail") . '</span></a></li>'; ***REMOVED*** ***REMOVED***
+                                        ***REMOVED*** if ($dbenabled == 'true') { echo '<li><a href="#section-iconbox-4" class="sticon fa fa-database"><span>' . _("Database") . '</span></a></li>'; ***REMOVED*** ***REMOVED***
                                     </ul>
                                 </nav>
                                 <div class="content-wrap">
@@ -365,12 +365,12 @@ session_start();
                                     <section id="section-iconbox-1">
                                         <div class="p-20 row">
                                             <div class="col-sm-6">
-                                                <h3 class="m-t-0">Manage Web Domains</h3>
+                                                <h3 class="m-t-0">***REMOVED*** echo _("Manage Web Domains"); ***REMOVED***</h3>
                                             </div>
                                             <div class="col-sm-6">
                                                 <ul class="side-icon-text pull-right">
-                                                    <li><a href="add/domain.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span>Add Domain</span></a></li>
-                                                    <li><a href="list/web.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span>Manage</span></a></li>
+                                                    <li><a href="add/domain.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span>***REMOVED*** echo _("Add Domain"); ***REMOVED***</span></a></li>
+                                                    <li><a href="list/web.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span>***REMOVED*** echo _("Manage"); ***REMOVED***</span></a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -378,11 +378,11 @@ session_start();
                                             <table class="table footable m-b-0" data-paging-size="5" data-paging="true" cellspacing="14"  data-page-size="5"  data-sorting="true">
                                                 <thead>
                                                     <tr>
-                                                        <th data-toggle="true">DOMAIN</th>
-                                                        <th data-type="numeric">DISK</th>
-                                                        <th data-type="numeric">BANDWIDTH</th>
-                                                        <th>SSL</th>
-                                                        <th>STATUS</th>
+                                                        <th data-toggle="true">***REMOVED*** echo _("DOMAIN"); ***REMOVED***</th>
+                                                        <th data-type="numeric">***REMOVED*** echo _("DISK"); ***REMOVED***</th>
+                                                        <th data-type="numeric">***REMOVED*** echo _("BANDWIDTH"); ***REMOVED***</th>
+                                                        <th>***REMOVED*** echo _("SSL"); ***REMOVED***</th>
+                                                        <th>***REMOVED*** echo _("STATUS"); ***REMOVED***</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>***REMOVED***
@@ -396,15 +396,15 @@ session_start();
                                                                         <td data-sort-value="' . $domaindata[$x1]['U_BANDWIDTH'] . '">' . $domaindata[$x1]['U_BANDWIDTH'] . ' mb</td>
                                                                                                                                             <td>';                                                                   
                                                             if($domaindata[$x1]['SSL'] == "yes"){ 
-                                                                echo '<span class="label label-table label-success">Enabled</span>';***REMOVED*** 
+                                                                echo '<span class="label label-table label-success">' . _("Enabled") . '</span>';***REMOVED*** 
                                                             ***REMOVED*** 
-                                                                echo '<span class="label label-table label-danger">Disabled</span>';***REMOVED*** 
+                                                                echo '<span class="label label-table label-danger">' . _("Disabled") . '</span>';***REMOVED*** 
                                                             echo '</td>
                                                                         <td>';                                                                   
                                                             if($domaindata[$x1]['SUSPENDED'] == "no"){ 
-                                                                echo '<span class="label label-table label-success">Active</span>';***REMOVED*** 
+                                                                echo '<span class="label label-table label-success">' . _("Active") . '</span>';***REMOVED*** 
                                                             ***REMOVED*** 
-                                                                echo '<span class="label label-table label-danger">Suspended</span>';***REMOVED*** 
+                                                                echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';***REMOVED*** 
                                                             echo '</td>
                                                                     </tr>';
                                                             $x1++;
@@ -419,12 +419,12 @@ session_start();
                                     <section id="section-iconbox-2">
                                         <div class="p-20 row">
                                             <div class="col-sm-6">
-                                                <h3 class="m-t-0">Manage DNS Domains</h3>
+                                                <h3 class="m-t-0">***REMOVED*** echo _("Manage DNS Domains"); ***REMOVED***</h3>
                                             </div>
                                             <div class="col-sm-6">
                                                 <ul class="side-icon-text pull-right">
-                                                    <li><a href="add/dns.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span>Add DNS</span></a></li>
-                                                    <li><a href="list/dns.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span>Manage</span></a></li>
+                                                    <li><a href="add/dns.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span>***REMOVED*** echo _("Add DNS"); ***REMOVED***</span></a></li>
+                                                    <li><a href="list/dns.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span>***REMOVED*** echo _("Manage"); ***REMOVED***</span></a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -432,9 +432,9 @@ session_start();
                                             <table class="table footable m-b-0" data-paging-size="5" data-paging="true" cellspacing="14"  data-page-size="5"  data-sorting="true">
                                                 <thead>
                                                     <tr>
-                                                        <th data-toggle="true">DOMAIN</th>
-                                                        <th data-type="numeric">RECORDS</th>
-                                                        <th>STATUS</th>
+                                                        <th data-toggle="true">***REMOVED*** echo _("DOMAIN"); ***REMOVED***</th>
+                                                        <th data-type="numeric">***REMOVED*** echo _("RECORDS"); ***REMOVED***</th>
+                                                        <th>***REMOVED*** echo _("STATUS"); ***REMOVED***</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>***REMOVED***
@@ -447,9 +447,9 @@ session_start();
                                                                         <td data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>
                                                                         <td>';                                                                   
                                                             if($dnsdata[$x2]['SUSPENDED'] == "no"){ 
-                                                                echo '<span class="label label-table label-success">Active</span>';***REMOVED*** 
+                                                                echo '<span class="label label-table label-success">' . _("Active") . '</span>';***REMOVED*** 
                                                             ***REMOVED*** 
-                                                                echo '<span class="label label-table label-danger">Suspended</span>';***REMOVED*** 
+                                                                echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';***REMOVED*** 
                                                             echo '</td>
                                                                     </tr>';
                                                             $x2++;
@@ -463,12 +463,12 @@ session_start();
                                     <section id="section-iconbox-3">
                                         <div class="p-20 row">
                                             <div class="col-sm-6">
-                                                <h3 class="m-t-0">Manage Mail Domains</h3>
+                                                <h3 class="m-t-0">***REMOVED*** echo _("Manage Mail Domains"); ***REMOVED***</h3>
                                             </div>
                                             <div class="col-sm-6">
                                                 <ul class="side-icon-text pull-right">
-                                                    <li><a href="add/mail.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span>Add Mail</span></a></li>
-                                                    <li><a href="list/mail.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span>Manage</span></a></li>
+                                                    <li><a href="add/mail.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span>***REMOVED*** echo _("Add Mail"); ***REMOVED***</span></a></li>
+                                                    <li><a href="list/mail.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span>***REMOVED*** echo _("Manage"); ***REMOVED***</span></a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -476,9 +476,9 @@ session_start();
                                             <table class="table footable m-b-0" data-paging-size="5" data-paging="true" cellspacing="14"  data-page-size="5"  data-sorting="true">
                                                 <thead>
                                                     <tr>
-                                                        <th data-toggle="true">DOMAIN</th>
-                                                        <th data-type="numeric">ACCOUNTS</th>
-                                                        <th>STATUS</th>
+                                                        <th data-toggle="true">***REMOVED*** echo _("DOMAIN"); ***REMOVED***</th>
+                                                        <th data-type="numeric">***REMOVED*** echo _("ACCOUNTS"); ***REMOVED***</th>
+                                                        <th>***REMOVED*** echo _("STATUS"); ***REMOVED***</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>***REMOVED***
@@ -491,9 +491,9 @@ session_start();
                                                                         <td data-sort-value="' . $maildata[$x3]['ACCOUNTS'] . '">' . $maildata[$x3]['ACCOUNTS'] . '</td>
                                                                         <td>';                                                                   
                                                             if($maildata[$x3]['SUSPENDED'] == "no"){ 
-                                                                echo '<span class="label label-table label-success">Active</span>';***REMOVED*** 
+                                                                echo '<span class="label label-table label-success">' . _("Active") . '</span>';***REMOVED*** 
                                                             ***REMOVED*** 
-                                                                echo '<span class="label label-table label-danger">Suspended</span>';***REMOVED*** 
+                                                                echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';***REMOVED*** 
                                                             echo '</td>
                                                                     </tr>';
                                                             $x3++;
@@ -507,12 +507,12 @@ session_start();
                                     <section id="section-iconbox-4">
                                         <div class="p-20 row">
                                             <div class="col-sm-6">
-                                                <h3 class="m-t-0">Manage Databases</h3>
+                                                <h3 class="m-t-0">***REMOVED*** echo _("Manage Databases"); ***REMOVED***</h3>
                                             </div>
                                             <div class="col-sm-6">
                                                 <ul class="side-icon-text pull-right">
-                                                    <li><a href="add/db.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span>Add Database</span></a></li>
-                                                    <li><a href="list/db.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span>Manage</span></a></li>
+                                                    <li><a href="add/db.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span>***REMOVED*** echo _("Add Database"); ***REMOVED***</span></a></li>
+                                                    <li><a href="list/db.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span>***REMOVED*** echo _("Manage"); ***REMOVED***</span></a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -520,9 +520,9 @@ session_start();
                                             <table class="table footable m-b-0" data-paging-size="5" data-paging="true" cellspacing="14"  data-page-size="5"  data-sorting="true">
                                                 <thead>
                                                     <tr>
-                                                        <th data-toggle="true">DATABASE</th>
-                                                        <th>USER</th>
-                                                        <th>STATUS</th>
+                                                        <th data-toggle="true">***REMOVED*** echo _("DATABASE"); ***REMOVED***</th>
+                                                        <th>***REMOVED*** echo _("USER"); ***REMOVED***</th>
+                                                        <th>***REMOVED*** echo _("STATUS"); ***REMOVED***</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>***REMOVED***
@@ -553,64 +553,64 @@ session_start();
                     </div> 
                     <div ***REMOVED*** if ($webenabled != 'true' && $dnsenabled != 'true' && $mailenabled != 'true' && $dbenabled != 'true') {echo 'style="display:none;"';***REMOVED*** ***REMOVED*** class="col-lg-3 col-md-6">
                         <div class="white-box">
-                            <h3 class="box-title">Disk Quota Used</h3>
+                            <h3 class="box-title">***REMOVED*** echo _("Disk Quota Used"); ***REMOVED***</h3>
                             <ul class="country-state  p-t-20">
 
                                 <li>
                                     <h2>
-                                        ***REMOVED*** print_r($admindata['U_DISK']); ***REMOVED*** mb</h2> <small>Total Disk Space</small>
+                                        ***REMOVED*** print_r($admindata['U_DISK']); ***REMOVED*** mb</h2> <small>***REMOVED*** echo _("Total Disk Space"); ***REMOVED***</small>
                                     <div class="pull-right">***REMOVED*** 
                                         if ($admindata['DISK_QUOTA'] != 0) {
                                             $diskpercent = (($admindata['U_DISK'] / $admindata['DISK_QUOTA']) * 100);
                                         ***REMOVED*** else { $diskpercent = '0'; ***REMOVED***
                                         if(is_infinite($diskpercent)){ echo "0";***REMOVED******REMOVED***echo $diskpercent;***REMOVED*** ***REMOVED***%</div>
                                     <div class="progress">
-                                        <div class="progress-bar progress-bar-inverse" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent == "INF"){ echo "0";***REMOVED******REMOVED***echo $diskpercent;***REMOVED*** ***REMOVED***%;">% Complete</span></div>
+                                        <div class="progress-bar progress-bar-inverse" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent == "INF"){ echo "0";***REMOVED******REMOVED***echo $diskpercent;***REMOVED*** ***REMOVED***%;">% ***REMOVED*** echo _("Complete"); ***REMOVED***</span></div>
                                     </div>
                                 </li>
                             </ul><br><br>
-                            <h3 class="box-title">Disk Usage Breakdown</h3>
+                            <h3 class="box-title">***REMOVED*** echo _("Disk Usage Breakdown"); ***REMOVED***</h3>
                             <ul class="country-state  p-t-20">
                                 <li>
                                     <h2>***REMOVED***  if ($admindata['U_DISK'] != 0) {
                                             $diskpercent1 = (($admindata['U_DISK_WEB'] / $admindata['U_DISK']) * 100);
-                                        ***REMOVED*** else { $diskpercent1 = '0'; ***REMOVED*** echo $admindata['U_DISK_WEB']; ***REMOVED*** mb</h2> <small>Web Data</small>
+                                        ***REMOVED*** else { $diskpercent1 = '0'; ***REMOVED*** echo $admindata['U_DISK_WEB']; ***REMOVED*** mb</h2> <small>***REMOVED*** echo _("Web Data"); ***REMOVED***</small>
                                     <div class="pull-right">
                                         ***REMOVED*** if($diskpercent1 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent1);***REMOVED*** ***REMOVED***%</div>
                                     <div class="progress">
-                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent1 == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent1;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent1 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent1);***REMOVED*** ***REMOVED***% Complete</span></div>
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent1 == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent1;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent1 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent1);***REMOVED*** ***REMOVED***% ***REMOVED*** echo _("Complete"); ***REMOVED***</span></div>
                                     </div>
                                 </li>
                                 <li>
                                     <h2>***REMOVED*** if ($admindata['U_DISK'] != '0') {
                                             $diskpercent2 = (($admindata['U_DISK_MAIL'] / $admindata['U_DISK']) * 100);
-                                        ***REMOVED*** else { $diskpercent2 = '0'; ***REMOVED*** echo $admindata['U_DISK_MAIL']; ***REMOVED*** mb</h2> <small>Mail Data</small>
+                                        ***REMOVED*** else { $diskpercent2 = '0'; ***REMOVED*** echo $admindata['U_DISK_MAIL']; ***REMOVED*** mb</h2> <small>***REMOVED*** echo _("Mail Data"); ***REMOVED***</small>
                                     <div class="pull-right">
                                         ***REMOVED*** if($diskpercent2 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent2);***REMOVED*** ***REMOVED***%</div>
                                     <div class="progress">
-                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent2 == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent2;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent2 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent2);***REMOVED*** ***REMOVED***% Complete</span></div>
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent2 == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent2;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent2 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent2);***REMOVED*** ***REMOVED***% ***REMOVED*** echo _("Complete"); ***REMOVED***</span></div>
                                     </div>
                                 </li>
                                 <li>
                                     <h2>
                                         ***REMOVED*** if ($admindata['U_DISK'] != '0') {
                                             $diskpercent3 = (($admindata['U_DISK_DB'] / $admindata['U_DISK']) * 100);
-                                        ***REMOVED*** else { $diskpercent3 = '0'; ***REMOVED***; echo $admindata['U_DISK_DB']; ***REMOVED*** mb</h2> <small>Databases</small>
+                                        ***REMOVED*** else { $diskpercent3 = '0'; ***REMOVED***; echo $admindata['U_DISK_DB']; ***REMOVED*** mb</h2> <small>***REMOVED*** echo _("Databases"); ***REMOVED***</small>
                                     <div class="pull-right">
                                         ***REMOVED*** if($diskpercent3 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent3);***REMOVED*** ***REMOVED***%</div>
                                     <div class="progress">
-                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent3 == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent3;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent3 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent3);***REMOVED*** ***REMOVED***% Complete</span></div>
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent3 == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent3;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent3 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent3);***REMOVED*** ***REMOVED***% ***REMOVED*** echo _("Complete"); ***REMOVED***</span></div>
                                     </div>
                                 </li>
                                 <li>
                                     <h2>
                                         ***REMOVED*** if ($admindata['U_DISK'] != '0') {
                                             $diskpercent4 = (($admindata['U_DISK_DIRS'] / $admindata['U_DISK']) * 100);
-                                        ***REMOVED*** else { $diskpercent4 = '0'; ***REMOVED*** echo $admindata['U_DISK_DIRS']; ***REMOVED*** mb</h2> <small>User Directories</small>
+                                        ***REMOVED*** else { $diskpercent4 = '0'; ***REMOVED*** echo $admindata['U_DISK_DIRS']; ***REMOVED*** mb</h2> <small>***REMOVED*** echo _("User Directories"); ***REMOVED***</small>
                                     <div class="pull-right">
                                         ***REMOVED*** if($diskpercent4 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent4);***REMOVED*** ***REMOVED***%</div>
                                     <div class="progress">
-                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent4 == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent4;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent4 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent4);***REMOVED*** ***REMOVED***% Complete</span></div>
+                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:***REMOVED*** if($diskpercent4 == " INF "){ echo "0 ";***REMOVED******REMOVED***echo $diskpercent4;***REMOVED*** ***REMOVED***%;"> <span class="sr-only">***REMOVED*** if($diskpercent4 == "INF"){ echo "0";***REMOVED******REMOVED***echo round($diskpercent4);***REMOVED*** ***REMOVED***% ***REMOVED*** echo _("Complete"); ***REMOVED***</span></div>
                                     </div>
                                 </li>
                             </ul>
@@ -621,7 +621,7 @@ session_start();
                             <div class="row">
                                 <div class="col-lg-6 col-sm-6 col-xs-12">
                                     <div class="white-box" style="margin:14px;">
-                                        <h3 class="box-title">DNS Domains</h3>
+                                        <h3 class="box-title">***REMOVED*** echo _("DNS Domains"); ***REMOVED***</h3>
                                         <ul class="list-inline two-part">
                                             <li><i class="fa fa-list-alt text-danger"></i></li>
                                             <li class="text-right">
@@ -635,7 +635,7 @@ session_start();
                                 </div>
                                 <div class="col-lg-6 col-sm-6 col-xs-12">
                                     <div class="white-box" style="margin:14px;">
-                                        <h3 class="box-title">DNS Records</h3>
+                                        <h3 class="box-title">***REMOVED*** echo _("DNS Records"); ***REMOVED***</h3>
                                         <ul class="list-inline two-part">
                                             <li><i class="fa fa-sitemap text-danger"></i></li>
                                             <li class="text-right">
@@ -649,7 +649,7 @@ session_start();
                                 </div>
                                 <div class="col-lg-6 col-sm-6 col-xs-12">
                                     <div class="white-box" style="margin:14px;">
-                                        <h3 class="box-title">Mail Domains</h3>
+                                        <h3 class="box-title">***REMOVED*** echo _("Mail Domains"); ***REMOVED***</h3>
                                         <ul class="list-inline two-part">
                                             <li><i class="fa fa-envelope-square text-warning"></i></li>
                                             <li class="text-right">
@@ -663,7 +663,7 @@ session_start();
                                 </div>
                                 <div class="col-lg-6 col-sm-6 col-xs-12">
                                     <div class="white-box" style="margin:14px;">
-                                        <h3 class="box-title">Backups</h3>
+                                        <h3 class="box-title">***REMOVED*** echo _("Backups"); ***REMOVED***</h3>
                                         <ul class="list-inline two-part">
                                             <li><i class="ti-cloud-up text-info"></i></li>
                                             <li class="text-right">
@@ -683,14 +683,14 @@ session_start();
                                     <div class="carousel-inner" style="height:415px;">
                                         <div class="active item">
                                             <div class="overlaybg"><img src="plugins/images/profile-menu.png" /></div>
-                                            <div class="news-content"><span class="label label-danger label-rounded">Account Details</span><br>
+                                            <div class="news-content"><span class="label label-danger label-rounded">***REMOVED*** echo _("Account Details"); ***REMOVED***</span><br>
 
                                                 <div class="columnleft" style="margin-top:10px; float: left;">
-                                                    <h2 style="width: 200%;">Username:
-                                                        ***REMOVED*** print_r($username); ***REMOVED***<br>Email:
-                                                        ***REMOVED*** print_r($admindata['CONTACT']); ***REMOVED***<br><br> Plan:
-                                                        ***REMOVED*** print_r($admindata['PACKAGE']); ***REMOVED***<br>Bandwidth:
-                                                        ***REMOVED*** if($admindata['BANDWIDTH'] == "unlimited"){ echo "Unlimited";***REMOVED*** else { print_r($admindata['BANDWIDTH'] . " mb");***REMOVED*** ***REMOVED*** <br>Disk Quota:
+                                                    <h2 style="width: 200%;">***REMOVED*** echo _("Username"); ***REMOVED***:
+                                                        ***REMOVED*** print_r($username); ***REMOVED***<br>***REMOVED*** echo _("Email"); ***REMOVED***:
+                                                        ***REMOVED*** print_r($admindata['CONTACT']); ***REMOVED***<br><br> ***REMOVED*** echo _("Plan"); ***REMOVED***:
+                                                        ***REMOVED*** print_r($admindata['PACKAGE']); ***REMOVED***<br>***REMOVED*** echo _("Bandwidth"); ***REMOVED***:
+                                                        ***REMOVED*** if($admindata['BANDWIDTH'] == "unlimited"){ echo "Unlimited";***REMOVED*** else { print_r($admindata['BANDWIDTH'] . " mb");***REMOVED*** ***REMOVED*** <br>***REMOVED*** echo _("Disk Quota"); ***REMOVED***:
                                                         ***REMOVED*** if($admindata['DISK_QUOTA'] == "unlimited"){ echo "Unlimited";***REMOVED*** else { print_r($admindata['DISK_QUOTA'] . " mb");***REMOVED*** ***REMOVED***
                                                     </h2>
 
@@ -698,7 +698,7 @@ session_start();
                                                 </div>
 
                                                 <div class="columnright" style="margin-top:10px; margin-right:80px;float: right;">
-                                                    <h2>Nameservers: <br>
+                                                    <h2>***REMOVED*** echo _("Nameservers"); ***REMOVED***: <br>
                                                         <ul class="dashed">
                                                             ***REMOVED*** 
                                                             $nsArray = explode(',', ($admindata['NS'])); 
@@ -723,7 +723,7 @@ session_start();
                     <div class="row">
                         <div class="col-lg-3 col-sm-6 col-xs-12">
                             <div class="white-box" style="margin:14px;">
-                                <h3 class="box-title">Databases</h3>
+                                <h3 class="box-title">***REMOVED*** echo _("Databases"); ***REMOVED***</h3>
                                 <ul class="list-inline two-part">
                                     <li><i class="fa fa-database text-purple"></i></li>
                                     <li class="text-right">
@@ -737,7 +737,7 @@ session_start();
                         </div>
                         <div class="col-lg-3 col-sm-6 col-xs-12">
                             <div class="white-box" style="margin:14px;">
-                                <h3 class="box-title">Cron Jobs</h3>
+                                <h3 class="box-title">***REMOVED*** echo _("Cron Jobs"); ***REMOVED***</h3>
                                 <ul class="list-inline two-part">
                                     <li><i class="ti-timer text-inverse"></i></li>
                                     <li class="text-right">
@@ -751,7 +751,7 @@ session_start();
                         </div>
                         <div class="col-lg-6 col-sm-12 col-xs-12">
                             <div class="white-box" style="margin:14px;">
-                                <h3 class="box-title">Web Aliases</h3>
+                                <h3 class="box-title">***REMOVED*** echo _("Web Aliases"); ***REMOVED***</h3>
                                 <ul class="list-inline two-part">
                                     <li><i class="ti-layers text-success"></i></li>
                                     <li class="text-right">
@@ -766,7 +766,7 @@ session_start();
 
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; Copyright ***REMOVED*** echo date("Y") . ' ' . $sitetitle; ***REMOVED***. All Rights Reserved. Vesta Web Interface ***REMOVED*** require 'includes/versioncheck.php'; ***REMOVED*** by CDG Web Services.</footer>
+                <footer class="footer text-center">&copy; ***REMOVED*** echo _("Copyright"); ***REMOVED*** ***REMOVED*** echo date("Y") . ' ' . $sitetitle; ***REMOVED***. ***REMOVED*** echo _("All Rights Reserved. Vesta Web Interface"); ***REMOVED*** ***REMOVED*** require 'includes/versioncheck.php'; ***REMOVED*** ***REMOVED*** echo _("by CDG Web Services"); ***REMOVED***.</footer>
             </div>
             </div>
         </div>
@@ -789,8 +789,8 @@ session_start();
         ***REMOVED*** 
         if(substr(sprintf('%o', fileperms('includes')), -4) == '0777') {
             echo "$.toast({
-                        heading: 'Warning'
-                        , text: 'Includes folder has not been secured.'
+                        heading: '" . _("Warning") . "'
+                        , text: '" . _("Includes folder has not been secured") . "'
                         , icon: 'warning'
                         , position: 'top-right'
                         , hideAfter: 3500
