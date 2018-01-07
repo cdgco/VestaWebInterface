@@ -41,6 +41,10 @@ $mailname = array_keys(json_decode(curl_exec($curl1), true));
 $autoreplydata = array_values(json_decode(curl_exec($curl2), true));
 $autoreplyname = array_keys(json_decode(curl_exec($curl2), true));
 /* if ($mailname[0] == '') { header('Location: ../list/mail.php'); ***REMOVED*** */
+if(isset($admindata['LANGUAGE'])){ $locale = $countries[$admindata['LANGUAGE']]; ***REMOVED***
+setlocale(LC_ALL, $locale);
+bindtextdomain('messages', 'locale');
+textdomain('messages');
 ***REMOVED***
 
 <!DOCTYPE html>

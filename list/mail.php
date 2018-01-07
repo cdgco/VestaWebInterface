@@ -29,6 +29,10 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'
     $useremail = $admindata['CONTACT'];
     $mailname = array_keys(json_decode(curl_exec($curl1), true));
     $maildata = array_values(json_decode(curl_exec($curl1), true));
+    if(isset($admindata['LANGUAGE'])){ $locale = $countries[$admindata['LANGUAGE']]; ***REMOVED***
+    setlocale(LC_ALL, $locale);
+    bindtextdomain('messages', 'locale');
+    textdomain('messages');
 ***REMOVED***
 
 <!DOCTYPE html>
