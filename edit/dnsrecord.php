@@ -49,7 +49,7 @@ session_start();
     // Redirect if requested id does not exist in array
     if ($requestrecord == '') { header('Location: ../list/dns.php'); }
     if(isset($admindata['LANGUAGE'])){ $locale = $countries[$admindata['LANGUAGE']]; }
-    setlocale(LC_ALL, $locale);
+    setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
     bindtextdomain('messages', 'locale');
     textdomain('messages');
 ?>
