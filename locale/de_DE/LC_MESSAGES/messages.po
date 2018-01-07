@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2018-01-07 11:29-0800\n"
-"PO-Revision-Date: 2018-01-07 11:49-0800\n"
+"PO-Revision-Date: 2018-01-07 12:53-0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -55,7 +55,7 @@ msgstr "Datenbank"
 
 #: index.php:196 index.php:740 profile.php:199
 msgid "Cron Jobs"
-msgstr "Zeitgesteuerte Aufgaben"
+msgstr "Cron-Jobs"
 
 #: index.php:197 index.php:666 profile.php:200
 msgid "Backups"
@@ -328,7 +328,7 @@ msgstr "Warnung"
 
 #: index.php:793 login.php:268 register.php:173
 msgid "Includes folder has not been secured"
-msgstr "includes ordner wurde nicht gesichert"
+msgstr "Includes ordner wurde nicht gesichert"
 
 #: login.php:57 login.php:227
 msgid "Login"
