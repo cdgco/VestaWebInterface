@@ -80,7 +80,7 @@
                 }, {
                     type: "control"
                 }]
-            })
+            });
         }(),
         function() {
             $("#staticgrid").jsGrid({
@@ -147,7 +147,7 @@
                 }]
             }), $("#sortingField").on("change", function() {
                 var field = $(this).val();
-                $("#exampleSorting").jsGrid("sort", field)
+                $("#exampleSorting").jsGrid("sort", field);
             });
         }(),
         
@@ -165,7 +165,7 @@
                 insertTemplate: function() {
                     if (!this.inserting) { return ""; }
                     var $result = this.insertControl = this._createTextBox();
-                    return $result
+                    return $result;
                 },
                 editTemplate: function(value) {
                     if (!this.editing) return this.itemTemplate(value);
