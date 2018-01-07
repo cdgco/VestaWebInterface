@@ -111,6 +111,7 @@ else{
 \$themecolor = THEME . '.css';
 \$uname = base64_decode(\$_SESSION['username']);
 \$loggedin = base64_decode(\$_SESSION['loggedin']);
+\$locale = 'en_US.utf8';
 \$username = \$uname;
 \$sitetitle = SITE_NAME;
 

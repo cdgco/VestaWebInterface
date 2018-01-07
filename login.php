@@ -6,9 +6,6 @@ if (file_exists( 'includes/config.php' )) { require( 'includes/config.php'); }  
 if(isset($_SESSION['loggedin'])) {
     if(base64_decode($_SESSION['loggedin']) == 'true') { header('Location: index.php'); }
 }
-setlocale(LC_ALL, 'de');
-bindtextdomain('messages', 'locale');
-textdomain('messages');
 
     $postvars0 = array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-info','arg1' => 'json');
 
@@ -41,6 +38,11 @@ textdomain('messages');
             $answer = curl_exec($curl);
         }
     }
+
+setlocale(LC_ALL, $locale);
+bindtextdomain('messages', 'locale');
+textdomain('messages');
+
 ?>
 
 <!DOCTYPE html>  
