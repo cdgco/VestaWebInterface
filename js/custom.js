@@ -1,4 +1,4 @@
-$(window).load(function(){
+$(window).load(function () {
     $(function () {
         $(".preloader").fadeOut();
         $("#side-menu").metisMenu();
@@ -17,8 +17,7 @@ $(window).load(function(){
         ***REMOVED***);
         if ($("body").hasClass("fix-header")) {
             $(".fxhdr").attr("checked", true);
-        ***REMOVED***
-        else {
+        ***REMOVED*** else {
             $(".fxhdr").attr("checked", false);
         ***REMOVED***
     ***REMOVED***);
@@ -29,8 +28,7 @@ $(window).load(function(){
             if (width < 768) {
                 $("div.navbar-collapse").addClass("collapse");
                 topOffset = 100; // 2-row-menu
-            ***REMOVED***
-            else {
+            ***REMOVED*** else {
                 $("div.navbar-collapse").removeClass("collapse");
             ***REMOVED***
             height = ((this.window.innerHeight > 0) ? this.window.innerHeight : this.screen.height) - 1;
@@ -55,28 +53,27 @@ $(window).load(function(){
                 $('body').addClass('content-wrapper');
                 $(".sidebar-nav, .slimScrollDiv").css("overflow-x", "visible").parent().css("overflow", "visible");
                 
-            ***REMOVED***
-            else {
-                $("body").removeClass("content-wrapper"); 
+            ***REMOVED*** else {
+                $("body").removeClass("content-wrapper");
             ***REMOVED***
         ***REMOVED***);
     ***REMOVED***);
     (function ($, window, document) {
         var panelSelector = '[data-perform="panel-collapse"]';
         $(panelSelector).each(function () {
-            var $this = $(this)
-                , parent = $this.closest(".panel")
-                , wrapper = parent.find(".panel-wrapper")
-                , collapseOpts = {
+            var $this = $(this),
+                parent = $this.closest(".panel"),
+                wrapper = parent.find(".panel-wrapper"),
+                collapseOpts = {
                     toggle: false
                 ***REMOVED***;
             if (!wrapper.length) {
                 wrapper = parent.children(".panel-heading").nextAll().wrapAll("<div/>").parent().addClass("panel-wrapper");
                 collapseOpts = {***REMOVED***;
             ***REMOVED***
-            wrapper.collapse(collapseOpts).on("hide.bs.collapse" function (); {
+            wrapper.collapse(collapseOpts).on("hide.bs.collapse", function () {
                 $this.children("i").removeClass("ti-minus").addClass("ti-plus");
-            ***REMOVED***).on("show.bs.collapse", function (); {
+            ***REMOVED***).on("show.bs.collapse", function () {
                 $this.children("i").removeClass("ti-plus").addClass("ti-minus");
             ***REMOVED***);
         ***REMOVED***);
@@ -105,11 +102,11 @@ $(window).load(function(){
     ***REMOVED***(jQuery, window, document));
     //tooltip
     $(function () {
-            $('[data-toggle="tooltip"]').tooltip();
-        ***REMOVED***);
+        $('[data-toggle="tooltip"]').tooltip();
+    ***REMOVED***);
     $(function () {
-            $('[data-toggle="popover"]').popover();
-        ***REMOVED***)
+        $('[data-toggle="popover"]').popover();
+    ***REMOVED***);
     $(".list-task li label").click(function () {
         $(this).toggleClass("task-done");
     ***REMOVED***);
@@ -121,22 +118,22 @@ $(".collapseble").click(function () {
     $(".collapseblebox").fadeToggle(350);
 ***REMOVED***);
 $(".slimscrollright").slimScroll({
-    height: "100%"
-    , position: "right"
-    , size: "5px"
-    , color: "#dcdcdc"
-    , opacity: 0
-***REMOVED***).mouseover(function() {
+    height: "100%",
+    position: "right",
+    size: "5px",
+    color: "#dcdcdc",
+    opacity: 0
+***REMOVED***).mouseover(function () {
     $(this).next(".slimScrollBar").css("opacity", 0.4);
 ***REMOVED***);
 $(".slimscrollsidebar").slimScroll({
-    height: "100%"
-    , position: "left"
-    , size: "6px"
-    , color: "rgba(0,0,0,0.5)"
-    , opacity: 0
-***REMOVED***).mouseover(function() {
-$(this).next(".slimScrollBar").css("opacity", 0.4);
+    height: "100%",
+    position: "left",
+    size: "6px",
+    color: "rgba(0,0,0,0.5)",
+    opacity: 0
+***REMOVED***).mouseover(function () {
+    $(this).next(".slimScrollBar").css("opacity", 0.4);
 ***REMOVED***);
 $("body").trigger("resize");
 // visited ul li
@@ -149,10 +146,10 @@ $(".visited li a").click(function (e) {
     e.preventDefault();
 ***REMOVED***);
 $("#to-recover").click(function () {
-    $("#loginform").fadeOut("fast", function() {$("#recoverform").fadeIn();***REMOVED***);
+    $("#loginform").fadeOut("fast", function () {$("#recoverform").fadeIn(); ***REMOVED***);
 ***REMOVED***);
 $('#to-login').click(function () {
-    $("#recoverform").fadeOut("fast", function() {$("#loginform").fadeIn();***REMOVED***);
+    $("#recoverform").fadeOut("fast", function () {$("#loginform").fadeIn(); ***REMOVED***);
 ***REMOVED***);
 $(".navbar-toggle").click(function () {
     $(".navbar-toggle i").toggleClass("ti-menu");
