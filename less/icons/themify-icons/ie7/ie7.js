@@ -10,7 +10,7 @@
 (function() {
 	function addIcon(el, entity) {
 		var html = el.innerHTML;
-		el.innerHTML = escapeHTML`<span style=\"font-family: \'themify\'\">${entity***REMOVED***</span>${html***REMOVED***`;
+		el.innerHTML = "<span style=\"font-family: \'themify\'\">" + entity + "</span>" + html;
 	***REMOVED***
 	var icons = {
 		"ti-wand": "&#xe600;",
