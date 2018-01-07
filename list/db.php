@@ -30,7 +30,7 @@ else { header('Location: ../login.php'); ***REMOVED***
     $dbname = array_keys(json_decode(curl_exec($curl1), true));
     $dbdata = array_values(json_decode(curl_exec($curl1), true));
     if(isset($admindata['LANGUAGE'])){ $locale = $countries[$admindata['LANGUAGE']]; ***REMOVED***
-    setlocale(LC_ALL, $locale);
+    setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
     bindtextdomain('messages', 'locale');
     textdomain('messages');
 ***REMOVED***
