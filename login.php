@@ -6,6 +6,9 @@ if (file_exists( 'includes/config.php' )) { require( 'includes/config.php'); }  
 if(isset($_SESSION['loggedin'])) {
     if(base64_decode($_SESSION['loggedin']) == 'true') { header('Location: index.php'); }
 }
+setlocale(LC_ALL, 'de.UTF-8');
+bindtextdomain('messages', 'locale');
+textdomain('messages');
 
     $postvars0 = array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-info','arg1' => 'json');
 
@@ -49,7 +52,7 @@ if(isset($_SESSION['loggedin'])) {
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="icon" type="image/ico" href="plugins/images/favicon.ico">
-        <title><?php echo $sitetitle; ?> - Login</title>
+        <title><?php echo $sitetitle . ' - ' . _("Login"); ?></title>
         <!-- Bootstrap Core CSS -->
         <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <!-- animation CSS -->
@@ -91,45 +94,45 @@ if(isset($_SESSION['loggedin'])) {
 
             echo "<script> swal({title: '";
             if($answer == 0) {
-                echo "Account has been successfully created!', type: 'success'})</script>";
+                echo _("Account has been successfully created!") . "', type: 'success'})</script>";
             } if($answer == 1) {
-                echo "Please fill out all sections of the form.', type: 'error'})</script>";
+                echo _("Please fill out all sections of the form.") . "', type: 'error'})</script>";
             }
             if($answer == 2) {
-                echo "Invalid data entered in form. Please try again.', type: 'error'})</script>";
+                echo _("Invalid data entered in form. Please try again.") . "', type: 'error'})</script>";
             }
             if($answer == 3) {
-                echo "Server or form error (Code: 3). Please contact support.', type: 'error'})</script>";
+                echo _("Server or form error (Code: 3). Please contact support.") . "', type: 'error'})</script>";
             }
             if($answer == 4) {
-                echo "Account already exists under same username.', type: 'error'})</script>";
+                echo _("Account already exists under same username.") . "', type: 'error'})</script>";
             }
             if($answer == 12) {
-                echo "System Error (Code: 12). Please contact support.', type: 'error'})</script>";
+                echo _("System Error (Code: 12). Please contact support.") . "', type: 'error'})</script>";
             }
             if($answer == 13) {
-                echo "Server Error (Code: 13). Please contact support.', type: 'error'})</script>";
+                echo _("Server Error (Code: 13). Please contact support.") . "', type: 'error'})</script>";
             }
             if($answer == 14) {
-                echo "Server Error (Code: 14). Please contact support.', type: 'error'})</script>";
+                echo _("Server Error (Code: 14). Please contact support.") . "', type: 'error'})</script>";
             }
             if($answer == 15) {
-                echo "System Error (Code: 15). Please contact support.', type: 'error'})</script>";
+                echo _("System Error (Code: 15). Please contact support.") . "', type: 'error'})</script>";
             }
             if($answer == 16) {
-                echo "Server Error (Code: 16). Please contact support.', type: 'error'})</script>";
+                echo _("Server Error (Code: 16). Please contact support.") . "', type: 'error'})</script>";
             }
             if($answer == 17) {
-                echo "Server Error (Code: 17). Please contact support.', type: 'error'})</script>";
+                echo _("Server Error (Code: 17). Please contact support.") . "', type: 'error'})</script>";
             }
             if($answer == 18) {
-                echo "Process Error (Code: 18). Please contact support.', type: 'error'})</script>";
+               echo _("Process Error (Code: 18). Please contact support.") . "', type: 'error'})</script>";
             }
             if($answer == 19) {
-                echo "Process Error (Code: 19). Please contact support.', type: 'error'})</script>";
+                echo _("Process Error (Code: 19). Please contact support.") . "', type: 'error'})</script>";
             }
             if($answer == 20) {
-                echo "Fatal Error (Code: 20). Please contact support.', type: 'error'})</script>";
+                echo _("Fatal Error (Code: 20). Please contact support.") . "', type: 'error'})</script>";
             }}
         ?>
         <!-- Preloader -->
@@ -141,7 +144,7 @@ if(isset($_SESSION['loggedin'])) {
                 <div class="inner-panel">
                     <a href="javascript:void(0)" class="p-20 di"><img src="plugins/images/admin-logo.png" class="logo-1"></a>
                     <div class="lg-content">
-                        <h2><?php echo $sitetitle; ?> Control Panel <br></h2><p><?php require 'includes/versioncheck.php'; ?></p>
+                        <h2><?php echo $sitetitle . ' ' . _("Control Panel"); ?> <br></h2><p><?php require 'includes/versioncheck.php'; ?></p>
 
                     </div>
                 </div>
@@ -149,8 +152,8 @@ if(isset($_SESSION['loggedin'])) {
             <div class="new-login-box">
                 <div class="white-box">
                     <form class="form-horizontal new-lg-form" id="loginform" method="post" action="login.php">
-                        <h3 class="box-title m-b-0">Sign In to <?php echo $sitetitle; ?> CP</h3>
-                        <small>Enter your details below</small>
+                        <h3 class="box-title m-b-0"><?php echo _("Sign In to") . ' ' . $sitetitle . ' ' . _("CP"); ?></h3>
+                        <small><?php echo _("Enter your details below"); ?></small>
 
                         <?php
                         if(isset($_POST['username'])){
@@ -166,64 +169,64 @@ if(isset($_SESSION['loggedin'])) {
                                             <button type="button" style="color: #000;" class="close text-inverse" aria-hidden="true">
                                                 <i class="fa fa-circle-o-notch fa-spin" style="font-size:18px"></i>
                                             </button>
-                                            <span style="opacity: 0.7;">Loading Dashboard ...</span>
+                                            <span style="opacity: 0.7;">' . _("Loading Dashboard") . '...</span>
                                         </div>
                                         <script>setTimeout(function(){ window.location = "index.php";}, 100);</script>';
                                 } else {
-                                    echo '<br><br><div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Error: Incorrect Login.</div>';
+                                    echo '<br><br><div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' . _("Error: Incorrect Login.") . '</div>';
                                 }}}
 
                         ?>
 
                         <div class="form-group m-t-20">
                             <div class="col-xs-12">
-                                <label>Username</label>
-                                <input class="form-control" name="username" type="text" required="" placeholder="Username">
+                                <label><?php echo _("Username"); ?></label>
+                                <input class="form-control" name="username" type="text" required="" placeholder="<?php echo _('Username'); ?>">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-xs-12">
-                                <label>Password</label>
-                                <input class="form-control" name="password" type="password" required="" placeholder="Password">
+                                <label><?php echo _("Password"); ?></label>
+                                <input class="form-control" name="password" type="password" required="" placeholder="<?php echo _('Password'); ?>">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
 
-                                <a href="javascript:void(0)" id="to-recover" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i> Forgot pwd?</a> </div>
+                                <a href="javascript:void(0)" id="to-recover" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i> <?php echo _("Forgot pwd?"); ?></a> </div>
                         </div>
                         <div class="form-group text-center m-t-20">
                             <div class="col-xs-12">
-                                <button class="btn btn-info btn-lg btn-block btn-rounded text-uppercase waves-effect waves-light bg-theme" style="border: none;" type="submit">Log In</button>
+                                <button class="btn btn-info btn-lg btn-block btn-rounded text-uppercase waves-effect waves-light bg-theme" style="border: none;" type="submit"><?php echo _("Log in"); ?></button>
                             </div>
                         </div>
                         <br>
                         <div class="form-group m-b-0">
                             <div class="col-sm-12 text-center">
-                                <p>Don't have an account? <a href="register.php" class="text-primary m-l-5"><b>Sign Up</b></a></p>
+                                <p><?php echo _("Don't have an account?"); ?> <a href="register.php" class="text-primary m-l-5"><b><?php echo _("Sign Up"); ?></b></a></p>
                             </div>
                         </div>
                     </form>
                     <form class="form-horizontal" id="recoverform" method="post" action="<?php echo $url8083; ?>/reset/reset.php">
                         <div class="form-group m-t-20">
                             <div class="col-xs-12">
-                                <h3 class="box-title m-b-0">Recover Password</h3>
-                                <small>Enter your Username and instructions will be sent to you! </small>
+                                <h3 class="box-title m-b-0"><?php echo _("Recover Password"); ?></h3>
+                                <small><?php echo _("Enter your username and instructions will be sent to you."); ?></small>
                             </div>
                         </div>
                         <div class="form-group ">
                             <div class="col-xs-12">
-                                <input class="form-control" name="user" type="text" required="" placeholder="Username">
+                                <input class="form-control" name="user" type="text" required="" placeholder="<?php echo _('Username'); ?>">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
 
-                                <a href="javascript:void(0)" id="to-login" class="text-dark pull-right"><i class="fa fa-sign-in m-r-5"></i> Login</a> </div>
+                                <a href="javascript:void(0)" id="to-login" class="text-dark pull-right"><i class="fa fa-sign-in m-r-5"></i> <?php echo _("Login"); ?></a> </div>
                         </div>
                         <div class="form-group text-center m-t-20">
                             <div class="col-xs-12">
-                                <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light bg-theme" style="border: none;" type="submit">Reset</button>
+                                <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light bg-theme" style="border: none;" type="submit"><?php echo _("Reset"); ?></button>
                             </div>
                         </div>
                     </form>
@@ -250,8 +253,8 @@ if(isset($_SESSION['loggedin'])) {
         <script>
         <?php if(!isset($serverconnection)){
             echo "$.toast({
-                        heading: 'Error'
-                        , text: 'Failed to connect to server.<br>Please check config.php'
+                        heading: '" . _("Error") . "'
+                        , text: '" . _("Failed to connect to server.") . "<br>" . _("Please check config.php") . "'
                         , icon: 'error'
                         , position: 'top-right'
                         , hideAfter: false
@@ -259,8 +262,8 @@ if(isset($_SESSION['loggedin'])) {
                     });"; }
 if(substr(sprintf('%o', fileperms('includes')), -4) == '0777') {
          echo "$.toast({
-                        heading: 'Warning'
-                        , text: 'Includes folder has not been secured.'
+                        heading: '" . _("Warning") . "'
+                        , text: '" . _("Includes folder has not been secured") . "'
                         , icon: 'warning'
                         , position: 'top-right'
                         , hideAfter: 3500
