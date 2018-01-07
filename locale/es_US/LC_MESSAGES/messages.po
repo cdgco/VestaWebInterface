@@ -23,95 +23,95 @@ msgstr "Login"
 
 #: login.php:94
 msgid "Account has been successfully created!"
-msgstr "Account has been successfully created!"
+msgstr "Cuenta creada con éxito!"
 
 #: login.php:96
 msgid "Please fill out all sections of the form."
-msgstr "Please fill out all sections of the form."
+msgstr "Por favor complete todos los espacios del formulario."
 
 #: login.php:99
 msgid "Invalid data entered in form. Please try again."
-msgstr "Invalid data entered in form. Please try again."
+msgstr "Información inválida en el formulario. Intente nuevamente."
 
 #: login.php:102
 msgid "Server or form error (Code: 3). Please contact support."
-msgstr "Server or form error (Code: 3). Please contact support."
+msgstr "Error en el servidor o formulario (Código: 3). Por favor contacte con el soporte."
 
 #: login.php:105
 msgid "Account already exists under same username."
-msgstr "Account already exists under same username."
+msgstr "Cuenta con el mismo usuario ya existe."
 
 #: login.php:108
 msgid "System Error (Code: 12). Please contact support."
-msgstr "System Error (Code: 12). Please contact support."
+msgstr "Error de sistema (Código: 12). Por favor contacte con el soporte."
 
 #: login.php:111
 msgid "Server Error (Code: 13). Please contact support."
-msgstr "Server Error (Code: 13). Please contact support."
+msgstr "Error de servidor (Código: 13). Por favor contacte con el soporte."
 
 #: login.php:114
 msgid "Server Error (Code: 14). Please contact support."
-msgstr "Server Error (Code: 14). Please contact support."
+msgstr "Error de servidor (Código: 14). Por favor contacte con el soporte."
 
 #: login.php:117
 msgid "System Error (Code: 15). Please contact support."
-msgstr "System Error (Code: 15). Please contact support."
+msgstr "Error de sistema (Código: 15). Por favor contacte con el soporte."
 
 #: login.php:120
 msgid "Server Error (Code: 16). Please contact support."
-msgstr "Server Error (Code: 16). Please contact support."
+msgstr "Error de servidor (Código: 16). Por favor contacte con el soporte."
 
 #: login.php:123
 msgid "Server Error (Code: 17). Please contact support."
-msgstr "Server Error (Code: 17). Please contact support."
+msgstr "Error de servidor (Código: 17). Por favor contacte con el soporte."
 
 #: login.php:126
 msgid "Process Error (Code: 18). Please contact support."
-msgstr "Process Error (Code: 18). Please contact support."
+msgstr "Error de proceso (Código: 18). Por favor contacte con el soporte."
 
 #: login.php:129
 msgid "Process Error (Code: 19). Please contact support."
-msgstr "Process Error (Code: 19). Please contact support."
+msgstr "Error de proceso (Código: 19). Por favor contacte con el soporte."
 
 #: login.php:132
 msgid "Fatal Error (Code: 20). Please contact support."
-msgstr "Fatal Error (Code: 20). Please contact support."
+msgstr "Error Fatal (Código: 20). Por favor contacte con el soporte."
 
 #: login.php:144 register.php:78
 msgid "Control Panel"
-msgstr "Control Panel"
+msgstr "Panel de Control"
 
 #: login.php:152
 msgid "Sign In to"
-msgstr "Sign In to"
+msgstr "Ingresar a"
 
 #: login.php:152
 msgid "CP"
-msgstr "CP"
+msgstr "PC"
 
 #: login.php:153 register.php:84
 msgid "Enter your details below"
-msgstr "Enter your details below"
+msgstr "Ingrese sus detalles debajo"
 
 #: login.php:169
 msgid "Loading Dashboard"
-msgstr "Loading Dashboard"
+msgstr "Cargando Dashboard"
 
 #: login.php:173
 msgid "Error: Incorrect Login."
-msgstr "Error: Incorrect Login."
+msgstr "Error: Login Incorrecto."
 
 #: login.php:180 login.php:181 login.php:216 register.php:97
 msgid "Username"
-msgstr "Username"
+msgstr "Usuario"
 
 #: login.php:186 login.php:187 register.php:101
 msgid "Password"
-msgstr "Password"
+msgstr "Contraseña"
 
 #: login.php:193
 msgid "Forgot pwd?"
-msgstr "Forgot pwd?"
+msgstr "Olvidaste la contraseña?"
 
 #: login.php:197
 msgid "Log in"
@@ -119,23 +119,23 @@ msgstr "Log in"
 
 #: login.php:203
 msgid "Don't have an account?"
-msgstr "Don't have an account?"
+msgstr "No tienes una cuenta?"
 
 #: login.php:203 register.php:113
 msgid "Sign Up"
-msgstr "Sign Up"
+msgstr "Registrarse"
 
 #: login.php:210
 msgid "Recover Password"
-msgstr "Recover Password"
+msgstr "Recuperar Contraseña"
 
 #: login.php:211
 msgid "Enter your username and instructions will be sent to you."
-msgstr "Enter your username and instructions will be sent to you."
+msgstr "Ingrese su usuario y le enviaremos las instrucciones."
 
 #: login.php:226
 msgid "Reset"
-msgstr "Reset"
+msgstr "Resetear"
 
 #: login.php:253 register.php:159
 msgid "Error"
@@ -143,59 +143,59 @@ msgstr "Error"
 
 #: login.php:254 register.php:160
 msgid "Failed to connect to server."
-msgstr "Failed to connect to server."
+msgstr "Fallo al conectar al servidor."
 
 #: login.php:254 register.php:160
 msgid "Please check config.php"
-msgstr "Please check config.php"
+msgstr "Por favor chequee config.php"
 
 #: login.php:262 register.php:168
 msgid "Warning"
-msgstr "Warning"
+msgstr "Advertencia"
 
 #: login.php:263 register.php:169
 msgid "Includes folder has not been secured"
-msgstr "Includes folder has not been secured"
+msgstr "La carpeta Includes no ha sido asegurada"
 
 #: register.php:33
 msgid "Register"
-msgstr "Register"
+msgstr "Registrar"
 
 #: register.php:84
 msgid "Sign up for"
-msgstr "Sign up for"
+msgstr "Registrarse para"
 
 #: register.php:88
 msgid "First Name"
-msgstr "First Name"
+msgstr "Nombre"
 
 #: register.php:88 register.php:89
 msgid "2 to 28 Letters Only. Apostrophes and hyphens allowed."
-msgstr "2 to 28 Letters Only. Apostrophes and hyphens allowed."
+msgstr "Solamente de 2 a 28 letras. Apostrofes y guiones permitidos."
 
 #: register.php:89
 msgid "Last Name"
-msgstr "Last Name"
+msgstr "Apellido"
 
 #: register.php:93
 msgid "Invalid Email Address"
-msgstr "Invalid Email Address"
+msgstr "Correo electrónico inválido"
 
 #: register.php:93
 msgid "Email"
-msgstr "Email"
+msgstr "Correo Electrónico"
 
 #: register.php:97
 msgid "2 to 28 Characters A-Z, 0-9, '-' '.' and '_' Only."
-msgstr "2 to 28 Characters A-Z, 0-9, '-' '.' and '_' Only."
+msgstr "De 2 a 28 caracteres. Solamente A-Z, 0-9, '-' '.' y '_'."
 
 #: register.php:101
 msgid ""
 "Minimum 6 Characters: One uppercade letter, lowercase letter and number "
 "reuired."
 msgstr ""
-"Minimum 6 Characters: One uppercade letter, lowercase letter and number "
-"reuired."
+"Minimo 6 caracteres: Una mayúscula, una minúscula y un número "
+"requeridos."
 
 #: register.php:103
 msgid "Confirm Pass"
@@ -203,16 +203,16 @@ msgstr "Confirm Pass"
 
 #: register.php:108
 msgid "Default"
-msgstr "Default"
+msgstr "Defecto"
 
 #: register.php:118
 msgid "Already have an account?"
-msgstr "Already have an account?"
+msgstr "Ya tienes una cuenta?"
 
 #: register.php:118
 msgid "Sign in"
-msgstr "Sign in"
+msgstr "Ingresar"
 
 #: register.php:131
 msgid "Passwords do not match"
-msgstr "Passwords do not match"
+msgstr "Contraseñas no coinciden"
