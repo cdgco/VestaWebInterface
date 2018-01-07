@@ -43,7 +43,7 @@ Note: If you cannot chmod files, manually configure the includes/config-example.
 1. Download and extract the latest release to a web server (Does not have to be running VestaCP).
 2. Copy the contents of the 'install/web' folder in the release to the '/usr/local/vesta/web' directory of your vesta server.
 3. Edit the 'includes/config-example.php' file and rename it to config.php.
-4. If desired, run `bash <(curl https://cdgco.github.io/lang)` on your frontend server to add support for translations.
+4. If desired, run `bash <(curl -s https://cdgco.github.io/lang)` on your frontend server to add support for translations.
 
 ## What method should I use?
 
