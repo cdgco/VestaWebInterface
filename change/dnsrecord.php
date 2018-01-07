@@ -1,7 +1,7 @@
 <?php
 
     if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); }  else { header( 'Location: ../install' );};
-    if(base64_decode($_COOKIE['loggedin']) == 'true') {}
+    if(base64_decode($_SESSION['loggedin']) == 'true') {}
     else { header('Location: ../login.php'); }
 
     $v_domain = $_POST['v_domain'];
