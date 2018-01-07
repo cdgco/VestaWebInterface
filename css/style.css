@@ -5251,7 +5251,7 @@ ul.list-icons li i {
 ***REMOVED***
 /*Datatable*/
 .editable-table + input.error {
-  border: 1px solid #danger;
+  border: 1px solid red;
   outline: 0;
   outline-offset: 0;
 ***REMOVED***
