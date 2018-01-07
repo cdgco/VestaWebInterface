@@ -59,6 +59,35 @@ if [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; then
 		rm 'VWI Banner.png'
 	fi
 	chmod 777 includes
+	printf "\nInstalling Language Packages ...\n"
+	locale-gen ar_EG.utf8 > /dev/null
+	locale-gen bs_BA.utf8 > /dev/null
+	locale-gen zh_CN.utf8 > /dev/null
+	locale-gen da_DK.utf8 > /dev/null
+	locale-gen de_DE.utf8 > /dev/null
+	locale-gen el_GR.utf8 > /dev/null
+	locale-gen en_US.utf8 > /dev/null
+	locale-gen es_US.utf8 > /dev/null
+	locale-gen fa_IR > /dev/null
+	locale-gen fi_FI.utf8 > /dev/null
+	locale-gen fr_FR.utf8 > /dev/null
+	locale-gen hu_HU.utf8 > /dev/null
+	locale-gen id_ID.utf8 > /dev/null
+	locale-gen it_IT.utf8 > /dev/null
+	locale-gen ja_JP.utf8 > /dev/null
+	locale-gen ka_GE.utf8 > /dev/null
+	locale-gen nl_NL.utf8 > /dev/null
+	locale-gen nn_NO.utf8 > /dev/null
+	locale-gen pl_PL.utf8 > /dev/null
+	locale-gen pt_BR.utf8 > /dev/null
+	locale-gen pt_PT.utf8 > /dev/null
+	locale-gen ro_RO.utf8 > /dev/null
+	locale-gen ru_RU.utf8 > /dev/null
+	locale-gen sv_SE.utf8 > /dev/null
+	locale-gen tr_TR.utf8 > /dev/null
+	locale-gen zh_TW.utf8 > /dev/null
+	locale-gen uk_UA.utf8 > /dev/null
+	locale-gen vi_VN > /dev/null
 	printf "Installing Vesta Web Interface backend ...\n"
 	sleep .5
 	wget -q https://raw.githubusercontent.com/cdgco/VestaWebInterface/master/install/web.tar.gz
