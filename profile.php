@@ -27,7 +27,8 @@ while($curlstart <= 0) {
 
 $admindata = json_decode(curl_exec($curl0), true)[$username];
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_ALL, $locale);
+setlocale(LC_CTYPE, $locale);
+setlocale(LC_MESSAGES, $locale);
 bindtextdomain('messages', 'locale');
 textdomain('messages');
 
@@ -95,7 +96,7 @@ textdomain('messages');
         if(isset($answer1)) { $answer = (int)$answer1; }
         if(isset($pwcode) || isset($emailcode) || isset($langcode) || isset($nscode) || isset($namecode)){
             if($answer == "0") {
-                echo "<script> swal({title:'" . _("Successfully Updated") . "'!', type:'success'})</script>";
+                echo "<script> swal({title:'" . _("Successfully Updated") . "!', type:'success'})</script>";
             } 
             if(isset($answer) && $answer == "1" || isset($answer) && $answer == "2") { echo "<script> swal('" . _("Invalid data entered in form.") . "<br>" .  _("Please try again.") . "', '<br>"; 
                                                                                       if(isset($pwcode) && $pwcode != "0"){ echo " P: " . $pwcode;}
