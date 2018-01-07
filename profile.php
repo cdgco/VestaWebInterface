@@ -26,6 +26,10 @@ while($curlstart <= 0) {
 } 
 
 $admindata = json_decode(curl_exec($curl0), true)[$username];
+if(isset($admindata['LANGUAGE'])){ $locale = $countries[$admindata['LANGUAGE']]; }
+setlocale(LC_ALL, $locale);
+bindtextdomain('messages', 'locale');
+textdomain('messages');
 
 ?>
 <!DOCTYPE html>

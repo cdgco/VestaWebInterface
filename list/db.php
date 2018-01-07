@@ -29,6 +29,10 @@ else { header('Location: ../login.php'); }
     $useremail = $admindata['CONTACT'];
     $dbname = array_keys(json_decode(curl_exec($curl1), true));
     $dbdata = array_values(json_decode(curl_exec($curl1), true));
+    if(isset($admindata['LANGUAGE'])){ $locale = $countries[$admindata['LANGUAGE']]; }
+    setlocale(LC_ALL, $locale);
+    bindtextdomain('messages', 'locale');
+    textdomain('messages');
 ?>
 
 <!DOCTYPE html>

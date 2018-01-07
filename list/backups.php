@@ -29,7 +29,10 @@ $admindata = json_decode(curl_exec($curl0), true)[$username];
 $useremail = $admindata['CONTACT'];
 $backupname = array_keys(json_decode(curl_exec($curl1), true));
 $backupdata = array_values(json_decode(curl_exec($curl1), true));
-
+if(isset($admindata['LANGUAGE'])){ $locale = $countries[$admindata['LANGUAGE']]; }
+setlocale(LC_ALL, $locale);
+bindtextdomain('messages', 'locale');
+textdomain('messages');
 ?>
 
 <!DOCTYPE html>

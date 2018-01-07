@@ -54,6 +54,10 @@ session_start();
     $dbname = array_keys(json_decode(curl_exec($curl4), true));
     $dbdata = array_values(json_decode(curl_exec($curl4), true));
 
+    if(isset($admindata['LANGUAGE'])){ $locale = $countries[$admindata['LANGUAGE']]; }
+    setlocale(LC_ALL, $locale);
+    bindtextdomain('messages', 'locale');
+    textdomain('messages');
     ?><!DOCTYPE html>
     <html lang="en">
 

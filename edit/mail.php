@@ -35,6 +35,10 @@ session_start();
     $maildata = array_values(json_decode(curl_exec($curl1), true));
     $mailname = array_keys(json_decode(curl_exec($curl1), true));
     if ($mailname[0] == '') { header('Location: ../list/mail.php'); }
+    if(isset($admindata['LANGUAGE'])){ $locale = $countries[$admindata['LANGUAGE']]; }
+    setlocale(LC_ALL, $locale);
+    bindtextdomain('messages', 'locale');
+    textdomain('messages');
 ?>
 
 <!DOCTYPE html>

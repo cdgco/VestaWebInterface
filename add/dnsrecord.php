@@ -35,6 +35,10 @@ session_start();
     $useremail = $admindata['CONTACT'];
     $recordnumber = array_keys(json_decode(curl_exec($curl1), true));
     if ($recordnumber[0] == '') { header('Location: ../list/dns.php'); }
+    if(isset($admindata['LANGUAGE'])){ $locale = $countries[$admindata['LANGUAGE']]; }
+    setlocale(LC_ALL, $locale);
+    bindtextdomain('messages', 'locale');
+    textdomain('messages');
 ?>
 
 <!DOCTYPE html>
