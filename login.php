@@ -6,7 +6,7 @@ if (file_exists( 'includes/config.php' )) { require( 'includes/config.php'); ***
 if(isset($_SESSION['loggedin'])) {
     if(base64_decode($_SESSION['loggedin']) == 'true') { header('Location: index.php'); ***REMOVED***
 ***REMOVED***
-setlocale(LC_ALL, 'de.UTF-8');
+setlocale(LC_ALL, 'de');
 bindtextdomain('messages', 'locale');
 textdomain('messages');
 
