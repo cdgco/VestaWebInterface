@@ -1,4 +1,4 @@
-$(window).load(function(){
+$(window).load(function () {
     $(function () {
         $(".preloader").fadeOut();
         $("#side-menu").metisMenu();
@@ -17,8 +17,7 @@ $(window).load(function(){
         });
         if ($("body").hasClass("fix-header")) {
             $(".fxhdr").attr("checked", true);
-        }
-        else {
+        } else {
             $(".fxhdr").attr("checked", false);
         }
     });
@@ -29,8 +28,7 @@ $(window).load(function(){
             if (width < 768) {
                 $("div.navbar-collapse").addClass("collapse");
                 topOffset = 100; // 2-row-menu
-            }
-            else {
+            } else {
                 $("div.navbar-collapse").removeClass("collapse");
             }
             height = ((this.window.innerHeight > 0) ? this.window.innerHeight : this.screen.height) - 1;
@@ -55,28 +53,27 @@ $(window).load(function(){
                 $('body').addClass('content-wrapper');
                 $(".sidebar-nav, .slimScrollDiv").css("overflow-x", "visible").parent().css("overflow", "visible");
                 
-            }
-            else {
-                $("body").removeClass("content-wrapper"); 
+            } else {
+                $("body").removeClass("content-wrapper");
             }
         });
     });
     (function ($, window, document) {
         var panelSelector = '[data-perform="panel-collapse"]';
         $(panelSelector).each(function () {
-            var $this = $(this)
-                , parent = $this.closest(".panel")
-                , wrapper = parent.find(".panel-wrapper")
-                , collapseOpts = {
+            var $this = $(this),
+                parent = $this.closest(".panel"),
+                wrapper = parent.find(".panel-wrapper"),
+                collapseOpts = {
                     toggle: false
                 };
             if (!wrapper.length) {
                 wrapper = parent.children(".panel-heading").nextAll().wrapAll("<div/>").parent().addClass("panel-wrapper");
                 collapseOpts = {};
             }
-            wrapper.collapse(collapseOpts).on("hide.bs.collapse" function (); {
+            wrapper.collapse(collapseOpts).on("hide.bs.collapse", function () {
                 $this.children("i").removeClass("ti-minus").addClass("ti-plus");
-            }).on("show.bs.collapse", function (); {
+            }).on("show.bs.collapse", function () {
                 $this.children("i").removeClass("ti-plus").addClass("ti-minus");
             });
         });
@@ -105,11 +102,11 @@ $(window).load(function(){
     }(jQuery, window, document));
     //tooltip
     $(function () {
-            $('[data-toggle="tooltip"]').tooltip();
-        });
+        $('[data-toggle="tooltip"]').tooltip();
+    });
     $(function () {
-            $('[data-toggle="popover"]').popover();
-        })
+        $('[data-toggle="popover"]').popover();
+    });
     $(".list-task li label").click(function () {
         $(this).toggleClass("task-done");
     });
@@ -121,22 +118,22 @@ $(".collapseble").click(function () {
     $(".collapseblebox").fadeToggle(350);
 });
 $(".slimscrollright").slimScroll({
-    height: "100%"
-    , position: "right"
-    , size: "5px"
-    , color: "#dcdcdc"
-    , opacity: 0
-}).mouseover(function() {
+    height: "100%",
+    position: "right",
+    size: "5px",
+    color: "#dcdcdc",
+    opacity: 0
+}).mouseover(function () {
     $(this).next(".slimScrollBar").css("opacity", 0.4);
 });
 $(".slimscrollsidebar").slimScroll({
-    height: "100%"
-    , position: "left"
-    , size: "6px"
-    , color: "rgba(0,0,0,0.5)"
-    , opacity: 0
-}).mouseover(function() {
-$(this).next(".slimScrollBar").css("opacity", 0.4);
+    height: "100%",
+    position: "left",
+    size: "6px",
+    color: "rgba(0,0,0,0.5)",
+    opacity: 0
+}).mouseover(function () {
+    $(this).next(".slimScrollBar").css("opacity", 0.4);
 });
 $("body").trigger("resize");
 // visited ul li
@@ -149,10 +146,10 @@ $(".visited li a").click(function (e) {
     e.preventDefault();
 });
 $("#to-recover").click(function () {
-    $("#loginform").fadeOut("fast", function() {$("#recoverform").fadeIn();});
+    $("#loginform").fadeOut("fast", function () {$("#recoverform").fadeIn(); });
 });
 $('#to-login').click(function () {
-    $("#recoverform").fadeOut("fast", function() {$("#loginform").fadeIn();});
+    $("#recoverform").fadeOut("fast", function () {$("#loginform").fadeIn(); });
 });
 $(".navbar-toggle").click(function () {
     $(".navbar-toggle i").toggleClass("ti-menu");
