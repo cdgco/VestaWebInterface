@@ -45,12 +45,22 @@ Note: If you cannot chmod files, manually configure the includes/config-example.
 3. Edit the 'includes/config-example.php' file and rename it to config.php.
 4. If desired, run `bash <(curl -s https://cdgco.github.io/lang)` on your frontend server to add support for translations.
 
-## What method should I use?
+#### What method should I use?
 
 * Method 1 is used to install VWI automatically if the frontend is on the same server as VestaCP.
 * Method 2 is used to install the VWI frontend manually and the backend automatically if the frontend is not hosted by a VestaCP server. 
 * Method 3 is used to install VWI manually in case of any errors or other circumstances with other installation methods.
  
+## Update
+
+1. If you installed VWI using Method 1, run the command `bash <(curl -s https://cdgco.github.io/ugfull)` while in the VWI web directory to update.
+
+2. If you used method 2 or 3, redo the installation steps with the exception of installing language packs as they do not need to be updated.
+
+## Uninstall
+
+Uninstall script coming soon.
+
 ## Support
 
 For support regarding Vesta Web Interface, you can email me at support [at] cdgtech.one, visit the support portal online at http://support.cdgtech.one, or click the buttons in the bottom left and right hand corners of the live demo to chat or leave feedback.
