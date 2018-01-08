@@ -29,7 +29,7 @@ else { header('Location: ../login.php'); }
     $useremail = $admindata['CONTACT'];
     $dnsname = array_keys(json_decode(curl_exec($curl1), true));
     $dnsdata = array_values(json_decode(curl_exec($curl1), true));
-    if(isset($admindata['LANGUAGE'])){ $locale = $countries[$admindata['LANGUAGE']]; }
+    if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
     setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
     bindtextdomain('messages', 'locale');
     textdomain('messages');

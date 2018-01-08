@@ -35,7 +35,7 @@ $useremail = $admindata['CONTACT'];
 $crondata = array_values(json_decode(curl_exec($curl1), true));
 $cronname = array_keys(json_decode(curl_exec($curl1), true));
 if ($cronname[0] == '') { header('Location: ../list/cron.php'); }
-if(isset($admindata['LANGUAGE'])){ $locale = $countries[$admindata['LANGUAGE']]; }
+if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
 setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
 bindtextdomain('messages', 'locale');
 textdomain('messages');
