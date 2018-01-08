@@ -31,7 +31,7 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'
     $domaindata = array_values(json_decode(curl_exec($curl1), true));
     if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; ***REMOVED***
     setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
-    bindtextdomain('messages', 'locale');
+    bindtextdomain('messages', '../locale');
     textdomain('messages');
 ***REMOVED***
 

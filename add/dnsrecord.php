@@ -37,7 +37,7 @@ session_start();
     if ($recordnumber[0] == '') { header('Location: ../list/dns.php'); ***REMOVED***
     if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; ***REMOVED***
     setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
-    bindtextdomain('messages', 'locale');
+    bindtextdomain('messages', '../locale');
     textdomain('messages');
 ***REMOVED***
 

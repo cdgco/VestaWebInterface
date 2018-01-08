@@ -37,7 +37,7 @@ $cronname = array_keys(json_decode(curl_exec($curl1), true));
 if ($cronname[0] == '') { header('Location: ../list/cron.php'); ***REMOVED***
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; ***REMOVED***
 setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
-bindtextdomain('messages', 'locale');
+bindtextdomain('messages', '../locale');
 textdomain('messages');
 ***REMOVED***
 
