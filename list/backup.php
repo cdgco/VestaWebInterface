@@ -34,10 +34,9 @@ $useremail = $admindata['CONTACT'];
 $backupname = array_keys(json_decode(curl_exec($curl1), true));
 $backupdata = array_values(json_decode(curl_exec($curl1), true));
 if ($backupname[0] == '') { header('Location: ../list/backups.php'); }
-if(isset($admindata['LANGUAGE'])){ $locale =
-setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);LANGUAGE']]; }
-setlocale(LC_ALL, $locale);
-bindtextdomain('messages', 'locale');
+if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
+setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
+bindtextdomain('messages', '../locale');
 textdomain('messages');
 
 ?>
