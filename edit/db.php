@@ -38,7 +38,7 @@ session_start();
     if ($dbname[0] == '') { header('Location: ../list/db.php'); ***REMOVED***
     if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; ***REMOVED***
     setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
-    bindtextdomain('messages', 'locale');
+    bindtextdomain('messages', '../locale');
     textdomain('messages');
 ***REMOVED***
 
