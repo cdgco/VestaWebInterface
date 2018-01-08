@@ -1,6 +1,6 @@
 ![VWI Banner](https://raw.githubusercontent.com/cdgco/VestaWebInterface/master/VWI%20Banner.png)
 
-Demo: http://cdgphp70.epizy.com
+Demo: Currently down for maintenance
 
 Username: demo
 
