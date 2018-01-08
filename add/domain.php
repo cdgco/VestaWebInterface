@@ -34,7 +34,7 @@ $useremail = $admindata['CONTACT'];
 $userips = array_keys(json_decode(curl_exec($curl1), true));
 $proxytemplates = array_values(json_decode(curl_exec($curl2), true));
 $webstats = array_values(json_decode(curl_exec($curl3), true));
-if(isset($admindata['LANGUAGE'])){ $locale = $countries[$admindata['LANGUAGE']]; ***REMOVED***
+if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; ***REMOVED***
 setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
 bindtextdomain('messages', 'locale');
 textdomain('messages');
