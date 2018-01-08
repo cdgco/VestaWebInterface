@@ -53,7 +53,7 @@ Note: If you cannot chmod files, manually configure the includes/config-example.
  
 ## Update
 
-1. If you installed VWI using Method 1, run the command `bash <(curl -s https://cdgco.github.io/ugfull)` while in the VWI web directory to update.
+1. If you installed VWI using Method 1, run the command `bash <(curl -s https://cdgco.github.io/upfull)` while in the VWI web directory to update.
 
 2. If you used method 2 or 3, redo the installation steps with the exception of installing language packs as they do not need to be updated.
 
