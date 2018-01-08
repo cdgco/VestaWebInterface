@@ -36,7 +36,7 @@ session_start();
     $dbdata = array_values(json_decode(curl_exec($curl1), true));
 
     if ($dbname[0] == '') { header('Location: ../list/db.php'); }
-    if(isset($admindata['LANGUAGE'])){ $locale = $countries[$admindata['LANGUAGE']]; }
+    if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
     setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
     bindtextdomain('messages', 'locale');
     textdomain('messages');
