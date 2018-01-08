@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-01-07 15:11-0800\n"
-"PO-Revision-Date: 2018-01-07 15:11-0800\n"
+"POT-Creation-Date: 2018-01-07 19:41-0800\n"
+"PO-Revision-Date: 2018-01-07 19:43-0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -537,7 +537,7 @@ msgstr "Caminho"
 
 #: add/domain.php:379
 msgid "Send FTP Credentials to Email:"
-msgstr "Enviar Credencial FTP por email"
+msgstr "Enviar Credencial FTP por email:"
 
 #: add/mail.php:167
 msgid "Add Mail Domain"
@@ -861,7 +861,7 @@ msgstr "Login"
 
 #: login.php:100
 msgid "Account has been successfully created!"
-msgstr "Conta criada com sucesso"
+msgstr "¡Conta criada com sucesso!"
 
 #: login.php:102
 msgid "Please fill out all sections of the form."
@@ -1038,7 +1038,7 @@ msgstr "Registrar-se para"
 
 #: register.php:93 register.php:94
 msgid "2 to 28 Letters Only. Apostrophes and hyphens allowed."
-msgstr "De 2 a 28 letras. Apostrofes e hifens permitidos"
+msgstr "De 2 a 28 letras. Apostrofes e hifens permitidos."
 
 #: register.php:98
 msgid "Invalid Email Address"
