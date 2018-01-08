@@ -14,7 +14,7 @@ Password: demo123
 
 ## Requirements
 * Server with root access and VestaCP installed.
-* Web server with php and php-curl installed (Does not have to be powered by VestaCP)
+* Web server with php, php-curl and php-gettext (optional) installed (Does not have to be powered by VestaCP)
 
 (Tested on Ubuntu Server 14.04 - 16.04, CentOS 5 - 7, VestaCP 0.9.8-17 - 0.9.8-18, PHP 5.4 - 7.0)
 
