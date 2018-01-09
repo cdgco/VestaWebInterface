@@ -71,6 +71,7 @@
 <option value="America/Noronha">(GMT-02:00) Mid-Atlantic</option>
 <option value="Atlantic/Cape_Verde">(GMT-01:00) Cape Verde Is.</option>
 <option value="Atlantic/Azores">(GMT-01:00) Azores</option>
+<option value="UTC">(UTC) Universal Time Coordinated</option>
 <option value="Europe/Belfast">(GMT) Greenwich Mean Time : Belfast</option>
 <option value="Europe/Dublin">(GMT) Greenwich Mean Time : Dublin</option>
 <option value="Europe/Lisbon">(GMT) Greenwich Mean Time : Lisbon</option>
