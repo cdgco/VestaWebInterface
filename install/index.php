@@ -38,6 +38,8 @@
     <option value="Pacific/Midway">(UTC-11:00) Midway Island</option>
     <option value="Pacific/Samoa">(UTC-11:00) Samoa</option>
     <option value="Pacific/Honolulu">(UTC-10:00) Hawaii</option>
+    <option value="Pacific/Marquesas">(GMT-09:30) Marquesas Islands</option>
+    <option value="Pacific/Gambier">(GMT-09:00) Gambier Islands</option>
     <option value="US/Alaska">(UTC-09:00) Alaska</option>
     <option value="America/Los_Angeles">(UTC-08:00) Pacific Time (US &amp; Canada)</option>
     <option value="America/Tijuana">(UTC-08:00) Tijuana</option>
