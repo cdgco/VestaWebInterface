@@ -1,6 +1,6 @@
 ![VWI Banner](https://raw.githubusercontent.com/cdgco/VestaWebInterface/master/VWI%20Banner.png)
 
-Demo: Currently down for maintenance
+Demo: https://ide.cdgtech.one/dev
 
 Username: demo
 
@@ -12,7 +12,7 @@ Password: demo123
 [![GitHub repo size in bytes](https://img.shields.io/github/repo-size/cdgco/vestawebinterface.svg)](https://github.com/cdgco/VestaWebInterface/releases)
 [![GitHub (pre-)release](https://img.shields.io/github/release/cdgco/vestawebinterface/all.svg)](https://github.com/cdgco/VestaWebInterface/releases)
 
-Visit the Wiki for technical information.
+For installation, details and technical information, visit the [VWI Wiki](https://github.com/cdgco/VestaWebInterface/wiki)
 
 ## Support
 
