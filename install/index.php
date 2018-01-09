@@ -35,7 +35,6 @@
   <label class="col-md-4 control-label" for="timezone">Server Timezone</label>
   <div class="col-md-4">
     <select id="timezone" name="TIMEZONE" class="form-control">
-      <select class="auth-input" id="timezone" name="timezone">
     <option value="Pacific/Midway">(UTC-11:00) Midway Island</option>
     <option value="Pacific/Samoa">(UTC-11:00) Samoa</option>
     <option value="Pacific/Honolulu">(UTC-10:00) Hawaii</option>
@@ -179,7 +178,6 @@
     <option value="Asia/Magadan">(UTC+12:00) Solomon Is.</option>
     <option value="Pacific/Auckland">(UTC+12:00) Wellington</option>
     <option value="Pacific/Tongatapu">(UTC+13:00) Nuku'alofa</option>
-</select>
     </select>
   </div>
 </div>
