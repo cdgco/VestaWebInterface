@@ -190,7 +190,7 @@ textdomain('messages');
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title">Edit Web Domain</h4>
+                            <h4 class="page-title"><?php echo _("Edit Web Domain"); ?></h4>
                         </div>
                     </div>
                     <div class="row">
@@ -199,7 +199,7 @@ textdomain('messages');
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">
                                         <div class="panel-heading">
-                                            <center>DOMAIN</center>
+                                            <center><?php echo _("DOMAIN"); ?></center>
                                         </div>
                                         <div class="panel-body">
                                             <center><h2><?php print_r($domainname[0]); ?></h2></center>
@@ -213,7 +213,7 @@ textdomain('messages');
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">
                                         <div class="panel-heading">
-                                            <center>CREATED</center>
+                                            <center><?php echo _("CREATED"); ?></center>
                                         </div>
                                         <div class="panel-body">
                                             <center>
@@ -231,12 +231,12 @@ textdomain('messages');
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">
                                         <div class="panel-heading">
-                                            <center>STATUS</center>
+                                            <center><?php echo _("STATUS"); ?></center>
                                         </div>
                                         <div class="panel-body">
                                             <center>
                                                 <h2>
-                                                    <?php if ($domaindata[0]['SUSPENDED'] == 'no') {echo 'Active';} else {echo 'Suspended';}?>
+                                                    <?php if ($domaindata[0]['SUSPENDED'] == 'no') {echo _("Active");} else {echo _("Suspended");}?>
                                                 </h2>
                                             </center>
                                         </div>
@@ -250,7 +250,7 @@ textdomain('messages');
                             <div class="white-box">
                                 <form class="form-horizontal form-material" autocomplete="off" autocomplete="off" method="post" action="../change/domain.php">
                                     <div class="form-group" style="overflow: visible;">
-                                        <label class="col-md-12">IP Address</label>
+                                        <label class="col-md-12"><?php echo _("IP Address"); ?></label>
                                         <div class="col-md-12">
                                             <input type="hidden" name="v_domain" value="<?php echo $requestdomain; ?>">
                                             <input type="hidden" name="v_ip-x" value="<?php echo $domaindata[0]['IP']; ?>">
@@ -269,7 +269,7 @@ textdomain('messages');
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Aliases</label>
+                                        <label class="col-md-12"><?php echo _("Aliases"); ?></label>
                                         <div class="col-md-12">
                                             <input type="hidden" name="v_alias-x" value="<?php echo $domaindata[0]['ALIAS']; ?>"> 
                                             <textarea class="form-control" rows="4" name="v_alias"><?php 
@@ -284,7 +284,7 @@ textdomain('messages');
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Web Template</label>
+                                        <label class="col-md-12"><?php echo _("Web Template"); ?></label>
                                         <div class="col-md-12">
                                             <input type="hidden" name="v_tpl-x" value="<?php echo $domaindata[0]['TPL']; ?>">
                                             <select class="form-control select2" name="v_tpl" id="select2"><?php
@@ -300,18 +300,18 @@ textdomain('messages');
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Proxy Support</label>
+                                        <label class="col-md-12"><?php echo _("Proxy Support"); ?></label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
                                                 <input type="hidden" name="v_prxenabled-x" value="<?php if($domaindata[0]['PROXY'] != '') {echo 'yes';} ?>">
                                                 <input id="checkbox4" type="checkbox" name="v_prxenabled" onclick="checkDiv();" <?php if($domaindata[0]['PROXY'] != '') {echo 'checked';} ?> >
-                                                <label for="checkbox4"> Enabled </label>
+                                                <label for="checkbox4"> <?php echo _("Enabled"); ?> </label>
                                             </div>
                                         </div>
                                     </div>
                                     <div id="prxy-div" style="margin-left: 4%;">
                                         <div class="form-group">
-                                            <label class="col-md-12">Proxy Template</label>
+                                            <label class="col-md-12"><?php echo _("Proxy Template"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_prxtpl-x" value="<?php echo $domaindata[0]['PROXY']; ?>">
                                                 <select class="form-control select3" name="v_prxtpl" id="select3">
@@ -329,7 +329,7 @@ textdomain('messages');
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12">Proxy Extensions</label>
+                                            <label class="col-md-12"><?php echo _("Proxy Extensions"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_prxext-x" value="<?php echo $domaindata[0]['PROXY_EXT']; ?>">
                                                 <textarea class="form-control" rows="2" id="prxext" name="v_prxext"><?php echo $domaindata[0]['PROXY_EXT']; ?></textarea>
@@ -337,29 +337,29 @@ textdomain('messages');
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">SSL Support</label>
+                                        <label class="col-md-12"><?php echo _("SSL Support"); ?></label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
                                                 <input type="hidden" name="v_sslenabled-x" value="<?php echo $domaindata[0]['SSL']; ?>">
                                                 <input id="checkbox5" type="checkbox" name="v_sslenabled" onclick="checkDiv2();" <?php if($domaindata[0]['SSL'] == 'no') {} else {echo 'checked';} ?> >
-                                                <label for="checkbox5"> Enabled </label>
+                                                <label for="checkbox5"> <?php echo _("Enabled"); ?> </label>
                                             </div>
                                         </div>
                                     </div>
                                     <div id="ssl-div" style="margin-left: 4%;">
                                         <div class="form-group">
-                                            <label class="col-md-12">Let's Encrypt Support</label>
+                                            <label class="col-md-12"><?php echo _("Let's Encrypt Support"); ?></label>
                                             <div class="col-md-12">
                                                 <div class="checkbox checkbox-info">
                                                     <input type="hidden" name="v_leeanbled-x" value="<?php echo $domaindata[0]['LETSENCRYPT']; ?>">
                                                     <input id="checkbox6" name="v_leenabled" type="checkbox" <?php if($domaindata[0]['LETSENCRYPT'] == 'no') {} else {echo 'checked';} ?>>
-                                                    <label for="checkbox6"> Enabled </label>
+                                                    <label for="checkbox6"> <?php echo _("Enabled"); ?> </label>
                                                 </div>
                                             </div>
                                         </div>
                                         <br>
                                         <div class="form-group">
-                                            <label class="col-md-12">SSL Directory</label>
+                                            <label class="col-md-12"><?php echo _("SSL Directory"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_ssldir-x" value="<?php echo $domaindata[0]['SSL_HOME']; ?>">
                                                 <select class="form-control" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_ssldir">
@@ -369,21 +369,21 @@ textdomain('messages');
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12">SSL Certificate / <a href="../process/generatecsr.php?domain=<?php echo $requestdomain; ?>">Generate CSR</a></label>
+                                            <label class="col-md-12"><?php echo _("SSL Certificate"); ?> / <a href="../process/generatecsr.php?domain=<?php echo $requestdomain; ?>"><?php echo _("Generate CSR"); ?></a></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_sslcrt-x" value="<?php echo $domaindata[0]['CRT']; ?>">
                                                 <textarea class="form-control" rows="4" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_sslcrt"><?php print_r($domainssl[0]['CRT']); ?></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12">SSL Key</label>
+                                            <label class="col-md-12"><?php echo _("SSL Key"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_sslkey-x" value="<?php echo $domaindata[0]['KEY']; ?>">
                                                 <textarea class="form-control" rows="4" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_sslkey"><?php print_r($domainssl[0]['KEY']); ?></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12">SSL Certificate Authority / Intermediate</label>
+                                            <label class="col-md-12"><?php echo _("SSL Certificate Authority / Intermediate"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_sslca-x" value="<?php echo $domaindata[0]['CA']; ?>">
                                                 <textarea class="form-control" rows="4" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_sslca"><?php print_r($domainssl[0]['CA']); ?></textarea>
@@ -391,18 +391,18 @@ textdomain('messages');
                                         </div>
                                         <div class="form-group" style="margin-left: 0.1%;display:<? if($domainssl[0]['CRT'] != ''){echo 'block';} else { echo 'none';} ?>">
                                             <ul class="list-unstyled">
-                                                <li>Subject:  <?php print_r($domainssl[0]['SUBJECT']); ?></li>
-                                                <li>Aliases:  <?php print_r($domainssl[0]['ALIASES']); ?></li>
-                                                <li>Not Before:  <?php print_r($domainssl[0]['NOT_BEFORE']); ?></li>
-                                                <li>Not After:  <?php print_r($domainssl[0]['NOT_AFTER']); ?></li>
-                                                <li>Signature:  <?php print_r($domainssl[0]['SIGNATURE']); ?></li>
-                                                <li>Pub Key:  <?php print_r($domainssl[0]['PUB_KEY']); ?></li>
-                                                <li>Issuer:  <?php print_r($domainssl[0]['ISSUER']); ?></li>
+                                                <li><?php echo _("Subject"); ?>:  <?php print_r($domainssl[0]['SUBJECT']); ?></li>
+                                                <li><?php echo _("Aliases"); ?>:  <?php print_r($domainssl[0]['ALIASES']); ?></li>
+                                                <li><?php echo _("Not Before"); ?>:  <?php print_r($domainssl[0]['NOT_BEFORE']); ?></li>
+                                                <li><?php echo _("Not After"); ?>:  <?php print_r($domainssl[0]['NOT_AFTER']); ?></li>
+                                                <li><?php echo _("Signature"); ?>:  <?php print_r($domainssl[0]['SIGNATURE']); ?></li>
+                                                <li><?php echo _("Pub Key"); ?>:  <?php print_r($domainssl[0]['PUB_KEY']); ?></li>
+                                                <li><?php echo _("Issuer"); ?>:  <?php print_r($domainssl[0]['ISSUER']); ?></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Web Statistics</label>
+                                        <label class="col-md-12"><?php echo _("Web Statistics"); ?></label>
                                         <div class="col-md-12">
                                             <input type="hidden" name="v_webstats-x" value="<?php if ($domaindata[0]['STATS'] == '') {echo 'none'; } else { echo $domaindata[0]['STATS']; } ?>">
                                             <select class="form-control select6" name="v_webstats" onchange="showauth()" id="select6">
@@ -421,26 +421,26 @@ textdomain('messages');
                                     </div>
                                     <div id="statsauth" style="margin-left: 4%;">
                                         <div class="form-group">
-                                            <label class="col-md-12">Statistics Authorization</label>
+                                            <label class="col-md-12"><?php echo _("Statistics Authorization"); ?></label>
                                             <div class="col-md-12">
                                                 <div class="checkbox checkbox-info">
                                                     <input type="hidden" name="v_statsuserenabled-x" value="<?php if($domaindata[0]['STATS_USER'] == '') {echo '';} else {echo 'yes';} ?>">
                                                     <input id="checkbox10" type="checkbox" name="v_statsuserenabled" <?php if($domaindata[0]['STATS_USER'] != '') {echo 'checked';} ?> onclick="checkDiv4();">
-                                                    <label for="checkbox10"> Enabled </label>
+                                                    <label for="checkbox10"> <?php echo _("Enabled"); ?> </label>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div id="stats-div" style="margin-left: 4%;">
                                         <div class="form-group">
-                                            <label class="col-md-12">Username</label><br>
+                                            <label class="col-md-12"><?php echo _("Username"); ?></label><br>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_statsuname-x" value="<?php echo $domaindata[0]['STATS_USER']; ?>">
                                                 <input type="text" name="v_statsuname" autocomplete="new-password" class="form-control" value="<?php echo $domaindata[0]['STATS_USER']; ?>"> 
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="v_statspassword" class="col-md-12">Password / <a style="cursor:pointer" onclick="generatePassword2(10)"> Generate</a></label>
+                                            <label for="v_statspassword" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword2(10)"> <?php echo _("Generate"); ?></a></label>
                                             <div class="col-md-12 input-group" style="padding-left: 15px;">
                                                 <input type="password" autocomplete="new-password" class="form-control form-control-line" name="v_statspassword" id="statspassword">                                    <span class="input-group-btn"> 
                                                 <button class="btn btn-info" style="margin-right: 15px;" name="Show" onclick="toggler2(this)" id="tg2" type="button"><i class="ti-eye"></i></button> 
@@ -453,12 +453,12 @@ textdomain('messages');
                                     $ftpdir = explode(':', ($domaindata[0]['FTP_PATH'])); 
                                     ?>
                                     <div class="form-group">
-                                        <label class="col-md-12">Additional FTP</label>
+                                        <label class="col-md-12"><?php echo _("Additional FTP"); ?></label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
                                                 <input type="hidden" name="v_additionalftpenabled-x" value="<?php if($ftpuser[0]) {echo 'yes';} else { echo 'no'; }?>">
                                                 <input id="checkbox9" disabled type="checkbox" name="v_addittionalftpenabled" <?php if($ftpuser[0]) {echo 'checked';} ?> onclick="checkDiv3();">
-                                                <label for="checkbox9"> Enabled </label>
+                                                <label for="checkbox9"> <?php echo _("Enabled"); ?> </label>
                                             </div>
                                         </div>
                                     </div>
@@ -466,7 +466,7 @@ textdomain('messages');
                                     <div id="ftp-div" style="margin-left: 4%;">
 
                                         <div class="form-group">
-                                            <label class="col-md-12">Username</label><br>
+                                            <label class="col-md-12"><?php echo _("Username"); ?></label><br>
                                             <div class="col-md-12">
                                                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                                     <div class="input-group-addon"><?php print_r($uname); ?>_</div>
@@ -476,14 +476,14 @@ textdomain('messages');
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="password" class="col-md-12">Password / <a style="cursor:pointer" onclick="generatePassword(10)"> Generate</a></label>
+                                            <label for="password" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10)"> <?php echo _("Generate"); ?></a></label>
                                             <div class="col-md-12 input-group" style="padding-left: 15px;">
                                                 <input type="password" class="form-control form-control-line" name="password" id="password">                                    <span class="input-group-btn"> 
                                                 <button class="btn btn-info" style="margin-right: 15px;" name="Show" onclick="toggler(this)" id="tg" type="button"><i class="ti-eye"></i></button> 
                                                 </span>  </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12">Path</label>
+                                            <label class="col-md-12"><?php echo _("Path"); ?></label>
                                             <div class="col-md-12">
                                                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                                     <input type="hidden" name="v_ftpdir-x" value="<?php echo $ftpdir[0]; ?>">
@@ -495,8 +495,8 @@ textdomain('messages');
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" type="submit">Update Domain</button> &nbsp;
-                                            <a href="../list/web.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">Back</button></a>
+                                            <button class="btn btn-success" type="submit"><?php echo _("Update Domain"); ?></button> &nbsp;
+                                            <a href="../list/web.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </form>
@@ -623,43 +623,6 @@ textdomain('messages');
             jQuery(function($){
                 $('.footable').footable();
             });
-            function confirmDelete(e){
-                e1 = String(e)
-                swal({
-                    title: 'Delete Web Domain:<br>' + e1 +' ?',
-                    text: "You won't be able to revert this!",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
-                }).then(function () {
-                    swal({
-                        title: 'Processing',
-                        text: '',
-                        timer: 5000,
-                        onOpen: function () {
-                            swal.showLoading()
-                        }
-                    }).then(
-                        function () {},
-                        // handling the promise rejection
-                        function (dismiss) {
-                            if (dismiss === 'timer') {
-                                console.log('I was closed by the timer')
-                            }
-                        }
-                    )
-                    $.ajax({  
-                        type: "GET",  
-                        url: "../delete/domain.php",  
-                        data: { 'domain':e1, 'verified':'yes' },
-                        success:  function(){ window.location = "web.php?delcode=0"; },
-                        error:  function(){ window.location = "web.php?delcode=0"; }
-                    })
-                })}
-
-            <?php if($_GET['delcode'] == "0"){ echo "swal({title:'Successfully Deleted!', type:'success'});";} ?>
         </script>
     </body>
 

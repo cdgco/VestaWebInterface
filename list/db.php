@@ -181,7 +181,7 @@ else { header('Location: ../login.php'); }
                 <div class="row bg-title">
                     <!-- .page title -->
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Manage Databases</h4> </div>
+                        <h4 class="page-title"><?php echo _("Manage Databases"); ?></h4> </div>
                     <!-- /.page title -->
                 </div>
                 <!-- .row -->
@@ -196,7 +196,7 @@ else { header('Location: ../login.php'); }
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>DATABASES</center>
+                                        <center><?php echo _("DATABASES"); ?></center>
                                     </div>
                                     <div class="panel-body">
    <center><h2><?php print_r($admindata['U_DATABASES']); ?></h2></center>
@@ -213,7 +213,7 @@ else { header('Location: ../login.php'); }
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>SUSPENDED</center>
+                                        <center><?php echo _("SUSPENDED"); ?></center>
                                     </div>
                                     <div class="panel-body">
    <center><h2><?php print_r($admindata['SUSPENDED_DB']); ?></h2></center>
@@ -230,23 +230,23 @@ else { header('Location: ../login.php'); }
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="white-box"> <ul class="side-icon-text pull-right">
-                                                        <li><a href="../add/db.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span>Add Database</span></a></li>
-<?php if($phpmyadmin != '') { echo '<li><a href="' . $phpmyadmin .'" target="_blank"><span class="circle circle-sm bg-warning di"><i class="fa fa-database"></i></span><span>phpMyAdmin</span></a></li>';} if($phppgadmin != '') { echo '<li><a href="' . $phppgadmin .'" target="_blank"><span class="circle circle-sm bg-purple di"><i class="fa fa-database"></i></span><span>phpPgAdmin</span></a></li>';} ?>
+                                                        <li><a href="../add/db.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Database"); ?></span></a></li>
+<?php if($phpmyadmin != '') { echo '<li><a href="' . $phpmyadmin .'" target="_blank"><span class="circle circle-sm bg-warning di"><i class="fa fa-database"></i></span><span>' . _("phpMyAdmin") . '</span></a></li>';} if($phppgadmin != '') { echo '<li><a href="' . $phppgadmin .'" target="_blank"><span class="circle circle-sm bg-purple di"><i class="fa fa-database"></i></span><span>' . _("phpPgAdmin") . '</span></a></li>';} ?>
                                                     </ul>
-                            <h3 class="box-title m-b-0">Databases</h3><br>
+                            <h3 class="box-title m-b-0"><?php echo _("Databases"); ?></h3><br>
 
                             <table class="table footable m-b-0" data-paging-size="10" data-paging="true" data-sorting="true">
                                 <thead>
                                     <tr>
-                                        <th data-toggle="true"> Database </th>
-                                        <th> Username </th>
-                                        <th data-type="numeric"> Disk Usage </th>
-                                        <th> Status </th>
-                                        <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> Created </th>
-                                        <th data-sortable="false"> Action </th>
-                                        <th data-breakpoints="all"> Host </th>
-                                        <th data-breakpoints="all"> Type </th>
-                                        <th data-breakpoints="all"> Character Set </th>
+                                        <th data-toggle="true"> <?php echo _("Database"); ?> </th>
+                                        <th> <?php echo _("Username"); ?> </th>
+                                        <th data-type="numeric"> <?php echo _("Disk Usage"); ?> </th>
+                                        <th> <?php echo _("Status"); ?> </th>
+                                        <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo _("Created"); ?> </th>
+                                        <th data-sortable="false"> <?php echo _("Action"); ?> </th>
+                                        <th data-breakpoints="all"> <?php echo _("Host"); ?> </th>
+                                        <th data-breakpoints="all"> <?php echo _("Type"); ?> </th>
+                                        <th data-breakpoints="all"> <?php echo _("Character Set"); ?> </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -261,12 +261,12 @@ if($dbname[0] != '') {
                                                                     <td data-sort-value="' . $dbdata[$x1]['U_DISK'] . '">' . $dbdata[$x1]['U_DISK'] . ' mb</td>
                                                                     <td>';                                                                   
                                                                     if($dbdata[$x1]['SUSPENDED'] == "no"){ 
-                                                                             echo '<span class="label label-table label-success">Active</span>';} 
+                                                                             echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
                                                                            else{ 
-                                                                             echo '<span class="label label-table label-danger">Suspended</span>';} 
+                                                                             echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
                                                                            echo '</td>
                                                                     <td data-sort-value="' . $dbdata[$x1]['DATE'] . '">' . $dbdata[$x1]['DATE'] . '</td><td>
-                                            <button type="button" onclick="window.location=\'../edit/db.php?db=' . $dbname[$x1] . '\';" data-toggle="tooltip" data-original-title="Edit" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button><button onclick="confirmDelete(\'' . $dbname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="Delete" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
+                                            <button type="button" onclick="window.location=\'../edit/db.php?db=' . $dbname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button><button onclick="confirmDelete(\'' . $dbname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
                                         </td>
                                                                     <td>' . $dbdata[$x1]['HOST'] . '</td>
                                                                     <td>' . $dbdata[$x1]['TYPE'] . '</td>
@@ -316,16 +316,16 @@ jQuery(function($){
 function confirmDelete(e){
 e1 = String(e)
 swal({
-  title: 'Delete Database:<br> ' + e1 +' ?',
-  text: "You won't be able to revert this!",
+  title: '<?php echo _("Delete Database"); ?>:<br> ' + e1 +' ?',
+  text: '<?php echo _("You won't be able to revert this!"); ?>',
   type: 'warning',
   showCancelButton: true,
   confirmButtonColor: '#3085d6',
   cancelButtonColor: '#d33',
-  confirmButtonText: 'Yes, delete it!'
+  confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
 }).then(function () {
 swal({
-  title: 'Processing',
+  title: '<?php echo _("Processing"); ?>',
   text: '',
   timer: 5000,
   onOpen: function () {
@@ -336,7 +336,7 @@ swal({
   // handling the promise rejection
   function (dismiss) {
     if (dismiss === 'timer') {
-      console.log('I was closed by the timer')
+      console.log('<?php echo _("I was closed by the timer"); ?>')
     }
   }
 )
@@ -355,9 +355,9 @@ $.ajax({
 $dbcode = $_GET['delcode'];
 
 if($dbcode == "0") {
-    echo "swal({title:'Successfully Deleted!', type:'success'});";
+    echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
 } 
-if($dbcode > "0") { echo "swal({title:'Please try again later or contact support.', type:'error'});";}
+if($dbcode > "0") { echo "swal({title:'" . _("Please try again later or contact support.") . "', type:'error'});";}
 ?>
 </script>
 </body>

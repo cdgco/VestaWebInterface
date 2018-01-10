@@ -187,7 +187,7 @@ textdomain('messages');
                     <div class="row bg-title">
                         <!-- .page title -->
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title">Configure Backup Restore</h4> </div>
+                            <h4 class="page-title"><?php echo _("Configure Backup Restore"); ?></h4> </div>
                         <!-- /.page title -->
                     </div>
                     <!-- .row -->
@@ -202,7 +202,7 @@ textdomain('messages');
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">
                                         <div class="panel-heading">
-                                            <center>BACKUP</center>
+                                            <center><?php echo _("BACKUP"); ?></center>
                                         </div>
                                         <div class="panel-body">
                                             <center><h2><?php print_r($requestbackup); ?></h2></center>
@@ -219,18 +219,18 @@ textdomain('messages');
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box"> <ul class="side-icon-text pull-right">
-                                <li><a href="../process/restore.php?backup=<?php echo $requestbackup; ?>"><span class="circle circle-sm bg-inverse di"><i class="ti-reload"></i></span><span>Restore All</span></a></li>
+                                <li><a href="../process/restore.php?backup=<?php echo $requestbackup; ?>"><span class="circle circle-sm bg-inverse di"><i class="ti-reload"></i></span><span><?php echo _("Restore All"); ?></span></a></li>
                                 </ul>
-                                <h3 class="box-title m-b-0">Backed Up Data</h3><br>
+                                <h3 class="box-title m-b-0"><?php echo _("Backed Up Data"); ?></h3><br>
 
                                 <table class="table footable m-b-0" data-paging-size="10" data-paging="true">
                                     <thead>
                                         <tr>
-                                            <th> Type</th>
+                                            <th> <?php echo _("Type"); ?></th>
                                             <th></th>
-                                            <th> Data </th>
+                                            <th> <?php echo _("Data"); ?> </th>
                                             <th></th>
-                                            <th> Action </th>
+                                            <th> <?php echo _("Action"); ?> </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -238,44 +238,44 @@ textdomain('messages');
                                         $bkArray = explode(',', ($backupdata[0]['WEB'])); 
                                         if ($bkArray[0]){
                                             foreach($bkArray as $bkey) { 
-                                                echo '<tr><td>Web<td/>';
+                                                echo '<tr><td>' . _("Web") . '<td/>';
                                                 echo '<td>' . $bkey . '<td/>'; 
-                                                echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=web&object=' . $bkey . '"><button type="button" data-toggle="tooltip" data-original-title="Restore" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
+                                                echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=web&object=' . $bkey . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Restore") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
                                             }}
                                         $bkArray = explode(',', ($backupdata[0]['DNS'])); 
                                         if ($bkArray[0]){
                                             foreach($bkArray as $bkey) { 
-                                                echo '<tr><td>DNS<td/>';
+                                                echo '<tr><td>' . _("DNS") . '<td/>';
                                                 echo '<td>' . $bkey . '<td/>'; 
-                                                echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=dns&object=' . $bkey . '"><button type="button" data-toggle="tooltip" data-original-title="Restore" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
+                                                echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=dns&object=' . $bkey . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Restore") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
                                             }}
                                         $bkArray = explode(',', ($backupdata[0]['MAIL'])); 
                                         if ($bkArray[0]){
                                             foreach($bkArray as $bkey) { 
-                                                echo '<tr><td>Mail<td/>';
+                                                echo '<tr><td>' . _("Mail") . '<td/>';
                                                 echo '<td>' . $bkey . '<td/>'; 
-                                                echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=mail&object=' . $bkey . '"><button type="button" data-toggle="tooltip" data-original-title="Restore" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
+                                                echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=mail&object=' . $bkey . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Restore") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
                                             }}
                                         $bkArray = explode(',', ($backupdata[0]['DB'])); 
                                         if ($bkArray[0]){
                                             foreach($bkArray as $bkey) { 
-                                                echo '<tr><td>Database<td/>';
+                                                echo '<tr><td>' . _("Database") . '<td/>';
                                                 echo '<td>' . $bkey . '<td/>'; 
-                                                echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=db&object=' . $bkey . '"><button type="button" data-toggle="tooltip" data-original-title="Restore" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
+                                                echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=db&object=' . $bkey . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Restore") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
                                             }}
                                         $bkArray = explode(',', ($backupdata[0]['CRON'])); 
                                         if ($bkArray[0]){
                                             foreach($bkArray as $bkey) { 
-                                                echo '<tr><td>Cron Job<td/>';
+                                                echo '<tr><td>' . _("Cron Job") . '<td/>';
                                                 echo '<td>' . $bkey . '<td/>'; 
-                                                echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=cron"><button type="button" data-toggle="tooltip" data-original-title="Restore" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
+                                                echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=cron"><button type="button" data-toggle="tooltip" data-original-title="' . _("Restore") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
                                             }}
                                         $bkArray = explode(',', ($backupdata[0]['USER'])); 
                                         if ($bkArray[0]){
                                             foreach($bkArray as $bkey) { 
-                                                echo '<tr><td>User Dir<td/>';
+                                                echo '<tr><td>' . _("User Dir") . '<td/>';
                                                 echo '<td>' . $bkey . '<td/>'; 
-                                                echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=udir&object=' . $bkey . '"><button type="button" data-toggle="tooltip" data-original-title="Restore" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
+                                                echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=udir&object=' . $bkey . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Restore") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
                                             }}
                                         ?>
 
@@ -320,16 +320,16 @@ textdomain('messages');
             function confirmDelete(e){
                 e1 = String(e)
                 swal({
-                    title: 'Delete Backup:<br> ' + e1 +' ?',
-                    text: "You won't be able to revert this!",
+                    title: '<?php echo _("Delete Backup"); ?>:<br> ' + e1 +' ?',
+                    text: '<?php echo _("You won't be able to revert this!"); ?>',
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
+                    confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
                 }).then(function () {
                     swal({
-                        title: 'Processing',
+                        title: '<?php echo _("Processing"); ?>',
                         text: '',
                         timer: 5000,
                         onOpen: function () {
@@ -340,7 +340,7 @@ textdomain('messages');
                         // handling the promise rejection
                         function (dismiss) {
                             if (dismiss === 'timer') {
-                                console.log('I was closed by the timer')
+                                console.log('<?php echo _("I was closed by the timer"); ?>')
                             }
                         }
                     )
@@ -359,16 +359,16 @@ textdomain('messages');
             $bkcode = $_GET['delcode'];
 
             if($bkcode == "0") {
-                echo "swal({title:'Successfully Deleted!', type:'success'});";
+                echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
             } 
-            if($bkcode > "0") { echo "swal({title:'Please try again later or contact support.', type:'error'});";}
+            if($bkcode > "0") { echo "swal({title:'" . _("Please try again later or contact support.") . "', type:'error'});";}
 
             $addcode = $_GET['addcode'];
 
             if($addcode == "0") {
-                echo "swal({title:'Backup Scheduled!', type:'success'});";
+                echo "swal({title:'" . _("Backup Scheduled!") . "', type:'success'});";
             } 
-            if($addcode > "0") { echo "swal({title:'Please try again later or contact support.', type:'error'});";}
+            if($addcode > "0") { echo "swal({title:'" . _("Please try again later or contact support.") . "', type:'error'});";}
             ?>
         </script>
     </body>

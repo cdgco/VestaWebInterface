@@ -174,7 +174,7 @@ textdomain('messages');
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-12 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title">Edit Cron Job</h4>
+                            <h4 class="page-title"><?php echo _("Edit Cron Job"); ?></h4>
                         </div>
                     </div>
                     <div class="row">
@@ -183,7 +183,7 @@ textdomain('messages');
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">
                                         <div class="panel-heading">
-                                            <center>CREATED</center>
+                                            <center><?php echo _("CREATED"); ?></center>
                                         </div>
                                         <div class="panel-body">
                                             <center>
@@ -201,7 +201,7 @@ textdomain('messages');
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">
                                         <div class="panel-heading">
-                                            <center>STATUS</center>
+                                            <center><?php echo _("STATUS"); ?></center>
                                         </div>
                                         <div class="panel-body">
                                             <center>
@@ -220,7 +220,7 @@ textdomain('messages');
                             <div class="col-md-12 col-xs-12">
                                 <div class="white-box">
                                     <div class="form-group">
-                                        <label class="col-md-12">Command</label>
+                                        <label class="col-md-12"><?php echo _("Command"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" form="vstobjects" name="v_cmd" value="<?php echo $crondata[0]['CMD']; ?>" class="form-control"> 
                                         </div>
@@ -235,39 +235,39 @@ textdomain('messages');
                             <div class="col-md-8 col-xs-12">
                                 <div class="white-box">
                                     <div class="form-group">
-                                        <label class="col-md-12">Minute</label>
+                                        <label class="col-md-12"><?php echo _("Minute"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="v_min" value="<?php echo $crondata[0]['MIN']; ?>" class="form-control"> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Hour</label>
+                                        <label class="col-md-12"><?php echo _("Hour"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="v_hour" value="<?php echo $crondata[0]['HOUR']; ?>" class="form-control"> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Day</label>
+                                        <label class="col-md-12"><?php echo _("Day"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="v_day" value="<?php echo $crondata[0]['DAY']; ?>" class="form-control"> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Month</label>
+                                        <label class="col-md-12"><?php echo _("Month"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="v_month" value="<?php echo $crondata[0]['MONTH']; ?>" class="form-control"> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Day of Week</label>
+                                        <label class="col-md-12"><?php echo _("Day of Week"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="v_wday" value="<?php echo $crondata[0]['WDAY']; ?>" class="form-control"> 
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success">Update Cron</button> &nbsp;
-                                            <a href="../list/cron.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">Back</button></a>
+                                            <button class="btn btn-success"><?php echo _("Update Cron"); ?></button> &nbsp;
+                                            <a href="../list/cron.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </div>
@@ -277,35 +277,35 @@ textdomain('messages');
                                 <div> 
                                     <center>
                                         <h3>
-                                            Cron Generator
+                                            <?php echo _("Cron Generator"); ?>
                                         </h3>
                                     </center><br>
                                     <div class="overlay-box" style="background: #fff;">
                                         <ul class="nav nav-tabs">
-                                            <li class="active"><a  href="#1" data-toggle="tab">Minutes</a>
+                                            <li class="active"><a  href="#1" data-toggle="tab"><?php echo _("Minutes"); ?></a>
                                             </li>
-                                            <li><a href="#2" data-toggle="tab">Hourly</a>
+                                            <li><a href="#2" data-toggle="tab"><?php echo _("Hourly"); ?></a>
                                             </li>
-                                            <li><a href="#3" data-toggle="tab">Daily</a>
+                                            <li><a href="#3" data-toggle="tab"><?php echo _("Daily"); ?></a>
                                             </li>
-                                            <li><a href="#4" data-toggle="tab">Weekly</a>
+                                            <li><a href="#4" data-toggle="tab"><?php echo _("Weekly"); ?></a>
                                             </li>
-                                            <li><a href="#5" data-toggle="tab">Monthly</a>
+                                            <li><a href="#5" data-toggle="tab"><?php echo _("Monthly"); ?></a>
                                             </li>
                                         </ul>
                                         <div class="tab-content  generator">
                                             <div class="tab-pane active" id="1">
                                                 <form class="form-horizontal form-material" autocomplete="off" action="javascript:void(0);">
                                                     <div class="form-group">
-                                                        <label class="col-md-12">Run Command</label>
+                                                        <label class="col-md-12"><?php echo _("Run Command"); ?></label>
                                                         <div class="col-md-12">
                                                             <select class="form-control" name="h_min" >
-                                                                <option value="*" selected="selected">every minute</option>
-                                                                <option value="*/2">every two minutes</option>
-                                                                <option value="*/5">every 5</option>
-                                                                <option value="*/10">every 10</option>
-                                                                <option value="*/15">every 15</option>
-                                                                <option value="*/30">every 30</option>
+                                                                <option value="*" selected="selected"><?php echo _("every minute"); ?></option>
+                                                                <option value="*/2"><?php echo _("every two minutes"); ?></option>
+                                                                <option value="*/5"><?php echo _("every"); ?> 5</option>
+                                                                <option value="*/10"><?php echo _("every"); ?> 10</option>
+                                                                <option value="*/15"><?php echo _("every"); ?> 15</option>
+                                                                <option value="*/30"><?php echo _("every"); ?> 30</option>
                                                             </select>
                                                     <input type="hidden" name="h_hour" value="*">
                                                     <input type="hidden" name="h_day" value="*">
@@ -315,7 +315,7 @@ textdomain('messages');
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-sm-12">
-                                                            <button class="btn btn-success">Generate</button>
+                                                            <button class="btn btn-success"><?php echo _("Generate"); ?></button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -329,15 +329,15 @@ textdomain('messages');
                                                         <label class="col-md-12">Run Command</label>
                                                         <div class="col-md-12">
                                                             <select class="form-control" name="h_hour">
-                                                                <option value="*" selected="selected">every hour</option>
-                                                                <option value="*/2">every two hours</option>
-                                                                <option value="*/6">every 6</option>
-                                                                <option value="*/12">every 12</option>
+                                                                <option value="*" selected="selected"><?php echo _("every hour"); ?></option>
+                                                                <option value="*/2"><?php echo _("every two hours"); ?></option>
+                                                                <option value="*/6"><?php echo _("every"); ?> 6</option>
+                                                                <option value="*/12"><?php echo _("every"); ?> 12</option>
                                                             </select>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-md-12">Minute</label>
+                                                        <label class="col-md-12"><?php echo _("Minute"); ?></label>
                                                     <div class="col-md-12">
                                                         <select class="form-control" name="h_min">
                                                             <option value="0" selected="selected">00</option>
@@ -349,7 +349,7 @@ textdomain('messages');
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="col-sm-12">
-                                                        <button class="btn btn-success">Generate</button>
+                                                        <button class="btn btn-success"><?php echo _("Generate"); ?></button>
                                                     </div>
                                                     </div>
                                                 </form>
@@ -359,22 +359,22 @@ textdomain('messages');
                                                     <input type="hidden" name="h_month" value="*">
                                                     <input type="hidden" name="h_wday" value="*">
                                                     <div class="form-group">
-                                                        <label class="col-md-12">Run Command</label>
+                                                        <label class="col-md-12"><?php echo _("Run Command"); ?></label>
                                                         <div class="col-md-12">
                                                             <select class="form-control" name="h_day">
-                                                                <option value="*" selected="selected">every day</option>
-                                                                <option value="1-31/2">every odd day</option>
-                                                                <option value="*/2">every even day</option>
-                                                                <option value="*/3">every 3</option>
-                                                                <option value="*/5">every 5</option>
-                                                                <option value="*/10">every 10</option>
-                                                                <option value="*/15">every 15</option>
+                                                                <option value="*" selected="selected"><?php echo _("every day"); ?></option>
+                                                                <option value="1-31/2"><?php echo _("every odd day"); ?></option>
+                                                                <option value="*/2"><?php echo _("every even day"); ?></option>
+                                                                <option value="*/3"><?php echo _("every"); ?> 3</option>
+                                                                <option value="*/5"><?php echo _("every"); ?> 5</option>
+                                                                <option value="*/10"><?php echo _("every"); ?> 10</option>
+                                                                <option value="*/15"><?php echo _("every"); ?> 15</option>
                                                             </select>
                                                         </div>
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label class="col-sm-6 pull-left">Hour</label><label class="col-sm-6 pull-right">Minute</label>
+                                                        <label class="col-sm-6 pull-left"<?php echo _("Hour"); ?></label><label class="col-sm-6 pull-right"><?php echo _("Minute"); ?></label>
                                                         <div class="col-sm-6 pull-left">
                                                             <select class="form-control" name="h_hour">
                                                                 <option value="0">00</option>
@@ -424,7 +424,7 @@ textdomain('messages');
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-sm-12">
-                                                            <button class="btn btn-success">Generate</button>
+                                                            <button class="btn btn-success"><?php echo _("Generate"); ?></button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -434,24 +434,24 @@ textdomain('messages');
                                                     <input type="hidden" name="h_month" value="*">
                                                     <input type="hidden" name="h_day" value="*">
                                                     <div class="form-group">
-                                                        <label class="col-md-12">Run Command</label>
+                                                        <label class="col-md-12"><?php echo _("Run Command"); ?></label>
                                                         <div class="col-md-12">
                                                             <select class="form-control" name="h_wday">
-                                                                <option value="*" selected="selected">every day</option>
-                                                                <option value="1,2,3,4,5">weekdays (5 days)</option>
-                                                                <option value="0,6">weekend (2 days)</option>
-                                                                <option value="1">Monday</option>
-                                                                <option value="2">Tuesday</option>
-                                                                <option value="3">Wednesday</option>
-                                                                <option value="4">Thursday</option>
-                                                                <option value="5">Friday</option>
-                                                                <option value="6">Saturday</option>
-                                                                <option value="0">Sunday</option>
+                                                                <option value="*" selected="selected"><?php echo _("every day"); ?></option>
+                                                                <option value="1,2,3,4,5"><?php echo _("weekdays (5 days)"); ?></option>
+                                                                <option value="0,6"><?php echo _("weekend (2 days)"); ?></option>
+                                                                <option value="1"><?php echo _("Monday"); ?></option>
+                                                                <option value="2"><?php echo _("Tuesday"); ?></option>
+                                                                <option value="3"><?php echo _("Wednesday"); ?></option>
+                                                                <option value="4"><?php echo _("Thursday"); ?></option>
+                                                                <option value="5"><?php echo _("Friday"); ?></option>
+                                                                <option value="6"><?php echo _("Saturday"); ?></option>
+                                                                <option value="0"><?php echo _("Sunday"); ?></option>
                                                             </select>
                                                         </div>
                                                     </div>
                                                 <div class="form-group">
-                                                    <label class="col-sm-6 pull-left">Hour</label><label class="col-sm-6 pull-right">Minute</label>
+                                                    <label class="col-sm-6 pull-left"><?php echo _("Hour"); ?></label><label class="col-sm-6 pull-right"><?php echo _("Minute"); ?></label>
                                                     <div class="col-sm-6 pull-left">
                                                         <select class="form-control" name="h_hour">
                                                             <option value="0">00</option>
@@ -501,7 +501,7 @@ textdomain('messages');
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="col-sm-12">
-                                                        <button class="btn btn-success">Generate</button>
+                                                        <button class="btn btn-success"><?php echo _("Generate"); ?></button>
                                                     </div>
                                                 </div>
                                                 </form>
@@ -510,31 +510,31 @@ textdomain('messages');
                                                 <form class="form-horizontal form-material" autocomplete="off" action="javascript:void(0);">
                                                     <input type="hidden" name="h_wday" value="*">
                                                     <div class="form-group">
-                                                        <label class="col-md-12">Run Command</label>
+                                                        <label class="col-md-12"><?php echo _("Run Command"); ?></label>
                                                         <div class="col-md-12">
                                                             <select class="form-control" name="h_month">
-                                                                <option value="*" selected="selected">every month</option>
-                                                                <option value="1-11/2">every odd month</option>
-                                                                <option value="*/2">every even month</option>
-                                                                <option value="*/3">every 3</option>
-                                                                <option value="*/6">every 6</option>
-                                                                <option value="1">Jan</option>
-                                                                <option value="2">Feb</option>
-                                                                <option value="3">Mar</option>
-                                                                <option value="4">Apr</option>
-                                                                <option value="5">May</option>
-                                                                <option value="6">Jun</option>
-                                                                <option value="7">Jul</option>
-                                                                <option value="8">Aug</option>
-                                                                <option value="9">Sep</option>
-                                                                <option value="10">Oct</option>
-                                                                <option value="11">Nov</option>
-                                                                <option value="12">Dec</option>
+                                                                <option value="*" selected="selected"><?php echo _("every month"); ?></option>
+                                                                <option value="1-11/2"><?php echo _("every odd month"); ?></option>
+                                                                <option value="*/2"><?php echo _("every even month"); ?></option>
+                                                                <option value="*/3"><?php echo _("every"); ?> 3</option>
+                                                                <option value="*/6"><?php echo _("every"); ?> 6</option>
+                                                                <option value="1"><?php echo _("January"); ?></option>
+                                                                <option value="2"><?php echo _("February"); ?></option>
+                                                                <option value="3"><?php echo _("March"); ?></option>
+                                                                <option value="4"><?php echo _("April"); ?></option>
+                                                                <option value="5"><?php echo _("May"); ?></option>
+                                                                <option value="6"><?php echo _("June"); ?></option>
+                                                                <option value="7"><?php echo _("July"); ?></option>
+                                                                <option value="8"><?php echo _("August"); ?></option>
+                                                                <option value="9"><?php echo _("September"); ?></option>
+                                                                <option value="10"><?php echo _("October"); ?></option>
+                                                                <option value="11"><?php echo _("November"); ?></option>
+                                                                <option value="12"><?php echo _("December"); ?></option>
                                                             </select>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-md-12">Date</label>
+                                                        <label class="col-md-12"><?php echo _("Date"); ?></label>
                                                         <div class="col-md-12">
                                                             <select class="form-control" name="h_day">
                                                                 <option value="1" selected="selected">1</option>
@@ -572,7 +572,7 @@ textdomain('messages');
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-sm-6 pull-left">Hour</label><label class="col-sm-6 pull-right">Minute</label>
+                                                        <label class="col-sm-6 pull-left"><?php echo _("Hour"); ?></label><label class="col-sm-6 pull-right"><?php echo _("Minute"); ?></label>
                                                         <div class="col-sm-6 pull-left">
                                                             <select class="form-control" name="h_hour">
                                                                 <option value="0">00</option>
@@ -622,7 +622,7 @@ textdomain('messages');
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-sm-12">
-                                                            <button class="btn btn-success">Generate</button>
+                                                            <button class="btn btn-success"><?php echo _("Generate"); ?></button>
                                                         </div>
                                                     </div>
                                                 </form>

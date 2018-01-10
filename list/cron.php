@@ -182,7 +182,7 @@ require_once '../includes/cronparser.php';
                 <div class="row bg-title">
                     <!-- .page title -->
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Manage Cron Jobs</h4> </div>
+                        <h4 class="page-title"><?php echo _("Manage Cron Jobs"); ?></h4> </div>
                     <!-- /.page title -->
                 </div>
                 <!-- .row -->
@@ -197,7 +197,7 @@ require_once '../includes/cronparser.php';
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>CRON JOBS</center>
+                                        <center><?php echo _("CRON JOBS"); ?></center>
                                     </div>
                                     <div class="panel-body">
    <center><h2><?php print_r($admindata['U_CRON_JOBS']); ?></h2></center>
@@ -214,7 +214,7 @@ require_once '../includes/cronparser.php';
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>SUSPENDED</center>
+                                        <center><?php echo _("SUSPENDED"); ?></center>
                                     </div>
                                     <div class="panel-body">
    <center><h2><?php print_r($admindata['SUSPENDED_CRON']); ?></h2></center>
@@ -231,20 +231,20 @@ require_once '../includes/cronparser.php';
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="white-box"> <ul class="side-icon-text pull-right">
-                                                        <li><a href="../add/cron.php"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="fa fa-calendar-check-o"></i></span><span>Add Cron Job</span></a></li>
-<?php if($admindata['CRON_REPORTS'] == "yes"){ echo '<li><a href="#" onclick="notifyOff()"><span class="circle circle-sm bg-danger di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><span>Disable Cron Notifications</span></a></li>';} if($admindata['CRON_REPORTS'] == "no"){ echo '<li><a href="#" onclick="notifyOn()"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><span>Enable Cron Notifications</span></a></li>';} ?>
+                                                        <li><a href="../add/cron.php"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="fa fa-calendar-check-o"></i></span><span><?php echo _("Add Cron Job"); ?></span></a></li>
+<?php if($admindata['CRON_REPORTS'] == "yes"){ echo '<li><a href="#" onclick="notifyOff()"><span class="circle circle-sm bg-danger di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><span>' . _("Disable Cron Notifications") . '</span></a></li>';} if($admindata['CRON_REPORTS'] == "no"){ echo '<li><a href="#" onclick="notifyOn()"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><span>' . _("Enable Cron Notifications") . '</span></a></li>';} ?>
                                                     </ul>
-                            <h3 class="box-title m-b-0">Cron Jobs</h3><br>
+                            <h3 class="box-title m-b-0"><?php echo _("Cron Jobs"); ?></h3><br>
 
                             <table class="table footable m-b-0" data-paging-size="10" data-paging="true" data-sorting="true">
                                 <thead>
                                     <tr>
-                                        <th data-toggle="true" data-type="numeric"> Job</th>
-                                        <th> Command </th>
-                                        <th> Status </th>
-                                        <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> Created </th>
-                                        <th data-sortable="false"> Action </th>
-                                        <th data-breakpoints="all"> Frequency </th>
+                                        <th data-toggle="true" data-type="numeric"> <?php echo _("Job"); ?></th>
+                                        <th> <?php echo _("Command"); ?> </th>
+                                        <th> <?php echo _("Status"); ?> </th>
+                                        <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo _("Created"); ?> </th>
+                                        <th data-sortable="false"> <?php echo _("Action"); ?> </th>
+                                        <th data-breakpoints="all"> <?php echo _("Frequency"); ?> </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -265,14 +265,14 @@ if($cronname[0] != '') {
                                                                     <td>' . $crondata[$x1]['CMD'] . '</td>
 <td>';                                                                   
                                                                     if($crondata[$x1]['SUSPENDED'] == "no"){ 
-                                                                             echo '<span class="label label-table label-success">Active</span>';} 
+                                                                             echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
                                                                            else{ 
-                                                                             echo '<span class="label label-table label-danger">Suspended</span>';} 
+                                                                             echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
                                                                            echo '</td>
                                                                     <td data-sort-value="' . $crondata[$x1]['DATE'] . '">' . $crondata[$x1]['DATE'] . '</td><td>
                                             
-<button onclick="window.location=\'../edit/cron.php?job=' . $cronname[$x1] . '\';" type="button" data-toggle="tooltip" data-original-title="Edit" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="fa fa-cog"></i></button>
-<button onclick="confirmDelete(\'' . $cronname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="Delete" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
+<button onclick="window.location=\'../edit/cron.php?job=' . $cronname[$x1] . '\';" type="button" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="fa fa-cog"></i></button>
+<button onclick="confirmDelete(\'' . $cronname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
                                         </td>
 <td>'; echo $schedule->asNaturalLanguage() . ' ( ' . $crontime . ' )</td>
                                                                     </tr>';
@@ -320,7 +320,7 @@ jQuery(function($){
 
 function notifyOff(){
 swal({
-  title: 'Processing',
+  title: '<?php echo _("Processing"); ?>',
   text: '',
   onOpen: function () {
     swal.showLoading()
@@ -333,7 +333,7 @@ $.ajax({
     data: { 'verified':'yes' },      
     success: function(data){
        swal.close();
-swal({title:'Successfully Updated!', type:'success', allowOutsideClick:false, allowEscapeKey:false, allowEnterKey:false});
+swal({title:'<?php echo _("Successfully Updated!"); ?>', type:'success', allowOutsideClick:false, allowEscapeKey:false, allowEnterKey:false});
 swal.disableButtons();
                   setTimeout(function(){
            window.location="cron.php";
@@ -343,7 +343,7 @@ swal.disableButtons();
     },
 error: function(){
        swal.close();
-       swal({title:'Please try again later or contact support.', type:'error'});
+       swal({title:'<?php echo _("Please try again later or contact support."); ?>', type:'error'});
     }  
 }),
   function () {},
@@ -355,7 +355,7 @@ error: function(){
 
 function notifyOn(){
 swal({
-  title: 'Processing',
+  title: '<?php echo _("Processing"); ?>',
   text: '',
   onOpen: function () {
     swal.showLoading()
@@ -368,7 +368,7 @@ $.ajax({
     data: { 'verified':'yes' },      
     success: function(data){
        swal.close();
-        swal({title:'Successfully Updated!', type:'success', allowOutsideClick:false, allowEscapeKey:false, allowEnterKey:false});
+        swal({title:'<?php echo _("Successfully Updated!"); ?>', type:'success', allowOutsideClick:false, allowEscapeKey:false, allowEnterKey:false});
 swal.disableButtons();
        setTimeout(function(){
            window.location="cron.php";
@@ -377,7 +377,7 @@ swal.disableButtons();
     },
 error: function(){
        swal.close();
-       swal({title:'Please try again later or contact support.', type:'error'});
+       swal({title:'<?php echo _("Please try again later or contact support."); ?>', type:'error'});
     }  
 }),
   function () {},
@@ -391,16 +391,16 @@ error: function(){
 function confirmDelete(e){
 e1 = String(e)
 swal({
-  title: 'Delete Cron Job:<br> ' + e1 +' ?',
-  text: "You won't be able to revert this!",
+  title: '<?php echo _("Delete Cron Job"); ?>:<br> ' + e1 +' ?',
+  text: '<?php echo _("You won't be able to revert this!"); ?>',
   type: 'warning',
   showCancelButton: true,
   confirmButtonColor: '#3085d6',
   cancelButtonColor: '#d33',
-  confirmButtonText: 'Yes, delete it!'
+  confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
 }).then(function () {
 swal({
-  title: 'Processing',
+  title: '<?php echo _("Processing"); ?>',
   text: '',
   timer: 5000,
   onOpen: function () {
@@ -411,7 +411,7 @@ swal({
   // handling the promise rejection
   function (dismiss) {
     if (dismiss === 'timer') {
-      console.log('I was closed by the timer')
+      console.log('<?php echo _("I was closed by the timer"); ?>')
     }
   }
 )
@@ -429,9 +429,9 @@ $.ajax({
 $xcode = $_GET['delcode'];
 
 if($xcode == "0") {
-    echo "swal({title:'Successfully Deleted!', type:'success'});";
+    echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
 } 
-if($xcode > "0") { echo "swal({title:'Please try again later or contact support.', type:'error'});";}
+if($xcode > "0") { echo "swal({title:'" . _("Please try again later or contact support.") . "', type:'error'});";}
 ?>
 </script>
 </body>
