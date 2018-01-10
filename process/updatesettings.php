@@ -22,6 +22,7 @@ $ns5 = $_POST['ns5'];
 $ns6 = $_POST['ns6'];
 $ns7 = $_POST['ns7'];
 $ns8 = $_POST['ns8'];
+$cookie = $_POST['cookie'];
 
 $postvars = array(
   array('user' => $vst_username,'password' => $vst_password,'returncode' => $vst_returncode,'cmd' => 'v-change-user-password','arg1' => $username,'arg2' => $password),
@@ -83,7 +84,9 @@ if($ns1 != '' && $ns1 != ''){
         curl_setopt($curl4, CURLOPT_POSTFIELDS, http_build_query($postvars[4]));
 
 ***REMOVED***
-
+if(isset($cookie)){
+    setcookie("theme", base64_encode($_POST["cookie"] . ".css"), time() + (10 * 365 * 24 * 60 * 60));
+***REMOVED***
 
 $r1 = curl_exec($curl0);
 $r2 = curl_exec($curl1);

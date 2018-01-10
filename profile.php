@@ -51,7 +51,7 @@ textdomain('messages');
         <link href="css/animate.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
         <link href="plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
-        <link href="css/colors/***REMOVED*** if(isset($_SESSION['theme'])) { echo base64_decode($_SESSION['theme']); ***REMOVED*** else {echo $themecolor; ***REMOVED*** ***REMOVED***" id="theme" rel="stylesheet">
+        <link href="css/colors/***REMOVED*** if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); ***REMOVED*** else {echo $themecolor; ***REMOVED*** ***REMOVED***" id="theme" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.css" rel="stylesheet" />
         <style>
             .select2-results{
@@ -368,6 +368,17 @@ textdomain('messages');
                                                 <div id="ns7" style="display:***REMOVED*** if(explode(',', ($admindata['NS']))[6] == ''){ echo "none"; ***REMOVED*** else { echo "block"; ***REMOVED*** ***REMOVED***"><input type="text" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[6]); ***REMOVED***" class="form-control form-control-line" name="ns7" id="ns7x"><br><div id="ns7wrapper"><a style="cursor:pointer;" id="addmore5" onclick="add6();">***REMOVED*** echo _("Add One"); ***REMOVED***</a> / <a style="cursor:pointer;" id="remove5" onclick="rem6();">***REMOVED*** echo _("Remove One"); ***REMOVED***</a></div></div>
 
                                                 <div id="ns8" style="display:***REMOVED*** if(explode(',', ($admindata['NS']))[7] == ''){ echo "none"; ***REMOVED*** else { echo "block"; ***REMOVED*** ***REMOVED***"><input type="text" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[7]); ***REMOVED***" class="form-control form-control-line" name="ns8" id="ns8x"><br><div id="ns8wrapper"><a style="cursor:pointer;" id="remove6" onclick="rem7();">***REMOVED*** echo _("Remove One"); ***REMOVED***</a></div></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="overflow: visible;">
+                                            <label class="col-md-12">***REMOVED*** echo _("Theme"); ***REMOVED***</label>
+                                            <div class="col-md-12">
+                                                <select class="form-control" name="cookie">
+                                                    <option value="default" ***REMOVED*** if(base64_decode($_COOKIE["theme"]) == "default.css") { echo "selected"; ***REMOVED*** ***REMOVED***>***REMOVED*** echo _("Default"); ***REMOVED***</option>
+                                                    <option value="blue" ***REMOVED*** if(base64_decode($_COOKIE["theme"]) == "blue.css") { echo "selected"; ***REMOVED*** ***REMOVED***>***REMOVED*** echo _("Blue"); ***REMOVED***</option>
+                                                    <option value="purple" ***REMOVED*** if(base64_decode($_COOKIE["theme"]) == "purple.css") { echo "selected"; ***REMOVED*** ***REMOVED***>***REMOVED*** echo _("Purple"); ***REMOVED***</option>
+                                                    <option value="orange" ***REMOVED*** if(base64_decode($_COOKIE["theme"]) == "orange.css") { echo "selected"; ***REMOVED*** ***REMOVED***>***REMOVED*** echo _("Orange"); ***REMOVED***</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
