@@ -177,7 +177,7 @@ session_start();
            <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Edit DNS Domain</h4>
+                        <h4 class="page-title"><?php echo _("Edit DNS Domain"); ?></h4>
                     </div>
                 </div>
                 <div class="row">
@@ -186,7 +186,7 @@ session_start();
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>DOMAIN</center>
+                                        <center><?php echo _("DOMAIN"); ?></center>
                                     </div>
                                     <div class="panel-body">
                                       <center><h2><?php print_r($dnsname[0]); ?></h2></center>
@@ -200,7 +200,7 @@ session_start();
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>CREATED</center>
+                                        <center><?php echo _("CREATED"); ?></center>
                                     </div>
                                     <div class="panel-body">
                                         <center>
@@ -218,12 +218,12 @@ session_start();
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>STATUS</center>
+                                        <center><?php echo _("STATUS"); ?></center>
                                     </div>
                                     <div class="panel-body">
                                         <center>
                                             <h2>
-                                                <?php if ($dnsdata[0]['SUSPENDED'] == 'no') {echo 'Active';} else {echo 'Suspended';}?>
+                                                <?php if ($dnsdata[0]['SUSPENDED'] == 'no') {echo _("Active");} else {echo _("Suspended");}?>
                                             </h2>
                                         </center>
                                     </div>
@@ -237,19 +237,19 @@ session_start();
                         <div class="white-box">
                             <form class="form-horizontal form-material" autocomplete="off" method="post" action="../change/dns.php">
                                 <div class="form-group">
-                                    <label class="col-md-12">Domain</label>
+                                    <label class="col-md-12"><?php echo _("Domain"); ?></label>
                                     <div class="col-md-12">
                                         <input type="text" disabled value="<? print_r($dnsname[0]); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
                                         <input type="hidden" name="v_domain" value="<? print_r($dnsname[0]); ?>"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="email" class="col-md-12">IP Address</label>
+                                    <label for="email" class="col-md-12"><?php echo _("IP Address"); ?></label>
                                     <div class="col-md-12">
                                         <input type="text" name="v_ip" value="<? print_r($dnsdata[0]['IP']); ?>" class="form-control form-control-line" name="email" id="email"> </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12">DNS Template</label>
+                                    <label class="col-md-12"><?php echo _("DNS Template"); ?></label>
                                     <div class="col-md-12">
                                         <select class="form-control select2" name="v_tpl" id="select2">
                                             <?php
@@ -266,7 +266,7 @@ session_start();
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="email" class="col-md-12">Expiration Date</label>
+                                    <label for="email" class="col-md-12"><?php echo _("Expiration Date"); ?></label>
 
                                     <div class="col-md-12">
                                         <div class="input-group date">
@@ -280,19 +280,19 @@ session_start();
 
                                 </div>
                                 <div class="form-group">
-                                    <label for="email" class="col-md-12">SOA (Start of Authority)</label>
+                                    <label for="email" class="col-md-12"><?php echo _("SOA (Start of Authority)"); ?></label>
                                     <div class="col-md-12">
                                         <input type="text" name="v_soa" value="<? print_r($dnsdata[0]['SOA']); ?>" class="form-control form-control-line" name="email" id="email"> </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="email" class="col-md-12">TTL (Time To Live)</label>
+                                    <label for="email" class="col-md-12"><?php echo _("TTL (Time To Live)"); ?></label>
                                     <div class="col-md-12">
                                         <input type="text" name="v_ttl" value="<? print_r($dnsdata[0]['TTL']); ?>" class="form-control form-control-line" name="email" id="email"> </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <button class="btn btn-success">Update Domain</button> &nbsp;
-                                            <a href="../list/dns.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">Back</button></a>
+                                        <button class="btn btn-success"><?php echo _("Update Domain"); ?></button> &nbsp;
+                                            <a href="../list/dns.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
                                     </div>
                                 </div>
                             </form>
@@ -331,43 +331,6 @@ $('.datepicker').datepicker();
         jQuery(function($){
             $('.footable').footable();
         });
-        function confirmDelete(e){
-            e1 = String(e)
-            swal({
-                title: 'Delete Web Domain:<br>' + e1 +' ?',
-                text: "You won't be able to revert this!",
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-            }).then(function () {
-                swal({
-                    title: 'Processing',
-                    text: '',
-                    timer: 5000,
-                    onOpen: function () {
-                        swal.showLoading()
-                    }
-                }).then(
-                    function () {},
-                    // handling the promise rejection
-                    function (dismiss) {
-                        if (dismiss === 'timer') {
-                            console.log('I was closed by the timer')
-                        }
-                    }
-                )
-                $.ajax({  
-                    type: "GET",  
-                    url: "../delete/domain.php",  
-                    data: { 'domain':e1, 'verified':'yes' },
-                    success:  function(){ window.location = "web.php?delcode=0"; },
-                    error:  function(){ window.location = "web.php?delcode=0"; }
-                })
-            })}
-
-        <?php if($_GET['delcode'] == "0"){ echo "swal({title:'Successfully Deleted!', type:'success'});";} ?>
     </script>
 </body>
 

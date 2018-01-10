@@ -175,7 +175,7 @@ session_start();
            <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Edit Database</h4>
+                        <h4 class="page-title"><?php echo _("Edit Database"); ?></h4>
                     </div>
                 </div>
                 <div class="row">
@@ -184,7 +184,7 @@ session_start();
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>DATABASE</center>
+                                        <center><?php echo _("DATABASE"); ?></center>
                                     </div>
                                     <div class="panel-body">
                                       <center><h2><?php print_r($dbname[0]); ?></h2></center>
@@ -198,7 +198,7 @@ session_start();
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>CREATED</center>
+                                        <center><?php echo _("CREATED"); ?></center>
                                     </div>
                                     <div class="panel-body">
                                         <center>
@@ -216,12 +216,12 @@ session_start();
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>STATUS</center>
+                                        <center><?php echo _("STATUS"); ?></center>
                                     </div>
                                     <div class="panel-body">
                                         <center>
                                             <h2>
-                                                <?php if ($dbdata[0]['SUSPENDED'] == 'no') {echo 'Active';} else {echo 'Suspended';}?>
+                                                <?php if ($dbdata[0]['SUSPENDED'] == 'no') {echo _("Active");} else {echo _("Suspended");}?>
                                             </h2>
                                         </center>
                                     </div>
@@ -235,16 +235,16 @@ session_start();
                         <div class="white-box">
                             <form class="form-horizontal form-material" autocomplete="off" method="post" action="../change/database.php">
                                 <div class="form-group">
-                                    <label class="col-md-12">Database</label>
+                                    <label class="col-md-12"><?php echo _("Database"); ?></label>
                                     <div class="col-md-12">
                                         <input type="text" disabled value="<? print_r($dbname[0]); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
                                         <input type="hidden" name="v_database" value="<? print_r($dbname[0]); ?>"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12">User</label>
+                                    <label class="col-md-12"><?php echo _("User"); ?></label>
                                     <div class="col-md-12">
-                                         <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                                         <label class="sr-only" for="inlineFormInputGroup"><?php echo _("Username"); ?>/label>
                                             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                                 <div class="input-group-addon"><?php print_r($uname); ?>_</div>
                                                 <input type="text" class="form-control" autocomplete="new-password" name="v_dbuser" style="padding-left: 0.5%;" value="<?php $prefix = $uname . '_'; $str = $dbdata[0][DBUSER]; if (substr($str, 0, strlen($prefix)) == $prefix) { $str = substr($str, strlen($prefix));} print_r($str); ?>">
@@ -252,34 +252,34 @@ session_start();
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="password" class="col-md-12">Password / <a style="cursor:pointer" onclick="generatePassword(10)"> Generate</a></label>
+                                    <label for="password" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10)"> <?php echo _("Generate"); ?></a></label>
                                     <div class="col-md-12 input-group" style="padding-left: 15px;">
                                         <input type="password" class="form-control form-control-line" autocomplete="new-password" name="password" id="password">                                    <span class="input-group-btn"> 
                                         <button class="btn btn-info" style="margin-right: 15px;" name="Show" onclick="toggler(this)" id="tg" type="button"><i class="ti-eye"></i></button> 
                                         </span>  </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12">Host</label>
+                                    <label class="col-md-12"><?php echo _("Host"); ?></label>
                                     <div class="col-md-12">
                                         <input type="text" disabled value="<? print_r($dbdata[0]['HOST']); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12">Type</label>
+                                    <label class="col-md-12"><?php echo _("Type"); ?></label>
                                     <div class="col-md-12">
                                         <input type="text" disabled value="<? print_r($dbdata[0]['TYPE']); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12">Charset</label>
+                                    <label class="col-md-12"><?php echo _("Charset"); ?></label>
                                     <div class="col-md-12">
                                         <input type="text" disabled value="<? print_r($dbdata[0]['CHARSET']); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <button class="btn btn-success">Update Database</button> &nbsp;
-                                            <a href="../list/db.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">Back</button></a>
+                                        <button class="btn btn-success"><?php echo _("Update Database"); ?></button> &nbsp;
+                                            <a href="../list/db.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
                                     </div>
                                 </div>
                             </form>
@@ -335,43 +335,6 @@ session_start();
         jQuery(function($){
             $('.footable').footable();
         });
-        function confirmDelete(e){
-            e1 = String(e)
-            swal({
-                title: 'Delete Web Domain:<br>' + e1 +' ?',
-                text: "You won't be able to revert this!",
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-            }).then(function () {
-                swal({
-                    title: 'Processing',
-                    text: '',
-                    timer: 5000,
-                    onOpen: function () {
-                        swal.showLoading()
-                    }
-                }).then(
-                    function () {},
-                    // handling the promise rejection
-                    function (dismiss) {
-                        if (dismiss === 'timer') {
-                            console.log('I was closed by the timer')
-                        }
-                    }
-                )
-                $.ajax({  
-                    type: "GET",  
-                    url: "../delete/domain.php",  
-                    data: { 'domain':e1, 'verified':'yes' },
-                    success:  function(){ window.location = "web.php?delcode=0"; },
-                    error:  function(){ window.location = "web.php?delcode=0"; }
-                })
-            })}
-
-        <?php if($_GET['delcode'] == "0"){ echo "swal({title:'Successfully Deleted!', type:'success'});";} ?>
     </script>
 </body>
 

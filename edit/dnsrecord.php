@@ -186,7 +186,7 @@ session_start();
            <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Edit DNS Record</h4>
+                        <h4 class="page-title"><?php echo _("Edit DNS Record"); ?></h4>
                     </div>
                 </div>
                 <div class="row">
@@ -195,7 +195,7 @@ session_start();
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>RECORD #</center>
+                                        <center><?php echo _("RECORD"); ?> #</center>
                                     </div>
                                     <div class="panel-body">
                                       <center><h2><?php print_r($recordnumber[$requestrecord]); ?></h2></center>
@@ -209,7 +209,7 @@ session_start();
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>CREATED</center>
+                                        <center><?php echo _("CREATED"); ?></center>
                                     </div>
                                     <div class="panel-body">
                                         <center>
@@ -227,12 +227,12 @@ session_start();
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>STATUS</center>
+                                        <center><?php echo _("STATUS"); ?></center>
                                     </div>
                                     <div class="panel-body">
                                         <center>
                                             <h2>
-                                                <?php if ($recorddata[$requestrecord]['SUSPENDED'] == 'no') {echo 'Active';} else {echo 'Suspended';}?>
+                                                <?php if ($recorddata[$requestrecord]['SUSPENDED'] == 'no') {echo _("Active");} else {echo _("Suspended");}?>
                                             </h2>
                                         </center>
                                     </div>
@@ -246,7 +246,7 @@ session_start();
                         <div class="white-box">
                             <form class="form-horizontal form-material" autocomplete="off" method="post" action="../change/dnsrecord.php">
                                 <div class="form-group">
-                                    <label class="col-md-12">Domain</label>
+                                    <label class="col-md-12"><?php echo _("Domain"); ?></label>
                                     <div class="col-md-12">
                                         <input type="text" disabled value="<? print_r($requestdns); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
                                         <input type="hidden" name="v_domain" value="<? print_r($requestdns); ?>"> 
@@ -254,42 +254,42 @@ session_start();
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12">Record</label>
+                                    <label class="col-md-12"><?php echo _("Record"); ?></label>
                                     <div class="col-md-12">
                                         <input type="text" disabled value="<? print_r($recorddata[$requestrecord]['RECORD']); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12">Type</label>
+                                    <label class="col-md-12"><?php echo _("Type"); ?></label>
                                     <div class="col-md-12">
                                         <input type="text" disabled value="<? print_r($recorddata[$requestrecord]['TYPE']); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="email" class="col-md-12">IP or Value</label>
+                                    <label for="email" class="col-md-12"><?php echo _("IP or Value"); ?></label>
                                     <div class="col-md-12">
                                         <input type="text" name="v_value" value="<? print_r($recorddata[$requestrecord]['VALUE']); ?>" class="form-control form-control-line" >
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="email" class="col-md-12">Priority</label>
+                                    <label for="email" class="col-md-12"><?php echo _("Priority"); ?></label>
                                     <div class="col-md-12">
                                         <input type="text" name="v_priority" value="<? print_r($recorddata[$requestrecord]['PRIORITY']); ?>" class="form-control form-control-line"> 
-                                        <small class="form-text text-muted">Optional</small>
+                                        <small class="form-text text-muted"><?php echo _("Optional"); ?></small>
                                     </div>
                                 </div>
                                 <!-- REMEMBER TO UPDATE RETURN LINK TO CORRECT NUMBER IF ORDER / RECORD NUMBER IS ALTERED -->
                                 <div class="form-group">
-                                    <label for="email" class="col-md-12">Order</label>
+                                    <label for="email" class="col-md-12"><?php echo _("Order"); ?></label>
                                     <div class="col-md-12">
                                         <input type="text" name="v_id2" value="<? print_r($recorddata[$requestrecord]['ID']); ?>" class="form-control form-control-line"> 
-                                        <small class="form-text text-muted">Optional</small>
+                                        <small class="form-text text-muted"><?php echo _("Optional"); ?></small>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <button class="btn btn-success">Update Record</button> &nbsp;
-                                            <a href="../list/dnsdomain.php?domain=<?php echo $requestdns; ?>" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">Back</button></a>
+                                        <button class="btn btn-success"><?php echo _("Update Record"); ?></button> &nbsp;
+                                            <a href="../list/dnsdomain.php?domain=<?php echo $requestdns; ?>" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
                                     </div>
                                 </div>
                             </form>
@@ -328,43 +328,6 @@ $('.datepicker').datepicker();
         jQuery(function($){
             $('.footable').footable();
         });
-        function confirmDelete(e){
-            e1 = String(e)
-            swal({
-                title: 'Delete Web Domain:<br>' + e1 +' ?',
-                text: "You won't be able to revert this!",
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-            }).then(function () {
-                swal({
-                    title: 'Processing',
-                    text: '',
-                    timer: 5000,
-                    onOpen: function () {
-                        swal.showLoading()
-                    }
-                }).then(
-                    function () {},
-                    // handling the promise rejection
-                    function (dismiss) {
-                        if (dismiss === 'timer') {
-                            console.log('I was closed by the timer')
-                        }
-                    }
-                )
-                $.ajax({  
-                    type: "GET",  
-                    url: "../delete/domain.php",  
-                    data: { 'domain':e1, 'verified':'yes' },
-                    success:  function(){ window.location = "web.php?delcode=0"; },
-                    error:  function(){ window.location = "web.php?delcode=0"; }
-                })
-            })}
-
-        <?php if($_GET['delcode'] == "0"){ echo "swal({title:'Successfully Deleted!', type:'success'});";} ?>
     </script>
 </body>
 

@@ -181,7 +181,7 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'
                 <div class="row bg-title">
                     <!-- .page title -->
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Manage Web Domains</h4> </div>
+                        <h4 class="page-title"><?php echo _("Manage Web Domains"); ?></h4> </div>
                     <!-- /.page title -->
                 </div>
                 <!-- .row -->
@@ -196,7 +196,7 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>DOMAINS</center>
+                                        <center><?php echo _("DOMAINS"); ?></center>
                                     </div>
                                     <div class="panel-body">
    <center><h2><?php print_r($admindata['U_WEB_DOMAINS']); ?></h2></center>
@@ -213,7 +213,7 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>ALIASES</center>
+                                        <center><?php echo _("ALIASES"); ?></center>
                                     </div>
                                     <div class="panel-body">
    <center><h2><?php print_r($admindata['U_WEB_ALIASES']); ?></h2></center>
@@ -230,7 +230,7 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>SUSPENDED</center>
+                                        <center><?php echo _("SUSPENDED"); ?></center>
                                     </div>
                                     <div class="panel-body">
    <center><h2><?php print_r($admindata['SUSPENDED_WEB']); ?></h2></center>
@@ -247,26 +247,26 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="white-box"> <ul class="side-icon-text pull-right">
-                                                        <li><a href="../add/domain.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span>Add Domain</span></a></li>
+                                                        <li><a href="../add/domain.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Domain"); ?></span></a></li>
                                                     </ul>
-                            <h3 class="box-title m-b-0">Web Domains</h3><br>
+                            <h3 class="box-title m-b-0"><?php echo _("Web Domains"); ?></h3><br>
 
                            <table class="table footable m-b-0" data-paging-size="10" data-paging="true" data-sorting="true">
                                 <thead>
                                     <tr>
-                                        <th data-toggle="true"> Domain Name </th>
-                                        <th data-type="numeric"> Disk Usage </th>
-                                        <th data-type="numeric"> Bandwidth </th>
-                                        <th> Status </th>
-                                        <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> Created </th>
-                                        <th data-sortable="false"> Action </th>
-                                        <th data-breakpoints="all"> Aliases </th>
-                                        <th data-breakpoints="all"> Web Template </th>
-                                        <th data-breakpoints="all"> Proxy Template </th>
-                                        <th data-breakpoints="all"> Additional FTP </th>
-                                        <th data-breakpoints="all"> Web Statistics </th>
-                                        <th data-breakpoints="all"> IP </th>
-                                        <th data-breakpoints="all"> SSL </th>
+                                        <th data-toggle="true"> <?php echo _("Domain Name"); ?> </th>
+                                        <th data-type="numeric"> <?php echo _("Disk Usage"); ?> </th>
+                                        <th data-type="numeric"> <?php echo _("Bandwidth"); ?> </th>
+                                        <th> <?php echo _("Status"); ?> </th>
+                                        <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo _("Created"); ?> </th>
+                                        <th data-sortable="false"> <?php echo _("Action"); ?> </th>
+                                        <th data-breakpoints="all"> <?php echo _("Aliases"); ?> </th>
+                                        <th data-breakpoints="all"> <?php echo _("Web Template"); ?> </th>
+                                        <th data-breakpoints="all"> <?php echo _("Proxy Template"); ?> </th>
+                                        <th data-breakpoints="all"> <?php echo _("Additional FTP"); ?> </th>
+                                        <th data-breakpoints="all"> <?php echo _("Web Statistics"); ?> </th>
+                                        <th data-breakpoints="all"> <?php echo _("IP"); ?> </th>
+                                        <th data-breakpoints="all"> <?php echo _("SSL"); ?> </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -280,30 +280,30 @@ if($domainname[0] != '') {
                                                                     <td data-sort-value="' . $domaindata[$x1]['U_DISK'] . '">' . $domaindata[$x1]['U_DISK'] . ' mb</td>
                                                                     <td data-sort-value="' . $domaindata[$x1]['U_BANDWIDTH'] . '">' . $domaindata[$x1]['U_BANDWIDTH'] . ' mb</td><td>';                                                                   
                                                                     if($domaindata[$x1]['SUSPENDED'] == "no"){ 
-                                                                             echo '<span class="label label-table label-success">Active</span>';} 
+                                                                             echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
                                                                            else{ 
-                                                                             echo '<span class="label label-table label-danger">Suspended</span>';} 
+                                                                             echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
                                                                            echo '</td>
                                                                     <td data-sort-value="' . $domaindata[$x1]['DATE'] . '">' . $domaindata[$x1]['DATE'] . '</td><td>
-                                            <button type="button" onclick="window.location=\'../edit/domain.php?domain=' . $domainname[$x1] . '\';" data-toggle="tooltip" data-original-title="Edit" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button><button onclick="confirmDelete(\'' . $domainname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="Delete" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>'; if($domaindata[$x1]['STATS'] != ""){  echo '<button type="button" onclick="window.location=\'http://' . $domainname[$x1] . '/vstats/\';" data-toggle="tooltip" data-original-title="View Stats" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-stats-up"></i></button>';} echo '
+                                            <button type="button" onclick="window.location=\'../edit/domain.php?domain=' . $domainname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button><button onclick="confirmDelete(\'' . $domainname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>'; if($domaindata[$x1]['STATS'] != ""){  echo '<button type="button" onclick="window.location=\'http://' . $domainname[$x1] . '/vstats/\';" data-toggle="tooltip" data-original-title="' . _("View Stats") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-stats-up"></i></button>';} echo '
                                         </td>
-                                                                    <td>'; if(implode(', ', explode(",", $domaindata[$x1]['ALIAS'])) == "") { echo "None";} else{ echo implode(', ', explode(",", $domaindata[$x1]['ALIAS']));} echo '</td>
+                                                                    <td>'; if(implode(', ', explode(",", $domaindata[$x1]['ALIAS'])) == "") { echo _("None");} else{ echo implode(', ', explode(",", $domaindata[$x1]['ALIAS']));} echo '</td>
                                                                     <td>' . ucfirst($domaindata[$x1]['TPL']) . '</td>
                                                                     <td>' . ucfirst($domaindata[$x1]['PROXY']) . '</td>
                                                                     <td>'; if($domaindata[$x1]['FTP_USER'] == ""){ 
-                                                                             echo 'None';} 
+                                                                             echo _("None");} 
                                                                            else{ 
                                                                              echo $domaindata[$x1]['FTP_USER'];} 
                                                                            echo '</td>
                                                                     <td>'; if($domaindata[$x1]['STATS'] == ""){ 
-                                                                             echo 'None';} 
+                                                                             echo _("None");} 
                                                                            else{ 
                                                                              echo ucfirst($domaindata[$x1]['STATS']);} 
                                                                            echo '</td><td>' . $domaindata[$x1]['IP'] . '</td>      
                                                                     <td>'; if($domaindata[$x1]['SSL'] == "no"){ 
-                                                                             echo '<span class="label label-table label-danger">Disabled</span>';} 
+                                                                             echo '<span class="label label-table label-danger">' . _("Disabled") . '</span>';} 
                                                                            else{ 
-                                                                             echo '<span class="label label-table label-success">Enabled</span>';} 
+                                                                             echo '<span class="label label-table label-success">' . _("Enabled") . '</span>';} 
                                                                            echo '</td>
                                                                     </tr>';
                                                                     $x1++;
@@ -350,16 +350,16 @@ jQuery(function($){
 function confirmDelete(e){
 e1 = String(e)
 swal({
-  title: 'Delete Web Domain:<br>' + e1 +' ?',
-  text: "You won't be able to revert this!",
+  title: '<?php echo _("Delete Web Domain"); ?>:<br>' + e1 +' ?',
+  text: "<?php echo _("You won't be able to revert this!"); ?>",
   type: 'warning',
   showCancelButton: true,
   confirmButtonColor: '#3085d6',
   cancelButtonColor: '#d33',
-  confirmButtonText: 'Yes, delete it!'
+  confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
 }).then(function () {
 swal({
-  title: 'Processing',
+  title: '<?php echo _("Processing"); ?>',
   text: '',
   timer: 5000,
   onOpen: function () {
@@ -370,7 +370,7 @@ swal({
   // handling the promise rejection
   function (dismiss) {
     if (dismiss === 'timer') {
-      console.log('I was closed by the timer')
+      console.log('<?php echo _("I was closed by the timer"); ?>')
     }
   }
 )
@@ -383,7 +383,15 @@ error:  function(){ window.location = "web.php?delcode=0"; }
 })
 })}
 
-<?php if($_GET['delcode'] == "0"){ echo "swal({title:'Successfully Deleted!', type:'success'});";} ?>
+<?php
+
+$dbcode = $_GET['delcode'];
+
+if($dbcode == "0") {
+    echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
+} 
+if($dbcode > "0") { echo "swal({title:'" . _("Please try again later or contact support.") . "', type:'error'});";}
+?>
 </script>
 </body>
 

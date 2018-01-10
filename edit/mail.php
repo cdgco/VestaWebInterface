@@ -174,7 +174,7 @@ session_start();
            <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Edit Mail Domain</h4>
+                        <h4 class="page-title"><?php echo _("Edit Mail Domain"); ?></h4>
                     </div>
                 </div>
                 <div class="row">
@@ -183,7 +183,7 @@ session_start();
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>DOMAIN</center>
+                                        <center><?php echo _("DOMAIN"); ?></center>
                                     </div>
                                     <div class="panel-body">
                                       <center><h2><?php print_r($mailname[0]); ?></h2></center>
@@ -197,7 +197,7 @@ session_start();
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>CREATED</center>
+                                        <center><?php echo _("CREATED"); ?></center>
                                     </div>
                                     <div class="panel-body">
                                         <center>
@@ -215,12 +215,12 @@ session_start();
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>STATUS</center>
+                                        <center><?php echo _("STATUS"); ?></center>
                                     </div>
                                     <div class="panel-body">
                                         <center>
                                             <h2>
-                                                <?php if ($maildata[0]['SUSPENDED'] == 'no') {echo 'Active';} else {echo 'Suspended';}?>
+                                                <?php if ($maildata[0]['SUSPENDED'] == 'no') {echo _("Active");} else {echo _("Suspended");}?>
                                             </h2>
                                         </center>
                                     </div>
@@ -234,7 +234,7 @@ session_start();
                         <div class="white-box">
                             <form class="form-horizontal form-material" autocomplete="off" method="post" action="../change/mail.php">
                                 <div class="form-group">
-                                    <label class="col-md-12">Domain</label>
+                                    <label class="col-md-12"><?php echo _("Domain"); ?></label>
                                     <div class="col-md-12">
                                         <input type="text" disabled value="<? print_r($mailname[0]); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
                                         <input type="hidden" name="v_domain" value="<? print_r($mailname[0]); ?>"> 
@@ -245,43 +245,43 @@ session_start();
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12">AntiSpam Support</label>
+                                    <label class="col-md-12"><?php echo _("AntiSpam Support"); ?></label>
                                     <div class="col-md-12">
                                         <div class="checkbox checkbox-info">
                                             <input id="checkbox5" type="checkbox" name="v_antispam" <?php if($maildata[0]['ANTISPAM'] == 'no') {} else {echo 'checked';} ?> >
-                                            <label for="checkbox5"> Enabled </label>
+                                            <label for="checkbox5"> <?php echo _("Enabled"); ?> </label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12">AntiVirus Support</label>
+                                    <label class="col-md-12"><?php echo _("AntiVirus Support"); ?></label>
                                     <div class="col-md-12">
                                         <div class="checkbox checkbox-info">
                                             <input id="checkbox6" type="checkbox" name="v_antivirus" <?php if($maildata[0]['ANTIVIRUS'] == 'no') {} else {echo 'checked';} ?> >
-                                            <label for="checkbox6"> Enabled </label>
+                                            <label for="checkbox6"> <?php echo _("Enabled"); ?> </label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12">DKIM Support</label>
+                                    <label class="col-md-12"><?php echo _("DKIM Support"); ?></label>
                                     <div class="col-md-12">
                                         <div class="checkbox checkbox-info">
                                             <input id="checkbox7" type="checkbox" name="v_dkim" <?php if($maildata[0]['DKIM'] == 'no') {} else {echo 'checked';} ?> >
-                                            <label for="checkbox7"> Enabled </label>
+                                            <label for="checkbox7"> <?php echo _("Enabled"); ?> </label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="email" class="col-md-12">Catchall Email</label>
+                                    <label for="email" class="col-md-12"><?php echo _("Catchall Email"); ?></label>
                                     <div class="col-md-12">
                                         <input type="email" name="v_catchall" value="<? print_r($maildata[0]['CATCHALL']); ?>" class="form-control form-control-line" name="email" id="email"> 
-                                        <small class="form-text text-muted">Optional</small>
+                                        <small class="form-text text-muted"><?php echo _("Optional"); ?></small>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <button class="btn btn-success">Update Domain</button> &nbsp;
-                                            <a href="../list/mail.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">Back</button></a>
+                                        <button class="btn btn-success"><?php echo _("Update Domain"); ?></button> &nbsp;
+                                            <a href="../list/mail.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
                                     </div>
                                 </div>
                             </form>
@@ -320,43 +320,6 @@ $('.datepicker').datepicker();
         jQuery(function($){
             $('.footable').footable();
         });
-        function confirmDelete(e){
-            e1 = String(e)
-            swal({
-                title: 'Delete Web Domain:<br>' + e1 +' ?',
-                text: "You won't be able to revert this!",
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-            }).then(function () {
-                swal({
-                    title: 'Processing',
-                    text: '',
-                    timer: 5000,
-                    onOpen: function () {
-                        swal.showLoading()
-                    }
-                }).then(
-                    function () {},
-                    // handling the promise rejection
-                    function (dismiss) {
-                        if (dismiss === 'timer') {
-                            console.log('I was closed by the timer')
-                        }
-                    }
-                )
-                $.ajax({  
-                    type: "GET",  
-                    url: "../delete/domain.php",  
-                    data: { 'domain':e1, 'verified':'yes' },
-                    success:  function(){ window.location = "web.php?delcode=0"; },
-                    error:  function(){ window.location = "web.php?delcode=0"; }
-                })
-            })}
-
-        <?php if($_GET['delcode'] == "0"){ echo "swal({title:'Successfully Deleted!', type:'success'});";} ?>
     </script>
 </body>
 
