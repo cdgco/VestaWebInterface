@@ -85,7 +85,7 @@ if($ns1 != '' && $ns1 != ''){
 
 ***REMOVED***
 if(isset($cookie)){
-    setcookie("theme", base64_encode($_POST["cookie"] . ".css"), time() + (10 * 365 * 24 * 60 * 60));
+    setcookie("theme", base64_encode($_POST["cookie"] . ".css"), time() + (10 * 365 * 24 * 60 * 60), '/');
 ***REMOVED***
 
 $r1 = curl_exec($curl0);
