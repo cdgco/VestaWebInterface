@@ -190,7 +190,7 @@ textdomain('messages');
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title">Edit Web Domain</h4>
+                            <h4 class="page-title">***REMOVED*** echo _("Edit Web Domain"); ***REMOVED***</h4>
                         </div>
                     </div>
                     <div class="row">
@@ -199,7 +199,7 @@ textdomain('messages');
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">
                                         <div class="panel-heading">
-                                            <center>DOMAIN</center>
+                                            <center>***REMOVED*** echo _("DOMAIN"); ***REMOVED***</center>
                                         </div>
                                         <div class="panel-body">
                                             <center><h2>***REMOVED*** print_r($domainname[0]); ***REMOVED***</h2></center>
@@ -213,7 +213,7 @@ textdomain('messages');
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">
                                         <div class="panel-heading">
-                                            <center>CREATED</center>
+                                            <center>***REMOVED*** echo _("CREATED"); ***REMOVED***</center>
                                         </div>
                                         <div class="panel-body">
                                             <center>
@@ -231,12 +231,12 @@ textdomain('messages');
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">
                                         <div class="panel-heading">
-                                            <center>STATUS</center>
+                                            <center>***REMOVED*** echo _("STATUS"); ***REMOVED***</center>
                                         </div>
                                         <div class="panel-body">
                                             <center>
                                                 <h2>
-                                                    ***REMOVED*** if ($domaindata[0]['SUSPENDED'] == 'no') {echo 'Active';***REMOVED*** else {echo 'Suspended';***REMOVED******REMOVED***
+                                                    ***REMOVED*** if ($domaindata[0]['SUSPENDED'] == 'no') {echo _("Active");***REMOVED*** else {echo _("Suspended");***REMOVED******REMOVED***
                                                 </h2>
                                             </center>
                                         </div>
@@ -250,7 +250,7 @@ textdomain('messages');
                             <div class="white-box">
                                 <form class="form-horizontal form-material" autocomplete="off" autocomplete="off" method="post" action="../change/domain.php">
                                     <div class="form-group" style="overflow: visible;">
-                                        <label class="col-md-12">IP Address</label>
+                                        <label class="col-md-12">***REMOVED*** echo _("IP Address"); ***REMOVED***</label>
                                         <div class="col-md-12">
                                             <input type="hidden" name="v_domain" value="***REMOVED*** echo $requestdomain; ***REMOVED***">
                                             <input type="hidden" name="v_ip-x" value="***REMOVED*** echo $domaindata[0]['IP']; ***REMOVED***">
@@ -269,7 +269,7 @@ textdomain('messages');
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Aliases</label>
+                                        <label class="col-md-12">***REMOVED*** echo _("Aliases"); ***REMOVED***</label>
                                         <div class="col-md-12">
                                             <input type="hidden" name="v_alias-x" value="***REMOVED*** echo $domaindata[0]['ALIAS']; ***REMOVED***"> 
                                             <textarea class="form-control" rows="4" name="v_alias">***REMOVED*** 
@@ -284,7 +284,7 @@ textdomain('messages');
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Web Template</label>
+                                        <label class="col-md-12">***REMOVED*** echo _("Web Template"); ***REMOVED***</label>
                                         <div class="col-md-12">
                                             <input type="hidden" name="v_tpl-x" value="***REMOVED*** echo $domaindata[0]['TPL']; ***REMOVED***">
                                             <select class="form-control select2" name="v_tpl" id="select2">***REMOVED***
@@ -300,18 +300,18 @@ textdomain('messages');
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Proxy Support</label>
+                                        <label class="col-md-12">***REMOVED*** echo _("Proxy Support"); ***REMOVED***</label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
                                                 <input type="hidden" name="v_prxenabled-x" value="***REMOVED*** if($domaindata[0]['PROXY'] != '') {echo 'yes';***REMOVED*** ***REMOVED***">
                                                 <input id="checkbox4" type="checkbox" name="v_prxenabled" onclick="checkDiv();" ***REMOVED*** if($domaindata[0]['PROXY'] != '') {echo 'checked';***REMOVED*** ***REMOVED*** >
-                                                <label for="checkbox4"> Enabled </label>
+                                                <label for="checkbox4"> ***REMOVED*** echo _("Enabled"); ***REMOVED*** </label>
                                             </div>
                                         </div>
                                     </div>
                                     <div id="prxy-div" style="margin-left: 4%;">
                                         <div class="form-group">
-                                            <label class="col-md-12">Proxy Template</label>
+                                            <label class="col-md-12">***REMOVED*** echo _("Proxy Template"); ***REMOVED***</label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_prxtpl-x" value="***REMOVED*** echo $domaindata[0]['PROXY']; ***REMOVED***">
                                                 <select class="form-control select3" name="v_prxtpl" id="select3">
@@ -329,7 +329,7 @@ textdomain('messages');
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12">Proxy Extensions</label>
+                                            <label class="col-md-12">***REMOVED*** echo _("Proxy Extensions"); ***REMOVED***</label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_prxext-x" value="***REMOVED*** echo $domaindata[0]['PROXY_EXT']; ***REMOVED***">
                                                 <textarea class="form-control" rows="2" id="prxext" name="v_prxext">***REMOVED*** echo $domaindata[0]['PROXY_EXT']; ***REMOVED***</textarea>
@@ -337,29 +337,29 @@ textdomain('messages');
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">SSL Support</label>
+                                        <label class="col-md-12">***REMOVED*** echo _("SSL Support"); ***REMOVED***</label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
                                                 <input type="hidden" name="v_sslenabled-x" value="***REMOVED*** echo $domaindata[0]['SSL']; ***REMOVED***">
                                                 <input id="checkbox5" type="checkbox" name="v_sslenabled" onclick="checkDiv2();" ***REMOVED*** if($domaindata[0]['SSL'] == 'no') {***REMOVED*** else {echo 'checked';***REMOVED*** ***REMOVED*** >
-                                                <label for="checkbox5"> Enabled </label>
+                                                <label for="checkbox5"> ***REMOVED*** echo _("Enabled"); ***REMOVED*** </label>
                                             </div>
                                         </div>
                                     </div>
                                     <div id="ssl-div" style="margin-left: 4%;">
                                         <div class="form-group">
-                                            <label class="col-md-12">Let's Encrypt Support</label>
+                                            <label class="col-md-12">***REMOVED*** echo _("Let's Encrypt Support"); ***REMOVED***</label>
                                             <div class="col-md-12">
                                                 <div class="checkbox checkbox-info">
                                                     <input type="hidden" name="v_leeanbled-x" value="***REMOVED*** echo $domaindata[0]['LETSENCRYPT']; ***REMOVED***">
                                                     <input id="checkbox6" name="v_leenabled" type="checkbox" ***REMOVED*** if($domaindata[0]['LETSENCRYPT'] == 'no') {***REMOVED*** else {echo 'checked';***REMOVED*** ***REMOVED***>
-                                                    <label for="checkbox6"> Enabled </label>
+                                                    <label for="checkbox6"> ***REMOVED*** echo _("Enabled"); ***REMOVED*** </label>
                                                 </div>
                                             </div>
                                         </div>
                                         <br>
                                         <div class="form-group">
-                                            <label class="col-md-12">SSL Directory</label>
+                                            <label class="col-md-12">***REMOVED*** echo _("SSL Directory"); ***REMOVED***</label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_ssldir-x" value="***REMOVED*** echo $domaindata[0]['SSL_HOME']; ***REMOVED***">
                                                 <select class="form-control" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_ssldir">
@@ -369,21 +369,21 @@ textdomain('messages');
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12">SSL Certificate / <a href="../process/generatecsr.php?domain=***REMOVED*** echo $requestdomain; ***REMOVED***">Generate CSR</a></label>
+                                            <label class="col-md-12">***REMOVED*** echo _("SSL Certificate"); ***REMOVED*** / <a href="../process/generatecsr.php?domain=***REMOVED*** echo $requestdomain; ***REMOVED***">***REMOVED*** echo _("Generate CSR"); ***REMOVED***</a></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_sslcrt-x" value="***REMOVED*** echo $domaindata[0]['CRT']; ***REMOVED***">
                                                 <textarea class="form-control" rows="4" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_sslcrt">***REMOVED*** print_r($domainssl[0]['CRT']); ***REMOVED***</textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12">SSL Key</label>
+                                            <label class="col-md-12">***REMOVED*** echo _("SSL Key"); ***REMOVED***</label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_sslkey-x" value="***REMOVED*** echo $domaindata[0]['KEY']; ***REMOVED***">
                                                 <textarea class="form-control" rows="4" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_sslkey">***REMOVED*** print_r($domainssl[0]['KEY']); ***REMOVED***</textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12">SSL Certificate Authority / Intermediate</label>
+                                            <label class="col-md-12">***REMOVED*** echo _("SSL Certificate Authority / Intermediate"); ***REMOVED***</label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_sslca-x" value="***REMOVED*** echo $domaindata[0]['CA']; ***REMOVED***">
                                                 <textarea class="form-control" rows="4" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_sslca">***REMOVED*** print_r($domainssl[0]['CA']); ***REMOVED***</textarea>
@@ -391,18 +391,18 @@ textdomain('messages');
                                         </div>
                                         <div class="form-group" style="margin-left: 0.1%;display:<? if($domainssl[0]['CRT'] != ''){echo 'block';***REMOVED*** else { echo 'none';***REMOVED*** ***REMOVED***">
                                             <ul class="list-unstyled">
-                                                <li>Subject:  ***REMOVED*** print_r($domainssl[0]['SUBJECT']); ***REMOVED***</li>
-                                                <li>Aliases:  ***REMOVED*** print_r($domainssl[0]['ALIASES']); ***REMOVED***</li>
-                                                <li>Not Before:  ***REMOVED*** print_r($domainssl[0]['NOT_BEFORE']); ***REMOVED***</li>
-                                                <li>Not After:  ***REMOVED*** print_r($domainssl[0]['NOT_AFTER']); ***REMOVED***</li>
-                                                <li>Signature:  ***REMOVED*** print_r($domainssl[0]['SIGNATURE']); ***REMOVED***</li>
-                                                <li>Pub Key:  ***REMOVED*** print_r($domainssl[0]['PUB_KEY']); ***REMOVED***</li>
-                                                <li>Issuer:  ***REMOVED*** print_r($domainssl[0]['ISSUER']); ***REMOVED***</li>
+                                                <li>***REMOVED*** echo _("Subject"); ***REMOVED***:  ***REMOVED*** print_r($domainssl[0]['SUBJECT']); ***REMOVED***</li>
+                                                <li>***REMOVED*** echo _("Aliases"); ***REMOVED***:  ***REMOVED*** print_r($domainssl[0]['ALIASES']); ***REMOVED***</li>
+                                                <li>***REMOVED*** echo _("Not Before"); ***REMOVED***:  ***REMOVED*** print_r($domainssl[0]['NOT_BEFORE']); ***REMOVED***</li>
+                                                <li>***REMOVED*** echo _("Not After"); ***REMOVED***:  ***REMOVED*** print_r($domainssl[0]['NOT_AFTER']); ***REMOVED***</li>
+                                                <li>***REMOVED*** echo _("Signature"); ***REMOVED***:  ***REMOVED*** print_r($domainssl[0]['SIGNATURE']); ***REMOVED***</li>
+                                                <li>***REMOVED*** echo _("Pub Key"); ***REMOVED***:  ***REMOVED*** print_r($domainssl[0]['PUB_KEY']); ***REMOVED***</li>
+                                                <li>***REMOVED*** echo _("Issuer"); ***REMOVED***:  ***REMOVED*** print_r($domainssl[0]['ISSUER']); ***REMOVED***</li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Web Statistics</label>
+                                        <label class="col-md-12">***REMOVED*** echo _("Web Statistics"); ***REMOVED***</label>
                                         <div class="col-md-12">
                                             <input type="hidden" name="v_webstats-x" value="***REMOVED*** if ($domaindata[0]['STATS'] == '') {echo 'none'; ***REMOVED*** else { echo $domaindata[0]['STATS']; ***REMOVED*** ***REMOVED***">
                                             <select class="form-control select6" name="v_webstats" onchange="showauth()" id="select6">
@@ -421,26 +421,26 @@ textdomain('messages');
                                     </div>
                                     <div id="statsauth" style="margin-left: 4%;">
                                         <div class="form-group">
-                                            <label class="col-md-12">Statistics Authorization</label>
+                                            <label class="col-md-12">***REMOVED*** echo _("Statistics Authorization"); ***REMOVED***</label>
                                             <div class="col-md-12">
                                                 <div class="checkbox checkbox-info">
                                                     <input type="hidden" name="v_statsuserenabled-x" value="***REMOVED*** if($domaindata[0]['STATS_USER'] == '') {echo '';***REMOVED*** else {echo 'yes';***REMOVED*** ***REMOVED***">
                                                     <input id="checkbox10" type="checkbox" name="v_statsuserenabled" ***REMOVED*** if($domaindata[0]['STATS_USER'] != '') {echo 'checked';***REMOVED*** ***REMOVED*** onclick="checkDiv4();">
-                                                    <label for="checkbox10"> Enabled </label>
+                                                    <label for="checkbox10"> ***REMOVED*** echo _("Enabled"); ***REMOVED*** </label>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div id="stats-div" style="margin-left: 4%;">
                                         <div class="form-group">
-                                            <label class="col-md-12">Username</label><br>
+                                            <label class="col-md-12">***REMOVED*** echo _("Username"); ***REMOVED***</label><br>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_statsuname-x" value="***REMOVED*** echo $domaindata[0]['STATS_USER']; ***REMOVED***">
                                                 <input type="text" name="v_statsuname" autocomplete="new-password" class="form-control" value="***REMOVED*** echo $domaindata[0]['STATS_USER']; ***REMOVED***"> 
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="v_statspassword" class="col-md-12">Password / <a style="cursor:pointer" onclick="generatePassword2(10)"> Generate</a></label>
+                                            <label for="v_statspassword" class="col-md-12">***REMOVED*** echo _("Password"); ***REMOVED*** / <a style="cursor:pointer" onclick="generatePassword2(10)"> ***REMOVED*** echo _("Generate"); ***REMOVED***</a></label>
                                             <div class="col-md-12 input-group" style="padding-left: 15px;">
                                                 <input type="password" autocomplete="new-password" class="form-control form-control-line" name="v_statspassword" id="statspassword">                                    <span class="input-group-btn"> 
                                                 <button class="btn btn-info" style="margin-right: 15px;" name="Show" onclick="toggler2(this)" id="tg2" type="button"><i class="ti-eye"></i></button> 
@@ -453,12 +453,12 @@ textdomain('messages');
                                     $ftpdir = explode(':', ($domaindata[0]['FTP_PATH'])); 
                                     ***REMOVED***
                                     <div class="form-group">
-                                        <label class="col-md-12">Additional FTP</label>
+                                        <label class="col-md-12">***REMOVED*** echo _("Additional FTP"); ***REMOVED***</label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
                                                 <input type="hidden" name="v_additionalftpenabled-x" value="***REMOVED*** if($ftpuser[0]) {echo 'yes';***REMOVED*** else { echo 'no'; ***REMOVED******REMOVED***">
                                                 <input id="checkbox9" disabled type="checkbox" name="v_addittionalftpenabled" ***REMOVED*** if($ftpuser[0]) {echo 'checked';***REMOVED*** ***REMOVED*** onclick="checkDiv3();">
-                                                <label for="checkbox9"> Enabled </label>
+                                                <label for="checkbox9"> ***REMOVED*** echo _("Enabled"); ***REMOVED*** </label>
                                             </div>
                                         </div>
                                     </div>
@@ -466,7 +466,7 @@ textdomain('messages');
                                     <div id="ftp-div" style="margin-left: 4%;">
 
                                         <div class="form-group">
-                                            <label class="col-md-12">Username</label><br>
+                                            <label class="col-md-12">***REMOVED*** echo _("Username"); ***REMOVED***</label><br>
                                             <div class="col-md-12">
                                                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                                     <div class="input-group-addon">***REMOVED*** print_r($uname); ***REMOVED***_</div>
@@ -476,14 +476,14 @@ textdomain('messages');
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="password" class="col-md-12">Password / <a style="cursor:pointer" onclick="generatePassword(10)"> Generate</a></label>
+                                            <label for="password" class="col-md-12">***REMOVED*** echo _("Password"); ***REMOVED*** / <a style="cursor:pointer" onclick="generatePassword(10)"> ***REMOVED*** echo _("Generate"); ***REMOVED***</a></label>
                                             <div class="col-md-12 input-group" style="padding-left: 15px;">
                                                 <input type="password" class="form-control form-control-line" name="password" id="password">                                    <span class="input-group-btn"> 
                                                 <button class="btn btn-info" style="margin-right: 15px;" name="Show" onclick="toggler(this)" id="tg" type="button"><i class="ti-eye"></i></button> 
                                                 </span>  </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12">Path</label>
+                                            <label class="col-md-12">***REMOVED*** echo _("Path"); ***REMOVED***</label>
                                             <div class="col-md-12">
                                                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                                     <input type="hidden" name="v_ftpdir-x" value="***REMOVED*** echo $ftpdir[0]; ***REMOVED***">
@@ -495,8 +495,8 @@ textdomain('messages');
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" type="submit">Update Domain</button> &nbsp;
-                                            <a href="../list/web.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">Back</button></a>
+                                            <button class="btn btn-success" type="submit">***REMOVED*** echo _("Update Domain"); ***REMOVED***</button> &nbsp;
+                                            <a href="../list/web.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">***REMOVED*** echo _("Back"); ***REMOVED***</button></a>
                                         </div>
                                     </div>
                                 </form>
@@ -623,43 +623,6 @@ textdomain('messages');
             jQuery(function($){
                 $('.footable').footable();
             ***REMOVED***);
-            function confirmDelete(e){
-                e1 = String(e)
-                swal({
-                    title: 'Delete Web Domain:<br>' + e1 +' ?',
-                    text: "You won't be able to revert this!",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
-                ***REMOVED***).then(function () {
-                    swal({
-                        title: 'Processing',
-                        text: '',
-                        timer: 5000,
-                        onOpen: function () {
-                            swal.showLoading()
-                        ***REMOVED***
-                    ***REMOVED***).then(
-                        function () {***REMOVED***,
-                        // handling the promise rejection
-                        function (dismiss) {
-                            if (dismiss === 'timer') {
-                                console.log('I was closed by the timer')
-                            ***REMOVED***
-                        ***REMOVED***
-                    )
-                    $.ajax({  
-                        type: "GET",  
-                        url: "../delete/domain.php",  
-                        data: { 'domain':e1, 'verified':'yes' ***REMOVED***,
-                        success:  function(){ window.location = "web.php?delcode=0"; ***REMOVED***,
-                        error:  function(){ window.location = "web.php?delcode=0"; ***REMOVED***
-                    ***REMOVED***)
-                ***REMOVED***)***REMOVED***
-
-            ***REMOVED*** if($_GET['delcode'] == "0"){ echo "swal({title:'Successfully Deleted!', type:'success'***REMOVED***);";***REMOVED*** ***REMOVED***
         </script>
     </body>
 

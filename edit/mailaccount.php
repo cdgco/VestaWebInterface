@@ -180,7 +180,7 @@ textdomain('messages');
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-12 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title">Edit Mail Account - <? echo $requestaccount . '@' . $requestdomain; ***REMOVED***</h4>
+                            <h4 class="page-title">***REMOVED*** echo _("Edit Mail Account"); ***REMOVED*** - <? echo $requestaccount . '@' . $requestdomain; ***REMOVED***</h4>
                         </div>
                     </div>
                     <div class="row">
@@ -189,7 +189,7 @@ textdomain('messages');
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">
                                         <div class="panel-heading">
-                                            <center>CREATED</center>
+                                            <center>***REMOVED*** echo _("CREATED"); ***REMOVED***</center>
                                         </div>
                                         <div class="panel-body">
                                             <center>
@@ -207,12 +207,12 @@ textdomain('messages');
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">
                                         <div class="panel-heading">
-                                            <center>STATUS</center>
+                                            <center>***REMOVED*** echo _("STATUS"); ***REMOVED***</center>
                                         </div>
                                         <div class="panel-body">
                                             <center>
                                                 <h2>
-                                                    ***REMOVED*** if ($maildata[0]['SUSPENDED'] == 'no') {echo 'Active';***REMOVED*** else {echo 'Suspended';***REMOVED******REMOVED***
+                                                    ***REMOVED*** if ($maildata[0]['SUSPENDED'] == 'no') {echo _("Active");***REMOVED*** else {echo _("Suspended");***REMOVED******REMOVED***
                                                 </h2>
                                             </center>
                                         </div>
@@ -226,7 +226,7 @@ textdomain('messages');
                             <div class="white-box">
                                 <form class="form-horizontal form-material" autocomplete="off" method="post" action="../change/mailaccount.php">
                                     <div class="form-group">
-                                        <label class="col-md-12">Email Address</label>
+                                        <label class="col-md-12">***REMOVED*** echo _("Email Addresss"); ***REMOVED***</label>
                                         <div class="col-md-12">
                                             <input type="text" disabled value="<? echo $requestaccount . '@' . $requestdomain; ***REMOVED***" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
                                             <input type="hidden" name="v_domain" value="<? echo $requestdomain; ***REMOVED***"> 
@@ -234,57 +234,57 @@ textdomain('messages');
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="password" class="col-md-12">Password / <a style="cursor:pointer" onclick="generatePassword(10)"> Generate</a></label>
+                                        <label for="password" class="col-md-12">***REMOVED*** echo _("Password"); ***REMOVED*** / <a style="cursor:pointer" onclick="generatePassword(10)"> ***REMOVED*** echo _("Generate"); ***REMOVED***</a></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
                                             <input type="password" onkeyup="fillSpan()" autocomplete="new-password" class="form-control form-control-line" name="password" id="password">                                    <span class="input-group-btn"> 
                                             <button class="btn btn-info" style="margin-right: 15px;" name="Show" onclick="toggler(this)" id="tg" type="button"><i class="ti-eye"></i></button> 
                                             </span>  </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="email" class="col-md-12">Quota</label>
+                                        <label for="email" class="col-md-12">***REMOVED*** echo _("Quota"); ***REMOVED***</label>
                                         <div class="col-md-12">
                                             <input type="text" disabled value="<? print_r($maildata[0]['QUOTA']); ***REMOVED***" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
-                                            <small class="form-text text-muted">In Megabytes</small>
+                                            <small class="form-text text-muted">***REMOVED*** echo _("In Megabytes"); ***REMOVED***</small>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Aliases</label>
+                                        <label class="col-md-12">***REMOVED*** echo _("Aliases"); ***REMOVED***</label>
                                         <div class="col-md-12">
                                             <input type="hidden" name="v_alias-x" value="***REMOVED*** $aliasArray = explode(',', ($maildata[0]['ALIAS']));foreach ($aliasArray as &$value) {$value = $value . "&#013;&#010;";***REMOVED*** foreach($aliasArray as $val) {echo $val;***REMOVED******REMOVED***">
                                             <textarea class="form-control" name="v_alias" rows="4" id="aliasTextArea">***REMOVED*** $aliasArray = explode(',', ($maildata[0]['ALIAS']));foreach ($aliasArray as &$value) {$value = $value . "&#013;&#010;";***REMOVED*** foreach($aliasArray as $val) {echo $val;***REMOVED******REMOVED***</textarea>
-                                            <small class="form-text text-muted">Use Local-Part</small>
+                                            <small class="form-text text-muted">***REMOVED*** echo _("Use Local-Part"); ***REMOVED***</small>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Forward To</label>
+                                        <label class="col-md-12">***REMOVED*** echo _("Forward To"); ***REMOVED***</label>
                                         <div class="col-md-12">
                                             <input type="hidden" name="v_forward-x" value="***REMOVED*** $fwdArray = explode(',', ($maildata[0]['FWD']));foreach ($fwdArray as &$value1) {$value1 = $value1. "&#013;&#010;";***REMOVED***foreach($fwdArray as $val1){echo $val1;***REMOVED******REMOVED***">
                                             <textarea class="form-control" name="v_forward" rows="4" id="forwardTextArea">***REMOVED*** $fwdArray = explode(',', ($maildata[0]['FWD']));foreach ($fwdArray as &$value1) {$value1 = $value1. "&#013;&#010;";***REMOVED***foreach($fwdArray as $val1){echo $val1;***REMOVED******REMOVED***</textarea>
-                                            <small class="form-text text-muted">One Or More Email Addresses</small>
+                                            <small class="form-text text-muted">***REMOVED*** echo _("One or more email addresses"); ***REMOVED***</small>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Don't Store Forwarded Mail</label>
+                                        <label class="col-md-12">***REMOVED*** echo _("Don't Store Forwarded Mail"); ***REMOVED***</label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
                                                 <input type="hidden" name="v_fwd_to_x" value="***REMOVED*** echo $maildata[0]['FWD_ONLY']; ***REMOVED***">
                                                 <input id="checkbox4" name="v_fwd_to" type="checkbox" ***REMOVED*** if($maildata[0]['FWD_ONLY'] == 'yes') {echo 'checked';***REMOVED*** ***REMOVED*** >
-                                                <label for="checkbox4"> Enabled </label>
+                                                <label for="checkbox4"> ***REMOVED*** echo _("Enabled"); ***REMOVED*** </label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Autoreply</label>
+                                        <label class="col-md-12">***REMOVED*** echo _("Autoreply"); ***REMOVED***</label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
                                                 <input type="hidden" name="v_autoreply-x" value="***REMOVED*** echo $maildata[0]['AUTOREPLY']; ***REMOVED***">
                                                 <input id="checkbox5" name="v_autoreply" type="checkbox" onclick="checkDiv();" ***REMOVED*** if($maildata[0]['AUTOREPLY'] == 'yes') {echo 'checked';***REMOVED*** ***REMOVED*** >
-                                                <label for="checkbox5"> Enabled </label>
+                                                <label for="checkbox5"> ***REMOVED*** echo _("Enabled"); ***REMOVED*** </label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group" id="msg-div" style="margin-left: 4%;">
-                                        <label class="col-md-12">Message</label>
+                                        <label class="col-md-12">***REMOVED*** echo _("Message"); ***REMOVED***</label>
                                         <div class="col-md-12">
                                             <input type="hidden" name="v_message_x" value="***REMOVED*** $aliasArray = explode(',', ($autoreplydata[0]['MSG']));
                                                 foreach ($aliasArray as &$value) {
@@ -298,8 +298,8 @@ textdomain('messages');
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success">Update Account</button> &nbsp;
-                                            <a href="../list/maildomain.php?domain=***REMOVED*** echo $requestdomain; ***REMOVED***" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">Back</button></a>
+                                            <button class="btn btn-success">***REMOVED*** echo _("Update Account"); ***REMOVED***</button> &nbsp;
+                                            <a href="../list/maildomain.php?domain=***REMOVED*** echo $requestdomain; ***REMOVED***" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">***REMOVED*** echo _("Back"); ***REMOVED***</button></a>
                                         </div>
                                     </div>
                                 </form>
@@ -309,14 +309,14 @@ textdomain('messages');
                             <div class="white-box">
                                 <div> 
                                     <center> <h3>
-                                        Authentication Settings
+                                        ***REMOVED*** echo _("Authentication Settings"); ***REMOVED***
                                         </h3></center><br>
                                     <div class="overlay-box" style="background: #fff;">
                                         <ul class="nav nav-tabs">
                                             <li class="active">
-                                                <a  href="#1" data-toggle="tab">Use Server Hostname</a>
+                                                <a  href="#1" data-toggle="tab">***REMOVED*** echo _("Use Server Hostname"); ***REMOVED***</a>
                                             </li>
-                                            <li><a href="#2" data-toggle="tab">Use Domain Hostname </a>
+                                            <li><a href="#2" data-toggle="tab">***REMOVED*** echo _("Use Domain Hostname"); ***REMOVED*** </a>
                                             </li>
                                         </ul>
                                         <div class="tab-content ">
@@ -327,7 +327,7 @@ textdomain('messages');
                                                     </li>
                                                     <li><a href="#4" data-toggle="tab">SSL</a>
                                                     </li>
-                                                    <li><a href="#5" data-toggle="tab">No Authentication</a>
+                                                    <li><a href="#5" data-toggle="tab">***REMOVED*** echo _("No Authentication"); ***REMOVED***</a>
                                                     </li>
                                                 </ul>
                                                 <div class="tab-content ">
@@ -335,17 +335,17 @@ textdomain('messages');
                                                         <div class="row">
                                                             <div class="col-sm-5">
                                                                 <p>
-                                                                    Username:	<br>   
-                                                                    Password:	<br>
-                                                                    IMAP hostname:	<br>
-                                                                    IMAP port:	<br>
-                                                                    IMAP security:	<br>
-                                                                    IMAP auth method:<br>
-                                                                    SMTP hostname:<br>
-                                                                    SMTP port:	<br>
-                                                                    SMTP security:<br>	
-                                                                    SMTP auth method:	<br>
-                                                                    Webmail URL:	<br>
+                                                                    ***REMOVED*** echo _("Username"); ***REMOVED***:	<br>   
+                                                                    ***REMOVED*** echo _("Password"); ***REMOVED***:	<br>
+                                                                    IMAP ***REMOVED*** echo _("hostname"); ***REMOVED***:	<br>
+                                                                    IMAP ***REMOVED*** echo _("port"); ***REMOVED***:	<br>
+                                                                    IMAP ***REMOVED*** echo _("security"); ***REMOVED***:	<br>
+                                                                    IMAP ***REMOVED*** echo _("auth method"); ***REMOVED***:<br>
+                                                                    SMTP ***REMOVED*** echo _("hostname"); ***REMOVED***:<br>
+                                                                    SMTP ***REMOVED*** echo _("port"); ***REMOVED***:	<br>
+                                                                    SMTP ***REMOVED*** echo _("security"); ***REMOVED***:<br>	
+                                                                    SMTP ***REMOVED*** echo _("auth method"); ***REMOVED***:	<br>
+                                                                    ***REMOVED*** echo _("Webmail"); ***REMOVED*** URL:	<br>
                                                                 </p>
                                                             </div>
                                                             <div class="col-sm-7">
@@ -355,11 +355,11 @@ textdomain('messages');
                                                                     <? echo VESTA_HOST_ADDRESS; ***REMOVED***<br>
                                                                     143<br>
                                                                     STARTTLS<br>
-                                                                    Normal Password<br>
+                                                                    ***REMOVED*** echo _("Normal Password"); ***REMOVED***<br>
                                                                     <? echo VESTA_HOST_ADDRESS; ***REMOVED***<br>
                                                                     587<br>
                                                                     STARTTLS<br>	
-                                                                    Normal Password	<br>
+                                                                    ***REMOVED*** echo _("Normal Password"); ***REMOVED***<br>
                                                                     <a href="<? echo $webmailurl; ***REMOVED***"><? echo $webmailurl; ***REMOVED***</a><br>
                                                                 </p>
                                                             </div>
@@ -369,17 +369,17 @@ textdomain('messages');
                                                         <div class="row">
                                                             <div class="col-sm-5">
                                                                 <p>
-                                                                    Username:	<br>   
-                                                                    Password:	<br>
-                                                                    IMAP hostname:	<br>
-                                                                    IMAP port:	<br>
-                                                                    IMAP security:	<br>
-                                                                    IMAP auth method:<br>
-                                                                    SMTP hostname:<br>
-                                                                    SMTP port:	<br>
-                                                                    SMTP security:<br>	
-                                                                    SMTP auth method:	<br>
-                                                                    Webmail URL:	<br>
+                                                                    ***REMOVED*** echo _("Username"); ***REMOVED***:	<br>   
+                                                                    ***REMOVED*** echo _("Password"); ***REMOVED***:	<br>
+                                                                    IMAP ***REMOVED*** echo _("hostname"); ***REMOVED***:	<br>
+                                                                    IMAP ***REMOVED*** echo _("port"); ***REMOVED***:	<br>
+                                                                    IMAP ***REMOVED*** echo _("security"); ***REMOVED***:	<br>
+                                                                    IMAP ***REMOVED*** echo _("auth method"); ***REMOVED***:<br>
+                                                                    SMTP ***REMOVED*** echo _("hostname"); ***REMOVED***:<br>
+                                                                    SMTP ***REMOVED*** echo _("port"); ***REMOVED***:	<br>
+                                                                    SMTP ***REMOVED*** echo _("security"); ***REMOVED***:<br>	
+                                                                    SMTP ***REMOVED*** echo _("auth method"); ***REMOVED***:	<br>
+                                                                    ***REMOVED*** echo _("Webmail"); ***REMOVED*** URL:	<br>
                                                                 </p>
                                                             </div>
                                                             <div class="col-sm-7">
@@ -389,11 +389,11 @@ textdomain('messages');
                                                                     <? echo VESTA_HOST_ADDRESS; ***REMOVED***<br>
                                                                     993<br>
                                                                     SSL<br>
-                                                                    Normal Password<br>
+                                                                    ***REMOVED*** echo _("Normal Password"); ***REMOVED***<br>
                                                                     <? echo VESTA_HOST_ADDRESS; ***REMOVED***<br>
                                                                     465<br>
                                                                     SSL<br>	
-                                                                    Normal Password	<br>
+                                                                    ***REMOVED*** echo _("Normal Password"); ***REMOVED***<br>
                                                                     <a href="<? echo $webmailurl; ***REMOVED***"><? echo $webmailurl; ***REMOVED***</a><br>
                                                                 </p>
                                                             </div>
@@ -403,17 +403,17 @@ textdomain('messages');
                                                         <div class="row">
                                                             <div class="col-sm-5">
                                                                 <p>
-                                                                    Username:	<br>   
-                                                                    Password:	<br>
-                                                                    IMAP hostname:	<br>
-                                                                    IMAP port:	<br>
-                                                                    IMAP security:	<br>
-                                                                    IMAP auth method:<br>
-                                                                    SMTP hostname:<br>
-                                                                    SMTP port:	<br>
-                                                                    SMTP security:<br>	
-                                                                    SMTP auth method:	<br>
-                                                                    Webmail URL:	<br>
+                                                                    ***REMOVED*** echo _("Username"); ***REMOVED***:	<br>   
+                                                                    ***REMOVED*** echo _("Password"); ***REMOVED***:	<br>
+                                                                    IMAP ***REMOVED*** echo _("hostname"); ***REMOVED***:	<br>
+                                                                    IMAP ***REMOVED*** echo _("port"); ***REMOVED***:	<br>
+                                                                    IMAP ***REMOVED*** echo _("security"); ***REMOVED***:	<br>
+                                                                    IMAP ***REMOVED*** echo _("auth method"); ***REMOVED***:<br>
+                                                                    SMTP ***REMOVED*** echo _("hostname"); ***REMOVED***:<br>
+                                                                    SMTP ***REMOVED*** echo _("port"); ***REMOVED***:	<br>
+                                                                    SMTP ***REMOVED*** echo _("security"); ***REMOVED***:<br>	
+                                                                    SMTP ***REMOVED*** echo _("auth method"); ***REMOVED***:	<br>
+                                                                    ***REMOVED*** echo _("Webmail"); ***REMOVED*** URL:	<br>
                                                                 </p>
                                                             </div>
                                                             <div class="col-sm-7">
@@ -422,12 +422,12 @@ textdomain('messages');
                                                                     <span class="mailPW"></span><br>
                                                                     <? echo VESTA_HOST_ADDRESS; ***REMOVED***<br>
                                                                     143<br>
-                                                                    No Encryption<br>
-                                                                    Normal Password<br>
+                                                                    ***REMOVED*** echo _("No Encryption"); ***REMOVED***<br>
+                                                                    ***REMOVED*** echo _("Normal Password"); ***REMOVED***<br>
                                                                     <? echo VESTA_HOST_ADDRESS; ***REMOVED***<br>
                                                                     25<br>
-                                                                    No Encryption<br>	
-                                                                    Normal Password	<br>
+                                                                    ***REMOVED*** echo _("No Encryption"); ***REMOVED***<br>	
+                                                                    ***REMOVED*** echo _("Normal Password"); ***REMOVED***<br>
                                                                     <a href="<? echo $webmailurl; ***REMOVED***"><? echo $webmailurl; ***REMOVED***</a><br>
                                                                 </p>
                                                             </div>
@@ -442,7 +442,7 @@ textdomain('messages');
                                                     </li>
                                                     <li><a href="#7" data-toggle="tab">SSL</a>
                                                     </li>
-                                                    <li><a href="#8" data-toggle="tab">No Authentication</a>
+                                                    <li><a href="#8" data-toggle="tab">***REMOVED*** echo _("No Authentication"); ***REMOVED***</a>
                                                     </li>
                                                 </ul>
                                                 <div class="tab-content ">
@@ -450,17 +450,17 @@ textdomain('messages');
                                                         <div class="row">
                                                             <div class="col-sm-5">
                                                                 <p>
-                                                                    Username:	<br>   
-                                                                    Password:	<br>
-                                                                    IMAP hostname:	<br>
-                                                                    IMAP port:	<br>
-                                                                    IMAP security:	<br>
-                                                                    IMAP auth method:<br>
-                                                                    SMTP hostname:<br>
-                                                                    SMTP port:	<br>
-                                                                    SMTP security:<br>	
-                                                                    SMTP auth method:	<br>
-                                                                    Webmail URL:	<br>
+                                                                    ***REMOVED*** echo _("Username"); ***REMOVED***:	<br>   
+                                                                    ***REMOVED*** echo _("Password"); ***REMOVED***:	<br>
+                                                                    IMAP ***REMOVED*** echo _("hostname"); ***REMOVED***:	<br>
+                                                                    IMAP ***REMOVED*** echo _("port"); ***REMOVED***:	<br>
+                                                                    IMAP ***REMOVED*** echo _("security"); ***REMOVED***:	<br>
+                                                                    IMAP ***REMOVED*** echo _("auth method"); ***REMOVED***:<br>
+                                                                    SMTP ***REMOVED*** echo _("hostname"); ***REMOVED***:<br>
+                                                                    SMTP ***REMOVED*** echo _("port"); ***REMOVED***:	<br>
+                                                                    SMTP ***REMOVED*** echo _("security"); ***REMOVED***:<br>	
+                                                                    SMTP ***REMOVED*** echo _("auth method"); ***REMOVED***:	<br>
+                                                                    ***REMOVED*** echo _("Webmail"); ***REMOVED*** URL:	<br>
                                                                 </p>
                                                             </div>
                                                             <div class="col-sm-7">
@@ -470,11 +470,11 @@ textdomain('messages');
                                                                     <? echo $requestdomain; ***REMOVED***<br>
                                                                     143<br>
                                                                     STARTTLS<br>
-                                                                    Normal Password<br>
+                                                                    ***REMOVED*** echo _("Normal Password"); ***REMOVED***<br>
                                                                     <? echo $requestdomain; ***REMOVED***<br>
                                                                     587<br>
                                                                     STARTTLS<br>	
-                                                                    Normal Password	<br>
+                                                                    ***REMOVED*** echo _("Normal Password"); ***REMOVED***<br>
                                                                     <a href="<? echo $webmailurl; ***REMOVED***"><? echo $webmailurl; ***REMOVED***</a><br>
                                                                 </p>
                                                             </div>
@@ -484,17 +484,17 @@ textdomain('messages');
                                                         <div class="row">
                                                             <div class="col-sm-5">
                                                                 <p>
-                                                                    Username:	<br>   
-                                                                    Password:	<br>
-                                                                    IMAP hostname:	<br>
-                                                                    IMAP port:	<br>
-                                                                    IMAP security:	<br>
-                                                                    IMAP auth method:<br>
-                                                                    SMTP hostname:<br>
-                                                                    SMTP port:	<br>
-                                                                    SMTP security:<br>	
-                                                                    SMTP auth method:	<br>
-                                                                    Webmail URL:	<br>
+                                                                    ***REMOVED*** echo _("Username"); ***REMOVED***:	<br>   
+                                                                    ***REMOVED*** echo _("Password"); ***REMOVED***:	<br>
+                                                                    IMAP ***REMOVED*** echo _("hostname"); ***REMOVED***:	<br>
+                                                                    IMAP ***REMOVED*** echo _("port"); ***REMOVED***:	<br>
+                                                                    IMAP ***REMOVED*** echo _("security"); ***REMOVED***:	<br>
+                                                                    IMAP ***REMOVED*** echo _("auth method"); ***REMOVED***:<br>
+                                                                    SMTP ***REMOVED*** echo _("hostname"); ***REMOVED***:<br>
+                                                                    SMTP ***REMOVED*** echo _("port"); ***REMOVED***:	<br>
+                                                                    SMTP ***REMOVED*** echo _("security"); ***REMOVED***:<br>	
+                                                                    SMTP ***REMOVED*** echo _("auth method"); ***REMOVED***:	<br>
+                                                                    ***REMOVED*** echo _("Webmail"); ***REMOVED*** URL:	<br>
                                                                 </p>
                                                             </div>
                                                             <div class="col-sm-7">
@@ -504,11 +504,11 @@ textdomain('messages');
                                                                     <? echo $requestdomain; ***REMOVED***<br>
                                                                     993<br>
                                                                     SSL<br>
-                                                                    Normal Password<br>
+                                                                    ***REMOVED*** echo _("Normal Password"); ***REMOVED***<br>
                                                                     <? echo $requestdomain; ***REMOVED***<br>
                                                                     465<br>
                                                                     SSL<br>	
-                                                                    Normal Password	<br>
+                                                                    ***REMOVED*** echo _("Normal Password"); ***REMOVED***<br>
                                                                     <a href="<? echo $webmailurl; ***REMOVED***"><? echo $webmailurl; ***REMOVED***</a><br>
                                                                 </p>
                                                             </div>
@@ -518,17 +518,17 @@ textdomain('messages');
                                                         <div class="row">
                                                             <div class="col-sm-5">
                                                                 <p>
-                                                                    Username:	<br>   
-                                                                    Password:	<br>
-                                                                    IMAP hostname:	<br>
-                                                                    IMAP port:	<br>
-                                                                    IMAP security:	<br>
-                                                                    IMAP auth method:<br>
-                                                                    SMTP hostname:<br>
-                                                                    SMTP port:	<br>
-                                                                    SMTP security:<br>	
-                                                                    SMTP auth method:	<br>
-                                                                    Webmail URL:	<br>
+                                                                    ***REMOVED*** echo _("Username"); ***REMOVED***:	<br>   
+                                                                    ***REMOVED*** echo _("Password"); ***REMOVED***:	<br>
+                                                                    IMAP ***REMOVED*** echo _("hostname"); ***REMOVED***:	<br>
+                                                                    IMAP ***REMOVED*** echo _("port"); ***REMOVED***:	<br>
+                                                                    IMAP ***REMOVED*** echo _("security"); ***REMOVED***:	<br>
+                                                                    IMAP ***REMOVED*** echo _("auth method"); ***REMOVED***:<br>
+                                                                    SMTP ***REMOVED*** echo _("hostname"); ***REMOVED***:<br>
+                                                                    SMTP ***REMOVED*** echo _("port"); ***REMOVED***:	<br>
+                                                                    SMTP ***REMOVED*** echo _("security"); ***REMOVED***:<br>	
+                                                                    SMTP ***REMOVED*** echo _("auth method"); ***REMOVED***:	<br>
+                                                                    ***REMOVED*** echo _("Webmail"); ***REMOVED*** URL:	<br>
                                                                 </p>
                                                             </div>
                                                             <div class="col-sm-7">
@@ -537,12 +537,12 @@ textdomain('messages');
                                                                     <span class="mailPW"></span><br>
                                                                     <? echo $requestdomain; ***REMOVED***<br>
                                                                     143<br>
-                                                                    No Encryption<br>
-                                                                    Normal Password<br>
+                                                                    ***REMOVED*** echo _("No Encryption"); ***REMOVED***<br>
+                                                                    ***REMOVED*** echo _("Normal Password"); ***REMOVED***<br>
                                                                     <? echo $requestdomain; ***REMOVED***<br>
                                                                     25<br>
-                                                                    No Encryption<br>	
-                                                                    Normal Password	<br>
+                                                                    ***REMOVED*** echo _("No Encryption"); ***REMOVED***<br>	
+                                                                    ***REMOVED*** echo _("Normal Password"); ***REMOVED***<br>
                                                                     <a href="<? echo $webmailurl; ***REMOVED***"><? echo $webmailurl; ***REMOVED***</a><br>
                                                                 </p>
                                                             </div>
@@ -624,43 +624,6 @@ textdomain('messages');
                 document.getElementById('password').type="text";
                 fillSpan();
             ***REMOVED***
-            function confirmDelete(e){
-                e1 = String(e)
-                swal({
-                    title: 'Delete Web Domain:<br>' + e1 +' ?',
-                    text: "You won't be able to revert this!",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
-                ***REMOVED***).then(function () {
-                    swal({
-                        title: 'Processing',
-                        text: '',
-                        timer: 5000,
-                        onOpen: function () {
-                            swal.showLoading()
-                        ***REMOVED***
-                    ***REMOVED***).then(
-                        function () {***REMOVED***,
-                        // handling the promise rejection
-                        function (dismiss) {
-                            if (dismiss === 'timer') {
-                                console.log('I was closed by the timer')
-                            ***REMOVED***
-                        ***REMOVED***
-                    )
-                    $.ajax({  
-                        type: "GET",  
-                        url: "../delete/domain.php",  
-                        data: { 'domain':e1, 'verified':'yes' ***REMOVED***,
-                        success:  function(){ window.location = "web.php?delcode=0"; ***REMOVED***,
-                        error:  function(){ window.location = "web.php?delcode=0"; ***REMOVED***
-                    ***REMOVED***)
-                ***REMOVED***)***REMOVED***
-
-            ***REMOVED*** if($_GET['delcode'] == "0"){ echo "swal({title:'Successfully Deleted!', type:'success'***REMOVED***);";***REMOVED*** ***REMOVED***
         </script>
     </body>
 

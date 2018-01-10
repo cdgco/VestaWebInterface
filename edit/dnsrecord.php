@@ -186,7 +186,7 @@ session_start();
            <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Edit DNS Record</h4>
+                        <h4 class="page-title">***REMOVED*** echo _("Edit DNS Record"); ***REMOVED***</h4>
                     </div>
                 </div>
                 <div class="row">
@@ -195,7 +195,7 @@ session_start();
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>RECORD #</center>
+                                        <center>***REMOVED*** echo _("RECORD"); ***REMOVED*** #</center>
                                     </div>
                                     <div class="panel-body">
                                       <center><h2>***REMOVED*** print_r($recordnumber[$requestrecord]); ***REMOVED***</h2></center>
@@ -209,7 +209,7 @@ session_start();
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>CREATED</center>
+                                        <center>***REMOVED*** echo _("CREATED"); ***REMOVED***</center>
                                     </div>
                                     <div class="panel-body">
                                         <center>
@@ -227,12 +227,12 @@ session_start();
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>STATUS</center>
+                                        <center>***REMOVED*** echo _("STATUS"); ***REMOVED***</center>
                                     </div>
                                     <div class="panel-body">
                                         <center>
                                             <h2>
-                                                ***REMOVED*** if ($recorddata[$requestrecord]['SUSPENDED'] == 'no') {echo 'Active';***REMOVED*** else {echo 'Suspended';***REMOVED******REMOVED***
+                                                ***REMOVED*** if ($recorddata[$requestrecord]['SUSPENDED'] == 'no') {echo _("Active");***REMOVED*** else {echo _("Suspended");***REMOVED******REMOVED***
                                             </h2>
                                         </center>
                                     </div>
@@ -246,7 +246,7 @@ session_start();
                         <div class="white-box">
                             <form class="form-horizontal form-material" autocomplete="off" method="post" action="../change/dnsrecord.php">
                                 <div class="form-group">
-                                    <label class="col-md-12">Domain</label>
+                                    <label class="col-md-12">***REMOVED*** echo _("Domain"); ***REMOVED***</label>
                                     <div class="col-md-12">
                                         <input type="text" disabled value="<? print_r($requestdns); ***REMOVED***" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
                                         <input type="hidden" name="v_domain" value="<? print_r($requestdns); ***REMOVED***"> 
@@ -254,42 +254,42 @@ session_start();
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12">Record</label>
+                                    <label class="col-md-12">***REMOVED*** echo _("Record"); ***REMOVED***</label>
                                     <div class="col-md-12">
                                         <input type="text" disabled value="<? print_r($recorddata[$requestrecord]['RECORD']); ***REMOVED***" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12">Type</label>
+                                    <label class="col-md-12">***REMOVED*** echo _("Type"); ***REMOVED***</label>
                                     <div class="col-md-12">
                                         <input type="text" disabled value="<? print_r($recorddata[$requestrecord]['TYPE']); ***REMOVED***" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="email" class="col-md-12">IP or Value</label>
+                                    <label for="email" class="col-md-12">***REMOVED*** echo _("IP or Value"); ***REMOVED***</label>
                                     <div class="col-md-12">
                                         <input type="text" name="v_value" value="<? print_r($recorddata[$requestrecord]['VALUE']); ***REMOVED***" class="form-control form-control-line" >
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="email" class="col-md-12">Priority</label>
+                                    <label for="email" class="col-md-12">***REMOVED*** echo _("Priority"); ***REMOVED***</label>
                                     <div class="col-md-12">
                                         <input type="text" name="v_priority" value="<? print_r($recorddata[$requestrecord]['PRIORITY']); ***REMOVED***" class="form-control form-control-line"> 
-                                        <small class="form-text text-muted">Optional</small>
+                                        <small class="form-text text-muted">***REMOVED*** echo _("Optional"); ***REMOVED***</small>
                                     </div>
                                 </div>
                                 <!-- REMEMBER TO UPDATE RETURN LINK TO CORRECT NUMBER IF ORDER / RECORD NUMBER IS ALTERED -->
                                 <div class="form-group">
-                                    <label for="email" class="col-md-12">Order</label>
+                                    <label for="email" class="col-md-12">***REMOVED*** echo _("Order"); ***REMOVED***</label>
                                     <div class="col-md-12">
                                         <input type="text" name="v_id2" value="<? print_r($recorddata[$requestrecord]['ID']); ***REMOVED***" class="form-control form-control-line"> 
-                                        <small class="form-text text-muted">Optional</small>
+                                        <small class="form-text text-muted">***REMOVED*** echo _("Optional"); ***REMOVED***</small>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <button class="btn btn-success">Update Record</button> &nbsp;
-                                            <a href="../list/dnsdomain.php?domain=***REMOVED*** echo $requestdns; ***REMOVED***" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">Back</button></a>
+                                        <button class="btn btn-success">***REMOVED*** echo _("Update Record"); ***REMOVED***</button> &nbsp;
+                                            <a href="../list/dnsdomain.php?domain=***REMOVED*** echo $requestdns; ***REMOVED***" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">***REMOVED*** echo _("Back"); ***REMOVED***</button></a>
                                     </div>
                                 </div>
                             </form>
@@ -328,43 +328,6 @@ $('.datepicker').datepicker();
         jQuery(function($){
             $('.footable').footable();
         ***REMOVED***);
-        function confirmDelete(e){
-            e1 = String(e)
-            swal({
-                title: 'Delete Web Domain:<br>' + e1 +' ?',
-                text: "You won't be able to revert this!",
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-            ***REMOVED***).then(function () {
-                swal({
-                    title: 'Processing',
-                    text: '',
-                    timer: 5000,
-                    onOpen: function () {
-                        swal.showLoading()
-                    ***REMOVED***
-                ***REMOVED***).then(
-                    function () {***REMOVED***,
-                    // handling the promise rejection
-                    function (dismiss) {
-                        if (dismiss === 'timer') {
-                            console.log('I was closed by the timer')
-                        ***REMOVED***
-                    ***REMOVED***
-                )
-                $.ajax({  
-                    type: "GET",  
-                    url: "../delete/domain.php",  
-                    data: { 'domain':e1, 'verified':'yes' ***REMOVED***,
-                    success:  function(){ window.location = "web.php?delcode=0"; ***REMOVED***,
-                    error:  function(){ window.location = "web.php?delcode=0"; ***REMOVED***
-                ***REMOVED***)
-            ***REMOVED***)***REMOVED***
-
-        ***REMOVED*** if($_GET['delcode'] == "0"){ echo "swal({title:'Successfully Deleted!', type:'success'***REMOVED***);";***REMOVED*** ***REMOVED***
     </script>
 </body>
 

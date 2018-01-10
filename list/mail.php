@@ -181,7 +181,7 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'
                 <div class="row bg-title">
                     <!-- .page title -->
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Manage Mail Domains</h4> </div>
+                        <h4 class="page-title">***REMOVED*** echo _("Manage Mail Domains"); ***REMOVED***</h4> </div>
                     <!-- /.page title -->
                 </div>
                 <!-- .row -->
@@ -196,7 +196,7 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>DOMAINS</center>
+                                        <center>***REMOVED*** echo _("DOMAINS"); ***REMOVED***</center>
                                     </div>
                                     <div class="panel-body">
    <center><h2>***REMOVED*** print_r($admindata['U_MAIL_DOMAINS']); ***REMOVED***</h2></center>
@@ -213,7 +213,7 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>ACCOUNTS</center>
+                                        <center>***REMOVED*** echo _("ACCOUNTS"); ***REMOVED***</center>
                                     </div>
                                     <div class="panel-body">
    <center><h2>***REMOVED*** print_r($admindata['U_MAIL_ACCOUNTS']); ***REMOVED***</h2></center>
@@ -230,7 +230,7 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>SUSPENDED</center>
+                                        <center>***REMOVED*** echo _("SUSPENDED"); ***REMOVED***</center>
                                     </div>
                                     <div class="panel-body">
    <center><h2>***REMOVED*** print_r($admindata['SUSPENDED_MAIL']); ***REMOVED***</h2></center>
@@ -247,23 +247,23 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="white-box"> <ul class="side-icon-text pull-right">
-                                                        <li><a href="../add/mail.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span>Add Domain</span></a></li>
+                                                        <li><a href="../add/mail.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span>***REMOVED*** echo _("Add Domain"); ***REMOVED***</span></a></li>
                                                     </ul>
-                            <h3 class="box-title m-b-0">Mail Domains</h3><br>
+                            <h3 class="box-title m-b-0">***REMOVED*** echo _("Mail Domains"); ***REMOVED***</h3><br>
 
                            <table class="table footable m-b-0" data-paging-size="10" data-paging="true" data-sorting="true">
                                 <thead>
                                     <tr>
-                                        <th data-toggle="true"> Domain Name </th>
-                                        <th data-type="numeric"> Accounts </th>
-                                        <th data-type="numeric"> Disk Usage </th>
-                                        <th> Status </th>
-                                        <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> Created </th>
-                                        <th data-sortable="false"> Action </th>
-                                        <th data-breakpoints="all"> CatchAll </th>
-                                        <th data-breakpoints="all"> Antivirus </th>
-                                        <th data-breakpoints="all"> Antispam </th>
-                                        <th data-breakpoints="all"> DKIM </th>
+                                        <th data-toggle="true"> ***REMOVED*** echo _("Domain Name"); ***REMOVED*** </th>
+                                        <th data-type="numeric"> ***REMOVED*** echo _("Accounts"); ***REMOVED*** </th>
+                                        <th data-type="numeric"> ***REMOVED*** echo _("Disk Usage"); ***REMOVED*** </th>
+                                        <th> ***REMOVED*** echo _("Status"); ***REMOVED*** </th>
+                                        <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> ***REMOVED*** echo _("Created"); ***REMOVED*** </th>
+                                        <th data-sortable="false"> ***REMOVED*** echo _("Action"); ***REMOVED*** </th>
+                                        <th data-breakpoints="all"> ***REMOVED*** echo _("CatchAll"); ***REMOVED*** </th>
+                                        <th data-breakpoints="all"> ***REMOVED*** echo _("Antivirus"); ***REMOVED*** </th>
+                                        <th data-breakpoints="all"> ***REMOVED*** echo _("Antispam"); ***REMOVED*** </th>
+                                        <th data-breakpoints="all"> ***REMOVED*** echo _("DKIM"); ***REMOVED*** </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -278,36 +278,36 @@ if($mailname[0] != '') {
                                                                     <td data-sort-value="' . $maildata[$x1]['U_DISK'] . '">' . $maildata[$x1]['U_DISK'] . ' mb</td>
                                                                     <td>';                                                                   
                                                                     if($maildata[$x1]['SUSPENDED'] == "no"){ 
-                                                                             echo '<span class="label label-table label-success">Active</span>';***REMOVED*** 
+                                                                             echo '<span class="label label-table label-success">' . _("Active") . '</span>';***REMOVED*** 
                                                                            ***REMOVED*** 
-                                                                             echo '<span class="label label-table label-danger">Suspended</span>';***REMOVED*** 
+                                                                             echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';***REMOVED*** 
                                                                            echo '</td>
                                                                     <td data-sort-value="' . $maildata[$x1]['DATE'] . '">' . $maildata[$x1]['DATE'] . '</td><td>
                                             
 
-<button type="button" onclick="window.location=\'../add/mailaccount.php?domain=' . $mailname[$x1] . '\';" class="btn btn-info btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="Add Accounts"><i class="fa fa-plus"></i></button>
-<button type="button" onclick="window.location=\'../list/maildomain.php?domain=' . $mailname[$x1] . '\';" class="btn btn-info btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="List Accounts"><i class="ti-menu-alt"></i></button>
-<button type="button" onclick="window.location=\'../edit/mail.php?domain=' . $mailname[$x1] . '\';" class="btn btn-info btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="Edit"><i class="ti-pencil-alt"></i></button>
-<button onclick="confirmDelete(\'' . $mailname[$x1] . '\')" type="button" class="btn btn-info btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="Delete"><i class="icon-trash" ></i></button>
+<button type="button" onclick="window.location=\'../add/mailaccount.php?domain=' . $mailname[$x1] . '\';" class="btn btn-info btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Add Accounts") . '"><i class="fa fa-plus"></i></button>
+<button type="button" onclick="window.location=\'../list/maildomain.php?domain=' . $mailname[$x1] . '\';" class="btn btn-info btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("List Accounts") . '"><i class="ti-menu-alt"></i></button>
+<button type="button" onclick="window.location=\'../edit/mail.php?domain=' . $mailname[$x1] . '\';" class="btn btn-info btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button>
+<button onclick="confirmDelete(\'' . $mailname[$x1] . '\')" type="button" class="btn btn-info btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="icon-trash" ></i></button>
                                         </td>
-                                                                    <td>'; if($maildata[$x1]['CATCHALL'] != ''){ echo $maildata[$x1]['CATCHALL'];***REMOVED*** else { echo "None";***REMOVED*** echo '</td>
+                                                                    <td>'; if($maildata[$x1]['CATCHALL'] != ''){ echo $maildata[$x1]['CATCHALL'];***REMOVED*** else { echo _("None");***REMOVED*** echo '</td>
                                                                     <td>';                                                                   
                                                                     if($maildata[$x1]['ANTIVIRUS'] == "yes"){ 
-                                                                             echo '<span class="label label-table label-success">Enabled</span>';***REMOVED*** 
+                                                                             echo '<span class="label label-table label-success">' . _("Enabled") . '</span>';***REMOVED*** 
                                                                            ***REMOVED*** 
-                                                                             echo '<span class="label label-table label-danger">Disabled</span>';***REMOVED*** 
+                                                                             echo '<span class="label label-table label-danger">' . _("Disabled") . '</span>';***REMOVED*** 
                                                                            echo '</td>
                                                                     <td>';                                                                   
                                                                     if($maildata[$x1]['ANTISPAM'] == "yes"){ 
-                                                                             echo '<span class="label label-table label-success">Enabled</span>';***REMOVED*** 
+                                                                             echo '<span class="label label-table label-success">' . _("Enabled") . '</span>';***REMOVED*** 
                                                                            ***REMOVED*** 
-                                                                             echo '<span class="label label-table label-danger">Disabled</span>';***REMOVED*** 
+                                                                             echo '<span class="label label-table label-danger">' . _("Disabled") . '</span>';***REMOVED*** 
                                                                            echo '</td>
                                                                     <td>';                                                                   
                                                                     if($maildata[$x1]['DKIM'] == "yes"){ 
-                                                                             echo '<span class="label label-table label-success">Enabled</span>';***REMOVED*** 
+                                                                             echo '<span class="label label-table label-success">' . _("Enabled") . '</span>';***REMOVED*** 
                                                                            ***REMOVED*** 
-                                                                             echo '<span class="label label-table label-danger">Disabled</span>';***REMOVED*** 
+                                                                             echo '<span class="label label-table label-danger">' . _("Disabled") . '</span>';***REMOVED*** 
                                                                            echo '</td>
                                                                     </tr>';
                                                                     $x1++;
@@ -355,16 +355,16 @@ jQuery(function($){
 function confirmDelete(e){
 e1 = String(e)
 swal({
-  title: 'Delete Mail Domain:<br> ' + e1 +' ?',
-  text: "You won't be able to revert this!",
+  title: '***REMOVED*** echo _("Delete Mail Domain"); ***REMOVED***:<br> ' + e1 +' ?',
+  text: "***REMOVED*** echo _("You won't be able to revert this!"); ***REMOVED***",
   type: 'warning',
   showCancelButton: true,
   confirmButtonColor: '#3085d6',
   cancelButtonColor: '#d33',
-  confirmButtonText: 'Yes, delete it!'
+  confirmButtonText: '***REMOVED*** echo _("Yes, delete it!"); ***REMOVED***'
 ***REMOVED***).then(function () {
 swal({
-  title: 'Processing',
+  title: '***REMOVED*** echo _("Processing"); ***REMOVED***',
   text: '',
   timer: 5000,
   onOpen: function () {
@@ -375,7 +375,7 @@ swal({
   // handling the promise rejection
   function (dismiss) {
     if (dismiss === 'timer') {
-      console.log('I was closed by the timer')
+      console.log('***REMOVED*** echo _("I was closed by the timer"); ***REMOVED***')
     ***REMOVED***
   ***REMOVED***
 )
@@ -394,9 +394,9 @@ $.ajax({
 $dbcode = $_GET['delcode'];
 
 if($dbcode == "0") {
-    echo "swal({title:'Successfully Deleted!', type:'success'***REMOVED***);";
+    echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'***REMOVED***);";
 ***REMOVED*** 
-if($dbcode > "0") { echo "swal({title:'Please try again later or contact support.', type:'error'***REMOVED***);";***REMOVED***
+if($dbcode > "0") { echo "swal({title:'" . _("Please try again later or contact support.") . "', type:'error'***REMOVED***);";***REMOVED***
 ***REMOVED***
 </script>
 </body>
