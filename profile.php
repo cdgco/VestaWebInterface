@@ -51,7 +51,7 @@ textdomain('messages');
         <link href="css/animate.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
         <link href="plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
-        <link href="css/colors/<?php if(isset($_SESSION['theme'])) { echo base64_decode($_SESSION['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
+        <link href="css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.css" rel="stylesheet" />
         <style>
             .select2-results{
@@ -368,6 +368,17 @@ textdomain('messages');
                                                 <div id="ns7" style="display:<?php if(explode(',', ($admindata['NS']))[6] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[6]); ?>" class="form-control form-control-line" name="ns7" id="ns7x"><br><div id="ns7wrapper"><a style="cursor:pointer;" id="addmore5" onclick="add6();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove5" onclick="rem6();"><?php echo _("Remove One"); ?></a></div></div>
 
                                                 <div id="ns8" style="display:<?php if(explode(',', ($admindata['NS']))[7] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[7]); ?>" class="form-control form-control-line" name="ns8" id="ns8x"><br><div id="ns8wrapper"><a style="cursor:pointer;" id="remove6" onclick="rem7();"><?php echo _("Remove One"); ?></a></div></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="overflow: visible;">
+                                            <label class="col-md-12"><?php echo _("Theme"); ?></label>
+                                            <div class="col-md-12">
+                                                <select class="form-control" name="cookie">
+                                                    <option value="default" <?php if(base64_decode($_COOKIE["theme"]) == "default.css") { echo "selected"; } ?>><?php echo _("Default"); ?></option>
+                                                    <option value="blue" <?php if(base64_decode($_COOKIE["theme"]) == "blue.css") { echo "selected"; } ?>><?php echo _("Blue"); ?></option>
+                                                    <option value="purple" <?php if(base64_decode($_COOKIE["theme"]) == "purple.css") { echo "selected"; } ?>><?php echo _("Purple"); ?></option>
+                                                    <option value="orange" <?php if(base64_decode($_COOKIE["theme"]) == "orange.css") { echo "selected"; } ?>><?php echo _("Orange"); ?></option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
