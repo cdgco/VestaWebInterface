@@ -181,7 +181,7 @@ else { header('Location: ../login.php'); ***REMOVED***
                 <div class="row bg-title">
                     <!-- .page title -->
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Manage DNS Domains</h4> </div>
+                        <h4 class="page-title">***REMOVED*** echo _("Manage DNS Domains"); ***REMOVED***</h4> </div>
                     <!-- /.page title -->
                 </div>
                 <!-- .row -->
@@ -196,7 +196,7 @@ else { header('Location: ../login.php'); ***REMOVED***
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>DOMAINS</center>
+                                        <center>***REMOVED*** echo _("DOMAINS"); ***REMOVED***</center>
                                     </div>
                                     <div class="panel-body">
    <center><h2>***REMOVED*** print_r($admindata['U_DNS_DOMAINS']); ***REMOVED***</h2></center>
@@ -213,7 +213,7 @@ else { header('Location: ../login.php'); ***REMOVED***
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>RECORDS</center>
+                                        <center>***REMOVED*** echo _("RECORDS"); ***REMOVED***</center>
                                     </div>
                                     <div class="panel-body">
    <center><h2>***REMOVED*** print_r($admindata['U_DNS_RECORDS']); ***REMOVED***</h2></center>
@@ -230,7 +230,7 @@ else { header('Location: ../login.php'); ***REMOVED***
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>SUSPENDED</center>
+                                        <center>***REMOVED*** echo _("SUSPENDED"); ***REMOVED***</center>
                                     </div>
                                     <div class="panel-body">
    <center><h2>***REMOVED*** print_r($admindata['SUSPENDED_DNS']); ***REMOVED***</h2></center>
@@ -247,24 +247,24 @@ else { header('Location: ../login.php'); ***REMOVED***
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="white-box"> <ul class="side-icon-text pull-right">
-                                                        <li><a href="../add/dns.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span>Add Domain</span></a></li>
+                                                        <li><a href="../add/dns.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span>***REMOVED*** echo _("Add Domain"); ***REMOVED***</span></a></li>
                                                     </ul>
-                            <h3 class="box-title m-b-0">DNS Domains</h3><br>
+                            <h3 class="box-title m-b-0">***REMOVED*** echo _("DNS Domains"); ***REMOVED***</h3><br>
 
                             <table class="table footable m-b-0" data-paging-size="10" data-paging="true" data-sorting="true">
                                 <thead>
                                     <tr>
-                                        <th data-toggle="true"> Domain Name </th>
-                                        <th data-type="number"> Records </th>
-                                        <th> Status </th>
-                                        <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> Created </th>
-                                        <th data-sortable="false"> Action </th>
-                                        <th data-breakpoints="all"> IP </th>
-                                        <th data-breakpoints="all"> SOA (Start of Authority) </th>
-                                        <th data-breakpoints="all"> TTL (Time-To-Live) </th>
-                                        <th data-breakpoints="all"> DNS Template </th>
-                                        <th data-breakpoints="all"> Expiration </th>
-                                        <th data-breakpoints="all"> Serial </th>
+                                        <th data-toggle="true"> ***REMOVED*** echo _("Domain Name"); ***REMOVED*** </th>
+                                        <th data-type="number"> ***REMOVED*** echo _("Records"); ***REMOVED*** </th>
+                                        <th> ***REMOVED*** echo _("Status"); ***REMOVED*** </th>
+                                        <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> ***REMOVED*** echo _("Created"); ***REMOVED*** </th>
+                                        <th data-sortable="false"> ***REMOVED*** echo _("Action"); ***REMOVED*** </th>
+                                        <th data-breakpoints="all"> ***REMOVED*** echo _("IP"); ***REMOVED*** </th>
+                                        <th data-breakpoints="all"> ***REMOVED*** echo _("SOA (Start of Authority)"); ***REMOVED*** </th>
+                                        <th data-breakpoints="all"> ***REMOVED*** echo _("TTL (Time-To-Live)"); ***REMOVED*** </th>
+                                        <th data-breakpoints="all"> ***REMOVED*** echo _("DNS Template"); ***REMOVED*** </th>
+                                        <th data-breakpoints="all"> ***REMOVED*** echo _("Expiration"); ***REMOVED*** </th>
+                                        <th data-breakpoints="all"> ***REMOVED*** echo _("Serial"); ***REMOVED*** </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -278,19 +278,19 @@ if($dnsname[0] != '') {
                                                                     <td data-sort-value="' . $dnsdata[$x1]['RECORDS'] . '">' . $dnsdata[$x1]['RECORDS'] . '</td>
                                                                     <td>';                                                                   
                                                                     if($dnsdata[$x1]['SUSPENDED'] == "no"){ 
-                                                                             echo '<span class="label label-table label-success">Active</span>';***REMOVED*** 
+                                                                             echo '<span class="label label-table label-success">' . _("Active") . '</span>';***REMOVED*** 
                                                                            ***REMOVED*** 
-                                                                             echo '<span class="label label-table label-danger">Suspended</span>';***REMOVED*** 
+                                                                             echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';***REMOVED*** 
                                                                            echo '</td>
                                                                     <td data-sort-value="' . $dnsdata[$x1]['DATE'] . '">' . $dnsdata[$x1]['DATE'] . '</td><td>
 
-<button onclick="window.location=\'../add/dnsrecord.php?domain=' . $dnsname[$x1] . '\';" type="button" data-toggle="tooltip" data-original-title="Add Records" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="fa fa-plus"></i></button>
+<button onclick="window.location=\'../add/dnsrecord.php?domain=' . $dnsname[$x1] . '\';" type="button" data-toggle="tooltip" data-original-title="' . _("Add Records") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="fa fa-plus"></i></button>
 
-<button onclick="window.location=\'dnsdomain.php?domain=' . $dnsname[$x1] . '\';" type="button" data-toggle="tooltip" data-original-title="List Records" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-menu-alt"></i></button>
+<button onclick="window.location=\'dnsdomain.php?domain=' . $dnsname[$x1] . '\';" type="button" data-toggle="tooltip" data-original-title="' . _("List Records") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-menu-alt"></i></button>
 
-<button type="button" onclick="window.location=\'../edit/dns.php?domain=' . $dnsname[$x1] . '\';" data-toggle="tooltip" data-original-title="Edit" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button>
+<button type="button" onclick="window.location=\'../edit/dns.php?domain=' . $dnsname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button>
 
-<button onclick="confirmDelete(\'' . $dnsname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="Delete" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
+<button onclick="confirmDelete(\'' . $dnsname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
 
                                         </td>
                                                                     <td>' . $dnsdata[$x1]['IP'] . '</td>
@@ -344,16 +344,16 @@ jQuery(function($){
 function confirmDelete(e){
 e1 = String(e)
 swal({
-  title: 'Delete DNS Domain:<br> ' + e1 +' ?',
-  text: "You won't be able to revert this!",
+  title: '***REMOVED*** echo _("Delete DNS Domain"); ***REMOVED***:<br> ' + e1 +' ?',
+  text: "***REMOVED*** echo _("You won't be able to revert this!"); ***REMOVED***",
   type: 'warning',
   showCancelButton: true,
   confirmButtonColor: '#3085d6',
   cancelButtonColor: '#d33',
-  confirmButtonText: 'Yes, delete it!'
+  confirmButtonText: '***REMOVED*** echo _("Yes, delete it!"); ***REMOVED***'
 ***REMOVED***).then(function () {
 swal({
-  title: 'Processing',
+  title: '***REMOVED*** echo _("Processing"); ***REMOVED***',
   text: '',
   timer: 5000,
   onOpen: function () {
@@ -364,7 +364,7 @@ swal({
   // handling the promise rejection
   function (dismiss) {
     if (dismiss === 'timer') {
-      console.log('I was closed by the timer')
+      console.log('***REMOVED*** echo _("I was closed by the timer"); ***REMOVED***')
     ***REMOVED***
   ***REMOVED***
 )
@@ -383,9 +383,9 @@ $.ajax({
 $dbcode = $_GET['delcode'];
 
 if($dbcode == "0") {
-    echo "swal({title:'Successfully Deleted!', type:'success'***REMOVED***);";
+    echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'***REMOVED***);";
 ***REMOVED*** 
-if($dbcode > "0") { echo "swal({title:'Please try again later or contact support.', type:'error'***REMOVED***);";***REMOVED***
+if($dbcode > "0") { echo "swal({title:'" . _("Please try again later or contact support.") . "', type:'error'***REMOVED***);";***REMOVED***
 ***REMOVED***
 </script>
 </body>

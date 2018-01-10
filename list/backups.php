@@ -209,7 +209,7 @@ textdomain('messages');
                     <div class="row bg-title">
                         <!-- .page title -->
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title">Manage Backups</h4> </div>
+                            <h4 class="page-title">***REMOVED*** echo _("Manage Backups"); ***REMOVED***</h4> </div>
                         <!-- /.page title -->
                     </div>
                     <!-- .row -->
@@ -224,7 +224,7 @@ textdomain('messages');
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">
                                         <div class="panel-heading">
-                                            <center>BACKUPS</center>
+                                            <center>***REMOVED*** echo _("BACKUPS"); ***REMOVED***</center>
                                         </div>
                                         <div class="panel-body">
                                             <center><h2>***REMOVED*** print_r($admindata['U_BACKUPS']); ***REMOVED***</h2></center>
@@ -242,10 +242,10 @@ textdomain('messages');
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box"> <ul class="side-icon-text pull-right">
-                                <li><a href="../add/backup.php?verified=yes"><span class="circle circle-sm bg-inverse di"><i class="fa fa-calendar-check-o"></i></span><span>Schedule Backup</span></a></li>
-                                <li><a href="../edit/backupexclusions.php"><span class="circle circle-sm bg-inverse di"><i class="fa fa-ban"></i></span><span>Backup Exclusions</span></a></li>
+                                <li><a href="../add/backup.php?verified=yes"><span class="circle circle-sm bg-inverse di"><i class="fa fa-calendar-check-o"></i></span><span>***REMOVED*** echo _("Schedule Backup"); ***REMOVED***</span></a></li>
+                                <li><a href="../edit/backupexclusions.php"><span class="circle circle-sm bg-inverse di"><i class="fa fa-ban"></i></span><span>***REMOVED*** echo _("Backup Exclusions"); ***REMOVED***</span></a></li>
                                 </ul>
-                                <h3 class="box-title m-b-0">Backups</h3><br>
+                                <h3 class="box-title m-b-0">***REMOVED*** echo _("Backups"); ***REMOVED***</h3><br>
                                 <form id="download" target="_blank" method="post">
                                     <input type="hidden" name="user" value="***REMOVED*** echo $username; ***REMOVED***"/>
                                     <input type="hidden" name="password" id="pwinput"/>
@@ -253,18 +253,18 @@ textdomain('messages');
                                 <table class="table footable m-b-0" data-paging-size="10" data-paging="true" data-sorting="true">
                                     <thead>
                                         <tr>
-                                            <th data-toggle="true"> Backup Name</th>
+                                            <th data-toggle="true"> ***REMOVED*** echo _("Backup Name"); ***REMOVED***</th>
                                             <th> Type </th>
-                                            <th data-type="numeric"> Size </th>
-                                            <th data-type="numeric"> Runtime </th>
-                                            <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> Created </th>
-                                            <th data-sortable="false"> Action </th>
-                                            <th data-breakpoints="all"> Web </th>
-                                            <th data-breakpoints="all"> DNS </th>
-                                            <th data-breakpoints="all"> Mail </th>
-                                            <th data-breakpoints="all"> Databases </th>
-                                            <th data-breakpoints="all"> Cron </th>
-                                            <th data-breakpoints="all"> User Directories </th>
+                                            <th data-type="numeric"> ***REMOVED*** echo _("Size"); ***REMOVED*** </th>
+                                            <th data-type="numeric"> ***REMOVED*** echo _("Runtime"); ***REMOVED*** </th>
+                                            <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> ***REMOVED*** echo _("Created"); ***REMOVED*** </th>
+                                            <th data-sortable="false"> ***REMOVED*** echo _("Action"); ***REMOVED*** </th>
+                                            <th data-breakpoints="all"> ***REMOVED*** echo _("Web"); ***REMOVED*** </th>
+                                            <th data-breakpoints="all"> ***REMOVED*** echo _("DNS"); ***REMOVED*** </th>
+                                            <th data-breakpoints="all"> ***REMOVED*** echo _("Mail"); ***REMOVED*** </th>
+                                            <th data-breakpoints="all"> ***REMOVED*** echo _("Databases"); ***REMOVED*** </th>
+                                            <th data-breakpoints="all"> ***REMOVED*** echo _("Cron"); ***REMOVED*** </th>
+                                            <th data-breakpoints="all"> ***REMOVED*** echo _("User Directories"); ***REMOVED*** </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -280,22 +280,22 @@ textdomain('messages');
                                                                     <td data-sort-value="' . $backupdata[$x1]['RUNTIME'] . '">' . $backupdata[$x1]['RUNTIME'] . ' min</td>
                                                                     <td data-sort-value="' . $backupdata[$x1]['DATE'] . '">' . $backupdata[$x1]['DATE'] . '</td><td>
 
-<button onclick="document.getElementById(\'download\').action = \'' . $url8083 . '/login/backup.php?backup=' . $backupname[$x1] . '\';getPassword();" type="button" data-toggle="tooltip" data-original-title="Download" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="fa fa-download"></i></button>
-<button onclick="window.location=\'../list/backup.php?backup=' . $backupname[$x1] . '\';" type="button" data-toggle="tooltip" data-original-title="Configure Restore" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="fa fa-cog"></i></button>
-<button onclick="confirmDelete(\'' . $backupname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="Delete" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
+<button onclick="document.getElementById(\'download\').action = \'' . $url8083 . '/login/backup.php?backup=' . $backupname[$x1] . '\';getPassword();" type="button" data-toggle="tooltip" data-original-title="' . _("Download") .'" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="fa fa-download"></i></button>
+<button onclick="window.location=\'../list/backup.php?backup=' . $backupname[$x1] . '\';" type="button" data-toggle="tooltip" data-original-title="' . _("Configure Restore") .'" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="fa fa-cog"></i></button>
+<button onclick="confirmDelete(\'' . $backupname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") .'" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
                                         </td>
 <td>'; 
 
-                                                if(implode(', ', explode(",", $backupdata[$x1]['WEB'])) == "") { echo "Not Backed Up";***REMOVED*** ***REMOVED*** print_r(implode(', ', explode(",", $backupdata[$x1]['WEB']))); ***REMOVED*** echo '<br><br></td>
+                                                if(implode(', ', explode(",", $backupdata[$x1]['WEB'])) == "") { echo _("Not Backed Up");***REMOVED*** ***REMOVED*** print_r(implode(', ', explode(",", $backupdata[$x1]['WEB']))); ***REMOVED*** echo '<br><br></td>
 <td>'; 
 
-                                                if(implode(', ', explode(",", $backupdata[$x1]['DNS'])) == "") { echo "Not Backed Up";***REMOVED*** ***REMOVED*** print_r(implode(', ', explode(",", $backupdata[$x1]['DNS']))); ***REMOVED*** echo '<br><br></td>
+                                                if(implode(', ', explode(",", $backupdata[$x1]['DNS'])) == "") { echo _("Not Backed Up");***REMOVED*** ***REMOVED*** print_r(implode(', ', explode(",", $backupdata[$x1]['DNS']))); ***REMOVED*** echo '<br><br></td>
 <td>';
-                                                if(implode(', ', explode(",", $backupdata[$x1]['MAIL'])) == "") { echo "Not Backed Up";***REMOVED*** ***REMOVED*** print_r(implode(', ', explode(",", $backupdata[$x1]['MAIL']))); ***REMOVED*** echo '<br><br></td>
+                                                if(implode(', ', explode(",", $backupdata[$x1]['MAIL'])) == "") { echo _("Not Backed Up");***REMOVED*** ***REMOVED*** print_r(implode(', ', explode(",", $backupdata[$x1]['MAIL']))); ***REMOVED*** echo '<br><br></td>
 
-<td>'; if(implode(', ', explode(",", $backupdata[$x1]['DB'])) == "") { echo "Not Backed Up";***REMOVED*** ***REMOVED*** print_r(implode(', ', explode(",", $backupdata[$x1]['DB']))); ***REMOVED*** echo '<br><br></td>
-<td>'; if(implode(', ', explode(",", $backupdata[$x1]['CRON'])) == "") { echo "Not Backed Up";***REMOVED*** ***REMOVED*** print_r(implode(', ', explode(",", $backupdata[$x1]['CRON']))); ***REMOVED*** echo '<br><br></td>
-<td>'; if(implode(', ', explode(",", $backupdata[$x1]['UDIR'])) == "") { echo "Not Backed Up";***REMOVED*** ***REMOVED*** print_r(implode(', ', explode(",", $backupdata[$x1]['UDIR']))); ***REMOVED*** echo '</td>
+<td>'; if(implode(', ', explode(",", $backupdata[$x1]['DB'])) == "") { echo _("Not Backed Up");***REMOVED*** ***REMOVED*** print_r(implode(', ', explode(",", $backupdata[$x1]['DB']))); ***REMOVED*** echo '<br><br></td>
+<td>'; if(implode(', ', explode(",", $backupdata[$x1]['CRON'])) == "") { echo _("Not Backed Up");***REMOVED*** ***REMOVED*** print_r(implode(', ', explode(",", $backupdata[$x1]['CRON']))); ***REMOVED*** echo '<br><br></td>
+<td>'; if(implode(', ', explode(",", $backupdata[$x1]['UDIR'])) == "") { echo _("Not Backed Up");***REMOVED*** ***REMOVED*** print_r(implode(', ', explode(",", $backupdata[$x1]['UDIR']))); ***REMOVED*** echo '</td>
                                                                     </tr>';
                                                 $x1++;
                                             ***REMOVED*** while ($backupname[$x1] != ''); ***REMOVED***
@@ -338,19 +338,19 @@ textdomain('messages');
             jQuery(function($){
                 $('.footable').footable();
             ***REMOVED***);
-            function confirmDelete(e){
+          function confirmDelete(e){
                 e1 = String(e)
                 swal({
-                    title: 'Delete Backup:<br> ' + e1 +' ?',
-                    text: "You won't be able to revert this!",
+                    title: '***REMOVED*** echo _("Delete Backup"); ***REMOVED***:<br> ' + e1 +' ?',
+                    text: '***REMOVED*** echo _("You won't be able to revert this!"); ***REMOVED***',
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
+                    confirmButtonText: '***REMOVED*** echo _("Yes, delete it!"); ***REMOVED***'
                 ***REMOVED***).then(function () {
                     swal({
-                        title: 'Processing',
+                        title: '***REMOVED*** echo _("Processing"); ***REMOVED***',
                         text: '',
                         timer: 5000,
                         onOpen: function () {
@@ -361,7 +361,7 @@ textdomain('messages');
                         // handling the promise rejection
                         function (dismiss) {
                             if (dismiss === 'timer') {
-                                console.log('I was closed by the timer')
+                                console.log('***REMOVED*** echo _("I was closed by the timer"); ***REMOVED***')
                             ***REMOVED***
                         ***REMOVED***
                     )
@@ -374,22 +374,24 @@ textdomain('messages');
                         ***REMOVED*** 
                     ***REMOVED***);
                 ***REMOVED***)***REMOVED***
+            
             ***REMOVED***
 
             $bkcode = $_GET['delcode'];
 
             if($bkcode == "0") {
-                echo "swal({title:'Successfully Deleted!', type:'success'***REMOVED***);";
+                echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'***REMOVED***);";
             ***REMOVED*** 
-            if($bkcode > "0") { echo "swal({title:'Please try again later or contact support.', type:'error'***REMOVED***);";***REMOVED***
+            if($bkcode > "0") { echo "swal({title:'" . _("Please try again later or contact support.") . "', type:'error'***REMOVED***);";***REMOVED***
 
             $addcode = $_GET['addcode'];
 
             if($addcode == "0") {
-                echo "swal({title:'Backup Scheduled!', type:'success'***REMOVED***);";
+                echo "swal({title:'" . _("Backup Scheduled!") . "', type:'success'***REMOVED***);";
             ***REMOVED*** 
-            if($addcode > "0") { echo "swal({title:'Please try again later or contact support.', type:'error'***REMOVED***);";***REMOVED***
+            if($addcode > "0") { echo "swal({title:'" . _("Please try again later or contact support.") . "', type:'error'***REMOVED***);";***REMOVED***
             ***REMOVED***
+            
         </script>
         </script>
 

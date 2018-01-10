@@ -169,7 +169,7 @@ session_start();
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-12 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title">Configure Backup Exclusion</h4>
+                            <h4 class="page-title">***REMOVED*** echo _("Configure Backup Exclusions"); ***REMOVED***</h4>
                         </div>
                     </div>
                     <div class="row">
@@ -177,9 +177,9 @@ session_start();
                             <div class="white-box">
                                 <form class="form-horizontal form-material" autocomplete="off" method="post">
                                     <div class="form-group">
-                                        <label class="col-md-12">Web Domains</label>
+                                        <label class="col-md-12">***REMOVED*** echo _("Web Domains"); ***REMOVED***</label>
                                         <div class="col-md-12">
-                                            <textarea name="v_dir" class="form-control" rows="4" placeholder="Type domain name, one per line. To exclude all domains use *. To exclude specific directories use the following format: domain.com:public_html/cache:public_html/tmp">***REMOVED***
+                                            <textarea name="v_dir" class="form-control" rows="4" placeholder="***REMOVED*** echo _("Type domain name, one per line. To exclude all domains use *. To exclude specific directories use the following format: domain.com:public_html/cache:public_html/tmp"); ***REMOVED***">***REMOVED***
                                                         if(array_keys($exclusiondata[0])[0] != '') { 
                                                                 $x7 = 0; 
 
@@ -192,9 +192,9 @@ session_start();
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Mail Domains</label>
+                                        <label class="col-md-12">***REMOVED*** echo _("Mail Domains"); ***REMOVED***</label>
                                         <div class="col-md-12">
-                                            <textarea name="v_mail" class="form-control" rows="4" placeholder="Type domain name, one per line. To exclude all domains use *. To exclude specific accounts use following format: domain.com:info:support:postmaster">***REMOVED***
+                                            <textarea name="v_mail" class="form-control" rows="4" placeholder="***REMOVED*** echo _("Type domain name, one per line. To exclude all domains use *. To exclude specific accounts use following format: domain.com:info:support:postmaster"); ***REMOVED***">***REMOVED***
                                                         if(array_keys($exclusiondata[1])[0] != '') { 
                                                                 $x8 = 0; 
 
@@ -207,9 +207,9 @@ session_start();
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Databases</label>
+                                        <label class="col-md-12">***REMOVED*** echo _("Databases"); ***REMOVED***</label>
                                         <div class="col-md-12">
-                                            <textarea name="v_db" class="form-control" rows="4" placeholder="Type full database name, one per line. To exclude all databases use *">***REMOVED***
+                                            <textarea name="v_db" class="form-control" rows="4" placeholder="***REMOVED*** echo _("Type full database name, one per line. To exclude all databases use *"); ***REMOVED***">***REMOVED***
                                                         if(array_keys($exclusiondata[2])[0] != '') { 
                                                                 $x9 = 0; 
 
@@ -222,9 +222,9 @@ session_start();
                                                 </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">User Directories</label>
+                                        <label class="col-md-12">***REMOVED*** echo _("User Directories"); ***REMOVED***</label>
                                         <div class="col-md-12">
-                                            <textarea name="v_userdir" class="form-control" rows="4" placeholder="Type directory name, one per line. To exlude all dirs use *">***REMOVED***
+                                            <textarea name="v_userdir" class="form-control" rows="4" placeholder="***REMOVED*** echo _("Type directory name, one per line. To exlude all dirs use *"); ***REMOVED***">***REMOVED***
                                                         if(array_keys($exclusiondata[3])[0] != '') { 
                                                                 $x10 = 0; 
 
@@ -238,8 +238,8 @@ session_start();
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button disabled class="btn btn-success">Save</button> &nbsp;
-                                            <a href="../list/backups.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">Back</button></a>
+                                            <button disabled class="btn btn-success">***REMOVED*** echo _("Save"); ***REMOVED***</button> &nbsp;
+                                            <a href="../list/backups.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">***REMOVED*** echo _("Back"); ***REMOVED***</button></a>
                                         </div>
                                     </div>
                                 </form>
