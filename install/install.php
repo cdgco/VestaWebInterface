@@ -171,6 +171,14 @@ DEFINE('INTERAKT_API_KEY', '".$_POST['INTERAKT_API_KEY']."'); // Enable Interakt
  \$oldcpurl = \$url8083;
 ***REMOVED***
 ***REMOVED***
+require('../plugins/bower_components/woopra/track.php');
+\$woopra = new WoopraTracker(array('domain' => 'vwi-install.tracker'));
+\$woopra->set_woopra_cookie();
+\$woopra->identify(array(
+'sitename' => \$sitename,
+'url' => \$_SERVER[HTTP_HOST] . \$_SERVER[REQUEST_URI];
+));
+
 ***REMOVED***";
 
 file_put_contents('../includes/config.php', $writestr);
