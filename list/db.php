@@ -317,7 +317,7 @@ function confirmDelete(e){
 e1 = String(e)
 swal({
   title: '***REMOVED*** echo _("Delete Database"); ***REMOVED***:<br> ' + e1 +' ?',
-  text: '***REMOVED*** echo _("You won't be able to revert this!"); ***REMOVED***',
+  text: "***REMOVED*** echo _("You won't be able to revert this!"); ***REMOVED***",
   type: 'warning',
   showCancelButton: true,
   confirmButtonColor: '#3085d6',
