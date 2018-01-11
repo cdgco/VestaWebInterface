@@ -14,13 +14,12 @@ else { $dbenabled = 'false'; }
 if($_POST['ENABLE_OLDCPURL'] == 'on'){ $oldcplink = 'true'; }
 else { $oldcplink = 'false'; }
 
-require('../plugins/bower_components/woopra/track.php');
+require('../includes/tracker.php');
 $woopra = new WoopraTracker(array("domain" => 'vwi-install.tracker'));
 $woopra->set_woopra_cookie();
 $woopra->identify(array(
 "name" => $_POST['SITENAME'],
-"url" => substr( "$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]", 0, -19)
-));
+"url" => substr( "$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]", 0, -19)));
 
 
 $writestr = "<?php
@@ -171,13 +170,12 @@ else{
  \$oldcpurl = \$url8083;
 }
 require 'locale.php';
-require('../plugins/bower_components/woopra/track.php');
+require('tracker.php');
 \$woopra = new WoopraTracker(array('domain' => 'vwi-install.tracker'));
 \$woopra->set_woopra_cookie();
 \$woopra->identify(array(
 'sitename' => \$sitename,
-'url' => \$_SERVER[HTTP_HOST] . \$_SERVER[REQUEST_URI];
-));
+'url' => \$_SERVER[HTTP_HOST] . \$_SERVER[REQUEST_URI]));
 
 ?>";
 
