@@ -82,7 +82,9 @@ textdomain('messages');
                 }
             }    */
 
+            
             function getPassword() {
+                
                 var password = prompt("Please Enter Password to Download.");
                 document.getElementById('pwinput').value = password;
                 document.getElementById('download').target = "downloadWin";
@@ -342,7 +344,7 @@ textdomain('messages');
                 e1 = String(e)
                 swal({
                     title: '<?php echo _("Delete Backup"); ?>:<br> ' + e1 +' ?',
-                    text: '<?php echo _("You won't be able to revert this!"); ?>',
+                    text: "<?php echo _("You won't be able to revert this!"); ?>",
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',

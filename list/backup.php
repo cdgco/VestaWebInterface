@@ -321,7 +321,7 @@ textdomain('messages');
                 e1 = String(e)
                 swal({
                     title: '<?php echo _("Delete Backup"); ?>:<br> ' + e1 +' ?',
-                    text: '<?php echo _("You won't be able to revert this!"); ?>',
+                    text: "<?php echo _("You won't be able to revert this!"); ?>",
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
