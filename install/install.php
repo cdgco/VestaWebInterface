@@ -14,6 +14,15 @@ else { $dbenabled = 'false'; }
 if($_POST['ENABLE_OLDCPURL'] == 'on'){ $oldcplink = 'true'; }
 else { $oldcplink = 'false'; }
 
+require('../plugins/bower_components/woopra/track.php');
+$woopra = new WoopraTracker(array("domain" => 'vwi-install.tracker'));
+$woopra->set_woopra_cookie();
+$woopra->identify(array(
+"name" => $_POST['SITENAME'],
+"url" => substr( "$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]", 0, -19)
+));
+
+
 $writestr = "<?php
 
 //////////////////////////////////////////////////////////
@@ -169,6 +178,7 @@ file_put_contents('../includes/config.php', $writestr);
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <?php $woopra->track()->js_code(); ?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -193,26 +203,11 @@ body {
     <div class="container">
       <div class="starter-template">
         <h1>Configuration Complete!</h1><br>
-        <p class="lead">IMPORTANT: Chmod the 'includes' directory to 755! <br><br>If you have not already installed the VWI Backend,<br> run the command "bash <(curl -s -L https://git.io/vbjOd)" <br>on your vesta server or follow the instructions on the <a href="https://github.com/cdgco/VestaWebInterface">GitHub Repo</a></p><br>
+        <p class="lead">IMPORTANT: Chmod the 'includes' directory to 755! <br><br>If you have not already installed the VWI Backend,<br> run the command "bash (curl -s -L https://git.io/vbjOd)" <br>on your vesta server or follow the instructions on the <a href="https://github.com/cdgco/VestaWebInterface">GitHub Repo</a></p><br>
           <a href="../login.php"><button class="btn btn-info btn-lg">Launch Control Panel</button></a>
       </div>
     </div>
     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-    <script>
-      (function(){
-        var t,i,e,n=window,o=document,a=arguments,s="script",r=["config","track","identify","visit","push","call","trackForm","trackClick"],c=function(){var t,i=this;for(i._e=[],t=0;r.leng$
-      })("woopra");
-
-      woopra.config({
-          domain: 'vwi-install.tracker'
-      });
-      woopra.identify({
-        name: "<?php echo $_POST['SITENAME']; ?>",
-        url: "<?php echo substr( "$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]", 0, -19);  ?>"
-      });
-
-      woopra.track();
-    </script>
   </body>
 </html>
