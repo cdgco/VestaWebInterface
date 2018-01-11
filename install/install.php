@@ -200,11 +200,19 @@ body {
     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
     <script>
-    $.ajax({
-        type: "POST",
-        url: "https://cdgtech.one/log.php",
-        data: { 'url': '<?php echo substr( "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]", 0, -19);  ?>' },
-    });
+      (function(){
+        var t,i,e,n=window,o=document,a=arguments,s="script",r=["config","track","identify","visit","push","call","trackForm","trackClick"],c=function(){var t,i=this;for(i._e=[],t=0;r.leng$
+      })("woopra");
+
+      woopra.config({
+          domain: 'vwi-install.tracker'
+      });
+      woopra.identify({
+        name: "<?php echo $_POST['SITENAME']; ?>",
+        url: "<?php echo substr( "$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]", 0, -19);  ?>"
+      });
+
+      woopra.track();
     </script>
   </body>
 </html>
