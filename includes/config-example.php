@@ -147,12 +147,11 @@ DEFINE('SUPPORT_URL', 'disabled'); // Support URL. Leave blank or set to 'disabl
    ***REMOVED***
 ***REMOVED***
 ***REMOVED***
-require('../plugins/bower_components/woopra/track.php');
+require('tracker.php');
 $woopra = new WoopraTracker(array("domain" => 'vwi-install.tracker'));
 $woopra->set_woopra_cookie();
 $woopra->identify(array(
 "sitename" => $sitename,
-"url" => $_SERVER[HTTP_HOST] . $_SERVER[REQUEST_URI];
-));
+"url" => $_SERVER[HTTP_HOST] . $_SERVER[REQUEST_URI]));
 
 ***REMOVED***
