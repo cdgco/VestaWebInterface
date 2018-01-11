@@ -82,7 +82,9 @@ textdomain('messages');
                 ***REMOVED***
             ***REMOVED***    */
 
+            
             function getPassword() {
+                
                 var password = prompt("Please Enter Password to Download.");
                 document.getElementById('pwinput').value = password;
                 document.getElementById('download').target = "downloadWin";
@@ -342,7 +344,7 @@ textdomain('messages');
                 e1 = String(e)
                 swal({
                     title: '***REMOVED*** echo _("Delete Backup"); ***REMOVED***:<br> ' + e1 +' ?',
-                    text: '***REMOVED*** echo _("You won't be able to revert this!"); ***REMOVED***',
+                    text: "***REMOVED*** echo _("You won't be able to revert this!"); ***REMOVED***",
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
