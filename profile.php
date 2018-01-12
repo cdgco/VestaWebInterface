@@ -53,7 +53,7 @@ textdomain('messages');
         <link href="plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
         <link href="css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.css" rel="stylesheet" />
-        <?php $woopra->track()->js_code(); ?>
+         
         <style>
             .select2-results{
                 max-height: 200px;

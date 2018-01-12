@@ -63,7 +63,7 @@ if(isset($_SESSION['loggedin'])) {
         <!-- Custom CSS -->
         <link href="css/style.css" rel="stylesheet">
         <link href="plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
-        <?php $woopra->track()->js_code(); ?>
+         
         <style>
             input:-webkit-autofill,
             input:-webkit-autofill:hover, 
