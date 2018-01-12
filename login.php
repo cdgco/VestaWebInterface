@@ -64,7 +64,7 @@ if(isset($_SESSION['loggedin'])) {
         <link href="css/style.css" rel="stylesheet">
         <link href="plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
         ***REMOVED*** if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
-        <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);***REMOVED*** gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; ***REMOVED***
+        <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);***REMOVED*** gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; ***REMOVED*** ***REMOVED***
         <style>
             input:-webkit-autofill,
             input:-webkit-autofill:hover, 
