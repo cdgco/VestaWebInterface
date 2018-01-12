@@ -38,67 +38,60 @@ $curl2 = curl_init();
 $curl3 = curl_init();
 $curl4 = curl_init();
 
-if($password != ''){
+if(isset($password)){
         curl_setopt($curl0, CURLOPT_URL, $vst_url);
         curl_setopt($curl0, CURLOPT_RETURNTRANSFER,true);
         curl_setopt($curl0, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($curl0, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($curl0, CURLOPT_POST, true);
         curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query($postvars[0]));
+        $r1 = curl_exec($curl0);
 ***REMOVED***
+***REMOVED***$r1 = 'x0';***REMOVED***
 
-
-if($email != ''){
+if($email != $_POST['email-x']){
         curl_setopt($curl1, CURLOPT_URL, $vst_url);
         curl_setopt($curl1, CURLOPT_RETURNTRANSFER,true);
         curl_setopt($curl1, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($curl1, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($curl1, CURLOPT_POST, true);
         curl_setopt($curl1, CURLOPT_POSTFIELDS, http_build_query($postvars[1]));
+        $r2 = curl_exec($curl1);
 ***REMOVED***
-
-if($language != ''){
+***REMOVED***$r2 = 'x0';***REMOVED***
+if($language != $_POST['language-x']){
         curl_setopt($curl2, CURLOPT_URL, $vst_url);
         curl_setopt($curl2, CURLOPT_RETURNTRANSFER,true);
         curl_setopt($curl2, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($curl2, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($curl2, CURLOPT_POST, true);
         curl_setopt($curl2, CURLOPT_POSTFIELDS, http_build_query($postvars[2]));
+        $r3 = curl_exec($curl2);
 ***REMOVED***
-
-if($fname != '' || $lname != ''){
+***REMOVED***$r3 = 'x0';***REMOVED***
+if($fname != $_POST['fname-x'] || $lname != $_POST['lname-x']){
         curl_setopt($curl3, CURLOPT_URL, $vst_url);
         curl_setopt($curl3, CURLOPT_RETURNTRANSFER,true);
         curl_setopt($curl3, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($curl3, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($curl3, CURLOPT_POST, true);
         curl_setopt($curl3, CURLOPT_POSTFIELDS, http_build_query($postvars[3]));
+        $r4 = curl_exec($curl3);
 ***REMOVED***
-
-if($ns1 != '' && $ns1 != ''){
+***REMOVED***$r4 = 'x0';***REMOVED***
+if($ns1 != $_POST['ns1-x'] || $ns2 != $_POST['ns2-x'] || $ns3 != $_POST['ns3-x'] || $ns4 != $_POST['ns4-x'] || $ns5 != $_POST['ns5-x'] || $ns6 != $_POST['ns6-x'] || $ns7 != $_POST['ns7-x'] || $ns8 != $_POST['ns8-x']){
         curl_setopt($curl4, CURLOPT_URL, $vst_url);
         curl_setopt($curl4, CURLOPT_RETURNTRANSFER,true);
         curl_setopt($curl4, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($curl4, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($curl4, CURLOPT_POST, true);
         curl_setopt($curl4, CURLOPT_POSTFIELDS, http_build_query($postvars[4]));
-
+        $r5 = curl_exec($curl4);
 ***REMOVED***
+***REMOVED***$r5 = 'x0';***REMOVED***
 if(isset($cookie)){
     setcookie("theme", base64_encode($_POST["cookie"] . ".css"), time() + (10 * 365 * 24 * 60 * 60), '/');
 ***REMOVED***
 
-$r1 = curl_exec($curl0);
-$r2 = curl_exec($curl1);
-$r3 = curl_exec($curl2);
-$r4 = curl_exec($curl3);
-$r5 = curl_exec($curl4);
-
-
-if($r1 == ''){$r1 = "0";***REMOVED***; 
-if($r2 == ''){$r2 = "0";***REMOVED***;
-if($r3 == ''){$r3 = "0";***REMOVED***;
-if($r4 == ''){$r4 = "0";***REMOVED***;
-if($r5 == ''){$r5 = "0";***REMOVED***;
-header('Location: ../profile.php?settings=open&password=' . $r1 . '&email=' . $r2 . '&lang=' . $r3 . '&name=' . $r4 . '&ns=' . $r5);
+header('Location: ../profile.php?settings=open&returncode=' . $r1 . '.' . $r2 . '.' . $r3 . '.' . $r4 . '.' . $r5);
 ***REMOVED***
