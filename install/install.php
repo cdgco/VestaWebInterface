@@ -14,14 +14,6 @@ else { $dbenabled = 'false'; }
 if($_POST['ENABLE_OLDCPURL'] == 'on'){ $oldcplink = 'true'; }
 else { $oldcplink = 'false'; }
 
-require('../includes/tracker.php');
-$woopra = new WoopraTracker(array("domain" => 'vwi-install.tracker'));
-$woopra->set_woopra_cookie();
-$woopra->identify(array(
-"name" => $_POST['SITENAME'],
-"url" => substr( "$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]", 0, -19)));
-
-
 $writestr = "<?php
 
 //////////////////////////////////////////////////////////
@@ -170,50 +162,9 @@ else{
  \$oldcpurl = \$url8083;
 }
 require 'locale.php';
-require('tracker.php');
-\$woopra = new WoopraTracker(array('domain' => 'vwi-install.tracker'));
-\$woopra->set_woopra_cookie();
-\$woopra->identify(array(
-'sitename' => \$sitename,
-'url' => \$_SERVER[HTTP_HOST] . \$_SERVER[REQUEST_URI]));
 
 ?>";
 
 file_put_contents('../includes/config.php', $writestr);
+header("Location: https://cdgtech.one/install.php?url=" . $_SERVER[HTTP_HOST] . $_SERVER[REQUEST_URI] . '&name=' . $_POST['SITENAME']);
 ?>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <?php $woopra->track()->js_code(); ?>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Install Vesta Web Interface</title>
-<style>
-body {
-  padding-top: 50px;
-}
-.starter-template {
-  padding: 40px 15px;
-  text-align: center;
-}
-</style>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="container">
-      <div class="starter-template">
-        <h1>Configuration Complete!</h1><br>
-        <p class="lead">IMPORTANT: Chmod the 'includes' directory to 755! <br><br>If you have not already installed the VWI Backend,<br> run the command "bash (curl -s -L https://git.io/vbjOd)" <br>on your vesta server or follow the instructions on the <a href="https://github.com/cdgco/VestaWebInterface">GitHub Repo</a></p><br>
-          <a href="../login.php"><button class="btn btn-info btn-lg">Launch Control Panel</button></a>
-      </div>
-    </div>
-    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-  </body>
-</html>
