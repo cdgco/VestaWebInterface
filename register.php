@@ -44,7 +44,8 @@ if(isset($_SESSION['loggedin'])) {
         <!-- Custom CSS -->
         <link href="css/style.css" rel="stylesheet">
         <link href="plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
-         
+        ***REMOVED*** if(isset(GOOGLE_ANALYTICS_ID){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
+        <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);***REMOVED*** gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; ***REMOVED***
         <style>
             html {
                 overflow-y: scroll;
