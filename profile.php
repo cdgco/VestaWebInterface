@@ -287,6 +287,19 @@ textdomain('messages');
                                 </div>
                                 <div class="tab-pane ***REMOVED*** if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo "active"; ***REMOVED*** ***REMOVED***" id="settings">
                                     <form class="form-horizontal form-material" autocomplete="off" action="process/updatesettings.php" method="post">
+                                        <input type="hidden" name="fname-x" value="***REMOVED*** print_r($admindata['FNAME']); ***REMOVED***"/>
+                                        <input type="hidden" name="lname-x" value="***REMOVED*** print_r($admindata['LNAME']); ***REMOVED***"/>
+                                        <input type="hidden" name="email-x" value="***REMOVED*** print_r($admindata['CONTACT']); ***REMOVED***"/>
+                                        <input type="hidden" name="language-x" value="***REMOVED*** print_r($admindata['LANGUAGE']); ***REMOVED***"/>
+                                        <input type="hidden" name="ns1-x" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[0]); ***REMOVED***"/>
+                                        <input type="hidden" name="ns2-x" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[1]); ***REMOVED***"/>
+                                        <input type="hidden" name="ns3-x" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[2]); ***REMOVED***"/>
+                                        <input type="hidden" name="ns4-x" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[3]); ***REMOVED***"/>
+                                        <input type="hidden" name="ns5-x" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[4]); ***REMOVED***"/>
+                                        <input type="hidden" name="ns6-x" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[5]); ***REMOVED***"/>
+                                        <input type="hidden" name="ns7-x" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[6]); ***REMOVED***"/>
+                                        <input type="hidden" name="ns8-x" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[7]); ***REMOVED***"/>
+                                        
                                         <div class="form-group">
                                             <label for="username" class="col-md-12">***REMOVED*** echo _("Username"); ***REMOVED***</label>
                                             <div class="col-md-12">
