@@ -185,8 +185,8 @@ textdomain('messages');
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Domain"); ?></label>
                                         <div class="col-md-12">
-                                            <input type="text" disabled value="<? echo $requestdomain; ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
-                                            <input type="hidden" name="v_domain" value="<? echo $requestdomain; ?>"> 
+                                            <input type="text" disabled value="<?php echo $requestdomain; ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
+                                            <input type="hidden" name="v_domain" value="<?php echo $requestdomain; ?>"> 
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -259,7 +259,7 @@ textdomain('messages');
                                     <div class="form-group">
                                         <div class="col-sm-12">
                                             <button class="btn btn-success"><?php echo _("Add Account"); ?></button> &nbsp;
-                                            <a href="../list/maildomain.php?domain=<? echo $requestdomain; ?>" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
+                                            <a href="../list/maildomain.php?domain=<?php echo $requestdomain; ?>" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </form>
@@ -310,17 +310,17 @@ textdomain('messages');
                                                             </div>
                                                             <div class="col-sm-7">
                                                                 <p>
-                                                                    <span class="mailUN"></span><? echo '@' . $requestdomain; ?><br>   
+                                                                    <span class="mailUN"></span><?php echo '@' . $requestdomain; ?><br>   
                                                                     <span class="mailPW"></span><br>
-                                                                    <? echo VESTA_HOST_ADDRESS; ?><br>
+                                                                    <?php echo VESTA_HOST_ADDRESS; ?><br>
                                                                     143<br>
                                                                     STARTTLS<br>
                                                                     <?php echo _("Normal Password"); ?><br>
-                                                                    <? echo VESTA_HOST_ADDRESS; ?><br>
+                                                                    <?php echo VESTA_HOST_ADDRESS; ?><br>
                                                                     587<br>
                                                                     STARTTLS<br>	
                                                                     <?php echo _("Normal Password"); ?>	<br>
-                                                                    <a href="<? echo $webmailurl; ?>"><? echo $webmailurl; ?></a><br>
+                                                                    <a href="<?php echo $webmailurl; ?>"><?php echo $webmailurl; ?></a><br>
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -344,17 +344,17 @@ textdomain('messages');
                                                             </div>
                                                             <div class="col-sm-7">
                                                                 <p>
-                                                                    <span class="mailUN"></span><? echo '@' . $requestdomain; ?><br>     
+                                                                    <span class="mailUN"></span><?php echo '@' . $requestdomain; ?><br>     
                                                                     <span class="mailPW"></span><br>
-                                                                    <? echo VESTA_HOST_ADDRESS; ?><br>
+                                                                    <?php echo VESTA_HOST_ADDRESS; ?><br>
                                                                     993<br>
                                                                     SSL<br>
                                                                     <?php echo _("Normal Password"); ?><br>
-                                                                    <? echo VESTA_HOST_ADDRESS; ?><br>
+                                                                    <?php echo VESTA_HOST_ADDRESS; ?><br>
                                                                     465<br>
                                                                     SSL<br>	
                                                                     <?php echo _("Normal Password"); ?><br>
-                                                                    <a href="<? echo $webmailurl; ?>"><? echo $webmailurl; ?></a><br>
+                                                                    <a href="<?php echo $webmailurl; ?>"><?php echo $webmailurl; ?></a><br>
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -378,17 +378,17 @@ textdomain('messages');
                                                             </div>
                                                             <div class="col-sm-7">
                                                                 <p>
-                                                                    <span class="mailUN"></span><? echo '@' . $requestdomain; ?><br>   
+                                                                    <span class="mailUN"></span><?php echo '@' . $requestdomain; ?><br>   
                                                                     <span class="mailPW"></span><br>
-                                                                    <? echo VESTA_HOST_ADDRESS; ?><br>
+                                                                    <?php echo VESTA_HOST_ADDRESS; ?><br>
                                                                     143<br>
                                                                     <?php echo _("No Encryption"); ?><br>
                                                                     <?php echo _("Normal Password"); ?><br>
-                                                                    <? echo VESTA_HOST_ADDRESS; ?><br>
+                                                                    <?php echo VESTA_HOST_ADDRESS; ?><br>
                                                                     25<br>
                                                                     <?php echo _("No Encryption"); ?><br>	
                                                                     <?php echo _("Normal Password"); ?><br>
-                                                                    <a href="<? echo $webmailurl; ?>"><? echo $webmailurl; ?></a><br>
+                                                                    <a href="<?php echo $webmailurl; ?>"><?php echo $webmailurl; ?></a><br>
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -425,17 +425,17 @@ textdomain('messages');
                                                             </div>
                                                             <div class="col-sm-7">
                                                                 <p>
-                                                                    <span class="mailUN"></span><? echo '@' . $requestdomain; ?><br>  
+                                                                    <span class="mailUN"></span><?php echo '@' . $requestdomain; ?><br>  
                                                                     <span class="mailPW"></span><br>
-                                                                    <? echo $requestdomain; ?><br>
+                                                                    <?php echo $requestdomain; ?><br>
                                                                     143<br>
                                                                     STARTTLS<br>
                                                                     <?php echo _("Normal Password"); ?><br>
-                                                                    <? echo $requestdomain; ?><br>
+                                                                    <?php echo $requestdomain; ?><br>
                                                                     587<br>
                                                                     STARTTLS<br>	
                                                                     <?php echo _("Normal Password"); ?><br>
-                                                                    <a href="<? echo $webmailurl; ?>"><? echo $webmailurl; ?></a><br>
+                                                                    <a href="<?php echo $webmailurl; ?>"><?php echo $webmailurl; ?></a><br>
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -459,17 +459,17 @@ textdomain('messages');
                                                             </div>
                                                             <div class="col-sm-7">
                                                                 <p>
-                                                                   <span class="mailUN"></span><? echo '@' . $requestdomain; ?><br>  
+                                                                   <span class="mailUN"></span><?php echo '@' . $requestdomain; ?><br>  
                                                                     <span class="mailPW"></span><br>
-                                                                    <? echo $requestdomain; ?><br>
+                                                                    <?php echo $requestdomain; ?><br>
                                                                     993<br>
                                                                     SSL<br>
                                                                     <?php echo _("Normal Password"); ?><br>
-                                                                    <? echo $requestdomain; ?><br>
+                                                                    <?php echo $requestdomain; ?><br>
                                                                     465<br>
                                                                     SSL<br>	
                                                                     <?php echo _("Normal Password"); ?><br>
-                                                                    <a href="<? echo $webmailurl; ?>"><? echo $webmailurl; ?></a><br>
+                                                                    <a href="<?php echo $webmailurl; ?>"><?php echo $webmailurl; ?></a><br>
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -493,17 +493,17 @@ textdomain('messages');
                                                             </div>
                                                             <div class="col-sm-7">
                                                                 <p>
-                                                                    <span class="mailUN"></span><? echo '@' . $requestdomain; ?><br>    
+                                                                    <span class="mailUN"></span><?php echo '@' . $requestdomain; ?><br>    
                                                                     <span class="mailPW"></span><br>
-                                                                    <? echo $requestdomain; ?><br>
+                                                                    <?php echo $requestdomain; ?><br>
                                                                     143<br>
                                                                     <?php echo _("No Encryption"); ?><br>
                                                                     <?php echo _("Normal Password"); ?><br>
-                                                                    <? echo $requestdomain; ?><br>
+                                                                    <?php echo $requestdomain; ?><br>
                                                                     25<br>
                                                                     <?php echo _("No Encryption"); ?><br>	
                                                                     <?php echo _("Normal Password"); ?><br>
-                                                                    <a href="<? echo $webmailurl; ?>"><? echo $webmailurl; ?></a><br>
+                                                                    <a href="<?php echo $webmailurl; ?>"><?php echo $webmailurl; ?></a><br>
                                                                 </p>
                                                             </div>
                                                         </div>

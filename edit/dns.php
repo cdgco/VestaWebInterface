@@ -181,6 +181,12 @@ session_start();
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                         <h4 class="page-title"><?php echo _("Edit DNS Domain"); ?></h4>
                     </div>
+                    <ul class="side-icon-text pull-right">
+                                        <li style="position: relative;top: -3px;">
+                                            <a href="../delete/dns2.php?domain=<?php echo $requestdns; ?>"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span><?php echo _("Delete DNS Domain"); ?></span>
+                                            </a>
+                                        </li>
+                                    </ul>
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -241,14 +247,14 @@ session_start();
                                 <div class="form-group">
                                     <label class="col-md-12"><?php echo _("Domain"); ?></label>
                                     <div class="col-md-12">
-                                        <input type="text" disabled value="<? print_r($dnsname[0]); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
-                                        <input type="hidden" name="v_domain" value="<? print_r($dnsname[0]); ?>"> 
+                                        <input type="text" disabled value="<?php print_r($dnsname[0]); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
+                                        <input type="hidden" name="v_domain" value="<?php print_r($dnsname[0]); ?>"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="email" class="col-md-12"><?php echo _("IP Address"); ?></label>
                                     <div class="col-md-12">
-                                        <input type="text" name="v_ip" value="<? print_r($dnsdata[0]['IP']); ?>" class="form-control form-control-line" name="email" id="email"> </div>
+                                        <input type="text" name="v_ip" value="<?php print_r($dnsdata[0]['IP']); ?>" class="form-control form-control-line" name="email" id="email"> </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12"><?php echo _("DNS Template"); ?></label>
@@ -284,12 +290,12 @@ session_start();
                                 <div class="form-group">
                                     <label for="email" class="col-md-12"><?php echo _("SOA (Start of Authority)"); ?></label>
                                     <div class="col-md-12">
-                                        <input type="text" name="v_soa" value="<? print_r($dnsdata[0]['SOA']); ?>" class="form-control form-control-line" name="email" id="email"> </div>
+                                        <input type="text" name="v_soa" value="<?php print_r($dnsdata[0]['SOA']); ?>" class="form-control form-control-line" name="email" id="email"> </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="email" class="col-md-12"><?php echo _("TTL (Time To Live)"); ?></label>
                                     <div class="col-md-12">
-                                        <input type="text" name="v_ttl" value="<? print_r($dnsdata[0]['TTL']); ?>" class="form-control form-control-line" name="email" id="email"> </div>
+                                        <input type="text" name="v_ttl" value="<?php print_r($dnsdata[0]['TTL']); ?>" class="form-control form-control-line" name="email" id="email"> </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
@@ -329,7 +335,7 @@ $('.datepicker').datepicker();
                 new CBPFWTabs(el);
             });
         })();
-        document.getElementById('select2').value = '<? print_r($dnsdata[0]['TPL']); ?>'; 
+        document.getElementById('select2').value = '<?php print_r($dnsdata[0]['TPL']); ?>'; 
         jQuery(function($){
             $('.footable').footable();
         });

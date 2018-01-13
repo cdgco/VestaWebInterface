@@ -6,7 +6,7 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: ../login.php'); }
 
-$postvars = array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-delete-dns-domain','arg1' => $username,'arg2' => $_POST['domain']);
+$postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-dns-domain','arg1' => $username,'arg2' => $_POST['domain']);
 
 $curl0 = curl_init();
 

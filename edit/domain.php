@@ -194,6 +194,12 @@ textdomain('messages');
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                             <h4 class="page-title"><?php echo _("Edit Web Domain"); ?></h4>
                         </div>
+                        <ul class="side-icon-text pull-right">
+                                        <li style="position: relative;top: -3px;">
+                                            <a href="../delete/domain2.php?domain=<?php echo $requestdomain; ?>"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span><?php echo _("Delete Domain"); ?></span>
+                                            </a>
+                                        </li>
+                                    </ul>
                     </div>
                     <div class="row">
                         <div class="col-lg-4 col-md-6 col-sm-12">
@@ -391,7 +397,7 @@ textdomain('messages');
                                                 <textarea class="form-control" rows="4" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_sslca"><?php print_r($domainssl[0]['CA']); ?></textarea>
                                             </div>
                                         </div>
-                                        <div class="form-group" style="margin-left: 0.1%;display:<? if($domainssl[0]['CRT'] != ''){echo 'block';} else { echo 'none';} ?>">
+                                        <div class="form-group" style="margin-left: 0.1%;display:<?php if($domainssl[0]['CRT'] != ''){echo 'block';} else { echo 'none';} ?>">
                                             <ul class="list-unstyled">
                                                 <li><?php echo _("Subject"); ?>:  <?php print_r($domainssl[0]['SUBJECT']); ?></li>
                                                 <li><?php echo _("Aliases"); ?>:  <?php print_r($domainssl[0]['ALIASES']); ?></li>
@@ -535,12 +541,12 @@ textdomain('messages');
             document.getElementById('select1').value = '<?php print_r($domaindata[0]['IP']); ?>'; 
             document.getElementById('select2').value = '<?php print_r($domaindata[0]['TPL']); ?>'; 
 
-            if ('<? print_r($domaindata[0]['PROXY']); ?>' == '') {  document.getElementById('select3').value = 'default';  }
-            else { document.getElementById('select3').value = '<? print_r($domaindata[0]['PROXY']); ?>'; }
-            if ('<? print_r($domaindata[0]['PROXY_EXT']); ?>' == '') {  document.getElementById('prxext').value = 'jpeg, jpg, png, gif, bmp, ico, svg, tif, tiff, css, js, htm, html, ttf, otf, webp, woff, txt, csv, rtf, doc, docx, xls, xlsx, ppt, pptx, odf, odp, ods, odt, pdf, psd, ai, eot, eps, ps, zip, tar, tgz, gz, rar, bz2, 7z, aac, m4a, mp3, mp4, ogg, wav, wma, 3gp, avi, flv, m4v, mkv, mov, mp4, mpeg, mpg, wmv, exe, iso, dmg, swf';  }
-            else { document.getElementById('prxext').value = '<? print_r($domaindata[0]['PROXY_EXT']); ?>'; }
-            if ('<? print_r($domaindata[0]['STATS']); ?>' == '') {  document.getElementById('select6').value = 'none';  }
-            else { document.getElementById('select6').value = '<? print_r($domaindata[0]['STATS']); ?>'; }
+            if ('<?php print_r($domaindata[0]['PROXY']); ?>' == '') {  document.getElementById('select3').value = 'default';  }
+            else { document.getElementById('select3').value = '<?php print_r($domaindata[0]['PROXY']); ?>'; }
+            if ('<?php print_r($domaindata[0]['PROXY_EXT']); ?>' == '') {  document.getElementById('prxext').value = 'jpeg, jpg, png, gif, bmp, ico, svg, tif, tiff, css, js, htm, html, ttf, otf, webp, woff, txt, csv, rtf, doc, docx, xls, xlsx, ppt, pptx, odf, odp, ods, odt, pdf, psd, ai, eot, eps, ps, zip, tar, tgz, gz, rar, bz2, 7z, aac, m4a, mp3, mp4, ogg, wav, wma, 3gp, avi, flv, m4v, mkv, mov, mp4, mpeg, mpg, wmv, exe, iso, dmg, swf';  }
+            else { document.getElementById('prxext').value = '<?php print_r($domaindata[0]['PROXY_EXT']); ?>'; }
+            if ('<?php print_r($domaindata[0]['STATS']); ?>' == '') {  document.getElementById('select6').value = 'none';  }
+            else { document.getElementById('select6').value = '<?php print_r($domaindata[0]['STATS']); ?>'; }
 
             function showauth(){
                 if(document.getElementById('select6').value != 'none') {

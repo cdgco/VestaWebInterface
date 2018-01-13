@@ -175,9 +175,15 @@ textdomain('messages');
             <div id="page-wrapper">
                 <div class="container-fluid">
                     <div class="row bg-title">
-                        <div class="col-lg-12 col-md-4 col-sm-4 col-xs-12">
+                        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                             <h4 class="page-title"><?php echo _("Edit Cron Job"); ?></h4>
                         </div>
+                           <ul class="side-icon-text pull-right">
+                            <li style="position: relative;top: -3px;">
+                                <a href="../delete/cron2.php?job=<?php echo $requestjob; ?>"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span><?php echo _("Delete Cron Job"); ?></span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-12">

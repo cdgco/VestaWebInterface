@@ -186,8 +186,8 @@ session_start();
                                 <div class="form-group">
                                     <label class="col-md-12"><?php echo _("Domain"); ?></label>
                                     <div class="col-md-12">
-                                        <input type="text" disabled value="<? print_r($requestdns); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;" class="form-control uneditable-input form-control-static"> 
-                                        <input type="hidden" name="v_domain" value="<? print_r($requestdns); ?>"> 
+                                        <input type="text" disabled value="<?php print_r($requestdns); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;" class="form-control uneditable-input form-control-static"> 
+                                        <input type="hidden" name="v_domain" value="<?php print_r($requestdns); ?>"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -219,19 +219,19 @@ session_start();
                                 <div class="form-group">
                                     <label for="email" class="col-md-12"><?php echo _("IP or Value"); ?></label>
                                     <div class="col-md-12">
-                                        <input type="text" name="v_value" autocomplete="new-password" value="<? print_r($recorddata[$requestrecord]['VALUE']); ?>" class="form-control form-control-line"> </div>
+                                        <input type="text" name="v_value" autocomplete="new-password" value="<?php print_r($recorddata[$requestrecord]['VALUE']); ?>" class="form-control form-control-line"> </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="email" class="col-md-12"><?php echo _("Priority"); ?></label>
                                     <div class="col-md-12">
-                                        <input type="text" name="v_priority" autocomplete="new-password" value="<? print_r($recorddata[$requestrecord]['PRIORITY']); ?>" class="form-control form-control-line"> 
+                                        <input type="text" name="v_priority" autocomplete="new-password" value="<?php print_r($recorddata[$requestrecord]['PRIORITY']); ?>" class="form-control form-control-line"> 
                                         <small class="form-text text-muted">Optional</small>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
                                         <button class="btn btn-success"><?php echo _("Add Record"); ?></button> &nbsp;
-                                            <a href="../list/dnsdomain.php?domain=<? echo $requestdns; ?>" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
+                                            <a href="../list/dnsdomain.php?domain=<?php echo $requestdns; ?>" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
                                     </div>
                                 </div>
                             </form>
