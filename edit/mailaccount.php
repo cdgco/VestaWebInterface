@@ -181,9 +181,15 @@ textdomain('messages');
             <div id="page-wrapper">
                 <div class="container-fluid">
                     <div class="row bg-title">
-                        <div class="col-lg-12 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title"><?php echo _("Edit Mail Account"); ?> - <? echo $requestaccount . '@' . $requestdomain; ?></h4>
+                        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                            <h4 class="page-title"><?php echo _("Edit Mail Account"); ?></h4>
                         </div>
+                        <ul class="side-icon-text pull-right">
+                                        <li style="position: relative;top: -3px;">
+                                            <a href="../delete/mailaccount2.php?domain=<?php echo $requestmail; ?>&account=<?php echo $requestaccount; ?>"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span><?php echo _("Delete Mail Account"); ?></span>
+                                            </a>
+                                        </li>
+                                    </ul>
                     </div>
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-12">
@@ -230,9 +236,9 @@ textdomain('messages');
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Email Addresss"); ?></label>
                                         <div class="col-md-12">
-                                            <input type="text" disabled value="<? echo $requestaccount . '@' . $requestdomain; ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
-                                            <input type="hidden" name="v_domain" value="<? echo $requestdomain; ?>"> 
-                                            <input type="hidden" name="v_account" value="<? echo $requestaccount; ?>"> 
+                                            <input type="text" disabled value="<?php echo $requestaccount . '@' . $requestdomain; ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
+                                            <input type="hidden" name="v_domain" value="<?php echo $requestdomain; ?>"> 
+                                            <input type="hidden" name="v_account" value="<?php echo $requestaccount; ?>"> 
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -245,7 +251,7 @@ textdomain('messages');
                                     <div class="form-group">
                                         <label for="email" class="col-md-12"><?php echo _("Quota"); ?></label>
                                         <div class="col-md-12">
-                                            <input type="text" disabled value="<? print_r($maildata[0]['QUOTA']); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
+                                            <input type="text" disabled value="<?php print_r($maildata[0]['QUOTA']); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
                                             <small class="form-text text-muted"><?php echo _("In Megabytes"); ?></small>
                                         </div>
                                     </div>
@@ -352,17 +358,17 @@ textdomain('messages');
                                                             </div>
                                                             <div class="col-sm-7">
                                                                 <p>
-                                                                    <? echo $requestaccount . '@' . $requestdomain; ?><br>   
+                                                                    <?php echo $requestaccount . '@' . $requestdomain; ?><br>   
                                                                     <span class="mailPW"></span><br>
-                                                                    <? echo VESTA_HOST_ADDRESS; ?><br>
+                                                                    <?php echo VESTA_HOST_ADDRESS; ?><br>
                                                                     143<br>
                                                                     STARTTLS<br>
                                                                     <?php echo _("Normal Password"); ?><br>
-                                                                    <? echo VESTA_HOST_ADDRESS; ?><br>
+                                                                    <?php echo VESTA_HOST_ADDRESS; ?><br>
                                                                     587<br>
                                                                     STARTTLS<br>	
                                                                     <?php echo _("Normal Password"); ?><br>
-                                                                    <a href="<? echo $webmailurl; ?>"><? echo $webmailurl; ?></a><br>
+                                                                    <a href="<?php echo $webmailurl; ?>"><?php echo $webmailurl; ?></a><br>
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -386,17 +392,17 @@ textdomain('messages');
                                                             </div>
                                                             <div class="col-sm-7">
                                                                 <p>
-                                                                    <? echo $requestaccount . '@' . $requestdomain; ?><br>   
+                                                                    <?php echo $requestaccount . '@' . $requestdomain; ?><br>   
                                                                     <span class="mailPW"></span><br>
-                                                                    <? echo VESTA_HOST_ADDRESS; ?><br>
+                                                                    <?php echo VESTA_HOST_ADDRESS; ?><br>
                                                                     993<br>
                                                                     SSL<br>
                                                                     <?php echo _("Normal Password"); ?><br>
-                                                                    <? echo VESTA_HOST_ADDRESS; ?><br>
+                                                                    <?php echo VESTA_HOST_ADDRESS; ?><br>
                                                                     465<br>
                                                                     SSL<br>	
                                                                     <?php echo _("Normal Password"); ?><br>
-                                                                    <a href="<? echo $webmailurl; ?>"><? echo $webmailurl; ?></a><br>
+                                                                    <a href="<?php echo $webmailurl; ?>"><?php echo $webmailurl; ?></a><br>
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -420,17 +426,17 @@ textdomain('messages');
                                                             </div>
                                                             <div class="col-sm-7">
                                                                 <p>
-                                                                    <? echo $requestaccount . '@' . $requestdomain; ?><br>   
+                                                                    <?php echo $requestaccount . '@' . $requestdomain; ?><br>   
                                                                     <span class="mailPW"></span><br>
-                                                                    <? echo VESTA_HOST_ADDRESS; ?><br>
+                                                                    <?php echo VESTA_HOST_ADDRESS; ?><br>
                                                                     143<br>
                                                                     <?php echo _("No Encryption"); ?><br>
                                                                     <?php echo _("Normal Password"); ?><br>
-                                                                    <? echo VESTA_HOST_ADDRESS; ?><br>
+                                                                    <?php echo VESTA_HOST_ADDRESS; ?><br>
                                                                     25<br>
                                                                     <?php echo _("No Encryption"); ?><br>	
                                                                     <?php echo _("Normal Password"); ?><br>
-                                                                    <a href="<? echo $webmailurl; ?>"><? echo $webmailurl; ?></a><br>
+                                                                    <a href="<?php echo $webmailurl; ?>"><?php echo $webmailurl; ?></a><br>
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -467,17 +473,17 @@ textdomain('messages');
                                                             </div>
                                                             <div class="col-sm-7">
                                                                 <p>
-                                                                    <? echo $requestaccount . '@' . $requestdomain; ?><br>   
+                                                                    <?php echo $requestaccount . '@' . $requestdomain; ?><br>   
                                                                     <span class="mailPW"></span><br>
-                                                                    <? echo $requestdomain; ?><br>
+                                                                    <?php echo $requestdomain; ?><br>
                                                                     143<br>
                                                                     STARTTLS<br>
                                                                     <?php echo _("Normal Password"); ?><br>
-                                                                    <? echo $requestdomain; ?><br>
+                                                                    <?php echo $requestdomain; ?><br>
                                                                     587<br>
                                                                     STARTTLS<br>	
                                                                     <?php echo _("Normal Password"); ?><br>
-                                                                    <a href="<? echo $webmailurl; ?>"><? echo $webmailurl; ?></a><br>
+                                                                    <a href="<?php echo $webmailurl; ?>"><?php echo $webmailurl; ?></a><br>
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -501,17 +507,17 @@ textdomain('messages');
                                                             </div>
                                                             <div class="col-sm-7">
                                                                 <p>
-                                                                    <? echo $requestaccount . '@' . $requestdomain; ?><br>   
+                                                                    <?php echo $requestaccount . '@' . $requestdomain; ?><br>   
                                                                     <span class="mailPW"></span><br>
-                                                                    <? echo $requestdomain; ?><br>
+                                                                    <?php echo $requestdomain; ?><br>
                                                                     993<br>
                                                                     SSL<br>
                                                                     <?php echo _("Normal Password"); ?><br>
-                                                                    <? echo $requestdomain; ?><br>
+                                                                    <?php echo $requestdomain; ?><br>
                                                                     465<br>
                                                                     SSL<br>	
                                                                     <?php echo _("Normal Password"); ?><br>
-                                                                    <a href="<? echo $webmailurl; ?>"><? echo $webmailurl; ?></a><br>
+                                                                    <a href="<?php echo $webmailurl; ?>"><?php echo $webmailurl; ?></a><br>
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -535,17 +541,17 @@ textdomain('messages');
                                                             </div>
                                                             <div class="col-sm-7">
                                                                 <p>
-                                                                    <? echo $requestaccount . '@' . $requestdomain; ?><br>   
+                                                                    <?php echo $requestaccount . '@' . $requestdomain; ?><br>   
                                                                     <span class="mailPW"></span><br>
-                                                                    <? echo $requestdomain; ?><br>
+                                                                    <?php echo $requestdomain; ?><br>
                                                                     143<br>
                                                                     <?php echo _("No Encryption"); ?><br>
                                                                     <?php echo _("Normal Password"); ?><br>
-                                                                    <? echo $requestdomain; ?><br>
+                                                                    <?php echo $requestdomain; ?><br>
                                                                     25<br>
                                                                     <?php echo _("No Encryption"); ?><br>	
                                                                     <?php echo _("Normal Password"); ?><br>
-                                                                    <a href="<? echo $webmailurl; ?>"><? echo $webmailurl; ?></a><br>
+                                                                    <a href="<?php echo $webmailurl; ?>"><?php echo $webmailurl; ?></a><br>
                                                                 </p>
                                                             </div>
                                                         </div>

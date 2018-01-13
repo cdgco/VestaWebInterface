@@ -179,6 +179,12 @@ session_start();
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                         <h4 class="page-title"><?php echo _("Edit Database"); ?></h4>
                     </div>
+                    <ul class="side-icon-text pull-right">
+                                        <li style="position: relative;top: -3px;">
+                                            <a href="../delete/db2.php?db=<?php echo $requestdb; ?>"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span><?php echo _("Delete Database"); ?></span>
+                                            </a>
+                                        </li>
+                                    </ul>
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -239,14 +245,14 @@ session_start();
                                 <div class="form-group">
                                     <label class="col-md-12"><?php echo _("Database"); ?></label>
                                     <div class="col-md-12">
-                                        <input type="text" disabled value="<? print_r($dbname[0]); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
-                                        <input type="hidden" name="v_database" value="<? print_r($dbname[0]); ?>"> 
+                                        <input type="text" disabled value="<?php print_r($dbname[0]); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
+                                        <input type="hidden" name="v_database" value="<?php print_r($dbname[0]); ?>"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12"><?php echo _("User"); ?></label>
                                     <div class="col-md-12">
-                                         <label class="sr-only" for="inlineFormInputGroup"><?php echo _("Username"); ?>/label>
+                                         <label class="sr-only" for="inlineFormInputGroup"><?php echo _("Username"); ?></label>
                                             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                                 <div class="input-group-addon"><?php print_r($uname); ?>_</div>
                                                 <input type="text" class="form-control" autocomplete="new-password" name="v_dbuser" style="padding-left: 0.5%;" value="<?php $prefix = $uname . '_'; $str = $dbdata[0][DBUSER]; if (substr($str, 0, strlen($prefix)) == $prefix) { $str = substr($str, strlen($prefix));} print_r($str); ?>">
@@ -263,19 +269,19 @@ session_start();
                                 <div class="form-group">
                                     <label class="col-md-12"><?php echo _("Host"); ?></label>
                                     <div class="col-md-12">
-                                        <input type="text" disabled value="<? print_r($dbdata[0]['HOST']); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
+                                        <input type="text" disabled value="<?php print_r($dbdata[0]['HOST']); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12"><?php echo _("Type"); ?></label>
                                     <div class="col-md-12">
-                                        <input type="text" disabled value="<? print_r($dbdata[0]['TYPE']); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
+                                        <input type="text" disabled value="<?php print_r($dbdata[0]['TYPE']); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12"><?php echo _("Charset"); ?></label>
                                     <div class="col-md-12">
-                                        <input type="text" disabled value="<? print_r($dbdata[0]['CHARSET']); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
+                                        <input type="text" disabled value="<?php print_r($dbdata[0]['CHARSET']); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
                                     </div>
                                 </div>
                                 <div class="form-group">

@@ -190,6 +190,12 @@ session_start();
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                         <h4 class="page-title"><?php echo _("Edit DNS Record"); ?></h4>
                     </div>
+                    <ul class="side-icon-text pull-right">
+                                        <li style="position: relative;top: -3px;">
+                                            <a href="../delete/dnsrecord2.php?domain=<?php echo $requestdns; ?>&id=<?php echo $requestrecord; ?>"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span><?php echo _("Delete DNS Record"); ?></span>
+                                            </a>
+                                        </li>
+                                    </ul>
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -250,33 +256,33 @@ session_start();
                                 <div class="form-group">
                                     <label class="col-md-12"><?php echo _("Domain"); ?></label>
                                     <div class="col-md-12">
-                                        <input type="text" disabled value="<? print_r($requestdns); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
-                                        <input type="hidden" name="v_domain" value="<? print_r($requestdns); ?>"> 
-                                        <input type="hidden" name="v_id" value="<? print_r($recordnumber[$requestrecord]); ?>"> 
+                                        <input type="text" disabled value="<?php print_r($requestdns); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
+                                        <input type="hidden" name="v_domain" value="<?php print_r($requestdns); ?>"> 
+                                        <input type="hidden" name="v_id" value="<?php print_r($recordnumber[$requestrecord]); ?>"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12"><?php echo _("Record"); ?></label>
                                     <div class="col-md-12">
-                                        <input type="text" disabled value="<? print_r($recorddata[$requestrecord]['RECORD']); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
+                                        <input type="text" disabled value="<?php print_r($recorddata[$requestrecord]['RECORD']); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12"><?php echo _("Type"); ?></label>
                                     <div class="col-md-12">
-                                        <input type="text" disabled value="<? print_r($recorddata[$requestrecord]['TYPE']); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
+                                        <input type="text" disabled value="<?php print_r($recorddata[$requestrecord]['TYPE']); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="email" class="col-md-12"><?php echo _("IP or Value"); ?></label>
                                     <div class="col-md-12">
-                                        <input type="text" name="v_value" value="<? print_r($recorddata[$requestrecord]['VALUE']); ?>" class="form-control form-control-line" >
+                                        <input type="text" name="v_value" value="<?php print_r($recorddata[$requestrecord]['VALUE']); ?>" class="form-control form-control-line" >
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="email" class="col-md-12"><?php echo _("Priority"); ?></label>
                                     <div class="col-md-12">
-                                        <input type="text" name="v_priority" value="<? print_r($recorddata[$requestrecord]['PRIORITY']); ?>" class="form-control form-control-line"> 
+                                        <input type="text" name="v_priority" value="<?php print_r($recorddata[$requestrecord]['PRIORITY']); ?>" class="form-control form-control-line"> 
                                         <small class="form-text text-muted"><?php echo _("Optional"); ?></small>
                                     </div>
                                 </div>
@@ -284,7 +290,7 @@ session_start();
                                 <div class="form-group">
                                     <label for="email" class="col-md-12"><?php echo _("Order"); ?></label>
                                     <div class="col-md-12">
-                                        <input type="text" name="v_id2" value="<? print_r($recorddata[$requestrecord]['ID']); ?>" class="form-control form-control-line"> 
+                                        <input type="text" name="v_id2" value="<?php print_r($recorddata[$requestrecord]['ID']); ?>" class="form-control form-control-line"> 
                                         <small class="form-text text-muted"><?php echo _("Optional"); ?></small>
                                     </div>
                                 </div>
@@ -326,7 +332,7 @@ $('.datepicker').datepicker();
                 new CBPFWTabs(el);
             });
         })();
-        document.getElementById('select2').value = '<? print_r($dnsdata[0]['TPL']); ?>'; 
+        document.getElementById('select2').value = '<?php print_r($dnsdata[0]['TPL']); ?>'; 
         jQuery(function($){
             $('.footable').footable();
         });

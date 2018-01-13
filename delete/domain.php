@@ -7,24 +7,18 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'
       else { header('Location: ../login.php'); }
 
 $postvars = array(
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-delete-web-domain','arg1' => $username,'arg2' => $_GET['domain']),
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-delete-dns-domain','arg1' => $username,'arg2' => $_GET['domain']),
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-delete-mail-domain','arg1' => $username,'arg2' => $_GET['domain']),
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-restart-web'),
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-restart-proxy'),
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-restart-mail')
+    array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-web-domain','arg1' => $username,'arg2' => $_GET['domain']),
+    array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-dns-domain','arg1' => $username,'arg2' => $_GET['domain']),
+    array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-mail-domain','arg1' => $username,'arg2' => $_GET['domain'])
 );
    
 $curl0 = curl_init();
 $curl1 = curl_init();
 $curl2 = curl_init();
-$curl3 = curl_init();
-$curl4 = curl_init();
-$curl5 = curl_init();
 $curlstart = 0; 
 
 if($_GET['verified'] == "yes"){
-    while($curlstart <= 5) {
+    while($curlstart <= 2) {
         curl_setopt(${'curl' . $curlstart}, CURLOPT_URL, $vst_url);
         curl_setopt(${'curl' . $curlstart}, CURLOPT_RETURNTRANSFER,true);
         curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYPEER, false);
@@ -34,12 +28,9 @@ if($_GET['verified'] == "yes"){
         $curlstart++;
     } 
 
-curl_exec($curl0);
-curl_exec($curl1);
-curl_exec($curl2);
-curl_exec($curl3);
-curl_exec($curl4);
-curl_exec($curl5);
+$r1 = curl_exec($curl0);
+$r2 = curl_exec($curl1);
+$r3 = curl_exec($curl2);
 }
 
 // If accessed directly, redirect to 403 error

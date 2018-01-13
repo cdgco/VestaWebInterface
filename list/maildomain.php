@@ -216,7 +216,7 @@ textdomain('messages');
             <div class="row">
                 <div class="col-lg-12">
                     <div class="white-box"> <ul class="side-icon-text pull-right">
-                        <li><a href="../add/mailaccount.php?domain=<? echo $requestmail; ?>"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Account"); ?></span></a></li>
+                        <li><a href="../add/mailaccount.php?domain=<?php echo $requestmail; ?>"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Account"); ?></span></a></li>
                         </ul>
                         <h3 class="box-title m-b-0"><?php echo _("Mail Accounts"); ?></h3><br>
 

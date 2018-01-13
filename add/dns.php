@@ -302,7 +302,7 @@ $('.datepicker').datepicker();
                 new CBPFWTabs(el);
             });
         })();
-        document.getElementById('select2').value = '<? print_r($dnsdata[0]['TPL']); ?>'; 
+        document.getElementById('select2').value = '<?php print_r($dnsdata[0]['TPL']); ?>'; 
         jQuery(function($){
             $('.footable').footable();
         });
