@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 /**
  * Vesta turkish language file
  * 2014.11.01 Özgür Bozkurt (info@ozgurbozkurt.com/ozgur@forum.vestacp.com)

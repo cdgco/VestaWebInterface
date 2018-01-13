@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 /**
  * Vesta language file
  * drMacFaulty (wsanders@outlook.com, wsanders.eu)

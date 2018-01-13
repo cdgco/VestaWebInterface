@@ -1,16 +1,16 @@
-***REMOVED***
+<?php
 
 session_start();
 
-if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); ***REMOVED***  else { header( 'Location: ../install' );***REMOVED***;
+if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); }  else { header( 'Location: ../install' );};
 
-if(base64_decode($_SESSION['loggedin']) == 'true') {***REMOVED***
-else { header('Location: ../login.php'); ***REMOVED***
+if(base64_decode($_SESSION['loggedin']) == 'true') {}
+else { header('Location: ../login.php'); }
 
 $backup = $_GET['backup'];
 
-if (isset($backup) && $backup != '') {***REMOVED***
-else { header('Location: ../list/backups.php?error=0'); ***REMOVED***
+if (isset($backup) && $backup != '') {}
+else { header('Location: ../list/backups.php?error=0'); }
 
 $web = 'no';
 $dns = 'no';
@@ -19,12 +19,12 @@ $db = 'no';
 $cron = 'no';
 $udir = 'no';
 
-if ($_GET['type'] == 'web') {$web = $_GET['object'];***REMOVED***
-if ($_GET['type'] == 'dns') {$dns = $_GET['object'];***REMOVED***
-if ($_GET['type'] == 'mail') {$mail =$_GET['object'];***REMOVED***
-if ($_GET['type'] == 'db') {$db = $_GET['object'];***REMOVED***
-if ($_GET['type'] == 'cron') {$cron = 'yes';***REMOVED***
-if ($_GET['type'] == 'udir') {$udir = $_GET['object'];***REMOVED***
+if ($_GET['type'] == 'web') {$web = $_GET['object'];}
+if ($_GET['type'] == 'dns') {$dns = $_GET['object'];}
+if ($_GET['type'] == 'mail') {$mail =$_GET['object'];}
+if ($_GET['type'] == 'db') {$db = $_GET['object'];}
+if ($_GET['type'] == 'cron') {$cron = 'yes';}
+if ($_GET['type'] == 'udir') {$udir = $_GET['object'];}
 
 if (!empty($_GET['type'])) {
     $postvars = array(
@@ -34,17 +34,17 @@ if (!empty($_GET['type'])) {
     $curlstart = 0; 
 
     while($curlstart <= 0) {
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_URL, $vst_url);
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_RETURNTRANSFER,true);
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_POST, true);
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_POSTFIELDS, http_build_query($postvars[$curlstart]));
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_URL, $vst_url);
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_RETURNTRANSFER,true);
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_POST, true);
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_POSTFIELDS, http_build_query($postvars[$curlstart]));
         $curlstart++;
-    ***REMOVED*** 
+    } 
     curl_exec($curl0);
     header("Location: ../list/backups.php?code=0");
-***REMOVED*** 
+} 
 else {
     $postvars = array(
         array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-schedule-user-restore','arg1' => $username,'arg2' => $backup));
@@ -53,16 +53,16 @@ else {
     $curlstart = 0; 
 
     while($curlstart <= 0) {
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_URL, $vst_url);
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_RETURNTRANSFER,true);
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_POST, true);
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_POSTFIELDS, http_build_query($postvars[$curlstart]));
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_URL, $vst_url);
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_RETURNTRANSFER,true);
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_POST, true);
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_POSTFIELDS, http_build_query($postvars[$curlstart]));
         $curlstart++;
-    ***REMOVED*** 
+    } 
     curl_exec($curl0);
     header("Location: ../list/backups.php?code=0");
-***REMOVED***
+}
 
-***REMOVED***
+?>

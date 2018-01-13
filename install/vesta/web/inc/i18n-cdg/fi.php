@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 /**
 * Vesta Finnish language file
 * OHakala (onni@koodimonni.fi)

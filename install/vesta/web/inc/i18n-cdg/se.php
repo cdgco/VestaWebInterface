@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 /**
  * Vesta language file
  * E.C. Westgren  (eric@westgren.se)

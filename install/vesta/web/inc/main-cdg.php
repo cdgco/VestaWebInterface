@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 
 session_start();
 
@@ -15,23 +15,23 @@ $user_combined_ip = $_SERVER['REMOTE_ADDR'];
 
 if(isset($_SERVER['HTTP_CLIENT_IP'])){
     $user_combined_ip .=  '|'. $_SERVER['HTTP_CLIENT_IP'];
-***REMOVED***
+}
 if(isset($_SERVER['HTTP_X_FORWARDED_FOR'])){
     $user_combined_ip .=  '|'. $_SERVER['HTTP_X_FORWARDED_FOR'];
-***REMOVED***
+}
 if(isset($_SERVER['HTTP_FORWARDED_FOR'])){
     $user_combined_ip .=  '|'. $_SERVER['HTTP_FORWARDED_FOR'];
-***REMOVED***
+}
 if(isset($_SERVER['HTTP_X_FORWARDED'])){
     $user_combined_ip .=  '|'. $_SERVER['HTTP_X_FORWARDED'];
-***REMOVED***
+}
 if(isset($_SERVER['HTTP_FORWARDED'])){
     $user_combined_ip .=  '|'. $_SERVER['HTTP_FORWARDED'];
-***REMOVED***
+}
 
 if(!isset($_SESSION['user_combined_ip'])){
     $_SESSION['user_combined_ip'] = $user_combined_ip;
-***REMOVED***
+}
 
 // Checking user to use session from the same IP he has been logged in
 if($_SESSION['user_combined_ip'] != $user_combined_ip && $_SERVER['REMOTE_ADDR'] != '127.0.0.1'){
@@ -40,7 +40,7 @@ if($_SESSION['user_combined_ip'] != $user_combined_ip && $_SERVER['REMOTE_ADDR']
     $_SESSION['request_uri'] = $_SERVER['REQUEST_URI'];
     header("Location: /login/");
     exit;
-***REMOVED***
+}
 
 // Check system settings
 if ((!isset($_SESSION['VERSION'])) && (!defined('NO_AUTH_REQUIRED'))) {
@@ -49,21 +49,21 @@ if ((!isset($_SESSION['VERSION'])) && (!defined('NO_AUTH_REQUIRED'))) {
     $_SESSION['request_uri'] = $_SERVER['REQUEST_URI'];
     header("Location: /login/");
     exit;
-***REMOVED***
+}
 
 // Check user session
 if ((!isset($_SESSION['user'])) && (!defined('NO_AUTH_REQUIRED'))) {
     $_SESSION['request_uri'] = $_SERVER['REQUEST_URI'];
     header("Location: /login/");
     exit;
-***REMOVED***
+}
 
 if (isset($_SESSION['user'])) {
     if(!isset($_SESSION['token'])){
         $token = uniqid(mt_rand(), true);
         $_SESSION['token'] = $token;
-    ***REMOVED***
-***REMOVED***
+    }
+}
 
 if (isset($_SESSION['language'])) {
     switch ($_SESSION['language']) {
@@ -84,20 +84,20 @@ if (isset($_SESSION['language'])) {
             break;
         default:
             setlocale(LC_ALL, 'en_US.utf8');
-    ***REMOVED***
-***REMOVED***
+    }
+}
 
 if (isset($_SESSION['user'])) {
     $user = $_SESSION['user'];
-***REMOVED***
+}
 
 if (isset($_SESSION['look']) && ( $_SESSION['look'] != 'admin' )) {
     $user = $_SESSION['look'];
-***REMOVED***
+}
 
 function get_favourites(){
     exec (VESTA_CMD."v-list-user-favourites ".$_SESSION['user']." json", $output, $return_var);
-//    $data = json_decode(implode('', $output).'***REMOVED***', true);
+//    $data = json_decode(implode('', $output).'}', true);
     $data = json_decode(implode('', $output), true);
     $data = array_reverse($data,true);
     $favourites = array();
@@ -109,27 +109,27 @@ function get_favourites(){
         foreach($items as $item){
             if($item)
                 $favourites[$key][trim($item)] = 1;
-        ***REMOVED***
-    ***REMOVED***
+        }
+    }
 
     $_SESSION['favourites'] = $favourites;
-***REMOVED***
+}
 
 
 function check_error($return_var) {
     if ( $return_var > 0 ) {
         header("Location: /error/");
         exit;
-    ***REMOVED***
-***REMOVED***
+    }
+}
 
 function check_return_code($return_var,$output) {
     if ($return_var != 0) {
         $error = implode('<br>', $output);
         if (empty($error)) $error = __('Error code:',$return_var);
         $_SESSION['error_msg'] = $error;
-    ***REMOVED***
-***REMOVED***
+    }
+}
 
 function render_page($user, $TAB, $page) {
     $__template_dir = dirname(__DIR__) . '/templates/';
@@ -146,18 +146,18 @@ function render_page($user, $TAB, $page) {
     //*
     extract($GLOBALS, EXTR_SKIP);
     /*/
-    $variables = array_filter($GLOBALS, function($key){return preg_match('/^(v_|[a-z])[a-z\d]+$/', $key);***REMOVED***, ARRAY_FILTER_USE_KEY);
+    $variables = array_filter($GLOBALS, function($key){return preg_match('/^(v_|[a-z])[a-z\d]+$/', $key);}, ARRAY_FILTER_USE_KEY);
     extract($variables, EXTR_OVERWRITE);
     //*/
 
     // Body
     if (($_SESSION['user'] !== 'admin') && (@include($__template_dir . "user/$page.html"))) {
         // User page loaded
-    ***REMOVED*** else {
+    } else {
         // Not admin or user page doesn't exist
         // Load admin page
         @include($__template_dir . "admin/$page.html");
-    ***REMOVED***
+    }
 
     // Including common js files
     @include_once(dirname(__DIR__) . '/templates/scripts.html');
@@ -167,7 +167,7 @@ function render_page($user, $TAB, $page) {
 
     // Footer
     include($__template_dir . 'footer.html');
-***REMOVED***
+}
 
 function top_panel($user, $TAB) {
     global $panel;
@@ -176,7 +176,7 @@ function top_panel($user, $TAB) {
     if ( $return_var > 0 ) {
         header("Location: /error/");
         exit;
-    ***REMOVED***
+    }
     $panel = json_decode(implode('', $output), true);
     unset($output);
 
@@ -189,22 +189,22 @@ function top_panel($user, $TAB) {
         if($message['ACK'] == 'no'){
             $panel[$user]['NOTIFICATIONS'] = 'yes';
             break;
-        ***REMOVED***
-    ***REMOVED***
+        }
+    }
     unset($output);
 
 
     if ( $user == 'admin' ) {
         include(dirname(__FILE__).'/../templates/admin/panel.html');
-    ***REMOVED*** else {
+    } else {
         include(dirname(__FILE__).'/../templates/user/panel.html');
-    ***REMOVED***
-***REMOVED***
+    }
+}
 
 function translate_date($date){
   $date = strtotime($date);
   return strftime("%d &nbsp;", $date).__(strftime("%b", $date)).strftime(" &nbsp;%Y", $date);
-***REMOVED***
+}
 
 function humanize_time($usage) {
     if ( $usage > 60 ) {
@@ -215,26 +215,26 @@ function humanize_time($usage) {
             $usage = number_format($usage);
             if ( $usage == 1 ) {
                 $usage = $usage." ".__('day');
-            ***REMOVED*** else {
+            } else {
                 $usage = $usage." ".__('days');
-            ***REMOVED***
-        ***REMOVED*** else {
+            }
+        } else {
             $usage = number_format($usage);
             if ( $usage == 1 ) {
                 $usage = $usage." ".__('hour');
-            ***REMOVED*** else {
+            } else {
                 $usage = $usage." ".__('hours');
-            ***REMOVED***
-        ***REMOVED***
-    ***REMOVED*** else {
+            }
+        }
+    } else {
         if ( $usage == 1 ) {
             $usage = $usage." ".__('minute');
-        ***REMOVED*** else {
+        } else {
             $usage = $usage." ".__('minutes');
-        ***REMOVED***
-    ***REMOVED***
+        }
+    }
     return $usage;
-***REMOVED***
+}
 
 function humanize_usage_size($usage) {
     if ( $usage > 1024 ) {
@@ -244,16 +244,16 @@ function humanize_usage_size($usage) {
                 if ( $usage > 1024 ) {
                     $usage = $usage / 1024 ;
                     $usage = number_format($usage, 2);
-                ***REMOVED*** else {
+                } else {
                     $usage = number_format($usage, 2);
-                ***REMOVED***
-        ***REMOVED*** else {
+                }
+        } else {
             $usage = number_format($usage, 2);
-        ***REMOVED***
-    ***REMOVED***
+        }
+    }
 
     return $usage;
-***REMOVED***
+}
 
 function humanize_usage_measure($usage) {
     $measure = 'kb';
@@ -264,18 +264,18 @@ function humanize_usage_measure($usage) {
                 $usage = $usage / 1024 ;
                 if ( $usage > 1024 ) {
                     $measure = 'pb';
-                ***REMOVED*** else {
+                } else {
                     $measure = 'tb';
-                ***REMOVED***
-        ***REMOVED*** else {
+                }
+        } else {
             $measure = 'gb';
-        ***REMOVED***
-    ***REMOVED*** else {
+        }
+    } else {
         $measure = 'mb';
-    ***REMOVED***
+    }
 
     return __($measure);
-***REMOVED***
+}
 
 
 function get_percentage($used,$total) {
@@ -283,20 +283,20 @@ function get_percentage($used,$total) {
     if (!isset($used)) $used =  0;
     if ( $total == 0 ) {
         $percent = 0;
-    ***REMOVED*** else {
+    } else {
         $percent = $used / $total;
         $percent = $percent * 100;
         $percent = number_format($percent, 0, '', '');
         if ( $percent > 100 ) {
             $percent = 100;
-        ***REMOVED***
+        }
         if ( $percent < 0 ) {
             $percent = 0;
-        ***REMOVED***
+        }
 
-    ***REMOVED***
+    }
     return $percent;
-***REMOVED***
+}
 
 function send_email($to,$subject,$mailtext,$from) {
     $charset = "utf-8";
@@ -313,7 +313,7 @@ function send_email($to,$subject,$mailtext,$from) {
     $header .= "Content-Transfer-Encoding: $ctencoding\nX-Mailer: Php/libMailv1.3\n";
     $message = $mailtext;
     mail($to, $subject, $message, $header);
-***REMOVED***
+}
 
 function list_timezones() {
     $tz = new DateTimeZone('HAST');
@@ -348,19 +348,19 @@ function list_timezones() {
     foreach(DateTimeZone::listIdentifiers() as $timezone){
         $tz = new DateTimeZone($timezone);
         $timezone_offsets[$timezone] = $tz->getOffset(new DateTime);
-    ***REMOVED***
+    }
 
     foreach($timezone_offsets as $timezone => $offset){
         $offset_prefix = $offset < 0 ? '-' : '+';
         $offset_formatted = gmdate( 'H:i', abs($offset) );
-        $pretty_offset = "UTC${offset_prefix***REMOVED***${offset_formatted***REMOVED***";
+        $pretty_offset = "UTC${offset_prefix}${offset_formatted}";
         $t = new DateTimeZone($timezone);
         $c = new DateTime(null, $t);
         $current_time = $c->format('H:i:s');
-        $timezone_list[$timezone] = "$timezone [ $current_time ] ${pretty_offset***REMOVED***";
-    ***REMOVED***
+        $timezone_list[$timezone] = "$timezone [ $current_time ] ${pretty_offset}";
+    }
     return $timezone_list;
-***REMOVED***
+}
 
 /**
  * A function that tells is it MySQL installed on the system, or it is MariaDB.
@@ -383,4 +383,4 @@ function is_it_mysql_or_mariadb() {
     $mysqltype='mysql';
     if (isset($data['mariadb'])) $mysqltype='mariadb';
     return $mysqltype;
-***REMOVED***
+}

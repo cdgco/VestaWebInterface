@@ -17,7 +17,7 @@
     // jscs:disable requireDollarBeforejQueryAssignment
     this.element = $(element)
     // jscs:enable requireDollarBeforejQueryAssignment
-  ***REMOVED***
+  }
 
   Tab.VERSION = '3.3.6'
 
@@ -31,17 +31,17 @@
     if (!selector) {
       selector = $this.attr('href')
       selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
-    ***REMOVED***
+    }
 
     if ($this.parent('li').hasClass('active')) return
 
     var $previous = $ul.find('.active:last a')
     var hideEvent = $.Event('hide.bs.tab', {
       relatedTarget: $this[0]
-    ***REMOVED***)
+    })
     var showEvent = $.Event('show.bs.tab', {
       relatedTarget: $previous[0]
-    ***REMOVED***)
+    })
 
     $previous.trigger(hideEvent)
     $this.trigger(showEvent)
@@ -55,13 +55,13 @@
       $previous.trigger({
         type: 'hidden.bs.tab',
         relatedTarget: $this[0]
-      ***REMOVED***)
+      })
       $this.trigger({
         type: 'shown.bs.tab',
         relatedTarget: $previous[0]
-      ***REMOVED***)
-    ***REMOVED***)
-  ***REMOVED***
+      })
+    })
+  }
 
   Tab.prototype.activate = function (element, container, callback) {
     var $active    = container.find('> .active')
@@ -86,9 +86,9 @@
       if (transition) {
         element[0].offsetWidth // reflow for transition
         element.addClass('in')
-      ***REMOVED*** else {
+      } else {
         element.removeClass('fade')
-      ***REMOVED***
+      }
 
       if (element.parent('.dropdown-menu').length) {
         element
@@ -97,10 +97,10 @@
           .end()
           .find('[data-toggle="tab"]')
             .attr('aria-expanded', true)
-      ***REMOVED***
+      }
 
       callback && callback()
-    ***REMOVED***
+    }
 
     $active.length && transition ?
       $active
@@ -109,7 +109,7 @@
       next()
 
     $active.removeClass('in')
-  ***REMOVED***
+  }
 
 
   // TAB PLUGIN DEFINITION
@@ -122,8 +122,8 @@
 
       if (!data) $this.data('bs.tab', (data = new Tab(this)))
       if (typeof option == 'string') data[option]()
-    ***REMOVED***)
-  ***REMOVED***
+    })
+  }
 
   var old = $.fn.tab
 
@@ -137,7 +137,7 @@
   $.fn.tab.noConflict = function () {
     $.fn.tab = old
     return this
-  ***REMOVED***
+  }
 
 
   // TAB DATA-API
@@ -146,10 +146,10 @@
   var clickHandler = function (e) {
     e.preventDefault()
     Plugin.call($(this), 'show')
-  ***REMOVED***
+  }
 
   $(document)
     .on('click.bs.tab.data-api', '[data-toggle="tab"]', clickHandler)
     .on('click.bs.tab.data-api', '[data-toggle="pill"]', clickHandler)
 
-***REMOVED***(jQuery);
+}(jQuery);

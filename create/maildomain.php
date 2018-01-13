@@ -1,36 +1,36 @@
-***REMOVED***
+<?php
 
 session_start();
 
-    if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); ***REMOVED***  else { header( 'Location: ../install' );***REMOVED***;
-    if(base64_decode($_SESSION['loggedin']) == 'true') {***REMOVED***
-    else { header('Location: ../login.php'); ***REMOVED***
+    if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); }  else { header( 'Location: ../install' );};
+    if(base64_decode($_SESSION['loggedin']) == 'true') {}
+    else { header('Location: ../login.php'); }
 
     $v_domain = $_POST['v_domain'];
 
     // Check antispam option
     if (!empty($_POST['v_antispam'])) {
         $v_antispam = 'yes';
-    ***REMOVED*** else {
+    } else {
         $v_antispam = 'no';
-    ***REMOVED***
+    }
 
     // Check antivirus option
     if (!empty($_POST['v_antivirus'])) {
         $v_antivirus = 'yes';
-    ***REMOVED*** else {
+    } else {
         $v_antivirus = 'no';
-    ***REMOVED***
+    }
 
     // Check dkim option
     if (!empty($_POST['v_dkim'])) {
         $v_dkim = 'yes';
-    ***REMOVED*** else {
+    } else {
         $v_dkim = 'no';
-    ***REMOVED***
+    }
 
 
-    if ((!isset($_POST['v_domain'])) || ($_POST['v_domain'] == '')) { header('Location: ../list/mail.php?returncode=1');***REMOVED***
+    if ((!isset($_POST['v_domain'])) || ($_POST['v_domain'] == '')) { header('Location: ../list/mail.php?returncode=1');}
 
     $postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-domain','arg1' => $username,'arg2' => $v_domain, 'arg3' => $v_antispam, 'arg4' => $v_antivirus, 'arg5' => $v_dkim);
 
@@ -45,4 +45,4 @@ session_start();
 
     header('Location: ../list/mail.php?returncode=' . $r1);
 
-***REMOVED***
+?>

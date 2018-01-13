@@ -5,16 +5,16 @@
 
 table {
   background-color: @table-bg;
-***REMOVED***
+}
 caption {
   padding-top: @table-cell-padding;
   padding-bottom: @table-cell-padding;
   color: @text-muted;
   text-align: left;
-***REMOVED***
+}
 th {
   text-align: left;
-***REMOVED***
+}
 
 
 // Baseline styles
@@ -34,14 +34,14 @@ th {
         line-height: @line-height-base;
         vertical-align: top;
         border-top: 1px solid @table-border-color;
-      ***REMOVED***
-    ***REMOVED***
-  ***REMOVED***
+      }
+    }
+  }
   // Bottom align for column headings
   > thead > tr > th {
     vertical-align: bottom;
     border-bottom: 2px solid @table-border-color;
-  ***REMOVED***
+  }
   // Remove top border from thead by default
   > caption + thead,
   > colgroup + thead,
@@ -50,19 +50,19 @@ th {
       > th,
       > td {
         border-top: 0;
-      ***REMOVED***
-    ***REMOVED***
-  ***REMOVED***
+      }
+    }
+  }
   // Account for multiple tbody instances
   > tbody + tbody {
     border-top: 2px solid @table-border-color;
-  ***REMOVED***
+  }
 
   // Nesting
   .table {
     background-color: @body-bg;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 
 // Condensed table w/ half padding
@@ -75,10 +75,10 @@ th {
       > th,
       > td {
         padding: @table-condensed-cell-padding;
-      ***REMOVED***
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
+      }
+    }
+  }
+}
 
 
 // Bordered version
@@ -94,16 +94,16 @@ th {
       > th,
       > td {
         border: 1px solid @table-border-color;
-      ***REMOVED***
-    ***REMOVED***
-  ***REMOVED***
+      }
+    }
+  }
   > thead > tr {
     > th,
     > td {
       border-bottom-width: 2px;
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
+    }
+  }
+}
 
 
 // Zebra-striping
@@ -113,8 +113,8 @@ th {
 .table-striped {
   > tbody > tr:nth-of-type(odd) {
     background-color: @table-bg-accent;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 
 // Hover effect
@@ -124,8 +124,8 @@ th {
 .table-hover {
   > tbody > tr:hover {
     background-color: @table-bg-hover;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 
 // Table cell sizing
@@ -136,7 +136,7 @@ table col[class*="col-"] {
   position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
   float: none;
   display: table-column;
-***REMOVED***
+}
 table {
   td,
   th {
@@ -144,9 +144,9 @@ table {
       position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
       float: none;
       display: table-cell;
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
+    }
+  }
+}
 
 
 // Table backgrounds
@@ -191,10 +191,10 @@ table {
           > th,
           > td {
             white-space: nowrap;
-          ***REMOVED***
-        ***REMOVED***
-      ***REMOVED***
-    ***REMOVED***
+          }
+        }
+      }
+    }
 
     // Special overrides for the bordered tables
     > .table-bordered {
@@ -208,13 +208,13 @@ table {
           > th:first-child,
           > td:first-child {
             border-left: 0;
-          ***REMOVED***
+          }
           > th:last-child,
           > td:last-child {
             border-right: 0;
-          ***REMOVED***
-        ***REMOVED***
-      ***REMOVED***
+          }
+        }
+      }
 
       // Only nuke the last row's bottom-border in `tbody` and `tfoot` since
       // chances are there will be only one `tr` in a `thead` and that would
@@ -225,10 +225,10 @@ table {
           > th,
           > td {
             border-bottom: 0;
-          ***REMOVED***
-        ***REMOVED***
-      ***REMOVED***
+          }
+        }
+      }
 
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
+    }
+  }
+}

@@ -10,11 +10,11 @@
 // http://getbootstrap.com/getting-started/#third-box-sizing
 * {
   .box-sizing(border-box);
-***REMOVED***
+}
 *:before,
 *:after {
   .box-sizing(border-box);
-***REMOVED***
+}
 
 
 // Body reset
@@ -22,7 +22,7 @@
 html {
   font-size: 10px;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
-***REMOVED***
+}
 
 body {
   font-family: @font-family-base;
@@ -30,7 +30,7 @@ body {
   line-height: @line-height-base;
   color: @text-color;
   background-color: @body-bg;
-***REMOVED***
+}
 
 // Reset fonts for relevant elements
 input,
@@ -40,7 +40,7 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
-***REMOVED***
+}
 
 
 // Links
@@ -53,12 +53,12 @@ a {
   &:focus {
     color: @link-hover-color;
     text-decoration: @link-hover-decoration;
-  ***REMOVED***
+  }
 
   &:focus {
     .tab-focus();
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 
 // Figures
@@ -68,24 +68,24 @@ a {
 
 figure {
   margin: 0;
-***REMOVED***
+}
 
 
 // Images
 
 img {
   vertical-align: middle;
-***REMOVED***
+}
 
 // Responsive images (ensure images don't scale beyond their parents)
 .img-responsive {
   .img-responsive();
-***REMOVED***
+}
 
 // Rounded corners
 .img-rounded {
   border-radius: @border-radius-large;
-***REMOVED***
+}
 
 // Image thumbnails
 //
@@ -100,12 +100,12 @@ img {
 
   // Keep them at most 100% wide
   .img-responsive(inline-block);
-***REMOVED***
+}
 
 // Perfect circle
 .img-circle {
   border-radius: 50%; // set radius in percents
-***REMOVED***
+}
 
 
 // Horizontal rules
@@ -115,7 +115,7 @@ hr {
   margin-bottom: @line-height-computed;
   border: 0;
   border-top: 1px solid @hr-border;
-***REMOVED***
+}
 
 
 // Only display content to screen readers
@@ -131,7 +131,7 @@ hr {
   overflow: hidden;
   clip: rect(0,0,0,0);
   border: 0;
-***REMOVED***
+}
 
 // Use in conjunction with .sr-only to only display content when it's focused.
 // Useful for "Skip to main content" links; see http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
@@ -146,8 +146,8 @@ hr {
     margin: 0;
     overflow: visible;
     clip: auto;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 
 // iOS "clickable elements" fix for role="button"
@@ -158,4 +158,4 @@ hr {
 
 [role="button"] {
   cursor: pointer;
-***REMOVED***
+}

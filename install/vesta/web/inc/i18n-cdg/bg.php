@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 /**
  * Vesta language file
  * Kronz (apaunovski@gmail.com) and loderx

@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 /**
  * VestaCP interface translation in Greek.
  * Translation by Cemendur.

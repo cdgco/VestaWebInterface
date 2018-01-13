@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 /**
  * Plik językowy panelu Vesta
  * Marek Pikuła <marek@pikula.co>

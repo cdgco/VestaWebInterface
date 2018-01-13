@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 /**
  * Vesta language file
  * azuya ( disketsa@gmail.com || hitamputih82@yahoo.com )

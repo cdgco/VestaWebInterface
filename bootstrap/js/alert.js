@@ -16,7 +16,7 @@
   var dismiss = '[data-dismiss="alert"]'
   var Alert   = function (el) {
     $(el).on('click', dismiss, this.close)
-  ***REMOVED***
+  }
 
   Alert.VERSION = '3.3.6'
 
@@ -29,7 +29,7 @@
     if (!selector) {
       selector = $this.attr('href')
       selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
-    ***REMOVED***
+    }
 
     var $parent = $(selector)
 
@@ -37,7 +37,7 @@
 
     if (!$parent.length) {
       $parent = $this.closest('.alert')
-    ***REMOVED***
+    }
 
     $parent.trigger(e = $.Event('close.bs.alert'))
 
@@ -48,14 +48,14 @@
     function removeElement() {
       // detach from parent, fire event then clean up data
       $parent.detach().trigger('closed.bs.alert').remove()
-    ***REMOVED***
+    }
 
     $.support.transition && $parent.hasClass('fade') ?
       $parent
         .one('bsTransitionEnd', removeElement)
         .emulateTransitionEnd(Alert.TRANSITION_DURATION) :
       removeElement()
-  ***REMOVED***
+  }
 
 
   // ALERT PLUGIN DEFINITION
@@ -68,8 +68,8 @@
 
       if (!data) $this.data('bs.alert', (data = new Alert(this)))
       if (typeof option == 'string') data[option].call($this)
-    ***REMOVED***)
-  ***REMOVED***
+    })
+  }
 
   var old = $.fn.alert
 
@@ -83,7 +83,7 @@
   $.fn.alert.noConflict = function () {
     $.fn.alert = old
     return this
-  ***REMOVED***
+  }
 
 
   // ALERT DATA-API
@@ -91,4 +91,4 @@
 
   $(document).on('click.bs.alert.data-api', dismiss, Alert.prototype.close)
 
-***REMOVED***(jQuery);
+}(jQuery);

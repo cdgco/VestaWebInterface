@@ -17,7 +17,7 @@
   var toggle   = '[data-toggle="dropdown"]'
   var Dropdown = function (element) {
     $(element).on('click.bs.dropdown', this.toggle)
-  ***REMOVED***
+  }
 
   Dropdown.VERSION = '3.3.6'
 
@@ -27,12 +27,12 @@
     if (!selector) {
       selector = $this.attr('href')
       selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
-    ***REMOVED***
+    }
 
     var $parent = selector && $(selector)
 
     return $parent && $parent.length ? $parent : $this.parent()
-  ***REMOVED***
+  }
 
   function clearMenus(e) {
     if (e && e.which === 3) return
@@ -40,7 +40,7 @@
     $(toggle).each(function () {
       var $this         = $(this)
       var $parent       = getParent($this)
-      var relatedTarget = { relatedTarget: this ***REMOVED***
+      var relatedTarget = { relatedTarget: this }
 
       if (!$parent.hasClass('open')) return
 
@@ -52,8 +52,8 @@
 
       $this.attr('aria-expanded', 'false')
       $parent.removeClass('open').trigger($.Event('hidden.bs.dropdown', relatedTarget))
-    ***REMOVED***)
-  ***REMOVED***
+    })
+  }
 
   Dropdown.prototype.toggle = function (e) {
     var $this = $(this)
@@ -72,9 +72,9 @@
           .addClass('dropdown-backdrop')
           .insertAfter($(this))
           .on('click', clearMenus)
-      ***REMOVED***
+      }
 
-      var relatedTarget = { relatedTarget: this ***REMOVED***
+      var relatedTarget = { relatedTarget: this }
       $parent.trigger(e = $.Event('show.bs.dropdown', relatedTarget))
 
       if (e.isDefaultPrevented()) return
@@ -86,10 +86,10 @@
       $parent
         .toggleClass('open')
         .trigger($.Event('shown.bs.dropdown', relatedTarget))
-    ***REMOVED***
+    }
 
     return false
-  ***REMOVED***
+  }
 
   Dropdown.prototype.keydown = function (e) {
     if (!/(38|40|27|32)/.test(e.which) || /input|textarea/i.test(e.target.tagName)) return
@@ -107,7 +107,7 @@
     if (!isActive && e.which != 27 || isActive && e.which == 27) {
       if (e.which == 27) $parent.find(toggle).trigger('focus')
       return $this.trigger('click')
-    ***REMOVED***
+    }
 
     var desc = ' li:not(.disabled):visible a'
     var $items = $parent.find('.dropdown-menu' + desc)
@@ -121,7 +121,7 @@
     if (!~index)                                    index = 0
 
     $items.eq(index).trigger('focus')
-  ***REMOVED***
+  }
 
 
   // DROPDOWN PLUGIN DEFINITION
@@ -134,8 +134,8 @@
 
       if (!data) $this.data('bs.dropdown', (data = new Dropdown(this)))
       if (typeof option == 'string') data[option].call($this)
-    ***REMOVED***)
-  ***REMOVED***
+    })
+  }
 
   var old = $.fn.dropdown
 
@@ -149,7 +149,7 @@
   $.fn.dropdown.noConflict = function () {
     $.fn.dropdown = old
     return this
-  ***REMOVED***
+  }
 
 
   // APPLY TO STANDARD DROPDOWN ELEMENTS
@@ -157,9 +157,9 @@
 
   $(document)
     .on('click.bs.dropdown.data-api', clearMenus)
-    .on('click.bs.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() ***REMOVED***)
+    .on('click.bs.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
     .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)
     .on('keydown.bs.dropdown.data-api', toggle, Dropdown.prototype.keydown)
     .on('keydown.bs.dropdown.data-api', '.dropdown-menu', Dropdown.prototype.keydown)
 
-***REMOVED***(jQuery);
+}(jQuery);

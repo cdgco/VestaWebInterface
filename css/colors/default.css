@@ -11,107 +11,107 @@
   position: fixed;
   z-index: 99999;
   background: #fff;
-***REMOVED***
+}
 .preloader .cssload-speeding-wheel {
   position: absolute;
   top: calc(50% - 3.5px);
   left: calc(50% - 3.5px);
-***REMOVED***
+}
 /*Just change your choise color here its theme Colors*/
 body {
   background: #2f323e;
-***REMOVED***
+}
 /*Top Header Part*/
 .logo i {
   color: #ffffff;
-***REMOVED***
+}
 .navbar-header {
   background: #ff9649;
-***REMOVED***
+}
 .navbar-top-links > li > a {
   color: #ffffff;
-***REMOVED***
+}
 /*Right panel*/
 .right-sidebar .rpanel-title {
   background: #ff9649;
-***REMOVED***
+}
 /*Bread Crumb*/
 .bg-title .breadcrumb .active {
   color: #ff9649;
-***REMOVED***
+}
 /*Sidebar*/
 .sidebar {
   background: #2f323e;
   box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
-***REMOVED***
+}
 .sidebar .label-custom {
   background: #01c0c8;
-***REMOVED***
+}
 #side-menu li a {
   color: #97999f;
-***REMOVED***
+}
 #side-menu li a {
   color: #97999f;
   border-left: 0px solid #2f323e;
-***REMOVED***
+}
 #side-menu > li > a:hover,
 #side-menu > li > a:focus {
   background: rgba(0, 0, 0, 0.07);
-***REMOVED***
+}
 #side-menu > li > a.active {
   background: #ff9649;
   color: #ffffff;
   font-weight: 500;
-***REMOVED***
+}
 #side-menu ul > li > a:hover {
   color: #ffffff;
-***REMOVED***
+}
 #side-menu ul > li > a.active {
   color: #ffffff;
   font-weight: 500;
-***REMOVED***
+}
 .user-profile .user-pro-body .u-dropdown {
   color: #97999f;
-***REMOVED***
+}
 /*themecolor*/
 .bg-theme {
   background-color: #707cd2 !important;
-***REMOVED***
+}
 .bg-theme-dark {
   background-color: #ff9649 !important;
-***REMOVED***
+}
 /*Button*/
 .btn-custom {
   background: #ff9649;
   border: 1px solid #ff9649;
   color: #ffffff;
-***REMOVED***
+}
 .btn-custom:hover {
   background: #ff9649;
   opacity: 0.8;
   color: #ffffff;
   border: 1px solid #ff9649;
-***REMOVED***
+}
 /*Custom tab*/
 .customtab li.active a,
 .customtab li.active a:hover,
 .customtab li.active a:focus {
   border-bottom: 2px solid #ff9649;
   color: #ff9649;
-***REMOVED***
+}
 .tabs-vertical li.active a,
 .tabs-vertical li.active a:hover,
 .tabs-vertical li.active a:focus {
   background: #ff9649;
   border-right: 2px solid #ff9649;
-***REMOVED***
+}
 /*Nav-pills*/
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:focus,
 .nav-pills > li.active > a:hover {
   background: #ff9649;
   color: #ffffff;
-***REMOVED***
+}
 /*Extra css*/
 .bg-theme,
 .fc-toolbar,
@@ -124,46 +124,46 @@ body {
 .fc th.fc-fri,
 .fc-button {
   background-color: #ff9649 !important;
-***REMOVED***
+}
 .bg-theme-alt {
   background-color: #2cabe3 !important;
-***REMOVED***
+}
 .table tbody tr.advance-table-row.active,
 .fc-button {
   border-color: #ff9649;
-***REMOVED***
+}
 .manage-users .tabs-style-iconbox nav {
   background: #ff9649;
-***REMOVED***
+}
 .manage-users .tabs-style-iconbox nav li.tab-current a {
   background: #ff9649;
-***REMOVED***
+}
 .manage-users .tabs-style-iconbox nav li.tab-current a:after {
   border-top-color: #ff9649;
-***REMOVED***
+}
 .panel-themecolor,
 .panel-theme {
   border-color: #ff9649;
-***REMOVED***
+}
 .panel-themecolor .panel-heading,
 .panel-theme .panel-heading {
   border-color: #ff9649;
   color: white;
   background-color: #ff9649;
-***REMOVED***
+}
 .panel-themecolor .panel-heading a,
 .panel-theme .panel-heading a {
   color: #ffffff;
-***REMOVED***
+}
 .panel-themecolor .panel-heading a:hover,
 .panel-theme .panel-heading a:hover {
   color: rgba(255, 255, 255, 0.5);
-***REMOVED***
+}
 .panel-themecolor a,
 .panel-theme a {
   color: #ff9649;
-***REMOVED***
+}
 .panel-themecolor a:hover,
 .panel-theme a:hover {
   color: #fc6a00;
-***REMOVED***
+}

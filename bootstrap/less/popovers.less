@@ -24,11 +24,11 @@
   .box-shadow(0 5px 10px rgba(0,0,0,.2));
 
   // Offset the popover to account for the popover arrow
-  &.top     { margin-top: -@popover-arrow-width; ***REMOVED***
-  &.right   { margin-left: @popover-arrow-width; ***REMOVED***
-  &.bottom  { margin-top: @popover-arrow-width; ***REMOVED***
-  &.left    { margin-left: -@popover-arrow-width; ***REMOVED***
-***REMOVED***
+  &.top     { margin-top: -@popover-arrow-width; }
+  &.right   { margin-left: @popover-arrow-width; }
+  &.bottom  { margin-top: @popover-arrow-width; }
+  &.left    { margin-left: -@popover-arrow-width; }
+}
 
 .popover-title {
   margin: 0; // reset heading margin
@@ -37,11 +37,11 @@
   background-color: @popover-title-bg;
   border-bottom: 1px solid darken(@popover-title-bg, 5%);
   border-radius: (@border-radius-large - 1) (@border-radius-large - 1) 0 0;
-***REMOVED***
+}
 
 .popover-content {
   padding: 9px 14px;
-***REMOVED***
+}
 
 // Arrows
 //
@@ -56,15 +56,15 @@
     height: 0;
     border-color: transparent;
     border-style: solid;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 .popover > .arrow {
   border-width: @popover-arrow-outer-width;
-***REMOVED***
+}
 .popover > .arrow:after {
   border-width: @popover-arrow-width;
   content: "";
-***REMOVED***
+}
 
 .popover {
   &.top > .arrow {
@@ -80,8 +80,8 @@
       margin-left: -@popover-arrow-width;
       border-bottom-width: 0;
       border-top-color: @popover-arrow-color;
-    ***REMOVED***
-  ***REMOVED***
+    }
+  }
   &.right > .arrow {
     top: 50%;
     left: -@popover-arrow-outer-width;
@@ -95,8 +95,8 @@
       bottom: -@popover-arrow-width;
       border-left-width: 0;
       border-right-color: @popover-arrow-color;
-    ***REMOVED***
-  ***REMOVED***
+    }
+  }
   &.bottom > .arrow {
     left: 50%;
     margin-left: -@popover-arrow-outer-width;
@@ -110,8 +110,8 @@
       margin-left: -@popover-arrow-width;
       border-top-width: 0;
       border-bottom-color: @popover-arrow-color;
-    ***REMOVED***
-  ***REMOVED***
+    }
+  }
 
   &.left > .arrow {
     top: 50%;
@@ -126,6 +126,6 @@
       border-right-width: 0;
       border-left-color: @popover-arrow-color;
       bottom: -@popover-arrow-width;
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
+    }
+  }
+}

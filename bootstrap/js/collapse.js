@@ -15,19 +15,19 @@
 
   var Collapse = function (element, options) {
     this.$element      = $(element)
-    this.options       = $.extend({***REMOVED***, Collapse.DEFAULTS, options)
+    this.options       = $.extend({}, Collapse.DEFAULTS, options)
     this.$trigger      = $('[data-toggle="collapse"][href="#' + element.id + '"],' +
                            '[data-toggle="collapse"][data-target="#' + element.id + '"]')
     this.transitioning = null
 
     if (this.options.parent) {
       this.$parent = this.getParent()
-    ***REMOVED*** else {
+    } else {
       this.addAriaAndCollapsedClass(this.$element, this.$trigger)
-    ***REMOVED***
+    }
 
     if (this.options.toggle) this.toggle()
-  ***REMOVED***
+  }
 
   Collapse.VERSION  = '3.3.6'
 
@@ -35,12 +35,12 @@
 
   Collapse.DEFAULTS = {
     toggle: true
-  ***REMOVED***
+  }
 
   Collapse.prototype.dimension = function () {
     var hasWidth = this.$element.hasClass('width')
     return hasWidth ? 'width' : 'height'
-  ***REMOVED***
+  }
 
   Collapse.prototype.show = function () {
     if (this.transitioning || this.$element.hasClass('in')) return
@@ -51,7 +51,7 @@
     if (actives && actives.length) {
       activesData = actives.data('bs.collapse')
       if (activesData && activesData.transitioning) return
-    ***REMOVED***
+    }
 
     var startEvent = $.Event('show.bs.collapse')
     this.$element.trigger(startEvent)
@@ -60,7 +60,7 @@
     if (actives && actives.length) {
       Plugin.call(actives, 'hide')
       activesData || actives.data('bs.collapse', null)
-    ***REMOVED***
+    }
 
     var dimension = this.dimension()
 
@@ -82,7 +82,7 @@
       this.transitioning = 0
       this.$element
         .trigger('shown.bs.collapse')
-    ***REMOVED***
+    }
 
     if (!$.support.transition) return complete.call(this)
 
@@ -91,7 +91,7 @@
     this.$element
       .one('bsTransitionEnd', $.proxy(complete, this))
       .emulateTransitionEnd(Collapse.TRANSITION_DURATION)[dimension](this.$element[0][scrollSize])
-  ***REMOVED***
+  }
 
   Collapse.prototype.hide = function () {
     if (this.transitioning || !this.$element.hasClass('in')) return
@@ -121,7 +121,7 @@
         .removeClass('collapsing')
         .addClass('collapse')
         .trigger('hidden.bs.collapse')
-    ***REMOVED***
+    }
 
     if (!$.support.transition) return complete.call(this)
 
@@ -129,11 +129,11 @@
       [dimension](0)
       .one('bsTransitionEnd', $.proxy(complete, this))
       .emulateTransitionEnd(Collapse.TRANSITION_DURATION)
-  ***REMOVED***
+  }
 
   Collapse.prototype.toggle = function () {
     this[this.$element.hasClass('in') ? 'hide' : 'show']()
-  ***REMOVED***
+  }
 
   Collapse.prototype.getParent = function () {
     return $(this.options.parent)
@@ -141,9 +141,9 @@
       .each($.proxy(function (i, element) {
         var $element = $(element)
         this.addAriaAndCollapsedClass(getTargetFromTrigger($element), $element)
-      ***REMOVED***, this))
+      }, this))
       .end()
-  ***REMOVED***
+  }
 
   Collapse.prototype.addAriaAndCollapsedClass = function ($element, $trigger) {
     var isOpen = $element.hasClass('in')
@@ -152,7 +152,7 @@
     $trigger
       .toggleClass('collapsed', !isOpen)
       .attr('aria-expanded', isOpen)
-  ***REMOVED***
+  }
 
   function getTargetFromTrigger($trigger) {
     var href
@@ -160,7 +160,7 @@
       || (href = $trigger.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') // strip for ie7
 
     return $(target)
-  ***REMOVED***
+  }
 
 
   // COLLAPSE PLUGIN DEFINITION
@@ -170,13 +170,13 @@
     return this.each(function () {
       var $this   = $(this)
       var data    = $this.data('bs.collapse')
-      var options = $.extend({***REMOVED***, Collapse.DEFAULTS, $this.data(), typeof option == 'object' && option)
+      var options = $.extend({}, Collapse.DEFAULTS, $this.data(), typeof option == 'object' && option)
 
       if (!data && options.toggle && /show|hide/.test(option)) options.toggle = false
       if (!data) $this.data('bs.collapse', (data = new Collapse(this, options)))
       if (typeof option == 'string') data[option]()
-    ***REMOVED***)
-  ***REMOVED***
+    })
+  }
 
   var old = $.fn.collapse
 
@@ -190,7 +190,7 @@
   $.fn.collapse.noConflict = function () {
     $.fn.collapse = old
     return this
-  ***REMOVED***
+  }
 
 
   // COLLAPSE DATA-API
@@ -206,6 +206,6 @@
     var option  = data ? 'toggle' : $this.data()
 
     Plugin.call($target, option)
-  ***REMOVED***)
+  })
 
-***REMOVED***(jQuery);
+}(jQuery);

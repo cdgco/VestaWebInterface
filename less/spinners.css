@@ -2,36 +2,36 @@
   0% {
     -moz-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
+  }
   100% {
     -moz-transform: rotate(360deg);
     transform: rotate(360deg);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-webkit-keyframes spinner-loader {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
+  }
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @keyframes spinner-loader {
   0% {
     -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
+  }
   100% {
     -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 /* :not(:required) hides this rule from IE9 and below */
 .spinner-loader:not(:required) {
   -moz-animation: spinner-loader 1500ms infinite linear;
@@ -50,42 +50,42 @@
   margin: 1.5em;
   overflow: hidden;
   text-indent: 100%;
-***REMOVED***
+}
 
 @-moz-keyframes refreshing-loader {
   0% {
     -moz-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
+  }
   100% {
     -moz-transform: rotate(360deg);
     transform: rotate(360deg);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-webkit-keyframes refreshing-loader {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
+  }
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @keyframes refreshing-loader {
   0% {
     -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
+  }
   100% {
     -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 /* :not(:required) hides this rule from IE9 and below */
 .refreshing-loader:not(:required) {
   -moz-animation: refreshing-loader 1000ms infinite linear;
@@ -103,7 +103,7 @@
   width: 3em;
   height: 3em;
   text-indent: 100%;
-***REMOVED***
+}
 .refreshing-loader:not(:required):after {
   display: block;
   border: 0.5em solid transparent;
@@ -115,41 +115,41 @@
   overflow: hidden;
   margin-left: -0.2em;
   margin-top: 1em;
-***REMOVED***
+}
 
 @-moz-keyframes throbber-loader {
   0% {
     background: #dde2e7;
-  ***REMOVED***
+  }
   10% {
     background: #6b9dc8;
-  ***REMOVED***
+  }
   40% {
     background: #dde2e7;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-webkit-keyframes throbber-loader {
   0% {
     background: #dde2e7;
-  ***REMOVED***
+  }
   10% {
     background: #6b9dc8;
-  ***REMOVED***
+  }
   40% {
     background: #dde2e7;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @keyframes throbber-loader {
   0% {
     background: #dde2e7;
-  ***REMOVED***
+  }
   10% {
     background: #6b9dc8;
-  ***REMOVED***
+  }
   40% {
     background: #dde2e7;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 /* :not(:required) hides these rules from IE9 and below */
 .throbber-loader:not(:required) {
   -moz-animation: throbber-loader 2000ms 300ms infinite ease-out;
@@ -162,7 +162,7 @@
   width: 0.9em;
   height: 1.5em;
   margin: 0 1.6em;
-***REMOVED***
+}
 .throbber-loader:not(:required):before, .throbber-loader:not(:required):after {
   background: #dde2e7;
   content: '\x200B';
@@ -171,96 +171,96 @@
   height: 1.5em;
   position: absolute;
   top: 0;
-***REMOVED***
+}
 .throbber-loader:not(:required):before {
   -moz-animation: throbber-loader 2000ms 150ms infinite ease-out;
   -webkit-animation: throbber-loader 2000ms 150ms infinite ease-out;
   animation: throbber-loader 2000ms 150ms infinite ease-out;
   left: -1.6em;
-***REMOVED***
+}
 .throbber-loader:not(:required):after {
   -moz-animation: throbber-loader 2000ms 450ms infinite ease-out;
   -webkit-animation: throbber-loader 2000ms 450ms infinite ease-out;
   animation: throbber-loader 2000ms 450ms infinite ease-out;
   right: -1.6em;
-***REMOVED***
+}
 
 @-moz-keyframes heartbeat-loader {
   0% {
     -moz-transform: rotate(45deg) scale(1);
     transform: rotate(45deg) scale(1);
-  ***REMOVED***
+  }
   14% {
     -moz-transform: rotate(45deg) scale(1.3);
     transform: rotate(45deg) scale(1.3);
-  ***REMOVED***
+  }
   28% {
     -moz-transform: rotate(45deg) scale(1);
     transform: rotate(45deg) scale(1);
-  ***REMOVED***
+  }
   42% {
     -moz-transform: rotate(45deg) scale(1.3);
     transform: rotate(45deg) scale(1.3);
-  ***REMOVED***
+  }
   70% {
     -moz-transform: rotate(45deg) scale(1);
     transform: rotate(45deg) scale(1);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-webkit-keyframes heartbeat-loader {
   0% {
     -webkit-transform: rotate(45deg) scale(1);
     transform: rotate(45deg) scale(1);
-  ***REMOVED***
+  }
   14% {
     -webkit-transform: rotate(45deg) scale(1.3);
     transform: rotate(45deg) scale(1.3);
-  ***REMOVED***
+  }
   28% {
     -webkit-transform: rotate(45deg) scale(1);
     transform: rotate(45deg) scale(1);
-  ***REMOVED***
+  }
   42% {
     -webkit-transform: rotate(45deg) scale(1.3);
     transform: rotate(45deg) scale(1.3);
-  ***REMOVED***
+  }
   70% {
     -webkit-transform: rotate(45deg) scale(1);
     transform: rotate(45deg) scale(1);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @keyframes heartbeat-loader {
   0% {
     -moz-transform: rotate(45deg) scale(1);
     -ms-transform: rotate(45deg) scale(1);
     -webkit-transform: rotate(45deg) scale(1);
     transform: rotate(45deg) scale(1);
-  ***REMOVED***
+  }
   14% {
     -moz-transform: rotate(45deg) scale(1.3);
     -ms-transform: rotate(45deg) scale(1.3);
     -webkit-transform: rotate(45deg) scale(1.3);
     transform: rotate(45deg) scale(1.3);
-  ***REMOVED***
+  }
   28% {
     -moz-transform: rotate(45deg) scale(1);
     -ms-transform: rotate(45deg) scale(1);
     -webkit-transform: rotate(45deg) scale(1);
     transform: rotate(45deg) scale(1);
-  ***REMOVED***
+  }
   42% {
     -moz-transform: rotate(45deg) scale(1.3);
     -ms-transform: rotate(45deg) scale(1.3);
     -webkit-transform: rotate(45deg) scale(1.3);
     transform: rotate(45deg) scale(1.3);
-  ***REMOVED***
+  }
   70% {
     -moz-transform: rotate(45deg) scale(1);
     -ms-transform: rotate(45deg) scale(1);
     -webkit-transform: rotate(45deg) scale(1);
     transform: rotate(45deg) scale(1);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 /* :not(:required) hides this rule from IE9 and below */
 .heartbeat-loader:not(:required) {
   -moz-animation: heartbeat-loader 1300ms ease 0s infinite normal;
@@ -280,12 +280,12 @@
   -ms-transform-origin: 50% 50%;
   -webkit-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-***REMOVED***
+}
 .heartbeat-loader:not(:required):after, .heartbeat-loader:not(:required):before {
   position: absolute;
   content: "";
   background: #e87;
-***REMOVED***
+}
 .heartbeat-loader:not(:required):before {
   -moz-border-radius-topleft: 12px;
   -webkit-border-top-left-radius: 12px;
@@ -297,7 +297,7 @@
   left: 0;
   width: 36px;
   height: 24px;
-***REMOVED***
+}
 .heartbeat-loader:not(:required):after {
   -moz-border-radius-topleft: 12px;
   -webkit-border-top-left-radius: 12px;
@@ -309,238 +309,238 @@
   left: 12px;
   width: 24px;
   height: 12px;
-***REMOVED***
+}
 
 @-moz-keyframes gauge-loader {
   0% {
     -moz-transform: rotate(-50deg);
     transform: rotate(-50deg);
-  ***REMOVED***
+  }
   10% {
     -moz-transform: rotate(20deg);
     transform: rotate(20deg);
-  ***REMOVED***
+  }
   20% {
     -moz-transform: rotate(60deg);
     transform: rotate(60deg);
-  ***REMOVED***
+  }
   24% {
     -moz-transform: rotate(60deg);
     transform: rotate(60deg);
-  ***REMOVED***
+  }
   40% {
     -moz-transform: rotate(-20deg);
     transform: rotate(-20deg);
-  ***REMOVED***
+  }
   54% {
     -moz-transform: rotate(70deg);
     transform: rotate(70deg);
-  ***REMOVED***
+  }
   56% {
     -moz-transform: rotate(78deg);
     transform: rotate(78deg);
-  ***REMOVED***
+  }
   58% {
     -moz-transform: rotate(73deg);
     transform: rotate(73deg);
-  ***REMOVED***
+  }
   60% {
     -moz-transform: rotate(75deg);
     transform: rotate(75deg);
-  ***REMOVED***
+  }
   62% {
     -moz-transform: rotate(70deg);
     transform: rotate(70deg);
-  ***REMOVED***
+  }
   70% {
     -moz-transform: rotate(-20deg);
     transform: rotate(-20deg);
-  ***REMOVED***
+  }
   80% {
     -moz-transform: rotate(20deg);
     transform: rotate(20deg);
-  ***REMOVED***
+  }
   83% {
     -moz-transform: rotate(25deg);
     transform: rotate(25deg);
-  ***REMOVED***
+  }
   86% {
     -moz-transform: rotate(20deg);
     transform: rotate(20deg);
-  ***REMOVED***
+  }
   89% {
     -moz-transform: rotate(25deg);
     transform: rotate(25deg);
-  ***REMOVED***
+  }
   100% {
     -moz-transform: rotate(-50deg);
     transform: rotate(-50deg);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-webkit-keyframes gauge-loader {
   0% {
     -webkit-transform: rotate(-50deg);
     transform: rotate(-50deg);
-  ***REMOVED***
+  }
   10% {
     -webkit-transform: rotate(20deg);
     transform: rotate(20deg);
-  ***REMOVED***
+  }
   20% {
     -webkit-transform: rotate(60deg);
     transform: rotate(60deg);
-  ***REMOVED***
+  }
   24% {
     -webkit-transform: rotate(60deg);
     transform: rotate(60deg);
-  ***REMOVED***
+  }
   40% {
     -webkit-transform: rotate(-20deg);
     transform: rotate(-20deg);
-  ***REMOVED***
+  }
   54% {
     -webkit-transform: rotate(70deg);
     transform: rotate(70deg);
-  ***REMOVED***
+  }
   56% {
     -webkit-transform: rotate(78deg);
     transform: rotate(78deg);
-  ***REMOVED***
+  }
   58% {
     -webkit-transform: rotate(73deg);
     transform: rotate(73deg);
-  ***REMOVED***
+  }
   60% {
     -webkit-transform: rotate(75deg);
     transform: rotate(75deg);
-  ***REMOVED***
+  }
   62% {
     -webkit-transform: rotate(70deg);
     transform: rotate(70deg);
-  ***REMOVED***
+  }
   70% {
     -webkit-transform: rotate(-20deg);
     transform: rotate(-20deg);
-  ***REMOVED***
+  }
   80% {
     -webkit-transform: rotate(20deg);
     transform: rotate(20deg);
-  ***REMOVED***
+  }
   83% {
     -webkit-transform: rotate(25deg);
     transform: rotate(25deg);
-  ***REMOVED***
+  }
   86% {
     -webkit-transform: rotate(20deg);
     transform: rotate(20deg);
-  ***REMOVED***
+  }
   89% {
     -webkit-transform: rotate(25deg);
     transform: rotate(25deg);
-  ***REMOVED***
+  }
   100% {
     -webkit-transform: rotate(-50deg);
     transform: rotate(-50deg);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @keyframes gauge-loader {
   0% {
     -moz-transform: rotate(-50deg);
     -ms-transform: rotate(-50deg);
     -webkit-transform: rotate(-50deg);
     transform: rotate(-50deg);
-  ***REMOVED***
+  }
   10% {
     -moz-transform: rotate(20deg);
     -ms-transform: rotate(20deg);
     -webkit-transform: rotate(20deg);
     transform: rotate(20deg);
-  ***REMOVED***
+  }
   20% {
     -moz-transform: rotate(60deg);
     -ms-transform: rotate(60deg);
     -webkit-transform: rotate(60deg);
     transform: rotate(60deg);
-  ***REMOVED***
+  }
   24% {
     -moz-transform: rotate(60deg);
     -ms-transform: rotate(60deg);
     -webkit-transform: rotate(60deg);
     transform: rotate(60deg);
-  ***REMOVED***
+  }
   40% {
     -moz-transform: rotate(-20deg);
     -ms-transform: rotate(-20deg);
     -webkit-transform: rotate(-20deg);
     transform: rotate(-20deg);
-  ***REMOVED***
+  }
   54% {
     -moz-transform: rotate(70deg);
     -ms-transform: rotate(70deg);
     -webkit-transform: rotate(70deg);
     transform: rotate(70deg);
-  ***REMOVED***
+  }
   56% {
     -moz-transform: rotate(78deg);
     -ms-transform: rotate(78deg);
     -webkit-transform: rotate(78deg);
     transform: rotate(78deg);
-  ***REMOVED***
+  }
   58% {
     -moz-transform: rotate(73deg);
     -ms-transform: rotate(73deg);
     -webkit-transform: rotate(73deg);
     transform: rotate(73deg);
-  ***REMOVED***
+  }
   60% {
     -moz-transform: rotate(75deg);
     -ms-transform: rotate(75deg);
     -webkit-transform: rotate(75deg);
     transform: rotate(75deg);
-  ***REMOVED***
+  }
   62% {
     -moz-transform: rotate(70deg);
     -ms-transform: rotate(70deg);
     -webkit-transform: rotate(70deg);
     transform: rotate(70deg);
-  ***REMOVED***
+  }
   70% {
     -moz-transform: rotate(-20deg);
     -ms-transform: rotate(-20deg);
     -webkit-transform: rotate(-20deg);
     transform: rotate(-20deg);
-  ***REMOVED***
+  }
   80% {
     -moz-transform: rotate(20deg);
     -ms-transform: rotate(20deg);
     -webkit-transform: rotate(20deg);
     transform: rotate(20deg);
-  ***REMOVED***
+  }
   83% {
     -moz-transform: rotate(25deg);
     -ms-transform: rotate(25deg);
     -webkit-transform: rotate(25deg);
     transform: rotate(25deg);
-  ***REMOVED***
+  }
   86% {
     -moz-transform: rotate(20deg);
     -ms-transform: rotate(20deg);
     -webkit-transform: rotate(20deg);
     transform: rotate(20deg);
-  ***REMOVED***
+  }
   89% {
     -moz-transform: rotate(25deg);
     -ms-transform: rotate(25deg);
     -webkit-transform: rotate(25deg);
     transform: rotate(25deg);
-  ***REMOVED***
+  }
   100% {
     -moz-transform: rotate(-50deg);
     -ms-transform: rotate(-50deg);
     -webkit-transform: rotate(-50deg);
     transform: rotate(-50deg);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 /* :not(:required) hides this rule from IE9 and below */
 .gauge-loader:not(:required) {
   background: #6ca;
@@ -556,7 +556,7 @@
   overflow: hidden;
   position: relative;
   text-indent: -9999px;
-***REMOVED***
+}
 .gauge-loader:not(:required)::before {
   -moz-animation: gauge-loader 4000ms infinite ease;
   -webkit-animation: gauge-loader 4000ms infinite ease;
@@ -575,7 +575,7 @@
   -ms-transform-origin: 50% 100%;
   -webkit-transform-origin: 50% 100%;
   transform-origin: 50% 100%;
-***REMOVED***
+}
 .gauge-loader:not(:required)::after {
   content: '';
   background: white;
@@ -587,42 +587,42 @@
   top: 25.6px;
   width: 12.8px;
   height: 12.8px;
-***REMOVED***
+}
 
 @-moz-keyframes timer-loader {
   0% {
     -moz-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
+  }
   100% {
     -moz-transform: rotate(360deg);
     transform: rotate(360deg);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-webkit-keyframes timer-loader {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
+  }
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @keyframes timer-loader {
   0% {
     -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
+  }
   100% {
     -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 /* :not(:required) hides this rule from IE9 and below */
 .timer-loader:not(:required) {
   border: 6px solid #c8d;
@@ -638,7 +638,7 @@
   text-indent: -9999px;
   width: 48px;
   height: 48px;
-***REMOVED***
+}
 .timer-loader:not(:required)::before {
   -moz-animation: timer-loader 1250ms infinite linear;
   -webkit-animation: timer-loader 1250ms infinite linear;
@@ -658,7 +658,7 @@
   height: 19.2px;
   left: 15px;
   top: 15px;
-***REMOVED***
+}
 .timer-loader:not(:required)::after {
   -moz-animation: timer-loader 15000ms infinite linear;
   -webkit-animation: timer-loader 15000ms infinite linear;
@@ -678,42 +678,42 @@
   height: 16px;
   left: 15px;
   top: 15px;
-***REMOVED***
+}
 
 @-moz-keyframes three-quarters-loader {
   0% {
     -moz-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
+  }
   100% {
     -moz-transform: rotate(360deg);
     transform: rotate(360deg);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-webkit-keyframes three-quarters-loader {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
+  }
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @keyframes three-quarters-loader {
   0% {
     -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
+  }
   100% {
     -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 /* :not(:required) hides this rule from IE9 and below */
 .three-quarters-loader:not(:required) {
   -moz-animation: three-quarters-loader 1250ms infinite linear;
@@ -729,248 +729,248 @@
   text-indent: -9999px;
   width: 32px;
   height: 32px;
-***REMOVED***
+}
 
 @-moz-keyframes wobblebar-loader {
   0% {
     left: 4px;
-  ***REMOVED***
+  }
   3% {
     left: 104px;
-  ***REMOVED***
+  }
   6% {
     left: 4px;
-  ***REMOVED***
+  }
   9% {
     left: 104px;
-  ***REMOVED***
+  }
   12% {
     left: 4px;
-  ***REMOVED***
+  }
   15% {
     left: 104px;
-  ***REMOVED***
+  }
   18% {
     left: 32px;
-  ***REMOVED***
+  }
   27% {
     left: 32px;
-  ***REMOVED***
+  }
   30% {
     left: 104px;
-  ***REMOVED***
+  }
   33% {
     left: 4px;
-  ***REMOVED***
+  }
   36% {
     left: 104px;
-  ***REMOVED***
+  }
   39% {
     left: 4px;
-  ***REMOVED***
+  }
   42% {
     left: 104px;
-  ***REMOVED***
+  }
   45% {
     left: 4px;
-  ***REMOVED***
+  }
   48% {
     left: 104px;
-  ***REMOVED***
+  }
   51% {
     left: 52px;
-  ***REMOVED***
+  }
   63% {
     left: 52px;
-  ***REMOVED***
+  }
   66% {
     left: 4px;
-  ***REMOVED***
+  }
   69% {
     left: 104px;
-  ***REMOVED***
+  }
   72% {
     left: 4px;
-  ***REMOVED***
+  }
   75% {
     left: 104px;
-  ***REMOVED***
+  }
   78% {
     left: 4px;
-  ***REMOVED***
+  }
   81% {
     left: 104px;
-  ***REMOVED***
+  }
   84% {
     left: 72px;
-  ***REMOVED***
+  }
   94% {
     left: 72px;
-  ***REMOVED***
+  }
   97% {
     left: 104px;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-webkit-keyframes wobblebar-loader {
   0% {
     left: 4px;
-  ***REMOVED***
+  }
   3% {
     left: 104px;
-  ***REMOVED***
+  }
   6% {
     left: 4px;
-  ***REMOVED***
+  }
   9% {
     left: 104px;
-  ***REMOVED***
+  }
   12% {
     left: 4px;
-  ***REMOVED***
+  }
   15% {
     left: 104px;
-  ***REMOVED***
+  }
   18% {
     left: 32px;
-  ***REMOVED***
+  }
   27% {
     left: 32px;
-  ***REMOVED***
+  }
   30% {
     left: 104px;
-  ***REMOVED***
+  }
   33% {
     left: 4px;
-  ***REMOVED***
+  }
   36% {
     left: 104px;
-  ***REMOVED***
+  }
   39% {
     left: 4px;
-  ***REMOVED***
+  }
   42% {
     left: 104px;
-  ***REMOVED***
+  }
   45% {
     left: 4px;
-  ***REMOVED***
+  }
   48% {
     left: 104px;
-  ***REMOVED***
+  }
   51% {
     left: 52px;
-  ***REMOVED***
+  }
   63% {
     left: 52px;
-  ***REMOVED***
+  }
   66% {
     left: 4px;
-  ***REMOVED***
+  }
   69% {
     left: 104px;
-  ***REMOVED***
+  }
   72% {
     left: 4px;
-  ***REMOVED***
+  }
   75% {
     left: 104px;
-  ***REMOVED***
+  }
   78% {
     left: 4px;
-  ***REMOVED***
+  }
   81% {
     left: 104px;
-  ***REMOVED***
+  }
   84% {
     left: 72px;
-  ***REMOVED***
+  }
   94% {
     left: 72px;
-  ***REMOVED***
+  }
   97% {
     left: 104px;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @keyframes wobblebar-loader {
   0% {
     left: 4px;
-  ***REMOVED***
+  }
   3% {
     left: 104px;
-  ***REMOVED***
+  }
   6% {
     left: 4px;
-  ***REMOVED***
+  }
   9% {
     left: 104px;
-  ***REMOVED***
+  }
   12% {
     left: 4px;
-  ***REMOVED***
+  }
   15% {
     left: 104px;
-  ***REMOVED***
+  }
   18% {
     left: 32px;
-  ***REMOVED***
+  }
   27% {
     left: 32px;
-  ***REMOVED***
+  }
   30% {
     left: 104px;
-  ***REMOVED***
+  }
   33% {
     left: 4px;
-  ***REMOVED***
+  }
   36% {
     left: 104px;
-  ***REMOVED***
+  }
   39% {
     left: 4px;
-  ***REMOVED***
+  }
   42% {
     left: 104px;
-  ***REMOVED***
+  }
   45% {
     left: 4px;
-  ***REMOVED***
+  }
   48% {
     left: 104px;
-  ***REMOVED***
+  }
   51% {
     left: 52px;
-  ***REMOVED***
+  }
   63% {
     left: 52px;
-  ***REMOVED***
+  }
   66% {
     left: 4px;
-  ***REMOVED***
+  }
   69% {
     left: 104px;
-  ***REMOVED***
+  }
   72% {
     left: 4px;
-  ***REMOVED***
+  }
   75% {
     left: 104px;
-  ***REMOVED***
+  }
   78% {
     left: 4px;
-  ***REMOVED***
+  }
   81% {
     left: 104px;
-  ***REMOVED***
+  }
   84% {
     left: 72px;
-  ***REMOVED***
+  }
   94% {
     left: 72px;
-  ***REMOVED***
+  }
   97% {
     left: 104px;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 /* :not(:required) hides this rule from IE9 and below */
 .wobblebar-loader:not(:required) {
   background: #a9d;
@@ -983,7 +983,7 @@
   width: 128px;
   height: 21.33333px;
   position: relative;
-***REMOVED***
+}
 .wobblebar-loader:not(:required)::after {
   -moz-animation: wobblebar-loader 15000ms infinite ease;
   -webkit-animation: wobblebar-loader 15000ms infinite ease;
@@ -999,294 +999,294 @@
   left: 4px;
   width: 21.33333px;
   height: 14.22222px;
-***REMOVED***
+}
 
 @-moz-keyframes atebits-loader {
   0% {
     -moz-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
+  }
   3% {
     -moz-transform: rotate(90deg);
     transform: rotate(90deg);
-  ***REMOVED***
+  }
   10% {
     -moz-transform: rotate(90deg);
     transform: rotate(90deg);
-  ***REMOVED***
+  }
   13% {
     -moz-transform: rotate(180deg);
     transform: rotate(180deg);
-  ***REMOVED***
+  }
   20% {
     -moz-transform: rotate(180deg);
     transform: rotate(180deg);
-  ***REMOVED***
+  }
   23% {
     -moz-transform: rotate(90deg);
     transform: rotate(90deg);
-  ***REMOVED***
+  }
   30% {
     -moz-transform: rotate(90deg);
     transform: rotate(90deg);
-  ***REMOVED***
+  }
   33% {
     -moz-transform: rotate(180deg);
     transform: rotate(180deg);
-  ***REMOVED***
+  }
   40% {
     -moz-transform: rotate(180deg);
     transform: rotate(180deg);
-  ***REMOVED***
+  }
   43% {
     -moz-transform: rotate(270deg);
     transform: rotate(270deg);
-  ***REMOVED***
+  }
   50% {
     -moz-transform: rotate(270deg);
     transform: rotate(270deg);
-  ***REMOVED***
+  }
   53% {
     -moz-transform: rotate(180deg);
     transform: rotate(180deg);
-  ***REMOVED***
+  }
   60% {
     -moz-transform: rotate(180deg);
     transform: rotate(180deg);
-  ***REMOVED***
+  }
   63% {
     -moz-transform: rotate(90deg);
     transform: rotate(90deg);
-  ***REMOVED***
+  }
   70% {
     -moz-transform: rotate(90deg);
     transform: rotate(90deg);
-  ***REMOVED***
+  }
   73% {
     -moz-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
+  }
   80% {
     -moz-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
+  }
   83% {
     -moz-transform: rotate(-90deg);
     transform: rotate(-90deg);
-  ***REMOVED***
+  }
   90% {
     -moz-transform: rotate(-90deg);
     transform: rotate(-90deg);
-  ***REMOVED***
+  }
   93% {
     -moz-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-webkit-keyframes atebits-loader {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
+  }
   3% {
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
-  ***REMOVED***
+  }
   10% {
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
-  ***REMOVED***
+  }
   13% {
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
-  ***REMOVED***
+  }
   20% {
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
-  ***REMOVED***
+  }
   23% {
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
-  ***REMOVED***
+  }
   30% {
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
-  ***REMOVED***
+  }
   33% {
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
-  ***REMOVED***
+  }
   40% {
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
-  ***REMOVED***
+  }
   43% {
     -webkit-transform: rotate(270deg);
     transform: rotate(270deg);
-  ***REMOVED***
+  }
   50% {
     -webkit-transform: rotate(270deg);
     transform: rotate(270deg);
-  ***REMOVED***
+  }
   53% {
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
-  ***REMOVED***
+  }
   60% {
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
-  ***REMOVED***
+  }
   63% {
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
-  ***REMOVED***
+  }
   70% {
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
-  ***REMOVED***
+  }
   73% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
+  }
   80% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
+  }
   83% {
     -webkit-transform: rotate(-90deg);
     transform: rotate(-90deg);
-  ***REMOVED***
+  }
   90% {
     -webkit-transform: rotate(-90deg);
     transform: rotate(-90deg);
-  ***REMOVED***
+  }
   93% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @keyframes atebits-loader {
   0% {
     -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
+  }
   3% {
     -moz-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
-  ***REMOVED***
+  }
   10% {
     -moz-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
-  ***REMOVED***
+  }
   13% {
     -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
-  ***REMOVED***
+  }
   20% {
     -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
-  ***REMOVED***
+  }
   23% {
     -moz-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
-  ***REMOVED***
+  }
   30% {
     -moz-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
-  ***REMOVED***
+  }
   33% {
     -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
-  ***REMOVED***
+  }
   40% {
     -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
-  ***REMOVED***
+  }
   43% {
     -moz-transform: rotate(270deg);
     -ms-transform: rotate(270deg);
     -webkit-transform: rotate(270deg);
     transform: rotate(270deg);
-  ***REMOVED***
+  }
   50% {
     -moz-transform: rotate(270deg);
     -ms-transform: rotate(270deg);
     -webkit-transform: rotate(270deg);
     transform: rotate(270deg);
-  ***REMOVED***
+  }
   53% {
     -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
-  ***REMOVED***
+  }
   60% {
     -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
-  ***REMOVED***
+  }
   63% {
     -moz-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
-  ***REMOVED***
+  }
   70% {
     -moz-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
-  ***REMOVED***
+  }
   73% {
     -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
+  }
   80% {
     -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
+  }
   83% {
     -moz-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
     -webkit-transform: rotate(-90deg);
     transform: rotate(-90deg);
-  ***REMOVED***
+  }
   90% {
     -moz-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
     -webkit-transform: rotate(-90deg);
     transform: rotate(-90deg);
-  ***REMOVED***
+  }
   93% {
     -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 /* :not(:required) hides this rule from IE9 and below */
 .atebits-loader:not(:required) {
   background: rgba(0, 0, 0, 0.5);
@@ -1306,42 +1306,42 @@
   -ms-transform-origin: 50% 50%;
   -webkit-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-***REMOVED***
+}
 
 @-moz-keyframes whirly-loader {
   0% {
     -moz-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
+  }
   100% {
     -moz-transform: rotate(360deg);
     transform: rotate(360deg);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-webkit-keyframes whirly-loader {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
+  }
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @keyframes whirly-loader {
   0% {
     -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
+  }
   100% {
     -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 /* :not(:required) hides this rule from IE9 and below */
 .whirly-loader:not(:required) {
   overflow: hidden;
@@ -1364,7 +1364,7 @@
   -ms-transform-origin: 50% 50%;
   -webkit-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-***REMOVED***
+}
 
 @-moz-keyframes flower-loader {
   0% {
@@ -1372,28 +1372,28 @@
     transform: rotate(0deg);
     -moz-box-shadow: white 0 0 15px 0, #fd8 -12px -12px 0 4px, #fd8 12px -12px 0 4px, #fd8 12px 12px 0 4px, #fd8 -12px 12px 0 4px;
     box-shadow: white 0 0 15px 0, #fd8 -12px -12px 0 4px, #fd8 12px -12px 0 4px, #fd8 12px 12px 0 4px, #fd8 -12px 12px 0 4px;
-  ***REMOVED***
+  }
   50% {
     -moz-transform: rotate(1080deg);
     transform: rotate(1080deg);
     -moz-box-shadow: white 0 0 15px 0, #fd8 12px 12px 0 4px, #fd8 -12px 12px 0 4px, #fd8 -12px -12px 0 4px, #fd8 12px -12px 0 4px;
     box-shadow: white 0 0 15px 0, #fd8 12px 12px 0 4px, #fd8 -12px 12px 0 4px, #fd8 -12px -12px 0 4px, #fd8 12px -12px 0 4px;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-webkit-keyframes flower-loader {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
     -webkit-box-shadow: white 0 0 15px 0, #fd8 -12px -12px 0 4px, #fd8 12px -12px 0 4px, #fd8 12px 12px 0 4px, #fd8 -12px 12px 0 4px;
     box-shadow: white 0 0 15px 0, #fd8 -12px -12px 0 4px, #fd8 12px -12px 0 4px, #fd8 12px 12px 0 4px, #fd8 -12px 12px 0 4px;
-  ***REMOVED***
+  }
   50% {
     -webkit-transform: rotate(1080deg);
     transform: rotate(1080deg);
     -webkit-box-shadow: white 0 0 15px 0, #fd8 12px 12px 0 4px, #fd8 -12px 12px 0 4px, #fd8 -12px -12px 0 4px, #fd8 12px -12px 0 4px;
     box-shadow: white 0 0 15px 0, #fd8 12px 12px 0 4px, #fd8 -12px 12px 0 4px, #fd8 -12px -12px 0 4px, #fd8 12px -12px 0 4px;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @keyframes flower-loader {
   0% {
     -moz-transform: rotate(0deg);
@@ -1403,7 +1403,7 @@
     -moz-box-shadow: white 0 0 15px 0, #fd8 -12px -12px 0 4px, #fd8 12px -12px 0 4px, #fd8 12px 12px 0 4px, #fd8 -12px 12px 0 4px;
     -webkit-box-shadow: white 0 0 15px 0, #fd8 -12px -12px 0 4px, #fd8 12px -12px 0 4px, #fd8 12px 12px 0 4px, #fd8 -12px 12px 0 4px;
     box-shadow: white 0 0 15px 0, #fd8 -12px -12px 0 4px, #fd8 12px -12px 0 4px, #fd8 12px 12px 0 4px, #fd8 -12px 12px 0 4px;
-  ***REMOVED***
+  }
   50% {
     -moz-transform: rotate(1080deg);
     -ms-transform: rotate(1080deg);
@@ -1412,8 +1412,8 @@
     -moz-box-shadow: white 0 0 15px 0, #fd8 12px 12px 0 4px, #fd8 -12px 12px 0 4px, #fd8 -12px -12px 0 4px, #fd8 12px -12px 0 4px;
     -webkit-box-shadow: white 0 0 15px 0, #fd8 12px 12px 0 4px, #fd8 -12px 12px 0 4px, #fd8 -12px -12px 0 4px, #fd8 12px -12px 0 4px;
     box-shadow: white 0 0 15px 0, #fd8 12px 12px 0 4px, #fd8 -12px 12px 0 4px, #fd8 -12px -12px 0 4px, #fd8 12px -12px 0 4px;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 /* :not(:required) hides this rule from IE9 and below */
 .flower-loader:not(:required) {
   overflow: hidden;
@@ -1434,183 +1434,183 @@
   -ms-transform-origin: 50% 50%;
   -webkit-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-***REMOVED***
+}
 
 @-moz-keyframes dots-loader {
   0% {
     -moz-box-shadow: #f86 -14px -14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
     box-shadow: #f86 -14px -14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
-  ***REMOVED***
+  }
   8.33% {
     -moz-box-shadow: #f86 14px -14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
     box-shadow: #f86 14px -14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
-  ***REMOVED***
+  }
   16.67% {
     -moz-box-shadow: #f86 14px 14px 0 7px, #fc6 14px 14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
     box-shadow: #f86 14px 14px 0 7px, #fc6 14px 14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
-  ***REMOVED***
+  }
   25% {
     -moz-box-shadow: #f86 -14px 14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px 14px 0 7px, #4ae -14px 14px 0 7px;
     box-shadow: #f86 -14px 14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px 14px 0 7px, #4ae -14px 14px 0 7px;
-  ***REMOVED***
+  }
   33.33% {
     -moz-box-shadow: #f86 -14px -14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px -14px 0 7px, #4ae -14px -14px 0 7px;
     box-shadow: #f86 -14px -14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px -14px 0 7px, #4ae -14px -14px 0 7px;
-  ***REMOVED***
+  }
   41.67% {
     -moz-box-shadow: #f86 14px -14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px -14px 0 7px, #4ae 14px -14px 0 7px;
     box-shadow: #f86 14px -14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px -14px 0 7px, #4ae 14px -14px 0 7px;
-  ***REMOVED***
+  }
   50% {
     -moz-box-shadow: #f86 14px 14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px -14px 0 7px, #4ae 14px -14px 0 7px;
     box-shadow: #f86 14px 14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px -14px 0 7px, #4ae 14px -14px 0 7px;
-  ***REMOVED***
+  }
   58.33% {
     -moz-box-shadow: #f86 -14px 14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px -14px 0 7px, #4ae 14px -14px 0 7px;
     box-shadow: #f86 -14px 14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px -14px 0 7px, #4ae 14px -14px 0 7px;
-  ***REMOVED***
+  }
   66.67% {
     -moz-box-shadow: #f86 -14px -14px 0 7px, #fc6 -14px -14px 0 7px, #6d7 -14px -14px 0 7px, #4ae 14px -14px 0 7px;
     box-shadow: #f86 -14px -14px 0 7px, #fc6 -14px -14px 0 7px, #6d7 -14px -14px 0 7px, #4ae 14px -14px 0 7px;
-  ***REMOVED***
+  }
   75% {
     -moz-box-shadow: #f86 14px -14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px -14px 0 7px, #4ae 14px -14px 0 7px;
     box-shadow: #f86 14px -14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px -14px 0 7px, #4ae 14px -14px 0 7px;
-  ***REMOVED***
+  }
   83.33% {
     -moz-box-shadow: #f86 14px 14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae 14px 14px 0 7px;
     box-shadow: #f86 14px 14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae 14px 14px 0 7px;
-  ***REMOVED***
+  }
   91.67% {
     -moz-box-shadow: #f86 -14px 14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
     box-shadow: #f86 -14px 14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
-  ***REMOVED***
+  }
   100% {
     -moz-box-shadow: #f86 -14px -14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
     box-shadow: #f86 -14px -14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-webkit-keyframes dots-loader {
   0% {
     -webkit-box-shadow: #f86 -14px -14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
     box-shadow: #f86 -14px -14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
-  ***REMOVED***
+  }
   8.33% {
     -webkit-box-shadow: #f86 14px -14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
     box-shadow: #f86 14px -14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
-  ***REMOVED***
+  }
   16.67% {
     -webkit-box-shadow: #f86 14px 14px 0 7px, #fc6 14px 14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
     box-shadow: #f86 14px 14px 0 7px, #fc6 14px 14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
-  ***REMOVED***
+  }
   25% {
     -webkit-box-shadow: #f86 -14px 14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px 14px 0 7px, #4ae -14px 14px 0 7px;
     box-shadow: #f86 -14px 14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px 14px 0 7px, #4ae -14px 14px 0 7px;
-  ***REMOVED***
+  }
   33.33% {
     -webkit-box-shadow: #f86 -14px -14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px -14px 0 7px, #4ae -14px -14px 0 7px;
     box-shadow: #f86 -14px -14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px -14px 0 7px, #4ae -14px -14px 0 7px;
-  ***REMOVED***
+  }
   41.67% {
     -webkit-box-shadow: #f86 14px -14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px -14px 0 7px, #4ae 14px -14px 0 7px;
     box-shadow: #f86 14px -14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px -14px 0 7px, #4ae 14px -14px 0 7px;
-  ***REMOVED***
+  }
   50% {
     -webkit-box-shadow: #f86 14px 14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px -14px 0 7px, #4ae 14px -14px 0 7px;
     box-shadow: #f86 14px 14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px -14px 0 7px, #4ae 14px -14px 0 7px;
-  ***REMOVED***
+  }
   58.33% {
     -webkit-box-shadow: #f86 -14px 14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px -14px 0 7px, #4ae 14px -14px 0 7px;
     box-shadow: #f86 -14px 14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px -14px 0 7px, #4ae 14px -14px 0 7px;
-  ***REMOVED***
+  }
   66.67% {
     -webkit-box-shadow: #f86 -14px -14px 0 7px, #fc6 -14px -14px 0 7px, #6d7 -14px -14px 0 7px, #4ae 14px -14px 0 7px;
     box-shadow: #f86 -14px -14px 0 7px, #fc6 -14px -14px 0 7px, #6d7 -14px -14px 0 7px, #4ae 14px -14px 0 7px;
-  ***REMOVED***
+  }
   75% {
     -webkit-box-shadow: #f86 14px -14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px -14px 0 7px, #4ae 14px -14px 0 7px;
     box-shadow: #f86 14px -14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px -14px 0 7px, #4ae 14px -14px 0 7px;
-  ***REMOVED***
+  }
   83.33% {
     -webkit-box-shadow: #f86 14px 14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae 14px 14px 0 7px;
     box-shadow: #f86 14px 14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae 14px 14px 0 7px;
-  ***REMOVED***
+  }
   91.67% {
     -webkit-box-shadow: #f86 -14px 14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
     box-shadow: #f86 -14px 14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
-  ***REMOVED***
+  }
   100% {
     -webkit-box-shadow: #f86 -14px -14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
     box-shadow: #f86 -14px -14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @keyframes dots-loader {
   0% {
     -moz-box-shadow: #f86 -14px -14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
     -webkit-box-shadow: #f86 -14px -14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
     box-shadow: #f86 -14px -14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
-  ***REMOVED***
+  }
   8.33% {
     -moz-box-shadow: #f86 14px -14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
     -webkit-box-shadow: #f86 14px -14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
     box-shadow: #f86 14px -14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
-  ***REMOVED***
+  }
   16.67% {
     -moz-box-shadow: #f86 14px 14px 0 7px, #fc6 14px 14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
     -webkit-box-shadow: #f86 14px 14px 0 7px, #fc6 14px 14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
     box-shadow: #f86 14px 14px 0 7px, #fc6 14px 14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
-  ***REMOVED***
+  }
   25% {
     -moz-box-shadow: #f86 -14px 14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px 14px 0 7px, #4ae -14px 14px 0 7px;
     -webkit-box-shadow: #f86 -14px 14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px 14px 0 7px, #4ae -14px 14px 0 7px;
     box-shadow: #f86 -14px 14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px 14px 0 7px, #4ae -14px 14px 0 7px;
-  ***REMOVED***
+  }
   33.33% {
     -moz-box-shadow: #f86 -14px -14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px -14px 0 7px, #4ae -14px -14px 0 7px;
     -webkit-box-shadow: #f86 -14px -14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px -14px 0 7px, #4ae -14px -14px 0 7px;
     box-shadow: #f86 -14px -14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px -14px 0 7px, #4ae -14px -14px 0 7px;
-  ***REMOVED***
+  }
   41.67% {
     -moz-box-shadow: #f86 14px -14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px -14px 0 7px, #4ae 14px -14px 0 7px;
     -webkit-box-shadow: #f86 14px -14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px -14px 0 7px, #4ae 14px -14px 0 7px;
     box-shadow: #f86 14px -14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px -14px 0 7px, #4ae 14px -14px 0 7px;
-  ***REMOVED***
+  }
   50% {
     -moz-box-shadow: #f86 14px 14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px -14px 0 7px, #4ae 14px -14px 0 7px;
     -webkit-box-shadow: #f86 14px 14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px -14px 0 7px, #4ae 14px -14px 0 7px;
     box-shadow: #f86 14px 14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px -14px 0 7px, #4ae 14px -14px 0 7px;
-  ***REMOVED***
+  }
   58.33% {
     -moz-box-shadow: #f86 -14px 14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px -14px 0 7px, #4ae 14px -14px 0 7px;
     -webkit-box-shadow: #f86 -14px 14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px -14px 0 7px, #4ae 14px -14px 0 7px;
     box-shadow: #f86 -14px 14px 0 7px, #fc6 -14px 14px 0 7px, #6d7 -14px -14px 0 7px, #4ae 14px -14px 0 7px;
-  ***REMOVED***
+  }
   66.67% {
     -moz-box-shadow: #f86 -14px -14px 0 7px, #fc6 -14px -14px 0 7px, #6d7 -14px -14px 0 7px, #4ae 14px -14px 0 7px;
     -webkit-box-shadow: #f86 -14px -14px 0 7px, #fc6 -14px -14px 0 7px, #6d7 -14px -14px 0 7px, #4ae 14px -14px 0 7px;
     box-shadow: #f86 -14px -14px 0 7px, #fc6 -14px -14px 0 7px, #6d7 -14px -14px 0 7px, #4ae 14px -14px 0 7px;
-  ***REMOVED***
+  }
   75% {
     -moz-box-shadow: #f86 14px -14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px -14px 0 7px, #4ae 14px -14px 0 7px;
     -webkit-box-shadow: #f86 14px -14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px -14px 0 7px, #4ae 14px -14px 0 7px;
     box-shadow: #f86 14px -14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px -14px 0 7px, #4ae 14px -14px 0 7px;
-  ***REMOVED***
+  }
   83.33% {
     -moz-box-shadow: #f86 14px 14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae 14px 14px 0 7px;
     -webkit-box-shadow: #f86 14px 14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae 14px 14px 0 7px;
     box-shadow: #f86 14px 14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae 14px 14px 0 7px;
-  ***REMOVED***
+  }
   91.67% {
     -moz-box-shadow: #f86 -14px 14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
     -webkit-box-shadow: #f86 -14px 14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
     box-shadow: #f86 -14px 14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
-  ***REMOVED***
+  }
   100% {
     -moz-box-shadow: #f86 -14px -14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
     -webkit-box-shadow: #f86 -14px -14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
     box-shadow: #f86 -14px -14px 0 7px, #fc6 14px -14px 0 7px, #6d7 14px 14px 0 7px, #4ae -14px 14px 0 7px;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 /* :not(:required) hides this rule from IE9 and below */
 .dots-loader:not(:required) {
   overflow: hidden;
@@ -1631,42 +1631,42 @@
   -ms-transform-origin: 50% 50%;
   -webkit-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-***REMOVED***
+}
 
 @-moz-keyframes circles-loader {
   0% {
     -moz-transform: rotate(-720deg);
     transform: rotate(-720deg);
-  ***REMOVED***
+  }
   50% {
     -moz-transform: rotate(720deg);
     transform: rotate(720deg);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-webkit-keyframes circles-loader {
   0% {
     -webkit-transform: rotate(-720deg);
     transform: rotate(-720deg);
-  ***REMOVED***
+  }
   50% {
     -webkit-transform: rotate(720deg);
     transform: rotate(720deg);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @keyframes circles-loader {
   0% {
     -moz-transform: rotate(-720deg);
     -ms-transform: rotate(-720deg);
     -webkit-transform: rotate(-720deg);
     transform: rotate(-720deg);
-  ***REMOVED***
+  }
   50% {
     -moz-transform: rotate(720deg);
     -ms-transform: rotate(720deg);
     -webkit-transform: rotate(720deg);
     transform: rotate(720deg);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 /* :not(:required) hides this rule from IE9 and below */
 .circles-loader:not(:required) {
   position: relative;
@@ -1683,7 +1683,7 @@
   -ms-transform-origin: 50% 100%;
   -webkit-transform-origin: 50% 100%;
   transform-origin: 50% 100%;
-***REMOVED***
+}
 .circles-loader:not(:required)::before {
   background: rgba(255, 102, 0, 0.6);
   border-radius: 100%;
@@ -1693,7 +1693,7 @@
   height: 25px;
   top: 18.75px;
   left: -10.82532px;
-***REMOVED***
+}
 .circles-loader:not(:required)::after {
   background: rgba(255, 51, 0, 0.4);
   border-radius: 100%;
@@ -1703,7 +1703,7 @@
   height: 25px;
   top: 18.75px;
   left: 10.82532px;
-***REMOVED***
+}
 
 @-moz-keyframes plus-loader-top {
   2.5% {
@@ -1712,107 +1712,107 @@
     transform: rotateY(0deg);
     -moz-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   13.75% {
     background: #ff430d;
     -moz-transform: rotateY(90deg);
     transform: rotateY(90deg);
     -moz-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   13.76% {
     background: #ffae0d;
     -moz-transform: rotateY(90deg);
     transform: rotateY(90deg);
     -moz-animation-timing-function: ease-out;
     animation-timing-function: ease-out;
-  ***REMOVED***
+  }
   25% {
     background: #fc6;
     -moz-transform: rotateY(180deg);
     transform: rotateY(180deg);
-  ***REMOVED***
+  }
   27.5% {
     background: #fc6;
     -moz-transform: rotateY(180deg);
     transform: rotateY(180deg);
     -moz-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   41.25% {
     background: #ffae0d;
     -moz-transform: rotateY(90deg);
     transform: rotateY(90deg);
     -moz-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   41.26% {
     background: #2cc642;
     -moz-transform: rotateY(90deg);
     transform: rotateY(90deg);
     -moz-animation-timing-function: ease-out;
     animation-timing-function: ease-out;
-  ***REMOVED***
+  }
   50% {
     background: #6d7;
     -moz-transform: rotateY(0deg);
     transform: rotateY(0deg);
-  ***REMOVED***
+  }
   52.5% {
     background: #6d7;
     -moz-transform: rotateY(0deg);
     transform: rotateY(0deg);
     -moz-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   63.75% {
     background: #2cc642;
     -moz-transform: rotateY(90deg);
     transform: rotateY(90deg);
     -moz-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   63.76% {
     background: #1386d2;
     -moz-transform: rotateY(90deg);
     transform: rotateY(90deg);
     -moz-animation-timing-function: ease-out;
     animation-timing-function: ease-out;
-  ***REMOVED***
+  }
   75% {
     background: #4ae;
     -moz-transform: rotateY(180deg);
     transform: rotateY(180deg);
-  ***REMOVED***
+  }
   77.5% {
     background: #4ae;
     -moz-transform: rotateY(180deg);
     transform: rotateY(180deg);
     -moz-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   91.25% {
     background: #1386d2;
     -moz-transform: rotateY(90deg);
     transform: rotateY(90deg);
     -moz-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   91.26% {
     background: #ff430d;
     -moz-transform: rotateY(90deg);
     transform: rotateY(90deg);
     -moz-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   100% {
     background: #f86;
     -moz-transform: rotateY(0deg);
     transform: rotateY(0deg);
     -moz-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-webkit-keyframes plus-loader-top {
   2.5% {
     background: #f86;
@@ -1820,107 +1820,107 @@
     transform: rotateY(0deg);
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   13.75% {
     background: #ff430d;
     -webkit-transform: rotateY(90deg);
     transform: rotateY(90deg);
     -webkit-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   13.76% {
     background: #ffae0d;
     -webkit-transform: rotateY(90deg);
     transform: rotateY(90deg);
     -webkit-animation-timing-function: ease-out;
     animation-timing-function: ease-out;
-  ***REMOVED***
+  }
   25% {
     background: #fc6;
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
-  ***REMOVED***
+  }
   27.5% {
     background: #fc6;
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   41.25% {
     background: #ffae0d;
     -webkit-transform: rotateY(90deg);
     transform: rotateY(90deg);
     -webkit-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   41.26% {
     background: #2cc642;
     -webkit-transform: rotateY(90deg);
     transform: rotateY(90deg);
     -webkit-animation-timing-function: ease-out;
     animation-timing-function: ease-out;
-  ***REMOVED***
+  }
   50% {
     background: #6d7;
     -webkit-transform: rotateY(0deg);
     transform: rotateY(0deg);
-  ***REMOVED***
+  }
   52.5% {
     background: #6d7;
     -webkit-transform: rotateY(0deg);
     transform: rotateY(0deg);
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   63.75% {
     background: #2cc642;
     -webkit-transform: rotateY(90deg);
     transform: rotateY(90deg);
     -webkit-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   63.76% {
     background: #1386d2;
     -webkit-transform: rotateY(90deg);
     transform: rotateY(90deg);
     -webkit-animation-timing-function: ease-out;
     animation-timing-function: ease-out;
-  ***REMOVED***
+  }
   75% {
     background: #4ae;
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
-  ***REMOVED***
+  }
   77.5% {
     background: #4ae;
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   91.25% {
     background: #1386d2;
     -webkit-transform: rotateY(90deg);
     transform: rotateY(90deg);
     -webkit-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   91.26% {
     background: #ff430d;
     -webkit-transform: rotateY(90deg);
     transform: rotateY(90deg);
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   100% {
     background: #f86;
     -webkit-transform: rotateY(0deg);
     transform: rotateY(0deg);
     -webkit-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @keyframes plus-loader-top {
   2.5% {
     background: #f86;
@@ -1931,7 +1931,7 @@
     -moz-animation-timing-function: ease-in;
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   13.75% {
     background: #ff430d;
     -moz-transform: rotateY(90deg);
@@ -1941,7 +1941,7 @@
     -moz-animation-timing-function: step-start;
     -webkit-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   13.76% {
     background: #ffae0d;
     -moz-transform: rotateY(90deg);
@@ -1951,14 +1951,14 @@
     -moz-animation-timing-function: ease-out;
     -webkit-animation-timing-function: ease-out;
     animation-timing-function: ease-out;
-  ***REMOVED***
+  }
   25% {
     background: #fc6;
     -moz-transform: rotateY(180deg);
     -ms-transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
-  ***REMOVED***
+  }
   27.5% {
     background: #fc6;
     -moz-transform: rotateY(180deg);
@@ -1968,7 +1968,7 @@
     -moz-animation-timing-function: ease-in;
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   41.25% {
     background: #ffae0d;
     -moz-transform: rotateY(90deg);
@@ -1978,7 +1978,7 @@
     -moz-animation-timing-function: step-start;
     -webkit-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   41.26% {
     background: #2cc642;
     -moz-transform: rotateY(90deg);
@@ -1988,14 +1988,14 @@
     -moz-animation-timing-function: ease-out;
     -webkit-animation-timing-function: ease-out;
     animation-timing-function: ease-out;
-  ***REMOVED***
+  }
   50% {
     background: #6d7;
     -moz-transform: rotateY(0deg);
     -ms-transform: rotateY(0deg);
     -webkit-transform: rotateY(0deg);
     transform: rotateY(0deg);
-  ***REMOVED***
+  }
   52.5% {
     background: #6d7;
     -moz-transform: rotateY(0deg);
@@ -2005,7 +2005,7 @@
     -moz-animation-timing-function: ease-in;
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   63.75% {
     background: #2cc642;
     -moz-transform: rotateY(90deg);
@@ -2015,7 +2015,7 @@
     -moz-animation-timing-function: step-start;
     -webkit-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   63.76% {
     background: #1386d2;
     -moz-transform: rotateY(90deg);
@@ -2025,14 +2025,14 @@
     -moz-animation-timing-function: ease-out;
     -webkit-animation-timing-function: ease-out;
     animation-timing-function: ease-out;
-  ***REMOVED***
+  }
   75% {
     background: #4ae;
     -moz-transform: rotateY(180deg);
     -ms-transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
-  ***REMOVED***
+  }
   77.5% {
     background: #4ae;
     -moz-transform: rotateY(180deg);
@@ -2042,7 +2042,7 @@
     -moz-animation-timing-function: ease-in;
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   91.25% {
     background: #1386d2;
     -moz-transform: rotateY(90deg);
@@ -2052,7 +2052,7 @@
     -moz-animation-timing-function: step-start;
     -webkit-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   91.26% {
     background: #ff430d;
     -moz-transform: rotateY(90deg);
@@ -2062,7 +2062,7 @@
     -moz-animation-timing-function: ease-in;
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   100% {
     background: #f86;
     -moz-transform: rotateY(0deg);
@@ -2072,178 +2072,178 @@
     -moz-animation-timing-function: step-start;
     -webkit-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-moz-keyframes plus-loader-bottom {
   0% {
     background: #fc6;
     -moz-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   50% {
     background: #fc6;
     -moz-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   75% {
     background: #4ae;
     -moz-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   100% {
     background: #4ae;
     -moz-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-webkit-keyframes plus-loader-bottom {
   0% {
     background: #fc6;
     -webkit-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   50% {
     background: #fc6;
     -webkit-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   75% {
     background: #4ae;
     -webkit-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   100% {
     background: #4ae;
     -webkit-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @keyframes plus-loader-bottom {
   0% {
     background: #fc6;
     -moz-animation-timing-function: step-start;
     -webkit-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   50% {
     background: #fc6;
     -moz-animation-timing-function: step-start;
     -webkit-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   75% {
     background: #4ae;
     -moz-animation-timing-function: step-start;
     -webkit-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   100% {
     background: #4ae;
     -moz-animation-timing-function: step-start;
     -webkit-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-moz-keyframes plus-loader-background {
   0% {
     background: #f86;
     -moz-transform: rotateZ(180deg);
     transform: rotateZ(180deg);
-  ***REMOVED***
+  }
   25% {
     background: #f86;
     -moz-transform: rotateZ(180deg);
     transform: rotateZ(180deg);
     -moz-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   27.5% {
     background: #6d7;
     -moz-transform: rotateZ(90deg);
     transform: rotateZ(90deg);
-  ***REMOVED***
+  }
   50% {
     background: #6d7;
     -moz-transform: rotateZ(90deg);
     transform: rotateZ(90deg);
     -moz-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   52.5% {
     background: #6d7;
     -moz-transform: rotateZ(0deg);
     transform: rotateZ(0deg);
-  ***REMOVED***
+  }
   75% {
     background: #6d7;
     -moz-transform: rotateZ(0deg);
     transform: rotateZ(0deg);
     -moz-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   77.5% {
     background: #f86;
     -moz-transform: rotateZ(270deg);
     transform: rotateZ(270deg);
-  ***REMOVED***
+  }
   100% {
     background: #f86;
     -moz-transform: rotateZ(270deg);
     transform: rotateZ(270deg);
     -moz-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-webkit-keyframes plus-loader-background {
   0% {
     background: #f86;
     -webkit-transform: rotateZ(180deg);
     transform: rotateZ(180deg);
-  ***REMOVED***
+  }
   25% {
     background: #f86;
     -webkit-transform: rotateZ(180deg);
     transform: rotateZ(180deg);
     -webkit-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   27.5% {
     background: #6d7;
     -webkit-transform: rotateZ(90deg);
     transform: rotateZ(90deg);
-  ***REMOVED***
+  }
   50% {
     background: #6d7;
     -webkit-transform: rotateZ(90deg);
     transform: rotateZ(90deg);
     -webkit-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   52.5% {
     background: #6d7;
     -webkit-transform: rotateZ(0deg);
     transform: rotateZ(0deg);
-  ***REMOVED***
+  }
   75% {
     background: #6d7;
     -webkit-transform: rotateZ(0deg);
     transform: rotateZ(0deg);
     -webkit-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   77.5% {
     background: #f86;
     -webkit-transform: rotateZ(270deg);
     transform: rotateZ(270deg);
-  ***REMOVED***
+  }
   100% {
     background: #f86;
     -webkit-transform: rotateZ(270deg);
     transform: rotateZ(270deg);
     -webkit-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @keyframes plus-loader-background {
   0% {
     background: #f86;
@@ -2251,7 +2251,7 @@
     -ms-transform: rotateZ(180deg);
     -webkit-transform: rotateZ(180deg);
     transform: rotateZ(180deg);
-  ***REMOVED***
+  }
   25% {
     background: #f86;
     -moz-transform: rotateZ(180deg);
@@ -2261,14 +2261,14 @@
     -moz-animation-timing-function: step-start;
     -webkit-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   27.5% {
     background: #6d7;
     -moz-transform: rotateZ(90deg);
     -ms-transform: rotateZ(90deg);
     -webkit-transform: rotateZ(90deg);
     transform: rotateZ(90deg);
-  ***REMOVED***
+  }
   50% {
     background: #6d7;
     -moz-transform: rotateZ(90deg);
@@ -2278,14 +2278,14 @@
     -moz-animation-timing-function: step-start;
     -webkit-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   52.5% {
     background: #6d7;
     -moz-transform: rotateZ(0deg);
     -ms-transform: rotateZ(0deg);
     -webkit-transform: rotateZ(0deg);
     transform: rotateZ(0deg);
-  ***REMOVED***
+  }
   75% {
     background: #6d7;
     -moz-transform: rotateZ(0deg);
@@ -2295,14 +2295,14 @@
     -moz-animation-timing-function: step-start;
     -webkit-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
+  }
   77.5% {
     background: #f86;
     -moz-transform: rotateZ(270deg);
     -ms-transform: rotateZ(270deg);
     -webkit-transform: rotateZ(270deg);
     transform: rotateZ(270deg);
-  ***REMOVED***
+  }
   100% {
     background: #f86;
     -moz-transform: rotateZ(270deg);
@@ -2312,8 +2312,8 @@
     -moz-animation-timing-function: step-start;
     -webkit-animation-timing-function: step-start;
     animation-timing-function: step-start;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 /* :not(:required) hides this rule from IE9 and below */
 .plus-loader:not(:required) {
   overflow: hidden;
@@ -2337,7 +2337,7 @@
   -moz-animation: plus-loader-background 3s infinite ease-in-out;
   -webkit-animation: plus-loader-background 3s infinite ease-in-out;
   animation: plus-loader-background 3s infinite ease-in-out;
-***REMOVED***
+}
 .plus-loader:not(:required)::after {
   background: #f86;
   -moz-border-radius: 24px 0 0 24px;
@@ -2356,7 +2356,7 @@
   -moz-animation: plus-loader-top 3s infinite linear;
   -webkit-animation: plus-loader-top 3s infinite linear;
   animation: plus-loader-top 3s infinite linear;
-***REMOVED***
+}
 .plus-loader:not(:required)::before {
   background: #fc6;
   -moz-border-radius: 24px 0 0 24px;
@@ -2375,7 +2375,7 @@
   -moz-animation: plus-loader-bottom 3s infinite linear;
   -webkit-animation: plus-loader-bottom 3s infinite linear;
   animation: plus-loader-bottom 3s infinite linear;
-***REMOVED***
+}
 
 @-moz-keyframes ball-loader {
   0% {
@@ -2383,52 +2383,52 @@
     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
     -moz-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   45% {
     -moz-transform: translate3d(0, 150px, -10px) scale3d(1, 0.95, 1);
     transform: translate3d(0, 150px, -10px) scale3d(1, 0.95, 1);
     -moz-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   50% {
     -moz-transform: translate3d(0, 150px, -10px) scale3d(1, 0.5, 1);
     transform: translate3d(0, 150px, -10px) scale3d(1, 0.5, 1);
     -moz-animation-timing-function: linear;
     animation-timing-function: linear;
-  ***REMOVED***
+  }
   55% {
     -moz-transform: translate3d(0, 150px, -10px) scale3d(1, 1.25, 1);
     transform: translate3d(0, 150px, -10px) scale3d(1, 1.25, 1);
     -moz-animation-timing-function: ease-out;
     animation-timing-function: ease-out;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-webkit-keyframes ball-loader {
   0% {
     -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   45% {
     -webkit-transform: translate3d(0, 150px, -10px) scale3d(1, 0.95, 1);
     transform: translate3d(0, 150px, -10px) scale3d(1, 0.95, 1);
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   50% {
     -webkit-transform: translate3d(0, 150px, -10px) scale3d(1, 0.5, 1);
     transform: translate3d(0, 150px, -10px) scale3d(1, 0.5, 1);
     -webkit-animation-timing-function: linear;
     animation-timing-function: linear;
-  ***REMOVED***
+  }
   55% {
     -webkit-transform: translate3d(0, 150px, -10px) scale3d(1, 1.25, 1);
     transform: translate3d(0, 150px, -10px) scale3d(1, 1.25, 1);
     -webkit-animation-timing-function: ease-out;
     animation-timing-function: ease-out;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @keyframes ball-loader {
   0% {
     -moz-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
@@ -2438,7 +2438,7 @@
     -moz-animation-timing-function: ease-in;
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   45% {
     -moz-transform: translate3d(0, 150px, -10px) scale3d(1, 0.95, 1);
     -ms-transform: translate3d(0, 150px, -10px) scale3d(1, 0.95, 1);
@@ -2447,7 +2447,7 @@
     -moz-animation-timing-function: ease-in;
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   50% {
     -moz-transform: translate3d(0, 150px, -10px) scale3d(1, 0.5, 1);
     -ms-transform: translate3d(0, 150px, -10px) scale3d(1, 0.5, 1);
@@ -2456,7 +2456,7 @@
     -moz-animation-timing-function: linear;
     -webkit-animation-timing-function: linear;
     animation-timing-function: linear;
-  ***REMOVED***
+  }
   55% {
     -moz-transform: translate3d(0, 150px, -10px) scale3d(1, 1.25, 1);
     -ms-transform: translate3d(0, 150px, -10px) scale3d(1, 1.25, 1);
@@ -2465,72 +2465,72 @@
     -moz-animation-timing-function: ease-out;
     -webkit-animation-timing-function: ease-out;
     animation-timing-function: ease-out;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-moz-keyframes ball-loader-highlight {
   0% {
     -moz-transform: skew(-20deg, 0) translate3d(0, 2.5px, 1px);
     transform: skew(-20deg, 0) translate3d(0, 2.5px, 1px);
     -moz-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   45% {
     -moz-transform: skew(-30deg, 0) translate3d(0, 0, 1px);
     transform: skew(-30deg, 0) translate3d(0, 0, 1px);
     -moz-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   50% {
     -moz-transform: skew(-30deg, 0) translate3d(0, 0, 1px);
     transform: skew(-30deg, 0) translate3d(0, 0, 1px);
     -moz-animation-timing-function: linear;
     animation-timing-function: linear;
-  ***REMOVED***
+  }
   55% {
     -moz-transform: skew(-30deg, 0) translate3d(0, 0, 1px);
     transform: skew(-30deg, 0) translate3d(0, 0, 1px);
     -moz-animation-timing-function: ease-out;
     animation-timing-function: ease-out;
-  ***REMOVED***
+  }
   100% {
     -moz-transform: skew(-20deg, 0) translate3d(0, 2.5px, 1px);
     transform: skew(-20deg, 0) translate3d(0, 2.5px, 1px);
     -moz-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-webkit-keyframes ball-loader-highlight {
   0% {
     -webkit-transform: skew(-20deg, 0) translate3d(0, 2.5px, 1px);
     transform: skew(-20deg, 0) translate3d(0, 2.5px, 1px);
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   45% {
     -webkit-transform: skew(-30deg, 0) translate3d(0, 0, 1px);
     transform: skew(-30deg, 0) translate3d(0, 0, 1px);
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   50% {
     -webkit-transform: skew(-30deg, 0) translate3d(0, 0, 1px);
     transform: skew(-30deg, 0) translate3d(0, 0, 1px);
     -webkit-animation-timing-function: linear;
     animation-timing-function: linear;
-  ***REMOVED***
+  }
   55% {
     -webkit-transform: skew(-30deg, 0) translate3d(0, 0, 1px);
     transform: skew(-30deg, 0) translate3d(0, 0, 1px);
     -webkit-animation-timing-function: ease-out;
     animation-timing-function: ease-out;
-  ***REMOVED***
+  }
   100% {
     -webkit-transform: skew(-20deg, 0) translate3d(0, 2.5px, 1px);
     transform: skew(-20deg, 0) translate3d(0, 2.5px, 1px);
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @keyframes ball-loader-highlight {
   0% {
     -moz-transform: skew(-20deg, 0) translate3d(0, 2.5px, 1px);
@@ -2540,7 +2540,7 @@
     -moz-animation-timing-function: ease-in;
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   45% {
     -moz-transform: skew(-30deg, 0) translate3d(0, 0, 1px);
     -ms-transform: skew(-30deg, 0) translate3d(0, 0, 1px);
@@ -2549,7 +2549,7 @@
     -moz-animation-timing-function: ease-in;
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   50% {
     -moz-transform: skew(-30deg, 0) translate3d(0, 0, 1px);
     -ms-transform: skew(-30deg, 0) translate3d(0, 0, 1px);
@@ -2558,7 +2558,7 @@
     -moz-animation-timing-function: linear;
     -webkit-animation-timing-function: linear;
     animation-timing-function: linear;
-  ***REMOVED***
+  }
   55% {
     -moz-transform: skew(-30deg, 0) translate3d(0, 0, 1px);
     -ms-transform: skew(-30deg, 0) translate3d(0, 0, 1px);
@@ -2567,7 +2567,7 @@
     -moz-animation-timing-function: ease-out;
     -webkit-animation-timing-function: ease-out;
     animation-timing-function: ease-out;
-  ***REMOVED***
+  }
   100% {
     -moz-transform: skew(-20deg, 0) translate3d(0, 2.5px, 1px);
     -ms-transform: skew(-20deg, 0) translate3d(0, 2.5px, 1px);
@@ -2576,72 +2576,72 @@
     -moz-animation-timing-function: ease-in;
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-moz-keyframes ball-loader-shadow {
   0% {
     -moz-transform: translate3d(66.66667px, 66.66667px, -1px) scale3d(1.25, 1.25, 1);
     transform: translate3d(66.66667px, 66.66667px, -1px) scale3d(1.25, 1.25, 1);
     -moz-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   45% {
     -moz-transform: translate3d(12.5px, -15px, -1px);
     transform: translate3d(12.5px, -15px, -1px);
     -moz-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   50% {
     -moz-transform: translate3d(12.5px, -15px, -1px) scale3d(1, 1, 1);
     transform: translate3d(12.5px, -15px, -1px) scale3d(1, 1, 1);
     -moz-animation-timing-function: linear;
     animation-timing-function: linear;
-  ***REMOVED***
+  }
   55% {
     -moz-transform: translate3d(12.5px, -15px, -1px);
     transform: translate3d(12.5px, -15px, -1px);
     -moz-animation-timing-function: ease-out;
     animation-timing-function: ease-out;
-  ***REMOVED***
+  }
   100% {
     -moz-transform: translate3d(66.66667px, 66.66667px, -1px) scale3d(1.25, 1.25, 1);
     transform: translate3d(66.66667px, 66.66667px, -1px) scale3d(1.25, 1.25, 1);
     -moz-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-webkit-keyframes ball-loader-shadow {
   0% {
     -webkit-transform: translate3d(66.66667px, 66.66667px, -1px) scale3d(1.25, 1.25, 1);
     transform: translate3d(66.66667px, 66.66667px, -1px) scale3d(1.25, 1.25, 1);
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   45% {
     -webkit-transform: translate3d(12.5px, -15px, -1px);
     transform: translate3d(12.5px, -15px, -1px);
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   50% {
     -webkit-transform: translate3d(12.5px, -15px, -1px) scale3d(1, 1, 1);
     transform: translate3d(12.5px, -15px, -1px) scale3d(1, 1, 1);
     -webkit-animation-timing-function: linear;
     animation-timing-function: linear;
-  ***REMOVED***
+  }
   55% {
     -webkit-transform: translate3d(12.5px, -15px, -1px);
     transform: translate3d(12.5px, -15px, -1px);
     -webkit-animation-timing-function: ease-out;
     animation-timing-function: ease-out;
-  ***REMOVED***
+  }
   100% {
     -webkit-transform: translate3d(66.66667px, 66.66667px, -1px) scale3d(1.25, 1.25, 1);
     transform: translate3d(66.66667px, 66.66667px, -1px) scale3d(1.25, 1.25, 1);
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @keyframes ball-loader-shadow {
   0% {
     -moz-transform: translate3d(66.66667px, 66.66667px, -1px) scale3d(1.25, 1.25, 1);
@@ -2651,7 +2651,7 @@
     -moz-animation-timing-function: ease-in;
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   45% {
     -moz-transform: translate3d(12.5px, -15px, -1px);
     -ms-transform: translate3d(12.5px, -15px, -1px);
@@ -2660,7 +2660,7 @@
     -moz-animation-timing-function: ease-in;
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
+  }
   50% {
     -moz-transform: translate3d(12.5px, -15px, -1px) scale3d(1, 1, 1);
     -ms-transform: translate3d(12.5px, -15px, -1px) scale3d(1, 1, 1);
@@ -2669,7 +2669,7 @@
     -moz-animation-timing-function: linear;
     -webkit-animation-timing-function: linear;
     animation-timing-function: linear;
-  ***REMOVED***
+  }
   55% {
     -moz-transform: translate3d(12.5px, -15px, -1px);
     -ms-transform: translate3d(12.5px, -15px, -1px);
@@ -2678,7 +2678,7 @@
     -moz-animation-timing-function: ease-out;
     -webkit-animation-timing-function: ease-out;
     animation-timing-function: ease-out;
-  ***REMOVED***
+  }
   100% {
     -moz-transform: translate3d(66.66667px, 66.66667px, -1px) scale3d(1.25, 1.25, 1);
     -ms-transform: translate3d(66.66667px, 66.66667px, -1px) scale3d(1.25, 1.25, 1);
@@ -2687,8 +2687,8 @@
     -moz-animation-timing-function: ease-in;
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 /* :not(:required) hides this rule from IE9 and below */
 .ball-loader:not(:required) {
   position: relative;
@@ -2713,7 +2713,7 @@
   -moz-animation: ball-loader 1500ms infinite linear;
   -webkit-animation: ball-loader 1500ms infinite linear;
   animation: ball-loader 1500ms infinite linear;
-***REMOVED***
+}
 .ball-loader:not(:required)::after {
   content: '';
   position: absolute;
@@ -2730,7 +2730,7 @@
   -moz-animation: ball-loader-highlight 1500ms infinite linear;
   -webkit-animation: ball-loader-highlight 1500ms infinite linear;
   animation: ball-loader-highlight 1500ms infinite linear;
-***REMOVED***
+}
 .ball-loader:not(:required)::before {
   content: '';
   position: absolute;
@@ -2749,183 +2749,183 @@
   animation: ball-loader-shadow 1500ms infinite linear;
   -webkit-filter: blur(1px);
   filter: blur(1px);
-***REMOVED***
+}
 
 @-moz-keyframes hexdots-loader {
   0% {
     -moz-box-shadow: #666666 0 -30px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
     box-shadow: #666666 0 -30px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
-  ***REMOVED***
+  }
   8.33% {
     -moz-box-shadow: #666666 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
     box-shadow: #666666 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
-  ***REMOVED***
+  }
   16.67% {
     -moz-box-shadow: #666666 26px 15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
     box-shadow: #666666 26px 15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
-  ***REMOVED***
+  }
   25% {
     -moz-box-shadow: #666666 0 30px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
     box-shadow: #666666 0 30px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
-  ***REMOVED***
+  }
   33.33% {
     -moz-box-shadow: #666666 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
     box-shadow: #666666 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
-  ***REMOVED***
+  }
   41.67% {
     -moz-box-shadow: #666666 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px;
     box-shadow: #666666 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px;
-  ***REMOVED***
+  }
   50% {
     -moz-box-shadow: #666666 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px;
     box-shadow: #666666 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px;
-  ***REMOVED***
+  }
   58.33% {
     -moz-box-shadow: #666666 26px -15px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px;
     box-shadow: #666666 26px -15px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px;
-  ***REMOVED***
+  }
   66.67% {
     -moz-box-shadow: #666666 26px 15px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px;
     box-shadow: #666666 26px 15px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px;
-  ***REMOVED***
+  }
   75% {
     -moz-box-shadow: #666666 0 30px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px;
     box-shadow: #666666 0 30px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px;
-  ***REMOVED***
+  }
   83.33% {
     -moz-box-shadow: #666666 -26px 15px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px;
     box-shadow: #666666 -26px 15px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px;
-  ***REMOVED***
+  }
   91.67% {
     -moz-box-shadow: #666666 -26px -15px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
     box-shadow: #666666 -26px -15px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
-  ***REMOVED***
+  }
   100% {
     -moz-box-shadow: #666666 0 -30px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
     box-shadow: #666666 0 -30px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-webkit-keyframes hexdots-loader {
   0% {
     -webkit-box-shadow: #666666 0 -30px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
     box-shadow: #666666 0 -30px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
-  ***REMOVED***
+  }
   8.33% {
     -webkit-box-shadow: #666666 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
     box-shadow: #666666 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
-  ***REMOVED***
+  }
   16.67% {
     -webkit-box-shadow: #666666 26px 15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
     box-shadow: #666666 26px 15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
-  ***REMOVED***
+  }
   25% {
     -webkit-box-shadow: #666666 0 30px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
     box-shadow: #666666 0 30px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
-  ***REMOVED***
+  }
   33.33% {
     -webkit-box-shadow: #666666 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
     box-shadow: #666666 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
-  ***REMOVED***
+  }
   41.67% {
     -webkit-box-shadow: #666666 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px;
     box-shadow: #666666 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px;
-  ***REMOVED***
+  }
   50% {
     -webkit-box-shadow: #666666 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px;
     box-shadow: #666666 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px;
-  ***REMOVED***
+  }
   58.33% {
     -webkit-box-shadow: #666666 26px -15px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px;
     box-shadow: #666666 26px -15px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px;
-  ***REMOVED***
+  }
   66.67% {
     -webkit-box-shadow: #666666 26px 15px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px;
     box-shadow: #666666 26px 15px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px;
-  ***REMOVED***
+  }
   75% {
     -webkit-box-shadow: #666666 0 30px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px;
     box-shadow: #666666 0 30px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px;
-  ***REMOVED***
+  }
   83.33% {
     -webkit-box-shadow: #666666 -26px 15px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px;
     box-shadow: #666666 -26px 15px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px;
-  ***REMOVED***
+  }
   91.67% {
     -webkit-box-shadow: #666666 -26px -15px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
     box-shadow: #666666 -26px -15px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
-  ***REMOVED***
+  }
   100% {
     -webkit-box-shadow: #666666 0 -30px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
     box-shadow: #666666 0 -30px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @keyframes hexdots-loader {
   0% {
     -moz-box-shadow: #666666 0 -30px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
     -webkit-box-shadow: #666666 0 -30px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
     box-shadow: #666666 0 -30px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
-  ***REMOVED***
+  }
   8.33% {
     -moz-box-shadow: #666666 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
     -webkit-box-shadow: #666666 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
     box-shadow: #666666 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
-  ***REMOVED***
+  }
   16.67% {
     -moz-box-shadow: #666666 26px 15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
     -webkit-box-shadow: #666666 26px 15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
     box-shadow: #666666 26px 15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
-  ***REMOVED***
+  }
   25% {
     -moz-box-shadow: #666666 0 30px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
     -webkit-box-shadow: #666666 0 30px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
     box-shadow: #666666 0 30px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
-  ***REMOVED***
+  }
   33.33% {
     -moz-box-shadow: #666666 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
     -webkit-box-shadow: #666666 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
     box-shadow: #666666 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
-  ***REMOVED***
+  }
   41.67% {
     -moz-box-shadow: #666666 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px;
     -webkit-box-shadow: #666666 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px;
     box-shadow: #666666 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px, #999 -26px -15px 0 7px;
-  ***REMOVED***
+  }
   50% {
     -moz-box-shadow: #666666 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px;
     -webkit-box-shadow: #666666 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px;
     box-shadow: #666666 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px, #999 0 -30px 0 7px;
-  ***REMOVED***
+  }
   58.33% {
     -moz-box-shadow: #666666 26px -15px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px;
     -webkit-box-shadow: #666666 26px -15px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px;
     box-shadow: #666666 26px -15px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px, #999 26px -15px 0 7px;
-  ***REMOVED***
+  }
   66.67% {
     -moz-box-shadow: #666666 26px 15px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px;
     -webkit-box-shadow: #666666 26px 15px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px;
     box-shadow: #666666 26px 15px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px, #999 26px 15px 0 7px;
-  ***REMOVED***
+  }
   75% {
     -moz-box-shadow: #666666 0 30px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px;
     -webkit-box-shadow: #666666 0 30px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px;
     box-shadow: #666666 0 30px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px, #999 0 30px 0 7px;
-  ***REMOVED***
+  }
   83.33% {
     -moz-box-shadow: #666666 -26px 15px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px;
     -webkit-box-shadow: #666666 -26px 15px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px;
     box-shadow: #666666 -26px 15px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px 15px 0 7px;
-  ***REMOVED***
+  }
   91.67% {
     -moz-box-shadow: #666666 -26px -15px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
     -webkit-box-shadow: #666666 -26px -15px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
     box-shadow: #666666 -26px -15px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
-  ***REMOVED***
+  }
   100% {
     -moz-box-shadow: #666666 0 -30px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
     -webkit-box-shadow: #666666 0 -30px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
     box-shadow: #666666 0 -30px 0 7px, #999 0 -30px 0 7px, #999 26px -15px 0 7px, #999 26px 15px 0 7px, #999 0 30px 0 7px, #999 -26px 15px 0 7px, #999 -26px -15px 0 7px;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 /* :not(:required) hides this rule from IE9 and below */
 .hexdots-loader:not(:required) {
   overflow: hidden;
@@ -2946,7 +2946,7 @@
   -ms-transform-origin: 50% 50%;
   -webkit-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-***REMOVED***
+}
 
 /* :not(:required) hides this rule from IE9 and below */
 .inner-circles-loader:not(:required) {
@@ -2964,7 +2964,7 @@
   text-indent: -9999px;
   /* Hides inner circles outside base circle at safari */
   -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
-***REMOVED***
+}
 .inner-circles-loader:not(:required):before, .inner-circles-loader:not(:required):after {
   content: '';
   position: absolute;
@@ -2973,7 +2973,7 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-***REMOVED***
+}
 .inner-circles-loader:not(:required):before {
   -moz-animation: inner-circles-loader 3s infinite;
   -webkit-animation: inner-circles-loader 3s infinite;
@@ -2984,7 +2984,7 @@
   transform-origin: 0 50%;
   left: 0;
   background: #c7efcf;
-***REMOVED***
+}
 .inner-circles-loader:not(:required):after {
   -moz-animation: inner-circles-loader 3s 0.2s reverse infinite;
   -webkit-animation: inner-circles-loader 3s 0.2s reverse infinite;
@@ -2995,283 +2995,283 @@
   transform-origin: 100% 50%;
   right: 0;
   background: #eef5db;
-***REMOVED***
+}
 
 @-moz-keyframes inner-circles-loader {
   0% {
     -moz-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
+  }
   50% {
     -moz-transform: rotate(360deg);
     transform: rotate(360deg);
-  ***REMOVED***
+  }
   100% {
     -moz-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-webkit-keyframes inner-circles-loader {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
+  }
   50% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
-  ***REMOVED***
+  }
   100% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @keyframes inner-circles-loader {
   0% {
     -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
+  }
   50% {
     -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
-  ***REMOVED***
+  }
   100% {
     -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-moz-keyframes pong-loader {
   0% {
     left: 5px;
     top: 0;
-  ***REMOVED***
+  }
   25% {
     left: 65px;
     top: 20px;
-  ***REMOVED***
+  }
   50% {
     left: 5px;
-  ***REMOVED***
+  }
   62.5% {
     top: 50px;
-  ***REMOVED***
+  }
   75% {
     left: 65px;
     top: 70%;
-  ***REMOVED***
+  }
   100% {
     left: 5px;
     top: 0%;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-webkit-keyframes pong-loader {
   0% {
     left: 5px;
     top: 0;
-  ***REMOVED***
+  }
   25% {
     left: 65px;
     top: 20px;
-  ***REMOVED***
+  }
   50% {
     left: 5px;
-  ***REMOVED***
+  }
   62.5% {
     top: 50px;
-  ***REMOVED***
+  }
   75% {
     left: 65px;
     top: 70%;
-  ***REMOVED***
+  }
   100% {
     left: 5px;
     top: 0%;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @keyframes pong-loader {
   0% {
     left: 5px;
     top: 0;
-  ***REMOVED***
+  }
   25% {
     left: 65px;
     top: 20px;
-  ***REMOVED***
+  }
   50% {
     left: 5px;
-  ***REMOVED***
+  }
   62.5% {
     top: 50px;
-  ***REMOVED***
+  }
   75% {
     left: 65px;
     top: 70%;
-  ***REMOVED***
+  }
   100% {
     left: 5px;
     top: 0%;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-moz-keyframes pong-loader-paddle-1 {
   0% {
     -moz-box-shadow: inset #353c39 0 5px 0 0, inset #353c39 0 -35px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 5px 0 0, inset #353c39 0 -35px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
+  }
   25% {
     -moz-box-shadow: inset #353c39 0 15px 0 0, inset #353c39 0 -25px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 15px 0 0, inset #353c39 0 -25px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
+  }
   50% {
     -moz-box-shadow: inset #353c39 0 0 0 0, inset #353c39 0 -40px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 0 0 0, inset #353c39 0 -40px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
+  }
   62.5% {
     -moz-box-shadow: inset #353c39 0 10px 0 0, inset #353c39 0 -30px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 10px 0 0, inset #353c39 0 -30px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
+  }
   75% {
     -moz-box-shadow: inset #353c39 0 40px 0 0, inset #353c39 0 0 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 40px 0 0, inset #353c39 0 0 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
+  }
   100% {
     -moz-box-shadow: inset #353c39 0 5px 0 0, inset #353c39 0 -35px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 5px 0 0, inset #353c39 0 -35px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-webkit-keyframes pong-loader-paddle-1 {
   0% {
     -webkit-box-shadow: inset #353c39 0 5px 0 0, inset #353c39 0 -35px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 5px 0 0, inset #353c39 0 -35px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
+  }
   25% {
     -webkit-box-shadow: inset #353c39 0 15px 0 0, inset #353c39 0 -25px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 15px 0 0, inset #353c39 0 -25px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
+  }
   50% {
     -webkit-box-shadow: inset #353c39 0 0 0 0, inset #353c39 0 -40px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 0 0 0, inset #353c39 0 -40px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
+  }
   62.5% {
     -webkit-box-shadow: inset #353c39 0 10px 0 0, inset #353c39 0 -30px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 10px 0 0, inset #353c39 0 -30px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
+  }
   75% {
     -webkit-box-shadow: inset #353c39 0 40px 0 0, inset #353c39 0 0 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 40px 0 0, inset #353c39 0 0 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
+  }
   100% {
     -webkit-box-shadow: inset #353c39 0 5px 0 0, inset #353c39 0 -35px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 5px 0 0, inset #353c39 0 -35px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @keyframes pong-loader-paddle-1 {
   0% {
     -moz-box-shadow: inset #353c39 0 5px 0 0, inset #353c39 0 -35px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     -webkit-box-shadow: inset #353c39 0 5px 0 0, inset #353c39 0 -35px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 5px 0 0, inset #353c39 0 -35px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
+  }
   25% {
     -moz-box-shadow: inset #353c39 0 15px 0 0, inset #353c39 0 -25px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     -webkit-box-shadow: inset #353c39 0 15px 0 0, inset #353c39 0 -25px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 15px 0 0, inset #353c39 0 -25px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
+  }
   50% {
     -moz-box-shadow: inset #353c39 0 0 0 0, inset #353c39 0 -40px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     -webkit-box-shadow: inset #353c39 0 0 0 0, inset #353c39 0 -40px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 0 0 0, inset #353c39 0 -40px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
+  }
   62.5% {
     -moz-box-shadow: inset #353c39 0 10px 0 0, inset #353c39 0 -30px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     -webkit-box-shadow: inset #353c39 0 10px 0 0, inset #353c39 0 -30px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 10px 0 0, inset #353c39 0 -30px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
+  }
   75% {
     -moz-box-shadow: inset #353c39 0 40px 0 0, inset #353c39 0 0 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     -webkit-box-shadow: inset #353c39 0 40px 0 0, inset #353c39 0 0 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 40px 0 0, inset #353c39 0 0 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
+  }
   100% {
     -moz-box-shadow: inset #353c39 0 5px 0 0, inset #353c39 0 -35px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     -webkit-box-shadow: inset #353c39 0 5px 0 0, inset #353c39 0 -35px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 5px 0 0, inset #353c39 0 -35px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-moz-keyframes pong-loader-paddle-2 {
   0% {
     -moz-box-shadow: inset #353c39 0 0 0 0, inset #353c39 0 -40px 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 0 0 0, inset #353c39 0 -40px 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
+  }
   50% {
     -moz-box-shadow: inset #353c39 0 30px 0 0, inset #353c39 0 -10px 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 30px 0 0, inset #353c39 0 -10px 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
+  }
   62.5% {
     -moz-box-shadow: inset #353c39 0 40px 0 0, inset #353c39 0 0 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 40px 0 0, inset #353c39 0 0 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
+  }
   75% {
     -moz-box-shadow: inset #353c39 0 20px 0 0, inset #353c39 0 -20px 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 20px 0 0, inset #353c39 0 -20px 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
+  }
   100% {
     -moz-box-shadow: inset #353c39 0 0 0 0, inset #353c39 0 -40px 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 0 0 0, inset #353c39 0 -40px 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-webkit-keyframes pong-loader-paddle-2 {
   0% {
     -webkit-box-shadow: inset #353c39 0 0 0 0, inset #353c39 0 -40px 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 0 0 0, inset #353c39 0 -40px 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
+  }
   50% {
     -webkit-box-shadow: inset #353c39 0 30px 0 0, inset #353c39 0 -10px 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 30px 0 0, inset #353c39 0 -10px 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
+  }
   62.5% {
     -webkit-box-shadow: inset #353c39 0 40px 0 0, inset #353c39 0 0 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 40px 0 0, inset #353c39 0 0 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
+  }
   75% {
     -webkit-box-shadow: inset #353c39 0 20px 0 0, inset #353c39 0 -20px 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 20px 0 0, inset #353c39 0 -20px 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
+  }
   100% {
     -webkit-box-shadow: inset #353c39 0 0 0 0, inset #353c39 0 -40px 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 0 0 0, inset #353c39 0 -40px 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @keyframes pong-loader-paddle-2 {
   0% {
     -moz-box-shadow: inset #353c39 0 0 0 0, inset #353c39 0 -40px 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     -webkit-box-shadow: inset #353c39 0 0 0 0, inset #353c39 0 -40px 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 0 0 0, inset #353c39 0 -40px 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
+  }
   50% {
     -moz-box-shadow: inset #353c39 0 30px 0 0, inset #353c39 0 -10px 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     -webkit-box-shadow: inset #353c39 0 30px 0 0, inset #353c39 0 -10px 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 30px 0 0, inset #353c39 0 -10px 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
+  }
   62.5% {
     -moz-box-shadow: inset #353c39 0 40px 0 0, inset #353c39 0 0 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     -webkit-box-shadow: inset #353c39 0 40px 0 0, inset #353c39 0 0 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 40px 0 0, inset #353c39 0 0 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
+  }
   75% {
     -moz-box-shadow: inset #353c39 0 20px 0 0, inset #353c39 0 -20px 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     -webkit-box-shadow: inset #353c39 0 20px 0 0, inset #353c39 0 -20px 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 20px 0 0, inset #353c39 0 -20px 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
+  }
   100% {
     -moz-box-shadow: inset #353c39 0 0 0 0, inset #353c39 0 -40px 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     -webkit-box-shadow: inset #353c39 0 0 0 0, inset #353c39 0 -40px 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
     box-shadow: inset #353c39 0 0 0 0, inset #353c39 0 -40px 0 0, inset #353c39 3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 /* :not(:required) hides this rule from IE9 and below */
 .pong-loader:not(:required) {
   width: 80px;
@@ -3287,7 +3287,7 @@
   -moz-animation: pong-loader-paddle-1 1500ms infinite linear;
   -webkit-animation: pong-loader-paddle-1 1500ms infinite linear;
   animation: pong-loader-paddle-1 1500ms infinite linear;
-***REMOVED***
+}
 .pong-loader:not(:required):before {
   -moz-animation: pong-loader-paddle-2 1500ms infinite linear;
   -webkit-animation: pong-loader-paddle-2 1500ms infinite linear;
@@ -3302,7 +3302,7 @@
   -moz-box-shadow: inset #353c39 0 0 0 0, inset #353c39 0 -40px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
   -webkit-box-shadow: inset #353c39 0 0 0 0, inset #353c39 0 -40px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
   box-shadow: inset #353c39 0 0 0 0, inset #353c39 0 -40px 0 0, inset #353c39 -3px 0 0 0, inset #8cdb8b -10px 0 0 0;
-***REMOVED***
+}
 .pong-loader:not(:required):after {
   content: "";
   display: block;
@@ -3318,7 +3318,7 @@
   width: 10px;
   height: 10px;
   background: #8cdb8b;
-***REMOVED***
+}
 
 .pulse-loader:not(:required) {
   display: inline-block;
@@ -3333,50 +3333,50 @@
   border-radius: 50%;
   overflow: hidden;
   text-indent: 50px;
-***REMOVED***
+}
 
 @-moz-keyframes pulse-loader {
   0% {
     -moz-box-shadow: #e67e22 0 0 0px 20px;
     box-shadow: #e67e22 0 0 0px 20px;
-  ***REMOVED***
+  }
   40% {
     -moz-box-shadow: none;
     box-shadow: none;
-  ***REMOVED***
+  }
   100% {
     -moz-box-shadow: #e67e22 0 0 0px 25px inset;
     box-shadow: #e67e22 0 0 0px 25px inset;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @-webkit-keyframes pulse-loader {
   0% {
     -webkit-box-shadow: #e67e22 0 0 0px 20px;
     box-shadow: #e67e22 0 0 0px 20px;
-  ***REMOVED***
+  }
   40% {
     -webkit-box-shadow: none;
     box-shadow: none;
-  ***REMOVED***
+  }
   100% {
     -webkit-box-shadow: #e67e22 0 0 0px 25px inset;
     box-shadow: #e67e22 0 0 0px 25px inset;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 @keyframes pulse-loader {
   0% {
     -moz-box-shadow: #e67e22 0 0 0px 20px;
     -webkit-box-shadow: #e67e22 0 0 0px 20px;
     box-shadow: #e67e22 0 0 0px 20px;
-  ***REMOVED***
+  }
   40% {
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
-  ***REMOVED***
+  }
   100% {
     -moz-box-shadow: #e67e22 0 0 0px 25px inset;
     -webkit-box-shadow: #e67e22 0 0 0px 25px inset;
     box-shadow: #e67e22 0 0 0px 25px inset;
-  ***REMOVED***
-***REMOVED***
+  }
+}

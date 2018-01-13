@@ -1,5 +1,5 @@
-***REMOVED***
+<?php
 
 header('Location: ../');
 
-***REMOVED***
+?>

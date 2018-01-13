@@ -4,7 +4,7 @@
   src: url('../fonts/Simple-Line-Icons.eot?#iefix-i3a2kk') format('embedded-opentype'), url('../fonts/Simple-Line-Icons.ttf?-i3a2kk') format('truetype'), url('../fonts/Simple-Line-Icons.woff2?-i3a2kk') format('woff2'), url('../fonts/Simple-Line-Icons.woff?-i3a2kk') format('woff'), url('../fonts/Simple-Line-Icons.svg?-i3a2kk#simple-line-icons') format('svg');
   font-weight: normal;
   font-style: normal;
-***REMOVED***
+}
 /*
  Use the following CSS code if you want to have a class per icon.
  Instead of a list of all class selectors, you can use the generic [class*="icon-"] selector, but it's slower: 
@@ -202,553 +202,553 @@
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-***REMOVED***
+}
 .icon-user:before {
   content: "\e005";
-***REMOVED***
+}
 .icon-people:before {
   content: "\e001";
-***REMOVED***
+}
 .icon-user-female:before {
   content: "\e000";
-***REMOVED***
+}
 .icon-user-follow:before {
   content: "\e002";
-***REMOVED***
+}
 .icon-user-following:before {
   content: "\e003";
-***REMOVED***
+}
 .icon-user-unfollow:before {
   content: "\e004";
-***REMOVED***
+}
 .icon-login:before {
   content: "\e066";
-***REMOVED***
+}
 .icon-logout:before {
   content: "\e065";
-***REMOVED***
+}
 .icon-emotsmile:before {
   content: "\e021";
-***REMOVED***
+}
 .icon-phone:before {
   content: "\e600";
-***REMOVED***
+}
 .icon-call-end:before {
   content: "\e048";
-***REMOVED***
+}
 .icon-call-in:before {
   content: "\e047";
-***REMOVED***
+}
 .icon-call-out:before {
   content: "\e046";
-***REMOVED***
+}
 .icon-map:before {
   content: "\e033";
-***REMOVED***
+}
 .icon-location-pin:before {
   content: "\e096";
-***REMOVED***
+}
 .icon-direction:before {
   content: "\e042";
-***REMOVED***
+}
 .icon-directions:before {
   content: "\e041";
-***REMOVED***
+}
 .icon-compass:before {
   content: "\e045";
-***REMOVED***
+}
 .icon-layers:before {
   content: "\e034";
-***REMOVED***
+}
 .icon-menu:before {
   content: "\e601";
-***REMOVED***
+}
 .icon-list:before {
   content: "\e067";
-***REMOVED***
+}
 .icon-options-vertical:before {
   content: "\e602";
-***REMOVED***
+}
 .icon-options:before {
   content: "\e603";
-***REMOVED***
+}
 .icon-arrow-down:before {
   content: "\e604";
-***REMOVED***
+}
 .icon-arrow-left:before {
   content: "\e605";
-***REMOVED***
+}
 .icon-arrow-right:before {
   content: "\e606";
-***REMOVED***
+}
 .icon-arrow-up:before {
   content: "\e607";
-***REMOVED***
+}
 .icon-arrow-up-circle:before {
   content: "\e078";
-***REMOVED***
+}
 .icon-arrow-left-circle:before {
   content: "\e07a";
-***REMOVED***
+}
 .icon-arrow-right-circle:before {
   content: "\e079";
-***REMOVED***
+}
 .icon-arrow-down-circle:before {
   content: "\e07b";
-***REMOVED***
+}
 .icon-check:before {
   content: "\e080";
-***REMOVED***
+}
 .icon-clock:before {
   content: "\e081";
-***REMOVED***
+}
 .icon-plus:before {
   content: "\e095";
-***REMOVED***
+}
 .icon-close:before {
   content: "\e082";
-***REMOVED***
+}
 .icon-trophy:before {
   content: "\e006";
-***REMOVED***
+}
 .icon-screen-smartphone:before {
   content: "\e010";
-***REMOVED***
+}
 .icon-screen-desktop:before {
   content: "\e011";
-***REMOVED***
+}
 .icon-plane:before {
   content: "\e012";
-***REMOVED***
+}
 .icon-notebook:before {
   content: "\e013";
-***REMOVED***
+}
 .icon-mustache:before {
   content: "\e014";
-***REMOVED***
+}
 .icon-mouse:before {
   content: "\e015";
-***REMOVED***
+}
 .icon-magnet:before {
   content: "\e016";
-***REMOVED***
+}
 .icon-energy:before {
   content: "\e020";
-***REMOVED***
+}
 .icon-disc:before {
   content: "\e022";
-***REMOVED***
+}
 .icon-cursor:before {
   content: "\e06e";
-***REMOVED***
+}
 .icon-cursor-move:before {
   content: "\e023";
-***REMOVED***
+}
 .icon-crop:before {
   content: "\e024";
-***REMOVED***
+}
 .icon-chemistry:before {
   content: "\e026";
-***REMOVED***
+}
 .icon-speedometer:before {
   content: "\e007";
-***REMOVED***
+}
 .icon-shield:before {
   content: "\e00e";
-***REMOVED***
+}
 .icon-screen-tablet:before {
   content: "\e00f";
-***REMOVED***
+}
 .icon-magic-wand:before {
   content: "\e017";
-***REMOVED***
+}
 .icon-hourglass:before {
   content: "\e018";
-***REMOVED***
+}
 .icon-graduation:before {
   content: "\e019";
-***REMOVED***
+}
 .icon-ghost:before {
   content: "\e01a";
-***REMOVED***
+}
 .icon-game-controller:before {
   content: "\e01b";
-***REMOVED***
+}
 .icon-fire:before {
   content: "\e01c";
-***REMOVED***
+}
 .icon-eyeglass:before {
   content: "\e01d";
-***REMOVED***
+}
 .icon-envelope-open:before {
   content: "\e01e";
-***REMOVED***
+}
 .icon-envelope-letter:before {
   content: "\e01f";
-***REMOVED***
+}
 .icon-bell:before {
   content: "\e027";
-***REMOVED***
+}
 .icon-badge:before {
   content: "\e028";
-***REMOVED***
+}
 .icon-anchor:before {
   content: "\e029";
-***REMOVED***
+}
 .icon-wallet:before {
   content: "\e02a";
-***REMOVED***
+}
 .icon-vector:before {
   content: "\e02b";
-***REMOVED***
+}
 .icon-speech:before {
   content: "\e02c";
-***REMOVED***
+}
 .icon-puzzle:before {
   content: "\e02d";
-***REMOVED***
+}
 .icon-printer:before {
   content: "\e02e";
-***REMOVED***
+}
 .icon-present:before {
   content: "\e02f";
-***REMOVED***
+}
 .icon-playlist:before {
   content: "\e030";
-***REMOVED***
+}
 .icon-pin:before {
   content: "\e031";
-***REMOVED***
+}
 .icon-picture:before {
   content: "\e032";
-***REMOVED***
+}
 .icon-handbag:before {
   content: "\e035";
-***REMOVED***
+}
 .icon-globe-alt:before {
   content: "\e036";
-***REMOVED***
+}
 .icon-globe:before {
   content: "\e037";
-***REMOVED***
+}
 .icon-folder-alt:before {
   content: "\e039";
-***REMOVED***
+}
 .icon-folder:before {
   content: "\e089";
-***REMOVED***
+}
 .icon-film:before {
   content: "\e03a";
-***REMOVED***
+}
 .icon-feed:before {
   content: "\e03b";
-***REMOVED***
+}
 .icon-drop:before {
   content: "\e03e";
-***REMOVED***
+}
 .icon-drawar:before {
   content: "\e03f";
-***REMOVED***
+}
 .icon-docs:before {
   content: "\e040";
-***REMOVED***
+}
 .icon-doc:before {
   content: "\e085";
-***REMOVED***
+}
 .icon-diamond:before {
   content: "\e043";
-***REMOVED***
+}
 .icon-cup:before {
   content: "\e044";
-***REMOVED***
+}
 .icon-calculator:before {
   content: "\e049";
-***REMOVED***
+}
 .icon-bubbles:before {
   content: "\e04a";
-***REMOVED***
+}
 .icon-briefcase:before {
   content: "\e04b";
-***REMOVED***
+}
 .icon-book-open:before {
   content: "\e04c";
-***REMOVED***
+}
 .icon-basket-loaded:before {
   content: "\e04d";
-***REMOVED***
+}
 .icon-basket:before {
   content: "\e04e";
-***REMOVED***
+}
 .icon-bag:before {
   content: "\e04f";
-***REMOVED***
+}
 .icon-action-undo:before {
   content: "\e050";
-***REMOVED***
+}
 .icon-action-redo:before {
   content: "\e051";
-***REMOVED***
+}
 .icon-wrench:before {
   content: "\e052";
-***REMOVED***
+}
 .icon-umbrella:before {
   content: "\e053";
-***REMOVED***
+}
 .icon-trash:before {
   content: "\e054";
-***REMOVED***
+}
 .icon-tag:before {
   content: "\e055";
-***REMOVED***
+}
 .icon-support:before {
   content: "\e056";
-***REMOVED***
+}
 .icon-frame:before {
   content: "\e038";
-***REMOVED***
+}
 .icon-size-fullscreen:before {
   content: "\e057";
-***REMOVED***
+}
 .icon-size-actual:before {
   content: "\e058";
-***REMOVED***
+}
 .icon-shuffle:before {
   content: "\e059";
-***REMOVED***
+}
 .icon-share-alt:before {
   content: "\e05a";
-***REMOVED***
+}
 .icon-share:before {
   content: "\e05b";
-***REMOVED***
+}
 .icon-rocket:before {
   content: "\e05c";
-***REMOVED***
+}
 .icon-question:before {
   content: "\e05d";
-***REMOVED***
+}
 .icon-pie-chart:before {
   content: "\e05e";
-***REMOVED***
+}
 .icon-pencil:before {
   content: "\e05f";
-***REMOVED***
+}
 .icon-note:before {
   content: "\e060";
-***REMOVED***
+}
 .icon-loop:before {
   content: "\e064";
-***REMOVED***
+}
 .icon-home:before {
   content: "\e069";
-***REMOVED***
+}
 .icon-grid:before {
   content: "\e06a";
-***REMOVED***
+}
 .icon-graph:before {
   content: "\e06b";
-***REMOVED***
+}
 .icon-microphone:before {
   content: "\e063";
-***REMOVED***
+}
 .icon-music-tone-alt:before {
   content: "\e061";
-***REMOVED***
+}
 .icon-music-tone:before {
   content: "\e062";
-***REMOVED***
+}
 .icon-earphones-alt:before {
   content: "\e03c";
-***REMOVED***
+}
 .icon-earphones:before {
   content: "\e03d";
-***REMOVED***
+}
 .icon-equalizer:before {
   content: "\e06c";
-***REMOVED***
+}
 .icon-like:before {
   content: "\e068";
-***REMOVED***
+}
 .icon-dislike:before {
   content: "\e06d";
-***REMOVED***
+}
 .icon-control-start:before {
   content: "\e06f";
-***REMOVED***
+}
 .icon-control-rewind:before {
   content: "\e070";
-***REMOVED***
+}
 .icon-control-play:before {
   content: "\e071";
-***REMOVED***
+}
 .icon-control-pause:before {
   content: "\e072";
-***REMOVED***
+}
 .icon-control-forward:before {
   content: "\e073";
-***REMOVED***
+}
 .icon-control-end:before {
   content: "\e074";
-***REMOVED***
+}
 .icon-volume-1:before {
   content: "\e09f";
-***REMOVED***
+}
 .icon-volume-2:before {
   content: "\e0a0";
-***REMOVED***
+}
 .icon-volume-off:before {
   content: "\e0a1";
-***REMOVED***
+}
 .icon-calender:before {
   content: "\e075";
-***REMOVED***
+}
 .icon-bulb:before {
   content: "\e076";
-***REMOVED***
+}
 .icon-chart:before {
   content: "\e077";
-***REMOVED***
+}
 .icon-ban:before {
   content: "\e07c";
-***REMOVED***
+}
 .icon-bubble:before {
   content: "\e07d";
-***REMOVED***
+}
 .icon-camrecorder:before {
   content: "\e07e";
-***REMOVED***
+}
 .icon-camera:before {
   content: "\e07f";
-***REMOVED***
+}
 .icon-cloud-download:before {
   content: "\e083";
-***REMOVED***
+}
 .icon-cloud-upload:before {
   content: "\e084";
-***REMOVED***
+}
 .icon-envelope:before {
   content: "\e086";
-***REMOVED***
+}
 .icon-eye:before {
   content: "\e087";
-***REMOVED***
+}
 .icon-flag:before {
   content: "\e088";
-***REMOVED***
+}
 .icon-heart:before {
   content: "\e08a";
-***REMOVED***
+}
 .icon-info:before {
   content: "\e08b";
-***REMOVED***
+}
 .icon-key:before {
   content: "\e08c";
-***REMOVED***
+}
 .icon-link:before {
   content: "\e08d";
-***REMOVED***
+}
 .icon-lock:before {
   content: "\e08e";
-***REMOVED***
+}
 .icon-lock-open:before {
   content: "\e08f";
-***REMOVED***
+}
 .icon-magnifier:before {
   content: "\e090";
-***REMOVED***
+}
 .icon-magnifier-add:before {
   content: "\e091";
-***REMOVED***
+}
 .icon-magnifier-remove:before {
   content: "\e092";
-***REMOVED***
+}
 .icon-paper-clip:before {
   content: "\e093";
-***REMOVED***
+}
 .icon-paper-plane:before {
   content: "\e094";
-***REMOVED***
+}
 .icon-power:before {
   content: "\e097";
-***REMOVED***
+}
 .icon-refresh:before {
   content: "\e098";
-***REMOVED***
+}
 .icon-reload:before {
   content: "\e099";
-***REMOVED***
+}
 .icon-settings:before {
   content: "\e09a";
-***REMOVED***
+}
 .icon-star:before {
   content: "\e09b";
-***REMOVED***
+}
 .icon-symble-female:before {
   content: "\e09c";
-***REMOVED***
+}
 .icon-symbol-male:before {
   content: "\e09d";
-***REMOVED***
+}
 .icon-target:before {
   content: "\e09e";
-***REMOVED***
+}
 .icon-credit-card:before {
   content: "\e025";
-***REMOVED***
+}
 .icon-paypal:before {
   content: "\e608";
-***REMOVED***
+}
 .icon-social-tumblr:before {
   content: "\e00a";
-***REMOVED***
+}
 .icon-social-twitter:before {
   content: "\e009";
-***REMOVED***
+}
 .icon-social-facebook:before {
   content: "\e00b";
-***REMOVED***
+}
 .icon-social-instagram:before {
   content: "\e609";
-***REMOVED***
+}
 .icon-social-linkedin:before {
   content: "\e60a";
-***REMOVED***
+}
 .icon-social-pintarest:before {
   content: "\e60b";
-***REMOVED***
+}
 .icon-social-github:before {
   content: "\e60c";
-***REMOVED***
+}
 .icon-social-gplus:before {
   content: "\e60d";
-***REMOVED***
+}
 .icon-social-reddit:before {
   content: "\e60e";
-***REMOVED***
+}
 .icon-social-skype:before {
   content: "\e60f";
-***REMOVED***
+}
 .icon-social-dribbble:before {
   content: "\e00d";
-***REMOVED***
+}
 .icon-social-behance:before {
   content: "\e610";
-***REMOVED***
+}
 .icon-social-foursqare:before {
   content: "\e611";
-***REMOVED***
+}
 .icon-social-soundcloud:before {
   content: "\e612";
-***REMOVED***
+}
 .icon-social-spotify:before {
   content: "\e613";
-***REMOVED***
+}
 .icon-social-stumbleupon:before {
   content: "\e614";
-***REMOVED***
+}
 .icon-social-youtube:before {
   content: "\e008";
-***REMOVED***
+}
 .icon-social-dropbox:before {
   content: "\e00c";
-***REMOVED***
+}

@@ -38,7 +38,7 @@ var
 		td: [ 3, "<table><tbody><tr>", "</tr></tbody></table>" ],
 
 		_default: [ 0, "", "" ]
-	***REMOVED***;
+	};
 
 // Support: IE9
 wrapMap.optgroup = wrapMap.option;
@@ -55,24 +55,24 @@ function manipulationTarget( elem, content ) {
 		elem.getElementsByTagName("tbody")[0] ||
 			elem.appendChild( elem.ownerDocument.createElement("tbody") ) :
 		elem;
-***REMOVED***
+}
 
 // Replace/restore the type attribute of script elements for safe DOM manipulation
 function disableScript( elem ) {
 	elem.type = (elem.getAttribute("type") !== null) + "/" + elem.type;
 	return elem;
-***REMOVED***
+}
 function restoreScript( elem ) {
 	var match = rscriptTypeMasked.exec( elem.type );
 
 	if ( match ) {
 		elem.type = match[ 1 ];
-	***REMOVED*** else {
+	} else {
 		elem.removeAttribute("type");
-	***REMOVED***
+	}
 
 	return elem;
-***REMOVED***
+}
 
 // Mark scripts as having already been evaluated
 function setGlobalEval( elems, refElements ) {
@@ -83,15 +83,15 @@ function setGlobalEval( elems, refElements ) {
 		data_priv.set(
 			elems[ i ], "globalEval", !refElements || data_priv.get( refElements[ i ], "globalEval" )
 		);
-	***REMOVED***
-***REMOVED***
+	}
+}
 
 function cloneCopyEvent( src, dest ) {
 	var i, l, type, pdataOld, pdataCur, udataOld, udataCur, events;
 
 	if ( dest.nodeType !== 1 ) {
 		return;
-	***REMOVED***
+	}
 
 	// 1. Copy private data: events, handlers, etc.
 	if ( data_priv.hasData( src ) ) {
@@ -101,24 +101,24 @@ function cloneCopyEvent( src, dest ) {
 
 		if ( events ) {
 			delete pdataCur.handle;
-			pdataCur.events = {***REMOVED***;
+			pdataCur.events = {};
 
 			for ( type in events ) {
 				for ( i = 0, l = events[ type ].length; i < l; i++ ) {
 					jQuery.event.add( dest, type, events[ type ][ i ] );
-				***REMOVED***
-			***REMOVED***
-		***REMOVED***
-	***REMOVED***
+				}
+			}
+		}
+	}
 
 	// 2. Copy user data
 	if ( data_user.hasData( src ) ) {
 		udataOld = data_user.access( src );
-		udataCur = jQuery.extend( {***REMOVED***, udataOld );
+		udataCur = jQuery.extend( {}, udataOld );
 
 		data_user.set( dest, udataCur );
-	***REMOVED***
-***REMOVED***
+	}
+}
 
 function getAll( context, tag ) {
 	var ret = context.getElementsByTagName ? context.getElementsByTagName( tag || "*" ) :
@@ -128,7 +128,7 @@ function getAll( context, tag ) {
 	return tag === undefined || tag && jQuery.nodeName( context, tag ) ?
 		jQuery.merge( [ context ], ret ) :
 		ret;
-***REMOVED***
+}
 
 // Fix IE bugs, see support tests
 function fixInput( src, dest ) {
@@ -139,10 +139,10 @@ function fixInput( src, dest ) {
 		dest.checked = src.checked;
 
 	// Fails to return the selected option to the default selected state when cloning options
-	***REMOVED*** else if ( nodeName === "input" || nodeName === "textarea" ) {
+	} else if ( nodeName === "input" || nodeName === "textarea" ) {
 		dest.defaultValue = src.defaultValue;
-	***REMOVED***
-***REMOVED***
+	}
+}
 
 jQuery.extend({
 	clone: function( elem, dataAndEvents, deepDataAndEvents ) {
@@ -160,8 +160,8 @@ jQuery.extend({
 
 			for ( i = 0, l = srcElements.length; i < l; i++ ) {
 				fixInput( srcElements[ i ], destElements[ i ] );
-			***REMOVED***
-		***REMOVED***
+			}
+		}
 
 		// Copy the events from the original to the clone
 		if ( dataAndEvents ) {
@@ -171,21 +171,21 @@ jQuery.extend({
 
 				for ( i = 0, l = srcElements.length; i < l; i++ ) {
 					cloneCopyEvent( srcElements[ i ], destElements[ i ] );
-				***REMOVED***
-			***REMOVED*** else {
+				}
+			} else {
 				cloneCopyEvent( elem, clone );
-			***REMOVED***
-		***REMOVED***
+			}
+		}
 
 		// Preserve script evaluation history
 		destElements = getAll( clone, "script" );
 		if ( destElements.length > 0 ) {
 			setGlobalEval( destElements, !inPage && getAll( elem, "script" ) );
-		***REMOVED***
+		}
 
 		// Return the cloned set
 		return clone;
-	***REMOVED***,
+	},
 
 	buildFragment: function( elems, context, scripts, selection ) {
 		var elem, tmp, tag, wrap, contains, j,
@@ -206,11 +206,11 @@ jQuery.extend({
 					jQuery.merge( nodes, elem.nodeType ? [ elem ] : elem );
 
 				// Convert non-html into a text node
-				***REMOVED*** else if ( !rhtml.test( elem ) ) {
+				} else if ( !rhtml.test( elem ) ) {
 					nodes.push( context.createTextNode( elem ) );
 
 				// Convert html into DOM nodes
-				***REMOVED*** else {
+				} else {
 					tmp = tmp || fragment.appendChild( context.createElement("div") );
 
 					// Deserialize a standard representation
@@ -222,7 +222,7 @@ jQuery.extend({
 					j = wrap[ 0 ];
 					while ( j-- ) {
 						tmp = tmp.lastChild;
-					***REMOVED***
+					}
 
 					// Support: QtWebKit, PhantomJS
 					// push.apply(_, arraylike) throws on ancient WebKit
@@ -233,9 +233,9 @@ jQuery.extend({
 
 					// Ensure the created nodes are orphaned (#12392)
 					tmp.textContent = "";
-				***REMOVED***
-			***REMOVED***
-		***REMOVED***
+				}
+			}
+		}
 
 		// Remove wrapper from fragment
 		fragment.textContent = "";
@@ -247,7 +247,7 @@ jQuery.extend({
 			// that element, do not do anything
 			if ( selection && jQuery.inArray( elem, selection ) !== -1 ) {
 				continue;
-			***REMOVED***
+			}
 
 			contains = jQuery.contains( elem.ownerDocument, elem );
 
@@ -257,7 +257,7 @@ jQuery.extend({
 			// Preserve script evaluation history
 			if ( contains ) {
 				setGlobalEval( tmp );
-			***REMOVED***
+			}
 
 			// Capture executables
 			if ( scripts ) {
@@ -265,13 +265,13 @@ jQuery.extend({
 				while ( (elem = tmp[ j++ ]) ) {
 					if ( rscriptType.test( elem.type || "" ) ) {
 						scripts.push( elem );
-					***REMOVED***
-				***REMOVED***
-			***REMOVED***
-		***REMOVED***
+					}
+				}
+			}
+		}
 
 		return fragment;
-	***REMOVED***,
+	},
 
 	cleanData: function( elems ) {
 		var data, elem, type, key,
@@ -289,22 +289,22 @@ jQuery.extend({
 								jQuery.event.remove( elem, type );
 
 							// This is a shortcut to avoid jQuery.event.remove's overhead
-							***REMOVED*** else {
+							} else {
 								jQuery.removeEvent( elem, type, data.handle );
-							***REMOVED***
-						***REMOVED***
-					***REMOVED***
+							}
+						}
+					}
 					if ( data_priv.cache[ key ] ) {
 						// Discard any remaining `private` data
 						delete data_priv.cache[ key ];
-					***REMOVED***
-				***REMOVED***
-			***REMOVED***
+					}
+				}
+			}
 			// Discard any remaining `user` data
 			delete data_user.cache[ elem[ data_user.expando ] ];
-		***REMOVED***
-	***REMOVED***
-***REMOVED***);
+		}
+	}
+});
 
 jQuery.fn.extend({
 	text: function( value ) {
@@ -314,44 +314,44 @@ jQuery.fn.extend({
 				this.empty().each(function() {
 					if ( this.nodeType === 1 || this.nodeType === 11 || this.nodeType === 9 ) {
 						this.textContent = value;
-					***REMOVED***
-				***REMOVED***);
-		***REMOVED***, null, value, arguments.length );
-	***REMOVED***,
+					}
+				});
+		}, null, value, arguments.length );
+	},
 
 	append: function() {
 		return this.domManip( arguments, function( elem ) {
 			if ( this.nodeType === 1 || this.nodeType === 11 || this.nodeType === 9 ) {
 				var target = manipulationTarget( this, elem );
 				target.appendChild( elem );
-			***REMOVED***
-		***REMOVED***);
-	***REMOVED***,
+			}
+		});
+	},
 
 	prepend: function() {
 		return this.domManip( arguments, function( elem ) {
 			if ( this.nodeType === 1 || this.nodeType === 11 || this.nodeType === 9 ) {
 				var target = manipulationTarget( this, elem );
 				target.insertBefore( elem, target.firstChild );
-			***REMOVED***
-		***REMOVED***);
-	***REMOVED***,
+			}
+		});
+	},
 
 	before: function() {
 		return this.domManip( arguments, function( elem ) {
 			if ( this.parentNode ) {
 				this.parentNode.insertBefore( elem, this );
-			***REMOVED***
-		***REMOVED***);
-	***REMOVED***,
+			}
+		});
+	},
 
 	after: function() {
 		return this.domManip( arguments, function( elem ) {
 			if ( this.parentNode ) {
 				this.parentNode.insertBefore( elem, this.nextSibling );
-			***REMOVED***
-		***REMOVED***);
-	***REMOVED***,
+			}
+		});
+	},
 
 	remove: function( selector, keepData /* Internal Use Only */ ) {
 		var elem,
@@ -361,18 +361,18 @@ jQuery.fn.extend({
 		for ( ; (elem = elems[i]) != null; i++ ) {
 			if ( !keepData && elem.nodeType === 1 ) {
 				jQuery.cleanData( getAll( elem ) );
-			***REMOVED***
+			}
 
 			if ( elem.parentNode ) {
 				if ( keepData && jQuery.contains( elem.ownerDocument, elem ) ) {
 					setGlobalEval( getAll( elem, "script" ) );
-				***REMOVED***
+				}
 				elem.parentNode.removeChild( elem );
-			***REMOVED***
-		***REMOVED***
+			}
+		}
 
 		return this;
-	***REMOVED***,
+	},
 
 	empty: function() {
 		var elem,
@@ -386,11 +386,11 @@ jQuery.fn.extend({
 
 				// Remove any remaining nodes
 				elem.textContent = "";
-			***REMOVED***
-		***REMOVED***
+			}
+		}
 
 		return this;
-	***REMOVED***,
+	},
 
 	clone: function( dataAndEvents, deepDataAndEvents ) {
 		dataAndEvents = dataAndEvents == null ? false : dataAndEvents;
@@ -398,18 +398,18 @@ jQuery.fn.extend({
 
 		return this.map(function() {
 			return jQuery.clone( this, dataAndEvents, deepDataAndEvents );
-		***REMOVED***);
-	***REMOVED***,
+		});
+	},
 
 	html: function( value ) {
 		return access( this, function( value ) {
-			var elem = this[ 0 ] || {***REMOVED***,
+			var elem = this[ 0 ] || {},
 				i = 0,
 				l = this.length;
 
 			if ( value === undefined && elem.nodeType === 1 ) {
 				return elem.innerHTML;
-			***REMOVED***
+			}
 
 			// See if we can take a shortcut and just use innerHTML
 			if ( typeof value === "string" && !rnoInnerhtml.test( value ) &&
@@ -419,26 +419,26 @@ jQuery.fn.extend({
 
 				try {
 					for ( ; i < l; i++ ) {
-						elem = this[ i ] || {***REMOVED***;
+						elem = this[ i ] || {};
 
 						// Remove element nodes and prevent memory leaks
 						if ( elem.nodeType === 1 ) {
 							jQuery.cleanData( getAll( elem, false ) );
 							elem.innerHTML = value;
-						***REMOVED***
-					***REMOVED***
+						}
+					}
 
 					elem = 0;
 
 				// If using innerHTML throws an exception, use the fallback method
-				***REMOVED*** catch( e ) {***REMOVED***
-			***REMOVED***
+				} catch( e ) {}
+			}
 
 			if ( elem ) {
 				this.empty().append( value );
-			***REMOVED***
-		***REMOVED***, null, value, arguments.length );
-	***REMOVED***,
+			}
+		}, null, value, arguments.length );
+	},
 
 	replaceWith: function() {
 		var arg = arguments[ 0 ];
@@ -451,16 +451,16 @@ jQuery.fn.extend({
 
 			if ( arg ) {
 				arg.replaceChild( elem, this );
-			***REMOVED***
-		***REMOVED***);
+			}
+		});
 
 		// Force removal if there was no new content (e.g., from empty arguments)
 		return arg && (arg.length || arg.nodeType) ? this : this.remove();
-	***REMOVED***,
+	},
 
 	detach: function( selector ) {
 		return this.remove( selector, true );
-	***REMOVED***,
+	},
 
 	domManip: function( args, callback ) {
 
@@ -483,10 +483,10 @@ jQuery.fn.extend({
 				var self = set.eq( index );
 				if ( isFunction ) {
 					args[ 0 ] = value.call( this, index, self.html() );
-				***REMOVED***
+				}
 				self.domManip( args, callback );
-			***REMOVED***);
-		***REMOVED***
+			});
+		}
 
 		if ( l ) {
 			fragment = jQuery.buildFragment( args, this[ 0 ].ownerDocument, false, this );
@@ -494,7 +494,7 @@ jQuery.fn.extend({
 
 			if ( fragment.childNodes.length === 1 ) {
 				fragment = first;
-			***REMOVED***
+			}
 
 			if ( first ) {
 				scripts = jQuery.map( getAll( fragment, "script" ), disableScript );
@@ -513,11 +513,11 @@ jQuery.fn.extend({
 							// Support: QtWebKit
 							// jQuery.merge because push.apply(_, arraylike) throws
 							jQuery.merge( scripts, getAll( node, "script" ) );
-						***REMOVED***
-					***REMOVED***
+						}
+					}
 
 					callback.call( this[ i ], node, i );
-				***REMOVED***
+				}
 
 				if ( hasScripts ) {
 					doc = scripts[ scripts.length - 1 ].ownerDocument;
@@ -535,19 +535,19 @@ jQuery.fn.extend({
 								// Optional AJAX dependency, but won't run scripts if not present
 								if ( jQuery._evalUrl ) {
 									jQuery._evalUrl( node.src );
-								***REMOVED***
-							***REMOVED*** else {
+								}
+							} else {
 								jQuery.globalEval( node.textContent.replace( rcleanScript, "" ) );
-							***REMOVED***
-						***REMOVED***
-					***REMOVED***
-				***REMOVED***
-			***REMOVED***
-		***REMOVED***
+							}
+						}
+					}
+				}
+			}
+		}
 
 		return this;
-	***REMOVED***
-***REMOVED***);
+	}
+});
 
 jQuery.each({
 	appendTo: "append",
@@ -555,7 +555,7 @@ jQuery.each({
 	insertBefore: "before",
 	insertAfter: "after",
 	replaceAll: "replaceWith"
-***REMOVED***, function( name, original ) {
+}, function( name, original ) {
 	jQuery.fn[ name ] = function( selector ) {
 		var elems,
 			ret = [],
@@ -570,11 +570,11 @@ jQuery.each({
 			// Support: QtWebKit
 			// .get() because push.apply(_, arraylike) throws
 			push.apply( ret, elems.get() );
-		***REMOVED***
+		}
 
 		return this.pushStack( ret );
-	***REMOVED***;
-***REMOVED***);
+	};
+});
 
 return jQuery;
-***REMOVED***);
+});

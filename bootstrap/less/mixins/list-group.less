@@ -1,7 +1,7 @@
 // List Groups
 
 .list-group-item-variant(@state; @background; @color) {
-  .list-group-item-@{state***REMOVED*** {
+  .list-group-item-@{state} {
     color: @color;
     background-color: @background;
 
@@ -11,20 +11,20 @@
 
       .list-group-item-heading {
         color: inherit;
-      ***REMOVED***
+      }
 
       &:hover,
       &:focus {
         color: @color;
         background-color: darken(@background, 5%);
-      ***REMOVED***
+      }
       &.active,
       &.active:hover,
       &.active:focus {
         color: #fff;
         background-color: @color;
         border-color: @color;
-      ***REMOVED***
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
+      }
+    }
+  }
+}

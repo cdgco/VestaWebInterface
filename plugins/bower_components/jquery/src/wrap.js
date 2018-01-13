@@ -12,8 +12,8 @@ jQuery.fn.extend({
 		if ( jQuery.isFunction( html ) ) {
 			return this.each(function( i ) {
 				jQuery( this ).wrapAll( html.call(this, i) );
-			***REMOVED***);
-		***REMOVED***
+			});
+		}
 
 		if ( this[ 0 ] ) {
 
@@ -22,28 +22,28 @@ jQuery.fn.extend({
 
 			if ( this[ 0 ].parentNode ) {
 				wrap.insertBefore( this[ 0 ] );
-			***REMOVED***
+			}
 
 			wrap.map(function() {
 				var elem = this;
 
 				while ( elem.firstElementChild ) {
 					elem = elem.firstElementChild;
-				***REMOVED***
+				}
 
 				return elem;
-			***REMOVED***).append( this );
-		***REMOVED***
+			}).append( this );
+		}
 
 		return this;
-	***REMOVED***,
+	},
 
 	wrapInner: function( html ) {
 		if ( jQuery.isFunction( html ) ) {
 			return this.each(function( i ) {
 				jQuery( this ).wrapInner( html.call(this, i) );
-			***REMOVED***);
-		***REMOVED***
+			});
+		}
 
 		return this.each(function() {
 			var self = jQuery( this ),
@@ -52,28 +52,28 @@ jQuery.fn.extend({
 			if ( contents.length ) {
 				contents.wrapAll( html );
 
-			***REMOVED*** else {
+			} else {
 				self.append( html );
-			***REMOVED***
-		***REMOVED***);
-	***REMOVED***,
+			}
+		});
+	},
 
 	wrap: function( html ) {
 		var isFunction = jQuery.isFunction( html );
 
 		return this.each(function( i ) {
 			jQuery( this ).wrapAll( isFunction ? html.call(this, i) : html );
-		***REMOVED***);
-	***REMOVED***,
+		});
+	},
 
 	unwrap: function() {
 		return this.parent().each(function() {
 			if ( !jQuery.nodeName( this, "body" ) ) {
 				jQuery( this ).replaceWith( this.childNodes );
-			***REMOVED***
-		***REMOVED***).end();
-	***REMOVED***
-***REMOVED***);
+			}
+		}).end();
+	}
+});
 
 return jQuery;
-***REMOVED***);
+});

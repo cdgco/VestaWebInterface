@@ -1,10 +1,10 @@
-***REMOVED***
+<?php
 
 session_start();
 
-    if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); ***REMOVED***  else { header( 'Location: ../install' );***REMOVED***;
-    if(base64_decode($_SESSION['loggedin']) == 'true') {***REMOVED***
-    else { header('Location: ../login.php'); ***REMOVED***
+    if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); }  else { header( 'Location: ../install' );};
+    if(base64_decode($_SESSION['loggedin']) == 'true') {}
+    else { header('Location: ../login.php'); }
 
     // Remove www. from domain and lowercase
     $v_domain = preg_replace("/^www\./i", "", $_POST['v_domain']);
@@ -36,41 +36,41 @@ session_start();
     // Check DNS option
     if (!empty($_POST['v_dnsenabled'])) {
         $v_dnsx = 'yes';
-    ***REMOVED*** else {
+    } else {
         $v_dnsx = 'no';
-    ***REMOVED***
+    }
     // Check Mail option
     if (!empty($_POST['v_mailenabled'])) {
         $v_mailx = 'yes';
-    ***REMOVED*** else {
+    } else {
         $v_mailx = 'no';
-    ***REMOVED***
+    }
     // Check Proxy option
     if (!empty($_POST['v_pryxyenabled'])) {
         $v_prxx = 'yes';
-    ***REMOVED*** else {
+    } else {
         $v_prxx = 'no';
-    ***REMOVED***
+    }
     // Check SSL option
     if (!empty($_POST['v_sslenabled'])) {
         $v_sslx = 'yes';
-    ***REMOVED*** else {
+    } else {
         $v_sslx = 'no';
-    ***REMOVED***
+    }
     // Check Let's Encrypt option
     if (!empty($_POST['v_leenabled'])) {
         $v_lex = 'yes';
-    ***REMOVED*** else {
+    } else {
         $v_lex = 'no';
-    ***REMOVED***
+    }
     // Check FTP option
     if (!empty($_POST['v_ftpenabled'])) {
         $v_ftpx = 'yes';
-    ***REMOVED*** else {
+    } else {
         $v_ftpx = 'no';
-    ***REMOVED***
-    if ((!isset($v_domain)) || ($v_domain == '')) { header('Location: ../add/domain.php?returncode=1');***REMOVED***
-    elseif ((!isset($_POST['v_ip'])) || ($_POST['v_ip'] == '')) { header('Location: ../add/domain.php?returncode=1');***REMOVED***
+    }
+    if ((!isset($v_domain)) || ($v_domain == '')) { header('Location: ../add/domain.php?returncode=1');}
+    elseif ((!isset($_POST['v_ip'])) || ($_POST['v_ip'] == '')) { header('Location: ../add/domain.php?returncode=1');}
     else {
         $postvars0 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_ip'], 'arg4' => 'no', 'arg5' => $alias, 'arg6' => $prxext);
 
@@ -94,7 +94,7 @@ session_start();
             curl_setopt($curl1, CURLOPT_POST, true);
             curl_setopt($curl1, CURLOPT_POSTFIELDS, http_build_query($postvars1));
             $r1 = curl_exec($curl1);
-        ***REMOVED*** else { $r1 = '0'; ***REMOVED***
+        } else { $r1 = '0'; }
         if ($v_mailx == 'yes'){
             $postvars2 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-domain','arg1' => $username,'arg2' => $v_domain);
 
@@ -106,7 +106,7 @@ session_start();
             curl_setopt($curl2, CURLOPT_POST, true);
             curl_setopt($curl2, CURLOPT_POSTFIELDS, http_build_query($postvars2));
             $r2 = curl_exec($curl2);
-        ***REMOVED*** else { $r2 = '0'; ***REMOVED***
+        } else { $r2 = '0'; }
         if ($v_dnsx == 'yes'){
             $postvars3 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-dns-domain','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_ip'], 'arg4' => '', 'arg5' => '', 'arg6' => '', 'arg7' => '', 'arg8' => '', 'arg9' => '', 'arg10' => '', 'arg11' => '', 'arg12' => 'no');
 
@@ -130,9 +130,9 @@ session_start();
                     curl_setopt($curl4, CURLOPT_POST, true);
                     curl_setopt($curl4, CURLOPT_POSTFIELDS, http_build_query($postvars4));
                     $r4 = curl_exec($curl4);
-                ***REMOVED*** else {$r4 = '0';***REMOVED***
-            ***REMOVED***
-        ***REMOVED*** else { $r3 = '0'; $r4 = '0';***REMOVED***
+                } else {$r4 = '0';}
+            }
+        } else { $r3 = '0'; $r4 = '0';}
         if ((!empty($_POST['v_webstats'])) && ($_POST['v_webstats'] != 'none' )){
             $postvars5 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain-stats','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_webstats']);
 
@@ -144,7 +144,7 @@ session_start();
             curl_setopt($curl5, CURLOPT_POST, true);
             curl_setopt($curl5, CURLOPT_POSTFIELDS, http_build_query($postvars5));
             $r5 = curl_exec($curl5);
-        ***REMOVED*** else { $r5 = '0'; ***REMOVED***
+        } else { $r5 = '0'; }
         if ((!empty($_POST['v_webstats'])) && ($_POST['v_webstats'] != 'none') && (!empty($_POST['v_statsuname'])) && (!empty($_POST['v_statspassword']))) {
             $postvars6 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain-stats-user','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_statsuname'], 'arg4' => $_POST['v_statspassword']);
 
@@ -156,7 +156,7 @@ session_start();
             curl_setopt($curl6, CURLOPT_POST, true);
             curl_setopt($curl6, CURLOPT_POSTFIELDS, http_build_query($postvars6));
             $r6 = curl_exec($curl6);
-        ***REMOVED*** else { $r6 = '0'; ***REMOVED***
+        } else { $r6 = '0'; }
         if ($v_lex == 'yes') {
             $postvars7 = array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-schedule-letsencrypt-domain','arg1' => $username,'arg2' => $v_domain);
 
@@ -169,15 +169,15 @@ session_start();
             curl_setopt($curl7, CURLOPT_POSTFIELDS, http_build_query($postvars7));
             $r7 = curl_exec($curl7);
 
-        ***REMOVED*** 
+        } 
         elseif ($v_sslx == 'yes') {
                 /* NEEDS TO BE INTEGRATED INTO BACKEND */
-            ***REMOVED***
-        else { $r7 = '0';***REMOVED***
+            }
+        else { $r7 = '0';}
         if ($v_ftpx == 'yes') {
             /* NEEDS TO BE INTEGRATED INTO BACKEND */
-        ***REMOVED***
+        }
         header('Location: ../list/web.php?returncode=' . $r0 . '.' . $r1 . '.' . $r2 . '.' .$r3 . '.' . $r4 . '.' . $r5 . '.' . $r6 . '.' . $r7);
-    ***REMOVED***
+    }
 
-    ***REMOVED***
+    ?>

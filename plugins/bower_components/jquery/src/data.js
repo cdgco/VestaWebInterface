@@ -16,7 +16,7 @@ define([
 //	5. Avoid exposing implementation details on user objects (eg. expando properties)
 //	6. Provide a clear path for implementation upgrade to WeakMap in 2014
 
-var rbrace = /^(?:\{[\w\W]*\***REMOVED***|\[[\w\W]*\])$/,
+var rbrace = /^(?:\{[\w\W]*\}|\[[\w\W]*\])$/,
 	rmultiDash = /([A-Z])/g;
 
 function dataAttr( elem, key, data ) {
@@ -37,40 +37,40 @@ function dataAttr( elem, key, data ) {
 					+data + "" === data ? +data :
 					rbrace.test( data ) ? jQuery.parseJSON( data ) :
 					data;
-			***REMOVED*** catch( e ) {***REMOVED***
+			} catch( e ) {}
 
 			// Make sure we set the data so it isn't changed later
 			data_user.set( elem, key, data );
-		***REMOVED*** else {
+		} else {
 			data = undefined;
-		***REMOVED***
-	***REMOVED***
+		}
+	}
 	return data;
-***REMOVED***
+}
 
 jQuery.extend({
 	hasData: function( elem ) {
 		return data_user.hasData( elem ) || data_priv.hasData( elem );
-	***REMOVED***,
+	},
 
 	data: function( elem, name, data ) {
 		return data_user.access( elem, name, data );
-	***REMOVED***,
+	},
 
 	removeData: function( elem, name ) {
 		data_user.remove( elem, name );
-	***REMOVED***,
+	},
 
 	// TODO: Now that all calls to _data and _removeData have been replaced
 	// with direct calls to data_priv methods, these can be deprecated.
 	_data: function( elem, name, data ) {
 		return data_priv.access( elem, name, data );
-	***REMOVED***,
+	},
 
 	_removeData: function( elem, name ) {
 		data_priv.remove( elem, name );
-	***REMOVED***
-***REMOVED***);
+	}
+});
 
 jQuery.fn.extend({
 	data: function( key, value ) {
@@ -94,22 +94,22 @@ jQuery.fn.extend({
 							if ( name.indexOf( "data-" ) === 0 ) {
 								name = jQuery.camelCase( name.slice(5) );
 								dataAttr( elem, name, data[ name ] );
-							***REMOVED***
-						***REMOVED***
-					***REMOVED***
+							}
+						}
+					}
 					data_priv.set( elem, "hasDataAttrs", true );
-				***REMOVED***
-			***REMOVED***
+				}
+			}
 
 			return data;
-		***REMOVED***
+		}
 
 		// Sets multiple values
 		if ( typeof key === "object" ) {
 			return this.each(function() {
 				data_user.set( this, key );
-			***REMOVED***);
-		***REMOVED***
+			});
+		}
 
 		return access( this, function( value ) {
 			var data,
@@ -126,25 +126,25 @@ jQuery.fn.extend({
 				data = data_user.get( elem, key );
 				if ( data !== undefined ) {
 					return data;
-				***REMOVED***
+				}
 
 				// Attempt to get data from the cache
 				// with the key camelized
 				data = data_user.get( elem, camelKey );
 				if ( data !== undefined ) {
 					return data;
-				***REMOVED***
+				}
 
 				// Attempt to "discover" the data in
 				// HTML5 custom data-* attrs
 				data = dataAttr( elem, camelKey, undefined );
 				if ( data !== undefined ) {
 					return data;
-				***REMOVED***
+				}
 
 				// We tried really hard, but the data doesn't exist.
 				return;
-			***REMOVED***
+			}
 
 			// Set the data...
 			this.each(function() {
@@ -162,17 +162,17 @@ jQuery.fn.extend({
 				// unchanged property.
 				if ( key.indexOf("-") !== -1 && data !== undefined ) {
 					data_user.set( this, key, value );
-				***REMOVED***
-			***REMOVED***);
-		***REMOVED***, null, value, arguments.length > 1, null, true );
-	***REMOVED***,
+				}
+			});
+		}, null, value, arguments.length > 1, null, true );
+	},
 
 	removeData: function( key ) {
 		return this.each(function() {
 			data_user.remove( this, key );
-		***REMOVED***);
-	***REMOVED***
-***REMOVED***);
+		});
+	}
+});
 
 return jQuery;
-***REMOVED***);
+});

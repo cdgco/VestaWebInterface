@@ -25,7 +25,7 @@
   src: url('../fonts/weathericons-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/weathericons-regular-webfont.woff2') format('woff2'), url('../fonts/weathericons-regular-webfont.woff') format('woff'), url('../fonts/weathericons-regular-webfont.ttf') format('truetype'), url('../fonts/weathericons-regular-webfont.svg#weather_iconsregular') format('svg');
   font-weight: normal;
   font-style: normal;
-***REMOVED***
+}
 .wi {
   display: inline-block;
   font-family: 'weathericons';
@@ -34,1751 +34,1751 @@
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-***REMOVED***
+}
 .wi-fw {
   text-align: center;
   width: 1.4em;
-***REMOVED***
+}
 .wi-rotate-90 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
   -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
-***REMOVED***
+}
 .wi-rotate-180 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
-***REMOVED***
+}
 .wi-rotate-270 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
   -webkit-transform: rotate(270deg);
   -ms-transform: rotate(270deg);
   transform: rotate(270deg);
-***REMOVED***
+}
 .wi-flip-horizontal {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
   -webkit-transform: scale(-1, 1);
   -ms-transform: scale(-1, 1);
   transform: scale(-1, 1);
-***REMOVED***
+}
 .wi-flip-vertical {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
   -webkit-transform: scale(1, -1);
   -ms-transform: scale(1, -1);
   transform: scale(1, -1);
-***REMOVED***
+}
 .wi-day-sunny:before {
   content: "\f00d";
-***REMOVED***
+}
 .wi-day-cloudy:before {
   content: "\f002";
-***REMOVED***
+}
 .wi-day-cloudy-gusts:before {
   content: "\f000";
-***REMOVED***
+}
 .wi-day-cloudy-windy:before {
   content: "\f001";
-***REMOVED***
+}
 .wi-day-fog:before {
   content: "\f003";
-***REMOVED***
+}
 .wi-day-hail:before {
   content: "\f004";
-***REMOVED***
+}
 .wi-day-haze:before {
   content: "\f0b6";
-***REMOVED***
+}
 .wi-day-lightning:before {
   content: "\f005";
-***REMOVED***
+}
 .wi-day-rain:before {
   content: "\f008";
-***REMOVED***
+}
 .wi-day-rain-mix:before {
   content: "\f006";
-***REMOVED***
+}
 .wi-day-rain-wind:before {
   content: "\f007";
-***REMOVED***
+}
 .wi-day-showers:before {
   content: "\f009";
-***REMOVED***
+}
 .wi-day-sleet:before {
   content: "\f0b2";
-***REMOVED***
+}
 .wi-day-sleet-storm:before {
   content: "\f068";
-***REMOVED***
+}
 .wi-day-snow:before {
   content: "\f00a";
-***REMOVED***
+}
 .wi-day-snow-thunderstorm:before {
   content: "\f06b";
-***REMOVED***
+}
 .wi-day-snow-wind:before {
   content: "\f065";
-***REMOVED***
+}
 .wi-day-sprinkle:before {
   content: "\f00b";
-***REMOVED***
+}
 .wi-day-storm-showers:before {
   content: "\f00e";
-***REMOVED***
+}
 .wi-day-sunny-overcast:before {
   content: "\f00c";
-***REMOVED***
+}
 .wi-day-thunderstorm:before {
   content: "\f010";
-***REMOVED***
+}
 .wi-day-windy:before {
   content: "\f085";
-***REMOVED***
+}
 .wi-solar-eclipse:before {
   content: "\f06e";
-***REMOVED***
+}
 .wi-hot:before {
   content: "\f072";
-***REMOVED***
+}
 .wi-day-cloudy-high:before {
   content: "\f07d";
-***REMOVED***
+}
 .wi-day-light-wind:before {
   content: "\f0c4";
-***REMOVED***
+}
 .wi-night-clear:before {
   content: "\f02e";
-***REMOVED***
+}
 .wi-night-alt-cloudy:before {
   content: "\f086";
-***REMOVED***
+}
 .wi-night-alt-cloudy-gusts:before {
   content: "\f022";
-***REMOVED***
+}
 .wi-night-alt-cloudy-windy:before {
   content: "\f023";
-***REMOVED***
+}
 .wi-night-alt-hail:before {
   content: "\f024";
-***REMOVED***
+}
 .wi-night-alt-lightning:before {
   content: "\f025";
-***REMOVED***
+}
 .wi-night-alt-rain:before {
   content: "\f028";
-***REMOVED***
+}
 .wi-night-alt-rain-mix:before {
   content: "\f026";
-***REMOVED***
+}
 .wi-night-alt-rain-wind:before {
   content: "\f027";
-***REMOVED***
+}
 .wi-night-alt-showers:before {
   content: "\f029";
-***REMOVED***
+}
 .wi-night-alt-sleet:before {
   content: "\f0b4";
-***REMOVED***
+}
 .wi-night-alt-sleet-storm:before {
   content: "\f06a";
-***REMOVED***
+}
 .wi-night-alt-snow:before {
   content: "\f02a";
-***REMOVED***
+}
 .wi-night-alt-snow-thunderstorm:before {
   content: "\f06d";
-***REMOVED***
+}
 .wi-night-alt-snow-wind:before {
   content: "\f067";
-***REMOVED***
+}
 .wi-night-alt-sprinkle:before {
   content: "\f02b";
-***REMOVED***
+}
 .wi-night-alt-storm-showers:before {
   content: "\f02c";
-***REMOVED***
+}
 .wi-night-alt-thunderstorm:before {
   content: "\f02d";
-***REMOVED***
+}
 .wi-night-cloudy:before {
   content: "\f031";
-***REMOVED***
+}
 .wi-night-cloudy-gusts:before {
   content: "\f02f";
-***REMOVED***
+}
 .wi-night-cloudy-windy:before {
   content: "\f030";
-***REMOVED***
+}
 .wi-night-fog:before {
   content: "\f04a";
-***REMOVED***
+}
 .wi-night-hail:before {
   content: "\f032";
-***REMOVED***
+}
 .wi-night-lightning:before {
   content: "\f033";
-***REMOVED***
+}
 .wi-night-partly-cloudy:before {
   content: "\f083";
-***REMOVED***
+}
 .wi-night-rain:before {
   content: "\f036";
-***REMOVED***
+}
 .wi-night-rain-mix:before {
   content: "\f034";
-***REMOVED***
+}
 .wi-night-rain-wind:before {
   content: "\f035";
-***REMOVED***
+}
 .wi-night-showers:before {
   content: "\f037";
-***REMOVED***
+}
 .wi-night-sleet:before {
   content: "\f0b3";
-***REMOVED***
+}
 .wi-night-sleet-storm:before {
   content: "\f069";
-***REMOVED***
+}
 .wi-night-snow:before {
   content: "\f038";
-***REMOVED***
+}
 .wi-night-snow-thunderstorm:before {
   content: "\f06c";
-***REMOVED***
+}
 .wi-night-snow-wind:before {
   content: "\f066";
-***REMOVED***
+}
 .wi-night-sprinkle:before {
   content: "\f039";
-***REMOVED***
+}
 .wi-night-storm-showers:before {
   content: "\f03a";
-***REMOVED***
+}
 .wi-night-thunderstorm:before {
   content: "\f03b";
-***REMOVED***
+}
 .wi-lunar-eclipse:before {
   content: "\f070";
-***REMOVED***
+}
 .wi-stars:before {
   content: "\f077";
-***REMOVED***
+}
 .wi-storm-showers:before {
   content: "\f01d";
-***REMOVED***
+}
 .wi-thunderstorm:before {
   content: "\f01e";
-***REMOVED***
+}
 .wi-night-alt-cloudy-high:before {
   content: "\f07e";
-***REMOVED***
+}
 .wi-night-cloudy-high:before {
   content: "\f080";
-***REMOVED***
+}
 .wi-night-alt-partly-cloudy:before {
   content: "\f081";
-***REMOVED***
+}
 .wi-cloud:before {
   content: "\f041";
-***REMOVED***
+}
 .wi-cloudy:before {
   content: "\f013";
-***REMOVED***
+}
 .wi-cloudy-gusts:before {
   content: "\f011";
-***REMOVED***
+}
 .wi-cloudy-windy:before {
   content: "\f012";
-***REMOVED***
+}
 .wi-fog:before {
   content: "\f014";
-***REMOVED***
+}
 .wi-hail:before {
   content: "\f015";
-***REMOVED***
+}
 .wi-rain:before {
   content: "\f019";
-***REMOVED***
+}
 .wi-rain-mix:before {
   content: "\f017";
-***REMOVED***
+}
 .wi-rain-wind:before {
   content: "\f018";
-***REMOVED***
+}
 .wi-showers:before {
   content: "\f01a";
-***REMOVED***
+}
 .wi-sleet:before {
   content: "\f0b5";
-***REMOVED***
+}
 .wi-snow:before {
   content: "\f01b";
-***REMOVED***
+}
 .wi-sprinkle:before {
   content: "\f01c";
-***REMOVED***
+}
 .wi-storm-showers:before {
   content: "\f01d";
-***REMOVED***
+}
 .wi-thunderstorm:before {
   content: "\f01e";
-***REMOVED***
+}
 .wi-snow-wind:before {
   content: "\f064";
-***REMOVED***
+}
 .wi-snow:before {
   content: "\f01b";
-***REMOVED***
+}
 .wi-smog:before {
   content: "\f074";
-***REMOVED***
+}
 .wi-smoke:before {
   content: "\f062";
-***REMOVED***
+}
 .wi-lightning:before {
   content: "\f016";
-***REMOVED***
+}
 .wi-raindrops:before {
   content: "\f04e";
-***REMOVED***
+}
 .wi-raindrop:before {
   content: "\f078";
-***REMOVED***
+}
 .wi-dust:before {
   content: "\f063";
-***REMOVED***
+}
 .wi-snowflake-cold:before {
   content: "\f076";
-***REMOVED***
+}
 .wi-windy:before {
   content: "\f021";
-***REMOVED***
+}
 .wi-strong-wind:before {
   content: "\f050";
-***REMOVED***
+}
 .wi-sandstorm:before {
   content: "\f082";
-***REMOVED***
+}
 .wi-earthquake:before {
   content: "\f0c6";
-***REMOVED***
+}
 .wi-fire:before {
   content: "\f0c7";
-***REMOVED***
+}
 .wi-flood:before {
   content: "\f07c";
-***REMOVED***
+}
 .wi-meteor:before {
   content: "\f071";
-***REMOVED***
+}
 .wi-tsunami:before {
   content: "\f0c5";
-***REMOVED***
+}
 .wi-volcano:before {
   content: "\f0c8";
-***REMOVED***
+}
 .wi-hurricane:before {
   content: "\f073";
-***REMOVED***
+}
 .wi-tornado:before {
   content: "\f056";
-***REMOVED***
+}
 .wi-small-craft-advisory:before {
   content: "\f0cc";
-***REMOVED***
+}
 .wi-gale-warning:before {
   content: "\f0cd";
-***REMOVED***
+}
 .wi-storm-warning:before {
   content: "\f0ce";
-***REMOVED***
+}
 .wi-hurricane-warning:before {
   content: "\f0cf";
-***REMOVED***
+}
 .wi-wind-direction:before {
   content: "\f0b1";
-***REMOVED***
+}
 .wi-alien:before {
   content: "\f075";
-***REMOVED***
+}
 .wi-celsius:before {
   content: "\f03c";
-***REMOVED***
+}
 .wi-fahrenheit:before {
   content: "\f045";
-***REMOVED***
+}
 .wi-degrees:before {
   content: "\f042";
-***REMOVED***
+}
 .wi-thermometer:before {
   content: "\f055";
-***REMOVED***
+}
 .wi-thermometer-exterior:before {
   content: "\f053";
-***REMOVED***
+}
 .wi-thermometer-internal:before {
   content: "\f054";
-***REMOVED***
+}
 .wi-cloud-down:before {
   content: "\f03d";
-***REMOVED***
+}
 .wi-cloud-up:before {
   content: "\f040";
-***REMOVED***
+}
 .wi-cloud-refresh:before {
   content: "\f03e";
-***REMOVED***
+}
 .wi-horizon:before {
   content: "\f047";
-***REMOVED***
+}
 .wi-horizon-alt:before {
   content: "\f046";
-***REMOVED***
+}
 .wi-sunrise:before {
   content: "\f051";
-***REMOVED***
+}
 .wi-sunset:before {
   content: "\f052";
-***REMOVED***
+}
 .wi-moonrise:before {
   content: "\f0c9";
-***REMOVED***
+}
 .wi-moonset:before {
   content: "\f0ca";
-***REMOVED***
+}
 .wi-refresh:before {
   content: "\f04c";
-***REMOVED***
+}
 .wi-refresh-alt:before {
   content: "\f04b";
-***REMOVED***
+}
 .wi-umbrella:before {
   content: "\f084";
-***REMOVED***
+}
 .wi-barometer:before {
   content: "\f079";
-***REMOVED***
+}
 .wi-humidity:before {
   content: "\f07a";
-***REMOVED***
+}
 .wi-na:before {
   content: "\f07b";
-***REMOVED***
+}
 .wi-train:before {
   content: "\f0cb";
-***REMOVED***
+}
 .wi-moon-new:before {
   content: "\f095";
-***REMOVED***
+}
 .wi-moon-waxing-cresent-1:before {
   content: "\f096";
-***REMOVED***
+}
 .wi-moon-waxing-cresent-2:before {
   content: "\f097";
-***REMOVED***
+}
 .wi-moon-waxing-cresent-3:before {
   content: "\f098";
-***REMOVED***
+}
 .wi-moon-waxing-cresent-4:before {
   content: "\f099";
-***REMOVED***
+}
 .wi-moon-waxing-cresent-5:before {
   content: "\f09a";
-***REMOVED***
+}
 .wi-moon-waxing-cresent-6:before {
   content: "\f09b";
-***REMOVED***
+}
 .wi-moon-first-quarter:before {
   content: "\f09c";
-***REMOVED***
+}
 .wi-moon-waxing-gibbous-1:before {
   content: "\f09d";
-***REMOVED***
+}
 .wi-moon-waxing-gibbous-2:before {
   content: "\f09e";
-***REMOVED***
+}
 .wi-moon-waxing-gibbous-3:before {
   content: "\f09f";
-***REMOVED***
+}
 .wi-moon-waxing-gibbous-4:before {
   content: "\f0a0";
-***REMOVED***
+}
 .wi-moon-waxing-gibbous-5:before {
   content: "\f0a1";
-***REMOVED***
+}
 .wi-moon-waxing-gibbous-6:before {
   content: "\f0a2";
-***REMOVED***
+}
 .wi-moon-full:before {
   content: "\f0a3";
-***REMOVED***
+}
 .wi-moon-waning-gibbous-1:before {
   content: "\f0a4";
-***REMOVED***
+}
 .wi-moon-waning-gibbous-2:before {
   content: "\f0a5";
-***REMOVED***
+}
 .wi-moon-waning-gibbous-3:before {
   content: "\f0a6";
-***REMOVED***
+}
 .wi-moon-waning-gibbous-4:before {
   content: "\f0a7";
-***REMOVED***
+}
 .wi-moon-waning-gibbous-5:before {
   content: "\f0a8";
-***REMOVED***
+}
 .wi-moon-waning-gibbous-6:before {
   content: "\f0a9";
-***REMOVED***
+}
 .wi-moon-third-quarter:before {
   content: "\f0aa";
-***REMOVED***
+}
 .wi-moon-waning-crescent-1:before {
   content: "\f0ab";
-***REMOVED***
+}
 .wi-moon-waning-crescent-2:before {
   content: "\f0ac";
-***REMOVED***
+}
 .wi-moon-waning-crescent-3:before {
   content: "\f0ad";
-***REMOVED***
+}
 .wi-moon-waning-crescent-4:before {
   content: "\f0ae";
-***REMOVED***
+}
 .wi-moon-waning-crescent-5:before {
   content: "\f0af";
-***REMOVED***
+}
 .wi-moon-waning-crescent-6:before {
   content: "\f0b0";
-***REMOVED***
+}
 .wi-moon-alt-new:before {
   content: "\f0eb";
-***REMOVED***
+}
 .wi-moon-alt-waxing-cresent-1:before {
   content: "\f0d0";
-***REMOVED***
+}
 .wi-moon-alt-waxing-cresent-2:before {
   content: "\f0d1";
-***REMOVED***
+}
 .wi-moon-alt-waxing-cresent-3:before {
   content: "\f0d2";
-***REMOVED***
+}
 .wi-moon-alt-waxing-cresent-4:before {
   content: "\f0d3";
-***REMOVED***
+}
 .wi-moon-alt-waxing-cresent-5:before {
   content: "\f0d4";
-***REMOVED***
+}
 .wi-moon-alt-waxing-cresent-6:before {
   content: "\f0d5";
-***REMOVED***
+}
 .wi-moon-alt-first-quarter:before {
   content: "\f0d6";
-***REMOVED***
+}
 .wi-moon-alt-waxing-gibbous-1:before {
   content: "\f0d7";
-***REMOVED***
+}
 .wi-moon-alt-waxing-gibbous-2:before {
   content: "\f0d8";
-***REMOVED***
+}
 .wi-moon-alt-waxing-gibbous-3:before {
   content: "\f0d9";
-***REMOVED***
+}
 .wi-moon-alt-waxing-gibbous-4:before {
   content: "\f0da";
-***REMOVED***
+}
 .wi-moon-alt-waxing-gibbous-5:before {
   content: "\f0db";
-***REMOVED***
+}
 .wi-moon-alt-waxing-gibbous-6:before {
   content: "\f0dc";
-***REMOVED***
+}
 .wi-moon-alt-full:before {
   content: "\f0dd";
-***REMOVED***
+}
 .wi-moon-alt-waning-gibbous-1:before {
   content: "\f0de";
-***REMOVED***
+}
 .wi-moon-alt-waning-gibbous-2:before {
   content: "\f0df";
-***REMOVED***
+}
 .wi-moon-alt-waning-gibbous-3:before {
   content: "\f0e0";
-***REMOVED***
+}
 .wi-moon-alt-waning-gibbous-4:before {
   content: "\f0e1";
-***REMOVED***
+}
 .wi-moon-alt-waning-gibbous-5:before {
   content: "\f0e2";
-***REMOVED***
+}
 .wi-moon-alt-waning-gibbous-6:before {
   content: "\f0e3";
-***REMOVED***
+}
 .wi-moon-alt-third-quarter:before {
   content: "\f0e4";
-***REMOVED***
+}
 .wi-moon-alt-waning-crescent-1:before {
   content: "\f0e5";
-***REMOVED***
+}
 .wi-moon-alt-waning-crescent-2:before {
   content: "\f0e6";
-***REMOVED***
+}
 .wi-moon-alt-waning-crescent-3:before {
   content: "\f0e7";
-***REMOVED***
+}
 .wi-moon-alt-waning-crescent-4:before {
   content: "\f0e8";
-***REMOVED***
+}
 .wi-moon-alt-waning-crescent-5:before {
   content: "\f0e9";
-***REMOVED***
+}
 .wi-moon-alt-waning-crescent-6:before {
   content: "\f0ea";
-***REMOVED***
+}
 .wi-moon-0:before {
   content: "\f095";
-***REMOVED***
+}
 .wi-moon-1:before {
   content: "\f096";
-***REMOVED***
+}
 .wi-moon-2:before {
   content: "\f097";
-***REMOVED***
+}
 .wi-moon-3:before {
   content: "\f098";
-***REMOVED***
+}
 .wi-moon-4:before {
   content: "\f099";
-***REMOVED***
+}
 .wi-moon-5:before {
   content: "\f09a";
-***REMOVED***
+}
 .wi-moon-6:before {
   content: "\f09b";
-***REMOVED***
+}
 .wi-moon-7:before {
   content: "\f09c";
-***REMOVED***
+}
 .wi-moon-8:before {
   content: "\f09d";
-***REMOVED***
+}
 .wi-moon-9:before {
   content: "\f09e";
-***REMOVED***
+}
 .wi-moon-10:before {
   content: "\f09f";
-***REMOVED***
+}
 .wi-moon-11:before {
   content: "\f0a0";
-***REMOVED***
+}
 .wi-moon-12:before {
   content: "\f0a1";
-***REMOVED***
+}
 .wi-moon-13:before {
   content: "\f0a2";
-***REMOVED***
+}
 .wi-moon-14:before {
   content: "\f0a3";
-***REMOVED***
+}
 .wi-moon-15:before {
   content: "\f0a4";
-***REMOVED***
+}
 .wi-moon-16:before {
   content: "\f0a5";
-***REMOVED***
+}
 .wi-moon-17:before {
   content: "\f0a6";
-***REMOVED***
+}
 .wi-moon-18:before {
   content: "\f0a7";
-***REMOVED***
+}
 .wi-moon-19:before {
   content: "\f0a8";
-***REMOVED***
+}
 .wi-moon-20:before {
   content: "\f0a9";
-***REMOVED***
+}
 .wi-moon-21:before {
   content: "\f0aa";
-***REMOVED***
+}
 .wi-moon-22:before {
   content: "\f0ab";
-***REMOVED***
+}
 .wi-moon-23:before {
   content: "\f0ac";
-***REMOVED***
+}
 .wi-moon-24:before {
   content: "\f0ad";
-***REMOVED***
+}
 .wi-moon-25:before {
   content: "\f0ae";
-***REMOVED***
+}
 .wi-moon-26:before {
   content: "\f0af";
-***REMOVED***
+}
 .wi-moon-27:before {
   content: "\f0b0";
-***REMOVED***
+}
 .wi-time-1:before {
   content: "\f08a";
-***REMOVED***
+}
 .wi-time-2:before {
   content: "\f08b";
-***REMOVED***
+}
 .wi-time-3:before {
   content: "\f08c";
-***REMOVED***
+}
 .wi-time-4:before {
   content: "\f08d";
-***REMOVED***
+}
 .wi-time-5:before {
   content: "\f08e";
-***REMOVED***
+}
 .wi-time-6:before {
   content: "\f08f";
-***REMOVED***
+}
 .wi-time-7:before {
   content: "\f090";
-***REMOVED***
+}
 .wi-time-8:before {
   content: "\f091";
-***REMOVED***
+}
 .wi-time-9:before {
   content: "\f092";
-***REMOVED***
+}
 .wi-time-10:before {
   content: "\f093";
-***REMOVED***
+}
 .wi-time-11:before {
   content: "\f094";
-***REMOVED***
+}
 .wi-time-12:before {
   content: "\f089";
-***REMOVED***
+}
 .wi-direction-up:before {
   content: "\f058";
-***REMOVED***
+}
 .wi-direction-up-right:before {
   content: "\f057";
-***REMOVED***
+}
 .wi-direction-right:before {
   content: "\f04d";
-***REMOVED***
+}
 .wi-direction-down-right:before {
   content: "\f088";
-***REMOVED***
+}
 .wi-direction-down:before {
   content: "\f044";
-***REMOVED***
+}
 .wi-direction-down-left:before {
   content: "\f043";
-***REMOVED***
+}
 .wi-direction-left:before {
   content: "\f048";
-***REMOVED***
+}
 .wi-direction-up-left:before {
   content: "\f087";
-***REMOVED***
+}
 .wi-wind-beaufort-0:before {
   content: "\f0b7";
-***REMOVED***
+}
 .wi-wind-beaufort-1:before {
   content: "\f0b8";
-***REMOVED***
+}
 .wi-wind-beaufort-2:before {
   content: "\f0b9";
-***REMOVED***
+}
 .wi-wind-beaufort-3:before {
   content: "\f0ba";
-***REMOVED***
+}
 .wi-wind-beaufort-4:before {
   content: "\f0bb";
-***REMOVED***
+}
 .wi-wind-beaufort-5:before {
   content: "\f0bc";
-***REMOVED***
+}
 .wi-wind-beaufort-6:before {
   content: "\f0bd";
-***REMOVED***
+}
 .wi-wind-beaufort-7:before {
   content: "\f0be";
-***REMOVED***
+}
 .wi-wind-beaufort-8:before {
   content: "\f0bf";
-***REMOVED***
+}
 .wi-wind-beaufort-9:before {
   content: "\f0c0";
-***REMOVED***
+}
 .wi-wind-beaufort-10:before {
   content: "\f0c1";
-***REMOVED***
+}
 .wi-wind-beaufort-11:before {
   content: "\f0c2";
-***REMOVED***
+}
 .wi-wind-beaufort-12:before {
   content: "\f0c3";
-***REMOVED***
+}
 .wi-yahoo-0:before {
   content: "\f056";
-***REMOVED***
+}
 .wi-yahoo-1:before {
   content: "\f00e";
-***REMOVED***
+}
 .wi-yahoo-2:before {
   content: "\f073";
-***REMOVED***
+}
 .wi-yahoo-3:before {
   content: "\f01e";
-***REMOVED***
+}
 .wi-yahoo-4:before {
   content: "\f01e";
-***REMOVED***
+}
 .wi-yahoo-5:before {
   content: "\f017";
-***REMOVED***
+}
 .wi-yahoo-6:before {
   content: "\f017";
-***REMOVED***
+}
 .wi-yahoo-7:before {
   content: "\f017";
-***REMOVED***
+}
 .wi-yahoo-8:before {
   content: "\f015";
-***REMOVED***
+}
 .wi-yahoo-9:before {
   content: "\f01a";
-***REMOVED***
+}
 .wi-yahoo-10:before {
   content: "\f015";
-***REMOVED***
+}
 .wi-yahoo-11:before {
   content: "\f01a";
-***REMOVED***
+}
 .wi-yahoo-12:before {
   content: "\f01a";
-***REMOVED***
+}
 .wi-yahoo-13:before {
   content: "\f01b";
-***REMOVED***
+}
 .wi-yahoo-14:before {
   content: "\f00a";
-***REMOVED***
+}
 .wi-yahoo-15:before {
   content: "\f064";
-***REMOVED***
+}
 .wi-yahoo-16:before {
   content: "\f01b";
-***REMOVED***
+}
 .wi-yahoo-17:before {
   content: "\f015";
-***REMOVED***
+}
 .wi-yahoo-18:before {
   content: "\f017";
-***REMOVED***
+}
 .wi-yahoo-19:before {
   content: "\f063";
-***REMOVED***
+}
 .wi-yahoo-20:before {
   content: "\f014";
-***REMOVED***
+}
 .wi-yahoo-21:before {
   content: "\f021";
-***REMOVED***
+}
 .wi-yahoo-22:before {
   content: "\f062";
-***REMOVED***
+}
 .wi-yahoo-23:before {
   content: "\f050";
-***REMOVED***
+}
 .wi-yahoo-24:before {
   content: "\f050";
-***REMOVED***
+}
 .wi-yahoo-25:before {
   content: "\f076";
-***REMOVED***
+}
 .wi-yahoo-26:before {
   content: "\f013";
-***REMOVED***
+}
 .wi-yahoo-27:before {
   content: "\f031";
-***REMOVED***
+}
 .wi-yahoo-28:before {
   content: "\f002";
-***REMOVED***
+}
 .wi-yahoo-29:before {
   content: "\f031";
-***REMOVED***
+}
 .wi-yahoo-30:before {
   content: "\f002";
-***REMOVED***
+}
 .wi-yahoo-31:before {
   content: "\f02e";
-***REMOVED***
+}
 .wi-yahoo-32:before {
   content: "\f00d";
-***REMOVED***
+}
 .wi-yahoo-33:before {
   content: "\f083";
-***REMOVED***
+}
 .wi-yahoo-34:before {
   content: "\f00c";
-***REMOVED***
+}
 .wi-yahoo-35:before {
   content: "\f017";
-***REMOVED***
+}
 .wi-yahoo-36:before {
   content: "\f072";
-***REMOVED***
+}
 .wi-yahoo-37:before {
   content: "\f00e";
-***REMOVED***
+}
 .wi-yahoo-38:before {
   content: "\f00e";
-***REMOVED***
+}
 .wi-yahoo-39:before {
   content: "\f00e";
-***REMOVED***
+}
 .wi-yahoo-40:before {
   content: "\f01a";
-***REMOVED***
+}
 .wi-yahoo-41:before {
   content: "\f064";
-***REMOVED***
+}
 .wi-yahoo-42:before {
   content: "\f01b";
-***REMOVED***
+}
 .wi-yahoo-43:before {
   content: "\f064";
-***REMOVED***
+}
 .wi-yahoo-44:before {
   content: "\f00c";
-***REMOVED***
+}
 .wi-yahoo-45:before {
   content: "\f00e";
-***REMOVED***
+}
 .wi-yahoo-46:before {
   content: "\f01b";
-***REMOVED***
+}
 .wi-yahoo-47:before {
   content: "\f00e";
-***REMOVED***
+}
 .wi-yahoo-3200:before {
   content: "\f077";
-***REMOVED***
+}
 .wi-forecast-io-clear-day:before {
   content: "\f00d";
-***REMOVED***
+}
 .wi-forecast-io-clear-night:before {
   content: "\f02e";
-***REMOVED***
+}
 .wi-forecast-io-rain:before {
   content: "\f019";
-***REMOVED***
+}
 .wi-forecast-io-snow:before {
   content: "\f01b";
-***REMOVED***
+}
 .wi-forecast-io-sleet:before {
   content: "\f0b5";
-***REMOVED***
+}
 .wi-forecast-io-wind:before {
   content: "\f050";
-***REMOVED***
+}
 .wi-forecast-io-fog:before {
   content: "\f014";
-***REMOVED***
+}
 .wi-forecast-io-cloudy:before {
   content: "\f013";
-***REMOVED***
+}
 .wi-forecast-io-partly-cloudy-day:before {
   content: "\f002";
-***REMOVED***
+}
 .wi-forecast-io-partly-cloudy-night:before {
   content: "\f031";
-***REMOVED***
+}
 .wi-forecast-io-hail:before {
   content: "\f015";
-***REMOVED***
+}
 .wi-forecast-io-thunderstorm:before {
   content: "\f01e";
-***REMOVED***
+}
 .wi-forecast-io-tornado:before {
   content: "\f056";
-***REMOVED***
+}
 .wi-wmo4680-0:before,
 .wi-wmo4680-00:before {
   content: "\f055";
-***REMOVED***
+}
 .wi-wmo4680-1:before,
 .wi-wmo4680-01:before {
   content: "\f013";
-***REMOVED***
+}
 .wi-wmo4680-2:before,
 .wi-wmo4680-02:before {
   content: "\f055";
-***REMOVED***
+}
 .wi-wmo4680-3:before,
 .wi-wmo4680-03:before {
   content: "\f013";
-***REMOVED***
+}
 .wi-wmo4680-4:before,
 .wi-wmo4680-04:before {
   content: "\f014";
-***REMOVED***
+}
 .wi-wmo4680-5:before,
 .wi-wmo4680-05:before {
   content: "\f014";
-***REMOVED***
+}
 .wi-wmo4680-10:before {
   content: "\f014";
-***REMOVED***
+}
 .wi-wmo4680-11:before {
   content: "\f014";
-***REMOVED***
+}
 .wi-wmo4680-12:before {
   content: "\f016";
-***REMOVED***
+}
 .wi-wmo4680-18:before {
   content: "\f050";
-***REMOVED***
+}
 .wi-wmo4680-20:before {
   content: "\f014";
-***REMOVED***
+}
 .wi-wmo4680-21:before {
   content: "\f017";
-***REMOVED***
+}
 .wi-wmo4680-22:before {
   content: "\f017";
-***REMOVED***
+}
 .wi-wmo4680-23:before {
   content: "\f019";
-***REMOVED***
+}
 .wi-wmo4680-24:before {
   content: "\f01b";
-***REMOVED***
+}
 .wi-wmo4680-25:before {
   content: "\f015";
-***REMOVED***
+}
 .wi-wmo4680-26:before {
   content: "\f01e";
-***REMOVED***
+}
 .wi-wmo4680-27:before {
   content: "\f063";
-***REMOVED***
+}
 .wi-wmo4680-28:before {
   content: "\f063";
-***REMOVED***
+}
 .wi-wmo4680-29:before {
   content: "\f063";
-***REMOVED***
+}
 .wi-wmo4680-30:before {
   content: "\f014";
-***REMOVED***
+}
 .wi-wmo4680-31:before {
   content: "\f014";
-***REMOVED***
+}
 .wi-wmo4680-32:before {
   content: "\f014";
-***REMOVED***
+}
 .wi-wmo4680-33:before {
   content: "\f014";
-***REMOVED***
+}
 .wi-wmo4680-34:before {
   content: "\f014";
-***REMOVED***
+}
 .wi-wmo4680-35:before {
   content: "\f014";
-***REMOVED***
+}
 .wi-wmo4680-40:before {
   content: "\f017";
-***REMOVED***
+}
 .wi-wmo4680-41:before {
   content: "\f01c";
-***REMOVED***
+}
 .wi-wmo4680-42:before {
   content: "\f019";
-***REMOVED***
+}
 .wi-wmo4680-43:before {
   content: "\f01c";
-***REMOVED***
+}
 .wi-wmo4680-44:before {
   content: "\f019";
-***REMOVED***
+}
 .wi-wmo4680-45:before {
   content: "\f015";
-***REMOVED***
+}
 .wi-wmo4680-46:before {
   content: "\f015";
-***REMOVED***
+}
 .wi-wmo4680-47:before {
   content: "\f01b";
-***REMOVED***
+}
 .wi-wmo4680-48:before {
   content: "\f01b";
-***REMOVED***
+}
 .wi-wmo4680-50:before {
   content: "\f01c";
-***REMOVED***
+}
 .wi-wmo4680-51:before {
   content: "\f01c";
-***REMOVED***
+}
 .wi-wmo4680-52:before {
   content: "\f019";
-***REMOVED***
+}
 .wi-wmo4680-53:before {
   content: "\f019";
-***REMOVED***
+}
 .wi-wmo4680-54:before {
   content: "\f076";
-***REMOVED***
+}
 .wi-wmo4680-55:before {
   content: "\f076";
-***REMOVED***
+}
 .wi-wmo4680-56:before {
   content: "\f076";
-***REMOVED***
+}
 .wi-wmo4680-57:before {
   content: "\f01c";
-***REMOVED***
+}
 .wi-wmo4680-58:before {
   content: "\f019";
-***REMOVED***
+}
 .wi-wmo4680-60:before {
   content: "\f01c";
-***REMOVED***
+}
 .wi-wmo4680-61:before {
   content: "\f01c";
-***REMOVED***
+}
 .wi-wmo4680-62:before {
   content: "\f019";
-***REMOVED***
+}
 .wi-wmo4680-63:before {
   content: "\f019";
-***REMOVED***
+}
 .wi-wmo4680-64:before {
   content: "\f015";
-***REMOVED***
+}
 .wi-wmo4680-65:before {
   content: "\f015";
-***REMOVED***
+}
 .wi-wmo4680-66:before {
   content: "\f015";
-***REMOVED***
+}
 .wi-wmo4680-67:before {
   content: "\f017";
-***REMOVED***
+}
 .wi-wmo4680-68:before {
   content: "\f017";
-***REMOVED***
+}
 .wi-wmo4680-70:before {
   content: "\f01b";
-***REMOVED***
+}
 .wi-wmo4680-71:before {
   content: "\f01b";
-***REMOVED***
+}
 .wi-wmo4680-72:before {
   content: "\f01b";
-***REMOVED***
+}
 .wi-wmo4680-73:before {
   content: "\f01b";
-***REMOVED***
+}
 .wi-wmo4680-74:before {
   content: "\f076";
-***REMOVED***
+}
 .wi-wmo4680-75:before {
   content: "\f076";
-***REMOVED***
+}
 .wi-wmo4680-76:before {
   content: "\f076";
-***REMOVED***
+}
 .wi-wmo4680-77:before {
   content: "\f01b";
-***REMOVED***
+}
 .wi-wmo4680-78:before {
   content: "\f076";
-***REMOVED***
+}
 .wi-wmo4680-80:before {
   content: "\f019";
-***REMOVED***
+}
 .wi-wmo4680-81:before {
   content: "\f01c";
-***REMOVED***
+}
 .wi-wmo4680-82:before {
   content: "\f019";
-***REMOVED***
+}
 .wi-wmo4680-83:before {
   content: "\f019";
-***REMOVED***
+}
 .wi-wmo4680-84:before {
   content: "\f01d";
-***REMOVED***
+}
 .wi-wmo4680-85:before {
   content: "\f017";
-***REMOVED***
+}
 .wi-wmo4680-86:before {
   content: "\f017";
-***REMOVED***
+}
 .wi-wmo4680-87:before {
   content: "\f017";
-***REMOVED***
+}
 .wi-wmo4680-89:before {
   content: "\f015";
-***REMOVED***
+}
 .wi-wmo4680-90:before {
   content: "\f016";
-***REMOVED***
+}
 .wi-wmo4680-91:before {
   content: "\f01d";
-***REMOVED***
+}
 .wi-wmo4680-92:before {
   content: "\f01e";
-***REMOVED***
+}
 .wi-wmo4680-93:before {
   content: "\f01e";
-***REMOVED***
+}
 .wi-wmo4680-94:before {
   content: "\f016";
-***REMOVED***
+}
 .wi-wmo4680-95:before {
   content: "\f01e";
-***REMOVED***
+}
 .wi-wmo4680-96:before {
   content: "\f01e";
-***REMOVED***
+}
 .wi-wmo4680-99:before {
   content: "\f056";
-***REMOVED***
+}
 .wi-owm-200:before {
   content: "\f01e";
-***REMOVED***
+}
 .wi-owm-201:before {
   content: "\f01e";
-***REMOVED***
+}
 .wi-owm-202:before {
   content: "\f01e";
-***REMOVED***
+}
 .wi-owm-210:before {
   content: "\f016";
-***REMOVED***
+}
 .wi-owm-211:before {
   content: "\f016";
-***REMOVED***
+}
 .wi-owm-212:before {
   content: "\f016";
-***REMOVED***
+}
 .wi-owm-221:before {
   content: "\f016";
-***REMOVED***
+}
 .wi-owm-230:before {
   content: "\f01e";
-***REMOVED***
+}
 .wi-owm-231:before {
   content: "\f01e";
-***REMOVED***
+}
 .wi-owm-232:before {
   content: "\f01e";
-***REMOVED***
+}
 .wi-owm-300:before {
   content: "\f01c";
-***REMOVED***
+}
 .wi-owm-301:before {
   content: "\f01c";
-***REMOVED***
+}
 .wi-owm-302:before {
   content: "\f019";
-***REMOVED***
+}
 .wi-owm-310:before {
   content: "\f017";
-***REMOVED***
+}
 .wi-owm-311:before {
   content: "\f019";
-***REMOVED***
+}
 .wi-owm-312:before {
   content: "\f019";
-***REMOVED***
+}
 .wi-owm-313:before {
   content: "\f01a";
-***REMOVED***
+}
 .wi-owm-314:before {
   content: "\f019";
-***REMOVED***
+}
 .wi-owm-321:before {
   content: "\f01c";
-***REMOVED***
+}
 .wi-owm-500:before {
   content: "\f01c";
-***REMOVED***
+}
 .wi-owm-501:before {
   content: "\f019";
-***REMOVED***
+}
 .wi-owm-502:before {
   content: "\f019";
-***REMOVED***
+}
 .wi-owm-503:before {
   content: "\f019";
-***REMOVED***
+}
 .wi-owm-504:before {
   content: "\f019";
-***REMOVED***
+}
 .wi-owm-511:before {
   content: "\f017";
-***REMOVED***
+}
 .wi-owm-520:before {
   content: "\f01a";
-***REMOVED***
+}
 .wi-owm-521:before {
   content: "\f01a";
-***REMOVED***
+}
 .wi-owm-522:before {
   content: "\f01a";
-***REMOVED***
+}
 .wi-owm-531:before {
   content: "\f01d";
-***REMOVED***
+}
 .wi-owm-600:before {
   content: "\f01b";
-***REMOVED***
+}
 .wi-owm-601:before {
   content: "\f01b";
-***REMOVED***
+}
 .wi-owm-602:before {
   content: "\f0b5";
-***REMOVED***
+}
 .wi-owm-611:before {
   content: "\f017";
-***REMOVED***
+}
 .wi-owm-612:before {
   content: "\f017";
-***REMOVED***
+}
 .wi-owm-615:before {
   content: "\f017";
-***REMOVED***
+}
 .wi-owm-616:before {
   content: "\f017";
-***REMOVED***
+}
 .wi-owm-620:before {
   content: "\f017";
-***REMOVED***
+}
 .wi-owm-621:before {
   content: "\f01b";
-***REMOVED***
+}
 .wi-owm-622:before {
   content: "\f01b";
-***REMOVED***
+}
 .wi-owm-701:before {
   content: "\f01a";
-***REMOVED***
+}
 .wi-owm-711:before {
   content: "\f062";
-***REMOVED***
+}
 .wi-owm-721:before {
   content: "\f0b6";
-***REMOVED***
+}
 .wi-owm-731:before {
   content: "\f063";
-***REMOVED***
+}
 .wi-owm-741:before {
   content: "\f014";
-***REMOVED***
+}
 .wi-owm-761:before {
   content: "\f063";
-***REMOVED***
+}
 .wi-owm-762:before {
   content: "\f063";
-***REMOVED***
+}
 .wi-owm-771:before {
   content: "\f011";
-***REMOVED***
+}
 .wi-owm-781:before {
   content: "\f056";
-***REMOVED***
+}
 .wi-owm-800:before {
   content: "\f00d";
-***REMOVED***
+}
 .wi-owm-801:before {
   content: "\f011";
-***REMOVED***
+}
 .wi-owm-802:before {
   content: "\f011";
-***REMOVED***
+}
 .wi-owm-803:before {
   content: "\f011";
-***REMOVED***
+}
 .wi-owm-803:before {
   content: "\f012";
-***REMOVED***
+}
 .wi-owm-804:before {
   content: "\f013";
-***REMOVED***
+}
 .wi-owm-900:before {
   content: "\f056";
-***REMOVED***
+}
 .wi-owm-901:before {
   content: "\f01d";
-***REMOVED***
+}
 .wi-owm-902:before {
   content: "\f073";
-***REMOVED***
+}
 .wi-owm-903:before {
   content: "\f076";
-***REMOVED***
+}
 .wi-owm-904:before {
   content: "\f072";
-***REMOVED***
+}
 .wi-owm-905:before {
   content: "\f021";
-***REMOVED***
+}
 .wi-owm-906:before {
   content: "\f015";
-***REMOVED***
+}
 .wi-owm-957:before {
   content: "\f050";
-***REMOVED***
+}
 .wi-owm-day-200:before {
   content: "\f010";
-***REMOVED***
+}
 .wi-owm-day-201:before {
   content: "\f010";
-***REMOVED***
+}
 .wi-owm-day-202:before {
   content: "\f010";
-***REMOVED***
+}
 .wi-owm-day-210:before {
   content: "\f005";
-***REMOVED***
+}
 .wi-owm-day-211:before {
   content: "\f005";
-***REMOVED***
+}
 .wi-owm-day-212:before {
   content: "\f005";
-***REMOVED***
+}
 .wi-owm-day-221:before {
   content: "\f005";
-***REMOVED***
+}
 .wi-owm-day-230:before {
   content: "\f010";
-***REMOVED***
+}
 .wi-owm-day-231:before {
   content: "\f010";
-***REMOVED***
+}
 .wi-owm-day-232:before {
   content: "\f010";
-***REMOVED***
+}
 .wi-owm-day-300:before {
   content: "\f00b";
-***REMOVED***
+}
 .wi-owm-day-301:before {
   content: "\f00b";
-***REMOVED***
+}
 .wi-owm-day-302:before {
   content: "\f008";
-***REMOVED***
+}
 .wi-owm-day-310:before {
   content: "\f008";
-***REMOVED***
+}
 .wi-owm-day-311:before {
   content: "\f008";
-***REMOVED***
+}
 .wi-owm-day-312:before {
   content: "\f008";
-***REMOVED***
+}
 .wi-owm-day-313:before {
   content: "\f008";
-***REMOVED***
+}
 .wi-owm-day-314:before {
   content: "\f008";
-***REMOVED***
+}
 .wi-owm-day-321:before {
   content: "\f00b";
-***REMOVED***
+}
 .wi-owm-day-500:before {
   content: "\f00b";
-***REMOVED***
+}
 .wi-owm-day-501:before {
   content: "\f008";
-***REMOVED***
+}
 .wi-owm-day-502:before {
   content: "\f008";
-***REMOVED***
+}
 .wi-owm-day-503:before {
   content: "\f008";
-***REMOVED***
+}
 .wi-owm-day-504:before {
   content: "\f008";
-***REMOVED***
+}
 .wi-owm-day-511:before {
   content: "\f006";
-***REMOVED***
+}
 .wi-owm-day-520:before {
   content: "\f009";
-***REMOVED***
+}
 .wi-owm-day-521:before {
   content: "\f009";
-***REMOVED***
+}
 .wi-owm-day-522:before {
   content: "\f009";
-***REMOVED***
+}
 .wi-owm-day-531:before {
   content: "\f00e";
-***REMOVED***
+}
 .wi-owm-day-600:before {
   content: "\f00a";
-***REMOVED***
+}
 .wi-owm-day-601:before {
   content: "\f0b2";
-***REMOVED***
+}
 .wi-owm-day-602:before {
   content: "\f00a";
-***REMOVED***
+}
 .wi-owm-day-611:before {
   content: "\f006";
-***REMOVED***
+}
 .wi-owm-day-612:before {
   content: "\f006";
-***REMOVED***
+}
 .wi-owm-day-615:before {
   content: "\f006";
-***REMOVED***
+}
 .wi-owm-day-616:before {
   content: "\f006";
-***REMOVED***
+}
 .wi-owm-day-620:before {
   content: "\f006";
-***REMOVED***
+}
 .wi-owm-day-621:before {
   content: "\f00a";
-***REMOVED***
+}
 .wi-owm-day-622:before {
   content: "\f00a";
-***REMOVED***
+}
 .wi-owm-day-701:before {
   content: "\f009";
-***REMOVED***
+}
 .wi-owm-day-711:before {
   content: "\f062";
-***REMOVED***
+}
 .wi-owm-day-721:before {
   content: "\f0b6";
-***REMOVED***
+}
 .wi-owm-day-731:before {
   content: "\f063";
-***REMOVED***
+}
 .wi-owm-day-741:before {
   content: "\f003";
-***REMOVED***
+}
 .wi-owm-day-761:before {
   content: "\f063";
-***REMOVED***
+}
 .wi-owm-day-762:before {
   content: "\f063";
-***REMOVED***
+}
 .wi-owm-day-781:before {
   content: "\f056";
-***REMOVED***
+}
 .wi-owm-day-800:before {
   content: "\f00d";
-***REMOVED***
+}
 .wi-owm-day-801:before {
   content: "\f000";
-***REMOVED***
+}
 .wi-owm-day-802:before {
   content: "\f000";
-***REMOVED***
+}
 .wi-owm-day-803:before {
   content: "\f000";
-***REMOVED***
+}
 .wi-owm-day-804:before {
   content: "\f00c";
-***REMOVED***
+}
 .wi-owm-day-900:before {
   content: "\f056";
-***REMOVED***
+}
 .wi-owm-day-902:before {
   content: "\f073";
-***REMOVED***
+}
 .wi-owm-day-903:before {
   content: "\f076";
-***REMOVED***
+}
 .wi-owm-day-904:before {
   content: "\f072";
-***REMOVED***
+}
 .wi-owm-day-906:before {
   content: "\f004";
-***REMOVED***
+}
 .wi-owm-day-957:before {
   content: "\f050";
-***REMOVED***
+}
 .wi-owm-night-200:before {
   content: "\f02d";
-***REMOVED***
+}
 .wi-owm-night-201:before {
   content: "\f02d";
-***REMOVED***
+}
 .wi-owm-night-202:before {
   content: "\f02d";
-***REMOVED***
+}
 .wi-owm-night-210:before {
   content: "\f025";
-***REMOVED***
+}
 .wi-owm-night-211:before {
   content: "\f025";
-***REMOVED***
+}
 .wi-owm-night-212:before {
   content: "\f025";
-***REMOVED***
+}
 .wi-owm-night-221:before {
   content: "\f025";
-***REMOVED***
+}
 .wi-owm-night-230:before {
   content: "\f02d";
-***REMOVED***
+}
 .wi-owm-night-231:before {
   content: "\f02d";
-***REMOVED***
+}
 .wi-owm-night-232:before {
   content: "\f02d";
-***REMOVED***
+}
 .wi-owm-night-300:before {
   content: "\f02b";
-***REMOVED***
+}
 .wi-owm-night-301:before {
   content: "\f02b";
-***REMOVED***
+}
 .wi-owm-night-302:before {
   content: "\f028";
-***REMOVED***
+}
 .wi-owm-night-310:before {
   content: "\f028";
-***REMOVED***
+}
 .wi-owm-night-311:before {
   content: "\f028";
-***REMOVED***
+}
 .wi-owm-night-312:before {
   content: "\f028";
-***REMOVED***
+}
 .wi-owm-night-313:before {
   content: "\f028";
-***REMOVED***
+}
 .wi-owm-night-314:before {
   content: "\f028";
-***REMOVED***
+}
 .wi-owm-night-321:before {
   content: "\f02b";
-***REMOVED***
+}
 .wi-owm-night-500:before {
   content: "\f02b";
-***REMOVED***
+}
 .wi-owm-night-501:before {
   content: "\f028";
-***REMOVED***
+}
 .wi-owm-night-502:before {
   content: "\f028";
-***REMOVED***
+}
 .wi-owm-night-503:before {
   content: "\f028";
-***REMOVED***
+}
 .wi-owm-night-504:before {
   content: "\f028";
-***REMOVED***
+}
 .wi-owm-night-511:before {
   content: "\f026";
-***REMOVED***
+}
 .wi-owm-night-520:before {
   content: "\f029";
-***REMOVED***
+}
 .wi-owm-night-521:before {
   content: "\f029";
-***REMOVED***
+}
 .wi-owm-night-522:before {
   content: "\f029";
-***REMOVED***
+}
 .wi-owm-night-531:before {
   content: "\f02c";
-***REMOVED***
+}
 .wi-owm-night-600:before {
   content: "\f02a";
-***REMOVED***
+}
 .wi-owm-night-601:before {
   content: "\f0b4";
-***REMOVED***
+}
 .wi-owm-night-602:before {
   content: "\f02a";
-***REMOVED***
+}
 .wi-owm-night-611:before {
   content: "\f026";
-***REMOVED***
+}
 .wi-owm-night-612:before {
   content: "\f026";
-***REMOVED***
+}
 .wi-owm-night-615:before {
   content: "\f026";
-***REMOVED***
+}
 .wi-owm-night-616:before {
   content: "\f026";
-***REMOVED***
+}
 .wi-owm-night-620:before {
   content: "\f026";
-***REMOVED***
+}
 .wi-owm-night-621:before {
   content: "\f02a";
-***REMOVED***
+}
 .wi-owm-night-622:before {
   content: "\f02a";
-***REMOVED***
+}
 .wi-owm-night-701:before {
   content: "\f029";
-***REMOVED***
+}
 .wi-owm-night-711:before {
   content: "\f062";
-***REMOVED***
+}
 .wi-owm-night-721:before {
   content: "\f0b6";
-***REMOVED***
+}
 .wi-owm-night-731:before {
   content: "\f063";
-***REMOVED***
+}
 .wi-owm-night-741:before {
   content: "\f04a";
-***REMOVED***
+}
 .wi-owm-night-761:before {
   content: "\f063";
-***REMOVED***
+}
 .wi-owm-night-762:before {
   content: "\f063";
-***REMOVED***
+}
 .wi-owm-night-781:before {
   content: "\f056";
-***REMOVED***
+}
 .wi-owm-night-800:before {
   content: "\f02e";
-***REMOVED***
+}
 .wi-owm-night-801:before {
   content: "\f022";
-***REMOVED***
+}
 .wi-owm-night-802:before {
   content: "\f022";
-***REMOVED***
+}
 .wi-owm-night-803:before {
   content: "\f022";
-***REMOVED***
+}
 .wi-owm-night-804:before {
   content: "\f086";
-***REMOVED***
+}
 .wi-owm-night-900:before {
   content: "\f056";
-***REMOVED***
+}
 .wi-owm-night-902:before {
   content: "\f073";
-***REMOVED***
+}
 .wi-owm-night-903:before {
   content: "\f076";
-***REMOVED***
+}
 .wi-owm-night-904:before {
   content: "\f072";
-***REMOVED***
+}
 .wi-owm-night-906:before {
   content: "\f024";
-***REMOVED***
+}
 .wi-owm-night-957:before {
   content: "\f050";
-***REMOVED***
+}

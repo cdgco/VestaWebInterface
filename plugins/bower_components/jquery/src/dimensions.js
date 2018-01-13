@@ -5,8 +5,8 @@ define([
 ], function( jQuery, access ) {
 
 // Create innerHeight, innerWidth, height, width, outerHeight and outerWidth methods
-jQuery.each( { Height: "height", Width: "width" ***REMOVED***, function( name, type ) {
-	jQuery.each( { padding: "inner" + name, content: type, "": "outer" + name ***REMOVED***, function( defaultExtra, funcName ) {
+jQuery.each( { Height: "height", Width: "width" }, function( name, type ) {
+	jQuery.each( { padding: "inner" + name, content: type, "": "outer" + name }, function( defaultExtra, funcName ) {
 		// Margin is only for outerHeight, outerWidth
 		jQuery.fn[ funcName ] = function( margin, value ) {
 			var chainable = arguments.length && ( defaultExtra || typeof margin !== "boolean" ),
@@ -20,7 +20,7 @@ jQuery.each( { Height: "height", Width: "width" ***REMOVED***, function( name, t
 					// isn't a whole lot we can do. See pull request at this URL for discussion:
 					// https://github.com/jquery/jquery/pull/764
 					return elem.document.documentElement[ "client" + name ];
-				***REMOVED***
+				}
 
 				// Get document width or height
 				if ( elem.nodeType === 9 ) {
@@ -33,7 +33,7 @@ jQuery.each( { Height: "height", Width: "width" ***REMOVED***, function( name, t
 						elem.body[ "offset" + name ], doc[ "offset" + name ],
 						doc[ "client" + name ]
 					);
-				***REMOVED***
+				}
 
 				return value === undefined ?
 					// Get width or height on the element, requesting but not forcing parseFloat
@@ -41,10 +41,10 @@ jQuery.each( { Height: "height", Width: "width" ***REMOVED***, function( name, t
 
 					// Set width or height on the element
 					jQuery.style( elem, type, value, extra );
-			***REMOVED***, type, chainable ? margin : undefined, chainable, null );
-		***REMOVED***;
-	***REMOVED***);
-***REMOVED***);
+			}, type, chainable ? margin : undefined, chainable, null );
+		};
+	});
+});
 
 return jQuery;
-***REMOVED***);
+});

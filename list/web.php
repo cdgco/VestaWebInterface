@@ -1,11 +1,11 @@
-***REMOVED***
+<?php
 
 session_start();
 
-if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); ***REMOVED***  else { header( 'Location: ../install' );***REMOVED***;
+if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); }  else { header( 'Location: ../install' );};
 
-    if(base64_decode($_SESSION['loggedin']) == 'true') {***REMOVED***
-      else { header('Location: ../login.php'); ***REMOVED***
+    if(base64_decode($_SESSION['loggedin']) == 'true') {}
+      else { header('Location: ../login.php'); }
 
     $postvars = array(
       array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
@@ -16,24 +16,24 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'
     $curlstart = 0; 
 
     while($curlstart <= 1) {
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_URL, $vst_url);
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_RETURNTRANSFER,true);
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_POST, true);
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_POSTFIELDS, http_build_query($postvars[$curlstart]));
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_URL, $vst_url);
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_RETURNTRANSFER,true);
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_POST, true);
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_POSTFIELDS, http_build_query($postvars[$curlstart]));
         $curlstart++;
-    ***REMOVED*** 
+    } 
 
     $admindata = json_decode(curl_exec($curl0), true)[$username];
     $useremail = $admindata['CONTACT'];
     $domainname = array_keys(json_decode(curl_exec($curl1), true));
     $domaindata = array_values(json_decode(curl_exec($curl1), true));
-    if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; ***REMOVED***
+    if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
     setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
     bindtextdomain('messages', '../locale');
     textdomain('messages');
-***REMOVED***
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +45,7 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/ico" href="../plugins/images/favicon.ico">
-    <title>***REMOVED*** echo $sitetitle; ***REMOVED*** - ***REMOVED*** echo _("Web"); ***REMOVED***</title>
+    <title><?php echo $sitetitle; ?> - <?php echo _("Web"); ?></title>
     <link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
     <link href="../plugins/bower_components/footable/css/footable.bootstrap.css" rel="stylesheet">
@@ -53,10 +53,10 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'
     <link href="../css/animate.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
     <link href="../plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
-    <link href="../css/colors/***REMOVED*** if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); ***REMOVED*** else {echo $themecolor; ***REMOVED*** ***REMOVED***" id="theme" rel="stylesheet">
+    <link href="../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.min.css" />
-    ***REMOVED*** if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
-    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);***REMOVED*** gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; ***REMOVED*** ***REMOVED***
+    <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?>
     <!--[if lt IE 9]>
        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -99,20 +99,20 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'
                 <ul class="nav navbar-top-links navbar-right pull-right">
 
                    <li class="dropdown">
-                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs">***REMOVED*** print_r($uname); ***REMOVED***</b><span class="caret"></span> </a>
+                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($uname); ?></b><span class="caret"></span> </a>
                         <ul class="dropdown-menu dropdown-user animated flipInY">
                             <li>
                                 <div class="dw-user-box">
                                     <div class="u-text">
-                                        <h4>***REMOVED*** print_r($uname); ***REMOVED***</h4>
-                                        <p class="text-muted">***REMOVED*** print_r($useremail); ***REMOVED***</p></div>
+                                        <h4><?php print_r($uname); ?></h4>
+                                        <p class="text-muted"><?php print_r($useremail); ?></p></div>
                                 </div>
                             </li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="../profile.php"><i class="ti-home"></i> ***REMOVED*** echo _("My Account"); ***REMOVED***</a></li>
-                            <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> ***REMOVED*** echo _("Account Settings"); ***REMOVED***</a></li>
+                            <li><a href="../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
+                            <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> ***REMOVED*** echo _("Logout"); ***REMOVED***</a></li>
+                            <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
                         </ul>
                     </li>
                 </ul>
@@ -126,49 +126,49 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'
                             <i class="ti-menu hidden-xs"></i>
                             <i class="ti-close visible-xs"></i>
                         </span> 
-                        <span class="hide-menu">***REMOVED*** echo _("Navigation"); ***REMOVED***</span>
+                        <span class="hide-menu"><?php echo _("Navigation"); ?></span>
                     </h3>  
                 </div>
                <ul class="nav" id="side-menu">
                             <li> 
                                 <a href="../index.php" class="waves-effect">
-                                    <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu">***REMOVED*** echo _("Dashboard"); ***REMOVED***</span>
+                                    <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu"><?php echo _("Dashboard"); ?></span>
                                 </a> 
                             </li>
 
                             <li class="devider"></li>
                             <li>
-                                <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> ***REMOVED*** print_r($uname); ***REMOVED***<span class="fa arrow"></span></span>
+                                <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> <?php print_r($uname); ?><span class="fa arrow"></span></span>
                                 </a>
                                 <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
-                                    <li> <a href="../profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> ***REMOVED*** echo _("My Account"); ***REMOVED***</span></a></li>
-                                    <li> <a href="../profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> ***REMOVED*** echo _("Acount Settings"); ***REMOVED***</span></a></li>
+                                    <li> <a href="../profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> <?php echo _("My Account"); ?></span></a></li>
+                                    <li> <a href="../profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> <?php echo _("Acount Settings"); ?></span></a></li>
                                 </ul>
                             </li>
-                        ***REMOVED*** if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '<li class="devider"></li>
+                        <?php if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '<li class="devider"></li>
                             <li> <a href="#" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">'. _("Management") . '<span class="fa arrow"></span> </span></a>
-                                <ul class="nav nav-second-level">'; ***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($webenabled == 'true') { echo '<li> <a href="../list/web.php"><i class="ti-world fa-fw"></i><span class="hide-menu">' . _("Web") . '</span></a> </li>'; ***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($dnsenabled == 'true') { echo '<li> <a href="../list/dns.php"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">' . _("DNS") . '</span></a> </li>'; ***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($mailenabled == 'true') { echo '<li> <a href="../list/mail.php"><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">' . _("Mail") . '</span></a> </li>'; ***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($dbenabled == 'true') { echo '<li> <a href="../list/db.php"><i class="fa fa-database fa-fw"></i><span class="hide-menu">' . _("Database") . '</span></a> </li>'; ***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '</ul>
-                            </li>'; ***REMOVED*** ***REMOVED***
-                        <li> <a href="../list/cron.php" class="waves-effect"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">***REMOVED*** echo _("Cron Jobs"); ***REMOVED***</span></a> </li>
-                        <li> <a href="../list/backups.php" class="waves-effect"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu">***REMOVED*** echo _("Backups"); ***REMOVED***</span></a> </li>
-                        ***REMOVED*** if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {***REMOVED*** else { echo '<li class="devider"></li>
+                                <ul class="nav nav-second-level">'; } ?>
+                        <?php if ($webenabled == 'true') { echo '<li> <a href="../list/web.php"><i class="ti-world fa-fw"></i><span class="hide-menu">' . _("Web") . '</span></a> </li>'; } ?>
+                        <?php if ($dnsenabled == 'true') { echo '<li> <a href="../list/dns.php"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">' . _("DNS") . '</span></a> </li>'; } ?>
+                        <?php if ($mailenabled == 'true') { echo '<li> <a href="../list/mail.php"><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">' . _("Mail") . '</span></a> </li>'; } ?>
+                        <?php if ($dbenabled == 'true') { echo '<li> <a href="../list/db.php"><i class="fa fa-database fa-fw"></i><span class="hide-menu">' . _("Database") . '</span></a> </li>'; } ?>
+                        <?php if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '</ul>
+                            </li>'; } ?>
+                        <li> <a href="../list/cron.php" class="waves-effect"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu"><?php echo _("Cron Jobs"); ?></span></a> </li>
+                        <li> <a href="../list/backups.php" class="waves-effect"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu"><?php echo _("Backups"); ?></span></a> </li>
+                        <?php if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {} else { echo '<li class="devider"></li>
                             <li><a href="#" class="waves-effect"><i class="mdi mdi-apps fa-fw"></i> <span class="hide-menu">' . _("Apps") . '<span class="fa arrow"></span></span></a>
-                                <ul class="nav nav-second-level">'; ***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($ftpurl != '') { echo '<li><a href="' . $ftpurl . '" target="_blank"><i class="fa fa-file-code-o fa-fw"></i><span class="hide-menu">' . _("FTP") . '</span></a></li>';***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($webmailurl != '') { echo '<li><a href="' . $webmailurl . '" target="_blank"><i class="fa fa-envelope-o fa-fw"></i><span class="hide-menu">' . _("Webmail") . '</span></a></li>';***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($phpmyadmin != '') { echo '<li><a href="' . $phpmyadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . _("phpMyAdmin") . '</span></a></li>';***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($phppgadmin != '') { echo '<li><a href="' . $phppgadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . _("phpPgAdmin") . '</span></a></li>';***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {***REMOVED*** else { echo '</ul></li>';***REMOVED*** ***REMOVED***
+                                <ul class="nav nav-second-level">'; } ?>
+                        <?php if ($ftpurl != '') { echo '<li><a href="' . $ftpurl . '" target="_blank"><i class="fa fa-file-code-o fa-fw"></i><span class="hide-menu">' . _("FTP") . '</span></a></li>';} ?>
+                        <?php if ($webmailurl != '') { echo '<li><a href="' . $webmailurl . '" target="_blank"><i class="fa fa-envelope-o fa-fw"></i><span class="hide-menu">' . _("Webmail") . '</span></a></li>';} ?>
+                        <?php if ($phpmyadmin != '') { echo '<li><a href="' . $phpmyadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . _("phpMyAdmin") . '</span></a></li>';} ?>
+                        <?php if ($phppgadmin != '') { echo '<li><a href="' . $phppgadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . _("phpPgAdmin") . '</span></a></li>';} ?>
+                        <?php if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {} else { echo '</ul></li>';} ?>
                         <li class="devider"></li>
-                        <li><a href="../process/logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu">***REMOVED*** echo _("Log out"); ***REMOVED***</span></a></li>
-                        ***REMOVED*** if ($oldcpurl == '' || $supporturl == '') {***REMOVED*** else { echo '<li class="devider"></li>'; ***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($oldcpurl != '') { echo '<li><a href="' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> ' . _("Control Panel v1") . '</span></a></li>'; ***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">' . _("Support") . '</span></a></li>'; ***REMOVED*** ***REMOVED***
+                        <li><a href="../process/logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu"><?php echo _("Log out"); ?></span></a></li>
+                        <?php if ($oldcpurl == '' || $supporturl == '') {} else { echo '<li class="devider"></li>'; } ?>
+                        <?php if ($oldcpurl != '') { echo '<li><a href="' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> ' . _("Control Panel v1") . '</span></a></li>'; } ?>
+                        <?php if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">' . _("Support") . '</span></a></li>'; } ?>
                         </ul>
             </div>
         </div>
@@ -183,7 +183,7 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'
                 <div class="row bg-title">
                     <!-- .page title -->
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">***REMOVED*** echo _("Manage Web Domains"); ***REMOVED***</h4> </div>
+                        <h4 class="page-title"><?php echo _("Manage Web Domains"); ?></h4> </div>
                     <!-- /.page title -->
                 </div>
                 <!-- .row -->
@@ -198,10 +198,10 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>***REMOVED*** echo _("DOMAINS"); ***REMOVED***</center>
+                                        <center><?php echo _("DOMAINS"); ?></center>
                                     </div>
                                     <div class="panel-body">
-   <center><h2>***REMOVED*** print_r($admindata['U_WEB_DOMAINS']); ***REMOVED***</h2></center>
+   <center><h2><?php print_r($admindata['U_WEB_DOMAINS']); ?></h2></center>
                                 </div>
                                 </div>
                                 
@@ -215,10 +215,10 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>***REMOVED*** echo _("ALIASES"); ***REMOVED***</center>
+                                        <center><?php echo _("ALIASES"); ?></center>
                                     </div>
                                     <div class="panel-body">
-   <center><h2>***REMOVED*** print_r($admindata['U_WEB_ALIASES']); ***REMOVED***</h2></center>
+   <center><h2><?php print_r($admindata['U_WEB_ALIASES']); ?></h2></center>
                                 </div>
                                 </div>
                                 
@@ -232,10 +232,10 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'
                             <div class="sk-chat-widgets">
                                 <div class="panel panel-themecolor">
                                     <div class="panel-heading">
-                                        <center>***REMOVED*** echo _("SUSPENDED"); ***REMOVED***</center>
+                                        <center><?php echo _("SUSPENDED"); ?></center>
                                     </div>
                                     <div class="panel-body">
-   <center><h2>***REMOVED*** print_r($admindata['SUSPENDED_WEB']); ***REMOVED***</h2></center>
+   <center><h2><?php print_r($admindata['SUSPENDED_WEB']); ?></h2></center>
                                 </div>
                                 </div>
                                 
@@ -249,30 +249,30 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="white-box"> <ul class="side-icon-text pull-right">
-                                                        <li><a href="../add/domain.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span>***REMOVED*** echo _("Add Domain"); ***REMOVED***</span></a></li>
+                                                        <li><a href="../add/domain.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Domain"); ?></span></a></li>
                                                     </ul>
-                            <h3 class="box-title m-b-0">***REMOVED*** echo _("Web Domains"); ***REMOVED***</h3><br>
+                            <h3 class="box-title m-b-0"><?php echo _("Web Domains"); ?></h3><br>
 
                            <table class="table footable m-b-0" data-paging-size="10" data-paging="true" data-sorting="true">
                                 <thead>
                                     <tr>
-                                        <th data-toggle="true"> ***REMOVED*** echo _("Domain Name"); ***REMOVED*** </th>
-                                        <th data-type="numeric"> ***REMOVED*** echo _("Disk Usage"); ***REMOVED*** </th>
-                                        <th data-type="numeric"> ***REMOVED*** echo _("Bandwidth"); ***REMOVED*** </th>
-                                        <th> ***REMOVED*** echo _("Status"); ***REMOVED*** </th>
-                                        <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> ***REMOVED*** echo _("Created"); ***REMOVED*** </th>
-                                        <th data-sortable="false"> ***REMOVED*** echo _("Action"); ***REMOVED*** </th>
-                                        <th data-breakpoints="all"> ***REMOVED*** echo _("Aliases"); ***REMOVED*** </th>
-                                        <th data-breakpoints="all"> ***REMOVED*** echo _("Web Template"); ***REMOVED*** </th>
-                                        <th data-breakpoints="all"> ***REMOVED*** echo _("Proxy Template"); ***REMOVED*** </th>
-                                        <th data-breakpoints="all"> ***REMOVED*** echo _("Additional FTP"); ***REMOVED*** </th>
-                                        <th data-breakpoints="all"> ***REMOVED*** echo _("Web Statistics"); ***REMOVED*** </th>
-                                        <th data-breakpoints="all"> ***REMOVED*** echo _("IP"); ***REMOVED*** </th>
-                                        <th data-breakpoints="all"> ***REMOVED*** echo _("SSL"); ***REMOVED*** </th>
+                                        <th data-toggle="true"> <?php echo _("Domain Name"); ?> </th>
+                                        <th data-type="numeric"> <?php echo _("Disk Usage"); ?> </th>
+                                        <th data-type="numeric"> <?php echo _("Bandwidth"); ?> </th>
+                                        <th> <?php echo _("Status"); ?> </th>
+                                        <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo _("Created"); ?> </th>
+                                        <th data-sortable="false"> <?php echo _("Action"); ?> </th>
+                                        <th data-breakpoints="all"> <?php echo _("Aliases"); ?> </th>
+                                        <th data-breakpoints="all"> <?php echo _("Web Template"); ?> </th>
+                                        <th data-breakpoints="all"> <?php echo _("Proxy Template"); ?> </th>
+                                        <th data-breakpoints="all"> <?php echo _("Additional FTP"); ?> </th>
+                                        <th data-breakpoints="all"> <?php echo _("Web Statistics"); ?> </th>
+                                        <th data-breakpoints="all"> <?php echo _("IP"); ?> </th>
+                                        <th data-breakpoints="all"> <?php echo _("SSL"); ?> </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-***REMOVED***
+<?php
 if($domainname[0] != '') { 
                                                                 $x1 = 0; 
 
@@ -282,35 +282,35 @@ if($domainname[0] != '') {
                                                                     <td data-sort-value="' . $domaindata[$x1]['U_DISK'] . '">' . $domaindata[$x1]['U_DISK'] . ' mb</td>
                                                                     <td data-sort-value="' . $domaindata[$x1]['U_BANDWIDTH'] . '">' . $domaindata[$x1]['U_BANDWIDTH'] . ' mb</td><td>';                                                                   
                                                                     if($domaindata[$x1]['SUSPENDED'] == "no"){ 
-                                                                             echo '<span class="label label-table label-success">' . _("Active") . '</span>';***REMOVED*** 
-                                                                           ***REMOVED*** 
-                                                                             echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';***REMOVED*** 
+                                                                             echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
+                                                                           else{ 
+                                                                             echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
                                                                            echo '</td>
                                                                     <td data-sort-value="' . $domaindata[$x1]['DATE'] . '">' . $domaindata[$x1]['DATE'] . '</td><td>
-                                            <button type="button" onclick="window.location=\'../edit/domain.php?domain=' . $domainname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button><button onclick="confirmDelete(\'' . $domainname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>'; if($domaindata[$x1]['STATS'] != ""){  echo '<button type="button" onclick="window.location=\'http://' . $domainname[$x1] . '/vstats/\';" data-toggle="tooltip" data-original-title="' . _("View Stats") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-stats-up"></i></button>';***REMOVED*** echo '
+                                            <button type="button" onclick="window.location=\'../edit/domain.php?domain=' . $domainname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button><button onclick="confirmDelete(\'' . $domainname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>'; if($domaindata[$x1]['STATS'] != ""){  echo '<button type="button" onclick="window.location=\'http://' . $domainname[$x1] . '/vstats/\';" data-toggle="tooltip" data-original-title="' . _("View Stats") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-stats-up"></i></button>';} echo '
                                         </td>
-                                                                    <td>'; if(implode(', ', explode(",", $domaindata[$x1]['ALIAS'])) == "") { echo _("None");***REMOVED*** ***REMOVED*** echo implode(', ', explode(",", $domaindata[$x1]['ALIAS']));***REMOVED*** echo '</td>
+                                                                    <td>'; if(implode(', ', explode(",", $domaindata[$x1]['ALIAS'])) == "") { echo _("None");} else{ echo implode(', ', explode(",", $domaindata[$x1]['ALIAS']));} echo '</td>
                                                                     <td>' . ucfirst($domaindata[$x1]['TPL']) . '</td>
                                                                     <td>' . ucfirst($domaindata[$x1]['PROXY']) . '</td>
                                                                     <td>'; if($domaindata[$x1]['FTP_USER'] == ""){ 
-                                                                             echo _("None");***REMOVED*** 
-                                                                           ***REMOVED*** 
-                                                                             echo $domaindata[$x1]['FTP_USER'];***REMOVED*** 
+                                                                             echo _("None");} 
+                                                                           else{ 
+                                                                             echo $domaindata[$x1]['FTP_USER'];} 
                                                                            echo '</td>
                                                                     <td>'; if($domaindata[$x1]['STATS'] == ""){ 
-                                                                             echo _("None");***REMOVED*** 
-                                                                           ***REMOVED*** 
-                                                                             echo ucfirst($domaindata[$x1]['STATS']);***REMOVED*** 
+                                                                             echo _("None");} 
+                                                                           else{ 
+                                                                             echo ucfirst($domaindata[$x1]['STATS']);} 
                                                                            echo '</td><td>' . $domaindata[$x1]['IP'] . '</td>      
                                                                     <td>'; if($domaindata[$x1]['SSL'] == "no"){ 
-                                                                             echo '<span class="label label-table label-danger">' . _("Disabled") . '</span>';***REMOVED*** 
-                                                                           ***REMOVED*** 
-                                                                             echo '<span class="label label-table label-success">' . _("Enabled") . '</span>';***REMOVED*** 
+                                                                             echo '<span class="label label-table label-danger">' . _("Disabled") . '</span>';} 
+                                                                           else{ 
+                                                                             echo '<span class="label label-table label-success">' . _("Enabled") . '</span>';} 
                                                                            echo '</td>
                                                                     </tr>';
                                                                     $x1++;
-                                                                ***REMOVED*** while (isset($domainname[$x1])); ***REMOVED***
-                                                            ***REMOVED***
+                                                                } while (isset($domainname[$x1])); }
+                                                            ?>
                                 </tbody>
                             </table>
                         </div>
@@ -320,7 +320,7 @@ if($domainname[0] != '') {
 
             </div>
             <!-- /.container-fluid -->
-           <footer class="footer text-center">&copy; ***REMOVED*** echo _("Copyright"); ***REMOVED*** ***REMOVED*** echo date("Y") . ' ' . $sitetitle; ***REMOVED***. ***REMOVED*** echo _("All Rights Reserved. Vesta Web Interface"); ***REMOVED*** ***REMOVED*** require '../includes/versioncheck.php'; ***REMOVED*** ***REMOVED*** echo _("by CDG Web Services"); ***REMOVED***.</footer>
+           <footer class="footer text-center">&copy; <?php echo _("Copyright"); ?> <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("All Rights Reserved. Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
         </div>
     </div>
     <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
@@ -342,58 +342,58 @@ if($domainname[0] != '') {
         (function () {
                 [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {
                 new CBPFWTabs(el);
-            ***REMOVED***);
-        ***REMOVED***)();
+            });
+        })();
     </script>
 <script>
 jQuery(function($){
 	$('.footable').footable();
-***REMOVED***);
+});
 function confirmDelete(e){
 e1 = String(e)
 swal({
-  title: '***REMOVED*** echo _("Delete Web Domain"); ***REMOVED***:<br>' + e1 +' ?',
-  text: "***REMOVED*** echo _("You won't be able to revert this!"); ***REMOVED***",
+  title: '<?php echo _("Delete Web Domain"); ?>:<br>' + e1 +' ?',
+  text: "<?php echo _("You won't be able to revert this!"); ?>",
   type: 'warning',
   showCancelButton: true,
   confirmButtonColor: '#3085d6',
   cancelButtonColor: '#d33',
-  confirmButtonText: '***REMOVED*** echo _("Yes, delete it!"); ***REMOVED***'
-***REMOVED***).then(function () {
+  confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
+}).then(function () {
 swal({
-  title: '***REMOVED*** echo _("Processing"); ***REMOVED***',
+  title: '<?php echo _("Processing"); ?>',
   text: '',
   timer: 5000,
   onOpen: function () {
     swal.showLoading()
-  ***REMOVED***
-***REMOVED***).then(
-  function () {***REMOVED***,
+  }
+}).then(
+  function () {},
   // handling the promise rejection
   function (dismiss) {
     if (dismiss === 'timer') {
-      console.log('***REMOVED*** echo _("I was closed by the timer"); ***REMOVED***')
-    ***REMOVED***
-  ***REMOVED***
+      console.log('<?php echo _("I was closed by the timer"); ?>')
+    }
+  }
 )
 $.ajax({  
     type: "GET",  
     url: "../delete/domain.php",  
-    data: { 'domain':e1, 'verified':'yes' ***REMOVED***,
-success:  function(){ window.location = "web.php?delcode=0"; ***REMOVED***,
-error:  function(){ window.location = "web.php?delcode=0"; ***REMOVED***
-***REMOVED***)
-***REMOVED***)***REMOVED***
+    data: { 'domain':e1, 'verified':'yes' },
+success:  function(){ window.location = "web.php?delcode=0"; },
+error:  function(){ window.location = "web.php?delcode=0"; }
+})
+})}
 
-***REMOVED***
+<?php
 
 $dbcode = $_GET['delcode'];
 
 if($dbcode == "0") {
-    echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'***REMOVED***);";
-***REMOVED*** 
-if($dbcode > "0") { echo "swal({title:'" . _("Please try again later or contact support.") . "', type:'error'***REMOVED***);";***REMOVED***
-***REMOVED***
+    echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
+} 
+if($dbcode > "0") { echo "swal({title:'" . _("Please try again later or contact support.") . "', type:'error'});";}
+?>
 </script>
 </body>
 

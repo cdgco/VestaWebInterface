@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 /**
  * Vesta language file
  * Fabio Cagliero - fab120 (fabio@webnuvola.com)

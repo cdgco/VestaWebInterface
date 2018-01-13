@@ -34,4 +34,4 @@ define([
 
 return jQuery;
 
-***REMOVED***);
+});

@@ -7,12 +7,12 @@ Author : WrapPixel (http://www.wrappixel.com)
   position: relative;
   margin: 0 auto;
   width: 100px;
-***REMOVED***
+}
 .preloader:before{
     content: '';
     display: block;
     padding-top: 100%;
-***REMOVED***
+}
 .circular {
   animation: rotate 2s linear infinite;
   height: 50px;
@@ -24,47 +24,47 @@ Author : WrapPixel (http://www.wrappixel.com)
   left: 0;
   right: 0;
   margin: auto;
-***REMOVED***
+}
 .path {
   stroke-dasharray: 1, 200;
   stroke-dashoffset: 0;
   animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
   stroke-linecap: round;
-***REMOVED***
+}
 @keyframes rotate {
   100% {
     transform: rotate(360deg);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 @keyframes dash {
   0% {
     stroke-dasharray: 1, 200;
     stroke-dashoffset: 0;
-  ***REMOVED***
+  }
   50% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -35px;
-  ***REMOVED***
+  }
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -124px;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 @keyframes color {
   100%,
   0% {
     stroke: #d62d20;
-  ***REMOVED***
+  }
   40% {
     stroke: #0057e7;
-  ***REMOVED***
+  }
   66% {
     stroke: #008744;
-  ***REMOVED***
+  }
   80%,
   90% {
     stroke: #ffa700;
-  ***REMOVED***
-***REMOVED***
+  }
+}

@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 session_destroy();
 
 define('NO_AUTH_REQUIRED',true);
@@ -24,17 +24,17 @@ if ((!empty($_POST['user'])) && (empty($_POST['code']))) {
         $from = __('MAIL_FROM',$hostname);
         if (!empty($fname)) {
             $mailtext = __('GREETINGS_GORDON_FREEMAN',$fname,$lname);
-        ***REMOVED*** else {
+        } else {
             $mailtext = __('GREETINGS');
-        ***REMOVED***
+        }
         $mailtext .= __('PASSWORD_RESET_REQUEST',$_SERVER['HTTP_HOST'],$user,$rkey,$_SERVER['HTTP_HOST'],$user,$rkey);
         if (!empty($rkey)) send_email($to, $subject, $mailtext, $from);
         unset($output);
-    ***REMOVED***
+    }
 
     header("Location: /reset/reset.php?action=code&user=".$_POST['user']);
     exit;
-***REMOVED***
+}
 
 if ((!empty($_POST['user'])) && (!empty($_POST['code'])) && (!empty($_POST['password'])) ) {
     if ( $_POST['password'] == $_POST['password_confirm'] ) {
@@ -55,37 +55,37 @@ if ((!empty($_POST['user'])) && (!empty($_POST['code'])) && (!empty($_POST['pass
                 unlink($v_password);
                 if ( $return_var > 0 ) {
                     $ERROR = "<a class=\"error\">".__('An internal error occurred')."</a>";
-                ***REMOVED*** else {
+                } else {
                     $_SESSION['user'] = $_POST['user'];
                     header("Location: http://ide.cdgtech.one/dev");
                     exit;
-                ***REMOVED***
-            ***REMOVED*** else {
+                }
+            } else {
                 $ERROR = "<a class=\"error\">".__('Invalid username or code')."</a>";
-            ***REMOVED***
-        ***REMOVED*** else {
+            }
+        } else {
             $ERROR = "<a class=\"error\">".__('Invalid username or code')."</a>";
-        ***REMOVED***
-    ***REMOVED*** else {
+        }
+    } else {
         $ERROR = "<a class=\"error\">".__('Passwords not match')."</a>";
-    ***REMOVED***
-***REMOVED***
+    }
+}
 
 // Detect language
 if (empty($_SESSION['language'])) $_SESSION['language'] = detect_user_language();
 
 if (empty($_GET['action']) || empty($_GET['user'])) {
     require_once '../templates/r_1.php';
-***REMOVED*** else {
+} else {
     if ($_GET['action'] == 'code' ) {
         require_once '../templates/r_2.php';
-    ***REMOVED***
+    }
 if (($_GET['action'] == 'confirm' ) && (empty($_GET['code']))) {
         require_once '../templates/r_2.php';
-    ***REMOVED***
+    }
 
     if (($_GET['action'] == 'confirm' ) && (!empty($_GET['code']))) {
         require_once '../templates/r_3.php';
-    ***REMOVED***
-***REMOVED***
-***REMOVED***
+    }
+}
+?>

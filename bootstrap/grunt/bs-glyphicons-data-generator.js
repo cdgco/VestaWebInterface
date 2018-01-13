@@ -25,18 +25,18 @@ module.exports = function generateGlyphiconsData(grunt) {
 
     if (match !== null) {
       glyphiconsData += '- ' + match[1] + '\n';
-    ***REMOVED***
-  ***REMOVED***
+    }
+  }
 
   // Create the `_data` directory if it doesn't already exist
   if (!fs.existsSync('docs/_data')) {
     fs.mkdirSync('docs/_data');
-  ***REMOVED***
+  }
 
   try {
     fs.writeFileSync(glyphiconsYml, glyphiconsData);
-  ***REMOVED*** catch (err) {
+  } catch (err) {
     grunt.fail.warn(err);
-  ***REMOVED***
+  }
   grunt.log.writeln('File ' + glyphiconsYml.cyan + ' created.');
-***REMOVED***;
+};

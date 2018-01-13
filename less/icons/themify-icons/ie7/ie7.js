@@ -11,7 +11,7 @@
 	function addIcon(el, entity) {
 		var html = el.innerHTML;
 		el.innerHTML = "<span style=\"font-family: \'themify\'\">" + entity + "</span>" + html;
-	***REMOVED***
+	}
 	var icons = {
 		"ti-wand": "&#xe600;",
 		"ti-volume": "&#xe601;",
@@ -366,18 +366,18 @@
 		"ti-rss": "&#xe75e;",
 		"ti-rss-alt": "&#xe75f;",
 		"0": 0
-		***REMOVED***,
+		},
 		els = document.getElementsByTagName("*"),
 		i, c, el;
 	for (i = 0; ; i += 1) {
 		el = els[i];
 		if(!el) {
 			break;
-		***REMOVED***
+		}
 		c = el.className;
 		c = c.match(/ti-[^\s'"]+/);
 		if (c && icons[c[0]]) {
 			addIcon(el, icons[c[0]]);
-		***REMOVED***
-	***REMOVED***
-***REMOVED***());
+		}
+	}
+}());

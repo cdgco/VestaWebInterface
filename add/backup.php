@@ -1,10 +1,10 @@
-***REMOVED***
+<?php
 
 session_start();
 
-if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); ***REMOVED***  else { header( 'Location: ../install' );***REMOVED***;
-if(base64_decode($_SESSION['loggedin']) == 'true') {***REMOVED***
-else { header('Location: ../login.php'); ***REMOVED***
+if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); }  else { header( 'Location: ../install' );};
+if(base64_decode($_SESSION['loggedin']) == 'true') {}
+else { header('Location: ../login.php'); }
 
 $postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => $vst_returncode,'cmd' => 'v-schedule-user-backup','arg1' => $username);
 
@@ -21,6 +21,6 @@ if($_GET['verified'] == 'yes'){
     $r1 = curl_exec($curl0);
     header('Location: ../list/backups.php?returncode=0');
 
-***REMOVED***
+}
 
-***REMOVED***
+?>

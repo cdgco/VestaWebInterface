@@ -4,16 +4,16 @@ define([
 ], function( jQuery, rnotwhite ) {
 
 // String to Object options format cache
-var optionsCache = {***REMOVED***;
+var optionsCache = {};
 
 // Convert String-formatted options into Object-formatted ones and store in cache
 function createOptions( options ) {
-	var object = optionsCache[ options ] = {***REMOVED***;
+	var object = optionsCache[ options ] = {};
 	jQuery.each( options.match( rnotwhite ) || [], function( _, flag ) {
 		object[ flag ] = true;
-	***REMOVED***);
+	});
 	return object;
-***REMOVED***
+}
 
 /*
  * Create a callback list using the following parameters:
@@ -43,7 +43,7 @@ jQuery.Callbacks = function( options ) {
 	// (we check in cache first)
 	options = typeof options === "string" ?
 		( optionsCache[ options ] || createOptions( options ) ) :
-		jQuery.extend( {***REMOVED***, options );
+		jQuery.extend( {}, options );
 
 	var // Last fire value (for non-forgettable lists)
 		memory,
@@ -73,21 +73,21 @@ jQuery.Callbacks = function( options ) {
 				if ( list[ firingIndex ].apply( data[ 0 ], data[ 1 ] ) === false && options.stopOnFalse ) {
 					memory = false; // To prevent further calls using add
 					break;
-				***REMOVED***
-			***REMOVED***
+				}
+			}
 			firing = false;
 			if ( list ) {
 				if ( stack ) {
 					if ( stack.length ) {
 						fire( stack.shift() );
-					***REMOVED***
-				***REMOVED*** else if ( memory ) {
+					}
+				} else if ( memory ) {
 					list = [];
-				***REMOVED*** else {
+				} else {
 					self.disable();
-				***REMOVED***
-			***REMOVED***
-		***REMOVED***,
+				}
+			}
+		},
 		// Actual Callbacks object
 		self = {
 			// Add a callback or a collection of callbacks to the list
@@ -101,26 +101,26 @@ jQuery.Callbacks = function( options ) {
 							if ( type === "function" ) {
 								if ( !options.unique || !self.has( arg ) ) {
 									list.push( arg );
-								***REMOVED***
-							***REMOVED*** else if ( arg && arg.length && type !== "string" ) {
+								}
+							} else if ( arg && arg.length && type !== "string" ) {
 								// Inspect recursively
 								add( arg );
-							***REMOVED***
-						***REMOVED***);
-					***REMOVED***)( arguments );
+							}
+						});
+					})( arguments );
 					// Do we need to add the callbacks to the
 					// current firing batch?
 					if ( firing ) {
 						firingLength = list.length;
 					// With memory, if we're not firing then
 					// we should call right away
-					***REMOVED*** else if ( memory ) {
+					} else if ( memory ) {
 						firingStart = start;
 						fire( memory );
-					***REMOVED***
-				***REMOVED***
+					}
+				}
 				return this;
-			***REMOVED***,
+			},
 			// Remove a callback from the list
 			remove: function() {
 				if ( list ) {
@@ -132,48 +132,48 @@ jQuery.Callbacks = function( options ) {
 							if ( firing ) {
 								if ( index <= firingLength ) {
 									firingLength--;
-								***REMOVED***
+								}
 								if ( index <= firingIndex ) {
 									firingIndex--;
-								***REMOVED***
-							***REMOVED***
-						***REMOVED***
-					***REMOVED***);
-				***REMOVED***
+								}
+							}
+						}
+					});
+				}
 				return this;
-			***REMOVED***,
+			},
 			// Check if a given callback is in the list.
 			// If no argument is given, return whether or not list has callbacks attached.
 			has: function( fn ) {
 				return fn ? jQuery.inArray( fn, list ) > -1 : !!( list && list.length );
-			***REMOVED***,
+			},
 			// Remove all callbacks from the list
 			empty: function() {
 				list = [];
 				firingLength = 0;
 				return this;
-			***REMOVED***,
+			},
 			// Have the list do nothing anymore
 			disable: function() {
 				list = stack = memory = undefined;
 				return this;
-			***REMOVED***,
+			},
 			// Is it disabled?
 			disabled: function() {
 				return !list;
-			***REMOVED***,
+			},
 			// Lock the list in its current state
 			lock: function() {
 				stack = undefined;
 				if ( !memory ) {
 					self.disable();
-				***REMOVED***
+				}
 				return this;
-			***REMOVED***,
+			},
 			// Is it locked?
 			locked: function() {
 				return !stack;
-			***REMOVED***,
+			},
 			// Call all callbacks with the given context and arguments
 			fireWith: function( context, args ) {
 				if ( list && ( !fired || stack ) ) {
@@ -181,25 +181,25 @@ jQuery.Callbacks = function( options ) {
 					args = [ context, args.slice ? args.slice() : args ];
 					if ( firing ) {
 						stack.push( args );
-					***REMOVED*** else {
+					} else {
 						fire( args );
-					***REMOVED***
-				***REMOVED***
+					}
+				}
 				return this;
-			***REMOVED***,
+			},
 			// Call all the callbacks with the given arguments
 			fire: function() {
 				self.fireWith( this, arguments );
 				return this;
-			***REMOVED***,
+			},
 			// To know if the callbacks have already been called at least once
 			fired: function() {
 				return !!fired;
-			***REMOVED***
-		***REMOVED***;
+			}
+		};
 
 	return self;
-***REMOVED***;
+};
 
 return jQuery;
-***REMOVED***);
+});

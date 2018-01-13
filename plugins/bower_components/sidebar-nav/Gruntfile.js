@@ -16,44 +16,44 @@ module.exports = function(grunt) {
     jshint: {
       options: {
         jshintrc: ".jshintrc"
-      ***REMOVED***,
+      },
       all: [
       "Gruntfile.js",
       "src/metisMenu.js"
       ]
-    ***REMOVED***,
+    },
     concat: {
       plugin: {
         src: ["src/metisMenu.js"],
         dest: "dist/metisMenu.js"
-      ***REMOVED***,
+      },
       css: {
         src: ["src/metisMenu.css"],
         dest: "dist/metisMenu.css"
-      ***REMOVED***,
+      },
       options: {
         banner: "<%= banner %>"
-      ***REMOVED***
-    ***REMOVED***,
+      }
+    },
     uglify: {
       plugin: {
         src: ["dist/metisMenu.js"],
         dest: "dist/metisMenu.min.js"
-      ***REMOVED***,
+      },
       options: {
         banner: "<%= banner %>"
-      ***REMOVED***
-    ***REMOVED***,
+      }
+    },
     cssmin: {
       options: {
         banner: "<%= banner %>"
-      ***REMOVED***,
+      },
       menucss: {
         src: ["src/metisMenu.css"],
         dest: "dist/metisMenu.min.css"
-      ***REMOVED***
-    ***REMOVED***
-  ***REMOVED***);
+      }
+    }
+  });
 
   grunt.loadNpmTasks("grunt-contrib-jshint");
   grunt.loadNpmTasks("grunt-contrib-concat");
@@ -62,4 +62,4 @@ module.exports = function(grunt) {
 
   grunt.registerTask("travis", ["jshint"]);
   grunt.registerTask("default", ["jshint", "concat", "uglify", "cssmin"]);
-***REMOVED***;
+};

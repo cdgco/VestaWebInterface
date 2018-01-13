@@ -1,10 +1,10 @@
-***REMOVED***
+<?php
 
 session_start();
 
-    if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); ***REMOVED***  else { header( 'Location: ../install' );***REMOVED***;
-    if(base64_decode($_SESSION['loggedin']) == 'true') {***REMOVED***
-    else { header('Location: ../login.php'); ***REMOVED***
+    if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); }  else { header( 'Location: ../install' );};
+    if(base64_decode($_SESSION['loggedin']) == 'true') {}
+    else { header('Location: ../login.php'); }
 
     $v_domain = $_POST['v_domain'];
     $v_record = $_POST['v_record'];
@@ -12,10 +12,10 @@ session_start();
     $v_value = $_POST['v_value'];
     $v_priority = $_POST['v_priority'];
 
-    if ((!isset($_POST['v_domain'])) || ($_POST['v_domain'] == '')) { header('Location: ../list/dns.php?returncode=1');***REMOVED***
-    elseif ((!isset($_POST['v_record'])) || ($_POST['v_record'] == '')) { header('Location: ../list/dnsdomain.php?returncode=1&domain=' . $v_domain);***REMOVED***
-    elseif ((!isset($_POST['v_type'])) || ($_POST['v_type'] == '')) { header('Location: ../list/dnsdomain.php?returncode=1&domain=' . $v_domain);***REMOVED***
-    elseif ((!isset($_POST['v_value'])) || ($_POST['v_value'] == '')) { header('Location: ../list/dnsdomain.php?returncode=1&domain=' . $v_domain);***REMOVED***
+    if ((!isset($_POST['v_domain'])) || ($_POST['v_domain'] == '')) { header('Location: ../list/dns.php?returncode=1');}
+    elseif ((!isset($_POST['v_record'])) || ($_POST['v_record'] == '')) { header('Location: ../list/dnsdomain.php?returncode=1&domain=' . $v_domain);}
+    elseif ((!isset($_POST['v_type'])) || ($_POST['v_type'] == '')) { header('Location: ../list/dnsdomain.php?returncode=1&domain=' . $v_domain);}
+    elseif ((!isset($_POST['v_value'])) || ($_POST['v_value'] == '')) { header('Location: ../list/dnsdomain.php?returncode=1&domain=' . $v_domain);}
 
     $postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-dns-record','arg1' => $username,'arg2' => $v_domain, 'arg3' => $v_record, 'arg4' => $v_type, 'arg5' => $v_value, 'arg6' => $v_priority);
 
@@ -30,4 +30,4 @@ session_start();
 
     header('Location: ../list/dnsdomain.php?returncode=' . $r1 . '&domain=' . $v_domain);
 
-***REMOVED***
+?>

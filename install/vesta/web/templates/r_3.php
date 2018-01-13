@@ -37,8 +37,8 @@
         <div class="form-group ">
           <div class="col-xs-12">
             <input type="hidden" name="action" value="confirm">
-            <input type="hidden" name="user" value="***REMOVED*** print_r($_GET['user']); ***REMOVED***">
-            <input type="hidden" name="user" value="***REMOVED*** print_r($_GET['code']); ***REMOVED***">
+            <input type="hidden" name="user" value="<?php print_r($_GET['user']); ?>">
+            <input type="hidden" name="user" value="<?php print_r($_GET['code']); ?>">
             <input class="form-control" type="password" name="password" required="" placeholder="New Password">
             <input class="form-control" type="password" name="password_confirm" required="" placeholder="Confirm Password">
           </div>

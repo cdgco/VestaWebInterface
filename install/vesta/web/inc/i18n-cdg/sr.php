@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 /**
  * Vesta Serbian sr_SR language file
  * Translation base taken from Bosnian translation file and adapted to Serbian (with a lot of modifications)
