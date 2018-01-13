@@ -1,10 +1,10 @@
-***REMOVED***
+<?php
 
 session_start();
-if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); ***REMOVED***  else { header( 'Location: ../install' );***REMOVED***;
+if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); }  else { header( 'Location: ../install' );};
 
-    if(base64_decode($_SESSION['loggedin']) == 'true') {***REMOVED***
-      else { header('Location: ../login.php'); ***REMOVED***
+    if(base64_decode($_SESSION['loggedin']) == 'true') {}
+      else { header('Location: ../login.php'); }
 
 $postaction = $_POST['action'];
 $vst_command = 'v-' . $postaction;
@@ -17,15 +17,15 @@ $vst_command = 'v-' . $postaction;
     $curlstart = 0; 
 
     while($curlstart <= 0) {
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_URL, $vst_url);
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_RETURNTRANSFER,true);
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_POST, true);
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_POSTFIELDS, http_build_query($postvars[$curlstart]));
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_URL, $vst_url);
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_RETURNTRANSFER,true);
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_POST, true);
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_POSTFIELDS, http_build_query($postvars[$curlstart]));
         $curlstart++;
-    ***REMOVED*** 
+    } 
  if(curl_exec($curl0)){
 header('Location: ../index.php?rebuild=true');
-     ***REMOVED***
-***REMOVED***
+     }
+?>

@@ -21,7 +21,7 @@ var
 		// The jQuery object is actually just the init constructor 'enhanced'
 		// Need init if jQuery is called (just allow error to be thrown if not included)
 		return new jQuery.fn.init( selector, context );
-	***REMOVED***,
+	},
 
 	// Support: Android<4.1
 	// Make sure we trim BOM and NBSP
@@ -34,7 +34,7 @@ var
 	// Used by jQuery.camelCase as callback to replace()
 	fcamelCase = function( all, letter ) {
 		return letter.toUpperCase();
-	***REMOVED***;
+	};
 
 jQuery.fn = jQuery.prototype = {
 	// The current version of jQuery being used
@@ -50,7 +50,7 @@ jQuery.fn = jQuery.prototype = {
 
 	toArray: function() {
 		return slice.call( this );
-	***REMOVED***,
+	},
 
 	// Get the Nth element in the matched element set OR
 	// Get the whole matched element set as a clean array
@@ -62,7 +62,7 @@ jQuery.fn = jQuery.prototype = {
 
 			// Return all the elements in a clean array
 			slice.call( this );
-	***REMOVED***,
+	},
 
 	// Take an array of elements and push it onto the stack
 	// (returning the new matched element set)
@@ -77,53 +77,53 @@ jQuery.fn = jQuery.prototype = {
 
 		// Return the newly-formed element set
 		return ret;
-	***REMOVED***,
+	},
 
 	// Execute a callback for every element in the matched set.
 	// (You can seed the arguments with an array of args, but this is
 	// only used internally.)
 	each: function( callback, args ) {
 		return jQuery.each( this, callback, args );
-	***REMOVED***,
+	},
 
 	map: function( callback ) {
 		return this.pushStack( jQuery.map(this, function( elem, i ) {
 			return callback.call( elem, i, elem );
-		***REMOVED***));
-	***REMOVED***,
+		}));
+	},
 
 	slice: function() {
 		return this.pushStack( slice.apply( this, arguments ) );
-	***REMOVED***,
+	},
 
 	first: function() {
 		return this.eq( 0 );
-	***REMOVED***,
+	},
 
 	last: function() {
 		return this.eq( -1 );
-	***REMOVED***,
+	},
 
 	eq: function( i ) {
 		var len = this.length,
 			j = +i + ( i < 0 ? len : 0 );
 		return this.pushStack( j >= 0 && j < len ? [ this[j] ] : [] );
-	***REMOVED***,
+	},
 
 	end: function() {
 		return this.prevObject || this.constructor(null);
-	***REMOVED***,
+	},
 
 	// For internal use only.
 	// Behaves like an Array's method, not like a jQuery method.
 	push: push,
 	sort: arr.sort,
 	splice: arr.splice
-***REMOVED***;
+};
 
 jQuery.extend = jQuery.fn.extend = function() {
 	var options, name, src, copy, copyIsArray, clone,
-		target = arguments[0] || {***REMOVED***,
+		target = arguments[0] || {},
 		i = 1,
 		length = arguments.length,
 		deep = false;
@@ -133,20 +133,20 @@ jQuery.extend = jQuery.fn.extend = function() {
 		deep = target;
 
 		// Skip the boolean and the target
-		target = arguments[ i ] || {***REMOVED***;
+		target = arguments[ i ] || {};
 		i++;
-	***REMOVED***
+	}
 
 	// Handle case when target is a string or something (possible in deep copy)
 	if ( typeof target !== "object" && !jQuery.isFunction(target) ) {
-		target = {***REMOVED***;
-	***REMOVED***
+		target = {};
+	}
 
 	// Extend jQuery itself if only one argument is passed
 	if ( i === length ) {
 		target = this;
 		i--;
-	***REMOVED***
+	}
 
 	for ( ; i < length; i++ ) {
 		// Only deal with non-null/undefined values
@@ -159,7 +159,7 @@ jQuery.extend = jQuery.fn.extend = function() {
 				// Prevent never-ending loop
 				if ( target === copy ) {
 					continue;
-				***REMOVED***
+				}
 
 				// Recurse if we're merging plain objects or arrays
 				if ( deep && copy && ( jQuery.isPlainObject(copy) || (copyIsArray = jQuery.isArray(copy)) ) ) {
@@ -167,24 +167,24 @@ jQuery.extend = jQuery.fn.extend = function() {
 						copyIsArray = false;
 						clone = src && jQuery.isArray(src) ? src : [];
 
-					***REMOVED*** else {
-						clone = src && jQuery.isPlainObject(src) ? src : {***REMOVED***;
-					***REMOVED***
+					} else {
+						clone = src && jQuery.isPlainObject(src) ? src : {};
+					}
 
 					// Never move original objects, clone them
 					target[ name ] = jQuery.extend( deep, clone, copy );
 
 				// Don't bring in undefined values
-				***REMOVED*** else if ( copy !== undefined ) {
+				} else if ( copy !== undefined ) {
 					target[ name ] = copy;
-				***REMOVED***
-			***REMOVED***
-		***REMOVED***
-	***REMOVED***
+				}
+			}
+		}
+	}
 
 	// Return the modified object
 	return target;
-***REMOVED***;
+};
 
 jQuery.extend({
 	// Unique for each copy of jQuery on the page
@@ -195,19 +195,19 @@ jQuery.extend({
 
 	error: function( msg ) {
 		throw new Error( msg );
-	***REMOVED***,
+	},
 
-	noop: function() {***REMOVED***,
+	noop: function() {},
 
 	isFunction: function( obj ) {
 		return jQuery.type(obj) === "function";
-	***REMOVED***,
+	},
 
 	isArray: Array.isArray,
 
 	isWindow: function( obj ) {
 		return obj != null && obj === obj.window;
-	***REMOVED***,
+	},
 
 	isNumeric: function( obj ) {
 		// parseFloat NaNs numeric-cast false positives (null|true|false|"")
@@ -215,7 +215,7 @@ jQuery.extend({
 		// subtraction forces infinities to NaN
 		// adding 1 corrects loss of precision from parseFloat (#15100)
 		return !jQuery.isArray( obj ) && (obj - parseFloat( obj ) + 1) >= 0;
-	***REMOVED***,
+	},
 
 	isPlainObject: function( obj ) {
 		// Not plain objects:
@@ -224,35 +224,35 @@ jQuery.extend({
 		// - window
 		if ( jQuery.type( obj ) !== "object" || obj.nodeType || jQuery.isWindow( obj ) ) {
 			return false;
-		***REMOVED***
+		}
 
 		if ( obj.constructor &&
 				!hasOwn.call( obj.constructor.prototype, "isPrototypeOf" ) ) {
 			return false;
-		***REMOVED***
+		}
 
 		// If the function hasn't returned already, we're confident that
-		// |obj| is a plain object, created by {***REMOVED*** or constructed with new Object
+		// |obj| is a plain object, created by {} or constructed with new Object
 		return true;
-	***REMOVED***,
+	},
 
 	isEmptyObject: function( obj ) {
 		var name;
 		for ( name in obj ) {
 			return false;
-		***REMOVED***
+		}
 		return true;
-	***REMOVED***,
+	},
 
 	type: function( obj ) {
 		if ( obj == null ) {
 			return obj + "";
-		***REMOVED***
+		}
 		// Support: Android<4.0, iOS<6 (functionish RegExp)
 		return typeof obj === "object" || typeof obj === "function" ?
 			class2type[ toString.call(obj) ] || "object" :
 			typeof obj;
-	***REMOVED***,
+	},
 
 	// Evaluates a script in a global context
 	globalEval: function( code ) {
@@ -269,24 +269,24 @@ jQuery.extend({
 				script = document.createElement("script");
 				script.text = code;
 				document.head.appendChild( script ).parentNode.removeChild( script );
-			***REMOVED*** else {
+			} else {
 			// Otherwise, avoid the DOM node creation, insertion
 			// and removal by using an indirect global eval
 				indirect( code );
-			***REMOVED***
-		***REMOVED***
-	***REMOVED***,
+			}
+		}
+	},
 
 	// Convert dashed to camelCase; used by the css and data modules
 	// Support: IE9-11+
 	// Microsoft forgot to hump their vendor prefix (#9572)
 	camelCase: function( string ) {
 		return string.replace( rmsPrefix, "ms-" ).replace( rdashAlpha, fcamelCase );
-	***REMOVED***,
+	},
 
 	nodeName: function( elem, name ) {
 		return elem.nodeName && elem.nodeName.toLowerCase() === name.toLowerCase();
-	***REMOVED***,
+	},
 
 	// args is for internal usage only
 	each: function( obj, callback, args ) {
@@ -302,48 +302,48 @@ jQuery.extend({
 
 					if ( value === false ) {
 						break;
-					***REMOVED***
-				***REMOVED***
-			***REMOVED*** else {
+					}
+				}
+			} else {
 				for ( i in obj ) {
 					value = callback.apply( obj[ i ], args );
 
 					if ( value === false ) {
 						break;
-					***REMOVED***
-				***REMOVED***
-			***REMOVED***
+					}
+				}
+			}
 
 		// A special, fast, case for the most common use of each
-		***REMOVED*** else {
+		} else {
 			if ( isArray ) {
 				for ( ; i < length; i++ ) {
 					value = callback.call( obj[ i ], i, obj[ i ] );
 
 					if ( value === false ) {
 						break;
-					***REMOVED***
-				***REMOVED***
-			***REMOVED*** else {
+					}
+				}
+			} else {
 				for ( i in obj ) {
 					value = callback.call( obj[ i ], i, obj[ i ] );
 
 					if ( value === false ) {
 						break;
-					***REMOVED***
-				***REMOVED***
-			***REMOVED***
-		***REMOVED***
+					}
+				}
+			}
+		}
 
 		return obj;
-	***REMOVED***,
+	},
 
 	// Support: Android<4.1
 	trim: function( text ) {
 		return text == null ?
 			"" :
 			( text + "" ).replace( rtrim, "" );
-	***REMOVED***,
+	},
 
 	// results is for internal usage only
 	makeArray: function( arr, results ) {
@@ -355,17 +355,17 @@ jQuery.extend({
 					typeof arr === "string" ?
 					[ arr ] : arr
 				);
-			***REMOVED*** else {
+			} else {
 				push.call( ret, arr );
-			***REMOVED***
-		***REMOVED***
+			}
+		}
 
 		return ret;
-	***REMOVED***,
+	},
 
 	inArray: function( elem, arr, i ) {
 		return arr == null ? -1 : indexOf.call( arr, elem, i );
-	***REMOVED***,
+	},
 
 	merge: function( first, second ) {
 		var len = +second.length,
@@ -374,12 +374,12 @@ jQuery.extend({
 
 		for ( ; j < len; j++ ) {
 			first[ i++ ] = second[ j ];
-		***REMOVED***
+		}
 
 		first.length = i;
 
 		return first;
-	***REMOVED***,
+	},
 
 	grep: function( elems, callback, invert ) {
 		var callbackInverse,
@@ -394,11 +394,11 @@ jQuery.extend({
 			callbackInverse = !callback( elems[ i ], i );
 			if ( callbackInverse !== callbackExpect ) {
 				matches.push( elems[ i ] );
-			***REMOVED***
-		***REMOVED***
+			}
+		}
 
 		return matches;
-	***REMOVED***,
+	},
 
 	// arg is for internal usage only
 	map: function( elems, callback, arg ) {
@@ -415,23 +415,23 @@ jQuery.extend({
 
 				if ( value != null ) {
 					ret.push( value );
-				***REMOVED***
-			***REMOVED***
+				}
+			}
 
 		// Go through every key on the object,
-		***REMOVED*** else {
+		} else {
 			for ( i in elems ) {
 				value = callback( elems[ i ], i, arg );
 
 				if ( value != null ) {
 					ret.push( value );
-				***REMOVED***
-			***REMOVED***
-		***REMOVED***
+				}
+			}
+		}
 
 		// Flatten any nested arrays
 		return concat.apply( [], ret );
-	***REMOVED***,
+	},
 
 	// A global GUID counter for objects
 	guid: 1,
@@ -445,37 +445,37 @@ jQuery.extend({
 			tmp = fn[ context ];
 			context = fn;
 			fn = tmp;
-		***REMOVED***
+		}
 
 		// Quick check to determine if target is callable, in the spec
 		// this throws a TypeError, but we will just return undefined.
 		if ( !jQuery.isFunction( fn ) ) {
 			return undefined;
-		***REMOVED***
+		}
 
 		// Simulated bind
 		args = slice.call( arguments, 2 );
 		proxy = function() {
 			return fn.apply( context || this, args.concat( slice.call( arguments ) ) );
-		***REMOVED***;
+		};
 
 		// Set the guid of unique handler to the same of original handler, so it can be removed
 		proxy.guid = fn.guid = fn.guid || jQuery.guid++;
 
 		return proxy;
-	***REMOVED***,
+	},
 
 	now: Date.now,
 
 	// jQuery.support is not used in Core but other projects attach their
 	// properties to it so it needs to exist.
 	support: support
-***REMOVED***);
+});
 
 // Populate the class2type map
 jQuery.each("Boolean Number String Function Array Date RegExp Object Error".split(" "), function(i, name) {
 	class2type[ "[object " + name + "]" ] = name.toLowerCase();
-***REMOVED***);
+});
 
 function isArraylike( obj ) {
 
@@ -488,15 +488,15 @@ function isArraylike( obj ) {
 
 	if ( type === "function" || jQuery.isWindow( obj ) ) {
 		return false;
-	***REMOVED***
+	}
 
 	if ( obj.nodeType === 1 && length ) {
 		return true;
-	***REMOVED***
+	}
 
 	return type === "array" || length === 0 ||
 		typeof length === "number" && length > 0 && ( length - 1 ) in obj;
-***REMOVED***
+}
 
 return jQuery;
-***REMOVED***);
+});

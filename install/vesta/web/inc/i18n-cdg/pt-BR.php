@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 /**
  * Vesta language file
  * Diego Hernandes (diego@he.rnand.es)

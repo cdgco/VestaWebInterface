@@ -1,12 +1,12 @@
-***REMOVED***
+<?php
 
 session_start();
 
-if (file_exists( 'includes/config.php' )) { require( 'includes/config.php'); ***REMOVED***  else { header( 'Location: install' );***REMOVED***;
+if (file_exists( 'includes/config.php' )) { require( 'includes/config.php'); }  else { header( 'Location: install' );};
 require 'includes/carray.php';
 
-if(base64_decode($_SESSION['loggedin']) == 'true') {***REMOVED***
-else { header('Location: login.php'); ***REMOVED***
+if(base64_decode($_SESSION['loggedin']) == 'true') {}
+else { header('Location: login.php'); }
 
 $postvars = array(array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'));
 
@@ -15,24 +15,24 @@ $curlstart = 0;
 
 while($curlstart <= 0) {
 
-    curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_URL, $vst_url);
-    curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_RETURNTRANSFER,true);
-    curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_SSL_VERIFYPEER, false);
-    curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_SSL_VERIFYHOST, false);
-    curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_POST, true);
-    curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_POSTFIELDS, http_build_query($postvars[$curlstart]));
+    curl_setopt(${'curl' . $curlstart}, CURLOPT_URL, $vst_url);
+    curl_setopt(${'curl' . $curlstart}, CURLOPT_RETURNTRANSFER,true);
+    curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt(${'curl' . $curlstart}, CURLOPT_POST, true);
+    curl_setopt(${'curl' . $curlstart}, CURLOPT_POSTFIELDS, http_build_query($postvars[$curlstart]));
 
     $curlstart++;
-***REMOVED*** 
+} 
 
 $admindata = json_decode(curl_exec($curl0), true)[$username];
-if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; ***REMOVED***
+if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
 setlocale(LC_CTYPE, $locale);
 setlocale(LC_MESSAGES, $locale);
 bindtextdomain('messages', 'locale');
 textdomain('messages');
 
-***REMOVED***
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,7 +43,7 @@ textdomain('messages');
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="icon" type="image/ico" href="plugins/images/favicon.ico">
-        <title>***REMOVED*** echo $sitetitle; ***REMOVED*** - ***REMOVED*** echo _("Account"); ***REMOVED***</title>
+        <title><?php echo $sitetitle; ?> - <?php echo _("Account"); ?></title>
         <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
         <link href="bootstrap/dist/css/bootstrap-select.min.css" rel="stylesheet">
@@ -51,10 +51,10 @@ textdomain('messages');
         <link href="css/animate.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
         <link href="plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
-        <link href="css/colors/***REMOVED*** if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); ***REMOVED*** else {echo $themecolor; ***REMOVED*** ***REMOVED***" id="theme" rel="stylesheet">
+        <link href="css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.css" rel="stylesheet" />
-        ***REMOVED*** if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
-        <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);***REMOVED*** gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; ***REMOVED*** ***REMOVED***
+        <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
+        <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?>
         <style>
             .select2-results{
                 max-height: 200px;
@@ -64,7 +64,7 @@ textdomain('messages');
                 overflow-x: hidden;
                 overflow-y: auto;
                 -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-            ***REMOVED***
+            }
         </style>
         <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -72,7 +72,7 @@ textdomain('messages');
 <![endif]-->
     </head>
     <body class="fix-header">
-        ***REMOVED*** if(INTERAKT_APP_ID != ''){ echo '<script>
+        <?php if(INTERAKT_APP_ID != ''){ echo '<script>
 	window.mySettings = {
 	first_name: "' . $admindata['FNAME'] . '",
 	last_name: "' . $admindata['LNAME'] . '",
@@ -84,38 +84,38 @@ textdomain('messages');
 	created_at: ' . strtotime($admindata['DATE'] . ' ' . $admindata['TIME']) . ',
 	joined_at: "' . $admindata['DATE'] . ' ' . $admindata['TIME'] . '",
 	app_id: "' . INTERAKT_APP_ID . '"
-	***REMOVED***;
-    </script>'; ***REMOVED*** ***REMOVED***
+	};
+    </script>'; } ?>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.js"></script>
-        ***REMOVED***
+        <?php
 
-        if(isset($_GET['password'])) { $pwcode = $_GET['password']; ***REMOVED***
-        if(isset($_GET['email'])) { $emailcode = $_GET['email']; ***REMOVED***
-        if(isset($_GET['lang'])) { $langcode = $_GET['lang']; ***REMOVED***
-        if(isset($_GET['ns'])) { $nscode = $_GET['ns']; ***REMOVED***
-        if(isset($_GET['name'])) { $namecode = $_GET['name']; ***REMOVED***
-        if(isset($_GET['password']) && isset($_GET['email']) && isset($_GET['lang']) && isset($_GET['ns']) && isset($_GET['name'])) { $answer1 = $pwcode + $emailcode + $langcode + $nscode + $namecode; ***REMOVED***
-        if(isset($answer1)) { $answer = (int)$answer1; ***REMOVED***
+        if(isset($_GET['password'])) { $pwcode = $_GET['password']; }
+        if(isset($_GET['email'])) { $emailcode = $_GET['email']; }
+        if(isset($_GET['lang'])) { $langcode = $_GET['lang']; }
+        if(isset($_GET['ns'])) { $nscode = $_GET['ns']; }
+        if(isset($_GET['name'])) { $namecode = $_GET['name']; }
+        if(isset($_GET['password']) && isset($_GET['email']) && isset($_GET['lang']) && isset($_GET['ns']) && isset($_GET['name'])) { $answer1 = $pwcode + $emailcode + $langcode + $nscode + $namecode; }
+        if(isset($answer1)) { $answer = (int)$answer1; }
         if(isset($pwcode) || isset($emailcode) || isset($langcode) || isset($nscode) || isset($namecode)){
             if($answer == "0") {
-                echo "<script> swal({title:'" . _("Successfully Updated!") . "', type:'success'***REMOVED***)</script>";
-            ***REMOVED*** 
+                echo "<script> swal({title:'" . _("Successfully Updated!") . "', type:'success'})</script>";
+            } 
             if(isset($answer) && $answer == "1" || isset($answer) && $answer == "2") { echo "<script> swal('" . _("Invalid data entered in form.") . "<br>" .  _("Please try again.") . "', '<br>"; 
-                                                                                      if(isset($pwcode) && $pwcode != "0"){ echo " P: " . $pwcode;***REMOVED***
-                                                                                      if(isset($emailcode) && $emailcode != "0"){ echo " E: " . $emailcode;***REMOVED***
-                                                                                      if(isset($langcode) && $langcode != "0"){ echo " L: " . $langcode;***REMOVED***
-                                                                                      if(isset($nscode) && $nscode != "0"){ echo " NS: " . $nscode;***REMOVED***
-                                                                                      if(isset($namecode) && $namecode != "0"){ echo " N: " . $namecode;***REMOVED***
-                                                                                      echo "', 'error')</script>";***REMOVED***
+                                                                                      if(isset($pwcode) && $pwcode != "0"){ echo " P: " . $pwcode;}
+                                                                                      if(isset($emailcode) && $emailcode != "0"){ echo " E: " . $emailcode;}
+                                                                                      if(isset($langcode) && $langcode != "0"){ echo " L: " . $langcode;}
+                                                                                      if(isset($nscode) && $nscode != "0"){ echo " NS: " . $nscode;}
+                                                                                      if(isset($namecode) && $namecode != "0"){ echo " N: " . $namecode;}
+                                                                                      echo "', 'error')</script>";}
             if(isset($answer) && $answer > "2") { echo "<script> swal('" . _("Please try again or contact support.") . "', '<br>"; 
-                                                 if(isset($pwcode) && $pwcode != "0"){ echo " P: " . $pwcode;***REMOVED***
-                                                 if(isset($emailcode) && $emailcode != "0"){ echo " E: " . $emailcode;***REMOVED***
-                                                 if(isset($langcode) && $langcode != "0"){ echo " L: " . $langcode;***REMOVED***
-                                                 if(isset($nscode) && $nscode != "0"){ echo " NS: " . $nscode;***REMOVED***
-                                                 if(isset($namecode) && $namecode != "0"){ echo " N: " . $namecode;***REMOVED***
-                                                 echo "', 'error')</script>";***REMOVED***
-        ***REMOVED***
-        ***REMOVED***
+                                                 if(isset($pwcode) && $pwcode != "0"){ echo " P: " . $pwcode;}
+                                                 if(isset($emailcode) && $emailcode != "0"){ echo " E: " . $emailcode;}
+                                                 if(isset($langcode) && $langcode != "0"){ echo " L: " . $langcode;}
+                                                 if(isset($nscode) && $nscode != "0"){ echo " NS: " . $nscode;}
+                                                 if(isset($namecode) && $namecode != "0"){ echo " N: " . $namecode;}
+                                                 echo "', 'error')</script>";}
+        }
+        ?>
 
         <div id="wrapper">
             <nav class="navbar navbar-default navbar-static-top m-b-0">
@@ -138,25 +138,25 @@ textdomain('messages');
                     <ul class="nav navbar-top-links navbar-right pull-right">
 
                         <li class="dropdown">
-                            <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs">***REMOVED*** print_r($uname); ***REMOVED***</b><span class="caret"></span> </a>
+                            <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($uname); ?></b><span class="caret"></span> </a>
                             <ul class="dropdown-menu dropdown-user animated flipInY">
                                 <li>
                                     <div class="dw-user-box">
                                         <div class="u-text">
                                             <h4>
-                                                ***REMOVED*** print_r($uname); ***REMOVED***
+                                                <?php print_r($uname); ?>
                                             </h4>
                                             <p class="text-muted">
-                                                ***REMOVED*** print_r($admindata['CONTACT']); ***REMOVED***
+                                                <?php print_r($admindata['CONTACT']); ?>
                                             </p>
                                         </div>
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="profile.php"><i class="ti-home"></i> ***REMOVED*** echo _("My Account"); ***REMOVED***</a></li>
-                                <li><a href="profile.php?settings=open"><i class="ti-settings"></i> ***REMOVED*** echo _("Account Settings"); ***REMOVED***</a></li>
+                                <li><a href="profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
+                                <li><a href="profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="process/logout.php"><i class="fa fa-power-off"></i> ***REMOVED*** echo _("Logout"); ***REMOVED***</a></li>
+                                <li><a href="process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
                             </ul>
                         </li>
 
@@ -171,49 +171,49 @@ textdomain('messages');
                                 <i class="ti-menu hidden-xs"></i>
                                 <i class="ti-close visible-xs"></i>
                             </span> 
-                            <span class="hide-menu">***REMOVED*** echo _("Navigation"); ***REMOVED***</span>
+                            <span class="hide-menu"><?php echo _("Navigation"); ?></span>
                         </h3>
                     </div>
                     <ul class="nav" id="side-menu">
                         <li> 
                             <a href="index.php" class="waves-effect">
-                                <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu">***REMOVED*** echo _("Dashboard"); ***REMOVED***</span>
+                                <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu"><?php echo _("Dashboard"); ?></span>
                             </a> 
                         </li>
 
                         <li class="devider"></li>
                         <li>
-                            <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> ***REMOVED*** print_r($uname); ***REMOVED***<span class="fa arrow"></span></span>
+                            <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> <?php print_r($uname); ?><span class="fa arrow"></span></span>
                             </a>
                             <ul class="nav nav-second-level collapse" >
-                                <li> <a href="profile.php" id="profileactive"><i class="ti-home fa-fw ***REMOVED*** if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo 'text-inverse';***REMOVED*** ***REMOVED***"></i> <span style="***REMOVED*** if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo 'color:#54667a;font-weight:300;';***REMOVED*** ***REMOVED***" class="hide-menu"> ***REMOVED*** echo _("My Account"); ***REMOVED***</span></a></li>
-                                <li> <a href="profile.php?settings=open" id="settingsactive"><i class="ti-settings fa-fw "></i> <span class="hide-menu"> ***REMOVED*** echo _("Account Settings"); ***REMOVED***</span></a></li>
+                                <li> <a href="profile.php" id="profileactive"><i class="ti-home fa-fw <?php if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo 'text-inverse';} ?>"></i> <span style="<?php if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo 'color:#54667a;font-weight:300;';} ?>" class="hide-menu"> <?php echo _("My Account"); ?></span></a></li>
+                                <li> <a href="profile.php?settings=open" id="settingsactive"><i class="ti-settings fa-fw "></i> <span class="hide-menu"> <?php echo _("Account Settings"); ?></span></a></li>
                             </ul>
                         </li>
-                        ***REMOVED*** if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '<li class="devider"></li>
+                        <?php if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '<li class="devider"></li>
                             <li> <a href="#" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">' . _("Management") . '<span class="fa arrow"></span> </span></a>
-                                <ul class="nav nav-second-level">'; ***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($webenabled == 'true') { echo '<li> <a href="list/web.php"><i class="ti-world fa-fw"></i><span class="hide-menu">' . _("Web") . '</span></a> </li>'; ***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($dnsenabled == 'true') { echo '<li> <a href="list/dns.php"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">' . _("DNS") . '</span></a> </li>'; ***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($mailenabled == 'true') { echo '<li> <a href="list/mail.php"><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">' . _("Mail") . '</span></a> </li>'; ***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($dbenabled == 'true') { echo '<li> <a href="list/db.php"><i class="fa fa-database fa-fw"></i><span class="hide-menu">' . _("Database") . '</span></a> </li>'; ***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '</ul>
-                            </li>'; ***REMOVED*** ***REMOVED***
-                        <li> <a href="list/cron.php" class="waves-effect"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">***REMOVED*** echo _("Cron Jobs"); ***REMOVED***</span></a> </li>
-                        <li> <a href="list/backups.php" class="waves-effect"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu">***REMOVED*** echo _("Backups"); ***REMOVED***</span></a> </li>
-                        ***REMOVED*** if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {***REMOVED*** else { echo '<li class="devider"></li>
+                                <ul class="nav nav-second-level">'; } ?>
+                        <?php if ($webenabled == 'true') { echo '<li> <a href="list/web.php"><i class="ti-world fa-fw"></i><span class="hide-menu">' . _("Web") . '</span></a> </li>'; } ?>
+                        <?php if ($dnsenabled == 'true') { echo '<li> <a href="list/dns.php"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">' . _("DNS") . '</span></a> </li>'; } ?>
+                        <?php if ($mailenabled == 'true') { echo '<li> <a href="list/mail.php"><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">' . _("Mail") . '</span></a> </li>'; } ?>
+                        <?php if ($dbenabled == 'true') { echo '<li> <a href="list/db.php"><i class="fa fa-database fa-fw"></i><span class="hide-menu">' . _("Database") . '</span></a> </li>'; } ?>
+                        <?php if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '</ul>
+                            </li>'; } ?>
+                        <li> <a href="list/cron.php" class="waves-effect"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu"><?php echo _("Cron Jobs"); ?></span></a> </li>
+                        <li> <a href="list/backups.php" class="waves-effect"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu"><?php echo _("Backups"); ?></span></a> </li>
+                        <?php if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {} else { echo '<li class="devider"></li>
                             <li><a href="#" class="waves-effect"><i class="mdi mdi-apps fa-fw"></i> <span class="hide-menu">' . _("Apps") . '<span class="fa arrow"></span></span></a>
-                                <ul class="nav nav-second-level">'; ***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($ftpurl != '') { echo '<li><a href="' . $ftpurl . '" target="_blank"><i class="fa fa-file-code-o fa-fw"></i><span class="hide-menu">' . _("FTP") . '</span></a></li>';***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($webmailurl != '') { echo '<li><a href="' . $webmailurl . '" target="_blank"><i class="fa fa-envelope-o fa-fw"></i><span class="hide-menu">' . _("Webmail") . '</span></a></li>';***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($phpmyadmin != '') { echo '<li><a href="' . $phpmyadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . _("phpMyAdmin") . '</span></a></li>';***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($phppgadmin != '') { echo '<li><a href="' . $phppgadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . _("phpPgAdmin") . '</span></a></li>';***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {***REMOVED*** else { echo '</ul></li>';***REMOVED*** ***REMOVED***
+                                <ul class="nav nav-second-level">'; } ?>
+                        <?php if ($ftpurl != '') { echo '<li><a href="' . $ftpurl . '" target="_blank"><i class="fa fa-file-code-o fa-fw"></i><span class="hide-menu">' . _("FTP") . '</span></a></li>';} ?>
+                        <?php if ($webmailurl != '') { echo '<li><a href="' . $webmailurl . '" target="_blank"><i class="fa fa-envelope-o fa-fw"></i><span class="hide-menu">' . _("Webmail") . '</span></a></li>';} ?>
+                        <?php if ($phpmyadmin != '') { echo '<li><a href="' . $phpmyadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . _("phpMyAdmin") . '</span></a></li>';} ?>
+                        <?php if ($phppgadmin != '') { echo '<li><a href="' . $phppgadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . _("phpPgAdmin") . '</span></a></li>';} ?>
+                        <?php if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {} else { echo '</ul></li>';} ?>
                         <li class="devider"></li>
-                        <li><a href="process/logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu">***REMOVED*** echo _("Log out"); ***REMOVED***</span></a></li>
-                        ***REMOVED*** if ($oldcpurl == '' || $supporturl == '') {***REMOVED*** else { echo '<li class="devider"></li>'; ***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($oldcpurl != '') { echo '<li><a href="' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> ' . _("Control Panel v1") . '</span></a></li>'; ***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">' . _("Support") . '</span></a></li>'; ***REMOVED*** ***REMOVED***
+                        <li><a href="process/logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu"><?php echo _("Log out"); ?></span></a></li>
+                        <?php if ($oldcpurl == '' || $supporturl == '') {} else { echo '<li class="devider"></li>'; } ?>
+                        <?php if ($oldcpurl != '') { echo '<li><a href="' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> ' . _("Control Panel v1") . '</span></a></li>'; } ?>
+                        <?php if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">' . _("Support") . '</span></a></li>'; } ?>
                     </ul>
                 </div>
             </div>
@@ -221,7 +221,7 @@ textdomain('messages');
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title">***REMOVED*** echo _("My Account"); ***REMOVED***</h4> </div>
+                            <h4 class="page-title"><?php echo _("My Account"); ?></h4> </div>
 
                     </div>
                     <div class="row">
@@ -230,8 +230,8 @@ textdomain('messages');
                                 <div class="user-bg bg-theme"> 
                                     <div class="overlay-box bg-theme">
                                         <div class="user-content"><br><br>
-                                            <h4 class="text-white">***REMOVED*** print_r($username); ***REMOVED***</h4>
-                                            <h5 class="text-white">***REMOVED*** print_r($admindata['CONTACT']); ***REMOVED***</h5> </div>
+                                            <h4 class="text-white"><?php print_r($username); ?></h4>
+                                            <h5 class="text-white"><?php print_r($admindata['CONTACT']); ?></h5> </div>
                                     </div>
                                 </div>
 
@@ -240,73 +240,73 @@ textdomain('messages');
                         <div class="col-md-8 col-xs-12">
                             <div class="white-box">
                                 <ul class="nav nav-tabs tabs customtab">
-                                    <li class="***REMOVED*** if(!isset($_GET['settings']) || isset($_GET['settings']) && $_GET['settings'] != "open") { echo "active tab"; ***REMOVED*** else { echo "tab"; ***REMOVED*** ***REMOVED***" >
-                                        <a href="profile.php"> <span class="visible-xs"><i class="fa fa-user"></i></span> <span class="hidden-xs">***REMOVED*** echo _("Account"); ***REMOVED***</span> </a>
+                                    <li class="<?php if(!isset($_GET['settings']) || isset($_GET['settings']) && $_GET['settings'] != "open") { echo "active tab"; } else { echo "tab"; } ?>" >
+                                        <a href="profile.php"> <span class="visible-xs"><i class="fa fa-user"></i></span> <span class="hidden-xs"><?php echo _("Account"); ?></span> </a>
                                     </li>
-                                    <li class="***REMOVED*** if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo "active tab"; ***REMOVED*** else { echo "tab"; ***REMOVED*** ***REMOVED***">
-                                        <a href="profile.php?settings=open"> <span class="visible-xs"><i class="fa fa-cog"></i></span> <span class="hidden-xs">***REMOVED*** echo _("Settings"); ***REMOVED***</span> </a>
+                                    <li class="<?php if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo "active tab"; } else { echo "tab"; } ?>">
+                                        <a href="profile.php?settings=open"> <span class="visible-xs"><i class="fa fa-cog"></i></span> <span class="hidden-xs"><?php echo _("Settings"); ?></span> </a>
                                     </li>
                                 </ul>
                                 <div class="tab-content ">
-                                    <div class="tab-pane ***REMOVED*** if(!isset($_GET['settings']) || isset($_GET['settings']) && $_GET['settings'] != "open") { echo "active"; ***REMOVED*** ***REMOVED***" id="profile">
+                                    <div class="tab-pane <?php if(!isset($_GET['settings']) || isset($_GET['settings']) && $_GET['settings'] != "open") { echo "active"; } ?>" id="profile">
                                         <div class="row">
-                                            <div class="col-md-3 col-xs-6 b-r"> <strong>***REMOVED*** echo _("Name"); ***REMOVED***</strong>
+                                            <div class="col-md-3 col-xs-6 b-r"> <strong><?php echo _("Name"); ?></strong>
                                                 <br>
-                                                <p class="text-muted">***REMOVED*** print_r($admindata['FNAME'] . ' ' . $admindata['LNAME']); ***REMOVED***</p>
+                                                <p class="text-muted"><?php print_r($admindata['FNAME'] . ' ' . $admindata['LNAME']); ?></p>
                                             </div>
-                                            <div class="col-md-3 col-xs-6 b-r"> <strong>***REMOVED*** echo _("Joined"); ***REMOVED***</strong>
+                                            <div class="col-md-3 col-xs-6 b-r"> <strong><?php echo _("Joined"); ?></strong>
                                                 <br>
-                                                <p class="text-muted">***REMOVED*** $date=date_create($admindata['DATE'] . ' ' . $admindata['TIME']);
-                                                    echo date_format($date,"F j, Y - g:i A"); ***REMOVED***</p>
+                                                <p class="text-muted"><?php $date=date_create($admindata['DATE'] . ' ' . $admindata['TIME']);
+                                                    echo date_format($date,"F j, Y - g:i A"); ?></p>
                                             </div>
-                                            <div class="col-md-3 col-xs-6 b-r"> <strong>***REMOVED*** echo _("Plan"); ***REMOVED***</strong>
+                                            <div class="col-md-3 col-xs-6 b-r"> <strong><?php echo _("Plan"); ?></strong>
                                                 <br>
-                                                <p class="text-muted">***REMOVED*** print_r(ucfirst($admindata['PACKAGE'])); ***REMOVED***</p>
+                                                <p class="text-muted"><?php print_r(ucfirst($admindata['PACKAGE'])); ?></p>
                                             </div>
-                                            <div class="col-md-3 col-xs-6"> <strong>***REMOVED*** echo _("Language"); ***REMOVED***</strong>
+                                            <div class="col-md-3 col-xs-6"> <strong><?php echo _("Language"); ?></strong>
                                                 <br>
-                                                <p class="text-muted">***REMOVED*** if($admindata['LANGUAGE'] == ""){echo "Not Set";***REMOVED*** ***REMOVED*** print_r($countries[$admindata['LANGUAGE']]);***REMOVED*** ***REMOVED***</p>
+                                                <p class="text-muted"><?php if($admindata['LANGUAGE'] == ""){echo "Not Set";} else{ print_r($countries[$admindata['LANGUAGE']]);} ?></p>
                                             </div>
                                         </div>
                                         <hr>
-                                        <strong>***REMOVED*** echo _("Nameservers"); ***REMOVED***:</strong><p class="m-t-30">
+                                        <strong><?php echo _("Nameservers"); ?>:</strong><p class="m-t-30">
                                         <ul class="dashed">
-                                            ***REMOVED*** 
+                                            <?php 
                                             $nsArray = explode(',', ($admindata['NS'])); 
 
                                             foreach ($nsArray as &$value) {
                                                 $value = "<li>" . $value . "</li>";
-                                            ***REMOVED***  
+                                            }  
                                             foreach($nsArray as $val) {
                                                 echo $val;
-                                            ***REMOVED*** 
-                                            ***REMOVED***
+                                            } 
+                                            ?>
                                         </ul>
                                         </p>
 
                                 </div>
-                                <div class="tab-pane ***REMOVED*** if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo "active"; ***REMOVED*** ***REMOVED***" id="settings">
+                                <div class="tab-pane <?php if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo "active"; } ?>" id="settings">
                                     <form class="form-horizontal form-material" autocomplete="off" action="process/updatesettings.php" method="post">
-                                        <input type="hidden" name="fname-x" value="***REMOVED*** print_r($admindata['FNAME']); ***REMOVED***"/>
-                                        <input type="hidden" name="lname-x" value="***REMOVED*** print_r($admindata['LNAME']); ***REMOVED***"/>
-                                        <input type="hidden" name="email-x" value="***REMOVED*** print_r($admindata['CONTACT']); ***REMOVED***"/>
-                                        <input type="hidden" name="language-x" value="***REMOVED*** print_r($admindata['LANGUAGE']); ***REMOVED***"/>
-                                        <input type="hidden" name="ns1-x" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[0]); ***REMOVED***"/>
-                                        <input type="hidden" name="ns2-x" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[1]); ***REMOVED***"/>
-                                        <input type="hidden" name="ns3-x" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[2]); ***REMOVED***"/>
-                                        <input type="hidden" name="ns4-x" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[3]); ***REMOVED***"/>
-                                        <input type="hidden" name="ns5-x" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[4]); ***REMOVED***"/>
-                                        <input type="hidden" name="ns6-x" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[5]); ***REMOVED***"/>
-                                        <input type="hidden" name="ns7-x" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[6]); ***REMOVED***"/>
-                                        <input type="hidden" name="ns8-x" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[7]); ***REMOVED***"/>
+                                        <input type="hidden" name="fname-x" value="<?php print_r($admindata['FNAME']); ?>"/>
+                                        <input type="hidden" name="lname-x" value="<?php print_r($admindata['LNAME']); ?>"/>
+                                        <input type="hidden" name="email-x" value="<?php print_r($admindata['CONTACT']); ?>"/>
+                                        <input type="hidden" name="language-x" value="<?php print_r($admindata['LANGUAGE']); ?>"/>
+                                        <input type="hidden" name="ns1-x" value="<?php print_r(explode(',', ($admindata['NS']))[0]); ?>"/>
+                                        <input type="hidden" name="ns2-x" value="<?php print_r(explode(',', ($admindata['NS']))[1]); ?>"/>
+                                        <input type="hidden" name="ns3-x" value="<?php print_r(explode(',', ($admindata['NS']))[2]); ?>"/>
+                                        <input type="hidden" name="ns4-x" value="<?php print_r(explode(',', ($admindata['NS']))[3]); ?>"/>
+                                        <input type="hidden" name="ns5-x" value="<?php print_r(explode(',', ($admindata['NS']))[4]); ?>"/>
+                                        <input type="hidden" name="ns6-x" value="<?php print_r(explode(',', ($admindata['NS']))[5]); ?>"/>
+                                        <input type="hidden" name="ns7-x" value="<?php print_r(explode(',', ($admindata['NS']))[6]); ?>"/>
+                                        <input type="hidden" name="ns8-x" value="<?php print_r(explode(',', ($admindata['NS']))[7]); ?>"/>
                                         
                                         <div class="form-group">
-                                            <label for="username" class="col-md-12">***REMOVED*** echo _("Username"); ***REMOVED***</label>
+                                            <label for="username" class="col-md-12"><?php echo _("Username"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="text" disabled value="***REMOVED*** print_r($username); ***REMOVED***" class="form-control form-control-line" name="username" id="username"> </div>
+                                                <input type="text" disabled value="<?php print_r($username); ?>" class="form-control form-control-line" name="username" id="username"> </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="password" class="col-md-12">***REMOVED*** echo _("Password"); ***REMOVED*** / <a style="cursor:pointer" onclick="generatePassword(10)"> ***REMOVED*** echo _("Generate"); ***REMOVED***</a></label>
+                                            <label for="password" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10)"> <?php echo _("Generate"); ?></a></label>
                                             <div class="col-md-12 input-group" style="padding-left: 15px;">
                                                 <input type="password" class="form-control form-control-line" autocomplete="new-password" name="password" id="password">                                    <span class="input-group-btn"> 
                                                 <button class="btn btn-info" style="margin-right: 15px;" name="Show" onclick="toggler(this)" id="tg" type="button"><i class="ti-eye"></i></button> 
@@ -315,91 +315,91 @@ textdomain('messages');
 
 
                                         <div class="form-group">
-                                            <label class="col-sm-6 pull-left">***REMOVED*** echo _("First Name"); ***REMOVED***</label><label class="col-sm-6 pull-right">***REMOVED*** echo _("Last Name"); ***REMOVED***</label>
+                                            <label class="col-sm-6 pull-left"><?php echo _("First Name"); ?></label><label class="col-sm-6 pull-right"><?php echo _("Last Name"); ?></label>
                                             <div class="col-sm-6 pull-left">
-                                                <input type="text" name="fname" value="***REMOVED*** print_r($admindata['FNAME']); ***REMOVED***" class="form-control form-control-line"> </div>
+                                                <input type="text" name="fname" value="<?php print_r($admindata['FNAME']); ?>" class="form-control form-control-line"> </div>
                                             <div class="col-sm-6 pull-right">
-                                                <input type="text" name="lname" value="***REMOVED*** print_r($admindata['LNAME']); ***REMOVED***" class="form-control form-control-line"> </div>
+                                                <input type="text" name="lname" value="<?php print_r($admindata['LNAME']); ?>" class="form-control form-control-line"> </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="email" class="col-md-12">***REMOVED*** echo _("Email"); ***REMOVED***</label>
+                                            <label for="email" class="col-md-12"><?php echo _("Email"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="email" value="***REMOVED*** print_r($admindata['CONTACT']); ***REMOVED***" class="form-control form-control-line" name="email" id="email"> </div>
+                                                <input type="email" value="<?php print_r($admindata['CONTACT']); ?>" class="form-control form-control-line" name="email" id="email"> </div>
                                         </div>
                                         <div class="form-group" style="overflow: visible;">
-                                            <label class="col-md-12">***REMOVED*** echo _("Language"); ***REMOVED***</label>
+                                            <label class="col-md-12"><?php echo _("Language"); ?></label>
                                             <div class="col-md-12">
                                                 <select class="form-control select2" name="language" id="select2">
 
-                                                    <option value="ar">***REMOVED*** print_r($countries['ar']); ***REMOVED***</option>
-                                                    <option value="bs">***REMOVED*** print_r($countries['bs']); ***REMOVED***</option>
-                                                    <option value="cn">***REMOVED*** print_r($countries['cn']); ***REMOVED***</option>
-                                                    <option value="cz">***REMOVED*** print_r($countries['cz']); ***REMOVED***</option>
-                                                    <option value="da">***REMOVED*** print_r($countries['da']); ***REMOVED***</option>
-                                                    <option value="de">***REMOVED*** print_r($countries['de']); ***REMOVED***</option>
-                                                    <option value="el">***REMOVED*** print_r($countries['el']); ***REMOVED***</option>
-                                                    <option value="en">***REMOVED*** print_r($countries['en']); ***REMOVED***</option>
-                                                    <option value="es">***REMOVED*** print_r($countries['es']); ***REMOVED***</option>
-                                                    <option value="fa">***REMOVED*** print_r($countries['fa']); ***REMOVED***</option>
-                                                    <option value="fi">***REMOVED*** print_r($countries['fi']); ***REMOVED***</option>
-                                                    <option value="fr">***REMOVED*** print_r($countries['fr']); ***REMOVED***</option>
-                                                    <option value="hu">***REMOVED*** print_r($countries['hu']); ***REMOVED***</option>
-                                                    <option value="id">***REMOVED*** print_r($countries['id']); ***REMOVED***</option>
-                                                    <option value="it">***REMOVED*** print_r($countries['it']); ***REMOVED***</option>
-                                                    <option value="ja">***REMOVED*** print_r($countries['ja']); ***REMOVED***</option>
-                                                    <option value="ka">***REMOVED*** print_r($countries['ka']); ***REMOVED***</option>
-                                                    <option value="nl">***REMOVED*** print_r($countries['nl']); ***REMOVED***</option>
-                                                    <option value="no">***REMOVED*** print_r($countries['no']); ***REMOVED***</option>
-                                                    <option value="pl">***REMOVED*** print_r($countries['pl']); ***REMOVED***</option>
-                                                    <option value="pt-BR">***REMOVED*** print_r($countries['pt-BR']); ***REMOVED***</option>
-                                                    <option value="pt">***REMOVED*** print_r($countries['pt']); ***REMOVED***</option>
-                                                    <option value="ro">***REMOVED*** print_r($countries['ro']); ***REMOVED***</option>
-                                                    <option value="ru">***REMOVED*** print_r($countries['ru']); ***REMOVED***</option>
-                                                    <option value="se">***REMOVED*** print_r($countries['se']); ***REMOVED***</option>
-                                                    <option value="tr">***REMOVED*** print_r($countries['tr']); ***REMOVED***</option>
-                                                    <option value="tw">***REMOVED*** print_r($countries['tw']); ***REMOVED***</option>
-                                                    <option value="ua">***REMOVED*** print_r($countries['ua']); ***REMOVED***</option>
-                                                    <option value="vi">***REMOVED*** print_r($countries['vi']); ***REMOVED***</option>
+                                                    <option value="ar"><?php print_r($countries['ar']); ?></option>
+                                                    <option value="bs"><?php print_r($countries['bs']); ?></option>
+                                                    <option value="cn"><?php print_r($countries['cn']); ?></option>
+                                                    <option value="cz"><?php print_r($countries['cz']); ?></option>
+                                                    <option value="da"><?php print_r($countries['da']); ?></option>
+                                                    <option value="de"><?php print_r($countries['de']); ?></option>
+                                                    <option value="el"><?php print_r($countries['el']); ?></option>
+                                                    <option value="en"><?php print_r($countries['en']); ?></option>
+                                                    <option value="es"><?php print_r($countries['es']); ?></option>
+                                                    <option value="fa"><?php print_r($countries['fa']); ?></option>
+                                                    <option value="fi"><?php print_r($countries['fi']); ?></option>
+                                                    <option value="fr"><?php print_r($countries['fr']); ?></option>
+                                                    <option value="hu"><?php print_r($countries['hu']); ?></option>
+                                                    <option value="id"><?php print_r($countries['id']); ?></option>
+                                                    <option value="it"><?php print_r($countries['it']); ?></option>
+                                                    <option value="ja"><?php print_r($countries['ja']); ?></option>
+                                                    <option value="ka"><?php print_r($countries['ka']); ?></option>
+                                                    <option value="nl"><?php print_r($countries['nl']); ?></option>
+                                                    <option value="no"><?php print_r($countries['no']); ?></option>
+                                                    <option value="pl"><?php print_r($countries['pl']); ?></option>
+                                                    <option value="pt-BR"><?php print_r($countries['pt-BR']); ?></option>
+                                                    <option value="pt"><?php print_r($countries['pt']); ?></option>
+                                                    <option value="ro"><?php print_r($countries['ro']); ?></option>
+                                                    <option value="ru"><?php print_r($countries['ru']); ?></option>
+                                                    <option value="se"><?php print_r($countries['se']); ?></option>
+                                                    <option value="tr"><?php print_r($countries['tr']); ?></option>
+                                                    <option value="tw"><?php print_r($countries['tw']); ?></option>
+                                                    <option value="ua"><?php print_r($countries['ua']); ?></option>
+                                                    <option value="vi"><?php print_r($countries['vi']); ?></option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12">***REMOVED*** echo _("Default Nameservers"); ***REMOVED***</label>
+                                            <label class="col-md-12"><?php echo _("Default Nameservers"); ?></label>
                                             <div class="col-md-12">
 
-                                                <div><input type="text" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[0]); ***REMOVED***" class="form-control form-control-line" name="ns1" id="ns1x"><br></div>
+                                                <div><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[0]); ?>" class="form-control form-control-line" name="ns1" id="ns1x"><br></div>
 
-                                                <div><input type="text" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[1]); ***REMOVED***" class="form-control form-control-line" name="ns2" id="ns2x"><br><div id="ns2wrapper"><a style="cursor:pointer;" id="addmore" onclick="add1();">***REMOVED*** echo _("Add One"); ***REMOVED***</a></div></div>
+                                                <div><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[1]); ?>" class="form-control form-control-line" name="ns2" id="ns2x"><br><div id="ns2wrapper"><a style="cursor:pointer;" id="addmore" onclick="add1();"><?php echo _("Add One"); ?></a></div></div>
 
-                                                <div id="ns3" style="display:***REMOVED*** if(explode(',', ($admindata['NS']))[2] == ''){ echo "none"; ***REMOVED*** else { echo "block"; ***REMOVED*** ***REMOVED***"><input type="text" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[2]); ***REMOVED***" class="form-control form-control-line" name="ns3" id="ns3x"><br><div id="ns3wrapper"><a style="cursor:pointer;" id="addmore1" onclick="add2();">***REMOVED*** echo _("Add One"); ***REMOVED***</a> / <a style="cursor:pointer;" id="remove1" onclick="rem2();">***REMOVED*** echo _("Remove One"); ***REMOVED***</a></div></div>
+                                                <div id="ns3" style="display:<?php if(explode(',', ($admindata['NS']))[2] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[2]); ?>" class="form-control form-control-line" name="ns3" id="ns3x"><br><div id="ns3wrapper"><a style="cursor:pointer;" id="addmore1" onclick="add2();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove1" onclick="rem2();"><?php echo _("Remove One"); ?></a></div></div>
 
-                                                <div id="ns4" style="display:***REMOVED*** if(explode(',', ($admindata['NS']))[3] == ''){ echo "none"; ***REMOVED*** else { echo "block"; ***REMOVED*** ***REMOVED***"><input type="text" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[3]); ***REMOVED***" class="form-control form-control-line" name="ns4" id="ns4x"><br><div id="ns4wrapper"><a style="cursor:pointer;" id="addmore2" onclick="add3();">***REMOVED*** echo _("Add One"); ***REMOVED***</a> / <a style="cursor:pointer;" id="remove2" onclick="rem3();">***REMOVED*** echo _("Remove One"); ***REMOVED***</a></div></div>
+                                                <div id="ns4" style="display:<?php if(explode(',', ($admindata['NS']))[3] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[3]); ?>" class="form-control form-control-line" name="ns4" id="ns4x"><br><div id="ns4wrapper"><a style="cursor:pointer;" id="addmore2" onclick="add3();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove2" onclick="rem3();"><?php echo _("Remove One"); ?></a></div></div>
 
-                                                <div id="ns5" style="display:***REMOVED*** if(explode(',', ($admindata['NS']))[4] == ''){ echo "none"; ***REMOVED*** else { echo "block"; ***REMOVED*** ***REMOVED***"><input type="text" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[4]); ***REMOVED***" class="form-control form-control-line" name="ns5" id="ns5x"><br><div id="ns5wrapper"><a style="cursor:pointer;" id="addmore3" onclick="add4();">***REMOVED*** echo _("Add One"); ***REMOVED***</a> / <a style="cursor:pointer;" id="remove3" onclick="rem4();">***REMOVED*** echo _("Remove One"); ***REMOVED***</a></div></div>
+                                                <div id="ns5" style="display:<?php if(explode(',', ($admindata['NS']))[4] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[4]); ?>" class="form-control form-control-line" name="ns5" id="ns5x"><br><div id="ns5wrapper"><a style="cursor:pointer;" id="addmore3" onclick="add4();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove3" onclick="rem4();"><?php echo _("Remove One"); ?></a></div></div>
 
-                                                <div id="ns6" style="display:***REMOVED*** if(explode(',', ($admindata['NS']))[5] == ''){ echo "none"; ***REMOVED*** else { echo "block"; ***REMOVED*** ***REMOVED***"><input type="text" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[5]); ***REMOVED***" class="form-control form-control-line" name="ns6" id="ns6x"><br><div id="ns6wrapper"><a style="cursor:pointer;" id="addmore4" onclick="add5();">***REMOVED*** echo _("Add One"); ***REMOVED***</a> / <a style="cursor:pointer;" id="remove4" onclick="rem5();">***REMOVED*** echo _("Remove One"); ***REMOVED***</a></div></div>
+                                                <div id="ns6" style="display:<?php if(explode(',', ($admindata['NS']))[5] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[5]); ?>" class="form-control form-control-line" name="ns6" id="ns6x"><br><div id="ns6wrapper"><a style="cursor:pointer;" id="addmore4" onclick="add5();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove4" onclick="rem5();"><?php echo _("Remove One"); ?></a></div></div>
 
-                                                <div id="ns7" style="display:***REMOVED*** if(explode(',', ($admindata['NS']))[6] == ''){ echo "none"; ***REMOVED*** else { echo "block"; ***REMOVED*** ***REMOVED***"><input type="text" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[6]); ***REMOVED***" class="form-control form-control-line" name="ns7" id="ns7x"><br><div id="ns7wrapper"><a style="cursor:pointer;" id="addmore5" onclick="add6();">***REMOVED*** echo _("Add One"); ***REMOVED***</a> / <a style="cursor:pointer;" id="remove5" onclick="rem6();">***REMOVED*** echo _("Remove One"); ***REMOVED***</a></div></div>
+                                                <div id="ns7" style="display:<?php if(explode(',', ($admindata['NS']))[6] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[6]); ?>" class="form-control form-control-line" name="ns7" id="ns7x"><br><div id="ns7wrapper"><a style="cursor:pointer;" id="addmore5" onclick="add6();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove5" onclick="rem6();"><?php echo _("Remove One"); ?></a></div></div>
 
-                                                <div id="ns8" style="display:***REMOVED*** if(explode(',', ($admindata['NS']))[7] == ''){ echo "none"; ***REMOVED*** else { echo "block"; ***REMOVED*** ***REMOVED***"><input type="text" value="***REMOVED*** print_r(explode(',', ($admindata['NS']))[7]); ***REMOVED***" class="form-control form-control-line" name="ns8" id="ns8x"><br><div id="ns8wrapper"><a style="cursor:pointer;" id="remove6" onclick="rem7();">***REMOVED*** echo _("Remove One"); ***REMOVED***</a></div></div>
+                                                <div id="ns8" style="display:<?php if(explode(',', ($admindata['NS']))[7] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[7]); ?>" class="form-control form-control-line" name="ns8" id="ns8x"><br><div id="ns8wrapper"><a style="cursor:pointer;" id="remove6" onclick="rem7();"><?php echo _("Remove One"); ?></a></div></div>
                                             </div>
                                         </div>
                                         <div class="form-group" style="overflow: visible;">
-                                            <label class="col-md-12">***REMOVED*** echo _("Theme"); ***REMOVED***</label>
+                                            <label class="col-md-12"><?php echo _("Theme"); ?></label>
                                             <div class="col-md-12">
                                                 <select class="form-control" name="cookie">
-                                                    <option value="default" ***REMOVED*** if(base64_decode($_COOKIE["theme"]) == "default.css") { echo "selected"; ***REMOVED*** ***REMOVED***>***REMOVED*** echo _("Default"); ***REMOVED***</option>
-                                                    <option value="blue" ***REMOVED*** if(base64_decode($_COOKIE["theme"]) == "blue.css") { echo "selected"; ***REMOVED*** ***REMOVED***>***REMOVED*** echo _("Blue"); ***REMOVED***</option>
-                                                    <option value="purple" ***REMOVED*** if(base64_decode($_COOKIE["theme"]) == "purple.css") { echo "selected"; ***REMOVED*** ***REMOVED***>***REMOVED*** echo _("Purple"); ***REMOVED***</option>
-                                                    <option value="orange" ***REMOVED*** if(base64_decode($_COOKIE["theme"]) == "orange.css") { echo "selected"; ***REMOVED*** ***REMOVED***>***REMOVED*** echo _("Orange"); ***REMOVED***</option>
+                                                    <option value="default" <?php if(base64_decode($_COOKIE["theme"]) == "default.css") { echo "selected"; } ?>><?php echo _("Default"); ?></option>
+                                                    <option value="blue" <?php if(base64_decode($_COOKIE["theme"]) == "blue.css") { echo "selected"; } ?>><?php echo _("Blue"); ?></option>
+                                                    <option value="purple" <?php if(base64_decode($_COOKIE["theme"]) == "purple.css") { echo "selected"; } ?>><?php echo _("Purple"); ?></option>
+                                                    <option value="orange" <?php if(base64_decode($_COOKIE["theme"]) == "orange.css") { echo "selected"; } ?>><?php echo _("Orange"); ?></option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-12">
-                                                <button class="btn btn-success">***REMOVED*** echo _("Update Profile"); ***REMOVED***</button> &nbsp;
-                                                <a href="profile.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">***REMOVED*** echo _("Back"); ***REMOVED***</button></a>
+                                                <button class="btn btn-success"><?php echo _("Update Profile"); ?></button> &nbsp;
+                                                <a href="profile.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
                                             </div>
                                         </div>
                                     </form>
@@ -409,7 +409,7 @@ textdomain('messages');
                     </div>
                 </div>
             </div>
-            <footer class="footer text-center">&copy; ***REMOVED*** echo _("Copyright"); ***REMOVED*** ***REMOVED*** echo date("Y") . ' ' . $sitetitle; ***REMOVED***. ***REMOVED*** echo _("All Rights Reserved. Vesta Web Interface"); ***REMOVED*** ***REMOVED*** require 'includes/versioncheck.php'; ***REMOVED*** ***REMOVED*** echo _("by CDG Web Services"); ***REMOVED***.</footer>
+            <footer class="footer text-center">&copy; <?php echo _("Copyright"); ?> <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("All Rights Reserved. Vesta Web Interface"); ?> <?php require 'includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
         </div>
         </div>
     <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
@@ -427,41 +427,41 @@ textdomain('messages');
             if( e.name == 'Hide' ) {
                 e.name = 'Show'
                 document.getElementById('password').type="password";
-            ***REMOVED*** else {
+            } else {
                 e.name = 'Hide'
                 document.getElementById('password').type="text";
-            ***REMOVED***
-        ***REMOVED***
+            }
+        }
         function generatePassword(length) {
             var password = '', character; 
             while (length > password.length) {
                 if (password.indexOf(character = String.fromCharCode(Math.floor(Math.random() * 94) + 33), Math.floor(password.length / 94) * 94) < 0) {
                     password += character;
-                ***REMOVED***
-            ***REMOVED***
+                }
+            }
             document.getElementById('password').value = password;
             document.getElementById('tg').name='Hide';
             document.getElementById('password').type="text";
-        ***REMOVED***
+        }
         $(document).ready(function() {
             $('.select2').select2();
-        ***REMOVED***);
+        });
 
-        document.getElementById('select2').value = '***REMOVED*** print_r($admindata['LANGUAGE']); ***REMOVED***';  
+        document.getElementById('select2').value = '<?php print_r($admindata['LANGUAGE']); ?>';  
 
 
-        ***REMOVED*** 
+        <?php 
         $checkcount = 2;
         $check1count = 3;
 
         while($checkcount <= 7) {
             echo "if( document.getElementById('ns" . $check1count . "x').value != '') {
             document.getElementById('ns" . $checkcount . "wrapper').style.display = 'none';
-***REMOVED***";
+}";
 
             $checkcount++;
             $check1count++;
-        ***REMOVED***
+        }
 
         $addcount = 1;
         $add1count = 2; 
@@ -473,12 +473,12 @@ textdomain('messages');
 if( document.getElementById('ns" . $add2count . "').style.display = 'none' ) {
             document.getElementById('ns" . $add2count . "').style.display = 'block'; 
             document.getElementById('ns" . $add1count . "wrapper').style.display = 'none';
-        ***REMOVED*** 
-***REMOVED***";
+        } 
+}";
             $addcount++;
             $add1count++;
             $add2count++;
-        ***REMOVED*** 
+        } 
 
         $remcount = 2;
         $rem1count = 3; 
@@ -490,14 +490,14 @@ if( document.getElementById('ns" . $rem1count . "').style.display = 'block' ) {
             document.getElementById('ns" . $rem1count . "').style.display = 'none'; 
             document.getElementById('ns" . $remcount . "wrapper').style.display = 'block';
             document.getElementById('ns" . $rem1count . "x').value = '';
-        ***REMOVED*** 
-***REMOVED***";
+        } 
+}";
             $remcount++;
             $rem1count++;
-        ***REMOVED*** 
-        ***REMOVED***
+        } 
+        ?>
     </script>
-    ***REMOVED*** if(INTERAKT_APP_ID != ''){ echo '
+    <?php if(INTERAKT_APP_ID != ''){ echo '
 <script>
   (function() {
   var interakt = document.createElement("script");
@@ -505,8 +505,8 @@ if( document.getElementById('ns" . $rem1count . "').style.display = 'block' ) {
   interakt.src = "//cdn.interakt.co/interakt/' . INTERAKT_APP_ID . '.js";
   var scrpt = document.getElementsByTagName("script")[0];
   scrpt.parentNode.insertBefore(interakt, scrpt);
-  ***REMOVED***)()
-</script>'; ***REMOVED*** ***REMOVED***
+  })()
+</script>'; } ?>
 
     </body>
 

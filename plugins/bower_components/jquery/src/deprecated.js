@@ -6,8 +6,8 @@ define([
 // The number of elements contained in the matched element set
 jQuery.fn.size = function() {
 	return this.length;
-***REMOVED***;
+};
 
 jQuery.fn.andSelf = jQuery.fn.addBack;
 
-***REMOVED***);
+});

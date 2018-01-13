@@ -1,10 +1,10 @@
-***REMOVED***
+<?php
 
 session_start();
 
-    if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); ***REMOVED***  else { header( 'Location: ../install' );***REMOVED***;
-    if(base64_decode($_SESSION['loggedin']) == 'true') {***REMOVED***
-    else { header('Location: ../login.php'); ***REMOVED***
+    if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); }  else { header( 'Location: ../install' );};
+    if(base64_decode($_SESSION['loggedin']) == 'true') {}
+    else { header('Location: ../login.php'); }
 
     $v_1 = $_POST['v_domain'];
     $v_2 = $_POST['v_ip'];
@@ -17,10 +17,10 @@ session_start();
     $v_9 = $_POST['v_ns7'];
     $v_10 = $_POST['v_ns8'];
 
-    if ((!isset($_POST['v_domain'])) || ($_POST['v_domain'] == '')) { header('Location: ../list/dns.php?returncode=1');***REMOVED***
-    elseif ((!isset($_POST['v_ip'])) || ($_POST['v_ip'] == '')) { header('Location: ../list/dns.php?returncode=1');***REMOVED***
-    elseif ((!isset($_POST['v_ns1'])) || ($_POST['v_ns1'] == '')) { header('Location: ../list/dns.php?returncode=1');***REMOVED***
-    elseif ((!isset($_POST['v_ns2'])) || ($_POST['v_ns2'] == '')) { header('Location: ../list/dns.php?returncode=1');***REMOVED***
+    if ((!isset($_POST['v_domain'])) || ($_POST['v_domain'] == '')) { header('Location: ../list/dns.php?returncode=1');}
+    elseif ((!isset($_POST['v_ip'])) || ($_POST['v_ip'] == '')) { header('Location: ../list/dns.php?returncode=1');}
+    elseif ((!isset($_POST['v_ns1'])) || ($_POST['v_ns1'] == '')) { header('Location: ../list/dns.php?returncode=1');}
+    elseif ((!isset($_POST['v_ns2'])) || ($_POST['v_ns2'] == '')) { header('Location: ../list/dns.php?returncode=1');}
 
     $postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-dns-domain','arg1' => $username,'arg2' => $v_1, 'arg3' => $v_2, 'arg4' => $v_3, 'arg5' => $v_4, 'arg6' => $v_5, 'arg7' => $v_6, 'arg8' => $v_7, 'arg9' => $v_8, 'arg10' => $v_9, 'arg11' => $v_10);
 
@@ -35,4 +35,4 @@ session_start();
 
     header('Location: ../list/dns.php?returncode=' . $r1);
 
-***REMOVED***
+?>

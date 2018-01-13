@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 /**
  * VestaCP Danish translation
  * Made by Michal Skogemann for MShost (http://mshost.dk)

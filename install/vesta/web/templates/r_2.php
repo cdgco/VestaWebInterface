@@ -35,13 +35,13 @@
       <form class="form-horizontal form-material" autocomplete="off" id="loginform" action="/reset/reset.php">
 <div class="alert alert-info alert-dismissable">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> Please check your email and enter the verification code below.</div>
-<div style="height:20px">***REMOVED*** if (isset($ERROR)) echo $ERROR ***REMOVED***</div>
+<div style="height:20px"><?php if (isset($ERROR)) echo $ERROR ?></div>
 
         <h3 class="box-title m-b-20">Recover Password</h3>
         <div class="form-group ">
           <div class="col-xs-12">
             <input type="hidden" name="action" value="confirm">
-            <input type="hidden" name="user" value="***REMOVED*** print_r($_GET['user']); ***REMOVED***">
+            <input type="hidden" name="user" value="<?php print_r($_GET['user']); ?>">
             <input class="form-control" type="text" name="code" required="" placeholder="Reset Code">
           </div>
         </div>

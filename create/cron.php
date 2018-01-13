@@ -1,10 +1,10 @@
-***REMOVED***
+<?php
 
 session_start();
 
-    if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); ***REMOVED***  else { header( 'Location: ../install' );***REMOVED***;
-    if(base64_decode($_SESSION['loggedin']) == 'true') {***REMOVED***
-    else { header('Location: ../login.php'); ***REMOVED***
+    if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); }  else { header( 'Location: ../install' );};
+    if(base64_decode($_SESSION['loggedin']) == 'true') {}
+    else { header('Location: ../login.php'); }
 
     $v_min = $_POST['v_min'];
     $v_hour = $_POST['v_hour'];
@@ -13,12 +13,12 @@ session_start();
     $v_wday = $_POST['v_wday'];
     $v_cmd = $_POST['v_cmd'];
 
-    if ((!isset($_POST['v_min'])) || ($_POST['v_min'] == '')) { header('Location: ../list/cron.php?returncode=1');***REMOVED***
-    elseif ((!isset($_POST['v_hour'])) || ($_POST['v_hour'] == '')) { header('Location: ../list/cron.php?returncode=1');***REMOVED***
-    elseif ((!isset($_POST['v_day'])) || ($_POST['v_day'] == '')) { header('Location: ../list/cron.php?returncode=1');***REMOVED***
-    elseif ((!isset($_POST['v_month'])) || ($_POST['v_month'] == '')) { header('Location: ../list/cron.php?returncode=1');***REMOVED***
-    elseif ((!isset($_POST['v_wday'])) || ($_POST['v_wday'] == '')) { header('Location: ../list/cron.php?returncode=1');***REMOVED***
-    elseif ((!isset($_POST['v_cmd'])) || ($_POST['v_cmd'] == '')) { header('Location: ../list/cron.php?returncode=1');***REMOVED***
+    if ((!isset($_POST['v_min'])) || ($_POST['v_min'] == '')) { header('Location: ../list/cron.php?returncode=1');}
+    elseif ((!isset($_POST['v_hour'])) || ($_POST['v_hour'] == '')) { header('Location: ../list/cron.php?returncode=1');}
+    elseif ((!isset($_POST['v_day'])) || ($_POST['v_day'] == '')) { header('Location: ../list/cron.php?returncode=1');}
+    elseif ((!isset($_POST['v_month'])) || ($_POST['v_month'] == '')) { header('Location: ../list/cron.php?returncode=1');}
+    elseif ((!isset($_POST['v_wday'])) || ($_POST['v_wday'] == '')) { header('Location: ../list/cron.php?returncode=1');}
+    elseif ((!isset($_POST['v_cmd'])) || ($_POST['v_cmd'] == '')) { header('Location: ../list/cron.php?returncode=1');}
 
     $postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-cron-job','arg1' => $username,'arg2' => $v_min, 'arg3' => $v_hour, 'arg4' => $v_day, 'arg5' => $v_month, 'arg6' => $v_wday, 'arg7' => $v_cmd);
 
@@ -33,4 +33,4 @@ session_start();
 
     header('Location: ../list/cron.php?returncode=' . $r1);
 
-***REMOVED***
+?>

@@ -31,18 +31,18 @@
   &:active,
   &.active {
     .box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
-  ***REMOVED***
+  }
 
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
     .box-shadow(none);
-  ***REMOVED***
+  }
 
   .badge {
     text-shadow: none;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 // Mixin for generating new styles
 .btn-styles(@btn-color: #555) {
@@ -55,13 +55,13 @@
   &:focus  {
     background-color: darken(@btn-color, 12%);
     background-position: 0 -15px;
-  ***REMOVED***
+  }
 
   &:active,
   &.active {
     background-color: darken(@btn-color, 12%);
     border-color: darken(@btn-color, 14%);
-  ***REMOVED***
+  }
 
   &.disabled,
   &[disabled],
@@ -74,9 +74,9 @@
     &.active {
       background-color: darken(@btn-color, 12%);
       background-image: none;
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
+    }
+  }
+}
 
 // Common styles
 .btn {
@@ -84,16 +84,16 @@
   &:active,
   &.active {
     background-image: none;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 // Apply the mixin to the buttons
-.btn-default { .btn-styles(@btn-default-bg); text-shadow: 0 1px 0 #fff; border-color: #ccc; ***REMOVED***
-.btn-primary { .btn-styles(@btn-primary-bg); ***REMOVED***
-.btn-success { .btn-styles(@btn-success-bg); ***REMOVED***
-.btn-info    { .btn-styles(@btn-info-bg); ***REMOVED***
-.btn-warning { .btn-styles(@btn-warning-bg); ***REMOVED***
-.btn-danger  { .btn-styles(@btn-danger-bg); ***REMOVED***
+.btn-default { .btn-styles(@btn-default-bg); text-shadow: 0 1px 0 #fff; border-color: #ccc; }
+.btn-primary { .btn-styles(@btn-primary-bg); }
+.btn-success { .btn-styles(@btn-success-bg); }
+.btn-info    { .btn-styles(@btn-info-bg); }
+.btn-warning { .btn-styles(@btn-warning-bg); }
+.btn-danger  { .btn-styles(@btn-danger-bg); }
 
 
 //
@@ -103,7 +103,7 @@
 .thumbnail,
 .img-thumbnail {
   .box-shadow(0 1px 2px rgba(0,0,0,.075));
-***REMOVED***
+}
 
 
 //
@@ -114,13 +114,13 @@
 .dropdown-menu > li > a:focus {
   #gradient > .vertical(@start-color: @dropdown-link-hover-bg; @end-color: darken(@dropdown-link-hover-bg, 5%));
   background-color: darken(@dropdown-link-hover-bg, 5%);
-***REMOVED***
+}
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
 .dropdown-menu > .active > a:focus {
   #gradient > .vertical(@start-color: @dropdown-link-active-bg; @end-color: darken(@dropdown-link-active-bg, 5%));
   background-color: darken(@dropdown-link-active-bg, 5%);
-***REMOVED***
+}
 
 
 //
@@ -139,12 +139,12 @@
   .navbar-nav > .active > a {
     #gradient > .vertical(@start-color: darken(@navbar-default-link-active-bg, 5%); @end-color: darken(@navbar-default-link-active-bg, 2%));
     .box-shadow(inset 0 3px 9px rgba(0,0,0,.075));
-  ***REMOVED***
-***REMOVED***
+  }
+}
 .navbar-brand,
 .navbar-nav > li > a {
   text-shadow: 0 1px 0 rgba(255,255,255,.25);
-***REMOVED***
+}
 
 // Inverted navbar
 .navbar-inverse {
@@ -155,20 +155,20 @@
   .navbar-nav > .active > a {
     #gradient > .vertical(@start-color: @navbar-inverse-link-active-bg; @end-color: lighten(@navbar-inverse-link-active-bg, 2.5%));
     .box-shadow(inset 0 3px 9px rgba(0,0,0,.25));
-  ***REMOVED***
+  }
 
   .navbar-brand,
   .navbar-nav > li > a {
     text-shadow: 0 -1px 0 rgba(0,0,0,.25);
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 // Undo rounded corners in static and fixed navbars
 .navbar-static-top,
 .navbar-fixed-top,
 .navbar-fixed-bottom {
   border-radius: 0;
-***REMOVED***
+}
 
 // Fix active state of dropdown items in collapsed mode
 @media (max-width: @grid-float-breakpoint-max) {
@@ -178,9 +178,9 @@
     &:focus {
       color: #fff;
       #gradient > .vertical(@start-color: @dropdown-link-active-bg; @end-color: darken(@dropdown-link-active-bg, 5%));
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
+    }
+  }
+}
 
 
 //
@@ -192,19 +192,19 @@
   text-shadow: 0 1px 0 rgba(255,255,255,.2);
   @shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 1px 2px rgba(0,0,0,.05);
   .box-shadow(@shadow);
-***REMOVED***
+}
 
 // Mixin for generating new styles
 .alert-styles(@color) {
   #gradient > .vertical(@start-color: @color; @end-color: darken(@color, 7.5%));
   border-color: darken(@color, 15%);
-***REMOVED***
+}
 
 // Apply the mixin to the alerts
-.alert-success    { .alert-styles(@alert-success-bg); ***REMOVED***
-.alert-info       { .alert-styles(@alert-info-bg); ***REMOVED***
-.alert-warning    { .alert-styles(@alert-warning-bg); ***REMOVED***
-.alert-danger     { .alert-styles(@alert-danger-bg); ***REMOVED***
+.alert-success    { .alert-styles(@alert-success-bg); }
+.alert-info       { .alert-styles(@alert-info-bg); }
+.alert-warning    { .alert-styles(@alert-warning-bg); }
+.alert-danger     { .alert-styles(@alert-danger-bg); }
 
 
 //
@@ -214,25 +214,25 @@
 // Give the progress background some depth
 .progress {
   #gradient > .vertical(@start-color: darken(@progress-bg, 4%); @end-color: @progress-bg)
-***REMOVED***
+}
 
 // Mixin for generating new styles
 .progress-bar-styles(@color) {
   #gradient > .vertical(@start-color: @color; @end-color: darken(@color, 10%));
-***REMOVED***
+}
 
 // Apply the mixin to the progress bars
-.progress-bar            { .progress-bar-styles(@progress-bar-bg); ***REMOVED***
-.progress-bar-success    { .progress-bar-styles(@progress-bar-success-bg); ***REMOVED***
-.progress-bar-info       { .progress-bar-styles(@progress-bar-info-bg); ***REMOVED***
-.progress-bar-warning    { .progress-bar-styles(@progress-bar-warning-bg); ***REMOVED***
-.progress-bar-danger     { .progress-bar-styles(@progress-bar-danger-bg); ***REMOVED***
+.progress-bar            { .progress-bar-styles(@progress-bar-bg); }
+.progress-bar-success    { .progress-bar-styles(@progress-bar-success-bg); }
+.progress-bar-info       { .progress-bar-styles(@progress-bar-info-bg); }
+.progress-bar-warning    { .progress-bar-styles(@progress-bar-warning-bg); }
+.progress-bar-danger     { .progress-bar-styles(@progress-bar-danger-bg); }
 
 // Reset the striped class because our mixins don't do multiple gradients and
 // the above custom styles override the new `.progress-bar-striped` in v3.2.0.
 .progress-bar-striped {
   #gradient > .striped();
-***REMOVED***
+}
 
 
 //
@@ -242,7 +242,7 @@
 .list-group {
   border-radius: @border-radius-base;
   .box-shadow(0 1px 2px rgba(0,0,0,.075));
-***REMOVED***
+}
 .list-group-item.active,
 .list-group-item.active:hover,
 .list-group-item.active:focus {
@@ -252,8 +252,8 @@
 
   .badge {
     text-shadow: none;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 
 //
@@ -263,20 +263,20 @@
 // Common styles
 .panel {
   .box-shadow(0 1px 2px rgba(0,0,0,.05));
-***REMOVED***
+}
 
 // Mixin for generating new styles
 .panel-heading-styles(@color) {
   #gradient > .vertical(@start-color: @color; @end-color: darken(@color, 5%));
-***REMOVED***
+}
 
 // Apply the mixin to the panel headings only
-.panel-default > .panel-heading   { .panel-heading-styles(@panel-default-heading-bg); ***REMOVED***
-.panel-primary > .panel-heading   { .panel-heading-styles(@panel-primary-heading-bg); ***REMOVED***
-.panel-success > .panel-heading   { .panel-heading-styles(@panel-success-heading-bg); ***REMOVED***
-.panel-info > .panel-heading      { .panel-heading-styles(@panel-info-heading-bg); ***REMOVED***
-.panel-warning > .panel-heading   { .panel-heading-styles(@panel-warning-heading-bg); ***REMOVED***
-.panel-danger > .panel-heading    { .panel-heading-styles(@panel-danger-heading-bg); ***REMOVED***
+.panel-default > .panel-heading   { .panel-heading-styles(@panel-default-heading-bg); }
+.panel-primary > .panel-heading   { .panel-heading-styles(@panel-primary-heading-bg); }
+.panel-success > .panel-heading   { .panel-heading-styles(@panel-success-heading-bg); }
+.panel-info > .panel-heading      { .panel-heading-styles(@panel-info-heading-bg); }
+.panel-warning > .panel-heading   { .panel-heading-styles(@panel-warning-heading-bg); }
+.panel-danger > .panel-heading    { .panel-heading-styles(@panel-danger-heading-bg); }
 
 
 //
@@ -288,4 +288,4 @@
   border-color: darken(@well-bg, 10%);
   @shadow: inset 0 1px 3px rgba(0,0,0,.05), 0 1px 0 rgba(255,255,255,.1);
   .box-shadow(@shadow);
-***REMOVED***
+}

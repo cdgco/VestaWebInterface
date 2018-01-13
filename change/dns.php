@@ -1,10 +1,10 @@
-***REMOVED***
+<?php
 
 session_start();
 
-    if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); ***REMOVED***  else { header( 'Location: ../install' );***REMOVED***;
-    if(base64_decode($_SESSION['loggedin']) == 'true') {***REMOVED***
-    else { header('Location: ../login.php'); ***REMOVED***
+    if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); }  else { header( 'Location: ../install' );};
+    if(base64_decode($_SESSION['loggedin']) == 'true') {}
+    else { header('Location: ../login.php'); }
 
     $v_1 = $_POST['v_domain'];
     $v_2 = $_POST['v_ip'];
@@ -14,12 +14,12 @@ session_start();
     $v_5 = $_POST['v_soa'];
     $v_6 = $_POST['v_ttl'];
 
-    if ((!isset($_POST['v_domain'])) || ($_POST['v_domain'] == '')) { header('Location: ../list/dns.php?returncode=1');***REMOVED***
-    elseif ((!isset($_POST['v_ip'])) || ($_POST['v_ip'] == '')) { header('Location: ../edit/dns.php?returncode=1&domain=' . $v_1);***REMOVED***
-    elseif ((!isset($_POST['v_tpl'])) || ($_POST['v_tpl'] == '')) { header('Location: ../edit/dns.php?returncode=1&domain=' . $v_1);***REMOVED***
-    elseif ((!isset($_POST['v_exp'])) || ($_POST['v_exp'] == '')) { header('Location: ../edit/dns.php?returncode=1&domain=' . $v_1);***REMOVED***
-    elseif ((!isset($_POST['v_soa'])) || ($_POST['v_soa'] == '')) { header('Location: ../edit/dns.php?returncode=1&domain=' . $v_1);***REMOVED***
-    elseif ((!isset($_POST['v_ttl'])) || ($_POST['v_ttl'] == '')) { header('Location: ../edit/dns.php?returncode=1&domain=' . $v_1);***REMOVED***
+    if ((!isset($_POST['v_domain'])) || ($_POST['v_domain'] == '')) { header('Location: ../list/dns.php?returncode=1');}
+    elseif ((!isset($_POST['v_ip'])) || ($_POST['v_ip'] == '')) { header('Location: ../edit/dns.php?returncode=1&domain=' . $v_1);}
+    elseif ((!isset($_POST['v_tpl'])) || ($_POST['v_tpl'] == '')) { header('Location: ../edit/dns.php?returncode=1&domain=' . $v_1);}
+    elseif ((!isset($_POST['v_exp'])) || ($_POST['v_exp'] == '')) { header('Location: ../edit/dns.php?returncode=1&domain=' . $v_1);}
+    elseif ((!isset($_POST['v_soa'])) || ($_POST['v_soa'] == '')) { header('Location: ../edit/dns.php?returncode=1&domain=' . $v_1);}
+    elseif ((!isset($_POST['v_ttl'])) || ($_POST['v_ttl'] == '')) { header('Location: ../edit/dns.php?returncode=1&domain=' . $v_1);}
 
     $postvars = array(
         array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-dns-domain-ip','arg1' => $username,'arg2' => $v_1, 'arg3' => $v_2),
@@ -36,14 +36,14 @@ session_start();
     $curlstart = 0; 
 
     while($curlstart <= 4) {
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_URL, $vst_url);
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_RETURNTRANSFER,true);
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_POST, true);
-        curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_POSTFIELDS, http_build_query($postvars[$curlstart]));
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_URL, $vst_url);
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_RETURNTRANSFER,true);
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_POST, true);
+        curl_setopt(${'curl' . $curlstart}, CURLOPT_POSTFIELDS, http_build_query($postvars[$curlstart]));
         $curlstart++;
-    ***REMOVED*** 
+    } 
     $r1 = curl_exec($curl0);
     $r2 = curl_exec($curl1);
     $r3 = curl_exec($curl2);
@@ -53,4 +53,4 @@ session_start();
 
     header('Location: ../edit/dns.php?domain=' . $v_1 . '&returncode=' . $r1 . $r2 . $r3 . $r4 . $r5);
 
-***REMOVED***
+?>

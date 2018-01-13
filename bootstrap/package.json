@@ -14,20 +14,20 @@
   "homepage": "http://getbootstrap.com",
   "author": {
     "name": "Twitter, Inc."
-  ***REMOVED***,
+  },
   "scripts": {
     "test": "grunt test"
-  ***REMOVED***,
+  },
   "style": "dist/css/bootstrap.css",
   "less": "less/bootstrap.less",
   "main": "./dist/js/npm",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/twbs/bootstrap.git"
-  ***REMOVED***,
+  },
   "bugs": {
     "url": "https://github.com/twbs/bootstrap/issues"
-  ***REMOVED***,
+  },
   "license": "MIT",
   "devDependencies": {
     "btoa": "~1.1.2",
@@ -59,10 +59,10 @@
     "markdown-it": "^5.0.0",
     "npm-shrinkwrap": "^200.4.0",
     "time-grunt": "^1.2.1"
-  ***REMOVED***,
+  },
   "engines": {
     "node": ">=0.10.1"
-  ***REMOVED***,
+  },
   "files": [
     "dist",
     "fonts",
@@ -78,14 +78,14 @@
       "js/bootstrap": {
         "deps": "jquery",
         "exports": "$"
-      ***REMOVED***
-    ***REMOVED***,
+      }
+    },
     "files": [
       "css",
       "fonts",
       "js"
     ]
-  ***REMOVED***,
+  },
   "gitHead": "81df608a40bf0629a1dc08e584849bb1e43e0b7a",
   "_id": "bootstrap@3.3.6",
   "_shasum": "8de8f749dc8a743f2ac5b510d988371e3daa6589",
@@ -95,18 +95,18 @@
   "_npmUser": {
     "name": "twbs",
     "email": "getbootstrap@gmail.com"
-  ***REMOVED***,
+  },
   "dist": {
     "shasum": "8de8f749dc8a743f2ac5b510d988371e3daa6589",
     "tarball": "https://registry.npmjs.org/bootstrap/-/bootstrap-3.3.6.tgz"
-  ***REMOVED***,
+  },
   "maintainers": [
     {
       "name": "twbs",
       "email": "bigj95t+bsnpm@gmail.com"
-    ***REMOVED***
+    }
   ],
-  "directories": {***REMOVED***,
+  "directories": {},
   "_resolved": "https://registry.npmjs.org/bootstrap/-/bootstrap-3.3.6.tgz",
   "readme": "ERROR: No README data found!"
-***REMOVED***
+}

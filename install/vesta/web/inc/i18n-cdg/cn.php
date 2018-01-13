@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 /**
  * Vesta language file
  * 浩浩 (github#myrevery.com) Feedback: https://myrevery.com/tag/vestacp

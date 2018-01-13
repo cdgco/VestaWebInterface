@@ -6,7 +6,7 @@
 // Wrapper for the slide container and indicators
 .carousel {
   position: relative;
-***REMOVED***
+}
 
 .carousel-inner {
   position: relative;
@@ -23,7 +23,7 @@
     > a > img {
       &:extend(.img-responsive);
       line-height: 1;
-    ***REMOVED***
+    }
 
     // WebKit CSS3 transforms for supported devices
     @media all and (transform-3d), (-webkit-transform-3d) {
@@ -35,57 +35,57 @@
       &.active.right {
         .translate3d(100%, 0, 0);
         left: 0;
-      ***REMOVED***
+      }
       &.prev,
       &.active.left {
         .translate3d(-100%, 0, 0);
         left: 0;
-      ***REMOVED***
+      }
       &.next.left,
       &.prev.right,
       &.active {
         .translate3d(0, 0, 0);
         left: 0;
-      ***REMOVED***
-    ***REMOVED***
-  ***REMOVED***
+      }
+    }
+  }
 
   > .active,
   > .next,
   > .prev {
     display: block;
-  ***REMOVED***
+  }
 
   > .active {
     left: 0;
-  ***REMOVED***
+  }
 
   > .next,
   > .prev {
     position: absolute;
     top: 0;
     width: 100%;
-  ***REMOVED***
+  }
 
   > .next {
     left: 100%;
-  ***REMOVED***
+  }
   > .prev {
     left: -100%;
-  ***REMOVED***
+  }
   > .next.left,
   > .prev.right {
     left: 0;
-  ***REMOVED***
+  }
 
   > .active.left {
     left: -100%;
-  ***REMOVED***
+  }
   > .active.right {
     left: 100%;
-  ***REMOVED***
+  }
 
-***REMOVED***
+}
 
 // Left/right controls for nav
 // ---------------------------
@@ -108,12 +108,12 @@
   // Set gradients for backgrounds
   &.left {
     #gradient > .horizontal(@start-color: rgba(0,0,0,.5); @end-color: rgba(0,0,0,.0001));
-  ***REMOVED***
+  }
   &.right {
     left: auto;
     right: 0;
     #gradient > .horizontal(@start-color: rgba(0,0,0,.0001); @end-color: rgba(0,0,0,.5));
-  ***REMOVED***
+  }
 
   // Hover/focus state
   &:hover,
@@ -122,7 +122,7 @@
     color: @carousel-control-color;
     text-decoration: none;
     .opacity(.9);
-  ***REMOVED***
+  }
 
   // Toggles
   .icon-prev,
@@ -134,37 +134,37 @@
     margin-top: -10px;
     z-index: 5;
     display: inline-block;
-  ***REMOVED***
+  }
   .icon-prev,
   .glyphicon-chevron-left {
     left: 50%;
     margin-left: -10px;
-  ***REMOVED***
+  }
   .icon-next,
   .glyphicon-chevron-right {
     right: 50%;
     margin-right: -10px;
-  ***REMOVED***
+  }
   .icon-prev,
   .icon-next {
     width:  20px;
     height: 20px;
     line-height: 1;
     font-family: serif;
-  ***REMOVED***
+  }
 
 
   .icon-prev {
     &:before {
       content: '\2039';// SINGLE LEFT-POINTING ANGLE QUOTATION MARK (U+2039)
-    ***REMOVED***
-  ***REMOVED***
+    }
+  }
   .icon-next {
     &:before {
       content: '\203a';// SINGLE RIGHT-POINTING ANGLE QUOTATION MARK (U+203A)
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
+    }
+  }
+}
 
 // Optional indicator pips
 //
@@ -203,14 +203,14 @@
     // set alpha transparency for the best results possible.
     background-color: #000 \9; // IE8
     background-color: rgba(0,0,0,0); // IE9
-  ***REMOVED***
+  }
   .active {
     margin: 0;
     width:  12px;
     height: 12px;
     background-color: @carousel-indicator-active-bg;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 // Optional captions
 // -----------------------------
@@ -228,8 +228,8 @@
   text-shadow: @carousel-text-shadow;
   & .btn {
     text-shadow: none; // No shadow for button elements in carousel-caption
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 
 // Scale up controls for tablets and up
@@ -245,26 +245,26 @@
       height: (@carousel-control-font-size * 1.5);
       margin-top: (@carousel-control-font-size / -2);
       font-size: (@carousel-control-font-size * 1.5);
-    ***REMOVED***
+    }
     .glyphicon-chevron-left,
     .icon-prev {
       margin-left: (@carousel-control-font-size / -2);
-    ***REMOVED***
+    }
     .glyphicon-chevron-right,
     .icon-next {
       margin-right: (@carousel-control-font-size / -2);
-    ***REMOVED***
-  ***REMOVED***
+    }
+  }
 
   // Show and left align the captions
   .carousel-caption {
     left: 20%;
     right: 20%;
     padding-bottom: 30px;
-  ***REMOVED***
+  }
 
   // Move up the indicators
   .carousel-indicators {
     bottom: 20px;
-  ***REMOVED***
-***REMOVED***
+  }
+}

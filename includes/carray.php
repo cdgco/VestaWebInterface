@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 
 
 $countries = array
@@ -34,4 +34,4 @@ $countries = array
 'vi' => 'Vietnamese (Tiếng Việt / 㗂越)'
 );
 
-***REMOVED***
+?>

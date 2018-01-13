@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 
 session_destroy();
 
@@ -47,25 +47,25 @@ if (isset($_POST['user']) && isset($_POST['password'])) {
             $languages = json_decode(implode('', $output), true);
             if(in_array($data[$v_user]['LANGUAGE'], $languages)){
                 $_SESSION['language'] = $data[$v_user]['LANGUAGE'];
-            ***REMOVED***
+            }
             else {
                 $_SESSION['language'] = 'en';
-            ***REMOVED***
+            }
             // Regenerate session id to prevent session fixation
             session_regenerate_id();
 
             // Continue Download
             header("Location /download/backup/index.php?backup=" . $_GET['backup']);
 
-        ***REMOVED***
-    ***REMOVED***
+        }
+    }
 // Check system configuration
 exec (VESTA_CMD . "v-list-sys-config json", $output, $return_var);
 $data = json_decode(implode('', $output), true);
 $sys_arr = $data['config'];
 foreach ($sys_arr as $key => $value) {
     $_SESSION[$key] = $value;
-***REMOVED***
+}
 
 // Detect language
 if (empty($_SESSION['language'])) {
@@ -79,12 +79,12 @@ if (empty($_SESSION['language'])) {
     $languages = json_decode(implode('', $output), true);
     if(in_array($lang, $languages)){
         $_SESSION['language'] = $lang;
-    ***REMOVED***
+    }
     else {
         $_SESSION['language'] = 'en';
-    ***REMOVED***
-***REMOVED***
-***REMOVED***
+    }
+}
+?>
 <html>
 <head>
 <style>
@@ -92,14 +92,14 @@ html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: "Lato, sans-serif";
-***REMOVED***
+}
 
 *,
 *:before,
 *:after {
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
-***REMOVED***
+}
 
 html {
   width: 100%;
@@ -107,13 +107,13 @@ html {
   font-size: 62.5%;
   font-family: 'Lato', sans-serif;
   color: #4d4d4d;
-***REMOVED***
+}
 
 body {
   width: 100%;
   height: 100%;
   font-size: 1.6em;
-***REMOVED***
+}
 
 .wrapper {
   font-size: 1.6rem;
@@ -131,7 +131,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-***REMOVED***
+}
 
 .visuallyhidden {
   border: 0;
@@ -142,28 +142,28 @@ body {
   padding: 0;
   position: absolute;
   width: 1px;
-***REMOVED***
+}
 
 .clearfix:before,
 .clearfix:after {
   content: ' ';
   display: table;
-***REMOVED***
+}
 
 .clearfix:after {
   clear: both;
-***REMOVED***
+}
 
 .clearfix {
   zoom: 1;
-***REMOVED***
+}
 
 html, body {
   width: 100%;
   background: #dad8d2;
     overflow-x: hidden; 
     overflow-y: hidden;
-***REMOVED***
+}
 
 
 .hourglass {
@@ -176,15 +176,15 @@ html, body {
           box-shadow: inset #dad8d2 0 0 0 0, inset #00b7c6 0 2em 0 0, inset #dad8d2 0 0 4em 0;
   -webkit-animation: hourglass 1s linear infinite;
           animation: hourglass 1s linear infinite;
-***REMOVED***
+}
 
 .outer {
   fill: #00b7c6;
-***REMOVED***
+}
 
 .middle {
   fill: #dad8d2;
-***REMOVED***
+}
 
 @-webkit-keyframes hourglass {
   0% {
@@ -192,20 +192,20 @@ html, body {
             transform: rotate(0deg);
     -webkit-box-shadow: inset #dad8d2 0 0 0 0, inset #00b7c6 0 2em 0 0, inset #dad8d2 0 4em 0 0, inset #00b7c6 0 4em 0 0;
             box-shadow: inset #dad8d2 0 0 0 0, inset #00b7c6 0 2em 0 0, inset #dad8d2 0 4em 0 0, inset #00b7c6 0 4em 0 0;
-  ***REMOVED***
+  }
   80% {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
     -webkit-box-shadow: inset #dad8d2 0 2em 0 0, inset #00b7c6 0 2em 0 0, inset #dad8d2 0 2em 0 0, inset #00b7c6 0 4em 0 0;
             box-shadow: inset #dad8d2 0 2em 0 0, inset #00b7c6 0 2em 0 0, inset #dad8d2 0 2em 0 0, inset #00b7c6 0 4em 0 0;
-  ***REMOVED***
+  }
   100% {
     -webkit-transform: rotate(180deg);
             transform: rotate(180deg);
     -webkit-box-shadow: inset #dad8d2 0 2em 0 0, inset #00b7c6 0 2em 0 0, inset #dad8d2 0 2em 0 0, inset #00b7c6 0 4em 0 0;
             box-shadow: inset #dad8d2 0 2em 0 0, inset #00b7c6 0 2em 0 0, inset #dad8d2 0 2em 0 0, inset #00b7c6 0 4em 0 0;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 @keyframes hourglass {
   0% {
@@ -213,20 +213,20 @@ html, body {
             transform: rotate(0deg);
     -webkit-box-shadow: inset #dad8d2 0 0 0 0, inset #00b7c6 0 2em 0 0, inset #dad8d2 0 4em 0 0, inset #00b7c6 0 4em 0 0;
             box-shadow: inset #dad8d2 0 0 0 0, inset #00b7c6 0 2em 0 0, inset #dad8d2 0 4em 0 0, inset #00b7c6 0 4em 0 0;
-  ***REMOVED***
+  }
   80% {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
     -webkit-box-shadow: inset #dad8d2 0 2em 0 0, inset #00b7c6 0 2em 0 0, inset #dad8d2 0 2em 0 0, inset #00b7c6 0 4em 0 0;
             box-shadow: inset #dad8d2 0 2em 0 0, inset #00b7c6 0 2em 0 0, inset #dad8d2 0 2em 0 0, inset #00b7c6 0 4em 0 0;
-  ***REMOVED***
+  }
   100% {
     -webkit-transform: rotate(180deg);
             transform: rotate(180deg);
     -webkit-box-shadow: inset #dad8d2 0 2em 0 0, inset #00b7c6 0 2em 0 0, inset #dad8d2 0 2em 0 0, inset #00b7c6 0 4em 0 0;
             box-shadow: inset #dad8d2 0 2em 0 0, inset #00b7c6 0 2em 0 0, inset #dad8d2 0 2em 0 0, inset #00b7c6 0 4em 0 0;
-  ***REMOVED***
-***REMOVED***
+  }
+}
  
 </style>
 <title>Downloading</title>
@@ -240,6 +240,6 @@ html, body {
     </svg>
 <center style="position: relative;top: -15%;"><h3>Downloading</h3></center>
 </div>
-<meta http-equiv="refresh" content="0;url=***REMOVED*** echo "/download/backup/index.php?backup=" . $_GET['backup']; ***REMOVED***" />
+<meta http-equiv="refresh" content="0;url=<?php echo "/download/backup/index.php?backup=" . $_GET['backup']; ?>" />
 </body>
 </html>

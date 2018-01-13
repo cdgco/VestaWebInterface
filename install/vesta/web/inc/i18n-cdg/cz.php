@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 /**
  * Vesta language file
  * Sergey Sorokoletov <sergey.sorokoletov@gmail.com>

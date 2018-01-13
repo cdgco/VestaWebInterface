@@ -1,15 +1,15 @@
 .arrow {
     float: right;
     line-height: 1.42857;
-***REMOVED***
+}
 
 .glyphicon.arrow:before {
     content: "\e079";
-***REMOVED***
+}
 
 .active > a > .glyphicon.arrow:before {
     content: "\e114";
-***REMOVED***
+}
 
 
 /*
@@ -20,19 +20,19 @@
 
 .fa.arrow:before {
     content: "\f104";
-***REMOVED***
+}
 
 .active > a > .fa.arrow:before {
     content: "\f107";
-***REMOVED***
+}
 
 .plus-times {
     float: right;
-***REMOVED***
+}
 
 .fa.plus-times:before {
     content: "\f067";
-***REMOVED***
+}
 
 .active > a > .fa.plus-times {
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
@@ -41,16 +41,16 @@
     -ms-transform: rotate(45deg);
     -o-transform: rotate(45deg);
     transform: rotate(45deg);
-***REMOVED***
+}
 
 .plus-minus {
     float: right;
-***REMOVED***
+}
 
 .fa.plus-minus:before {
     content: "\f067";
-***REMOVED***
+}
 
 .active > a > .fa.plus-minus:before {
     content: "\f068";
-***REMOVED***
+}

@@ -18,13 +18,13 @@ module.exports = function generateCommonJSModule(grunt, srcFiles, destFilepath) 
   function srcPathToDestRequire(srcFilepath) {
     var requirePath = path.relative(destDir, srcFilepath).replace(/\\/g, '/');
     return 'require(\'' + requirePath + '\')';
-  ***REMOVED***
+  }
 
   var moduleOutputJs = COMMONJS_BANNER + srcFiles.map(srcPathToDestRequire).join('\n');
   try {
     fs.writeFileSync(destFilepath, moduleOutputJs);
-  ***REMOVED*** catch (err) {
+  } catch (err) {
     grunt.fail.warn(err);
-  ***REMOVED***
+  }
   grunt.log.writeln('File ' + destFilepath.cyan + ' created.');
-***REMOVED***;
+};

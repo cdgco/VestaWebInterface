@@ -10,7 +10,7 @@
 // Kill the scroll on the body
 .modal-open {
   overflow: hidden;
-***REMOVED***
+}
 
 // Container that the modal scrolls within
 .modal {
@@ -32,20 +32,20 @@
   &.fade .modal-dialog {
     .translate(0, -25%);
     .transition-transform(~"0.3s ease-out");
-  ***REMOVED***
-  &.in .modal-dialog { .translate(0, 0) ***REMOVED***
-***REMOVED***
+  }
+  &.in .modal-dialog { .translate(0, 0) }
+}
 .modal-open .modal {
   overflow-x: hidden;
   overflow-y: auto;
-***REMOVED***
+}
 
 // Shell div to position the modal with bottom padding
 .modal-dialog {
   position: relative;
   width: auto;
   margin: 10px;
-***REMOVED***
+}
 
 // Actual modal
 .modal-content {
@@ -58,7 +58,7 @@
   background-clip: padding-box;
   // Remove focus outline from opened modal
   outline: 0;
-***REMOVED***
+}
 
 // Modal background
 .modal-backdrop {
@@ -70,9 +70,9 @@
   z-index: @zindex-modal-background;
   background-color: @modal-backdrop-bg;
   // Fade for backdrop
-  &.fade { .opacity(0); ***REMOVED***
-  &.in { .opacity(@modal-backdrop-opacity); ***REMOVED***
-***REMOVED***
+  &.fade { .opacity(0); }
+  &.in { .opacity(@modal-backdrop-opacity); }
+}
 
 // Modal header
 // Top section of the modal w/ title and dismiss
@@ -80,24 +80,24 @@
   padding: @modal-title-padding;
   border-bottom: 1px solid @modal-header-border-color;
   &:extend(.clearfix all);
-***REMOVED***
+}
 // Close icon
 .modal-header .close {
   margin-top: -2px;
-***REMOVED***
+}
 
 // Title text within header
 .modal-title {
   margin: 0;
   line-height: @modal-title-line-height;
-***REMOVED***
+}
 
 // Modal body
 // Where all modal content resides (sibling of .modal-header and .modal-footer)
 .modal-body {
   position: relative;
   padding: @modal-inner-padding;
-***REMOVED***
+}
 
 // Footer (for actions)
 .modal-footer {
@@ -110,16 +110,16 @@
   .btn + .btn {
     margin-left: 5px;
     margin-bottom: 0; // account for input[type="submit"] which gets the bottom margin like all other inputs
-  ***REMOVED***
+  }
   // but override that for button groups
   .btn-group .btn + .btn {
     margin-left: -1px;
-  ***REMOVED***
+  }
   // and override it for block buttons as well
   .btn-block + .btn-block {
     margin-left: 0;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 // Measure scrollbar width for padding body during modal show/hide
 .modal-scrollbar-measure {
@@ -128,7 +128,7 @@
   width: 50px;
   height: 50px;
   overflow: scroll;
-***REMOVED***
+}
 
 // Scale up the modal
 @media (min-width: @screen-sm-min) {
@@ -136,15 +136,15 @@
   .modal-dialog {
     width: @modal-md;
     margin: 30px auto;
-  ***REMOVED***
+  }
   .modal-content {
     .box-shadow(0 5px 15px rgba(0,0,0,.5));
-  ***REMOVED***
+  }
 
   // Modal sizes
-  .modal-sm { width: @modal-sm; ***REMOVED***
-***REMOVED***
+  .modal-sm { width: @modal-sm; }
+}
 
 @media (min-width: @screen-md-min) {
-  .modal-lg { width: @modal-lg; ***REMOVED***
-***REMOVED***
+  .modal-lg { width: @modal-lg; }
+}

@@ -1,4 +1,4 @@
-***REMOVED*** if (file_exists( '../includes/config.php' )) { header( 'Location: ../index.php' );***REMOVED***; ***REMOVED***
+<?php if (file_exists( '../includes/config.php' )) { header( 'Location: ../index.php' );}; ?>
 <!DOCTYPE html>
 <html >
 <head>

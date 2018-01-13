@@ -19,10 +19,10 @@
     "requirejs": "2.1.10",
     "qunit": "1.14.0",
     "sinon": "1.8.1"
-  ***REMOVED***,
+  },
   "keywords": [
     "jquery",
     "javascript",
     "library"
   ]
-***REMOVED***
+}

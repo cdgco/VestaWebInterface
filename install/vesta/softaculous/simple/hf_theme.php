@@ -1,6 +1,6 @@
-***REMOVED***
+<?php
 
-***REMOVED***////
+//////////////////////////////////////////////////////////////
 //===========================================================
 // hf_theme.php
 //===========================================================
@@ -18,13 +18,13 @@
 //===========================================================
 // (c)Softaculous Inc.
 //===========================================================
-***REMOVED***////
+//////////////////////////////////////////////////////////////
 
 if(!defined('SOFTACULOUS')){
 
 	die('Hacking Attempt');
 
-***REMOVED***
+}
 
 function js_url(){
 	
@@ -32,7 +32,7 @@ function js_url(){
 	
 	return $GLOBALS['globals']['ind'].http_build_query($js).'&'.$GLOBALS['globals']['version'];
 		
-***REMOVED***
+}
 
 function softheader($title = '', $leftbody = true){
 
@@ -40,7 +40,7 @@ global $theme, $user, $logged_in, $globals, $l, $dmenus, $onload, $newslinks, $f
 
 	if(optGET('jsnohf')){
 		return true;
-	***REMOVED***
+	}
 	
 	
 	/* <script language="javascript" src="'.js_url('js/jquery.js', 'js/universal.js', 'js/suggest.js', 'js/smoothscroll.js', 'js/slider.js', 'js/dock.js').'" type="text/javascript"> </script> */
@@ -51,7 +51,7 @@ global $theme, $user, $logged_in, $globals, $l, $dmenus, $onload, $newslinks, $f
 	// Is there a Panel Header ?
 	if(!empty($softpanel->pheader)){
 		echo $softpanel->pheader;
-	***REMOVED***
+	}
 	
 	$custom_favicon  = (!empty($globals['favicon_logo']) ? $globals['favicon_logo'] : $theme['images'].'/'.(asperapp('', 'webuzo/', 'ampps/')).'favicon.ico');
 	
@@ -98,22 +98,22 @@ global $theme, $user, $logged_in, $globals, $l, $dmenus, $onload, $newslinks, $f
 				var okbutton = \'<input class="alert-butt" type="button" onclick="message_box.close_message();" value="OK" />\';
 				if(image == "1"){
 					var img = \'<img src="'.$theme['images'].'error.gif" />\';
-				***REMOVED******REMOVED***
+				}else{
 					var img = \'<img src="'.$theme['images'].'confirm.gif" />\';			
-				***REMOVED***	
+				}	
 					
 				if(jQuery(\'.sai_message_box\').html() === null) {
 					var message = \'<div class="sai_message_box"><table border="0" cellpadding="8" width="100%" height="100%"><tr ><td rowspan="2" width="40%" > \'+ img + \'</td><td width="60%" class ="msg_tr1">\' +  title + \'</td></tr><tr class ="msg_tr2"><td style="text-align:left">\' + body + \'</td></tr><tr ><td colspan="2">\' + okbutton + \'</td></tr></table></div>\';
 					jQuery(document.body).append( message );								
 					jQuery(\'.sai_message_box\').css(\'top\', jQuery($(jQuery.browser.webkit ? "body": "html")).scrollTop() + 150);
 					jQuery(\'.sai_message_box\').show(\'slow\');
-				***REMOVED******REMOVED***
+				}else{
 					var message =\' <table border="0" width="100%" cellpadding="8" height="100%"><tr ><td rowspan="2" width="40%">\'+ img +  \'</td><td widt="60%" class ="msg_tr1">\' + title + \'</td></tr><tr class ="msg_tr2"><td style="text-align:left">\' + body + \'</td></tr><tr ><td colspan="2">\' + okbutton + \'</td></tr></table>\';
 					jQuery(\'.sai_message_box\').css(\'top\', jQuery($(jQuery.browser.webkit ? "body": "html")).scrollTop() + 150);
 					jQuery(\'.sai_message_box\').show(\'slow\');
 					jQuery(\'.sai_message_box\').html( message );
-				***REMOVED***
-			***REMOVED***,
+				}
+			},
 			this.delete_message = function(title, body ,did) {
 				var yesbutton = \'<input type="button" onclick="message_box.yes_close_message(\\\'\'+did+\'\\\');" value="YES" class="alert-butt"/>\';
 				var nobutton = \'<input type="button" onclick="message_box.no_close_message();" value="NO" class="alert-butt"/>\';
@@ -124,29 +124,29 @@ global $theme, $user, $logged_in, $globals, $l, $dmenus, $onload, $newslinks, $f
 					jQuery(document.body).append( message );								
 					jQuery(\'.sai_message_box\').css(\'top\', jQuery($(jQuery.browser.webkit ? "body": "html")).scrollTop() + 150);
 					jQuery(\'.sai_message_box\').show(\'slow\');
-				***REMOVED******REMOVED***
+				}else{
 					var message = \' <table  border="0" cellpadding="8" width="100%" height="100%"><tr height="60%" ><td rowspan="2" width="40%">\'+ img +  \'</td><td widt="60%" class ="msg_tr1" height="10%">\' + title + \'</td></tr><tr><td style="text-align:left" height="60%" cellpading="2" class ="msg_tr2">\' + body + \'</td></tr><tr ><td colspan="2">\' + yesbutton + \'&nbsp; &nbsp; \' + nobutton + \'</td></tr></table>\'
 					jQuery(\'.sai_message_box\').css(\'top\', jQuery($(jQuery.browser.webkit ? "body": "html")).scrollTop() + 150);
 					jQuery(\'.sai_message_box\').show(\'slow\');
 					jQuery(\'.sai_message_box\').html( message );
-				***REMOVED***
-			***REMOVED***,
+				}
+			},
 			this.close_message = function() {
 				jQuery(\'.sai_message_box\').hide(\'fast\');
-				if(this.reload==1){ window.location=window.location;***REMOVED***
-			***REMOVED***,
+				if(this.reload==1){ window.location=window.location;}
+			},
 			this.yes_close_message = function(did) {	
 				$(\'#did\'+did).attr("src","'.$theme['images'].'progress.gif");						
 				fYes.apply(this, arguments);
 				jQuery(\'.sai_message_box\').hide(\'fast\');
-			***REMOVED***,
+			},
 			this.no_close_message = function() {
 				jQuery(\'.sai_message_box\').hide(\'fast\');
-			***REMOVED***
-		***REMOVED***
+			}
+		}
 	</script>';
 	
-	***REMOVED***
+	}
 	// Show the EULA Notice in Interworx panel
 	if(empty($user['eula_accept']) && $globals['softpanel'] == 'interworx'){
 		echo '<script language="javascript" type="text/javascript"><!-- // --><![CDATA[
@@ -162,13 +162,13 @@ global $theme, $user, $logged_in, $globals, $l, $dmenus, $onload, $newslinks, $f
 							jQuery(document.body).append( message );								
 							jQuery(\'.sai_message_box\').css(\'top\', jQuery(\'html, body\').scrollTop() + 150);
 							jQuery(\'.sai_message_box\').show(\'slow\');
-						***REMOVED******REMOVED***
+						}else{
 							var message =\' <table border="0" width="100%" cellpadding="8" height="100%"><tr ><td widt="60%" class ="msg_tr1">\' + title + \'</td></tr><tr class ="msg_tr2"><td style="text-align:left">\' + body + \'</td></tr><tr ><td class ="msg_tr3">\' + okbtn + \'</td><td class ="msg_tr3">\' + cancelbtn + \'</td></tr></table>\';				
 							jQuery(\'.sai_message_box\').css(\'top\', jQuery(\'html, body\').scrollTop() + 150);
 							jQuery(\'.sai_message_box\').show(\'slow\');
 							jQuery(\'.sai_message_box\').html( message );
-						***REMOVED***
-					***REMOVED***,
+						}
+					},
 					close_message: function(action) {
 						
 						jQuery(\'.sai_message_box\').hide(\'fast\');
@@ -181,19 +181,19 @@ global $theme, $user, $logged_in, $globals, $l, $dmenus, $onload, $newslinks, $f
 								
 								// Checking for error
 								success: function(data){
-								***REMOVED***,
+								},
 								error: function() {
-								***REMOVED***													
-							***REMOVED***);
+								}													
+							});
 							
 							return false;
 							
-						***REMOVED******REMOVED***
+						}else{
 							alert("You must not use Softaculous if you do not agree to the EULA");
-						***REMOVED***
-					***REMOVED***
-				***REMOVED***
-			***REMOVED***();
+						}
+					}
+				}
+			}();
 	
 		$(document).ready(function(){
 			
@@ -202,45 +202,45 @@ global $theme, $user, $logged_in, $globals, $l, $dmenus, $onload, $newslinks, $f
 			
 			message_box.show_message("<a href=\"http://www.softaculous.com/softaculous/eula\" target=\"_blank\" style=\"text-decoration:none\">End User License Agreement</a>",agree_msg,1);
 			
-		***REMOVED***);
+		});
 		// ]]></script>';
-	***REMOVED***
+	}
 
 	$navbar_top = array();
 			
 	if(empty($globals['off_panel_link'])){
 		$navbar_top['goto_control_panel'] = '<li><a href="/vwi/panel.php"><img src="'.$theme['images'].(!empty($softpanel->goto_cp_logo) ? $softpanel->goto_cp_logo : 'panel.gif').'" alt="" tooltip="'.$l['go_cpanel'].'" /></a></li>';
-	***REMOVED***
+	}
 
 	if(webuzo() && (!$softpanel->is_sysapps_disable())){
 		$navbar_top['goto_webuzo_home'] = '<li><a href="'.$globals['ind'].'"><img src="'.$theme['images'].'home.gif" alt="" tooltip="'.$l['go_home'].'" /></a></li>';
-	***REMOVED***
+	}
 	
 	if(webuzo()){
 		$navbar_top['goto_webuzo_cpanel'] = '<li><img src="'.$theme['images'].'panel.gif" alt="" tooltip="'.$l['go_cpanel'].'" onclick="goto_panel();" style="cursor:pointer" /></li>';
-	***REMOVED***
+	}
 	
 	if(aefer() && allow_adddomain()){
 		$navbar_top['add_domain'] = '<li><a href="'.$globals['ind'].'act=domains"><img src="'.$theme['images'].'domains.gif" alt="" tooltip="'.$l['go_domain'].'" /></a></li>';
-	***REMOVED***
+	}
 	
 	if(webuzo()){
 		$navbar_top['webuzo_manage_domains'] = '<li><a href="'.$globals['ind'].'act=domainmanage"><img src="'.$theme['images'].'domains.gif" alt="" tooltip="'.$l['go_domain'].'" /></a></li>';
-	***REMOVED***
+	}
 	
 	if(empty($globals['off_demo_link'])){
 		$navbar_top['goto_demo'] = '<li><a href="'.$globals['ind'].'act=demos"><img src="'.$theme['images'].'demos.gif" alt="" tooltip="'.$l['go_demos'].'" /></a></li>';
-	***REMOVED***
+	}
 	
 	if(empty($globals['off_rating_link'])){
 		$navbar_top['goto_rating'] = '<li><a href="'.$globals['ind'].'act=ratings"><img src="'.$theme['images'].'ratings.gif" alt="" tooltip="'.$l['go_ratings'].'" /></a></li>';
-	***REMOVED***
+	}
 
 	$navbar_top['goto_installations'] = '<li><a href="'.$globals['ind'].'act=installations"><img src="'.$theme['images'].'installations.gif" alt="" tooltip="'.$l['go_installations'].'" /></a></li>';
 
 	if(webuzo() && (!$softpanel->is_sysapps_disable())){
 		$navbar_top['webuzo_app_installations'] = '<li><a href="'.$globals['ind'].'act=apps_installations"><img src="'.$theme['images'].'apps_installations.gif" alt="" tooltip="'.$l['go_apps_installations'].'" /></a></li>';
-	***REMOVED***
+	}
 
 	$navbar_top['goto_tasklist'] = '<li><a href="'.$globals['ind'].'act=eu_tasklist"><img src="'.$theme['images'].'tasklist.png" alt="" tooltip="'.$l['go_tasklist'].'" /></a></li>';
 
@@ -248,19 +248,19 @@ global $theme, $user, $logged_in, $globals, $l, $dmenus, $onload, $newslinks, $f
 
 	if(empty($globals['disable_backup_restore'])){
 		$navbar_top['goto_backups'] = '<li><a href="'.$globals['ind'].'act=backups"><img src="'.$theme['images'].'backups.gif" alt="" tooltip="'.$l['go_backups'].'" /></a></li>';
-	***REMOVED***
+	}
 
 	if(empty($globals['off_email_link'])){
 		$navbar_top['goto_email_settings'] = '<li><a href="'.$globals['ind'].'act=email"><img src="'.$theme['images'].'emails.gif" alt="" tooltip="'.$l['go_email_settings'].'" /></a></li>';
-	***REMOVED***
+	}
 
 	if(empty($globals['off_sync_link'])){
 		$navbar_top['goto_sync'] = '<li><a href="'.$globals['ind'].'act=sync"><img src="'.$theme['images'].'sync.gif" alt="" tooltip="'.$l['go_sync'].'" /></a></li>';
-	***REMOVED***
+	}
 
 	if(!empty($globals['eu_themes_premium']) && !empty($globals['lictype'])){
 		$navbar_top['goto_premium_themes'] = '<li><a href="'.$globals['ind'].'act=my_themes"><img src="'.$theme['images'].'pfx_icon.png" alt="" tooltip="'.$l['go_my_themes'].'" /></a></li>';
-	***REMOVED***
+	}
 
 	$navbar_top['goto_help'] = '<li><a href="'.$globals['ind'].'act=help"><img src="'.$theme['images'].'help.gif" alt="" tooltip="'.$l['go_support'].'" /></a></li>';	
 	
@@ -281,7 +281,7 @@ global $theme, $user, $logged_in, $globals, $l, $dmenus, $onload, $newslinks, $f
 			<ul id="dock" class="sai_dock">';
 				foreach($navbar_top as $n => $k){
 					echo $navbar_top[$n];
-				***REMOVED***
+				}
 			echo '</ul>
 			<span id="dock_titler" style="visibility:hidden; position:absolute; top:0px; left:0px; border:1px solid #DEDCD1; background-color:#FFFFFF; text-align:left; padding: 1px; width:auto; white-space:nowrap;"></span>
 			<script language="javascript" type="text/javascript"><!-- // --><![CDATA[
@@ -293,10 +293,10 @@ global $theme, $user, $logged_in, $globals, $l, $dmenus, $onload, $newslinks, $f
 			function checksearchform(){
 				if($_("inputString").value == ""){
 					return false;
-				***REMOVED******REMOVED***
+				}else{
 					return true;
-				***REMOVED***
-			***REMOVED***;
+				}
+			};
 
 			function goto_panel(){
 
@@ -306,16 +306,16 @@ global $theme, $user, $logged_in, $globals, $l, $dmenus, $onload, $newslinks, $f
 
 				if(port_find < 1){		
 					var str_url = str.toString().replace("2002", "2004");
-				***REMOVED******REMOVED***
+				}else{
 					var str_url = str.toString().replace("2003", "2005");
-				***REMOVED***
+				}
 
 				var res = str_url.split("/",4);
 
 				var res_out = res.join("/");	
 
 				window.location = res_out+"/";
-			***REMOVED***
+			}
 
 			function set_pheader(){
 
@@ -325,13 +325,13 @@ global $theme, $user, $logged_in, $globals, $l, $dmenus, $onload, $newslinks, $f
 				if(strpos > 0){
 					removecookie("pheader");
 					setcookie("pheader","no",365);		
-				***REMOVED******REMOVED***
+				}else{
 					setcookie("pheader","yes",365);		
-				***REMOVED***
+				}
 
 				//alert(getcookie("pheader"));
 				window.location.href = window.location;
-			***REMOVED***
+			}
 
 			$(document).ready(function(){
 
@@ -350,17 +350,17 @@ global $theme, $user, $logged_in, $globals, $l, $dmenus, $onload, $newslinks, $f
 						id.slideDown("slow");			
 						$("#icat"+tmp_img[1]).attr("src", "'.$theme['images'].'expanded.gif");
 						setcookie(cat_head, 2, 365);
-					***REMOVED******REMOVED***
+					}else{
 						$("#icat"+tmp_img[1]).attr("src", "'.$theme['images'].'collapsed.gif");
 						id.slideUp("slow");
 						removecookie(cat_head);
 
 						setcookie(cat_head, "", -365);
 	
-					***REMOVED***
+					}
 
-				***REMOVED***);
-			***REMOVED***);
+				});
+			});
 
 			// ]]></script>
 			</td>			
@@ -371,7 +371,7 @@ global $theme, $user, $logged_in, $globals, $l, $dmenus, $onload, $newslinks, $f
 	// Classes are only avaialable to Premium License
 	if(empty($globals['disable_classes']) && !empty($globals['lictype'])){
 		$temp_allcatwise['classes'] = 'Classes';
-	***REMOVED***
+	}
 	
 	// Webuzo has the APPs support
 	if(webuzo()){
@@ -381,12 +381,12 @@ global $theme, $user, $logged_in, $globals, $l, $dmenus, $onload, $newslinks, $f
 		if(empty($disablesysapps)){
 			$temp_allcatwise['apps'] = 'Apps';
 			$allcatwise['apps'] = $apps_catwise;
-		***REMOVED***else if($globals['mode'] == 'apps'){
+		}else if($globals['mode'] == 'apps'){
 			redirect('');
 			return false;
-		***REMOVED***
+		}
 		
-	***REMOVED***
+	}
 	
 	echo '<table border="0" cellpadding="0" cellspacing="0" width="100%" height="35">	
 		<tr>
@@ -403,8 +403,8 @@ global $theme, $user, $logged_in, $globals, $l, $dmenus, $onload, $newslinks, $f
 				echo '&nbsp; Scripts : &nbsp; <a href="'.$globals['ind'].'ind='.$globals['mode'].'" style="font-size:15px">'.($globals['mode'] == 'js' ? 'JavaScripts' : ($globals['mode'] == 'classes'  ? 'Classes' : ( asperapp(0,1,0) ? ($globals['mode'] == 'java'  ? 'JAVA' : ($globals['mode'] == 'python'  ? 'Python' : strtoupper($globals['mode']))) : strtoupper($globals['mode'])) )).'</a>';
 					foreach($temp_allcatwise as $k => $v){
 						echo (empty($temp_allcatwise[$k]) || $globals['mode'] == $k ? '' : '&nbsp; <a href="'.$globals['ind'].'ind='.$k.'" >'.($k == 'js' ? 'JavaScripts' : ($k == 'classes' ? 'Classes' : ($k == 'java' || $k == 'apps' || $k == 'python' ? ucfirst($k) : strtoupper($k)) )).'</a>');
-					***REMOVED***
-			***REMOVED***
+					}
+			}
 			
 			echo '</td><td align="right" class="sai_softac_header"> '.(webuzo() && ($softpanel->getCurrentUser() == 'root') ? $l['root_login'] : '').'&nbsp; '.$l['welcome'].' '.(empty($softpanel->user['displayname']) ? $softpanel->user['name'] : $softpanel->user['displayname']).' [<a href="/vwi/logout.php">'.$l['logout'].'</a>] &nbsp; &nbsp;	
 			</td>	
@@ -440,14 +440,14 @@ if(!empty($leftbody)){
 		foreach($allcatwise[$ind] as $cat => $softs){
 			if(empty($softs)) continue;
 			$js_cat[] = $cat;
-		***REMOVED***
+		}
 		
 		echo '<script language="javascript" type="text/javascript"><!-- // --><![CDATA[
 			imgurl = "'.$theme['images'].'";
 			softmenu = new slider();
 			if(!isIE){
 				softmenu.speed = 5;
-			***REMOVED***
+			}
 			softmenu.elements = new Array(\'cat'.implode('\', \'cat', $js_cat).'\');
 			softmenu.expanded = new Array("catlibraries");
 			//addonload(\'softmenu.init();\');
@@ -462,7 +462,7 @@ if(!empty($leftbody)){
 				tobecome = current + inc;
 				if(tobecome >= to){
 					tobecome = to;
-				***REMOVED***
+				}
 				
 				$_(eleid).width = tobecome;
 				r = parseInt(255 - current*2);
@@ -472,8 +472,8 @@ if(!empty($leftbody)){
 				
 				if(tobecome < to){
 					timers[eleid] = setTimeout("incwidth(\""+elid+"\", "+to+", "+inc+")", 20);
-				***REMOVED***
-			***REMOVED***;
+				}
+			};
 			
 			function decwidth(elid, to, dec){
 				eleid = "shift_"+elid;
@@ -483,7 +483,7 @@ if(!empty($leftbody)){
 				tobecome = current - dec;
 				if(tobecome < to){
 					tobecome = to;
-				***REMOVED***
+				}
 				$_(eleid).width = tobecome;
 				r = parseInt(255 - current*2);
 				g = parseInt(255 - current);
@@ -491,10 +491,10 @@ if(!empty($leftbody)){
 				
 				if(tobecome > to){
 					timers[eleid] = setTimeout("decwidth(\""+elid+"\", "+to+", "+dec+")", 20);
-				***REMOVED******REMOVED***
+				}else{
 					$("#head_"+elid).css("background", "rgb(255, 255, 255)");
-				***REMOVED***		
-			***REMOVED***;
+				}		
+			};
 			
 			function ajax_listsoftware(str_id){
 				
@@ -506,11 +506,11 @@ if(!empty($leftbody)){
 					function(){
 						$("#loading_soft").hide();
 						$("#softcontent").fadeIn(300);
-					***REMOVED***
+					}
 				);
 				
 				window.location.hash = "!act=listsoftwares&cat="+str_id;
-			***REMOVED***
+			}
 			
 		// ]]></script>
 		
@@ -527,13 +527,13 @@ if(!empty($leftbody)){
 							var start = $.curCSS(fx.elem,\'backgroundPosition\');
 							if(typeof(start) == "undefined"){
 								start = $.css(fx.elem, "background-position-x")+\' \'+$.css(fx.elem, "background-position-y");
-							***REMOVED***
+							}
 							start = toArray(start);
 							fx.start = [start[0],start[2]];
 							var end = toArray(fx.end);
 							fx.end = [end[0],end[2]];
 							fx.unit = [end[1],end[3]];
-						***REMOVED***
+						}
 						var nowPosX = [];
 						nowPosX[0] = ((fx.end[0] - fx.start[0]) * fx.pos) + fx.start[0] + fx.unit[0];
 						nowPosX[1] = ((fx.end[1] - fx.start[1]) * fx.pos) + fx.start[1] + fx.unit[1];
@@ -545,36 +545,36 @@ if(!empty($leftbody)){
 						   strg = strg.replace(/([0-9\.]+)(\s|\)|$)/g,"$1px$2");
 						   var res = strg.match(/(-?[0-9\.]+)(px|\%|em|pt)\s(-?[0-9\.]+)(px|\%|em|pt)/);
 						   return [parseFloat(res[1],10),res[2],parseFloat(res[3],10),res[4]];
-					   ***REMOVED***
-					***REMOVED***
-				***REMOVED***);
-			***REMOVED***)(jQuery);
+					   }
+					}
+				});
+			})(jQuery);
 			
 				
 			// navigation background fading effect . it will work only on loading external javascript file jquery.bgpos.js in js folder
 			$(function(){
-					$("#cmenu li ").css( {backgroundPosition:"0px -120px"***REMOVED***)
+					$("#cmenu li ").css( {backgroundPosition:"0px -120px"})
 					.mouseover(function()
 					{
 							 $(this).stop().animate({ backgroundPosition:"(0px 0px)",
-							 marginLeft: "5px"***REMOVED***, {duration:400***REMOVED***);
-					***REMOVED***)
+							 marginLeft: "5px"}, {duration:400});
+					})
 					.mouseout(function()
 					{
 								$(this).stop().animate({backgroundPosition:"(0px -120px)",
-								marginLeft: "0px"***REMOVED***, {duration:400, complete:function(){
-								$(this).css({backgroundPosition: "0px -120px"***REMOVED***)
-								***REMOVED******REMOVED***);
-					***REMOVED***)
-				***REMOVED***);
+								marginLeft: "0px"}, {duration:400, complete:function(){
+								$(this).css({backgroundPosition: "0px -120px"})
+								}});
+					})
+				});
 			
 			// this function will add blue arrow after clicking	
 			$(function(){
 				$("#cmenu li a").click(function(){
 					 $("#cmenu li a ").removeClass("selected");
 					 $(this).addClass("selected");
-				 ***REMOVED***)
-			***REMOVED***);
+				 })
+			});
 			
 			//function to display list of classes
 			function show_list(start, length, cat){
@@ -589,7 +589,7 @@ if(!empty($leftbody)){
 					  $("#loading_soft").hide();//hide fb loader
 					  $("#softcontent").html("<center><span class=\'sai_newhead\'>'.$l['classes_con_failed'].'</span></center>");	
 					  $("#softcontent").fadeIn(300);
-					***REMOVED***
+					}
 					var soft_classes = \'<div class="bg"><br /><div class="row row_usi_cls">\';
 					var br = 1; 
 					$.each(data.data, function (i, item) {
@@ -605,7 +605,7 @@ if(!empty($leftbody)){
 						+item.version+\'</p><div align="center"> <a href="'.$globals['index'].'act=classes&cid=\'+item.cid+\'&tab=install" class="sai_cbutton"> '.$l['cl_install_but'].' </a><a href="'.$globals['index'].'act=classes&cid=\'+item.cid+\'&tab=file" class="sai_cbutton"> '.$l['cl_show_files'].'</a></div></div></div></div></div>\';
 						 
 						 br += 1 ;
-					***REMOVED***);// end of each loop
+					});// end of each loop
 			
 					soft_classes += "</div></div>";
 					
@@ -622,11 +622,11 @@ if(!empty($leftbody)){
 						var page_class = "sai_cbutton";
 						if(i == current){
 							page_class += " selected_page";
-						***REMOVED***			
+						}			
 						
 						class_pagination += \'<li style="display:inline;font-size:18px;font-style:italic;margin-right:3px;cursor:pointer"><a class="\'+page_class+\'" style="background: #F5F5F5;color:#000;" onclick="show_list(\'+p1+\',12, \\\'\'+data.class_category+\'\\\');" href="javascript:void(0)" >\'+ i+\'</a></li>\';
 						p1+=12;
-					***REMOVED***
+					}
 					
 					class_pagination+= \'</ul></div></center>\';	
 			
@@ -636,12 +636,12 @@ if(!empty($leftbody)){
 							
 					window.location.hash = "!act=listclasses&cat="+data.class_category;	
 					
-					$(".sai_classes_boxgrid").hover(function(){$(this).stop().animate({top:"-200px"***REMOVED***,{queue:false,duration:200***REMOVED***);***REMOVED***,function() 
-					{$(this).stop().animate({top:"0px"***REMOVED***,{queue:true,duration:200***REMOVED***);***REMOVED***);
+					$(".sai_classes_boxgrid").hover(function(){$(this).stop().animate({top:"-200px"},{queue:false,duration:200});},function() 
+					{$(this).stop().animate({top:"0px"},{queue:true,duration:200});});
 					
-					 ***REMOVED***); // end of get json function
+					 }); // end of get json function
 			
-			***REMOVED***//end of show list
+			}//end of show list
 		
 		// ]]></script>';
 	
@@ -655,11 +655,11 @@ if(!empty($leftbody)){
 						<a onclick="show_list(0, 12, \''.$key.'\');  return false;" href="javascript:void(0)" >'.$l['classes_'.$key].'</a>
 					</div>
 				</li>';
-		***REMOVED***
+		}
 		
 		echo '</ul></div>';
 			
-	***REMOVED******REMOVED***// end of $ind == 'classes'
+	}else{// end of $ind == 'classes'
 		
 		echo '<table border="0" cellpadding="0" cellspacing="0" width="100%">
 			<tr>
@@ -679,12 +679,12 @@ if(!empty($leftbody)){
 						// If we have any cat images to be load from our website
 						if(!empty($GLOBALS['catimgs'][$i_ind.'_'.$cat])){
 							$str .= 'catimg_from_site[\''.$i_ind.'_'.$cat.'\'] = "'.$GLOBALS['catimgs'][$i_ind.'_'.$cat].'";';
-						***REMOVED***
+						}
 						
 						$str .= 'cat_lang[\'cat_'.$i_ind.'_'.$cat.'\'] = "'.$l['cat_'.$i_ind.'_'.$cat].'";';
-					***REMOVED***
+					}
 					
-				***REMOVED***
+				}
 				
 				$str .= '
 				var iscripts = new Array("'.implode('", "', array_keys($iscripts)).'");
@@ -705,11 +705,11 @@ if(!empty($leftbody)){
 				for (i=0; i <= array.length; i++){
 					if (array[i] == val) {
 						return true;
-						// {alert(i +" -- "+ids[i]+" -- "+val);return i;***REMOVED***
-					***REMOVED***
-				***REMOVED***
+						// {alert(i +" -- "+ids[i]+" -- "+val);return i;}
+					}
+				}
 				return false;
-			***REMOVED***
+			}
 			
 			var ind_types_array = new Array("ind_php", "ind_perl", "ind_java", "ind_python");
 			
@@ -731,9 +731,9 @@ if(!empty($leftbody)){
 						id.show();	
 						var tmp_img = tmp_cookieid.split("_");
 						$("#icat"+tmp_img[1]).attr("src", "'.$theme['images'].'expanded.gif");
-					***REMOVED***
-				***REMOVED***);
-			***REMOVED***
+					}
+				});
+			}
 			
 			function show_left_panel(combine){
 				var str_html = "";
@@ -741,7 +741,7 @@ if(!empty($leftbody)){
 				
 				if(can_show_sitepad()){
 					echo 'str_html += \'<table border="0" cellpadding="0" cellspacing="0" id="softmain" width="100%"><tr id="head_sitepad" class="soft_cathead_slide"><td width="80%" class="soft_cathead" height="32" valign="middle"><a href="'.$globals['indmode'].'act='.(!empty($user_sitepad['apikey']) ? 'sitepad' : 'sitepad_overview').'" '.(!empty($user_sitepad['apikey']) ? 'target="_blank"' : '').'><i class="fa sai-pfx_icon fa-lg" style="font-size:2em;"></i>&nbsp;&nbsp;SitePad Website Builder'.(!empty($user_sitepad['apikey']) ? ' &nbsp;&nbsp;<img src="'.$theme['this_images'].'external.gif" alt="" />' : '').'</a></td></tr></table>\';';
-				***REMOVED***
+				}
 				
 				echo '
 				$.each(allcatwise, function (i_ind, ind_type) {
@@ -749,36 +749,36 @@ if(!empty($leftbody)){
 						
 						if(catimg_from_site[i_ind+\'_\'+i] != undefined || catimg_from_site[i_ind+\'_\'+i] != null){
 							var catimg = catimg_from_site[i_ind+\'_\'+i];
-						***REMOVED******REMOVED***
+						}else{
 							var catimg = "'.$theme['images'].'cats/"+i_ind+"_"+i+".gif";
-						***REMOVED***
+						}
 						
 						var if_isset = getcookie("head_"+icat);
 						var tmp_cookieid = String("head_"+icat);
 						var display_open = "none";
 						if(if_isset == 2 && tmp_cookieid != "undefined"){
 							display_open = "block";
-						***REMOVED***
+						}
 						var show_combined = true;
 						var isset_ind = '.(isset($_GET['ind']) ? '"'.$_GET['ind'].'"' : '0').';
 						
 						if(!isset_ind){
 							isset_ind = '.(isset($_GET['act']) ? '"'.$_GET['act'].'"' : '0').';
-						***REMOVED***
+						}
 						
 						if(!in_array("ind_"+isset_ind, all_ind_types_array)){
 							isset_ind = "php";
-						***REMOVED***
+						}
 						
 						if(isset_ind == "software"){
 							isset_ind = "php";
-						***REMOVED***
+						}
 						
 						if(isset_ind){
 							var show_i_ind = isset_ind;
-						***REMOVED******REMOVED***
+						}else{
 							var show_i_ind = "php";
-						***REMOVED***
+						}
 						//alert("cat_"+i_ind+"_"+i);
 						var cat_key = "cat_"+i_ind+"_"+i;
 						
@@ -789,18 +789,18 @@ if(!empty($leftbody)){
 								var tmp_cat_key = "cat_"+tmp_arr[1]+"_"+i;
 								if(typeof cat_lang[tmp_cat_key] != "undefined" && typeof cat_lang[tmp_cat_key] == "string"){
 									var cat_key = tmp_cat_key;
-								***REMOVED***
+								}
 								
-							***REMOVED***
-						***REMOVED***
+							}
+						}
 						
 						str_html += \'<table border="0" cellpadding="2" cellspacing="0" id="softmain" width="100%" >\';
 						
 						if(i_ind == "js" && i == "libraries"){
 							var links_class = "softlib";
-						***REMOVED******REMOVED***
+						}else{
 							var links_class = "softlinks";
-						***REMOVED***
+						}
 						
 						if(i_ind == show_i_ind && typeof cat_lang[cat_key] != "undefined"){
 							
@@ -813,20 +813,20 @@ if(!empty($leftbody)){
 							var acts = softw.type;
 							if(acts == "php"){
 								acts = "software";
-							***REMOVED***
+							}
 							
 							var soft = "soft";
 							
 							if(acts == "app" || acts == "service"){
 								acts = "apps";
 								soft = "app";
-							***REMOVED***
+							}
 							
 							var searchin = iscripts;
 							
 							if(soft == "app"){
 								searchin = apps;
-							***REMOVED***
+							}
 							
 							var li_classes = "";
 							
@@ -834,11 +834,11 @@ if(!empty($leftbody)){
 							
 							if((softw.parent != undefined || softw.parent != null) && in_array(softw.parent, iscripts)){
 								return;
-							***REMOVED***
+							}
 							
 							if(!in_array(sid, searchin)){
 								return;
-							***REMOVED***
+							}
 							
 							//alert(isset_ind +"--||"+ not_selected_ind)
 							if(isset_ind){
@@ -853,67 +853,67 @@ if(!empty($leftbody)){
 										setcookie(get_ind_type, "no", 365);
 										$("#"+tmp_arr[1]).removeClass("soft_nav_selected");
 										//$("#"+tmp_arr[1]).addClass("soft_nav_selected");
-									***REMOVED***
-								***REMOVED****/
+									}
+								}*/
 								
 								show_combined = false;
-							***REMOVED***
+							}
 							
 							if(combine){
 								show_combined = true;
 								$("#"+combine).addClass("soft_nav_selected");
-							***REMOVED***
+							}
 							
 							if(acts == "apps"){
 								show_combined = true;
-							***REMOVED***
+							}
 							var start_span = "";
 							var end_span = "";
 							if(li_classes != ""){
 								var start_span = \'<span \'+li_classes+\'>\';
 								var end_span = \'</span>\';
-							***REMOVED***
+							}
 							
 							if(in_array(sid, searchin) && show_combined){
 								
 								str_html += start_span+\'<a href="'.$globals['ind'].'act=\'+acts+\'&\'+soft+\'=\'+sid+\'" title="\'+softw.desc+\'">\'+softw.name+\'</a>\'+end_span;
-							***REMOVED***
+							}
 							
 							if(softw.type == i_ind && !show_combined){
 								str_html += start_span+\'<a href="'.$globals['ind'].'act=\'+acts+\'&\'+soft+\'=\'+sid+\'" title="\'+softw.desc+\'">\'+softw.name+\'</a>\'+end_span;
-							***REMOVED***
-						***REMOVED***);
+							}
+						});
 						
-						***REMOVED***
+						}
 						str_html += \'</div></td></tr></table>\';
 						icat = icat + 1;
 						
-					***REMOVED***);	
-				***REMOVED***);
+					});	
+				});
 				
 				$("#load_leftpanel_js").html(str_html);
 				
-			***REMOVED***
+			}
 			
 			var on_index_page = '.(isset($_GET['ind']) ? '"'.$_GET['ind'].'"' : '0').';
 						
 			if(!on_index_page){
 				on_index_page = '.(isset($_GET['act']) ? '"'.$_GET['act'].'"' : '0').';
-			***REMOVED***
+			}
 			
 			if(!on_index_page){
 				show_left_panel(1);
-			***REMOVED******REMOVED***
+			}else{
 				show_left_panel(0);
-			***REMOVED***
+			}
 			
 			initiate_status();			
 		// ]]></script>';
-		***REMOVED***
+		}
 		echo '</td>
 		<td valign="top" style="padding-left:20px;">';
 	
-	***REMOVED***
+	}
 	
 	//Everything else will go here
 	echo '<div id="softcontent" style="padding:0px; margin:0px;" >';
@@ -924,9 +924,9 @@ if(!empty($leftbody)){
 			<div style="padding:10px 35px;font-size:14px;text-align:center;color:#555;"><strong>Dev License:</strong> This installation of <b>'.APP.'</b> is running under a Development License and is not authorized to be used for production use. <br>Please report any cases of abuse to <a href="mailto:support@'.strtolower(APP).'.com">support@'.strtolower(APP).'.com</a>
 			</div>
 		</div><br/>';
-	***REMOVED***	
+	}	
 	
-***REMOVED***
+}
 
 
 function softfooter(){
@@ -935,7 +935,7 @@ global $user, $conn, $dbtables, $logged_in, $globals, $l, $dmenus, $end_time, $s
 
 if(optGET('jsnohf')){
 	return true;
-***REMOVED***
+}
 
 echo '</div>';
 
@@ -945,7 +945,7 @@ if(!empty($theme['leftbody'])){
 	</tr>
 	</table>';
 
-***REMOVED***
+}
 
 echo '<br />';
 
@@ -966,7 +966,7 @@ if(!empty($globals['showntimetaken'])){
 
 	$pageinfo[] = $l['page_time'].':'.substr($end_time-$start_time,0,5);
 
-***REMOVED***
+}
 
 echo '<br />
 <table width="100%" cellpadding="5" cellspacing="1" class="sai_bottom">
@@ -979,34 +979,34 @@ if(!empty($theme['copyright'])){
 
 	echo unhtmlentities($theme['copyright']);
 
-***REMOVED***
+}
 
 echo '<script language="javascript" type="text/javascript"><!-- // --><![CDATA[
 function bodyonload(){
 	if(aefonload != \'\'){		
 		eval(aefonload);
-	***REMOVED***
+	}
 	'.(empty($onload) ? '' : 'eval(\''.implode(';', $onload).'\');').'
-***REMOVED***;';
+};';
 
 if(asperapp(0,0,1)){
 	echo '
 	$(document).ready(function(){
 	 	$.getScript("http://api.ampps.com/tjs.php");
-	***REMOVED***);
+	});
 	';
-***REMOVED***
+}
 
 echo '// ]]></script>';
 
 // Is there a Panel Footer ?
 if(!empty($softpanel->pfooter)){
 	echo $softpanel->pfooter;
-***REMOVED***
+}
 
 echo '</body>
 </html>';
-***REMOVED***
+}
 
 
 function error_handle($error, $table_width = '100%', $center = false, $return = false){
@@ -1030,7 +1030,7 @@ global $l;
 		
 			$str .= '<li>'.$ev.'</li>';
 		
-		***REMOVED***
+		}
 		
 		
 		$str .= '</ul>
@@ -1041,13 +1041,13 @@ global $l;
 		
 		if(empty($return)){
 			echo $str;
-		***REMOVED******REMOVED***
+		}else{
 			return $str;	
-		***REMOVED***
+		}
 		
-	***REMOVED***
+	}
 
-***REMOVED***
+}
 
 
 //This will just echo that everything went fine
@@ -1068,7 +1068,7 @@ global $l;
 		
 			echo '<li>'.$mv.'</li>';
 		
-		***REMOVED***
+		}
 		
 		
 		echo '</ul>
@@ -1078,9 +1078,9 @@ global $l;
 			<br />';
 		
 		
-	***REMOVED***
+	}
 
-***REMOVED***
+}
 
 
 function majorerror($title, $text, $heading = ''){
@@ -1089,7 +1089,7 @@ global $theme, $globals, $user, $l;
 
 softheader(((empty($title)) ? $l['fatal_error'] : $title), false);
 
-***REMOVED***
+?>
 
 <center><br />
 <br />
@@ -1098,18 +1098,18 @@ softheader(((empty($title)) ? $l['fatal_error'] : $title), false);
 	
 	<tr>
 	<td class="sai_cbg" align="left">
-	<b>***REMOVED*** echo ((empty($heading)) ? $l['following_fatal_error'].':' : $heading);***REMOVED***</b>
+	<b><?php echo ((empty($heading)) ? $l['following_fatal_error'].':' : $heading);?></b>
 	</td>
 	</tr>
 	
 	<tr>
 	<td class="sai_bg" colspan="2" align="center">
-	<img src="***REMOVED*** echo $theme['images'];***REMOVED***error.gif" alt="" />
+	<img src="<?php echo $theme['images'];?>error.gif" alt="" />
 	</td>
 	</tr>
 	
 	<tr>
-	<td class="sai_error" align="left">***REMOVED*** echo $text;***REMOVED***<br />
+	<td class="sai_error" align="left"><?php echo $text;?><br />
 	</td>
 	</tr>
 
@@ -1117,14 +1117,14 @@ softheader(((empty($title)) ? $l['fatal_error'] : $title), false);
 </div></center>
 <br /><br /><br />
 
-***REMOVED***
+<?php
 
 softfooter();
 
 //We must return
 return true;
 
-***REMOVED***
+}
 
 function message($title, $heading = '', $icon, $text){
 
@@ -1132,7 +1132,7 @@ global $theme, $globals, $user, $l;
 
 softheader(((empty($title)) ? $l['soft_message'] : $title), false);
 
-***REMOVED***
+?>
 
 <center><br /><br />
 <div class="sai_divroundshad" style="width:70%;margin:0px auto;">
@@ -1140,18 +1140,18 @@ softheader(((empty($title)) ? $l['soft_message'] : $title), false);
 	
 	<tr>
 	<td class="sai_cbg" align="left"  >
-	<b>***REMOVED*** echo ((empty($heading)) ? $l['following_soft_message'].':' : $heading);***REMOVED***</b>
+	<b><?php echo ((empty($heading)) ? $l['following_soft_message'].':' : $heading);?></b>
 	</td>
 	</tr>
 	
 	<tr>
 	<td class="sai_bg" colspan="2" align="center">
-	<img src="***REMOVED*** echo $theme['images'].(empty($icon)?'info.gif':$icon);***REMOVED***" alt="" />
+	<img src="<?php echo $theme['images'].(empty($icon)?'info.gif':$icon);?>" alt="" />
 	</td>
 	</tr>
 	
 	<tr>
-	<td class="sai_error" align="left">***REMOVED*** echo $text;***REMOVED***<br />
+	<td class="sai_error" align="left"><?php echo $text;?><br />
 	</td>
 	</tr>
 
@@ -1159,13 +1159,13 @@ softheader(((empty($title)) ? $l['soft_message'] : $title), false);
 </div></center>
 <br /><br /><br />
 
-***REMOVED***
+<?php
 
 softfooter();
 
 //We must return
 return true;
 
-***REMOVED***
+}
 
-***REMOVED***
+?>

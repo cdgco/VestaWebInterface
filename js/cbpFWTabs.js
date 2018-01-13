@@ -16,21 +16,21 @@
 		for (var key in b) { 
 			if( b.hasOwnProperty( key ) ) {
 				a[key] = b[key];
-			***REMOVED***
-		***REMOVED***
+			}
+		}
 		return a;
-	***REMOVED***
+	}
 
 	function CBPFWTabs(el, options) {
 		this.el = el;
-		this.options = extend({***REMOVED***, this.options);
+		this.options = extend({}, this.options);
 		extend(this.options, options);
 		this._init();
-	***REMOVED***
+	}
 
 	CBPFWTabs.prototype.options = {
 		start : 0
-	***REMOVED***;
+	};
 
 	CBPFWTabs.prototype._init = function () {
 		// tabs elems
@@ -43,7 +43,7 @@
 		this._show();
 		// init events
 		this._initEvents();
-	***REMOVED***;
+	};
 
 	CBPFWTabs.prototype._initEvents = function () {
 		var self = this;
@@ -51,21 +51,21 @@
 			tab.addEventListener("click", function (ev) {
 				ev.preventDefault();
 				self._show(idx);
-			***REMOVED***);
-		***REMOVED***);
-	***REMOVED***;
+			});
+		});
+	};
 
 	CBPFWTabs.prototype._show = function (idx) {
 		if (this.current >= 0) {
 			this.tabs[this.current].className = this.items[this.current].className = "";
-		***REMOVED***
+		}
 		// change current
 		this.current = idx !== undefined ? idx : this.options.start >= 0 && this.options.start < this.items.length ? this.options.start : 0;
 		this.tabs[this.current].className = "tab-current";
 		this.items[this.current].className = "content-current";
-	***REMOVED***;
+	};
 
 	// add to global namespace
 	window.CBPFWTabs = CBPFWTabs;
 
-***REMOVED***)(window);
+})(window);

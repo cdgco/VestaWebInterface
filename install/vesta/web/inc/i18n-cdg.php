@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 // Functions for internationalization
 
 /**
@@ -20,12 +20,12 @@ function _translate() {
     // No translation needed
     if (!preg_match('/[a-z]/i', $key)) {
         return $key;
-    ***REMOVED***
+    }
 
     // Load language file (if not loaded yet)
     if (!isset($LANG[$l])) {
         require_once($_SERVER['DOCUMENT_ROOT']."/inc/i18n-cdg/$l.php");
-    ***REMOVED***
+    }
 
     //if (!isset($LANG[$l][$key])) file_put_contents('/somewhere/something.log', "$key\n", FILE_APPEND);
     $text = isset($LANG[$l][$key]) ? $LANG[$l][$key] : $key;
@@ -34,10 +34,10 @@ function _translate() {
     if (count($args) > 1) {
         $args[0] = $text;
         return call_user_func_array('sprintf', $args);
-    ***REMOVED*** else {
+    } else {
         return $text;
-    ***REMOVED***
-***REMOVED***
+    }
+}
 
 /**
  * Translates string by a given key in first parameter to current session language. Works like sprintf
@@ -49,7 +49,7 @@ function __() {
     $args = func_get_args();
     array_unshift($args, $_SESSION['language']);
     return call_user_func_array('_translate', $args);
-***REMOVED***
+}
 
 /**
  * Detects user language from Accept-Language HTTP header.
@@ -70,7 +70,7 @@ function detect_user_language($fallback='en') {
         // Store result for reusing
         $user_lang = $fallback;
         return $user_lang;
-    ***REMOVED***
+    }
 
 
     // Sort Accept-Language by `q` value
@@ -82,13 +82,13 @@ function detect_user_language($fallback='en') {
             // `q` value was not specfied
             // -> Set default `q` value (1)
             $div[] = '1';
-        ***REMOVED***
+        }
         list($code, $q) = $div;
         if (preg_match('/^[\w\-]+$/', $code)) {
             // Acceptable language code
             $accept_langs_sorted[$code] = (double)$q;
-        ***REMOVED***
-    ***REMOVED***
+        }
+    }
     arsort($accept_langs_sorted);
 
     // List languages
@@ -103,19 +103,19 @@ function detect_user_language($fallback='en') {
             if (strlen($decision) > strlen($prov_lang)) continue;
             if (strpos($user_lang, $prov_lang) !== false) {
                 $decision = $prov_lang;
-            ***REMOVED***
-        ***REMOVED***
+            }
+        }
         if (!empty($decision)) {
             // Store result for reusing
             $user_lang = $decision;
             return $user_lang;
-        ***REMOVED***
-    ***REMOVED***
+        }
+    }
 
     // Store result for reusing
     $user_lang = $fallback;
     return $user_lang;
-***REMOVED***
+}
 
 /**
  * Detects user language .
@@ -125,4 +125,4 @@ function detect_user_language($fallback='en') {
 
 function detect_login_language(){
 
-***REMOVED***
+}

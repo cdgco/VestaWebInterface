@@ -34,7 +34,7 @@
     <div class="white-box">
       <form class="form-horizontal form-material" autocomplete="off" id="loginform" method="post" action="/reset/reset.php">
         <h3 class="box-title m-b-20">Recover Password</h3>
-<div style="height:20px">***REMOVED*** if (isset($ERROR)) echo $ERROR ***REMOVED***</div>
+<div style="height:20px"><?php if (isset($ERROR)) echo $ERROR ?></div>
 
         <div class="form-group ">
           <div class="col-xs-12">

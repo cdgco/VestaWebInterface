@@ -21,26 +21,26 @@
       MozTransition    : 'transitionend',
       OTransition      : 'oTransitionEnd otransitionend',
       transition       : 'transitionend'
-    ***REMOVED***
+    }
 
     for (var name in transEndEventNames) {
       if (el.style[name] !== undefined) {
-        return { end: transEndEventNames[name] ***REMOVED***
-      ***REMOVED***
-    ***REMOVED***
+        return { end: transEndEventNames[name] }
+      }
+    }
 
     return false // explicit for ie8 (  ._.)
-  ***REMOVED***
+  }
 
   // http://blog.alexmaccaw.com/css-transitions
   $.fn.emulateTransitionEnd = function (duration) {
     var called = false
     var $el = this
-    $(this).one('bsTransitionEnd', function () { called = true ***REMOVED***)
-    var callback = function () { if (!called) $($el).trigger($.support.transition.end) ***REMOVED***
+    $(this).one('bsTransitionEnd', function () { called = true })
+    var callback = function () { if (!called) $($el).trigger($.support.transition.end) }
     setTimeout(callback, duration)
     return this
-  ***REMOVED***
+  }
 
   $(function () {
     $.support.transition = transitionEnd()
@@ -52,8 +52,8 @@
       delegateType: $.support.transition.end,
       handle: function (e) {
         if ($(e.target).is(this)) return e.handleObj.handler.apply(this, arguments)
-      ***REMOVED***
-    ***REMOVED***
-  ***REMOVED***)
+      }
+    }
+  })
 
-***REMOVED***(jQuery);
+}(jQuery);

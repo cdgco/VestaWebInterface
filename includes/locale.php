@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 
 
 $ulang = array
@@ -34,4 +34,4 @@ $ulang = array
 'vi' => 'vi_VN'
 );
 
-***REMOVED***
+?>

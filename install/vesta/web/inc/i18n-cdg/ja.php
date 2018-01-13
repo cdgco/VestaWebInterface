@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 /**
  * Vesta language file
  * Flat (flatta@outlook.jp)

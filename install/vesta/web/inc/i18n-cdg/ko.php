@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 /**
  * Vesta language file
  * Hoto Cocoa (cocoa@hoto.us)

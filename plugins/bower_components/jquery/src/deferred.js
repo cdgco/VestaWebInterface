@@ -17,11 +17,11 @@ jQuery.extend({
 			promise = {
 				state: function() {
 					return state;
-				***REMOVED***,
+				},
 				always: function() {
 					deferred.done( arguments ).fail( arguments );
 					return this;
-				***REMOVED***,
+				},
 				then: function( /* fnDone, fnFail, fnProgress */ ) {
 					var fns = arguments;
 					return jQuery.Deferred(function( newDefer ) {
@@ -35,21 +35,21 @@ jQuery.extend({
 										.done( newDefer.resolve )
 										.fail( newDefer.reject )
 										.progress( newDefer.notify );
-								***REMOVED*** else {
+								} else {
 									newDefer[ tuple[ 0 ] + "With" ]( this === promise ? newDefer.promise() : this, fn ? [ returned ] : arguments );
-								***REMOVED***
-							***REMOVED***);
-						***REMOVED***);
+								}
+							});
+						});
 						fns = null;
-					***REMOVED***).promise();
-				***REMOVED***,
+					}).promise();
+				},
 				// Get a promise for this deferred
 				// If obj is provided, the promise aspect is added to the object
 				promise: function( obj ) {
 					return obj != null ? jQuery.extend( obj, promise ) : promise;
-				***REMOVED***
-			***REMOVED***,
-			deferred = {***REMOVED***;
+				}
+			},
+			deferred = {};
 
 		// Keep pipe for back-compat
 		promise.pipe = promise.then;
@@ -69,16 +69,16 @@ jQuery.extend({
 					state = stateString;
 
 				// [ reject_list | resolve_list ].disable; progress_list.lock
-				***REMOVED***, tuples[ i ^ 1 ][ 2 ].disable, tuples[ 2 ][ 2 ].lock );
-			***REMOVED***
+				}, tuples[ i ^ 1 ][ 2 ].disable, tuples[ 2 ][ 2 ].lock );
+			}
 
 			// deferred[ resolve | reject | notify ]
 			deferred[ tuple[0] ] = function() {
 				deferred[ tuple[0] + "With" ]( this === deferred ? promise : this, arguments );
 				return this;
-			***REMOVED***;
+			};
 			deferred[ tuple[0] + "With" ] = list.fireWith;
-		***REMOVED***);
+		});
 
 		// Make the deferred a promise
 		promise.promise( deferred );
@@ -86,11 +86,11 @@ jQuery.extend({
 		// Call given func if any
 		if ( func ) {
 			func.call( deferred, deferred );
-		***REMOVED***
+		}
 
 		// All done!
 		return deferred;
-	***REMOVED***,
+	},
 
 	// Deferred helper
 	when: function( subordinate /* , ..., subordinateN */ ) {
@@ -111,11 +111,11 @@ jQuery.extend({
 					values[ i ] = arguments.length > 1 ? slice.call( arguments ) : value;
 					if ( values === progressValues ) {
 						deferred.notifyWith( contexts, values );
-					***REMOVED*** else if ( !( --remaining ) ) {
+					} else if ( !( --remaining ) ) {
 						deferred.resolveWith( contexts, values );
-					***REMOVED***
-				***REMOVED***;
-			***REMOVED***,
+					}
+				};
+			},
 
 			progressValues, progressContexts, resolveContexts;
 
@@ -130,20 +130,20 @@ jQuery.extend({
 						.done( updateFunc( i, resolveContexts, resolveValues ) )
 						.fail( deferred.reject )
 						.progress( updateFunc( i, progressContexts, progressValues ) );
-				***REMOVED*** else {
+				} else {
 					--remaining;
-				***REMOVED***
-			***REMOVED***
-		***REMOVED***
+				}
+			}
+		}
 
 		// If we're not waiting on anything, resolve the master
 		if ( !remaining ) {
 			deferred.resolveWith( resolveContexts, resolveValues );
-		***REMOVED***
+		}
 
 		return deferred.promise();
-	***REMOVED***
-***REMOVED***);
+	}
+});
 
 return jQuery;
-***REMOVED***);
+});

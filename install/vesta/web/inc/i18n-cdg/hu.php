@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 /**
  * Vesta hungarian language file
  * Fordítás: 2014.06.18. Kovács Ákos - (kovacsakos1991@gmail.com)

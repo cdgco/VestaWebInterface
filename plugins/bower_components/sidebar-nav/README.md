@@ -70,7 +70,7 @@ For auto collapse support.
 ```javascript
   $("#menu").metisMenu({
     toggle: false
-  ***REMOVED***);
+  });
 ```
 
 #### doubleTapToGo
@@ -82,7 +82,7 @@ For double tap support.
 ```javascript
   $("#menu").metisMenu({
     doubleTapToGo: true
-  ***REMOVED***);
+  });
 ```
 
 

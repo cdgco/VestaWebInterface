@@ -15,15 +15,15 @@
 
   var Button = function (element, options) {
     this.$element  = $(element)
-    this.options   = $.extend({***REMOVED***, Button.DEFAULTS, options)
+    this.options   = $.extend({}, Button.DEFAULTS, options)
     this.isLoading = false
-  ***REMOVED***
+  }
 
   Button.VERSION  = '3.3.6'
 
   Button.DEFAULTS = {
     loadingText: 'loading...'
-  ***REMOVED***
+  }
 
   Button.prototype.setState = function (state) {
     var d    = 'disabled'
@@ -42,12 +42,12 @@
       if (state == 'loadingText') {
         this.isLoading = true
         $el.addClass(d).attr(d, d)
-      ***REMOVED*** else if (this.isLoading) {
+      } else if (this.isLoading) {
         this.isLoading = false
         $el.removeClass(d).removeAttr(d)
-      ***REMOVED***
-    ***REMOVED***, this), 0)
-  ***REMOVED***
+      }
+    }, this), 0)
+  }
 
   Button.prototype.toggle = function () {
     var changed = true
@@ -59,17 +59,17 @@
         if ($input.prop('checked')) changed = false
         $parent.find('.active').removeClass('active')
         this.$element.addClass('active')
-      ***REMOVED*** else if ($input.prop('type') == 'checkbox') {
+      } else if ($input.prop('type') == 'checkbox') {
         if (($input.prop('checked')) !== this.$element.hasClass('active')) changed = false
         this.$element.toggleClass('active')
-      ***REMOVED***
+      }
       $input.prop('checked', this.$element.hasClass('active'))
       if (changed) $input.trigger('change')
-    ***REMOVED*** else {
+    } else {
       this.$element.attr('aria-pressed', !this.$element.hasClass('active'))
       this.$element.toggleClass('active')
-    ***REMOVED***
-  ***REMOVED***
+    }
+  }
 
 
   // BUTTON PLUGIN DEFINITION
@@ -85,8 +85,8 @@
 
       if (option == 'toggle') data.toggle()
       else if (option) data.setState(option)
-    ***REMOVED***)
-  ***REMOVED***
+    })
+  }
 
   var old = $.fn.button
 
@@ -100,7 +100,7 @@
   $.fn.button.noConflict = function () {
     $.fn.button = old
     return this
-  ***REMOVED***
+  }
 
 
   // BUTTON DATA-API
@@ -112,9 +112,9 @@
       if (!$btn.hasClass('btn')) $btn = $btn.closest('.btn')
       Plugin.call($btn, 'toggle')
       if (!($(e.target).is('input[type="radio"]') || $(e.target).is('input[type="checkbox"]'))) e.preventDefault()
-    ***REMOVED***)
+    })
     .on('focus.bs.button.data-api blur.bs.button.data-api', '[data-toggle^="button"]', function (e) {
       $(e.target).closest('.btn').toggleClass('focus', /^focus(in)?$/.test(e.type))
-    ***REMOVED***)
+    })
 
-***REMOVED***(jQuery);
+}(jQuery);

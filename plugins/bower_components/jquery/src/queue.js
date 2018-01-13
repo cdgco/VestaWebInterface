@@ -17,13 +17,13 @@ jQuery.extend({
 			if ( data ) {
 				if ( !queue || jQuery.isArray( data ) ) {
 					queue = data_priv.access( elem, type, jQuery.makeArray(data) );
-				***REMOVED*** else {
+				} else {
 					queue.push( data );
-				***REMOVED***
-			***REMOVED***
+				}
+			}
 			return queue || [];
-		***REMOVED***
-	***REMOVED***,
+		}
+	},
 
 	dequeue: function( elem, type ) {
 		type = type || "fx";
@@ -34,13 +34,13 @@ jQuery.extend({
 			hooks = jQuery._queueHooks( elem, type ),
 			next = function() {
 				jQuery.dequeue( elem, type );
-			***REMOVED***;
+			};
 
 		// If the fx queue is dequeued, always remove the progress sentinel
 		if ( fn === "inprogress" ) {
 			fn = queue.shift();
 			startLength--;
-		***REMOVED***
+		}
 
 		if ( fn ) {
 
@@ -48,17 +48,17 @@ jQuery.extend({
 			// automatically dequeued
 			if ( type === "fx" ) {
 				queue.unshift( "inprogress" );
-			***REMOVED***
+			}
 
 			// Clear up the last queue stop function
 			delete hooks.stop;
 			fn.call( elem, next, hooks );
-		***REMOVED***
+		}
 
 		if ( !startLength && hooks ) {
 			hooks.empty.fire();
-		***REMOVED***
-	***REMOVED***,
+		}
+	},
 
 	// Not public - generate a queueHooks object, or return the current one
 	_queueHooks: function( elem, type ) {
@@ -66,10 +66,10 @@ jQuery.extend({
 		return data_priv.get( elem, key ) || data_priv.access( elem, key, {
 			empty: jQuery.Callbacks("once memory").add(function() {
 				data_priv.remove( elem, [ type + "queue", key ] );
-			***REMOVED***)
-		***REMOVED***);
-	***REMOVED***
-***REMOVED***);
+			})
+		});
+	}
+});
 
 jQuery.fn.extend({
 	queue: function( type, data ) {
@@ -79,11 +79,11 @@ jQuery.fn.extend({
 			data = type;
 			type = "fx";
 			setter--;
-		***REMOVED***
+		}
 
 		if ( arguments.length < setter ) {
 			return jQuery.queue( this[0], type );
-		***REMOVED***
+		}
 
 		return data === undefined ?
 			this :
@@ -95,17 +95,17 @@ jQuery.fn.extend({
 
 				if ( type === "fx" && queue[0] !== "inprogress" ) {
 					jQuery.dequeue( this, type );
-				***REMOVED***
-			***REMOVED***);
-	***REMOVED***,
+				}
+			});
+	},
 	dequeue: function( type ) {
 		return this.each(function() {
 			jQuery.dequeue( this, type );
-		***REMOVED***);
-	***REMOVED***,
+		});
+	},
 	clearQueue: function( type ) {
 		return this.queue( type || "fx", [] );
-	***REMOVED***,
+	},
 	// Get a promise resolved when queues of a certain type
 	// are emptied (fx is the type by default)
 	promise: function( type, obj ) {
@@ -117,13 +117,13 @@ jQuery.fn.extend({
 			resolve = function() {
 				if ( !( --count ) ) {
 					defer.resolveWith( elements, [ elements ] );
-				***REMOVED***
-			***REMOVED***;
+				}
+			};
 
 		if ( typeof type !== "string" ) {
 			obj = type;
 			type = undefined;
-		***REMOVED***
+		}
 		type = type || "fx";
 
 		while ( i-- ) {
@@ -131,12 +131,12 @@ jQuery.fn.extend({
 			if ( tmp && tmp.empty ) {
 				count++;
 				tmp.empty.add( resolve );
-			***REMOVED***
-		***REMOVED***
+			}
+		}
 		resolve();
 		return defer.promise( obj );
-	***REMOVED***
-***REMOVED***);
+	}
+});
 
 return jQuery;
-***REMOVED***);
+});

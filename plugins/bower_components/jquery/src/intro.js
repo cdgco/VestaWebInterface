@@ -27,15 +27,15 @@
 			function( w ) {
 				if ( !w.document ) {
 					throw new Error( "jQuery requires a window with a document" );
-				***REMOVED***
+				}
 				return factory( w );
-			***REMOVED***;
-	***REMOVED*** else {
+			};
+	} else {
 		factory( global );
-	***REMOVED***
+	}
 
 // Pass this if window is not defined yet
-***REMOVED***(typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
+}(typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
 
 // Support: Firefox 18+
 // Can't be in strict mode, several libs including ASP.NET trace

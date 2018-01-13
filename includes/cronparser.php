@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 /*
  * Plugin:        StreamlineFoundation
  *
@@ -67,7 +67,7 @@ class CronSchedule
 	public function __construct($language = 'en')
 	{
 		$this->initLang($language);
-	***REMOVED***
+	}
 	//
 	// Function:    fromCronString
 	//
@@ -83,9 +83,9 @@ class CronSchedule
 		// Split input liberal. Single or multiple Spaces, Tabs and Newlines are all allowed as separators.
 		if(count($elements = preg_split('/\s+/', $cronSpec)) < 5)
 			throw new Exception('Invalid specification.');
-		***REMOVED******REMOVED***/////////////////////////
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Named ranges in cron entries
-		***REMOVED******REMOVED***/////////////////////////
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		$arrMonths        = array('JAN' => 1, 'FEB' => 2, 'MAR' => 3, 'APR' => 4, 'MAY' => 5, 'JUN' => 6, 'JUL' => 7, 'AUG' => 8, 'SEP' => 9, 'OCT' => 10, 'NOV' => 11, 'DEC' => 12);
 		$arrDaysOfWeek    = array('SUN' => 0, 'MON' => 1, 'TUE' => 2, 'WED' => 3, 'THU' => 4, 'FRI' => 5, 'SAT' => 6);
 		// Translate the cron specification into arrays that hold specifications of the actual dates
@@ -103,9 +103,9 @@ class CronSchedule
 		if (isset($elements[5])) {
 			$newCron->_cronYears        = $newCron->cronInterpret($elements[5], $newCron->RANGE_YEARS_MIN, $newCron->RANGE_YEARS_MAX, array(),            'years');
 			$newCron->_years            = $newCron->cronCreateItems($newCron->_cronYears);
-		***REMOVED***
+		}
 		return $newCron;
-	***REMOVED***
+	}
 	/*
 	 * Function:    cronInterpret
 	 *
@@ -137,7 +137,7 @@ class CronSchedule
 		{
 			$hasRange        = (($posRange        = strpos($segment, '-')) !== FALSE);
 			$hasInterval    = (($posIncrement    = strpos($segment, '/')) !== FALSE);
-			***REMOVED******REMOVED***/////////////////////
+			/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			// Check: Increment without range is invalid
 			//if(!$hasRange && $hasInterval)                                                throw new \Exception("Invalid Range ($errorName).");
 			// Check: Increment must be final specification
@@ -152,19 +152,19 @@ class CronSchedule
 			{
 				$segmentNumber1 = substr($segment, 0, $posIncrement);
 				$segmentIncrement = substr($segment, $posIncrement + 1);
-			***REMOVED***
+			}
 			if($hasRange)
 			{
 				$segmentNumber2 = substr($segmentNumber1, $posRange + 1);
 				$segmentNumber1 = substr($segmentNumber1, 0, $posRange);
-			***REMOVED***
+			}
 			// Get and validate first value in range
 			if($segmentNumber1 == '*')
 			{
 				$intNumber1 = $rangeMin;
 				$intNumber2 = $rangeMax;
 				$hasRange    = TRUE;
-			***REMOVED***
+			}
 			else
 			{
 				if(array_key_exists(strtoupper($segmentNumber1), $namedItems)) $segmentNumber1 = $namedItems[strtoupper($segmentNumber1)];
@@ -177,14 +177,14 @@ class CronSchedule
 					if(((string) ($intNumber2 = (int) $segmentNumber2)) != $segmentNumber2)    throw new \Exception("Invalid symbol ($errorName).");
 					if(($intNumber2 < $rangeMin) || ($intNumber2 > $rangeMax))                throw new \Exception("Out of bounds ($errorName).");
 					if($intNumber1 > $intNumber2)                                            throw new \Exception("Invalid range ($errorName).");
-				***REMOVED***
-			***REMOVED***
+				}
+			}
 			// Get and validate increment
 			if($hasInterval)
 			{
 				if(($intIncrement = (int) $segmentIncrement) != $segmentIncrement)        throw new \Exception("Invalid symbol ($errorName).");
 				if($intIncrement < 1)                                                    throw new \Exception("Out of bounds ($errorName).");
-			***REMOVED***
+			}
 			// Apply range and increment
 			$elem = array();
 			$elem['number1'] = $intNumber1;
@@ -193,11 +193,11 @@ class CronSchedule
 			{
 				$elem['number2']    = $intNumber2;
 				$elem['interval']    = $intIncrement;
-			***REMOVED***
+			}
 			$specs['elements'][] = $elem;
-		***REMOVED***
+		}
 		return $specs;
-	***REMOVED***
+	}
 	//
 	// Function:    cronCreateItems
 	//
@@ -224,10 +224,10 @@ class CronSchedule
 			else
 				for($number = $elem['number1']; $number <= $elem['number2']; $number += $elem['interval'])
 					$items[$number] = TRUE;
-		***REMOVED***
+		}
 		ksort($items);
 		return $items;
-	***REMOVED***
+	}
 	//
 	// Function:    dtFromParameters
 	//
@@ -246,25 +246,25 @@ class CronSchedule
 		{
 			$arrTime = getDate();
 			return array($arrTime['minutes'], $arrTime['hours'], $arrTime['mday'], $arrTime['mon'], $arrTime['year']);
-		***REMOVED***
+		}
 		elseif(is_array($time))
 			return $time;
 		elseif(is_string($time))
 		{
 			$arrTime = getDate(strtotime($time));
 			return array($arrTime['minutes'], $arrTime['hours'], $arrTime['mday'], $arrTime['mon'], $arrTime['year']);
-		***REMOVED***elseif(is_int($time))
+		}elseif(is_int($time))
 		{
 			$arrTime = getDate($time);
 			return array($arrTime['minutes'], $arrTime['hours'], $arrTime['mday'], $arrTime['mon'], $arrTime['year']);
-		***REMOVED***
-	***REMOVED***
+		}
+	}
 	final private function dtAsString($arrDt)
 	{
 		if($arrDt === FALSE)
 			return FALSE;
 		return $arrDt[4].'-'.(strlen($arrDt[3]) == 1 ? '0' : '').$arrDt[3].'-'.(strlen($arrDt[2]) == 1 ? '0' : '').$arrDt[2].' '.(strlen($arrDt[1]) == 1 ? '0' : '').$arrDt[1].':'.(strlen($arrDt[0]) == 1 ? '0' : '').$arrDt[0].':00';
-	***REMOVED***
+	}
 	//
 	// Function:    match
 	//
@@ -295,7 +295,7 @@ class CronSchedule
 		// Minutes
 		if(!array_key_exists($arrDT[0], $this->_minutes)) return FALSE;
 		return TRUE;
-	***REMOVED***
+	}
 	//
 	// Function:    next
 	//
@@ -329,29 +329,29 @@ class CronSchedule
 				$arrDT[1] = $this->getEarliestItem($this->_hours);
 				$arrDT[0] = $this->getEarliestItem($this->_minutes);
 				break;
-			***REMOVED*** elseif(!array_key_exists($arrDT[3], $this->_months))
+			} elseif(!array_key_exists($arrDT[3], $this->_months))
 			{
 				$arrDT[3] = $this->getEarliestItem($this->_months, $arrDT[3]);
 				$arrDT[2] = $this->getEarliestItem($this->_daysOfMonth);
 				$arrDT[1] = $this->getEarliestItem($this->_hours);
 				$arrDT[0] = $this->getEarliestItem($this->_minutes);
 				break;
-			***REMOVED*** elseif(!array_key_exists($arrDT[2], $this->_daysOfMonth))
+			} elseif(!array_key_exists($arrDT[2], $this->_daysOfMonth))
 			{
 				$arrDT[2] = $this->getEarliestItem($this->_daysOfMonth, $arrDT[2]);
 				$arrDT[1] = $this->getEarliestItem($this->_hours);
 				$arrDT[0] = $this->getEarliestItem($this->_minutes);
 				break;
-			***REMOVED*** elseif(!array_key_exists($arrDT[1], $this->_hours))
+			} elseif(!array_key_exists($arrDT[1], $this->_hours))
 			{
 				$arrDT[1] = $this->getEarliestItem($this->_hours, $arrDT[1]);
 				$arrDT[0] = $this->getEarliestItem($this->_minutes);
 				break;
-			***REMOVED*** elseif(!array_key_exists($arrDT[1], $this->_hours))
+			} elseif(!array_key_exists($arrDT[1], $this->_hours))
 			{
 				$arrDT[0] = $this->getEarliestItem($this->_minutes, $arrDT[0]);
 				break;
-			***REMOVED***
+			}
 			// Advance minute, hour, date, month and year while overflowing.
 			$daysInThisMonth = date('t', strtotime($arrDT[4].'-'.$arrDT[3]));
 			if($this->advanceItem($this->_minutes, 0, 59, $arrDT[0]))
@@ -361,22 +361,22 @@ class CronSchedule
 							if($this->advanceItem($this->_years, $this->RANGE_YEARS_MIN, $this->RANGE_YEARS_MAX, $arrDT[4]))
 								return FALSE;
 			break;
-		***REMOVED***
+		}
 		// If Datetime now points to a day that is schedule then return.
 		$dayOfWeek = date('w', strtotime($this->dtAsString($arrDT)));
 		if(array_key_exists($dayOfWeek, $this->_daysOfWeek))
 			return $arrDT;
 		// Otherwise move to next scheduled date
 		return $this->next($arrDT);
-	***REMOVED***
+	}
 	final public function nextAsString($time)
 	{
 		return $this->dtAsString($this->next($time));
-	***REMOVED***
+	}
 	final public function nextAsTime($time)
 	{
 		return strtotime($this->dtAsString($this->next($time)));
-	***REMOVED***
+	}
 	//
 	// Function:    advanceItem
 	//
@@ -403,7 +403,7 @@ class CronSchedule
 		// Or overflow
 		$current = $this->getEarliestItem($arrItems);
 		return TRUE;
-	***REMOVED***
+	}
 	//
 	// Function:    getEarliestItem
 	//
@@ -419,7 +419,7 @@ class CronSchedule
 		{
 			reset($arrItems);
 			return key($arrItems);
-		***REMOVED***
+		}
 		// Or parse until we passed $afterItem
 		foreach($arrItems as $key => $value)
 			if($key > $afterItem)
@@ -429,7 +429,7 @@ class CronSchedule
 			return FALSE;
 		reset($arrItems);
 		return key($arrItems);
-	***REMOVED***
+	}
 	//
 	// Function:    previous
 	//
@@ -463,29 +463,29 @@ class CronSchedule
 				$arrDT[1] = $this->getLatestItem($this->_hours);
 				$arrDT[0] = $this->getLatestItem($this->_minutes);
 				break;
-			***REMOVED*** elseif(!array_key_exists($arrDT[3], $this->_months))
+			} elseif(!array_key_exists($arrDT[3], $this->_months))
 			{
 				$arrDT[3] = $this->getLatestItem($this->_months, $arrDT[3]);
 				$arrDT[2] = $this->getLatestItem($this->_daysOfMonth);
 				$arrDT[1] = $this->getLatestItem($this->_hours);
 				$arrDT[0] = $this->getLatestItem($this->_minutes);
 				break;
-			***REMOVED*** elseif(!array_key_exists($arrDT[2], $this->_daysOfMonth))
+			} elseif(!array_key_exists($arrDT[2], $this->_daysOfMonth))
 			{
 				$arrDT[2] = $this->getLatestItem($this->_daysOfMonth, $arrDT[2]);
 				$arrDT[1] = $this->getLatestItem($this->_hours);
 				$arrDT[0] = $this->getLatestItem($this->_minutes);
 				break;
-			***REMOVED*** elseif(!array_key_exists($arrDT[1], $this->_hours))
+			} elseif(!array_key_exists($arrDT[1], $this->_hours))
 			{
 				$arrDT[1] = $this->getLatestItem($this->_hours, $arrDT[1]);
 				$arrDT[0] = $this->getLatestItem($this->_minutes);
 				break;
-			***REMOVED*** elseif(!array_key_exists($arrDT[1], $this->_hours))
+			} elseif(!array_key_exists($arrDT[1], $this->_hours))
 			{
 				$arrDT[0] = $this->getLatestItem($this->_minutes, $arrDT[0]);
 				break;
-			***REMOVED***
+			}
 			// Recede minute, hour, date, month and year while overflowing.
 			$daysInPreviousMonth = date('t', strtotime('-1 month', strtotime($arrDT[4].'-'.$arrDT[3])));
 			if($this->recedeItem($this->_minutes, 0, 59, $arrDT[0]))
@@ -495,22 +495,22 @@ class CronSchedule
 							if($this->recedeItem($this->_years, $this->RANGE_YEARS_MIN, $this->RANGE_YEARS_MAX, $arrDT[4]))
 								return FALSE;
 			break;
-		***REMOVED***
+		}
 		// If Datetime now points to a day that is schedule then return.
 		$dayOfWeek = date('w', strtotime($this->dtAsString($arrDT)));
 		if(array_key_exists($dayOfWeek, $this->_daysOfWeek))
 			return $arrDT;
 		// Otherwise move to next scheduled date
 		return $this->previous($arrDT);
-	***REMOVED***
+	}
 	final public function previousAsString($time)
 	{
 		return $this->dtAsString($this->previous($time));
-	***REMOVED***
+	}
 	final public function previousAsTime($time)
 	{
 		return strtotime($this->dtAsString($this->previous($time)));
-	***REMOVED***
+	}
 	//
 	// Function:    recedeItem
 	//
@@ -537,7 +537,7 @@ class CronSchedule
 		// Or overflow
 		$current = $this->getLatestItem($arrItems, $rangeMax + 1);
 		return TRUE;
-	***REMOVED***
+	}
 	//
 	// Function:    getLatestItem
 	//
@@ -553,20 +553,20 @@ class CronSchedule
 		{
 			end($arrItems);
 			return key($arrItems);
-		***REMOVED***
+		}
 		// Or parse until we passed $beforeItem
 		end($arrItems);
 		do
 		{
 			if(($key = key($arrItems)) < $beforeItem)
 				return $key;
-		***REMOVED*** while(prev($arrItems));
+		} while(prev($arrItems));
 		// If still nothing found, we may have exhausted our options.
 		if(!$allowOverflow)
 			return FALSE;
 		end($arrItems);
 		return key($arrItems);
-	***REMOVED***
+	}
 	//
 	// Function:
 	//
@@ -581,7 +581,7 @@ class CronSchedule
 		if(!$this->classIsSpecified($spec))        return '0';
 		if($this->classIsSingleFixed($spec))    return '1';
 		return '2';
-	***REMOVED***
+	}
 	//
 	// Function:
 	//
@@ -599,7 +599,7 @@ class CronSchedule
 		if($spec['elements'][0]['number2'] != $spec['rangeMax'])    return TRUE;
 		if($spec['elements'][0]['interval'] != 1)                    return TRUE;
 		return FALSE;
-	***REMOVED***
+	}
 	//
 	// Function:
 	//
@@ -613,7 +613,7 @@ class CronSchedule
 	final private function classIsSingleFixed($spec)
 	{
 		return (count($spec['elements']) == 1) && (!$spec['elements'][0]['hasInterval']);
-	***REMOVED***
+	}
 	final private function initLang($language = 'en')
 	{
 		switch($language)
@@ -854,12 +854,12 @@ class CronSchedule
 				$this->_lang['ordinal: 58']                                        = '58e';
 				$this->_lang['ordinal: 59']                                        = '59e';
 				break;
-		***REMOVED***
-	***REMOVED***
+		}
+	}
 	final private function natlangPad2($number)
 	{
 		return (strlen($number) == 1 ? '0' : '').$number;
-	***REMOVED***
+	}
 	final private function natlangApply($id, $p1 = FALSE, $p2 = FALSE, $p3 = FALSE, $p4 = FALSE, $p5 = FALSE, $p6 = FALSE)
 	{
 		$txt = $this->_lang[$id];
@@ -870,7 +870,7 @@ class CronSchedule
 		if($p5 !== FALSE)    $txt = str_replace('@5', $p5, $txt);
 		if($p6 !== FALSE)    $txt = str_replace('@6', $p6, $txt);
 		return $txt;
-	***REMOVED***
+	}
 	//
 	// Function:    natlangRange
 	//
@@ -889,7 +889,7 @@ class CronSchedule
 		for($index = 0; $index < count($arrIntervals); $index++)
 			$txt .= ($index == 0 ? '' : ($index == (count($arrIntervals) - 1) ? ' '.$this->natlangApply('separator_and').' ' : ', ')).$arrIntervals[$index];
 		return $txt;
-	***REMOVED***
+	}
 	//
 	// Function:    natlangElementMinute
 	//
@@ -901,12 +901,12 @@ class CronSchedule
 		{
 			if($elem['number1'] == 0)    return $this->natlangApply('elemMin: at_the_hour');
 			else                        return $this->natlangApply('elemMin: after_the_hour_every_X_minute'.($elem['number1'] == 1 ? '' : '_plural'), $elem['number1']);
-		***REMOVED***
+		}
 		$txt = $this->natlangApply('elemMin: every_consecutive_minute'.($elem['interval'] == 1 ? '' : '_plural'), $elem['interval']);
 		if(($elem['number1'] != $this->_cronMinutes['rangeMin']) || ($elem['number2'] != $this->_cronMinutes['rangeMax']))
 			$txt .= ' ('.$this->natlangApply('elemMin: between_X_and_Y', $this->natlangApply('ordinal: '.$elem['number1']), $this->natlangApply('ordinal: '.$elem['number2'])).')';
 		return $txt;
-	***REMOVED***
+	}
 	//
 	// Function:    natlangElementHour
 	//
@@ -918,13 +918,13 @@ class CronSchedule
 		{
 			if($asBetween)    return $this->natlangApply('elemHour: between_X:00_and_Y:59', $this->natlangPad2($elem['number1']), $this->natlangPad2($elem['number1']));
 			else            return $this->natlangApply('elemHour: past_X:00', $this->natlangPad2($elem['number1']));
-		***REMOVED***
+		}
 		if($asBetween)        $txt = $this->natlangApply('elemHour: in_the_60_minutes_past_'.($elem['interval'] == 1 ? '' : '_plural'), $elem['interval']);
 		else                $txt = $this->natlangApply('elemHour: past_every_consecutive_'.($elem['interval'] == 1 ? '' : '_plural'), $elem['interval']);
 		if(($elem['number1'] != $this->_cronHours['rangeMin']) || ($elem['number2'] != $this->_cronHours['rangeMax']))
 			$txt .= ' ('.$this->natlangApply('elemHour: between_X:00_and_Y:59', $elem['number1'], $elem['number2']).')';
 		return $txt;
-	***REMOVED***
+	}
 	//
 	// Function:    natlangElementDayOfMonth
 	//
@@ -938,7 +938,7 @@ class CronSchedule
 		if(($elem['number1'] != $this->_cronHours['rangeMin']) || ($elem['number2'] != $this->_cronHours['rangeMax']))
 			$txt .= ' ('.$this->natlangApply('elemDOM: between_the_Xth_and_Yth', $this->natlangApply('ordinal: '.$elem['number1']), $this->natlangApply('ordinal: '.$elem['number2'])).')';
 		return $txt;
-	***REMOVED***
+	}
 	//
 	// Function:    natlangElementDayOfMonth
 	//
@@ -952,7 +952,7 @@ class CronSchedule
 		if(($elem['number1'] != $this->_cronMonths['rangeMin']) || ($elem['number2'] != $this->_cronMonths['rangeMax']))
 			$txt .= ' ('.$this->natlangApply('elemMonth: between_X_and_Y', $this->natlangApply('month: '.$elem['number1']), $this->natlangApply('month: '.$elem['number2'])).')';
 		return $txt;
-	***REMOVED***
+	}
 	//
 	// Function:    natlangElementYear
 	//
@@ -966,7 +966,7 @@ class CronSchedule
 		if(($elem['number1'] != $this->_cronMonths['rangeMin']) || ($elem['number2'] != $this->_cronMonths['rangeMax']))
 			$txt .= ' ('.$this->natlangApply('elemYear: from_X_through_Y', $elem['number1'], $elem['number2']).')';
 		return $txt;
-	***REMOVED***
+	}
 	//
 	// Function:    asNaturalLanguage
 	//
@@ -1046,7 +1046,7 @@ class CronSchedule
 			default:
 				$txtTime = $txtMinutes[$classMinutes].' '.$txtHours[$classHours];
 				break;
-		***REMOVED***
+		}
 		// Generate Date String
 		$txtDaysOfMonth        = array();
 		$txtDaysOfMonth[0]    = '';
@@ -1078,7 +1078,7 @@ class CronSchedule
 			default:
 				$txtDate = ' '.$txtDaysOfMonth[$classDaysOfMonth].' '.$txtMonths[$classMonths];
 				break;
-		***REMOVED***
+		}
 		// Generate Year String
 		if ($this->_cronYears) {
 			$txtYears            = array();
@@ -1087,7 +1087,7 @@ class CronSchedule
 			$txtYears[2]        = ' '.$this->natlangApply('elemYear: in_X', $this->natlangRange($this->_cronYears, array($this, 'natlangElementYear')));
 			$classYears            = $this->getClass($this->_cronYears);
 			$txtYear = $txtYears[$classYears];
-		***REMOVED***
+		}
 		// Generate DaysOfWeek String
 		$collectDays = 0;
 		foreach($this->_cronDaysOfWeek['elements'] as $elem)
@@ -1097,14 +1097,14 @@ class CronSchedule
 					$collectDays |= pow(2, $x);
 			else
 				$collectDays |= pow(2, $elem['number1']);
-		***REMOVED***
+		}
 		if($collectDays == 127)    // * all days
 		{
 			if(!$switchDaysOfWeekAreExcluding)
 				$txtDays = ' '.$this->natlangApply('elemDOM: on_every_day');
 			else
 				$txtDays = '';
-		***REMOVED***
+		}
 		else
 		{
 			$arrDays = array();
@@ -1116,15 +1116,15 @@ class CronSchedule
 				$txtDays .= ($index == 0 ? '' : ($index == (count($arrDays) - 1) ? ' '.$this->natlangApply($switchDaysOfWeekAreExcluding ? 'separator_or' : 'separator_and').' ' : ', ')).$this->natlangApply('day: '.$arrDays[$index].'_plural');
 			if($switchDaysOfWeekAreExcluding)    $txtDays = ' '.$this->natlangApply('elemDOW: but_only_on_X', $txtDays);
 			else                                $txtDays = ' '.$this->natlangApply('elemDOW: on_X', $txtDays);
-		***REMOVED***
+		}
 		$txtResult = ucfirst($txtTime).$txtDate.$txtDays;
 		if (isset($txtYear)) {
 			if ($switchDaysOfWeekAreExcluding) {
 				$txtResult = ucfirst($txtTime).$txtDate.$txtYear.$txtDays;
-			***REMOVED*** else {
+			} else {
 				$txtResult = ucfirst($txtTime).$txtDate.$txtDays.$txtYear;
-			***REMOVED***
-		***REMOVED***
+			}
+		}
 		return $txtResult.'.';
-	***REMOVED***
-***REMOVED***
+	}
+}

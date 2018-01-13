@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 /**
  * Vesta language file
  * Nevil Verdoold (nevilverdoold@gmail.com)

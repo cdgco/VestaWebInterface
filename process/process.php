@@ -1,6 +1,6 @@
-***REMOVED***
+<?php
 
-if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); ***REMOVED***  else { header( 'Location: ../install' );***REMOVED***;
+if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); }  else { header( 'Location: ../install' );};
 
 $vst_returncode = 'yes';
 $vst_command = 'v-add-user';
@@ -63,7 +63,7 @@ curl_setopt($curl0, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($curl0, CURLOPT_POST, true);
 curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query($postvars1));
 $r1 = curl_exec($curl0);
-***REMOVED***
+}
 
 // If accessed directly, redirect to 403 error
 header('Location: ../error-pages/403.html');
@@ -71,6 +71,6 @@ header('Location: ../error-pages/403.html');
 // Check result. Send response code
 if(isset($answer)) {
 header("Location: ../login.php?code=".$answer);
-***REMOVED***
+}
 
-***REMOVED***
+?>

@@ -1,11 +1,11 @@
-***REMOVED***
+<?php
 
 session_start();
 
-if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); ***REMOVED***  else { header( 'Location: ../install' );***REMOVED***;
+if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); }  else { header( 'Location: ../install' );};
 
-if(base64_decode($_SESSION['loggedin']) == 'true') {***REMOVED***
-else { header('Location: ../login.php'); ***REMOVED***
+if(base64_decode($_SESSION['loggedin']) == 'true') {}
+else { header('Location: ../login.php'); }
 
 $ssldomain = $_POST['domain'];
 $sslemail = $_POST['email'];
@@ -15,8 +15,8 @@ $sslcity = $_POST['city'];
 $sslorg = $_POST['org'];
 $sslunit = $_POST['unit'];
 
-if (isset($ssldomain) && $ssldomain != '' && isset($sslemail) && $sslemail != '' && isset($sslcountry) && $sslcountry != '' && isset($sslstate) && $sslstate != '' && isset($sslcity) && $sslcity != '' && isset($sslorg) && $sslorg != '' && isset($sslunit) && $sslunit != '' ) {***REMOVED***
-else { header('Location: generatecsr.php?error=0'); ***REMOVED***
+if (isset($ssldomain) && $ssldomain != '' && isset($sslemail) && $sslemail != '' && isset($sslcountry) && $sslcountry != '' && isset($sslstate) && $sslstate != '' && isset($sslcity) && $sslcity != '' && isset($sslorg) && $sslorg != '' && isset($sslunit) && $sslunit != '' ) {}
+else { header('Location: generatecsr.php?error=0'); }
 
 
 $postvars = array(
@@ -28,14 +28,14 @@ $curl1 = curl_init();
 $curlstart = 0; 
 
 while($curlstart <= 1) {
-    curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_URL, $vst_url);
-    curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_RETURNTRANSFER,true);
-    curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_SSL_VERIFYPEER, false);
-    curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_SSL_VERIFYHOST, false);
-    curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_POST, true);
-    curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_POSTFIELDS, http_build_query($postvars[$curlstart]));
+    curl_setopt(${'curl' . $curlstart}, CURLOPT_URL, $vst_url);
+    curl_setopt(${'curl' . $curlstart}, CURLOPT_RETURNTRANSFER,true);
+    curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt(${'curl' . $curlstart}, CURLOPT_POST, true);
+    curl_setopt(${'curl' . $curlstart}, CURLOPT_POSTFIELDS, http_build_query($postvars[$curlstart]));
     $curlstart++;
-***REMOVED*** 
+} 
 
 $admindata = json_decode(curl_exec($curl0), true)[$username];
 $useremail = $admindata['CONTACT'];
@@ -43,7 +43,7 @@ $sslname = array_keys(json_decode(curl_exec($curl1), true));
 $ssldata = array_values(json_decode(curl_exec($curl1), true));
 
 
-***REMOVED***
+?>
 <!-- SEE IF DOMAIN BELONGS TO USER & IF DOMAIN HAS SSL ENABLED -->
 <!DOCTYPE html>
 <html lang="en">
@@ -55,14 +55,14 @@ $ssldata = array_values(json_decode(curl_exec($curl1), true));
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="icon" type="image/ico" href="../plugins/images/favicon.ico">
-        <title>***REMOVED*** echo $sitetitle; ***REMOVED*** - SSL</title>
+        <title><?php echo $sitetitle; ?> - SSL</title>
         <link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
         <link href="../plugins/bower_components/footable/css/footable.bootstrap.css" rel="stylesheet">
         <link href="../plugins/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
         <link href="../css/animate.css" rel="stylesheet">
         <link href="../css/style.css" rel="stylesheet">
-        <link href="../css/colors/***REMOVED*** if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); ***REMOVED*** else {echo $themecolor; ***REMOVED*** ***REMOVED***" id="theme" rel="stylesheet">
+        <link href="../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.min.css" />
         <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -100,13 +100,13 @@ $ssldata = array_values(json_decode(curl_exec($curl1), true));
                     <ul class="nav navbar-top-links navbar-right pull-right">
 
                         <li class="dropdown">
-                            <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs">***REMOVED*** print_r($uname); ***REMOVED***</b><span class="caret"></span> </a>
+                            <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($uname); ?></b><span class="caret"></span> </a>
                             <ul class="dropdown-menu dropdown-user animated flipInY">
                                 <li>
                                     <div class="dw-user-box">
                                         <div class="u-text">
-                                            <h4>***REMOVED*** print_r($uname); ***REMOVED***</h4>
-                                            <p class="text-muted">***REMOVED*** print_r($useremail); ***REMOVED***</p></div>
+                                            <h4><?php print_r($uname); ?></h4>
+                                            <p class="text-muted"><?php print_r($useremail); ?></p></div>
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
@@ -134,7 +134,7 @@ $ssldata = array_values(json_decode(curl_exec($curl1), true));
                         <li> <a href="../index.php" class="waves-effect"><i class="mdi mdi-home fa-fw"></i> <span class="hide-menu">Dashboard</span></a> </li>
                         <li class="devider"></li>
                         <li>
-                            <a active href="#" class="waves-effect"><i class="ti-user fa-fw"></i><span class="hide-menu"> ***REMOVED*** print_r($uname); ***REMOVED***<span class="fa arrow"></span></span></a>
+                            <a active href="#" class="waves-effect"><i class="ti-user fa-fw"></i><span class="hide-menu"> <?php print_r($uname); ?><span class="fa arrow"></span></span></a>
                             <ul class="nav nav-second-level collapse">
                                 <li> <a href="../profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> My Account</span></a></li>
                                 <li> <a active href="../profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> Account Setting</span></a></li>
@@ -182,24 +182,24 @@ $ssldata = array_values(json_decode(curl_exec($curl1), true));
                                     <div class="form-group">
                                         <label class="col-md-12">SSL CSR</label>
                                         <div class="col-md-12">
-                                            <textarea class="form-control" rows="5">***REMOVED*** echo $ssldata[0]['CSR']; ***REMOVED***</textarea>
+                                            <textarea class="form-control" rows="5"><?php echo $ssldata[0]['CSR']; ?></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">SSL Certificate</label>
                                         <div class="col-md-12">
-                                            <textarea class="form-control" rows="5">***REMOVED*** echo $ssldata[0]['CRT']; ***REMOVED***</textarea>
+                                            <textarea class="form-control" rows="5"><?php echo $ssldata[0]['CRT']; ?></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">SSL Key</label>
                                         <div class="col-md-12">
-                                            <textarea class="form-control" rows="5">***REMOVED*** echo $ssldata[0]['KEY']; ***REMOVED***</textarea>
+                                            <textarea class="form-control" rows="5"><?php echo $ssldata[0]['KEY']; ?></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <a href="../edit/domain.php?domain=***REMOVED*** echo $ssldomain; ***REMOVED***"><button class="btn btn-muted">Back</button></a>
+                                            <a href="../edit/domain.php?domain=<?php echo $ssldomain; ?>"><button class="btn btn-muted">Back</button></a>
                                         </div>
                                     </div>
                                 </div>
@@ -207,7 +207,7 @@ $ssldata = array_values(json_decode(curl_exec($curl1), true));
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; Copyright ***REMOVED*** echo date("Y") . ' ' . $sitetitle; ***REMOVED***. All Rights Reserved. Vesta Web Interface ***REMOVED*** require '../includes/versioncheck.php'; ***REMOVED*** by CDG Web Services.</footer>
+                <footer class="footer text-center">&copy; Copyright <?php echo date("Y") . ' ' . $sitetitle; ?>. All Rights Reserved. Vesta Web Interface <?php require '../includes/versioncheck.php'; ?> by CDG Web Services.</footer>
             </div>
         </div>
         <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
@@ -229,11 +229,11 @@ $ssldata = array_values(json_decode(curl_exec($curl1), true));
             (function () {
                 [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {
                     new CBPFWTabs(el);
-                ***REMOVED***);
-            ***REMOVED***)();
+                });
+            })();
             jQuery(function($){
                 $('.footable').footable();
-            ***REMOVED***);
+            });
         </script>
     </body>
 

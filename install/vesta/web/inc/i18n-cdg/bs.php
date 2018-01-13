@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 /**
  * Vesta bosnian bs_BA language file
  * rumi <rumi4acc@gmail.com>

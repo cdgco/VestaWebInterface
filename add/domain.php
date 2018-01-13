@@ -1,11 +1,11 @@
-***REMOVED***
+<?php
 
 session_start();
 
-if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); ***REMOVED***  else { header( 'Location: ../install' );***REMOVED***;
+if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); }  else { header( 'Location: ../install' );};
 
-if(base64_decode($_SESSION['loggedin']) == 'true') {***REMOVED***
-else { header('Location: ../login.php'); ***REMOVED***
+if(base64_decode($_SESSION['loggedin']) == 'true') {}
+else { header('Location: ../login.php'); }
 
 $postvars = array(
     array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
@@ -20,25 +20,25 @@ $curl3 = curl_init();
 $curlstart = 0; 
 
 while($curlstart <= 3) {
-    curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_URL, $vst_url);
-    curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_RETURNTRANSFER,true);
-    curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_SSL_VERIFYPEER, false);
-    curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_SSL_VERIFYHOST, false);
-    curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_POST, true);
-    curl_setopt(${'curl' . $curlstart***REMOVED***, CURLOPT_POSTFIELDS, http_build_query($postvars[$curlstart]));
+    curl_setopt(${'curl' . $curlstart}, CURLOPT_URL, $vst_url);
+    curl_setopt(${'curl' . $curlstart}, CURLOPT_RETURNTRANSFER,true);
+    curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt(${'curl' . $curlstart}, CURLOPT_POST, true);
+    curl_setopt(${'curl' . $curlstart}, CURLOPT_POSTFIELDS, http_build_query($postvars[$curlstart]));
     $curlstart++;
-***REMOVED*** 
+} 
 
 $admindata = json_decode(curl_exec($curl0), true)[$username];
 $useremail = $admindata['CONTACT'];
 $userips = array_keys(json_decode(curl_exec($curl1), true));
 $proxytemplates = array_values(json_decode(curl_exec($curl2), true));
 $webstats = array_values(json_decode(curl_exec($curl3), true));
-if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; ***REMOVED***
+if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
 setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
 bindtextdomain('messages', '../locale');
 textdomain('messages');
-***REMOVED***
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +50,7 @@ textdomain('messages');
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="icon" type="image/ico" href="../plugins/images/favicon.ico">
-        <title>***REMOVED*** echo $sitetitle; ***REMOVED*** - WEB</title>
+        <title><?php echo $sitetitle; ?> - WEB</title>
         <link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
         <link href="../plugins/bower_components/footable/css/footable.bootstrap.css" rel="stylesheet">
@@ -58,10 +58,10 @@ textdomain('messages');
         <link href="../css/animate.css" rel="stylesheet">
         <link href="../css/style.css" rel="stylesheet">
         <link href="../plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
-        <link href="../css/colors/***REMOVED*** if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); ***REMOVED*** else {echo $themecolor; ***REMOVED*** ***REMOVED***" id="theme" rel="stylesheet">
+        <link href="../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.min.css" />
-        ***REMOVED*** if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
-        <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);***REMOVED*** gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; ***REMOVED*** ***REMOVED*** 
+        <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
+        <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?> 
         <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -98,20 +98,20 @@ textdomain('messages');
                     <ul class="nav navbar-top-links navbar-right pull-right">
 
                     <li class="dropdown">
-                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs">***REMOVED*** print_r($uname); ***REMOVED***</b><span class="caret"></span> </a>
+                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($uname); ?></b><span class="caret"></span> </a>
                         <ul class="dropdown-menu dropdown-user animated flipInY">
                             <li>
                                 <div class="dw-user-box">
                                     <div class="u-text">
-                                        <h4>***REMOVED*** print_r($uname); ***REMOVED***</h4>
-                                        <p class="text-muted">***REMOVED*** print_r($useremail); ***REMOVED***</p></div>
+                                        <h4><?php print_r($uname); ?></h4>
+                                        <p class="text-muted"><?php print_r($useremail); ?></p></div>
                                 </div>
                             </li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="../profile.php"><i class="ti-home"></i> ***REMOVED*** echo _("My Account"); ***REMOVED***</a></li>
-                            <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> ***REMOVED*** echo _("Account Settings"); ***REMOVED***</a></li>
+                            <li><a href="../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
+                            <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> ***REMOVED*** echo _("Logout"); ***REMOVED***</a></li>
+                            <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
                         </ul>
                     </li>
                 </ul>
@@ -125,49 +125,49 @@ textdomain('messages');
                             <i class="ti-menu hidden-xs"></i>
                             <i class="ti-close visible-xs"></i>
                         </span> 
-                        <span class="hide-menu">***REMOVED*** echo _("Navigation"); ***REMOVED***</span>
+                        <span class="hide-menu"><?php echo _("Navigation"); ?></span>
                     </h3>  
                 </div>
                <ul class="nav" id="side-menu">
                             <li> 
                                 <a href="../index.php" class="waves-effect">
-                                    <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu">***REMOVED*** echo _("Dashboard"); ***REMOVED***</span>
+                                    <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu"><?php echo _("Dashboard"); ?></span>
                                 </a> 
                             </li>
 
                             <li class="devider"></li>
                             <li>
-                                <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> ***REMOVED*** print_r($uname); ***REMOVED***<span class="fa arrow"></span></span>
+                                <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> <?php print_r($uname); ?><span class="fa arrow"></span></span>
                                 </a>
                                 <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
-                                    <li> <a href="../profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> ***REMOVED*** echo _("My Account"); ***REMOVED***</span></a></li>
-                                    <li> <a href="../profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> ***REMOVED*** echo _("Acount Settings"); ***REMOVED***</span></a></li>
+                                    <li> <a href="../profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> <?php echo _("My Account"); ?></span></a></li>
+                                    <li> <a href="../profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> <?php echo _("Acount Settings"); ?></span></a></li>
                                 </ul>
                             </li>
-                        ***REMOVED*** if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '<li class="devider"></li>
+                        <?php if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '<li class="devider"></li>
                             <li class="active"> <a href="#" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">'. _("Management") . '<span class="fa arrow"></span> </span></a>
-                                <ul class="nav nav-second-level">'; ***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($webenabled == 'true') { echo '<li> <a href="../list/web.php" class="active"><i class="ti-world fa-fw"></i><span class="hide-menu">' . _("Web") . '</span></a> </li>'; ***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($dnsenabled == 'true') { echo '<li> <a href="../list/dns.php"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">' . _("DNS") . '</span></a> </li>'; ***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($mailenabled == 'true') { echo '<li> <a href="../list/mail.php"><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">' . _("Mail") . '</span></a> </li>'; ***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($dbenabled == 'true') { echo '<li> <a href="../list/db.php"><i class="fa fa-database fa-fw"></i><span class="hide-menu">' . _("Database") . '</span></a> </li>'; ***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '</ul>
-                            </li>'; ***REMOVED*** ***REMOVED***
-                        <li> <a href="../list/cron.php" class="waves-effect" class="active"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">***REMOVED*** echo _("Cron Jobs"); ***REMOVED***</span></a> </li>
-                        <li> <a href="../list/backups.php" class="waves-effect"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu">***REMOVED*** echo _("Backups"); ***REMOVED***</span></a> </li>
-                        ***REMOVED*** if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {***REMOVED*** else { echo '<li class="devider"></li>
+                                <ul class="nav nav-second-level">'; } ?>
+                        <?php if ($webenabled == 'true') { echo '<li> <a href="../list/web.php" class="active"><i class="ti-world fa-fw"></i><span class="hide-menu">' . _("Web") . '</span></a> </li>'; } ?>
+                        <?php if ($dnsenabled == 'true') { echo '<li> <a href="../list/dns.php"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">' . _("DNS") . '</span></a> </li>'; } ?>
+                        <?php if ($mailenabled == 'true') { echo '<li> <a href="../list/mail.php"><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">' . _("Mail") . '</span></a> </li>'; } ?>
+                        <?php if ($dbenabled == 'true') { echo '<li> <a href="../list/db.php"><i class="fa fa-database fa-fw"></i><span class="hide-menu">' . _("Database") . '</span></a> </li>'; } ?>
+                        <?php if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '</ul>
+                            </li>'; } ?>
+                        <li> <a href="../list/cron.php" class="waves-effect" class="active"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu"><?php echo _("Cron Jobs"); ?></span></a> </li>
+                        <li> <a href="../list/backups.php" class="waves-effect"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu"><?php echo _("Backups"); ?></span></a> </li>
+                        <?php if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {} else { echo '<li class="devider"></li>
                             <li><a href="#" class="waves-effect"><i class="mdi mdi-apps fa-fw"></i> <span class="hide-menu">' . _("Apps") . '<span class="fa arrow"></span></span></a>
-                                <ul class="nav nav-second-level">'; ***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($ftpurl != '') { echo '<li><a href="' . $ftpurl . '" target="_blank"><i class="fa fa-file-code-o fa-fw"></i><span class="hide-menu">' . _("FTP") . '</span></a></li>';***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($webmailurl != '') { echo '<li><a href="' . $webmailurl . '" target="_blank"><i class="fa fa-envelope-o fa-fw"></i><span class="hide-menu">' . _("Webmail") . '</span></a></li>';***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($phpmyadmin != '') { echo '<li><a href="' . $phpmyadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . _("phpMyAdmin") . '</span></a></li>';***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($phppgadmin != '') { echo '<li><a href="' . $phppgadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . _("phpPgAdmin") . '</span></a></li>';***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {***REMOVED*** else { echo '</ul></li>';***REMOVED*** ***REMOVED***
+                                <ul class="nav nav-second-level">'; } ?>
+                        <?php if ($ftpurl != '') { echo '<li><a href="' . $ftpurl . '" target="_blank"><i class="fa fa-file-code-o fa-fw"></i><span class="hide-menu">' . _("FTP") . '</span></a></li>';} ?>
+                        <?php if ($webmailurl != '') { echo '<li><a href="' . $webmailurl . '" target="_blank"><i class="fa fa-envelope-o fa-fw"></i><span class="hide-menu">' . _("Webmail") . '</span></a></li>';} ?>
+                        <?php if ($phpmyadmin != '') { echo '<li><a href="' . $phpmyadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . _("phpMyAdmin") . '</span></a></li>';} ?>
+                        <?php if ($phppgadmin != '') { echo '<li><a href="' . $phppgadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . _("phpPgAdmin") . '</span></a></li>';} ?>
+                        <?php if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {} else { echo '</ul></li>';} ?>
                         <li class="devider"></li>
-                        <li><a href="../process/logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu">***REMOVED*** echo _("Log out"); ***REMOVED***</span></a></li>
-                        ***REMOVED*** if ($oldcpurl == '' || $supporturl == '') {***REMOVED*** else { echo '<li class="devider"></li>'; ***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($oldcpurl != '') { echo '<li><a href="' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> ' . _("Control Panel v1") . '</span></a></li>'; ***REMOVED*** ***REMOVED***
-                        ***REMOVED*** if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">' . _("Support") . '</span></a></li>'; ***REMOVED*** ***REMOVED***
+                        <li><a href="../process/logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu"><?php echo _("Log out"); ?></span></a></li>
+                        <?php if ($oldcpurl == '' || $supporturl == '') {} else { echo '<li class="devider"></li>'; } ?>
+                        <?php if ($oldcpurl != '') { echo '<li><a href="' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> ' . _("Control Panel v1") . '</span></a></li>'; } ?>
+                        <?php if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">' . _("Support") . '</span></a></li>'; } ?>
                         </ul>
             </div>
         </div>
@@ -175,7 +175,7 @@ textdomain('messages');
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-12 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title">***REMOVED*** echo _("Add Domain"); ***REMOVED***</h4>
+                            <h4 class="page-title"><?php echo _("Add Domain"); ?></h4>
                         </div>
                     </div>
                     <div class="row">
@@ -183,94 +183,94 @@ textdomain('messages');
                             <div class="white-box">
                                 <form class="form-horizontal form-material" autocomplete="off" method="post" action="../create/domain.php">
                                     <div class="form-group">
-                                        <label class="col-md-12">***REMOVED*** echo _("Domain"); ***REMOVED***</label>
+                                        <label class="col-md-12"><?php echo _("Domain"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="v_domain" autocomplete="new-password" id="domain" onkeyup="checkwww();csrlink();" class="form-control"> 
                                         </div>
                                     </div>
                                     <div class="form-group" style="overflow: visible;">
-                                        <label class="col-md-12">***REMOVED*** echo _("IP Address"); ***REMOVED***</label>
+                                        <label class="col-md-12"><?php echo _("IP Address"); ?></label>
                                         <div class="col-md-12">
                                             <select class="form-control" name="v_ip">
-                                                ***REMOVED***
+                                                <?php
                                                 if($userips[0] != '') {
                                                     $x4 = 0; 
 
                                                     do {
                                                         echo '<option value="' . $userips[$x4] . '">' . $userips[$x4] . '</option>';
                                                         $x4++;
-                                                    ***REMOVED*** while ($userips[$x4] != ''); ***REMOVED***
+                                                    } while ($userips[$x4] != ''); }
 
-                                                ***REMOVED***
+                                                ?>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">***REMOVED*** echo _("DNS Support"); ***REMOVED***</label>
+                                        <label class="col-md-12"><?php echo _("DNS Support"); ?></label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
                                                 <input id="checkbox1" name="v_dnsenabled" type="checkbox" checked>
-                                                <label for="checkbox1"> ***REMOVED*** echo _("Enabled"); ***REMOVED*** </label>
+                                                <label for="checkbox1"> <?php echo _("Enabled"); ?> </label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">***REMOVED*** echo _("Mail Support"); ***REMOVED***</label>
+                                        <label class="col-md-12"><?php echo _("Mail Support"); ?></label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
                                                 <input id="checkbox2" name="v_mailenabled" type="checkbox" checked>
-                                                <label for="checkbox2"> ***REMOVED*** echo _("Enabled"); ***REMOVED*** </label>
+                                                <label for="checkbox2"> <?php echo _("Enabled"); ?> </label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><a style="cursor: pointer;" onclick="toggle_visibility('togglediv');">***REMOVED*** echo _("Advanced Options"); ***REMOVED***</a></label>
+                                        <label class="col-md-12"><a style="cursor: pointer;" onclick="toggle_visibility('togglediv');"><?php echo _("Advanced Options"); ?></a></label>
                                     </div>
                                     <div id="togglediv" style="display:none;">
                                         <div class="form-group">
-                                            <label class="col-md-12">***REMOVED*** echo _("Aliases"); ***REMOVED***</label>
+                                            <label class="col-md-12"><?php echo _("Aliases"); ?></label>
                                             <div class="col-md-12">
                                                 <textarea class="form-control aliasfill" name="v_alias" rows="4"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12">***REMOVED*** echo _("Proxy Support"); ***REMOVED***</label>
+                                            <label class="col-md-12"><?php echo _("Proxy Support"); ?></label>
                                             <div class="col-md-12">
                                                 <div class="checkbox checkbox-info">
                                                     <input id="checkbox4" type="checkbox" name="v_proxyenabled" onclick="checkDiv();" checked >
-                                                    <label for="checkbox4"> ***REMOVED*** echo _("Enabled"); ***REMOVED*** </label>
+                                                    <label for="checkbox4"> <?php echo _("Enabled"); ?> </label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group" id="prxextdiv" style="margin-left: 2%;">
-                                            <label class="col-md-12">***REMOVED*** echo _("Proxy Extensions"); ***REMOVED***</label>
+                                            <label class="col-md-12"><?php echo _("Proxy Extensions"); ?></label>
                                             <div class="col-md-12">
                                                 <textarea class="form-control" rows="4" name="v_prxext" id="prxTextArea">jpeg, jpg, png, gif, bmp, ico, svg, tif, tiff, css, js, htm, html, ttf, otf, webp, woff, txt, csv, rtf, doc, docx, xls, xlsx, ppt, pptx, odf, odp, ods, odt, pdf, psd, ai, eot, eps, ps, zip, tar, tgz, gz, rar, bz2, 7z, aac, m4a, mp3, mp4, ogg, wav, wma, 3gp, avi, flv, m4v, mkv, mov, mp4, mpeg, mpg, wmv, exe, iso, dmg, swf</textarea>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="col-md-12">***REMOVED*** echo _("SSL Support"); ***REMOVED***</label>
+                                            <label class="col-md-12"><?php echo _("SSL Support"); ?></label>
                                             <div class="col-md-12">
                                                 <div class="checkbox checkbox-info">
                                                     <input id="checkbox8" type="checkbox" name="v_sslenabled" onclick="checkDiv3();">
-                                                    <label for="checkbox8"> ***REMOVED*** echo _("Enabled"); ***REMOVED*** </label>
+                                                    <label for="checkbox8"> <?php echo _("Enabled"); ?> </label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div id="ssl-div" style="margin-left: 4%;">
                                             <div class="form-group">
-                                                <label class="col-md-12">***REMOVED*** echo _("Let's Encrypt Support"); ***REMOVED***</label>
+                                                <label class="col-md-12"><?php echo _("Let's Encrypt Support"); ?></label>
                                                 <div class="col-md-12">
                                                     <div class="checkbox checkbox-info">
                                                         <input id="checkbox6" type="checkbox" name="v_leenabled">
-                                                        <label for="checkbox6"> ***REMOVED*** echo _("Enabled"); ***REMOVED*** </label>
+                                                        <label for="checkbox6"> <?php echo _("Enabled"); ?> </label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <br>
                                             <div class="form-group">
-                                                <label class="col-md-12">***REMOVED*** echo _("SSL Directory"); ***REMOVED***</label>
+                                                <label class="col-md-12"><?php echo _("SSL Directory"); ?></label>
                                                 <div class="col-md-12">
                                                     <select disabled name="v_ssldir" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static">
                                                         <option value="public_html" selected>public_html</option>
@@ -279,61 +279,61 @@ textdomain('messages');
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-12">***REMOVED*** echo _("SSL Certificate"); ***REMOVED*** / <a class="sslfill">***REMOVED*** echo _("Generate CSR"); ***REMOVED***</a></label>
+                                                <label class="col-md-12"><?php echo _("SSL Certificate"); ?> / <a class="sslfill"><?php echo _("Generate CSR"); ?></a></label>
                                                 <div class="col-md-12">
                                                     <textarea style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_sslcrt" rows="4"></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-12">***REMOVED*** echo _("SSL Key"); ***REMOVED***</label>
+                                                <label class="col-md-12"><?php echo _("SSL Key"); ?></label>
                                                 <div class="col-md-12">
                                                     <textarea style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_sslkey" rows="4"></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-12">***REMOVED*** echo _("SSL Certificate Authority / Intermediate"); ***REMOVED***</label>
+                                                <label class="col-md-12"><?php echo _("SSL Certificate Authority / Intermediate"); ?></label>
                                                 <div class="col-md-12">
                                                     <textarea style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_sslca" rows="4"></textarea>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12">***REMOVED*** echo _("Web Statistics"); ***REMOVED***</label>
+                                            <label class="col-md-12"><?php echo _("Web Statistics"); ?></label>
                                             <div class="col-md-12">
                                                 <select class="form-control select7" onchange="showauth()"name="v_webstats" id="select7">
-                                                    ***REMOVED***
+                                                    <?php
                                                     if($webstats[0] != '') {
                                                         $x6 = 0; 
 
                                                         do {
                                                             echo '<option value="' . $webstats[$x6] . '">' . $webstats[$x6] . '</option>';
                                                             $x6++;
-                                                        ***REMOVED*** while ($webstats[$x6] != ''); ***REMOVED***
+                                                        } while ($webstats[$x6] != ''); }
 
-                                                    ***REMOVED***
+                                                    ?>
                                                 </select>
                                             </div>
                                         </div>
                                         <div id="statsauth" style="margin-left: 4%;">
                                             <div class="form-group">
-                                                <label class="col-md-12">***REMOVED*** echo _("Statistics Authorization"); ***REMOVED***</label>
+                                                <label class="col-md-12"><?php echo _("Statistics Authorization"); ?></label>
                                                 <div class="col-md-12">
                                                     <div class="checkbox checkbox-info">
                                                         <input id="checkbox10" type="checkbox" name="v_statsuserenabled" onclick="checkDiv5();">
-                                                        <label for="checkbox10"> ***REMOVED*** echo _("Enabled"); ***REMOVED*** </label>
+                                                        <label for="checkbox10"> <?php echo _("Enabled"); ?> </label>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div id="stats-div" style="margin-left: 4%;">
                                             <div class="form-group">
-                                                <label class="col-md-12">***REMOVED*** echo _("Username"); ***REMOVED***</label><br>
+                                                <label class="col-md-12"><?php echo _("Username"); ?></label><br>
                                                 <div class="col-md-12">
                                                     <input type="text" autocomplete="new-password" name="v_statsuname" class="form-control"> 
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="v_statspassword" class="col-md-12">***REMOVED*** echo _("Password"); ***REMOVED*** / <a style="cursor:pointer" onclick="generatePassword2(10)"> ***REMOVED*** echo _("Generate"); ***REMOVED***</a></label>
+                                                <label for="v_statspassword" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword2(10)"> <?php echo _("Generate"); ?></a></label>
                                                 <div class="col-md-12 input-group" style="padding-left: 15px;">
                                                     <input type="password" class="form-control form-control-line" autocomplete="new-password" name="v_statspassword" id="statspassword">                                    <span class="input-group-btn"> 
                                                     <button class="btn btn-info" style="margin-right: 15px;" name="Show" onclick="toggler2(this)" id="tg2" type="button"><i class="ti-eye"></i></button> 
@@ -342,43 +342,43 @@ textdomain('messages');
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12">***REMOVED*** echo _("Additional FTP"); ***REMOVED***</label>
+                                            <label class="col-md-12"><?php echo _("Additional FTP"); ?></label>
                                             <div class="col-md-12">
                                                 <div class="checkbox checkbox-info">
                                                     <input id="checkbox9" disabled type="checkbox" name="v_additionalftpenabled" onclick="checkDiv4();">
-                                                    <label for="checkbox9"> ***REMOVED*** echo _("Enabled"); ***REMOVED*** </label>
+                                                    <label for="checkbox9"> <?php echo _("Enabled"); ?> </label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div id="ftp-div" style="margin-left: 4%;">
 
                                             <div class="form-group">
-                                                <label class="col-md-12">***REMOVED*** echo _("Username"); ***REMOVED***</label><br>
+                                                <label class="col-md-12"><?php echo _("Username"); ?></label><br>
                                                 <div class="col-md-12">
                                                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                                                        <div class="input-group-addon">***REMOVED*** print_r($uname); ***REMOVED***_</div>
+                                                        <div class="input-group-addon"><?php print_r($uname); ?>_</div>
                                                         <input type="text" class="form-control" autocomplete="new-password" name="v_ftpuname" style="padding-left: 0.5%;">    
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="password" class="col-md-12">***REMOVED*** echo _("Password"); ***REMOVED*** / <a style="cursor:pointer" onclick="generatePassword(10)"> ***REMOVED*** echo _("Generate"); ***REMOVED***</a></label>
+                                                <label for="password" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10)"> <?php echo _("Generate"); ?></a></label>
                                                 <div class="col-md-12 input-group" style="padding-left: 15px;">
                                                     <input type="password" class="form-control form-control-line" autocomplete="new-password" name="password" id="password">                                    <span class="input-group-btn"> 
                                                     <button class="btn btn-info" style="margin-right: 15px;" name="Show" onclick="toggler(this)" id="tg" type="button"><i class="ti-eye"></i></button> 
                                                     </span>  </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-12">***REMOVED*** echo _("Path"); ***REMOVED***</label>
+                                                <label class="col-md-12"><?php echo _("Path"); ?></label>
                                                 <div class="col-md-12">
                                                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                                         <div class="input-group-addon" id="dirfill"></div>
-                                                        <input type="text" class="form-control" name="v_ftpdir" value="***REMOVED*** echo $ftpdir[0]; ***REMOVED***" style="padding-left: 0.5%;">    
+                                                        <input type="text" class="form-control" name="v_ftpdir" value="<?php echo $ftpdir[0]; ?>" style="padding-left: 0.5%;">    
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-12">***REMOVED*** echo _("Send FTP Credentials to Email:"); ***REMOVED***</label>
+                                                <label class="col-md-12"><?php echo _("Send FTP Credentials to Email:"); ?></label>
                                                 <div class="col-md-12">
                                                     <input type="email" name="v_ftpnotification" autocomplete="new-password" class="form-control"> 
                                                 </div>
@@ -387,8 +387,8 @@ textdomain('messages');
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success">***REMOVED*** echo _("Add Domain"); ***REMOVED***</button> &nbsp;
-                                            <a href="../list/web.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button">***REMOVED*** echo _("Back"); ***REMOVED***</button></a>
+                                            <button class="btn btn-success"><?php echo _("Add Domain"); ?></button> &nbsp;
+                                            <a href="../list/web.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </form>
@@ -396,7 +396,7 @@ textdomain('messages');
                         </div>
                     </div>
                 </div>
-               <footer class="footer text-center">&copy; ***REMOVED*** echo _("Copyright"); ***REMOVED*** ***REMOVED*** echo date("Y") . ' ' . $sitetitle; ***REMOVED***. ***REMOVED*** echo _("All Rights Reserved. Vesta Web Interface"); ***REMOVED*** ***REMOVED*** require '../includes/versioncheck.php'; ***REMOVED*** ***REMOVED*** echo _("by CDG Web Services"); ***REMOVED***.</footer>
+               <footer class="footer text-center">&copy; <?php echo _("Copyright"); ?> <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("All Rights Reserved. Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
             </div>
         </div>
         <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
@@ -421,109 +421,109 @@ textdomain('messages');
             function showauth(){
                 if(document.getElementById('select7').value != 'none') {
                     document.getElementById('statsauth').style.display = "block";
-            ***REMOVED***
+            }
             else {
                 document.getElementById('statsauth').style.display = "none";
-            ***REMOVED******REMOVED***
+            }}
             function checkwww() {
                 var domain = document.getElementById('domain').value;
                 document.getElementsByClassName("aliasfill")[0].innerHTML = 'www.' + domain;
                 var dirDomain = document.getElementById("dirfill");
-                dirDomain.innerHTML = '/home/***REMOVED*** print_r($uname); ***REMOVED***/web/' + domain + '/';
-            ***REMOVED***
+                dirDomain.innerHTML = '/home/<?php print_r($uname); ?>/web/' + domain + '/';
+            }
             function csrlink() {
                 var domain = document.getElementById('domain').value;
                 document.getElementsByClassName("sslfill")[0].href =  '../process/generatecsr.php?domain=' + domain;
-            ***REMOVED***
+            }
             function checkDiv(){
                 if(document.getElementById("checkbox4").checked) {
                     document.getElementById('prxextdiv').style.display = 'block';
-                ***REMOVED***
-                else {document.getElementById('prxextdiv').style.display = 'none';***REMOVED***
-            ***REMOVED***
+                }
+                else {document.getElementById('prxextdiv').style.display = 'none';}
+            }
             function checkDiv2(){
                 if(document.getElementById("checkbox5").checked) {
                     document.getElementById('msg-div').style.display = 'block';
-                ***REMOVED***
-                else {document.getElementById('msg-div').style.display = 'none';***REMOVED***
-            ***REMOVED*** 
+                }
+                else {document.getElementById('msg-div').style.display = 'none';}
+            } 
             function checkDiv3(){
                 if(document.getElementById("checkbox8").checked) {
                     document.getElementById('ssl-div').style.display = 'block';
-                ***REMOVED***
-                else {document.getElementById('ssl-div').style.display = 'none';***REMOVED***
-            ***REMOVED***
+                }
+                else {document.getElementById('ssl-div').style.display = 'none';}
+            }
             function checkDiv4(){
                 if(document.getElementById("checkbox9").checked) {
                     document.getElementById('ftp-div').style.display = 'block';
-                ***REMOVED***
-                else {document.getElementById('ftp-div').style.display = 'none';***REMOVED***
-            ***REMOVED***
+                }
+                else {document.getElementById('ftp-div').style.display = 'none';}
+            }
             function checkDiv5(){
                 if(document.getElementById("checkbox10").checked) {
                     document.getElementById('stats-div').style.display = 'block';
-                ***REMOVED***
-                else {document.getElementById('stats-div').style.display = 'none';***REMOVED***
-            ***REMOVED***
+                }
+                else {document.getElementById('stats-div').style.display = 'none';}
+            }
             function toggle_visibility(id) {
                 var e = document.getElementById(id);
                 if(e.style.display == 'block')
                     e.style.display = 'none';
                 else
                     e.style.display = 'block';
-            ***REMOVED***
+            }
             function toggler(e) {
                 if( e.name == 'Hide' ) {
                     e.name = 'Show'
                     document.getElementById('password').type="password";
-                ***REMOVED*** else {
+                } else {
                     e.name = 'Hide'
                     document.getElementById('password').type="text";
-                ***REMOVED***
-            ***REMOVED***
+                }
+            }
             function toggler2(e) {
                 if( e.name == 'Hide' ) {
                     e.name = 'Show'
                     document.getElementById('statspassword').type="password";
-                ***REMOVED*** else {
+                } else {
                     e.name = 'Hide'
                     document.getElementById('statspassword').type="text";
-                ***REMOVED***
-            ***REMOVED***
+                }
+            }
             $('.datepicker').datepicker();
             (function () {
                 [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {
                     new CBPFWTabs(el);
-                ***REMOVED***);
-            ***REMOVED***)();
+                });
+            })();
 
             jQuery(function($){
                 $('.footable').footable();
-            ***REMOVED***);
+            });
             function generatePassword(length) {
                 var password = '', character; 
                 while (length > password.length) {
                     if (password.indexOf(character = String.fromCharCode(Math.floor(Math.random() * 94) + 33), Math.floor(password.length / 94) * 94) < 0) {
                         password += character;
-                    ***REMOVED***
-                ***REMOVED***
+                    }
+                }
                 document.getElementById('password').value = password;
                 document.getElementById('tg').name='Hide';
                 document.getElementById('password').type="text";
                 fillSpan();
-            ***REMOVED***
+            }
             function generatePassword2(length) {
                 var password = '', character; 
                 while (length > password.length) {
                     if (password.indexOf(character = String.fromCharCode(Math.floor(Math.random() * 94) + 33), Math.floor(password.length / 94) * 94) < 0) {
                         password += character;
-                    ***REMOVED***
-                ***REMOVED***
+                    }
+                }
                 document.getElementById('statspassword').value = password;
                 document.getElementById('tg2').name='Hide';
                 document.getElementById('statspassword').type="text";
                 fillSpan();
-            ***REMOVED***
+            }
         </script>
     </body>
 </html>
