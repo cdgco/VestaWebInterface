@@ -31,6 +31,7 @@ if($_GET['verified'] == "yes"){
 $r1 = curl_exec($curl0);
 $r2 = curl_exec($curl1);
 $r3 = curl_exec($curl2);
+print_r($r1 . '.' . $r2 . '.' . $r3);
 }
 
 // If accessed directly, redirect to 403 error

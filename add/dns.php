@@ -212,7 +212,7 @@ session_start();
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <button class="btn btn-success"><?php echo _("Add Domain"); ?></button> &nbsp;
+                                        <button class="btn btn-success" onclick="processLoader();"><?php echo _("Add Domain"); ?></button> &nbsp;
                                             <a href="../list/dns.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
                                     </div>
                                 </div>
@@ -306,6 +306,15 @@ $('.datepicker').datepicker();
         jQuery(function($){
             $('.footable').footable();
         });
+        function processLoader(){
+            swal({
+              title: '<?php echo _("Processing"); ?>',
+              text: '',
+              timer: 5000,
+              onOpen: function () {
+                swal.showLoading()
+              }
+            })};
     </script>
 </body>
 

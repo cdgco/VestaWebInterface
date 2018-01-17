@@ -19,5 +19,5 @@ curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query($postvars));
 
 $r1 = curl_exec($curl0);
 
-header('Location: ../list/maildomain.php?domain=' $_GET['domain'] . '&delcode=' . $r1);
+header('Location: ../list/maildomain.php?domain=' . $_GET['domain'] . '&delcode=' . $r1);
 ?>

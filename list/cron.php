@@ -410,19 +410,16 @@ swal({
   }
 }).then(
   function () {},
-  // handling the promise rejection
-  function (dismiss) {
-    if (dismiss === 'timer') {
-      console.log('<?php echo _("I was closed by the timer"); ?>')
-    }
-  }
+  function (dismiss) {}
 )
 $.ajax({  
     type: "POST",  
     url: "../delete/cron.php",  
     data: { 'job':e1, 'verified':'yes' },      
-    success:  function(){ window.location = "cron.php?delcode=0"; },
-    error:  function(){ window.location = "cron.php?delcode=0"; }
+    success: function(data){
+       window.location="cron.php?delcode=" + data;
+    },
+    error:  function(){ window.location = "cron.php?delcode=error"; }
     });
 })}
 
@@ -430,10 +427,10 @@ $.ajax({
 
 $xcode = $_GET['delcode'];
 
-if($xcode == "0") {
+if(isset($xcode) && $xcode == "0") {
     echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
 } 
-if($xcode > "0") { echo "swal({title:'" . _("Please try again later or contact support.") . "', type:'error'});";}
+if(isset($xcode) && $xcode > "0") { echo "swal({title:'" . _("Please try again later or contact support.") . "', type:'error'});";}
 ?>
 </script>
 </body>
