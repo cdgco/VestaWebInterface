@@ -19,7 +19,7 @@ if($_GET['verified'] == 'yes'){
     curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query($postvars));
 
     $r1 = curl_exec($curl0);
-    header('Location: ../list/backups.php?returncode=0');
+    header('Location: ../list/backups.php?returncode=' . $r1);
 
 }
 
