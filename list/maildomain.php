@@ -187,8 +187,14 @@ textdomain('messages');
             <div class="row bg-title">
                 <!-- .page title -->
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title"><?php echo _("Manage Mail Accounts"); ?></h4> </div>
-                <!-- /.page title -->
+                    <h4 class="page-title"><?php echo _("Manage Mail Accounts"); ?></h4> 
+                </div>
+               <ul class="side-icon-text pull-right">
+                            <li style="position: relative;top: -3px;">
+                                <a onclick="confirmDelete2();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span><?php echo _("Delete Mail Domain"); ?></span>
+                                </a>
+                            </li>
+                        </ul>
             </div>
             <!-- .row -->
 
@@ -326,30 +332,50 @@ textdomain('messages');
                 }
             }).then(
                 function () {},
-                // handling the promise rejection
-                function (dismiss) {
-                    if (dismiss === 'timer') {
-                        console.log('<?php echo _("I was closed by the timer"); ?>')
-                    }
-                }
+                function (dismiss) {}
             )
             $.ajax({  
                 type: "POST",  
                 url: "../delete/mailaccount.php",  
-                data: { 'domain':e0, 'account':e1, 'verified':'yes' },      
-                success:  function(){ window.location = "maildomain.php?delcode=0&domain=" + e0; },
-                error:  function(){ window.location = "maildomain.php?delcode=0&domain=" + e0; }
+                data: { 'domain':e0, 'account':e1, 'verified':'yes' },
+                success: function(data){
+                   window.location="maildomain.php?delcode=" + data + "&domain=" + e0;
+                },
+                error:  function(){ window.location = "maildomain.php?delcode=error&domain=" + e0; }
             });
+        })}
+    function confirmDelete2(){
+            swal({
+              title: '<?php echo _("Delete Mail Domain"); ?>:<br> <?php echo $requestmail; ?>' + ' ?',
+              text: "<?php echo _("You won't be able to revert this!"); ?>",
+              type: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
+            }).then(function () {
+            swal({
+              title: '<?php echo _("Processing"); ?>',
+              text: '',
+              timer: 5000,
+              onOpen: function () {
+                swal.showLoading()
+              }
+            }).then(
+              function () {},
+              function (dismiss) {}
+            )
+            window.location.replace("../delete/mail2.php?domain=<?php echo $requestmail; ?>");
         })}
 
 <?php
 
 $dbcode = $_GET['delcode'];
 
-if($dbcode == "0") {
+if(isset($dbcode) && $dbcode == "0") {
     echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
 } 
-if($dbcode > "0") { echo "swal({title:'" . _("Please try again later or contact support.") . "', type:'error'});";}
+if(isset($dbcode) && $dbcode > "0") { echo "swal({title:'" . _("Please try again later or contact support.") . "', type:'error'});";}
 ?>
 </script>
 </body>

@@ -18,8 +18,7 @@ if($_POST['verified'] == 'yes'){
         curl_setopt($curl0, CURLOPT_POST, true);
         curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query($postvars));
 
-$r1 = curl_exec($curl0);
-print_r($r1);
+print_r(curl_exec($curl0));
 }
 
 // If accessed directly, redirect to 403 error

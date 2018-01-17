@@ -192,7 +192,7 @@ session_start();
                     </div>
                     <ul class="side-icon-text pull-right">
                                         <li style="position: relative;top: -3px;">
-                                            <a href="../delete/dnsrecord2.php?domain=<?php echo $requestdns; ?>&id=<?php echo $requestrecord; ?>"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span><?php echo _("Delete DNS Record"); ?></span>
+                                            <a onclick="confirmDelete();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span><?php echo _("Delete DNS Record"); ?></span>
                                             </a>
                                         </li>
                                     </ul>
@@ -296,7 +296,7 @@ session_start();
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <button class="btn btn-success"><?php echo _("Update Record"); ?></button> &nbsp;
+                                        <button class="btn btn-success" onclick="processLoader();"><?php echo _("Update Record"); ?></button> &nbsp;
                                             <a href="../list/dnsdomain.php?domain=<?php echo $requestdns; ?>" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
                                     </div>
                                 </div>
@@ -336,6 +336,38 @@ $('.datepicker').datepicker();
         jQuery(function($){
             $('.footable').footable();
         });
+        function confirmDelete(){
+            swal({
+              title: '<?php echo _("Delete DNS Record"); ?>:<br> #<?php echo $recordnumber[$requestrecord]; ?>' + ' ?',
+              text: "<?php echo _("You won't be able to revert this!"); ?>",
+              type: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
+            }).then(function () {
+            swal({
+              title: '<?php echo _("Processing"); ?>',
+              text: '',
+              timer: 5000,
+              onOpen: function () {
+                swal.showLoading()
+              }
+            }).then(
+              function () {},
+              function (dismiss) {}
+            )
+            window.location.replace("../delete/dnsrecord2.php?domain=<?php echo $requestdns; ?>&id=<?php echo $recordnumber[$requestrecord]; ?>");
+        })}
+        function processLoader(){
+            swal({
+              title: '<?php echo _("Processing"); ?>',
+              text: '',
+              timer: 5000,
+              onOpen: function () {
+                swal.showLoading()
+              }
+            })};
     </script>
 </body>
 

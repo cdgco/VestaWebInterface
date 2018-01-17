@@ -369,19 +369,16 @@ swal({
   }
 }).then(
   function () {},
-  // handling the promise rejection
-  function (dismiss) {
-    if (dismiss === 'timer') {
-      console.log('<?php echo _("I was closed by the timer"); ?>')
-    }
-  }
+  function (dismiss) {}
 )
 $.ajax({  
     type: "GET",  
     url: "../delete/domain.php",  
     data: { 'domain':e1, 'verified':'yes' },
-success:  function(){ window.location = "web.php?delcode=0"; },
-error:  function(){ window.location = "web.php?delcode=0"; }
+    success: function(data){
+       window.location="web.php?delcode=" + data;
+    },
+    error:  function(){ window.location = "web.php?delcode=error"; }
 })
 })}
 
@@ -389,10 +386,10 @@ error:  function(){ window.location = "web.php?delcode=0"; }
 
 $dbcode = $_GET['delcode'];
 
-if($dbcode == "0") {
+if(isset($dbcode) && $dbcode == "0" || isset($dbcode) && $dbcode == "0.0.0") {
     echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
 } 
-if($dbcode > "0") { echo "swal({title:'" . _("Please try again later or contact support.") . "', type:'error'});";}
+if(isset($dbcode) && $dbcode != "0" && $dbcode != "0.0.0") { echo "swal({title:'" . _("Please try again later or contact support.") . "', type:'error'});";}
 ?>
 </script>
 </body>

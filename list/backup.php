@@ -339,12 +339,7 @@ textdomain('messages');
                         }
                     }).then(
                         function () {},
-                        // handling the promise rejection
-                        function (dismiss) {
-                            if (dismiss === 'timer') {
-                                console.log('<?php echo _("I was closed by the timer"); ?>')
-                            }
-                        }
+                        function (dismiss) {}
                     )
                     $.ajax({  
                         type: "POST",  
@@ -352,7 +347,8 @@ textdomain('messages');
                         data: { 'backup':e1, 'verified':'yes' },      
                         success: function(data){
                             window.location="backups.php?delcode=" + data;
-                        } 
+                        },
+                        error:  function(){ window.location = "backups.php?delcode=error"; }
                     });
                 })}
 
@@ -360,17 +356,17 @@ textdomain('messages');
 
             $bkcode = $_GET['delcode'];
 
-            if($bkcode == "0") {
+            if(isset($bkcode) && $bkcode == "0") {
                 echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
             } 
-            if($bkcode > "0") { echo "swal({title:'" . _("Please try again later or contact support.") . "', type:'error'});";}
+            if(isset($dbcode) && $bkcode > "0") { echo "swal({title:'" . _("Please try again later or contact support.") . "', type:'error'});";}
 
             $addcode = $_GET['addcode'];
 
-            if($addcode == "0") {
+            if(isset($addcode) && $addcode == "0") {
                 echo "swal({title:'" . _("Backup Scheduled!") . "', type:'success'});";
             } 
-            if($addcode > "0") { echo "swal({title:'" . _("Please try again later or contact support.") . "', type:'error'});";}
+            if(isset($addcode) && $addcode > "0") { echo "swal({title:'" . _("Please try again later or contact support.") . "', type:'error'});";}
             ?>
         </script>
     </body>
