@@ -187,10 +187,15 @@ textdomain('messages');
             <div id="page-wrapper">
                 <div class="container-fluid">
                     <div class="row bg-title">
-                        <!-- .page title -->
+                        
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                             <h4 class="page-title"><?php echo _("Configure Backup Restore"); ?></h4> </div>
-                        <!-- /.page title -->
+                        <ul class="side-icon-text pull-right">
+                            <li style="position: relative;top: -3px;">
+                                <a onclick="confirmDelete2();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span><?php echo _("Delete Backup"); ?></span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                     <!-- .row -->
 
@@ -351,6 +356,29 @@ textdomain('messages');
                         error:  function(){ window.location = "backups.php?delcode=error"; }
                     });
                 })}
+            function confirmDelete2(){
+            swal({
+              title: '<?php echo _("Delete Backup"); ?>:<br> <?php echo $requestbackup; ?>' + ' ?',
+              text: "<?php echo _("You won't be able to revert this!"); ?>",
+              type: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
+            }).then(function () {
+            swal({
+              title: '<?php echo _("Processing"); ?>',
+              text: '',
+              timer: 5000,
+              onOpen: function () {
+                swal.showLoading()
+              }
+            }).then(
+              function () {},
+              function (dismiss) {}
+            )
+            window.location.replace("../delete/backup2.php?backup=<?php echo $requestbackup; ?>");
+        })}
 
             <?php
 
