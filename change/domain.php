@@ -248,7 +248,19 @@ session_start();
             $r7 = curl_exec($curl7);
             if ($r7 == 'OK') { $r4 = '0';} 
         } else { $r7= 'x0'; }
-        header('Location: ../edit/domain.php?domain=' . $v_domain . '&returncode=' . $r0 . '.' . $r1 . '.' . $r2 . '.' . $r3 . '.' . $r4 . '.' . $r5 . '.' . $r7 . '.' . $r6);
+        if ($v_sslx == 'no' && $_POST['v_sslenabled'] != $_POST['v_sslenabled-x']) {
+            $postvars8 = array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-delete-web-domain-ssl','arg1' => $username,'arg2' => $v_domain, 'arg3' => 'no');
+
+            $curl8 = curl_init();
+            curl_setopt($curl8, CURLOPT_URL, $vst_url);
+            curl_setopt($curl8, CURLOPT_RETURNTRANSFER,true);
+            curl_setopt($curl8, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($curl8, CURLOPT_SSL_VERIFYHOST, false);
+            curl_setopt($curl8, CURLOPT_POST, true);
+            curl_setopt($curl8, CURLOPT_POSTFIELDS, http_build_query($postvars8));
+            $r8 = curl_exec($curl8); 
+        } else { $r8= 'x0'; }
+        header('Location: ../edit/domain.php?domain=' . $v_domain . '&returncode=' . $r0 . '.' . $r1 . '.' . $r2 . '.' . $r3 . '.' . $r4 . '.' . $r5 . '.' . $r8 . '.' . $r7 . '.' . $r6);
     }
 
     ?>
