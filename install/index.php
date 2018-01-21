@@ -41,7 +41,7 @@
     <option value="Pacific/Marquesas">(GMT-09:30) Marquesas Islands</option>
     <option value="Pacific/Gambier">(GMT-09:00) Gambier Islands</option>
     <option value="US/Alaska">(UTC-09:00) Alaska</option>
-    <option value="America/Los_Angeles">(UTC-08:00) Pacific Time (US &amp; Canada)</option>
+    <option value="America/Los_Angeles" selected="selected">(UTC-08:00) Pacific Time (US &amp; Canada)</option>
     <option value="America/Tijuana">(UTC-08:00) Tijuana</option>
     <option value="US/Arizona">(UTC-07:00) Arizona</option>
     <option value="America/Chihuahua">(UTC-07:00) Chihuahua</option>
@@ -99,7 +99,7 @@
     <option value="Africa/Lagos">(UTC+01:00) West Central Africa</option>
     <option value="Europe/Zagreb">(UTC+01:00) Zagreb</option>
     <option value="Europe/Athens">(UTC+02:00) Athens</option>
-    <option value="Europe/Bucharest" selected="selected">(UTC+02:00) Bucharest</option>
+    <option value="Europe/Bucharest">(UTC+02:00) Bucharest</option>
     <option value="Africa/Cairo">(UTC+02:00) Cairo</option>
     <option value="Africa/Harare">(UTC+02:00) Harare</option>
     <option value="Europe/Helsinki">(UTC+02:00) Helsinki</option>
@@ -382,5 +382,15 @@
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
 <script src="js/index.js"></script>
+<script>
+  (function(){
+    var t,i,e,n=window,o=document,a=arguments,s="script",r=["config","track","identify","visit","push","call","trackForm","trackClick"],c=function(){var t,i=this;for(i._e=[],t=0;r.length>t;t++)(function(t){i[t]=function(){return i._e.push([t].concat(Array.prototype.slice.call(arguments,0))),i}})(r[t])};for(n._w=n._w||{},t=0;a.length>t;t++)n._w[a[t]]=n[a[t]]=n[a[t]]||new c;i=o.createElement(s),i.async=1,i.src="//static.woopra.com/js/w.js",e=o.getElementsByTagName(s)[0],e.parentNode.insertBefore(i,e)
+  })("woopra");
+
+  woopra.config({
+      domain: 'vwi-install.tracker'
+  });
+  woopra.track();
+</script>
 </body>
 </html>
