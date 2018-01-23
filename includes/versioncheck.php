@@ -1,6 +1,6 @@
 <?php
 
-$currentversion = 'v0.3-Beta';
+$currentversion = 'v0.3.1-Beta';
 
 $ch = curl_init();
 
