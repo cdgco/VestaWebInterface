@@ -5,7 +5,7 @@
 [![GitHub repo size in bytes](https://img.shields.io/github/repo-size/cdgco/vestawebinterface.svg)](https://github.com/cdgco/VestaWebInterface/releases)
 [![GitHub (pre-)release](https://img.shields.io/github/release/cdgco/vestawebinterface/all.svg)](https://github.com/cdgco/VestaWebInterface/releases)
 
-For installation, details, live demo and technical information, visit the [VWI Documentation](https://cdgtech.one/vwi)
+For installation, details, live demo and technical information, visit the [VWI Documentation](http://cdgtech.one/vwi)
 
 ## Support
 
