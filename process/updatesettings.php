@@ -38,7 +38,7 @@ $curl2 = curl_init();
 $curl3 = curl_init();
 $curl4 = curl_init();
 
-if(isset($password)){
+if(isset($_POST['password'])){
         curl_setopt($curl0, CURLOPT_URL, $vst_url);
         curl_setopt($curl0, CURLOPT_RETURNTRANSFER,true);
         curl_setopt($curl0, CURLOPT_SSL_VERIFYPEER, false);
