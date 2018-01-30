@@ -74,10 +74,10 @@ textdomain('messages');
             
             async function getPassword(){
             swal({
-  title: 'Confirm Password',
+  title: '<?php echo _("Confirm Password"); ?>',
   html:
     '<input type="hidden" form="download" name="user" value="<?php echo $username; ?>"/>' +
-    '<br><div class="form-group"><input form="download" type="password" class="form-control" name="password" id="pwinput" placeholder="Password"></div><button type="submit" class="btn btn-primary">Submit</button>',
+    '<br><div class="form-group"><input form="download" type="password" class="form-control" name="password" id="pwinput" placeholder="<?php echo _("Password"); ?>"></div><button type="submit" class="btn btn-primary"><?php echo _("Submit"); ?></button>',
   showCloseButton: true,
   showCancelButton: false,
   showConfirmButton: false
