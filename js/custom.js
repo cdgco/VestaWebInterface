@@ -1,3 +1,4 @@
+var topOffset, width, height, jQuery;
 $(window).load(function () {
     "use strict";
     $(function () {

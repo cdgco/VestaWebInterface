@@ -46,3 +46,6 @@ session_start();
 <script type="text/javascript">
     document.getElementById('form').submit();
 </script>
+                    </body>
+        <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+</html>

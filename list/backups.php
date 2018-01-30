@@ -64,36 +64,26 @@ textdomain('messages');
     </head>
 
     <body class="fix-header">
+        <form id="download" method="post">
+            <input type="hidden" form="download" id="formurl" name="url"/>
+            <input type="hidden" form="download" name="download" value="yes"/>
         <script>
-
-            /* async function getPassword() {
-                const {value: password} = await swal({
-                    title: 'Enter your password',
-                    input: 'password',
-                    inputPlaceholder: 'Enter your password',
-                    inputAttributes: {
-                        'maxlength': 10,
-                        'autocapitalize': 'off',
-                        'autocorrect': 'off'
-                    }
-                })
-
-                if (password) {
-                    document.getElementById('pwinput').value = password;
-                    document.getElementById('download').submit();
-                }
-            }    */
-
-            
-            function getPassword() {
-                
-                var password = prompt("Please Enter Password to Download.");
-                document.getElementById('pwinput').value = password;
-                document.getElementById('download').target = "downloadWin";
-                window.open("","downloadWin","width=400,height=300,toolbar=0");
-                document.getElementById('download').submit();
+           function closeModal() {    
+                swal.close() 
             }
+            
+            async function getPassword(){
+            swal({
+  title: 'Confirm Password',
+  html:
+    '<input type="hidden" form="download" name="user" value="<?php echo $username; ?>"/>' +
+    '<br><div class="form-group"><input form="download" type="password" class="form-control" name="password" id="pwinput" placeholder="Password"></div><button type="submit" class="btn btn-primary">Submit</button>',
+  showCloseButton: true,
+  showCancelButton: false,
+  showConfirmButton: false
+}).catch(swal.noop)};
         </script>
+            </form>
         <!-- ============================================================== -->
         <!-- Preloader -->
         <!-- ============================================================== -->
@@ -250,10 +240,7 @@ textdomain('messages');
                                 <li><a href="../edit/backupexclusions.php"><span class="circle circle-sm bg-inverse di"><i class="fa fa-ban"></i></span><span><?php echo _("Backup Exclusions"); ?></span></a></li>
                                 </ul>
                                 <h3 class="box-title m-b-0"><?php echo _("Backups"); ?></h3><br>
-                                <form id="download" target="_blank" method="post">
-                                    <input type="hidden" name="user" value="<?php echo $username; ?>"/>
-                                    <input type="hidden" name="password" id="pwinput"/>
-                                </form>
+              
                                 <table class="table footable m-b-0" data-paging-size="10" data-paging="true" data-sorting="true">
                                     <thead>
                                         <tr>
@@ -284,7 +271,7 @@ textdomain('messages');
                                                                     <td data-sort-value="' . $backupdata[$x1]['RUNTIME'] . '">' . $backupdata[$x1]['RUNTIME'] . ' min</td>
                                                                     <td data-sort-value="' . $backupdata[$x1]['DATE'] . '">' . $backupdata[$x1]['DATE'] . '</td><td>
 
-<button onclick="document.getElementById(\'download\').action = \'' . $url8083 . '/login/backup.php?backup=' . $backupname[$x1] . '\';getPassword();" type="button" data-toggle="tooltip" data-original-title="' . _("Download") .'" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="fa fa-download"></i></button>
+<button onclick="document.getElementById(\'formurl\').value = \'' . $url8083 . '/login/backup.php?backup=' . $backupname[$x1] . '\';getPassword();" type="button" data-toggle="tooltip" data-original-title="' . _("Download") .'" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="fa fa-download"></i></button>
 <button onclick="window.location=\'../list/backup.php?backup=' . $backupname[$x1] . '\';" type="button" data-toggle="tooltip" data-original-title="' . _("Configure Restore") .'" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="fa fa-cog"></i></button>
 <button onclick="confirmDelete(\'' . $backupname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") .'" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
                                         </td>
@@ -316,6 +303,16 @@ textdomain('messages');
                 <footer class="footer text-center">&copy; <?php echo _("Copyright"); ?> <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("All Rights Reserved. Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
             </div>
         </div>
+
+        
+    <?php if(isset($_POST['download']) && $_POST['download'] == "yes") {    
+        echo '<form method="post" id="formx" action="' . $_POST['url'] . '">
+        <input type="hidden" name="user" value="' . $_POST['user'] . '"/>
+        <input type="hidden" name="password" value="' . $_POST['password'] . '">
+        </form>'; } 
+        ?> 
+    
+    </body>
         <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
         <script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
         <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
@@ -387,7 +384,10 @@ textdomain('messages');
             if(isset($_POST['restore']) && $_POST['restore'] > "0") { echo "swal({title:'" . $errorcode[$_POST['restore']] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
             }
             ?>
-        </script>
+                <?php if(isset($_POST['download']) && $_POST['download'] == "yes") {    
+        echo '$(".preloader").fadeOut();
+            document.getElementById(\'formx\').submit();'; } 
+        ?> 
         </script>
 
 </html>
