@@ -123,7 +123,31 @@ session_start();
         $r3 = curl_exec($curl3);
     } else { $r3 = '0';}
 
-
-    header('Location: ../edit/mail.php?domain=' . $v_domain . '&r0=' . $r0 . '&r1=' . $r1 . '&r2=' .$r2 . '&r3=' . $r3);
-
     ?>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="../css/style.css" rel="stylesheet">
+    </head>
+    <body class="fix-header">
+        <div class="preloader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
+            </svg>
+        </div>
+        
+<form id="form" action="../edit/mail.php?domain=<?php echo $v_domain; ?>" method="post">
+<?php 
+    echo '<input type="hidden" name="r0" value="'.$r0.'">';
+    echo '<input type="hidden" name="r1" value="'.$r1.'">';
+    echo '<input type="hidden" name="r2" value="'.$r2.'">';
+    echo '<input type="hidden" name="r3" value="'.$r3.'">';
+?>
+</form>
+<script type="text/javascript">
+    document.getElementById('form').submit();
+</script>
+                    </body>
+        <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+</html>

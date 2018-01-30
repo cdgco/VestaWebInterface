@@ -10,7 +10,7 @@ else { header('Location: ../login.php'); }
 $backup = $_GET['backup'];
 
 if (isset($backup) && $backup != '') {}
-else { header('Location: ../list/backups.php?error=0'); }
+else { header('Location: ../list/backups.php?error=1'); }
 
 $web = 'no';
 $dns = 'no';
@@ -28,7 +28,7 @@ if ($_GET['type'] == 'udir') {$udir = $_GET['object'];}
 
 if (!empty($_GET['type'])) {
     $postvars = array(
-        array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-schedule-user-restore','arg1' => $username,'arg2' => $backup,'arg3' => $web,'arg4' => $dns,'arg5' => $mail,'arg6' => $db,'arg7' => $cron,'arg8' => $udir));
+        array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-schedule-user-restore','arg1' => $username,'arg2' => $backup,'arg3' => $web,'arg4' => $dns,'arg5' => $mail,'arg6' => $db,'arg7' => $cron,'arg8' => $udir));
 
     $curl0 = curl_init();
     $curlstart = 0; 
@@ -42,12 +42,11 @@ if (!empty($_GET['type'])) {
         curl_setopt(${'curl' . $curlstart}, CURLOPT_POSTFIELDS, http_build_query($postvars[$curlstart]));
         $curlstart++;
     } 
-    curl_exec($curl0);
-    header("Location: ../list/backups.php?code=0");
+    $r1 = curl_exec($curl0);
 } 
 else {
     $postvars = array(
-        array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-schedule-user-restore','arg1' => $username,'arg2' => $backup));
+        array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-schedule-user-restore','arg1' => $username,'arg2' => $backup));
 
     $curl0 = curl_init();
     $curlstart = 0; 
@@ -61,8 +60,28 @@ else {
         curl_setopt(${'curl' . $curlstart}, CURLOPT_POSTFIELDS, http_build_query($postvars[$curlstart]));
         $curlstart++;
     } 
-    curl_exec($curl0);
-    header("Location: ../list/backups.php?code=0");
+    $r1 = curl_exec($curl0);
 }
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="../css/style.css" rel="stylesheet">
+    </head>
+    <body class="fix-header">
+        <div class="preloader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
+            </svg>
+        </div>
+        
+<form id="form" action="../list/backups.php" method="post">
+<?php echo '<input type="hidden" name="restore" value="'.$r1.'">'; ?>
+</form>
+<script type="text/javascript">
+    document.getElementById('form').submit();
+</script>
+                    </body>
+        <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+</html>

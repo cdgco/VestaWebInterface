@@ -22,9 +22,9 @@ session_start();
         $v_autoreply = 'no';
     }
 
-    if ((!isset($_POST['v_domain'])) || ($_POST['v_domain'] == '')) { header('Location: ../list/mail.php?returncode=1');}
-    elseif ((!isset($_POST['v_account'])) || ($_POST['v_account'] == '')) { header('Location: ../add/mailaccount.php?returncode=1&domain=' . $v_domain);}
-    elseif ((!isset($_POST['password'])) || ($_POST['password'] == '')) { header('Location: ../add/mailaccount.php?returncode=1&domain=' . $v_domain);}
+    if ((!isset($_POST['v_domain'])) || ($_POST['v_domain'] == '')) { header('Location: ../list/mail.php?error=1');}
+    elseif ((!isset($_POST['v_account'])) || ($_POST['v_account'] == '')) { header('Location: ../add/mailaccount.php?error=1&domain=' . $v_domain);}
+    elseif ((!isset($_POST['password'])) || ($_POST['password'] == '')) { header('Location: ../add/mailaccount.php?error=1&domain=' . $v_domain);}
     else {
         $postvars0 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-account','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account'], 'arg4' => $_POST['password'], 'arg5' => $_POST['v_quota']);
 
@@ -85,7 +85,32 @@ session_start();
             curl_setopt($curl4, CURLOPT_POSTFIELDS, http_build_query($postvars4));
             $r4 = curl_exec($curl4);
         } else { $r4 = '0'; }
-
-        header('Location: ../list/maildomain.php?domain=' . $_POST['v_domain'] . '&a1=' . $r0 . '&a2=' . $r1 . '&a3=' . $r2 . '&a4=' . $r3 . '&a5=' . $r4);
     }
     ?>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="../css/style.css" rel="stylesheet">
+    </head>
+    <body class="fix-header">
+        <div class="preloader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
+            </svg>
+        </div>
+        
+<form id="form" action="../list/maildomain.php?domain=<?php echo $_POST['v_domain']; ?>" method="post">
+<?php 
+    echo '<input type="hidden" name="a1" value="'.$r0.'">';
+    echo '<input type="hidden" name="a2" value="'.$r1.'">';
+    echo '<input type="hidden" name="a3" value="'.$r2.'">';
+    echo '<input type="hidden" name="a4" value="'.$r3.'">';
+    echo '<input type="hidden" name="a5" value="'.$r4.'">';
+?>
+</form>
+<script type="text/javascript">
+    document.getElementById('form').submit();
+</script>
+                    </body>
+        <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+</html>

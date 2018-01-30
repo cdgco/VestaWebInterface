@@ -16,7 +16,7 @@ $sslorg = $_POST['org'];
 $sslunit = $_POST['unit'];
 
 if (isset($ssldomain) && $ssldomain != '' && isset($sslemail) && $sslemail != '' && isset($sslcountry) && $sslcountry != '' && isset($sslstate) && $sslstate != '' && isset($sslcity) && $sslcity != '' && isset($sslorg) && $sslorg != '' && isset($sslunit) && $sslunit != '' ) {}
-else { header('Location: generatecsr.php?error=0'); }
+else { header('Location: generatecsr.php?error=1'); }
 
 
 $postvars = array(

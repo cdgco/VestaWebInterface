@@ -69,8 +69,8 @@ session_start();
     } else {
         $v_ftpx = 'no';
     }
-    if ((!isset($v_domain)) || ($v_domain == '')) { header('Location: ../add/domain.php?returncode=1');}
-    elseif ((!isset($_POST['v_ip'])) || ($_POST['v_ip'] == '')) { header('Location: ../add/domain.php?returncode=1');}
+    if ((!isset($v_domain)) || ($v_domain == '')) { header('Location: ../add/domain.php?error=1');}
+    elseif ((!isset($_POST['v_ip'])) || ($_POST['v_ip'] == '')) { header('Location: ../add/domain.php?error=1');}
     else {
         $postvars0 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_ip'], 'arg4' => 'no', 'arg5' => $alias, 'arg6' => $prxext);
 
@@ -177,7 +177,36 @@ session_start();
         if ($v_ftpx == 'yes') {
             /* NEEDS TO BE INTEGRATED INTO BACKEND */
         }
-        header('Location: ../list/web.php?a1=' . $r0 . '&a2=' . $r1 . '&a3=' . $r2 . '&a4=' .$r3 . '&a5=' . $r4 . '&a6=' . $r5 . '&a7=' . $r6 . '&a8=' . $r7);
     }
 
     ?>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="../css/style.css" rel="stylesheet">
+    </head>
+    <body class="fix-header">
+        <div class="preloader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
+            </svg>
+        </div>
+        
+<form id="form" action="../list/web.php" method="post">
+<?php 
+    echo '<input type="hidden" name="a1" value="'.$r0.'">';
+    echo '<input type="hidden" name="a2" value="'.$r1.'">';
+    echo '<input type="hidden" name="a3" value="'.$r2.'">';
+    echo '<input type="hidden" name="a4" value="'.$r3.'">';
+    echo '<input type="hidden" name="a5" value="'.$r4.'">';
+    echo '<input type="hidden" name="a6" value="'.$r5.'">';
+    echo '<input type="hidden" name="a7" value="'.$r6.'">';
+    echo '<input type="hidden" name="a8" value="'.$r7.'">';
+?>
+</form>
+<script type="text/javascript">
+    document.getElementById('form').submit();
+</script>
+                    </body>
+        <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+</html>

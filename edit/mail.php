@@ -362,12 +362,12 @@ $('.datepicker').datepicker();
         
         <?php
         
-            $returntotal = $_GET['r0'] + $_GET['r1'] + $_GET['r2'] + $_GET['r3'];
-            if(isset($_GET['r1']) && $returntotal == 0) {
+            $returntotal = $_POST['r0'] + $_POST['r1'] + $_POST['r2'] + $_POST['r3'];
+            if(isset($_POST['r1']) && $returntotal == 0) {
                 echo "swal({title:'" . _("Successfully updated!") . "', type:'success'});";
             } 
-            if(isset($_GET['r1']) && $returntotal != 0) {
-                echo "swal({title:'" . _("Error Updating Mail Domain") . "<br>" . "(E: " . $_GET['r0'] . "." . $_GET['r1'] . "." . $_GET['r2'] . "." . $_GET['r3'] . ") <br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+            if(isset($_POST['r1']) && $returntotal != 0) {
+                echo "swal({title:'" . _("Error Updating Mail Domain") . "<br>" . "(E: " . $_POST['r0'] . "." . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . ") <br><br>" . _("Please try again or contact support.") . "', type:'error'});";
             }
         
         ?>

@@ -664,6 +664,17 @@ textdomain('messages');
                 swal.showLoading()
               }
             })};
+            <?php
+        
+            $returntotal = $_POST['r1'] + $_POST['r2'] + $_POST['r3'] + $_POST['r4'] + $_POST['r5'];
+            if(isset($_POST['r1']) && $returntotal == 0) {
+                echo "swal({title:'" . _("Successfully updated!") . "', type:'success'});";
+            } 
+            if(isset($_POST['r1']) && $returntotal != 0) {
+                echo "swal({title:'" . _("Error Updating Mail Account") . "<br>" . "(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . "." . $_POST['r4'] . "." . $_POST['r5'] . ") <br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+            }
+        
+        ?>
         </script>
     </body>
 

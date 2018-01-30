@@ -70,7 +70,7 @@ session_start();
             curl_setopt($curl0, CURLOPT_POST, true);
             curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query($postvars0));
             $r0 = curl_exec($curl0);
-        } else { $r0 = 'x0'; }
+        } else { $r0 = '0'; }
         // Change account aliases
         $valiases = explode(",", $_POST['v_alias-x']);
         $waliases = preg_replace("/\n/", " ", $_POST['v_alias']);
@@ -80,7 +80,7 @@ session_start();
         $aliases = explode(" ", $waliases);
         $v_aliases = str_replace(' ', "\n", $waliases);
         $result = array_diff($valiases, $aliases);
-        $r1 = 'x0';
+        $r1 = '0';
         foreach ($result as $alias) {
             if (!empty($alias)) {
                 $postvars1 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-web-domain-alias','arg1' => $username,'arg2' => $v_domain, 'arg3' => $alias, 'arg4' => 'no');
@@ -122,7 +122,7 @@ session_start();
             curl_setopt($curl2, CURLOPT_POSTFIELDS, http_build_query($postvars2));
             $r2 = curl_exec($curl2);
         }
-        else { $r2 = 'x0'; }
+        else { $r2 = '0'; }
         if ($v_prxx != $v_prxx_x && $v_prxx == 'yes' && $v_prxx_x == 'no'){
             $postvars3 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain-proxy','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_prxtpl'], 'arg4' => $prxext, 'arg5' => 'no');
 
@@ -134,7 +134,7 @@ session_start();
             curl_setopt($curl3, CURLOPT_POST, true);
             curl_setopt($curl3, CURLOPT_POSTFIELDS, http_build_query($postvars3));
             $r3 = curl_exec($curl3);
-        } else { $r3 = 'x0'; }
+        } else { $r3 = '0'; }
         if ($v_prxx != $v_prxx_x && $v_prxx == 'no' && $v_prxx_x == 'yes'){
             $postvars3 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-web-domain-proxy','arg1' => $username,'arg2' => $v_domain);
 
@@ -147,7 +147,7 @@ session_start();
             curl_setopt($curl3, CURLOPT_POSTFIELDS, http_build_query($postvars3));
             $r3 = curl_exec($curl3);
             if ($r3 == '3') { $r3 = '0';}
-        } else { $r3 = 'x0'; }
+        } else { $r3 = '0'; }
         if ($v_prxx == 'yes' && $_POST['v_prxtpl-x'] != $_POST['v_prxtpl'] || $_POST['v_prxext-x'] != $prxext ){
             $postvars4 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-web-domain-proxy-tpl','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_prxtpl'], 'arg4' => $prxext, 'arg5' => 'no');
 
@@ -160,7 +160,7 @@ session_start();
             curl_setopt($curl4, CURLOPT_POSTFIELDS, http_build_query($postvars4));
             $r4 = curl_exec($curl4);
             if ($r4 == '3') { $r4 = '0';}
-        } else { $r4 = 'x0'; }
+        } else { $r4 = '0'; }
         if (($_POST['v_webstats'] != 'none')  && ($_POST['v_webstats-x'] == 'none')){
             $postvars5 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain-stats','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_webstats']);
 
@@ -196,7 +196,7 @@ session_start();
             curl_setopt($curl5, CURLOPT_POST, true);
             curl_setopt($curl5, CURLOPT_POSTFIELDS, http_build_query($postvars5));
             $r5 = curl_exec($curl5);
-        } else { $r5 = 'x0'; }
+        } else { $r5 = '0'; }
 
         if ($_POST['v_statsuserenabled'] != '' && $_POST['v_statsuserenabled'] != $_POST['v_statsuserenabled-x'] && !empty($_POST['v_statsuname']) && !empty($_POST['v_statspassword'])) {
             $postvars6 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain-stats-user','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_statsuname'], 'arg4' => $_POST['v_statspassword']);
@@ -221,7 +221,7 @@ session_start();
             curl_setopt($curl6, CURLOPT_POST, true);
             curl_setopt($curl6, CURLOPT_POSTFIELDS, http_build_query($postvars6));
             $r6 = curl_exec($curl6);
-        } else { $r6 = 'x0'; }
+        } else { $r6 = '0'; }
         if ($v_lex == 'yes' && $_POST['v_leenabled'] != $_POST['v_leenabled-x']) {
             $postvars7 = array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-schedule-letsencrypt-domain','arg1' => $username,'arg2' => $v_domain);
 
@@ -247,7 +247,7 @@ session_start();
             curl_setopt($curl7, CURLOPT_POSTFIELDS, http_build_query($postvars7));
             $r7 = curl_exec($curl7);
             if ($r7 == 'OK') { $r4 = '0';} 
-        } else { $r7= 'x0'; }
+        } else { $r7= '0'; }
         if ($v_sslx == 'no' && $_POST['v_sslenabled'] != $_POST['v_sslenabled-x']) {
             $postvars8 = array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-delete-web-domain-ssl','arg1' => $username,'arg2' => $v_domain, 'arg3' => 'no');
 
@@ -259,8 +259,39 @@ session_start();
             curl_setopt($curl8, CURLOPT_POST, true);
             curl_setopt($curl8, CURLOPT_POSTFIELDS, http_build_query($postvars8));
             $r8 = curl_exec($curl8); 
-        } else { $r8= 'x0'; }
-        header('Location: ../edit/domain.php?domain=' . $v_domain . '&r1=' . $r0 . '&r2=' . $r1 . '&r3=' . $r2 . '&r4=' . $r3 . '&r5=' . $r4 . '&r6=' . $r5 . '&r7=' . $r8 . '&r8=' . $r7 . '&r9=' . $r6);
+        } else { $r8= '0'; }
     }
 
     ?>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="../css/style.css" rel="stylesheet">
+    </head>
+    <body class="fix-header">
+        <div class="preloader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
+            </svg>
+        </div>
+        
+<form id="form" action="../edit/domain.php?domain=<?php echo $v_domain; ?>" method="post">
+<?php 
+    echo '<input type="hidden" name="r1" value="'.$r0.'">';
+    echo '<input type="hidden" name="r2" value="'.$r1.'">';
+    echo '<input type="hidden" name="r3" value="'.$r2.'">';
+    echo '<input type="hidden" name="r4" value="'.$r3.'">';
+    echo '<input type="hidden" name="r5" value="'.$r4.'">';
+    echo '<input type="hidden" name="r6" value="'.$r5.'">';
+    echo '<input type="hidden" name="r7" value="'.$r8.'">';
+    echo '<input type="hidden" name="r8" value="'.$r7.'">';
+    echo '<input type="hidden" name="r9" value="'.$r6.'">';
+?>
+</form>
+<script type="text/javascript">
+    document.getElementById('form').submit();
+</script>
+                    </body>
+        <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+</html>

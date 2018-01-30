@@ -46,7 +46,29 @@
     if ($v_id != $v_id2 && $r2 == 0) {
         $newid = $v_id2;
     }
-
-    header('Location: ../edit/dnsrecord.php?r1=' . $r1 . '&r2=' . $r2 . '&domain=' . $v_domain . '&record=' . $newid);
-
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="../css/style.css" rel="stylesheet">
+    </head>
+    <body class="fix-header">
+        <div class="preloader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
+            </svg>
+        </div>
+        
+<form id="form" action="../edit/dnsrecord.php?domain=<?php echo $newid . '&record='  . $v_domain; ?>" method="post">
+<?php 
+    echo '<input type="hidden" name="r1" value="'.$r1.'">';
+    echo '<input type="hidden" name="r2" value="'.$r2.'">';
+?>
+</form>
+<script type="text/javascript">
+    document.getElementById('form').submit();
+</script>
+                    </body>
+        <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+</html>

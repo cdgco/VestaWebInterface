@@ -373,12 +373,12 @@ $('.datepicker').datepicker();
             })};
 
     <?php
-            $returntotal = $_GET['r1'] + $_GET['r2'] + $_GET['r3'] + $_GET['r4'] + $_GET['r5'];
-            if(isset($_GET['r1']) && $returntotal == 0) {
+            $returntotal = $_POST['r1'] + $_POST['r2'] + $_POST['r3'] + $_POST['r4'] + $_POST['r5'];
+            if(isset($_POST['r1']) && $returntotal == 0) {
                 echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
             } 
-            if(isset($_GET['r1']) && $returntotal != 0) {
-                echo "swal({title:'" . _("Error Updating DNS Domain") . "<br>" . _("Please try again or contact support.") . "<br><br>" . "(E: " . $_GET['r1'] . "." . $_GET['r2'] . "." . $_GET['r3'] . "." . $_GET['r4'] . "." . $_GET['r5'] . ")', type:'error'});";
+            if(isset($_POST['r1']) && $returntotal != 0) {
+                echo "swal({title:'" . _("Error Updating DNS Domain") . "<br>" . _("Please try again or contact support.") . "<br><br>" . "(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . "." . $_POST['r4'] . "." . $_POST['r5'] . ")', type:'error'});";
             }
     
     ?>

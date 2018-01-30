@@ -707,6 +707,16 @@ textdomain('messages');
                 swal.showLoading()
               }
             })};
+            
+            <?php
+
+            if(isset($_POST['returncode']) && $_POST['returncode'] == "0") {
+                echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
+            } 
+            if(isset($_POST['returncode']) && $_POST['returncode'] > "0") { echo "swal({title:'" . $errorcode[$_POST['returncode']] . "<br><br>" . _("Please try again later or contact support.") . "', type:'error'});";
+            }
+    
+?>
         </script>
     </body>
 

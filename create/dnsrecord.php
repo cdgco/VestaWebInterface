@@ -12,10 +12,10 @@ session_start();
     $v_value = $_POST['v_value'];
     $v_priority = $_POST['v_priority'];
 
-    if ((!isset($_POST['v_domain'])) || ($_POST['v_domain'] == '')) { header('Location: ../list/dns.php?returncode=1');}
-    elseif ((!isset($_POST['v_record'])) || ($_POST['v_record'] == '')) { header('Location: ../list/dnsdomain.php?returncode=1&domain=' . $v_domain);}
-    elseif ((!isset($_POST['v_type'])) || ($_POST['v_type'] == '')) { header('Location: ../list/dnsdomain.php?returncode=1&domain=' . $v_domain);}
-    elseif ((!isset($_POST['v_value'])) || ($_POST['v_value'] == '')) { header('Location: ../list/dnsdomain.php?returncode=1&domain=' . $v_domain);}
+    if ((!isset($_POST['v_domain'])) || ($_POST['v_domain'] == '')) { header('Location: ../list/dns.php?error=1');}
+    elseif ((!isset($_POST['v_record'])) || ($_POST['v_record'] == '')) { header('Location: ../add/dnsrecord.php?error=1&domain=' . $v_domain);}
+    elseif ((!isset($_POST['v_type'])) || ($_POST['v_type'] == '')) { header('Location: ../add/dnsrecord.php?error=1&domain=' . $v_domain);}
+    elseif ((!isset($_POST['v_value'])) || ($_POST['v_value'] == '')) { header('Location: ../add/dnsrecord.php?error=1&domain=' . $v_domain);}
 
     $postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-dns-record','arg1' => $username,'arg2' => $v_domain, 'arg3' => $v_record, 'arg4' => $v_type, 'arg5' => $v_value, 'arg6' => $v_priority);
 
@@ -28,6 +28,27 @@ session_start();
     curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query($postvars));
     $r1 = curl_exec($curl0);
 
-    header('Location: ../list/dnsdomain.php?addcode=' . $r1 . '&domain=' . $v_domain);
-
 ?>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="../css/style.css" rel="stylesheet">
+    </head>
+    <body class="fix-header">
+        <div class="preloader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
+            </svg>
+        </div>
+        
+<form id="form" action="../list/dnsdomain.php?domain=<?php echo $v_domain; ?>" method="post">
+<?php 
+    echo '<input type="hidden" name="addcode" value="'.$r1.'">';
+?>
+</form>
+<script type="text/javascript">
+    document.getElementById('form').submit();
+</script>
+                    </body>
+        <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+</html>

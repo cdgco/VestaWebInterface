@@ -18,6 +18,27 @@ curl_setopt($curl0, CURLOPT_POST, true);
 curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query($postvars));
 
 $r1 = curl_exec($curl0);
-
-header('Location: ../list/dnsdomain.php?domain=' . $_GET['domain'] . '&delcode=' . $r1);
 ?>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="../css/style.css" rel="stylesheet">
+    </head>
+    <body class="fix-header">
+        <div class="preloader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
+            </svg>
+        </div>
+        
+<form id="form" action="../list/dnsdomain.php?domain=<?php echo $_GET['domain']; ?>" method="post">
+<?php 
+    echo '<input type="hidden" name="delcode" value="'.$r1.'">';
+?>
+</form>
+<script type="text/javascript">
+    document.getElementById('form').submit();
+</script>
+                    </body>
+        <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+</html>
