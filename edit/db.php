@@ -364,7 +364,7 @@ session_start();
               function () {},
               function (dismiss) {}
             )
-            window.location.replace("../delete/db2.php?db=<?php echo $requestdb; ?>");
+            window.location.replace("../delete/db.php?db=<?php echo $requestdb; ?>");
         })}
         function processLoader(){
             swal({

@@ -322,15 +322,7 @@ textdomain('messages');
                 function () {},
                 function (dismiss) {}
             )
-            $.ajax({  
-                type: "POST",  
-                url: "../delete/dnsrecord.php",  
-                data: { 'domain':e0, 'id':e1, 'verified':'yes' },      
-                success: function(data){
-                   window.location="dnsdomain.php?delcode=" + data + "&domain=" + e0;
-                },
-                error:  function(){ window.location = "dnsdomain.php?delcode=error&domain=" + e0; }
-            });
+             window.location.replace("../delete/dnsrecord.php?domain=" + e0 + "&id=" +e1);
         })}
     function confirmDelete2(){
             swal({
@@ -353,7 +345,7 @@ textdomain('messages');
               function () {},
               function (dismiss) {}
             )
-            window.location.replace("../delete/dns2.php?domain=<?php echo $requestdns; ?>");
+            window.location.replace("../delete/dns.php?domain=<?php echo $requestdns; ?>");
         })}
 
 <?php

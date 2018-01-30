@@ -364,15 +364,7 @@ textdomain('messages');
                         function () {},
                         function (dismiss) {}
                     )
-                    $.ajax({  
-                        type: "POST",  
-                        url: "../delete/backup.php",  
-                        data: { 'backup':e1, 'verified':'yes' },      
-                        success: function(data){
-                            window.location="backups.php?delcode=" + data;
-                        },
-                        error:  function(){ window.location = "backup.php?delcode=error"; }
-                    });
+                    window.location.replace("../delete/backup.php?backup=" + e1);
                 })}
             
             <?php            

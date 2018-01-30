@@ -696,7 +696,7 @@ textdomain('messages');
               function () {},
               function (dismiss) {}
             )
-            window.location.replace("../delete/cron2.php?job=<?php echo $requestjob; ?>");
+            window.location.replace("../delete/cron.php?job=<?php echo $requestjob; ?>");
         })}
             function processLoader(){
             swal({

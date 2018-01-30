@@ -192,7 +192,7 @@ textdomain('messages');
                             <h4 class="page-title"><?php echo _("Configure Backup Restore"); ?></h4> </div>
                         <ul class="side-icon-text pull-right">
                             <li style="position: relative;top: -3px;">
-                                <a onclick="confirmDelete2();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span><?php echo _("Delete Backup"); ?></span>
+                                <a onclick="confirmDelete();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span><?php echo _("Delete Backup"); ?></span>
                                 </a>
                             </li>
                         </ul>
@@ -324,39 +324,7 @@ textdomain('messages');
             jQuery(function($){
                 $('.footable').footable();
             });
-            function confirmDelete(e){
-                e1 = String(e)
-                swal({
-                    title: '<?php echo _("Delete Backup"); ?>:<br> ' + e1 +' ?',
-                    text: "<?php echo _("You won't be able to revert this!"); ?>",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
-                }).then(function () {
-                    swal({
-                        title: '<?php echo _("Processing"); ?>',
-                        text: '',
-                        timer: 5000,
-                        onOpen: function () {
-                            swal.showLoading()
-                        }
-                    }).then(
-                        function () {},
-                        function (dismiss) {}
-                    )
-                    $.ajax({  
-                        type: "POST",  
-                        url: "../delete/backup.php",  
-                        data: { 'backup':e1, 'verified':'yes' },      
-                        success: function(data){
-                            window.location="backups.php?delcode=" + data;
-                        },
-                        error:  function(){ window.location = "backups.php?delcode=error"; }
-                    });
-                })}
-            function confirmDelete2(){
+            function confirmDelete(){
             swal({
               title: '<?php echo _("Delete Backup"); ?>:<br> <?php echo $requestbackup; ?>' + ' ?',
               text: "<?php echo _("You won't be able to revert this!"); ?>",
@@ -377,7 +345,7 @@ textdomain('messages');
               function () {},
               function (dismiss) {}
             )
-            window.location.replace("../delete/backup2.php?backup=<?php echo $requestbackup; ?>");
+            window.location.replace("../delete/backup.php?backup=<?php echo $requestbackup; ?>");
         })}
 
             <?php

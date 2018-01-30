@@ -365,15 +365,7 @@ swal({
   function () {},
   function (dismiss) {}
 )
-$.ajax({  
-    type: "POST",  
-    url: "../delete/dns.php",  
-    data: { 'domain':e1, 'verified':'yes' },      
-    success: function(data){
-       window.location="dns.php?delcode=" + data;
-    },
-    error:  function(){ window.location = "dns.php?delcode=error"; }
-});
+ window.location.replace("../delete/dns.php?domain=" + e1);
 })}
 
 <?php

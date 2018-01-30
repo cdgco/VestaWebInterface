@@ -412,15 +412,7 @@ swal({
   function () {},
   function (dismiss) {}
 )
-$.ajax({  
-    type: "POST",  
-    url: "../delete/cron.php",  
-    data: { 'job':e1, 'verified':'yes' },      
-    success: function(data){
-       window.location="cron.php?delcode=" + data;
-    },
-    error:  function(){ window.location = "cron.php?delcode=error"; }
-    });
+ window.location.replace("../delete/cron.php?job=" + e1);
 })}
 
 <?php

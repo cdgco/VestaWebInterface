@@ -337,15 +337,7 @@ swal({
   function () {},
   function (dismiss) {}
 )
-$.ajax({  
-    type: "POST",  
-    url: "../delete/db.php",  
-    data: { 'db':e1, 'verified':'yes' },      
-    success: function(data){
-       window.location="db.php?delcode=" + data;
-    },
-    error:  function(){ window.location = "db.php?delcode=error"; }
-});
+ window.location.replace("../delete/db.php?db=" + e1);
 })}
 
 <?php

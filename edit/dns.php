@@ -360,7 +360,7 @@ $('.datepicker').datepicker();
               function () {},
               function (dismiss) {}
             )
-            window.location.replace("../delete/dns2.php?domain=<?php echo $requestdns; ?>");
+            window.location.replace("../delete/dns.php?domain=<?php echo $requestdns; ?>");
         })}
         function processLoader(){
             swal({

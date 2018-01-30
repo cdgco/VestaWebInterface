@@ -356,7 +356,7 @@ $('.datepicker').datepicker();
               function () {},
               function (dismiss) {}
             )
-            window.location.replace("../delete/dnsrecord2.php?domain=<?php echo $requestdns; ?>&id=<?php echo $recordnumber[$requestrecord]; ?>");
+            window.location.replace("../delete/dnsrecord.php?domain=<?php echo $requestdns; ?>&id=<?php echo $recordnumber[$requestrecord]; ?>");
         })}
         function processLoader(){
             swal({
