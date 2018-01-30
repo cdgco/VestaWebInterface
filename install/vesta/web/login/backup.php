@@ -88,7 +88,7 @@ if (empty($_SESSION['language'])) {
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@CDN-Test-v0.1/css/style.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.4.0-Beta/css/style.css" rel="stylesheet">
     </head>
     <body class="fix-header">
         <div class="preloader">
@@ -99,5 +99,5 @@ if (empty($_SESSION['language'])) {
 <?php header("Location: /download/backup/index.php?backup=" . $_GET['backup']); ?>
 
                     </body>
-        <script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@CDN-Test-v0.1/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.4.0-Beta/plugins/bower_components/jquery/dist/jquery.min.js"></script>
 </html>

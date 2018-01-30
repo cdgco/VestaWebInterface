@@ -24,6 +24,7 @@ $writestr = "<?php
 date_default_timezone_set('".$_POST['TIMEZONE']."'); // Server Time Zone - See http://php.net/manual/en/timezones.php for syntax.
 DEFINE('SITE_NAME', '".$_POST['SITENAME']."'); // Site name for use in page titles. Ex: 'My Host Company'.
 DEFINE('THEME', '".$_POST['THEME']."'); // Accepted options are 'default', 'blue', 'purple' and 'orange'
+DEFINE('LANGUAGE', '".$_POST['LANGUAGE']."'); // See VWI Documentation or arrays.php file for accepted formats.
 
 // VESTA API SETTINGS //
 DEFINE('VESTA_HOST_ADDRESS', '".$_POST['VESTA_HOST_ADDRESS']."'); // URL or IP Address of VestaCP. Ex: 'myhost.com' or '12.34.56.78'.
@@ -111,7 +112,7 @@ else{
 \$themecolor = THEME . '.css';
 \$uname = base64_decode(\$_SESSION['username']);
 \$loggedin = base64_decode(\$_SESSION['loggedin']);
-\$locale = 'en_US.utf8';
+\$locale = LANGUAGE;
 \$username = \$uname;
 \$sitetitle = SITE_NAME;
 

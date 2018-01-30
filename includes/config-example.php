@@ -1,4 +1,3 @@
-
 <?php
 
 //////////////////////////////////////////////////////////
@@ -9,6 +8,7 @@
 date_default_timezone_set('America/Los_Angeles'); // Server Time Zone - See http://php.net/manual/en/timezones.php for syntax.
 DEFINE('SITE_NAME', 'My Host'); // Site name for use in page titles. Ex: 'My Host Company'.
 DEFINE('THEME', 'default'); // Accepted options are 'default', 'blue', 'purple' and 'orange'
+DEFINE('LANGUAGE', 'en_US.utf8'); // See VWI Documentation or arrays.php file for accepted formats.
 
 // VESTA API SETTINGS //
 DEFINE('VESTA_HOST_ADDRESS', ''); // URL or IP Address of VestaCP. Ex: 'myhost.com' or '12.34.56.78'.
@@ -41,52 +41,52 @@ DEFINE('INTERAKT_API_KEY', ''); // Enable Interakt User Management. Interakt Acc
 ///////////////////////////////////////////////////////////////////////
 
 if(VESTA_SSL_ENABLED == 'false'){
-    $vst_ssl = 'http://';
+ $vst_ssl = 'http://';
 }
 else{
-    $vst_ssl = 'https://';
+ $vst_ssl = 'https://';
 }
 
 if(VESTA_PORT == ''){
-    $vesta_port = '8083';
+ $vesta_port = '8083';
 }
 else{
-    $vesta_port = VESTA_PORT;
+ $vesta_port = VESTA_PORT;
 }
 
 if(FTP_URL == ''){
-    $ftpurl = 'http://net2ftp.com/';
+ $ftpurl = 'http://net2ftp.com/';
 }
 elseif(FTP_URL == 'disabled'){
-    $ftpurl = '';
+ $ftpurl = '';
 }
 else{
-    $ftpurl = FTP_URL;
+ $ftpurl = FTP_URL;
 }
 
 if(WEB_ENABLED != 'true'){
-    $webenabled = '';
+ $webenabled = '';
 }
 else{
-    $webenabled = WEB_ENABLED;
+ $webenabled = WEB_ENABLED;
 }
 if(DNS_ENABLED != 'true'){
-    $dnsenabled = '';
+ $dnsenabled = '';
 }
 else{
-    $dnsenabled = DNS_ENABLED;
+ $dnsenabled = DNS_ENABLED;
 }
 if(MAIL_ENABLED != 'true'){
-    $mailenabled = '';
+ $mailenabled = '';
 }
 else{
-    $mailenabled = MAIL_ENABLED;
+ $mailenabled = MAIL_ENABLED;
 }
 if(DB_ENABLED != 'true'){
-    $dbenabled = '';
+ $dbenabled = '';
 }
 else{
-    $dbenabled = DB_ENABLED;
+ $dbenabled = DB_ENABLED;
 }
 
 $vst_url = $vst_ssl . VESTA_HOST_ADDRESS . ':' . $vesta_port . '/api/';
@@ -96,55 +96,55 @@ $vst_password = VESTA_ADMIN_PW;
 $themecolor = THEME . '.css';
 $uname = base64_decode($_SESSION['username']);
 $loggedin = base64_decode($_SESSION['loggedin']);
-$locale = 'en_US.utf8';
+$locale = LANGUAGE;
 $username = $uname;
 $sitetitle = SITE_NAME;
 
 if(WEBMAIL_URL == ''){
-    $webmailurl = $vst_ssl . VESTA_HOST_ADDRESS . '/webmail';
+ $webmailurl = $vst_ssl . VESTA_HOST_ADDRESS . '/webmail';
 }
 elseif(WEBMAIL_URL == 'disabled'){
-    $webmailurl = '';
+ $webmailurl = '';
 }
 else{
-    $webmailurl = WEBMAIL_URL;
+ $webmailurl = WEBMAIL_URL;
 }
 
 if(PHPMYADMIN_URL == ''){
-    $phpmyadmin = $vst_ssl . VESTA_HOST_ADDRESS . '/phpmyadmin';
+ $phpmyadmin = $vst_ssl . VESTA_HOST_ADDRESS . '/phpmyadmin';
 }
 elseif(PHPMYADMIN_URL == 'disabled'){
-    $phpmyadmin = '';
+ $phpmyadmin = '';
 }
 else{
-    $phpmyadmin = PHPMYADMIN_URL;
+ $phpmyadmin = PHPMYADMIN_URL;
 }
 
 if(PHPPGADMIN_URL == ''){
-    $phppgadmin = $vst_ssl . VESTA_HOST_ADDRESS . '/phppgadmin';
+ $phppgadmin = $vst_ssl . VESTA_HOST_ADDRESS . '/phppgadmin';
 }
 elseif(PHPPGADMIN_URL == 'disabled'){
-    $phppgadmin = '';
+ $phppgadmin = '';
 }
 else{
-    $phppgadmin = PHPPGADMIN_URL;
+ $phppgadmin = PHPPGADMIN_URL;
 }
 
 if(SUPPORT_URL == ''){
-    $supporturl = '';
+ $supporturl = '';
 }
 elseif(SUPPORT_URL == 'disabled'){
-    $supporturl = '';
+ $supporturl = '';
 }
 else{
-    $supporturl = SUPPORT_URL;
+ $supporturl = SUPPORT_URL;
 }
 
 if(OLD_CP_LINK == 'false'){
-    $oldcpurl = '';
+ $oldcpurl = '';
 }
 else{
-    $oldcpurl = $url8083;
+ $oldcpurl = $url8083;
 }
 require 'arrays.php';
 

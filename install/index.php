@@ -1,4 +1,7 @@
-<?php if (file_exists( '../includes/config.php' )) { header( 'Location: ../index.php' );}; ?>
+<?php if (file_exists( '../includes/config.php' )) { header( 'Location: ../index.php' );}; 
+
+require '../includes/arrays.php';
+?>
 <!DOCTYPE html>
 <html >
 <head>
@@ -205,7 +208,42 @@
     </select>
   </div>
 </div>
-
+<div class="form-group" style="overflow: visible;">
+    <label class="col-md-4 control-label" for="THEME">Default Language</label>
+    <div class="col-md-4">
+    <select id="LANGUAGE" name="LANGUAGE" class="form-control">
+            <option value="<?php print_r($ulang['ar']); ?>"><?php print_r($countries['ar']); ?></option>
+            <option value="<?php print_r($ulang['bs']); ?>"><?php print_r($countries['bs']); ?></option>
+            <option value="<?php print_r($ulang['cn']); ?>>"><?php print_r($countries['cn']); ?></option>
+            <option value="<?php print_r($ulang['cz']); ?>"><?php print_r($countries['cz']); ?></option>
+            <option value="<?php print_r($ulang['da']); ?>"><?php print_r($countries['da']); ?></option>
+            <option value="<?php print_r($ulang['de']); ?>"><?php print_r($countries['de']); ?></option>
+            <option value="<?php print_r($ulang['el']); ?>>"><?php print_r($countries['el']); ?></option>
+            <option value="<?php print_r($ulang['en']); ?>" selected><?php print_r($countries['en']); ?></option>
+            <option value="<?php print_r($ulang['es']); ?>"><?php print_r($countries['es']); ?></option>
+            <option value="<?php print_r($ulang['fa']); ?>"><?php print_r($countries['fa']); ?></option>
+            <option value="<?php print_r($ulang['fi']); ?>"><?php print_r($countries['fi']); ?></option>
+            <option value="<?php print_r($ulang['fr']); ?>"><?php print_r($countries['fr']); ?></option>
+            <option value="<?php print_r($ulang['hu']); ?>"><?php print_r($countries['hu']); ?></option>
+            <option value="<?php print_r($ulang['id']); ?>"><?php print_r($countries['id']); ?></option>
+            <option value="<?php print_r($ulang['it']); ?>"><?php print_r($countries['it']); ?></option>
+            <option value="<?php print_r($ulang['ja']); ?>"><?php print_r($countries['ja']); ?></option>
+            <option value="<?php print_r($ulang['ka']); ?>"><?php print_r($countries['ka']); ?></option>
+            <option value="<?php print_r($ulang['nl']); ?>"><?php print_r($countries['nl']); ?></option>
+            <option value="<?php print_r($ulang['no']); ?>"><?php print_r($countries['no']); ?></option>
+            <option value="<?php print_r($ulang['pl']); ?>"><?php print_r($countries['pl']); ?></option>
+            <option value="<?php print_r($ulang['pt-BR']); ?>"><?php print_r($countries['pt-BR']); ?></option>
+            <option value="<?php print_r($ulang['pt']); ?>"><?php print_r($countries['pt']); ?></option>
+            <option value="<?php print_r($ulang['ro']); ?>"><?php print_r($countries['ro']); ?></option>
+            <option value="<?php print_r($ulang['ru']); ?>"><?php print_r($countries['ru']); ?></option>
+            <option value="<?php print_r($ulang['se']); ?>"><?php print_r($countries['se']); ?></option>
+            <option value="<?php print_r($ulang['tr']); ?>"><?php print_r($countries['tr']); ?></option>
+            <option value="<?php print_r($ulang['tw']); ?>"><?php print_r($countries['tw']); ?></option>
+            <option value="<?php print_r($ulang['ua']); ?>"><?php print_r($countries['ua']); ?></option>
+            <option value="<?php print_r($ulang['vi']); ?>"><?php print_r($countries['vi']); ?></option>
+        </select>
+    </div>
+</div>
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="VESTA_HOST_ADDRESS">Vesta Host Address</label>  
