@@ -350,12 +350,22 @@ $.ajax({
 
 <?php
 
-$dbcode = $_GET['delcode'];
-
-if(isset($dbcode) && $dbcode == "0") {
-    echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
-} 
-if(isset($dbcode) && $dbcode > "0") { echo "swal({title:'" . _("Please try again later or contact support.") . "', type:'error'});";}
+           if(isset($_GET['delcode']) && $_GET['delcode'] == "0") {
+                echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
+            } 
+            if(isset($_GET['addcode']) && $_GET['addcode'] == "0") {
+                echo "swal({title:'" . _("Successfully Created!") . "', type:'success'});";
+            } 
+            if(isset($_GET['returncode']) && $_GET['returncode'] == "0") {
+                echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
+            } 
+            if(isset($_GET['delcode']) && $_GET['delcode'] > "0") { echo "swal({title:'" . $errorcode[$_GET['delcode']] . "<br><br>" . _("Please try again later or contact support.") . "', type:'error'});";
+            }
+            if(isset($_GET['addcode']) && $_GET['addcode'] > "0") { echo "swal({title:'" . $errorcode[$_GET['addcode']] . "<br><br>" . _("Please try again later or contact support.") . "', type:'error'});";
+            }
+            if(isset($_GET['returncode']) && $_GET['returncode'] > "0") { echo "swal({title:'" . $errorcode[$_GET['returncode']] . "<br><br>" . _("Please try again later or contact support.") . "', type:'error'});";
+            }
+    
 ?>
 </script>
 </body>

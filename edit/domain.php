@@ -663,6 +663,18 @@ textdomain('messages');
                 swal.showLoading()
               }
             })};
+            
+    <?php
+            
+            $returntotal = $_GET['r1'] + $_GET['r2'] + $_GET['r3'] + $_GET['r4'] + $_GET['r5'] + $_GET['r6'] + $_GET['r7'] + $_GET['r8'] + $_GET['r9'];
+            if(isset($_GET['r1']) && $returntotal == 0) {
+                echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
+            } 
+            if(isset($_GET['r1']) && $returntotal != 0) {
+                echo "swal({title:'" . _("Error Updating Web Domain") . "<br>" . "(E: " . $_GET['r1'] . "." . $_GET['r2'] . "." . $_GET['r3'] . "." . $_GET['r4'] . "." . $_GET['r5'] . "." . $_GET['r6'] . "." . $_GET['r7'] . "." . $_GET['r8'] . "." . $_GET['r9'] . ")<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+            }
+    
+    ?>
         </script>
     </body>
 

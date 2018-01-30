@@ -3,7 +3,6 @@
 session_start();
 
 if (file_exists( 'includes/config.php' )) { require( 'includes/config.php'); }  else { header( 'Location: install' );};
-require 'includes/carray.php';
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: login.php'); }

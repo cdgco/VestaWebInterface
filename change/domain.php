@@ -260,7 +260,7 @@ session_start();
             curl_setopt($curl8, CURLOPT_POSTFIELDS, http_build_query($postvars8));
             $r8 = curl_exec($curl8); 
         } else { $r8= 'x0'; }
-        header('Location: ../edit/domain.php?domain=' . $v_domain . '&returncode=' . $r0 . '.' . $r1 . '.' . $r2 . '.' . $r3 . '.' . $r4 . '.' . $r5 . '.' . $r8 . '.' . $r7 . '.' . $r6);
+        header('Location: ../edit/domain.php?domain=' . $v_domain . '&r1=' . $r0 . '&r2=' . $r1 . '&r3=' . $r2 . '&r4=' . $r3 . '&r5=' . $r4 . '&r6=' . $r5 . '&r7=' . $r8 . '&r8=' . $r7 . '&r9=' . $r6);
     }
 
     ?>

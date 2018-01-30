@@ -33,6 +33,6 @@ session_start();
     curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query($postvars));
     $r1 = curl_exec($curl0);
 
-    header('Location: ../list/dns.php?returncode=' . $r1);
+    header('Location: ../list/dns.php?addcode=' . $r1);
 
 ?>

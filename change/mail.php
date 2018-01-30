@@ -124,6 +124,6 @@ session_start();
     } else { $r3 = '0';}
 
 
-    header('Location: ../edit/mail.php?domain=' . $v_domain . '&returncode=' . $r0 . '.' . $r1 . '.' .$r2 . '.' . $r3);
+    header('Location: ../edit/mail.php?domain=' . $v_domain . '&r0=' . $r0 . '&r1=' . $r1 . '&r2=' .$r2 . '&r3=' . $r3);
 
     ?>

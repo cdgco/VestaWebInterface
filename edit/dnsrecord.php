@@ -332,7 +332,6 @@ $('.datepicker').datepicker();
                 new CBPFWTabs(el);
             });
         })();
-        document.getElementById('select2').value = '<?php print_r($dnsdata[0]['TPL']); ?>'; 
         jQuery(function($){
             $('.footable').footable();
         });
@@ -368,6 +367,18 @@ $('.datepicker').datepicker();
                 swal.showLoading()
               }
             })};
+        
+        <?php
+        
+            $returntotal = $_GET['r1'] + $_GET['r2'];
+            if(isset($_GET['r1']) && $returntotal == 0) {
+                echo "swal({title:'" . _("Successfully updated!") . "', type:'success'});";
+            } 
+            if(isset($_GET['r1']) && $returntotal != 0) {
+                echo "swal({title:'" . _("Error Updating DNS Record") . "<br>" . "(E: " . $_GET['r1'] . "." . $_GET['r2'] . ") <br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+            }
+        
+        ?>
     </script>
 </body>
 

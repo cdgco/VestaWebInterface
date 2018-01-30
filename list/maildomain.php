@@ -370,12 +370,25 @@ textdomain('messages');
 
 <?php
 
-$dbcode = $_GET['delcode'];
-
-if(isset($dbcode) && $dbcode == "0") {
-    echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
-} 
-if(isset($dbcode) && $dbcode > "0") { echo "swal({title:'" . _("Please try again later or contact support.") . "', type:'error'});";}
+           if(isset($_GET['delcode']) && $_GET['delcode'] == "0") {
+                echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
+            } 
+            if(isset($_GET['delcode']) && $_GET['delcode'] > "0") { echo "swal({title:'" . $errorcode[$_GET['delcode']] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+            }
+            $returntotal = $_GET['r1'] + $_GET['r2'] + $_GET['r3'] + $_GET['r4'] + $_GET['r5'];
+            if(isset($_GET['r1']) && $returntotal == 0) {
+                echo "swal({title:'" . _("Successfully updated!") . "', type:'success'});";
+            } 
+            if(isset($_GET['r1']) && $returntotal != 0) {
+                echo "swal({title:'" . _("Error Updating Mail Domain") . "<br>" . "(E: " . $_GET['r1'] . "." . $_GET['r2'] . "." . $_GET['r3'] . "." . $_GET['r4'] . "." . $_GET['r5'] . ") <br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+            }
+            $addtotal = $_GET['a1'] + $_GET['a2'] + $_GET['a3'] + $_GET['a4'] + $_GET['a5'];
+            if(isset($_GET['a1']) && $addtotal == 0) {
+                echo "swal({title:'" . _("Successfully updated!") . "', type:'success'});";
+            } 
+            if(isset($_GET['a1']) && $addtotal != 0) {
+                echo "swal({title:'" . _("Error Adding Mail Domain") . "<br>" . "(E: " . $_GET['a1'] . "." . $_GET['a2'] . "." . $_GET['a3'] . "." . $_GET['a4'] . "." . $_GET['a5'] . ") <br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+            }
 ?>
 </script>
 </body>

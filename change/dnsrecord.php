@@ -41,12 +41,12 @@
         $r2 = curl_exec($curl1);
 
     }
-    $rc = $r1 . '.' . $r2;
+    else { $r2 = 0; s}
     $newid = $v_id;
     if ($v_id != $v_id2 && $r2 == 0) {
         $newid = $v_id2;
     }
 
-    header('Location: ../edit/dnsrecord.php?returncode=' . $rc . '&domain=' . $v_domain . '&record=' . $newid);
+    header('Location: ../edit/dnsrecord.php?r1=' . $r1 . '&r2=' . $r2 . '&domain=' . $v_domain . '&record=' . $newid);
 
 ?>

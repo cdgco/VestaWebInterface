@@ -161,7 +161,7 @@ if(OLD_CP_LINK == 'false'){
 else{
  \$oldcpurl = \$url8083;
 }
-require 'locale.php';
+require 'arrays.php';
 
 ?>";
 

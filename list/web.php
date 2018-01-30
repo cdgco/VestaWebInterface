@@ -382,15 +382,25 @@ $.ajax({
 })
 })}
 
-<?php
-
-$dbcode = $_GET['delcode'];
-
-if(isset($dbcode) && $dbcode == "0" || isset($dbcode) && $dbcode == "0.0.0") {
-    echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
-} 
-if(isset($dbcode) && $dbcode != "0" && $dbcode != "0.0.0") { echo "swal({title:'" . _("Please try again later or contact support.") . "', type:'error'});";}
-?>
+    <?php
+            
+            $deltotal = $_GET['r1'] + $_GET['r2'] + $_GET['r3'];
+            if(isset($_GET['r1']) && $deltotal == 0) {
+                echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
+            } 
+            if(isset($_GET['r1']) && $deltotal != 0) {
+                echo "swal({title:'" . _("Error Deleting Web Domain") . "<br>" . "(E: " . $_GET['r1'] . "." . $_GET['r2'] . "." . $_GET['r3'] . ")" . _("Please try again or contact support.") . "<br><br>', type:'error'});";
+            }
+            
+            $addtotal = $_GET['a1'] + $_GET['a2'] + $_GET['a3'] + $_GET['a4'] + $_GET['a5'] + $_GET['a6'] + $_GET['a7'] + $_GET['a8'];
+            if(isset($_GET['r1']) && $returntotal == 0) {
+                echo "swal({title:'" . _("Successfully Created!") . "', type:'success'});";
+            } 
+            if(isset($_GET['r1']) && $returntotal != 0) {
+                echo "swal({title:'" . _("Error Creating Web Domain") . "<br>"  . "(E: " . $_GET['a1'] . "." . $_GET['a2'] . "." . $_GET['a3'] . "." . $_GET['a4'] . "." . $_GET['a5'] . "." . $_GET['a6'] . "." . $_GET['a7'] . "." . $_GET['a8'] . ")" . _("Please try again or contact support.") . "<br><br>', type:'error'});";
+            }
+    
+    ?>
 </script>
 </body>
 

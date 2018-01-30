@@ -375,23 +375,19 @@ textdomain('messages');
                     });
                 })}
             
-            <?php
-
-            $bkcode = $_GET['delcode'];
-
-            if(isset($bkcode) && $bkcode == "0") {
+            <?php            
+            
+            if(isset($_GET['delcode']) && $_GET['delcode'] == "0") {
                 echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
             } 
-            if(isset($bkcode) && $bkcode > "0") { echo "swal({title:'" . _("Please try again later or contact support.") . "', type:'error'});";}
-
-            $addcode = $_GET['addcode'];
-
-            if(isset($addcode) && $addcode == "0") {
+            if(isset($_GET['addcode']) && $_GET['addcode'] == "0") {
                 echo "swal({title:'" . _("Backup Scheduled!") . "', type:'success'});";
             } 
-            if(isset($addcode) && $addcode > "0") { echo "swal({title:'" . _("Please try again later or contact support.") . "', type:'error'});";}
+            if(isset($_GET['delcode']) && $_GET['delcode'] > "0") { echo "swal({title:'" . $errorcode[$_GET['delcode']] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+            }
+            if(isset($_GET['addcode']) && $_GET['addcode'] > "0") { echo "swal({title:'" . $errorcode[$_GET['addcode']] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+            }
             ?>
-            
         </script>
         </script>
 

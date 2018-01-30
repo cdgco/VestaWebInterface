@@ -86,6 +86,6 @@ session_start();
             $r4 = curl_exec($curl4);
         } else { $r4 = '0'; }
 
-        header('Location: ../list/maildomain.php?domain=' . $_POST['v_domain'] . '&returncode=' . $r0 . '.' . $r1 . '.' . $r2 . '.' .$r3 . '.' . $r4);
+        header('Location: ../list/maildomain.php?domain=' . $_POST['v_domain'] . '&a1=' . $r0 . '&a2=' . $r1 . '&a3=' . $r2 . '&a4=' . $r3 . '&a5=' . $r4);
     }
     ?>

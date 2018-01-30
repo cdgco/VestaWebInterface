@@ -32,5 +32,5 @@ $r2 = curl_exec($curl1);
 $r3 = curl_exec($curl2);
 
 
-header('Location: ../list/web.php?delcode=' . $r1 . '.' . $r2 . '.' . $r3);
+header('Location: ../list/web.php?r1=' . $r1 . '&r2=' . $r2 . '&r3=' . $r3);
 ?>

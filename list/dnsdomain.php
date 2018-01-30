@@ -358,12 +358,17 @@ textdomain('messages');
 
 <?php
 
-$dbcode = $_GET['delcode'];
-
-if(isset($dbcode) && $dbcode == "0") {
-    echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
-} 
-if(isset($dbcode) && $dbcode > "0") { echo "swal({title:'" . _("Please try again later or contact support.") . "', type:'error'});";}
+           if(isset($_GET['delcode']) && $_GET['delcode'] == "0") {
+                echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
+            } 
+            if(isset($_GET['addcode']) && $_GET['addcode'] == "0") {
+                echo "swal({title:'" . _("Successfully Created!") . "', type:'success'});";
+            } 
+            if(isset($_GET['delcode']) && $_GET['delcode'] > "0") { echo "swal({title:'" . $errorcode[$_GET['delcode']] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+            }
+            if(isset($_GET['addcode']) && $_GET['addcode'] > "0") { echo "swal({title:'" . $errorcode[$_GET['addcode']] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+            }
+    
 ?>
 </script>
 </body>

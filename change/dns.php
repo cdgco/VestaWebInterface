@@ -51,6 +51,6 @@ session_start();
     $r5 = curl_exec($curl4);
 
 
-    header('Location: ../edit/dns.php?domain=' . $v_1 . '&returncode=' . $r1 . $r2 . $r3 . $r4 . $r5);
+    header('Location: ../edit/dns.php?domain=' . $v_1 . '&r1=' . $r1 . '&r2=' . $r2 . '&r3=' . $r3 . '&r4=' . $r4 . '&r5=' . $r5);
 
 ?>

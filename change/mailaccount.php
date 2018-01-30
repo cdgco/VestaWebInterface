@@ -173,6 +173,6 @@ session_start();
     } else { $r4 = '0';}
 
 
-    header('Location: ../edit/mailaccount.php?domain=' . $v_domain . '&account=' . $v_account . '&returncode=' . $r4 . '.' . $r0 . '.' . $r1 . '.' .$r2 . '.' . $r3);
+    header('Location: ../edit/mailaccount.php?domain=' . $v_domain . '&account=' . $v_account . '&r1=' . $r4 . '&r2=' . $r0 . '&r3=' . $r1 . '&r4=' . $r2 . '&r5=' . $r3);
 
     ?>
