@@ -652,7 +652,7 @@ textdomain('messages');
               function () {},
               function (dismiss) {}
             )
-            window.location.replace("../delete/domain2.php?domain=<?php echo $requestdomain; ?>");
+            window.location.replace("../delete/domain.php?domain=<?php echo $requestdomain; ?>");
         })}
             function processLoader(){
             swal({

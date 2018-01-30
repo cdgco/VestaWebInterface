@@ -371,15 +371,7 @@ swal({
   function () {},
   function (dismiss) {}
 )
-$.ajax({  
-    type: "GET",  
-    url: "../delete/domain.php",  
-    data: { 'domain':e1, 'verified':'yes' },
-    success: function(data){
-       window.location="web.php?delcode=" + data;
-    },
-    error:  function(){ window.location = "web.php?delcode=error"; }
-})
+window.location.replace("../delete/domain.php?domain=" + e1);
 })}
 
     <?php

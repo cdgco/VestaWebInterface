@@ -334,15 +334,7 @@ textdomain('messages');
                 function () {},
                 function (dismiss) {}
             )
-            $.ajax({  
-                type: "POST",  
-                url: "../delete/mailaccount.php",  
-                data: { 'domain':e0, 'account':e1, 'verified':'yes' },
-                success: function(data){
-                   window.location="maildomain.php?delcode=" + data + "&domain=" + e0;
-                },
-                error:  function(){ window.location = "maildomain.php?delcode=error&domain=" + e0; }
-            });
+            window.location.replace("../delete/domain.php?domain=" + e0 + "&account=" +e1);
         })}
     function confirmDelete2(){
             swal({
@@ -365,7 +357,7 @@ textdomain('messages');
               function () {},
               function (dismiss) {}
             )
-            window.location.replace("../delete/mail2.php?domain=<?php echo $requestmail; ?>");
+            window.location.replace("../delete/mail.php?domain=<?php echo $requestmail; ?>");
         })}
 
 <?php

@@ -348,7 +348,7 @@ $('.datepicker').datepicker();
               function () {},
               function (dismiss) {}
             )
-            window.location.replace("../delete/mail2.php?domain=<?php echo $requestmail; ?>");
+            window.location.replace("../delete/mail.php?domain=<?php echo $requestmail; ?>");
         })}
         function processLoader(){
             swal({

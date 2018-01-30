@@ -653,7 +653,7 @@ textdomain('messages');
               function () {},
               function (dismiss) {}
             )
-            window.location.replace("../delete/mailaccount2.php?domain=<?php echo $requestdomain; ?>&account=<?php echo $requestaccount; ?>");
+            window.location.replace("../delete/mailaccount.php?domain=<?php echo $requestdomain; ?>&account=<?php echo $requestaccount; ?>");
         })}
             function processLoader(){
             swal({

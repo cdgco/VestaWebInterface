@@ -376,14 +376,7 @@ swal({
   function () {},
   function (dismiss) {}
 )
-$.ajax({  
-    type: "POST",  
-    url: "../delete/mail.php",  
-    data: { 'domain':e1, 'verified':'yes' },      
-    success: function(data){
-       window.location="mail.php?delcode=" + data;
-    } 
-});
+window.location.replace("../delete/mail.php?domain=" + e1);
 })}
 
 <?php
