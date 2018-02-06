@@ -871,7 +871,7 @@ session_start();
                     });";
         
         } ?>
-        document.getElementById("recordcount").innerHTML = "<?php echo $recordcount; ?>";
+        document.getElementById("recordcount").innerHTML = "<?php if ($recordcount == "") { echo "0";} else { echo $recordcount; } ?>";
         (function() {
             [].slice.call(document.querySelectorAll('.sttabs')).forEach(function(el) {
                 new CBPFWTabs(el);

@@ -485,7 +485,7 @@
     )
      window.location.replace("../delete/dns.php?domain=" + e1);
     })}
-    document.getElementById("recordcount").innerHTML = "<?php echo $recordcount; ?>";
+    document.getElementById("recordcount").innerHTML = "<?php if ($recordcount == "") { echo "0";} else { echo $recordcount; } ?>";
     <?php
                if(isset($_GET['error']) && $_GET['error'] == "1") {
                     echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
