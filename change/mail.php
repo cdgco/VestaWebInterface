@@ -30,10 +30,10 @@ session_start();
     }
 
 
-    if ((!isset($_POST['v_domain'])) || ($_POST['v_domain'] == '')) { header('Location: ../list/mail.php?returncode=1');}
-    elseif ((!isset($_POST['v_antispam'])) || ($_POST['v_antispam'] == '')) { header('Location: ../edit/mail.php?returncode=1&domain=' . $v_domain);}
-    elseif ((!isset($_POST['v_antivirus'])) || ($_POST['v_antivirus'] == '')) { header('Location: ../edit/mail.php?returncode=1&domain=' . $v_domain);}
-    elseif ((!isset($_POST['v_dkim'])) || ($_POST['v_dkim'] == '')) { header('Location: ../edit/mail.php?returncode=1&domain=' . $v_domain);}
+    if ((!isset($_POST['v_domain'])) || ($_POST['v_domain'] == '')) { header('Location: ../list/mail.php?error=1');}
+    elseif ((!isset($_POST['v_antispam'])) || ($_POST['v_antispam'] == '')) { header('Location: ../edit/mail.php?error=1&domain=' . $v_domain);}
+    elseif ((!isset($_POST['v_antivirus'])) || ($_POST['v_antivirus'] == '')) { header('Location: ../edit/mail.php?error=1&domain=' . $v_domain);}
+    elseif ((!isset($_POST['v_dkim'])) || ($_POST['v_dkim'] == '')) { header('Location: ../edit/mail.php?error=1&domain=' . $v_domain);}
     if ($_POST['v_antispam-x'] != $v_antispam){
         if ($v_antispam == 'yes'){
             $postvars0 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-domain-antispam','arg1' => $username,'arg2' => $_POST['v_domain']);

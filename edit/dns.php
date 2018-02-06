@@ -42,6 +42,67 @@ session_start();
     setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
     bindtextdomain('messages', '../locale');
     textdomain('messages');
+
+    if(count(explode('.', $requestdns)) > 2) { 
+          $sub = 'yes';
+         } else{ 
+          $sub = 'no'; 
+         } 
+
+    if (CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != ''){
+                $cfenabled = curl_init();
+
+                    curl_setopt($cfenabled, CURLOPT_URL, "https://api.cloudflare.com/client/v4/zones?name=" . $requestdns);
+                    curl_setopt($cfenabled, CURLOPT_RETURNTRANSFER,true);
+                    curl_setopt($cfenabled, CURLOPT_SSL_VERIFYPEER, false);
+                    curl_setopt($cfenabled, CURLOPT_SSL_VERIFYHOST, false);
+                    curl_setopt($cfenabled, CURLOPT_CUSTOMREQUEST, "GET");
+                    curl_setopt($cfenabled, CURLOPT_HTTPHEADER, array(
+                    "X-Auth-Email: " . CLOUDFLARE_EMAIL,
+                    "X-Auth-Key: " . CLOUDFLARE_API_KEY));
+
+                    $cfdata = array_values(json_decode(curl_exec($cfenabled), true));
+                    $cfid = $cfdata[0][0]['id'];
+                    $cfname = $cfdata[0][0]['name'];
+                    $cfsoa = $cfdata[0][0]['name_servers'][0];
+                    if ($cfname != '' && isset($cfname) && $cfname == $requestdns){
+
+                        $cfns = curl_init();
+                        curl_setopt($cfns, CURLOPT_URL, $vst_url);
+                        curl_setopt($cfns, CURLOPT_RETURNTRANSFER,true);
+                        curl_setopt($cfns, CURLOPT_SSL_VERIFYPEER, false);
+                        curl_setopt($cfns, CURLOPT_SSL_VERIFYHOST, false);
+                        curl_setopt($cfns, CURLOPT_POST, true);
+                        curl_setopt($cfns, CURLOPT_POSTFIELDS, http_build_query(array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-dns-records','arg1' => $username,'arg2' => $requestdns, 'arg3' => 'json')));
+                        
+                        $cfsettings = curl_init();
+
+                        curl_setopt($cfsettings, CURLOPT_URL, "https://api.cloudflare.com/client/v4/zones/" . $cfid . "/settings");
+                        curl_setopt($cfsettings, CURLOPT_RETURNTRANSFER,true);
+                        curl_setopt($cfsettings, CURLOPT_SSL_VERIFYPEER, false);
+                        curl_setopt($cfsettings, CURLOPT_SSL_VERIFYHOST, false);
+                        curl_setopt($cfsettings, CURLOPT_CUSTOMREQUEST, "GET");
+                        curl_setopt($cfsettings, CURLOPT_HTTPHEADER, array(
+                        "X-Auth-Email: " . CLOUDFLARE_EMAIL,
+                        "X-Auth-Key: " . CLOUDFLARE_API_KEY));
+                        
+                        $cfdata = array_values(json_decode(curl_exec($cfns), true));
+                        $cfdata3 = array_values(json_decode(curl_exec($cfsettings), true));
+                        
+                        $cflevel = ucwords(str_replace("_", " ", $cfdata3[0][30]['value']));
+                        $cfssl = ucwords($cfdata3[0][34]['value']);
+                        $cfnumber = array_keys(json_decode(curl_exec($cfns), true));
+                        $requestArr = array_column(json_decode(curl_exec($cfns), true), 'TYPE');
+                        $requestrecord = array_search('NS', $requestArr);
+                        
+                        $nsvalue = $cfdata[$requestrecord]['VALUE'];
+                        if( strpos( $nsvalue, '.ns.cloudflare.com' ) !== false ) {
+                            $cfenabled = 'true'; }
+
+                    else { $cfenabled = 'false'; }}
+
+                else { $cfenabled = 'false'; }}
+            else { $cfenabled = 'off'; }
 ?>
 
 <!DOCTYPE html>
@@ -254,12 +315,12 @@ session_start();
                                 <div class="form-group">
                                     <label for="email" class="col-md-12"><?php echo _("IP Address"); ?></label>
                                     <div class="col-md-12">
-                                        <input type="text" name="v_ip" value="<?php print_r($dnsdata[0]['IP']); ?>" class="form-control form-control-line" name="email" id="email"> </div>
+                                        <input type="text" value="<?php print_r($dnsdata[0]['IP']); ?>" <?php if ($cfenabled == "true") { echo 'disabled style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;" class="form-control uneditable-input form-control-line"'; } else { echo 'name="v_ip" class="form-control form-control-line"'; } ?> id="email"> </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12"><?php echo _("DNS Template"); ?></label>
                                     <div class="col-md-12">
-                                        <select class="form-control select2" name="v_tpl" id="select2">
+                                        <select <?php if ($cfenabled == "true") { echo 'disabled style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;" class="form-control uneditable-input select2"'; } else { echo 'name="v_tpl" class="form-control select2"'; } ?> id="select2">
                                             <?php
                                                     if($dnstpl[0] != '') {
                                                         $x1 = 0; 
@@ -278,7 +339,7 @@ session_start();
 
                                     <div class="col-md-12">
                                         <div class="input-group date">
-                                            <input type="text" class="form-control datepicker" name="v_exp" value="<?php echo date("m/d/Y", strtotime($dnsdata[0]['EXP'])); ?>">
+                                            <input type="text" <?php if ($cfenabled == "true") { echo 'disabled style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);background-image: none;" class="form-control uneditable-input datepicker"'; } else { echo 'name="v_exp" class="form-control datepicker"'; } ?> value="<?php echo date("m/d/Y", strtotime($dnsdata[0]['EXP'])); ?>">
                                             <span class="input-group-addon">
                                                 <i class="icon-calender">
                                                 </i>
@@ -290,13 +351,52 @@ session_start();
                                 <div class="form-group">
                                     <label for="email" class="col-md-12"><?php echo _("SOA (Start of Authority)"); ?></label>
                                     <div class="col-md-12">
-                                        <input type="text" name="v_soa" value="<?php print_r($dnsdata[0]['SOA']); ?>" class="form-control form-control-line" name="email" id="email"> </div>
+                                        <input type="text" value="<?php if ($cfenabled == "true") { print_r($cfsoa); } else { print_r($dnsdata[0]['SOA']); } ?>" <?php if ($cfenabled == "true") { echo 'disabled style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;" class="form-control uneditable-input form-control-line"'; } else { echo 'name="v_soa" class="form-control form-control-line"'; } ?> id="email"> </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="email" class="col-md-12"><?php echo _("TTL (Time To Live)"); ?></label>
                                     <div class="col-md-12">
-                                        <input type="text" name="v_ttl" value="<?php print_r($dnsdata[0]['TTL']); ?>" class="form-control form-control-line" name="email" id="email"> </div>
+                                        <input type="text" value="<?php if ($cfenabled == "true") { echo "3600"; } else { print_r($dnsdata[0]['TTL']); } ?>" class="form-control form-control-line" <?php if ($cfenabled == "true") { echo 'disabled style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;" class="form-control uneditable-input form-control-line"'; } else { echo 'name="v_ttl" class="form-control form-control-line"'; } ?> id="email"> </div>
                                 </div>
+                                <?php if ($cfenabled != "off" && $sub == "no") { echo '
+                                <input type="hidden" name="v_cf_id" value="' . $cfid . '"> 
+                                <div class="form-group">
+                                    <label class="col-md-12">' . _("Cloudflare Support") . '</label>
+                                    <div class="col-md-12">
+                                        <div class="checkbox checkbox-info">
+                                            <input type="hidden" name="v_cf-x" value="'; if($cfenabled == 'true') {echo 'yes';} else { echo 'no';} echo '" > 
+                                            <input id="checkbox4" type="checkbox" name="v_cf" onclick="checkDiv();" '; if($cfenabled == 'true') {echo 'checked';} echo ' >
+                                            <label for="checkbox4">' . _("Enabled") . '</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="cf-div" style="margin-left: 4%;">
+                                    <div class="form-group">
+                                        <label class="col-md-12">' . _("Security Level") . '</label>
+                                        <div class="col-md-12">
+                                            <input type="hidden" name="v_cf_level-x" onclick="checkDiv();" value="' . $cflevel . '">
+                                            <select class="form-control select3" name="v_cf_level" id="select3">
+                                                <option value="essentially_off">Essentially Off</option>
+                                                <option value="low">Low</option>
+                                                <option value="medium">Medium</option>
+                                                <option value="high">High</option>
+                                                <option value="Under Attack">I\'m Under Attack!</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">' . _("SSL Setting") . '</label>
+                                        <div class="col-md-12">
+                                            <input type="hidden" name="v_cf_ssl-x" value="' . $cfssl .'">
+                                            <select class="form-control select4" name="v_cf_ssl" id="select4">
+                                                <option value="off" selected>Off</option>
+                                                <option value="flexible">Flexible</option>
+                                                <option value="full">Full</option>
+                                                <option value="strict">Full (Strict)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>'; } ?>
                                 <div class="form-group">
                                     <div class="col-sm-12">
                                         <button class="btn btn-success" onclick="processLoader();"><?php echo _("Update Domain"); ?></button> &nbsp;
@@ -371,8 +471,22 @@ $('.datepicker').datepicker();
                 swal.showLoading()
               }
             })};
-
-    <?php
+        
+         <?php if ($cfenabled != "off" && $sub == "no") { echo '
+        if ("' . $cfenabled . '" == "true") { document.getElementById("select3").value = "' . $cfdata3[0][30]['value'] .'"; document.getElementById("select4").value = "' . $cfdata3[0][34]['value'] .'"; }
+        if(document.getElementById("checkbox4").checked) {
+                document.getElementById("cf-div").style.display = "block";
+            }
+        else { document.getElementById("cf-div").style.display = "none"; }
+        function checkDiv(){
+            if(document.getElementById("checkbox4").checked) {
+                document.getElementById("cf-div").style.display = "block";
+            }
+            else { document.getElementById("cf-div").style.display = "none"; }
+        }'; } 
+            if(isset($_GET['error']) && $_GET['error'] == "1") {
+                echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+            }
             $returntotal = $_POST['r1'] + $_POST['r2'] + $_POST['r3'] + $_POST['r4'] + $_POST['r5'];
             if(isset($_POST['r1']) && $returntotal == 0) {
                 echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
@@ -380,7 +494,6 @@ $('.datepicker').datepicker();
             if(isset($_POST['r1']) && $returntotal != 0) {
                 echo "swal({title:'" . _("Error Updating DNS Domain") . "<br>" . _("Please try again or contact support.") . "<br><br>" . "(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . "." . $_POST['r4'] . "." . $_POST['r5'] . ")', type:'error'});";
             }
-    
     ?>
             </script>
 </body>

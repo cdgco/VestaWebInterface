@@ -271,9 +271,9 @@ textdomain('messages');
                                                                     <td data-sort-value="' . $backupdata[$x1]['RUNTIME'] . '">' . $backupdata[$x1]['RUNTIME'] . ' min</td>
                                                                     <td data-sort-value="' . $backupdata[$x1]['DATE'] . '">' . $backupdata[$x1]['DATE'] . '</td><td>
 
-<button onclick="document.getElementById(\'formurl\').value = \'' . $url8083 . '/login/backup.php?backup=' . $backupname[$x1] . '\';getPassword();" type="button" data-toggle="tooltip" data-original-title="' . _("Download") .'" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="fa fa-download"></i></button>
-<button onclick="window.location=\'../list/backup.php?backup=' . $backupname[$x1] . '\';" type="button" data-toggle="tooltip" data-original-title="' . _("Configure Restore") .'" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="fa fa-cog"></i></button>
-<button onclick="confirmDelete(\'' . $backupname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") .'" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
+<button onclick="document.getElementById(\'formurl\').value = \'' . $url8083 . '/login/backup.php?backup=' . $backupname[$x1] . '\';getPassword();" type="button" data-toggle="tooltip" data-original-title="' . _("Download") .'" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-download"></i></button>
+<button onclick="window.location=\'../list/backup.php?backup=' . $backupname[$x1] . '\';" type="button" data-toggle="tooltip" data-original-title="' . _("Configure Restore") .'" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-cog"></i></button>
+<button onclick="confirmDelete(\'' . $backupname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") .'" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
                                         </td>
 <td>'; 
 

@@ -451,7 +451,7 @@ textdomain('messages');
                                             <label for="v_statspassword" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword2(10)"> <?php echo _("Generate"); ?></a></label>
                                             <div class="col-md-12 input-group" style="padding-left: 15px;">
                                                 <input type="password" autocomplete="new-password" class="form-control form-control-line" name="v_statspassword" id="statspassword">                                    <span class="input-group-btn"> 
-                                                <button class="btn btn-info" style="margin-right: 15px;" name="Show" onclick="toggler2(this)" id="tg2" type="button"><i class="ti-eye"></i></button> 
+                                                <button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler2(this)" id="tg2" type="button"><i class="ti-eye"></i></button> 
                                                 </span>  
                                             </div>
                                         </div>
@@ -487,7 +487,7 @@ textdomain('messages');
                                             <label for="password" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10)"> <?php echo _("Generate"); ?></a></label>
                                             <div class="col-md-12 input-group" style="padding-left: 15px;">
                                                 <input type="password" class="form-control form-control-line" name="password" id="password">                                    <span class="input-group-btn"> 
-                                                <button class="btn btn-info" style="margin-right: 15px;" name="Show" onclick="toggler(this)" id="tg" type="button"><i class="ti-eye"></i></button> 
+                                                <button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler(this)" id="tg" type="button"><i class="ti-eye"></i></button> 
                                                 </span>  </div>
                                         </div>
                                         <div class="form-group">
@@ -665,7 +665,9 @@ textdomain('messages');
             })};
             
     <?php
-            
+            if(isset($_GET['error']) && $_GET['error'] == "1") {
+                echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+            }
             $returntotal = $_POST['r1'] + $_POST['r2'] + $_POST['r3'] + $_POST['r4'] + $_POST['r5'] + $_POST['r6'] + $_POST['r7'] + $_POST['r8'] + $_POST['r9'];
             if(isset($_POST['r1']) && $returntotal == 0) {
                 echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";

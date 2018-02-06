@@ -12,13 +12,13 @@ session_start();
     elseif (isset($_POST['v_wday']) { $v_wday = $_POST['v_wday']; }
     elseif (isset($_POST['v_cmd']) { $v_cmd = $_POST['v_cmd']; }
     elseif (isset($_POST['v_job']) { $v_job = $_POST['v_job']; 
-    elseif (!isset($v_min)) { header('Location: ../edit/cron.php?returncode=1&job=' . $v_job);}
-    elseif (!isset($v_hour)) { header('Location: ../edit/cron.php?returncode=1&job=' . $v_job);}
-    elseif (!isset($v_day) { header('Location: ../edit/cron.php?returncode=1&job=' . $v_job);}
-    elseif (!isset($v_month)) { header('Location: ../edit/cron.php?returncode=1&job=' . $v_job);}
-    elseif (!isset($v_wday)) { header('Location: ../edit/cron.php?returncode=1&job=' . $v_job);}
-    elseif (!isset($v_cmd)) { header('Location: ../edit/cron.php?returncode=1&job=' . $v_job);}
-    elseif (!isset($v_job)) { header('Location: ../list/cron.php?returncode=1');}
+    elseif (!isset($v_min)) { header('Location: ../edit/cron.php?error=1&job=' . $v_job);}
+    elseif (!isset($v_hour)) { header('Location: ../edit/cron.php?error=1&job=' . $v_job);}
+    elseif (!isset($v_day) { header('Location: ../edit/cron.php?error=1&job=' . $v_job);}
+    elseif (!isset($v_month)) { header('Location: ../edit/cron.php?error=1&job=' . $v_job);}
+    elseif (!isset($v_wday)) { header('Location: ../edit/cron.php?error=1&job=' . $v_job);}
+    elseif (!isset($v_cmd)) { header('Location: ../edit/cron.php?error=1&job=' . $v_job);}
+    elseif (!isset($v_job)) { header('Location: ../list/cron.php?error=1');}
 
     $postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-cron-job','arg1' => $username,'arg2' => $v_job, 'arg3' => $v_min, 'arg4' => $v_hour, 'arg5' => $v_day, 'arg6' => $v_month, 'arg7' => $v_wday, 'arg8' => $v_cmd);
 

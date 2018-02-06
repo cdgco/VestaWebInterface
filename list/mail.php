@@ -287,10 +287,10 @@ if($mailname[0] != '') {
                                                                     <td data-sort-value="' . $maildata[$x1]['DATE'] . '">' . $maildata[$x1]['DATE'] . '</td><td>
                                             
 
-<button type="button" onclick="window.location=\'../add/mailaccount.php?domain=' . $mailname[$x1] . '\';" class="btn btn-info btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Add Accounts") . '"><i class="fa fa-plus"></i></button>
-<button type="button" onclick="window.location=\'../list/maildomain.php?domain=' . $mailname[$x1] . '\';" class="btn btn-info btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("List Accounts") . '"><i class="ti-menu-alt"></i></button>
-<button type="button" onclick="window.location=\'../edit/mail.php?domain=' . $mailname[$x1] . '\';" class="btn btn-info btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button>
-<button onclick="confirmDelete(\'' . $mailname[$x1] . '\')" type="button" class="btn btn-info btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="icon-trash" ></i></button>
+<button type="button" onclick="window.location=\'../add/mailaccount.php?domain=' . $mailname[$x1] . '\';" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Add Accounts") . '"><i class="fa fa-plus"></i></button>
+<button type="button" onclick="window.location=\'../list/maildomain.php?domain=' . $mailname[$x1] . '\';" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("List Accounts") . '"><i class="ti-menu-alt"></i></button>
+<button type="button" onclick="window.location=\'../edit/mail.php?domain=' . $mailname[$x1] . '\';" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button>
+<button onclick="confirmDelete(\'' . $mailname[$x1] . '\')" type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="icon-trash" ></i></button>
                                         </td>
                                                                     <td>'; if($maildata[$x1]['CATCHALL'] != ''){ echo $maildata[$x1]['CATCHALL'];} else { echo _("None");} echo '</td>
                                                                     <td>';                                                                   

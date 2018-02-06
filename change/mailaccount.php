@@ -22,8 +22,8 @@ session_start();
         $v_fwd_only_x = 'no';
     }
 
-    if ((!isset($_POST['v_domain'])) || ($_POST['v_domain'] == '')) { header('Location: ../list/mail.php?returncode=1');}
-    elseif ((!isset($_POST['v_account'])) || ($_POST['v_account'] == '')) { header('Location: ../edit/mail.php?returncode=1&domain=' . $v_domain);}
+    if ((!isset($_POST['v_domain'])) || ($_POST['v_domain'] == '')) { header('Location: ../list/mail.php?error=1');}
+    elseif ((!isset($_POST['v_account'])) || ($_POST['v_account'] == '')) { header('Location: ../edit/mail.php?error=1&domain=' . $v_domain);}
 
     // Change account aliases
     $valiases = explode(",", $_POST['v_alias-x']);

@@ -1,5 +1,5 @@
-<?php if (file_exists( '../includes/config.php' )) { header( 'Location: ../index.php' );}; 
-
+<?php /* if (file_exists( '../includes/config.php' )) { header( 'Location: ../index.php' );}; 
+*/
 require '../includes/arrays.php';
 ?>
 <!DOCTYPE html>
@@ -317,9 +317,17 @@ require '../includes/arrays.php';
       Database Enabled
     </label>
 	</div>
+      
   <div class="checkbox">
     <label for="ENABLE_SECTIONS-4">
-      <input type="checkbox" name="ENABLE_OLDCPURL" id="ENABLE_SECTIONS-4" checked>
+      <input type="checkbox" name="ENABLE_SOFTURL" id="ENABLE_SECTIONS-4" checked>
+      Softaculous Enabled
+    </label>
+	</div>
+      
+  <div class="checkbox">
+    <label for="ENABLE_SECTIONS-5">
+      <input type="checkbox" name="ENABLE_OLDCPURL" id="ENABLE_SECTIONS-5" checked>
       Link to Old CP Enabled
     </label>
 	</div>
@@ -328,6 +336,7 @@ require '../includes/arrays.php';
     <center><br>
     <h3>Optional Links</h3>
 </center><br>
+    
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="FTP_URL">FTP Client URL</label>  
@@ -401,7 +410,16 @@ require '../includes/arrays.php';
     
   </div>
 </div>
-
+    
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="CLOUDFLARE_ORIGIN_CA_KEY">Cloudflare Origin CA Key</label>  
+  <div class="col-md-4">
+      <textarea rows="6" id="CLOUDFLARE_ORIGIN_CA_KEY" name="CLOUDFLARE_ORIGIN_CA_KEY" placeholder="" class="form-control input-md"></textarea>
+    
+  </div>
+</div>
+    
 <!-- Button -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="singlebutton"></label>

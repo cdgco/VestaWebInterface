@@ -12,16 +12,53 @@ session_start();
     if (isset($requestdns) && $requestdns != '') {}
       else { header('Location: ../list/dns.php'); }
 
+
+    if (CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != ''){
+        $cfenabled = curl_init();
+
+        curl_setopt($cfenabled, CURLOPT_URL, "https://api.cloudflare.com/client/v4/zones?name=" . $requestdns);
+        curl_setopt($cfenabled, CURLOPT_RETURNTRANSFER,true);
+        curl_setopt($cfenabled, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($cfenabled, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($cfenabled, CURLOPT_CUSTOMREQUEST, "GET");
+        curl_setopt($cfenabled, CURLOPT_HTTPHEADER, array(
+        "X-Auth-Email: " . CLOUDFLARE_EMAIL,
+        "X-Auth-Key: " . CLOUDFLARE_API_KEY));
+
+        $cfdata = array_values(json_decode(curl_exec($cfenabled), true));
+        $cfid = $cfdata[0][0]['id'];
+        $cfname = $cfdata[0][0]['name'];
+        if ($cfname != '' && isset($cfname) && $cfname == $requestdns){
+
+            $cfns = curl_init();
+            curl_setopt($cfns, CURLOPT_URL, $vst_url);
+            curl_setopt($cfns, CURLOPT_RETURNTRANSFER,true);
+            curl_setopt($cfns, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($cfns, CURLOPT_SSL_VERIFYHOST, false);
+            curl_setopt($cfns, CURLOPT_POST, true);
+            curl_setopt($cfns, CURLOPT_POSTFIELDS, http_build_query(array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-dns-records','arg1' => $username,'arg2' => $requestdns, 'arg3' => 'json')));
+
+            $cfdata = array_values(json_decode(curl_exec($cfns), true));
+
+            $cfnumber = array_keys(json_decode(curl_exec($cfns), true));
+            $requestArr = array_column(json_decode(curl_exec($cfns), true), 'TYPE');
+            $requestrecord = array_search('NS', $requestArr);
+
+            $nsvalue = $cfdata[$requestrecord]['VALUE'];
+            if( strpos( $nsvalue, '.ns.cloudflare.com' ) !== false ) {
+                header('Location: cfrecord.php?domain='.$requestdns);
+            }
+        }
+    }
+
     $postvars = array(
-      array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
-      array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-dns-records','arg1' => $username,'arg2' => $requestdns, 'arg3' => 'json'));
+      array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'));
 
     $curl0 = curl_init();
-    $curl1 = curl_init();
     $curlstart = 0; 
 
 
-    while($curlstart <= 1) {
+    while($curlstart <= 0) {
         curl_setopt(${'curl' . $curlstart}, CURLOPT_URL, $vst_url);
         curl_setopt(${'curl' . $curlstart}, CURLOPT_RETURNTRANSFER,true);
         curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYPEER, false);
@@ -33,8 +70,6 @@ session_start();
 
     $admindata = json_decode(curl_exec($curl0), true)[$username];
     $useremail = $admindata['CONTACT'];
-    $recordnumber = array_keys(json_decode(curl_exec($curl1), true));
-    if ($recordnumber[0] == '') { header('Location: ../list/dns.php'); }
     if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
     setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
     bindtextdomain('messages', '../locale');
@@ -219,12 +254,12 @@ session_start();
                                 <div class="form-group">
                                     <label for="email" class="col-md-12"><?php echo _("IP or Value"); ?></label>
                                     <div class="col-md-12">
-                                        <input type="text" name="v_value" autocomplete="new-password" value="<?php print_r($recorddata[$requestrecord]['VALUE']); ?>" class="form-control form-control-line"> </div>
+                                        <input type="text" name="v_value" autocomplete="new-password" class="form-control form-control-line"> </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="email" class="col-md-12"><?php echo _("Priority"); ?></label>
                                     <div class="col-md-12">
-                                        <input type="text" name="v_priority" autocomplete="new-password" value="<?php print_r($recorddata[$requestrecord]['PRIORITY']); ?>" class="form-control form-control-line"> 
+                                        <input type="text" name="v_priority" autocomplete="new-password" class="form-control form-control-line"> 
                                         <small class="form-text text-muted">Optional</small>
                                     </div>
                                 </div>

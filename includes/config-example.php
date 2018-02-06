@@ -16,6 +16,8 @@ DEFINE('VESTA_SSL_ENABLED', 'true'); // If ssl is enabled on VestaCP - Ex: 'true
 DEFINE('VESTA_PORT', '8083'); // VestaCP port. Ex: '8083'.
 DEFINE('VESTA_ADMIN_UNAME', 'admin'); // Username of VestaCP Admin account. Ex: 'admin'.
 DEFINE('VESTA_ADMIN_PW', ''); // Password for VestaCP Admin account. Ex: 'MyPassword1'.
+DEFINE('KEY1', 'REPLACE-ME-KEY1'); // Random Key #1 for encryption / decryption.
+DEFINE('KEY2', 'REPLACE-ME-KEY2'); // Random Key #2 for encryption / decryption.
 
 // OPTIONAL SETTINGS //
 DEFINE('FTP_URL', ''); // URL for Web FTP. Leave blank if you do not have a Web FTP Interface. Set as 'disabled' to remove the Web FTP option.
@@ -29,12 +31,14 @@ DEFINE('WEB_ENABLED', 'true'); // Enable or disable web section. Ex: 'true' or '
 DEFINE('DNS_ENABLED', 'true'); // Enable or disable dns section. Ex: 'true' or 'false'.
 DEFINE('MAIL_ENABLED', 'true'); // Enable or disable mail section. Ex: 'true' or 'false'.
 DEFINE('DB_ENABLED', 'true'); // Enable or disable database section. Ex: 'true' or 'false'.
+DEFINE'SOFTACULOUS_URL', 'true'); // Enable or disable link to Softaculous. Ex: 'true' or 'false'.
 DEFINE('OLD_CP_LINK', 'true'); // Enable or disable link to old cpanel. Ex: 'true' or 'false'.
 
 // INTEGRATIONS //
 DEFINE('GOOGLE_ANALYTICS_ID', ''); // Enable Google Analytics Tracking. Enter Tracking ID.
 DEFINE('INTERAKT_APP_ID', ''); // Enable Interakt Support / Tools. Enter Interakt App ID.
 DEFINE('INTERAKT_API_KEY', ''); // Enable Interakt User Management. Interakt Account number must be set first. Enter Interakt API Key.
+DEFINE('CLOUDFLARE_ORIGIN_CA_KEY', ''); // Enable Cloudflare DNS Support. Enter Origin CA Key found on https://www.cloudflare.com/a/profile under the API Key section. Must start with 'v1.0'.
 
 ///////////////////////////////////////////////////////////////////////
 // DO NOT EDIT BELOW THIS LINE - CONVERTING AND PROCESSING CONSTANTS //
@@ -99,6 +103,9 @@ $loggedin = base64_decode($_SESSION['loggedin']);
 $locale = LANGUAGE;
 $username = $uname;
 $sitetitle = SITE_NAME;
+$cfapikey = CLOUDFLARE_ORIGIN_CA_KEY;
+$KEY1 = KEY1;
+$KEY2 = KEY2;
 
 if(WEBMAIL_URL == ''){
  $webmailurl = $vst_ssl . VESTA_HOST_ADDRESS . '/webmail';
@@ -140,6 +147,13 @@ else{
  $supporturl = SUPPORT_URL;
 }
 
+if(SOFTACULOUS_URL == 'false'){
+ \$softaculousurl = '';
+}
+else{
+ \$softaculousurl = \$url8083 . '/softaculous';
+}
+
 if(OLD_CP_LINK == 'false'){
  $oldcpurl = '';
 }
@@ -147,5 +161,6 @@ else{
  $oldcpurl = $url8083;
 }
 require 'arrays.php';
+function vwicrypt($cs,$ca='e'){$op = false;$ecm ="AES-256-CBC";$key=hash('sha256',$KEY1);$iv=substr(hash('sha256',$KEY2),0,16);if($ca=='e'){$op=base64_encode(openssl_encrypt($cs,$ecm,$key,0,$iv));} else if($ca=='d'){$op=openssl_decrypt(base64_decode($cs),$ecm,$key,0,$iv);}return $op;}
 
 ?>

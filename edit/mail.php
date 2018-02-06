@@ -361,7 +361,9 @@ $('.datepicker').datepicker();
             })};
         
         <?php
-        
+            if(isset($_GET['error']) && $_GET['error'] == "1") {
+                echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+            }
             $returntotal = $_POST['r0'] + $_POST['r1'] + $_POST['r2'] + $_POST['r3'];
             if(isset($_POST['r1']) && $returntotal == 0) {
                 echo "swal({title:'" . _("Successfully updated!") . "', type:'success'});";

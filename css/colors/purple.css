@@ -80,6 +80,22 @@ body {
   color: #54667a;
 }
 /*themecolor*/
+.color-button,
+.color-button.disabled {
+    color: #707cd2 !important;
+    border: 1px solid #707cd2;
+}
+.color-button:hover,
+.color-button.disabled:hover,
+.color-button:focus,
+.color-button.disabled:focus,
+.color-button.focus,
+.color-button.disabled.focus {
+    color: #fff !important;
+    border: 1px solid #707cd2;
+  background: #707cd2;
+  opacity: 0.8;
+}
 .bg-theme {
   background-color: #707cd2 !important;
 }

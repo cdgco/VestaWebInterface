@@ -11,6 +11,45 @@ $requestdns = $_GET['domain'];
 
 if (isset($requestdns) && $requestdns != '') {}
 else { header('Location: ../list/dns.php'); }
+
+if (CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != ''){
+    $cfenabled = curl_init();
+
+    curl_setopt($cfenabled, CURLOPT_URL, "https://api.cloudflare.com/client/v4/zones?name=" . $requestdns);
+    curl_setopt($cfenabled, CURLOPT_RETURNTRANSFER,true);
+    curl_setopt($cfenabled, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($cfenabled, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt($cfenabled, CURLOPT_CUSTOMREQUEST, "GET");
+    curl_setopt($cfenabled, CURLOPT_HTTPHEADER, array(
+    "X-Auth-Email: " . CLOUDFLARE_EMAIL,
+    "X-Auth-Key: " . CLOUDFLARE_API_KEY));
+
+    $cfdata = array_values(json_decode(curl_exec($cfenabled), true));
+    $cfid = $cfdata[0][0]['id'];
+    $cfname = $cfdata[0][0]['name'];
+    if ($cfname != '' && isset($cfname) && $cfname == $requestdns){
+
+        $cfns = curl_init();
+        curl_setopt($cfns, CURLOPT_URL, $vst_url);
+        curl_setopt($cfns, CURLOPT_RETURNTRANSFER,true);
+        curl_setopt($cfns, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($cfns, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($cfns, CURLOPT_POST, true);
+        curl_setopt($cfns, CURLOPT_POSTFIELDS, http_build_query(array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-dns-records','arg1' => $username,'arg2' => $requestdns, 'arg3' => 'json')));
+
+        $cfdata = array_values(json_decode(curl_exec($cfns), true));
+
+        $cfnumber = array_keys(json_decode(curl_exec($cfns), true));
+        $requestArr = array_column(json_decode(curl_exec($cfns), true), 'TYPE');
+        $requestrecord = array_search('NS', $requestArr);
+
+        $nsvalue = $cfdata[$requestrecord]['VALUE'];
+        if( strpos( $nsvalue, '.ns.cloudflare.com' ) !== false ) {
+            header('Location: ../list/cfdomain.php?domain='.$requestdns);
+        }
+    }
+}
+
 $postvars = array(
     array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
     array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-dns-records','arg1' => $username,'arg2' => $requestdns, 'arg3' => 'json'));
@@ -28,7 +67,7 @@ while($curlstart <= 1) {
     curl_setopt(${'curl' . $curlstart}, CURLOPT_POSTFIELDS, http_build_query($postvars[$curlstart]));
     $curlstart++;
 } 
-
+if (CLOUDFLARE_EMAIL == '' || CLOUDFLARE_API_KEY == ''){ $cfenabled = 'off'; }
 $admindata = json_decode(curl_exec($curl0), true)[$username];
 $useremail = $admindata['CONTACT'];
 $dnsname = array_keys(json_decode(curl_exec($curl1), true));
@@ -61,6 +100,30 @@ textdomain('messages');
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.min.css" />
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
         <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?>
+        <style>
+        @font-face {
+          font-family: 'fontello';
+          src: url('../css/font/fontello.eot?3757582');
+          src: url('../css/font/fontello.eot?3757582#iefix') format('embedded-opentype'),
+               url('../css/font/fontello.woff?3757582') format('woff'),
+               url('../css/font/fontello.ttf?3757582') format('truetype'),
+               url('../css/font/fontello.svg?3757582#fontello') format('svg');
+          font-weight: normal;
+          font-style: normal;
+        }
+
+
+        .icon-cloudflare
+        {
+          font-family: "fontello";
+          font-style: normal;
+          font-weight: normal;
+          speak: none;
+          font-size: 150%;
+          top: -6.2px;
+          position: relative;
+
+         </style>
         <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -189,9 +252,19 @@ textdomain('messages');
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                     <h4 class="page-title"><?php echo _("Manage DNS Domain"); ?></h4>
                 </div>
-                <ul class="side-icon-text pull-right">
+                <ul id="cloudflare1" class="side-icon-text pull-right">
                             <li style="position: relative;top: -3px;">
                                 <a onclick="confirmDelete2();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span><?php echo _("Delete DNS Domain"); ?></span>
+                                </a>
+                            </li>
+                        </ul>
+                <ul id="cloudflare" class="side-icon-text pull-right" style="display:none;">
+                            <li style="position: relative;top: -8px;">
+                                <a onclick="confirmDelete2();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span><?php echo _("Delete DNS Domain"); ?></span>
+                                </a>
+                            </li>
+                            <li style="position: relative;top: -8px;">
+                                <a href="../create/cloudflare.php?domain=<?php echo $requestdns; ?>"><span style="top: 8px;position: relative;"class="circle circle-sm bg-warning di"><i class="icon-cloudflare">&#xe801;</i></span><span><?php echo _("Enable Cloudflare"); ?></span>
                                 </a>
                             </li>
                         </ul>
@@ -247,8 +320,8 @@ textdomain('messages');
                                                                     <td>' . $dnsdata[$x1]['RECORD'] . '</td>
                                                                     <td>' . $dnsdata[$x1]['TYPE'] . '</td>
                                                                     <td>' . $dnsdata[$x1]['VALUE'] . '</td><td>
-                                                                    <button type="button" onclick="window.location=\'../edit/dnsrecord.php?domain=' . $requestdns . '&record=' . $dnsname[$x1] . '\';" class="btn btn-info btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button>
-                                                                    <button type="button" onclick="confirmDelete(\'' . $dnsname[$x1] . '\')" class="btn btn-info btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="icon-trash" ></i></button>
+                                                                    <button type="button" onclick="window.location=\'../edit/dnsrecord.php?domain=' . $requestdns . '&record=' . $dnsname[$x1] . '\';" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button>
+                                                                    <button type="button" onclick="confirmDelete(\'' . $dnsname[$x1] . '\')" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="icon-trash" ></i></button>
                                                                     </td><td>';                                                                   
                                                                     if($dnsdata[$x1]['SUSPENDED'] == "no"){ 
                                                                         echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
@@ -298,7 +371,31 @@ textdomain('messages');
     jQuery(function($){
         $('.footable').footable();
     });
+     function subDomain() {
+ 
+        url = '<?php echo $requestdns; ?>';
+        url = url.replace(new RegExp(/^\s+/),"");
+        url = url.replace(new RegExp(/\s+$/),"");
+        url = url.replace(new RegExp(/\\/g),"/");
+        url = url.replace(new RegExp(/^http\:\/\/|^https\:\/\/|^ftp\:\/\//i),"");
+        url = url.replace(new RegExp(/^www\./i),"");
+        url = url.replace(new RegExp(/\/(.*)/),"");
+        if (url.match(new RegExp(/\.[a-z]{2,3}\.[a-z]{2}$/i))) {
+              url = url.replace(new RegExp(/\.[a-z]{2,3}\.[a-z]{2}$/i),"");
+        } else if (url.match(new RegExp(/\.[a-z]{2,4}$/i))) {
+              url = url.replace(new RegExp(/\.[a-z]{2,4}$/i),"");
+        }
+        var subDomain = (url.match(new RegExp(/\./g))) ? true : false;
 
+         <?php if ($cfenabled != "off") { echo 'if(subDomain === false) {
+                document.getElementById("cloudflare").style.display = "block";
+                document.getElementById("cloudflare1").style.display = "none";
+            }
+        else { document.getElementById("cloudflare1").style.display = "block";
+               document.getElementById("cloudflare").style.display = "none"; }
+
+    }
+    subDomain();'; } ?>
     function confirmDelete(e){
         e1 = String(e)
         e0 = '<?php print_r($requestdns); ?>';

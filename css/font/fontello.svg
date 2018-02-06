@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2018 by original authors @ fontello.com</metadata>
+<defs>
+<font id="fontello" horiz-adv-x="1000" >
+<font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="cloudflare" unicode="&#xe801;" d="M682 162c6 21 4 40-6 54-9 13-25 20-43 21l-352 5c-2 0-4 1-6 2-1 2-1 4 0 7 1 3 4 6 8 6l355 5c42 2 87 36 103 77l21 53c1 2 1 5 0 7-23 103-115 181-225 181-102 0-188-66-219-157-20 15-45 23-73 20-49-5-88-44-93-93-1-12 0-25 3-36-80-2-144-68-144-148 0-7 1-14 2-21 0-4 3-6 7-6l649 0c4 0 7 2 8 6l5 17z m112 226c-3 0-7 0-10 0-2 0-4-2-5-4l-14-48c-6-20-3-39 7-53 9-13 24-20 43-21l75-5c2 0 4-1 5-3 1-1 2-4 1-6-1-3-5-6-8-6l-78-5c-43-2-88-36-104-77l-6-15c-1-3 1-6 4-6h268c3 0 6 2 7 5 5 17 7 34 7 52 0 106-86 192-192 192" horiz-adv-x="1000" />
+</font>
+</defs>
+</svg>

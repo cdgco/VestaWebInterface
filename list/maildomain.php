@@ -257,8 +257,8 @@ textdomain('messages');
                                         echo '</td>
                                                                     <td data-sort-value="' . $maildata[$x1]['DATE'] . '">' . $maildata[$x1]['DATE'] . '</td><td>
 
-                                        <button type="button" onclick="window.location=\'../edit/mailaccount.php?domain=' . $requestmail . '&account=' . $mailname[$x1] . '\';" class="btn btn-info btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button>
-                                        <button type="button" onclick="confirmDelete(\'' . $mailname[$x1] . '\')" class="btn btn-info btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="icon-trash" ></i></button>
+                                        <button type="button" onclick="window.location=\'../edit/mailaccount.php?domain=' . $requestmail . '&account=' . $mailname[$x1] . '\';" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button>
+                                        <button type="button" onclick="confirmDelete(\'' . $mailname[$x1] . '\')" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="icon-trash" ></i></button>
                                         </td>
                                                                     <td>' . $maildata[$x1]['QUOTA'] . ' mb</td>
                                                                     <td>'; if(implode(', ', explode(",", $maildata[$x1]['ALIAS'])) == "") { echo _("None"); } else{ echo implode(', ', explode(",", $maildata[$x1]['ALIAS']));} echo '</td>

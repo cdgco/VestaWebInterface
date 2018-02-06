@@ -268,7 +268,7 @@ if($dbname[0] != '') {
                                                                              echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
                                                                            echo '</td>
                                                                     <td data-sort-value="' . $dbdata[$x1]['DATE'] . '">' . $dbdata[$x1]['DATE'] . '</td><td>
-                                            <button type="button" onclick="window.location=\'../edit/db.php?db=' . $dbname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button><button onclick="confirmDelete(\'' . $dbname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
+                                            <button type="button" onclick="window.location=\'../edit/db.php?db=' . $dbname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button><button onclick="confirmDelete(\'' . $dbname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
                                         </td>
                                                                     <td>' . $dbdata[$x1]['HOST'] . '</td>
                                                                     <td>' . $dbdata[$x1]['TYPE'] . '</td>

@@ -111,13 +111,13 @@ if(isset($_SESSION['loggedin'])) {
                         </div>
                         <div class="form-group ">
                             <div class="col-xs-12">
-                                <select class="selectpicker m-b-20 m-r-10" name="plan" data-style="btn btn-info bg-theme" style="border:none;">
+                                <select class="selectpicker m-b-20 m-r-10" name="plan" data-style="btn color-button bg-theme" style="border:none;">
                                     <option value="default" data-tokens="default"><?php echo _('Default'); ?></option>
                                 </select>
                             </div></div>
                         <div class="form-group text-center m-t-20">
                             <div class="col-xs-12">
-                                <button disabled class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light bg-theme" style="border:none;" type="submit"><?php echo _('Sign Up'); ?></button>
+                                <button disabled class="btn color-button btn-lg btn-block text-uppercase waves-effect waves-light bg-theme" style="border:none;" type="submit"><?php echo _('Sign Up'); ?></button>
                             </div>
                         </div>
                         <div class="form-group m-b-0">

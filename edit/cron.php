@@ -709,7 +709,9 @@ textdomain('messages');
             })};
             
             <?php
-
+            if(isset($_GET['error']) && $_GET['error'] == "1") {
+                echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+            }
             if(isset($_POST['returncode']) && $_POST['returncode'] == "0") {
                 echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
             } 

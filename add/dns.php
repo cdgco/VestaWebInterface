@@ -29,6 +29,8 @@ session_start();
     setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
     bindtextdomain('messages', '../locale');
     textdomain('messages');
+
+    if (CLOUDFLARE_EMAIL == '' || CLOUDFLARE_API_KEY == ''){ $cfenabled = 'off'; }
 ?>
 
 <!DOCTYPE html>
@@ -176,13 +178,50 @@ session_start();
                                 <div class="form-group">
                                     <label class="col-md-12"><?php echo _("Domain"); ?></label>
                                     <div class="col-md-12">
-                                        <input type="text" name="v_domain" class="form-control"> 
+                                        <input type="text" name="v_domain" id="v_domain" onkeyup="subDomain()" class="form-control"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="email" class="col-md-12"><?php echo _("IP Address"); ?></label>
                                     <div class="col-md-12">
                                         <input type="text" name="v_ip" class="form-control"> </div>
+                                </div>
+                                <div id="cloudflare">
+                                <?php if ($cfenabled != "off") { echo ' 
+                                <div class="form-group">
+                                    <label class="col-md-12">' . _("Cloudflare Support") . '</label>
+                                    <div class="col-md-12">
+                                        <div class="checkbox checkbox-info">
+                                            <input id="checkbox4" type="checkbox" name="v_cf" onclick="checkDiv();">
+                                            <label for="checkbox4">' . _("Enabled") . '</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="cf-div" style="margin-left: 4%;">
+                                    <div class="form-group">
+                                        <label class="col-md-12">' . _("Security Level") . '</label>
+                                        <div class="col-md-12">
+                                            <select class="form-control select3" name="v_cf_level" id="select3">
+                                                <option value="essentially_off">Essentially Off</option>
+                                                <option value="low">Low</option>
+                                                <option value="medium">Medium</option>
+                                                <option value="high">High</option>
+                                                <option value="Under Attack">I\'m Under Attack!</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">' . _("SSL Setting") . '</label>
+                                        <div class="col-md-12">
+                                            <select class="form-control select4" name="v_cf_ssl" id="select4">
+                                                <option value="off" selected>Off</option>
+                                                <option value="flexible">Flexible</option>
+                                                <option value="full">Full</option>
+                                                <option value="strict">Full (Strict)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>'; } ?>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12"><a style="cursor: pointer;" onclick="toggle_visibility('togglediv');"><?php echo _("Advanced Options"); ?></a></label>
@@ -210,6 +249,7 @@ session_start();
                                         </div>
                                     </div>                  
                                 </div>
+                                
                                 <div class="form-group">
                                     <div class="col-sm-12">
                                         <button class="btn btn-success" onclick="processLoader();"><?php echo _("Add Domain"); ?></button> &nbsp;
@@ -243,7 +283,42 @@ session_start();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.all.js"></script>
     <script src="../plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
     <script type="text/javascript">
-          <?php 
+     function subDomain() {
+ 
+        url = document.getElementById("v_domain").value;
+        url = url.replace(new RegExp(/^\s+/),"");
+        url = url.replace(new RegExp(/\s+$/),"");
+        url = url.replace(new RegExp(/\\/g),"/");
+        url = url.replace(new RegExp(/^http\:\/\/|^https\:\/\/|^ftp\:\/\//i),"");
+        url = url.replace(new RegExp(/^www\./i),"");
+        url = url.replace(new RegExp(/\/(.*)/),"");
+        if (url.match(new RegExp(/\.[a-z]{2,3}\.[a-z]{2}$/i))) {
+              url = url.replace(new RegExp(/\.[a-z]{2,3}\.[a-z]{2}$/i),"");
+        } else if (url.match(new RegExp(/\.[a-z]{2,4}$/i))) {
+              url = url.replace(new RegExp(/\.[a-z]{2,4}$/i),"");
+        }
+        var subDomain = (url.match(new RegExp(/\./g))) ? true : false;
+
+        if(subDomain === false) {
+                document.getElementById("cloudflare").style.display = "block";
+            }
+        else { document.getElementById("cloudflare").style.display = "none"; }
+
+    }
+     
+        <?php if ($cfenabled != "off") { echo '
+        
+        if(document.getElementById("checkbox4").checked) {
+                document.getElementById("cf-div").style.display = "block";
+            }
+        else { document.getElementById("cf-div").style.display = "none"; }
+        function checkDiv(){
+            if(document.getElementById("checkbox4").checked) {
+                document.getElementById("cf-div").style.display = "block";
+            }
+            else { document.getElementById("cf-div").style.display = "none"; }
+        }'; } 
+        
         $checkcount = 2;
         $check1count = 3;
 

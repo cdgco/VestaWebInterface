@@ -44,10 +44,9 @@ session_start();
 
     // Search through array to match requested id number to array number
     $requestArr = array_column(json_decode(curl_exec($curl1), true), 'ID');
-    $requestrecord = array_search($_GET['record'], $requestArr);
-
-    // Redirect if requested id does not exist in array
-    if ($requestrecord == '') { header('Location: ../list/dns.php'); }
+    $requestrecord = array_search($_GET['record'], array_values($requestArr));
+    if (!in_array($_GET['record'], $requestArr)) {
+        header('Location: ../list/dnsdomain.php?domain=' . $requestdns); }
     if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
     setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
     bindtextdomain('messages', '../locale');
@@ -369,7 +368,9 @@ $('.datepicker').datepicker();
             })};
         
         <?php
-        
+            if(isset($_GET['error']) && $_GET['error'] == "1") {
+                echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+            }
             $returntotal = $_POST['r1'] + $_POST['r2'];
             if(isset($_POST['r1']) && $returntotal == 0) {
                 echo "swal({title:'" . _("Successfully updated!") . "', type:'success'});";

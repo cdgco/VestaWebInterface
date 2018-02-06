@@ -247,42 +247,42 @@ textdomain('messages');
                                             foreach($bkArray as $bkey) { 
                                                 echo '<tr><td>' . _("Web") . '<td/>';
                                                 echo '<td>' . $bkey . '<td/>'; 
-                                                echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=web&object=' . $bkey . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Restore") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
+                                                echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=web&object=' . $bkey . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Restore") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
                                             }}
                                         $bkArray = explode(',', ($backupdata[0]['DNS'])); 
                                         if ($bkArray[0]){
                                             foreach($bkArray as $bkey) { 
                                                 echo '<tr><td>' . _("DNS") . '<td/>';
                                                 echo '<td>' . $bkey . '<td/>'; 
-                                                echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=dns&object=' . $bkey . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Restore") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
+                                                echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=dns&object=' . $bkey . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Restore") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
                                             }}
                                         $bkArray = explode(',', ($backupdata[0]['MAIL'])); 
                                         if ($bkArray[0]){
                                             foreach($bkArray as $bkey) { 
                                                 echo '<tr><td>' . _("Mail") . '<td/>';
                                                 echo '<td>' . $bkey . '<td/>'; 
-                                                echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=mail&object=' . $bkey . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Restore") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
+                                                echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=mail&object=' . $bkey . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Restore") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
                                             }}
                                         $bkArray = explode(',', ($backupdata[0]['DB'])); 
                                         if ($bkArray[0]){
                                             foreach($bkArray as $bkey) { 
                                                 echo '<tr><td>' . _("Database") . '<td/>';
                                                 echo '<td>' . $bkey . '<td/>'; 
-                                                echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=db&object=' . $bkey . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Restore") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
+                                                echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=db&object=' . $bkey . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Restore") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
                                             }}
                                         $bkArray = explode(',', ($backupdata[0]['CRON'])); 
                                         if ($bkArray[0]){
                                             foreach($bkArray as $bkey) { 
                                                 echo '<tr><td>' . _("Cron Job") . '<td/>';
                                                 echo '<td>' . $bkey . '<td/>'; 
-                                                echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=cron"><button type="button" data-toggle="tooltip" data-original-title="' . _("Restore") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
+                                                echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=cron"><button type="button" data-toggle="tooltip" data-original-title="' . _("Restore") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
                                             }}
                                         $bkArray = explode(',', ($backupdata[0]['USER'])); 
                                         if ($bkArray[0]){
                                             foreach($bkArray as $bkey) { 
                                                 echo '<tr><td>' . _("User Dir") . '<td/>';
                                                 echo '<td>' . $bkey . '<td/>'; 
-                                                echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=udir&object=' . $bkey . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Restore") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
+                                                echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=udir&object=' . $bkey . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Restore") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
                                             }}
                                         ?>
 

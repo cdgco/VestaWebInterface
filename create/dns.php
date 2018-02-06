@@ -16,6 +16,13 @@ session_start();
     $v_8 = $_POST['v_ns6'];
     $v_9 = $_POST['v_ns7'];
     $v_10 = $_POST['v_ns8'];
+    if (!empty($_POST['v_cf'])) {
+        $v_11 = 'yes';
+    } else {
+        $v_11 = 'no';
+    }
+    $v_12 = $_POST['v_cf_level'];
+    $v_13 = $_POST['v_cf_ssl'];
 
     if ((!isset($_POST['v_domain'])) || ($_POST['v_domain'] == '')) { header('Location: ../add/dns.php?error=1');}
     elseif ((!isset($_POST['v_ip'])) || ($_POST['v_ip'] == '')) { header('Location: ../add/dns.php?error=1');}
@@ -32,6 +39,11 @@ session_start();
     curl_setopt($curl0, CURLOPT_POST, true);
     curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query($postvars));
     $r1 = curl_exec($curl0);
+            
+    if ($v_11 == "yes") {
+
+        header("Location: cloudflare.php?domain=" . $v_1 . "&cflevel=" . $v_12 . "&cfssl=" . $v_13);
+     }
 
 ?>
 <!DOCTYPE html>

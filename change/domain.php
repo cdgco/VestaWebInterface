@@ -57,7 +57,7 @@ session_start();
         $v_ftpx = 'no';
     }
 
-    if ((!isset($v_domain)) || ($v_domain == '')) { header('Location: ../list/web.php?returncode=1');}
+    if ((!isset($v_domain)) || ($v_domain == '')) { header('Location: ../list/web.php?error=1');}
     else {
         if ($_POST['v_ip-x'] != $_POST['v_ip']){
             $postvars0 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-web-domain-ip','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_ip']);

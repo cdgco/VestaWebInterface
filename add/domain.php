@@ -336,7 +336,7 @@ textdomain('messages');
                                                 <label for="v_statspassword" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword2(10)"> <?php echo _("Generate"); ?></a></label>
                                                 <div class="col-md-12 input-group" style="padding-left: 15px;">
                                                     <input type="password" class="form-control form-control-line" autocomplete="new-password" name="v_statspassword" id="statspassword">                                    <span class="input-group-btn"> 
-                                                    <button class="btn btn-info" style="margin-right: 15px;" name="Show" onclick="toggler2(this)" id="tg2" type="button"><i class="ti-eye"></i></button> 
+                                                    <button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler2(this)" id="tg2" type="button"><i class="ti-eye"></i></button> 
                                                     </span>  
                                                 </div>
                                             </div>
@@ -365,7 +365,7 @@ textdomain('messages');
                                                 <label for="password" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10)"> <?php echo _("Generate"); ?></a></label>
                                                 <div class="col-md-12 input-group" style="padding-left: 15px;">
                                                     <input type="password" class="form-control form-control-line" autocomplete="new-password" name="password" id="password">                                    <span class="input-group-btn"> 
-                                                    <button class="btn btn-info" style="margin-right: 15px;" name="Show" onclick="toggler(this)" id="tg" type="button"><i class="ti-eye"></i></button> 
+                                                    <button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler(this)" id="tg" type="button"><i class="ti-eye"></i></button> 
                                                     </span>  </div>
                                             </div>
                                             <div class="form-group">

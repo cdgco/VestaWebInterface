@@ -256,7 +256,7 @@ session_start();
                                                                    console.log('<?php echo _("I was closed by the timer"); ?>')
                                                                    }
                                                                    }
-                                                                   )" class=" pull-right btn waves-effect waves-light btn-info"><i class="ti-angle-right"></i></button>
+                                                                   )" class=" pull-right btn waves-effect waves-light color-button"><i class="ti-angle-right"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -446,10 +446,79 @@ session_start();
                                                         $x2 = 0; 
 
                                                         do {
-                                                            echo '<tr class="advance-table-row clickable-row" data-href="list/dnsdomain.php?domain='.$dnsname[$x2].'">
-                                                                        <td>' . $dnsname[$x2] . '</td>
-                                                                        <td data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>
-                                                                        <td>';                                                                   
+                                                            if(count(explode('.', $requestdns)) > 2) { 
+                                                                  $sub = 'yes';
+                                                                 } else{ 
+                                                                  $sub = 'no'; 
+                                                                 } 
+                                                            if ($sub == "no") {
+                                                            if (CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != ''){
+                                                                $cfenabled = curl_init();
+
+                                                                curl_setopt($cfenabled, CURLOPT_URL, "https://api.cloudflare.com/client/v4/zones?name=" . $dnsname[$x2]);
+                                                                curl_setopt($cfenabled, CURLOPT_RETURNTRANSFER,true);
+                                                                curl_setopt($cfenabled, CURLOPT_SSL_VERIFYPEER, false);
+                                                                curl_setopt($cfenabled, CURLOPT_SSL_VERIFYHOST, false);
+                                                                curl_setopt($cfenabled, CURLOPT_CUSTOMREQUEST, "GET");
+                                                                curl_setopt($cfenabled, CURLOPT_HTTPHEADER, array(
+                                                                "X-Auth-Email: " . CLOUDFLARE_EMAIL,
+                                                                "X-Auth-Key: " . CLOUDFLARE_API_KEY));
+
+                                                                $cfdata = array_values(json_decode(curl_exec($cfenabled), true));
+                                                                $cfid = $cfdata[0][0]['id'];
+                                                                $cfname = $cfdata[0][0]['name'];
+                                                                if ($cfname != '' && isset($cfname) && $cfname == $dnsname[$x2]){
+
+                                                                    $cfns = curl_init();
+                                                                    curl_setopt($cfns, CURLOPT_URL, $vst_url);
+                                                                    curl_setopt($cfns, CURLOPT_RETURNTRANSFER,true);
+                                                                    curl_setopt($cfns, CURLOPT_SSL_VERIFYPEER, false);
+                                                                    curl_setopt($cfns, CURLOPT_SSL_VERIFYHOST, false);
+                                                                    curl_setopt($cfns, CURLOPT_POST, true);
+                                                                    curl_setopt($cfns, CURLOPT_POSTFIELDS, http_build_query(array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-dns-records','arg1' => $username,'arg2' => $dnsname[$x2], 'arg3' => 'json')));
+
+                                                                    $cfdata = array_values(json_decode(curl_exec($cfns), true));
+
+                                                                    $cfnumber = array_keys(json_decode(curl_exec($cfns), true));
+                                                                    $requestArr = array_column(json_decode(curl_exec($cfns), true), 'TYPE');
+                                                                    $requestrecord = array_search('NS', $requestArr);
+
+                                                                    $nsvalue = $cfdata[$requestrecord]['VALUE'];
+                                                                    if( strpos( $nsvalue, '.ns.cloudflare.com' ) !== false ) {
+                                                                        $cfrecords = curl_init();
+
+                                                                        curl_setopt($cfrecords, CURLOPT_URL, "https://api.cloudflare.com/client/v4/zones/" . $cfid . "/dns_records");
+                                                                        curl_setopt($cfrecords, CURLOPT_RETURNTRANSFER,true);
+                                                                        curl_setopt($cfrecords, CURLOPT_SSL_VERIFYPEER, false);
+                                                                        curl_setopt($cfrecords, CURLOPT_SSL_VERIFYHOST, false);
+                                                                        curl_setopt($cfrecords, CURLOPT_CUSTOMREQUEST, "GET");
+                                                                        curl_setopt($cfrecords, CURLOPT_HTTPHEADER, array(
+                                                                        "X-Auth-Email: " . CLOUDFLARE_EMAIL,
+                                                                        "X-Auth-Key: " . CLOUDFLARE_API_KEY));
+                                                                        
+                                                                        $cfdata2 = array_values(json_decode(curl_exec($cfrecords), true));
+                                                                        $cfcount = $cfdata2[1]['count'];
+                                                                        
+                                                                        echo '<tr class="advance-table-row clickable-row" data-href="list/cfdomain.php?domain='.$dnsname[$x2].'">
+                                                                        <td>' . $dnsname[$x2] . '</td><td data-sort-value="' . $cfcount . '">' . $cfcount . '</td>';
+                                                                        $recordcount = $recordcount + $cfcount;
+                                                                    }
+                                                                    else { echo '<tr class="advance-table-row clickable-row" data-href="list/dnsdomain.php?domain='.$dnsname[$x2].'">
+                                                                        <td>' . $dnsname[$x2] . '</td><td data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>'; 
+                                                                         $recordcount = $recordcount + $dnsdata[$x2]['RECORDS'];}
+                                                                }
+                                                                else { echo '<tr class="advance-table-row clickable-row" data-href="list/dnsdomain.php?domain='.$dnsname[$x2].'">
+                                                                        <td>' . $dnsname[$x2] . '</td><td data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>'; 
+                                                                     $recordcount = $recordcount + $dnsdata[$x2]['RECORDS'];}
+                                                            }
+                                                            else { echo '<tr class="advance-table-row clickable-row" data-href="list/dnsdomain.php?domain='.$dnsname[$x2].'">
+                                                                        <td>' . $dnsname[$x2] . '</td><td data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>'; 
+                                                                 $recordcount = $recordcount + $dnsdata[$x2]['RECORDS'];}
+                                                            }
+                                                            else { echo '<tr class="advance-table-row clickable-row" data-href="list/dnsdomain.php?domain='.$dnsname[$x2].'">
+                                                                        <td>' . $dnsname[$x2] . '</td><td data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>'; 
+                                                                  $recordcount = $recordcount + $dnsdata[$x2]['RECORDS']; }
+                                                            echo '<td>';                                                                   
                                                             if($dnsdata[$x2]['SUSPENDED'] == "no"){ 
                                                                 echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
                                                             else{ 
@@ -644,7 +713,7 @@ session_start();
                                             <li><i class="fa fa-sitemap text-danger"></i></li>
                                             <li class="text-right">
                                                 <h1>
-                                                    <?php echo $admindata['U_DNS_RECORDS']; ?> /
+                                                    <span id="recordcount"><?php echo $admindata['U_DNS_RECORDS']; ?></span> /
                                                     <?php if($admindata['DNS_RECORDS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['DNS_DOMAINS'] * $admindata['DNS_RECORDS']); } ?>
                                                 </h1>
                                             </li><br><br>
@@ -802,6 +871,7 @@ session_start();
                     });";
         
         } ?>
+        document.getElementById("recordcount").innerHTML = "<?php echo $recordcount; ?>";
         (function() {
             [].slice.call(document.querySelectorAll('.sttabs')).forEach(function(el) {
                 new CBPFWTabs(el);

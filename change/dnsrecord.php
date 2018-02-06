@@ -4,17 +4,18 @@
     if(base64_decode($_SESSION['loggedin']) == 'true') {}
     else { header('Location: ../login.php'); }
 
+
     $v_domain = $_POST['v_domain'];
     $v_id = $_POST['v_id'];
     $v_id2 = $_POST['v_id2'];
     $v_value = $_POST['v_value'];
     $v_priority = $_POST['v_priority'];
 
-    if ((!isset($_POST['v_domain'])) || ($_POST['v_domain'] == '')) { header('Location: ../list/dns.php?returncode=1');}
-    elseif ((!isset($_POST['v_id'])) || ($_POST['v_id'] == '')) { header('Location: ../list/dnsdomain.php?returncode=1&domain=' . $v_domain);}
-    elseif ((!isset($_POST['v_id2'])) || ($_POST['v_id2'] == '')) { header('Location: ../edit/dnsrecord.php?returncode=1&domain=' . $v_domain . '&record=' . $v_id);}
-    elseif ((!isset($_POST['v_type'])) || ($_POST['v_type'] == '')) { header('Location: ../edit/dnsrecord.php?returncode=1&domain=' . $v_domain . '&record=' . $v_id);}
-    elseif ((!isset($_POST['v_value'])) || ($_POST['v_value'] == '')) { header('Location: ../edit/dnsrecord.php?returncode=1&domain=' . $v_domain . '&record=' . $v_id);}
+    if ((!isset($_POST['v_domain'])) || ($_POST['v_domain'] == '')) { header('Location: ../list/dns.php?error=1');}
+    elseif ((!isset($_POST['v_id'])) || ($_POST['v_id'] == '')) { header('Location: ../list/dnsdomain.php?error=1&domain=' . $v_domain);}
+    elseif ((!isset($_POST['v_id2'])) || ($_POST['v_id2'] == '')) { header('Location: ../edit/dnsrecord.php?error=1&domain=' . $v_domain . '&record=' . $v_id);}
+    elseif ((!isset($_POST['v_type'])) || ($_POST['v_type'] == '')) { header('Location: ../edit/dnsrecord.php?error=1&domain=' . $v_domain . '&record=' . $v_id);}
+    elseif ((!isset($_POST['v_value'])) || ($_POST['v_value'] == '')) { header('Location: ../edit/dnsrecord.php?error=1&domain=' . $v_domain . '&record=' . $v_id);}
 
     $postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-dns-record','arg1' => $username,'arg2' => $v_domain, 'arg3' => $v_id, 'arg4' => $v_value, 'arg5' => $v_priority);
 
@@ -41,7 +42,7 @@
         $r2 = curl_exec($curl1);
 
     }
-    else { $r2 = 0; s}
+    else { $r2 = 0; }
     $newid = $v_id;
     if ($v_id != $v_id2 && $r2 == 0) {
         $newid = $v_id2;

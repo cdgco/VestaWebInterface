@@ -202,7 +202,7 @@ if(isset($_SESSION['loggedin'])) {
                         </div>
                         <div class="form-group text-center m-t-20">
                             <div class="col-xs-12">
-                                <button class="btn btn-info btn-lg btn-block btn-rounded text-uppercase waves-effect waves-light bg-theme" style="border: none;" type="submit"><?php echo _("Log in"); ?></button>
+                                <button class="btn color-button btn-lg btn-block btn-rounded text-uppercase waves-effect waves-light bg-theme" style="border: none;" type="submit"><?php echo _("Log in"); ?></button>
                             </div>
                         </div>
                         <br>

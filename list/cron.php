@@ -273,8 +273,8 @@ if($cronname[0] != '') {
                                                                            echo '</td>
                                                                     <td data-sort-value="' . $crondata[$x1]['DATE'] . '">' . $crondata[$x1]['DATE'] . '</td><td>
                                             
-<button onclick="window.location=\'../edit/cron.php?job=' . $cronname[$x1] . '\';" type="button" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="fa fa-cog"></i></button>
-<button onclick="confirmDelete(\'' . $cronname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn btn-info btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
+<button onclick="window.location=\'../edit/cron.php?job=' . $cronname[$x1] . '\';" type="button" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-cog"></i></button>
+<button onclick="confirmDelete(\'' . $cronname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
                                         </td>
 <td>'; echo $schedule->asNaturalLanguage() . ' ( ' . $crontime . ' )</td>
                                                                     </tr>';
