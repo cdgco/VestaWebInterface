@@ -712,9 +712,7 @@ session_start();
                                         <ul class="list-inline two-part">
                                             <li><i class="fa fa-sitemap text-danger"></i></li>
                                             <li class="text-right">
-                                                <h1>
-                                                    <span id="recordcount"><?php echo $admindata['U_DNS_RECORDS']; ?></span> /
-                                                    <?php if($admindata['DNS_RECORDS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['DNS_DOMAINS'] * $admindata['DNS_RECORDS']); } ?>
+                                                <h1 id="recordcount">
                                                 </h1>
                                             </li><br><br>
                                         </ul>
@@ -871,7 +869,7 @@ session_start();
                     });";
         
         } ?>
-        document.getElementById("recordcount").innerHTML = "<?php if ($recordcount == "") { echo "0";} else { echo $recordcount; } ?>";
+        document.getElementById("recordcount").innerHTML = "<?php if ($recordcount == "") { echo "0";} else { echo $recordcount; } ?>  / <?php if($admindata['DNS_RECORDS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['DNS_DOMAINS'] * $admindata['DNS_RECORDS']); } ?>";
         (function() {
             [].slice.call(document.querySelectorAll('.sttabs')).forEach(function(el) {
                 new CBPFWTabs(el);
