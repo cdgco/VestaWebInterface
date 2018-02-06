@@ -410,12 +410,22 @@ require '../includes/arrays.php';
     
   </div>
 </div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="CLOUDFLARE_API_KEY">Cloudflare API Key</label>  
+  <div class="col-md-4">
+  <input id="CLOUDFLARE_API_KEY" name="CLOUDFLARE_API_KEY" type="text" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+    
     
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="CLOUDFLARE_ORIGIN_CA_KEY">Cloudflare Origin CA Key</label>  
+  <label class="col-md-4 control-label" for="CLOUDFLARE_EMAIL">Cloudflare Account Email Address</label>  
   <div class="col-md-4">
-      <textarea rows="6" id="CLOUDFLARE_ORIGIN_CA_KEY" name="CLOUDFLARE_ORIGIN_CA_KEY" placeholder="" class="form-control input-md"></textarea>
+  <input id="CLOUDFLARE_EMAIL" name="CLOUDFLARE_EMAIL" type="email" placeholder="" class="form-control input-md">
     
   </div>
 </div>

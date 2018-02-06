@@ -1,15 +1,18 @@
 <?php
 
-function random_str($length, $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
-{
-    $str = '';
-    $max = mb_strlen($keyspace, '8bit') - 1;
-    for ($i = 0; $i < $length; ++$i) {
-        $str .= $keyspace[random_int(0, $max)];
+function randomPassword() {
+    $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+    $pass = array(); //remember to declare $pass as an array
+    $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+    for ($i = 0; $i < 8; $i++) {
+        $n = rand(0, $alphaLength);
+        $pass[] = $alphabet[$n];
     }
-    return $str;
+    return implode($pass); //turn the array into a string
 }
 
+$a = randomPassword();
+$b = randomPassword();
 if ($_POST['x'] != '1') { if (file_exists( '../includes/config.php' )) { header( 'Location: ../index.php' );}; }
 
 if($_POST['VESTA_SSL_ENABLED'] == 'on'){ $sslenabled = 'true'; }
@@ -23,7 +26,7 @@ else { $mailenabled = 'false'; }
 if($_POST['ENABLE_DB'] == 'on'){ $dbenabled = 'true'; }
 else { $dbenabled = 'false'; }
 if($_POST['ENABLE_SOFTURL'] == 'on'){ $softaculouslink = 'true'; }
-else { $softaculouslink = 'false'; 
+else { $softaculouslink = 'false'; }
 if($_POST['ENABLE_OLDCPURL'] == 'on'){ $oldcplink = 'true'; }
 else { $oldcplink = 'false'; }
 
@@ -38,8 +41,8 @@ date_default_timezone_set('".$_POST['TIMEZONE']."'); // Server Time Zone - See h
 DEFINE('SITE_NAME', '".$_POST['SITENAME']."'); // Site name for use in page titles. Ex: 'My Host Company'.
 DEFINE('THEME', '".$_POST['THEME']."'); // Accepted options are 'default', 'blue', 'purple' and 'orange'
 DEFINE('LANGUAGE', '".$_POST['LANGUAGE']."'); // See VWI Documentation or arrays.php file for accepted formats.
-DEFINE('KEY1', '".random_str(32);."'); // Random Key #1 for encryption / decryption.
-DEFINE('KEY2', '".random_str(32);."'); // Random Key #2 for encryption / decryption.
+DEFINE('KEY1', '".$a."'); // Random Key #1 for encryption / decryption.
+DEFINE('KEY2', '".$b."'); // Random Key #2 for encryption / decryption.
 
 // VESTA API SETTINGS //
 DEFINE('VESTA_HOST_ADDRESS', '".$_POST['VESTA_HOST_ADDRESS']."'); // URL or IP Address of VestaCP. Ex: 'myhost.com' or '12.34.56.78'.
@@ -68,7 +71,8 @@ DEFINE('OLD_CP_LINK', '".$oldcplink."'); // Enable or disable link to old cpanel
 DEFINE('GOOGLE_ANALYTICS_ID', '".$_POST['GOOGLE_ANALYTICS_ID']."'); // Enable Google Analytics Tracking. Enter Tracking ID.
 DEFINE('INTERAKT_APP_ID', '".$_POST['INTERAKT_APP_ID']."'); // Enable Interakt Support / Tools. Enter Interakt App ID.
 DEFINE('INTERAKT_API_KEY', '".$_POST['INTERAKT_API_KEY']."'); // Enable Interakt User Management. Interakt Account number must be set first. Enter Interakt API Key.
-DEFINE('CLOUDFLARE_ORIGIN_CA_KEY', '".$_POST['CLOUDFLARE_ORIGIN_CA_KEY']."'); // Enable Cloudflare DNS Support. Enter Origin CA Key found on https://www.cloudflare.com/a/profile under the API Key section. Must start with 'v1.0'.
+DEFINE('CLOUDFLARE_API_KEY', '".$_POST['CLOUDFLARE_API_KEY']."'); // Enable Cloudflare DNS Support. Enter API Key found on https://www.cloudflare.com/a/profile under the API Key section.
+DEFINE('CLOUDFLARE_EMAIL', '".$_POST['CLOUDFLARE_EMAIL']."'); // Enable Cloudflare DNS Support. Enter email address on account with API Key.
 
 ///////////////////////////////////////////////////////////////////////
 // DO NOT EDIT BELOW THIS LINE - CONVERTING AND PROCESSING CONSTANTS //

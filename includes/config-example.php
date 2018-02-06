@@ -38,7 +38,8 @@ DEFINE('OLD_CP_LINK', 'true'); // Enable or disable link to old cpanel. Ex: 'tru
 DEFINE('GOOGLE_ANALYTICS_ID', ''); // Enable Google Analytics Tracking. Enter Tracking ID.
 DEFINE('INTERAKT_APP_ID', ''); // Enable Interakt Support / Tools. Enter Interakt App ID.
 DEFINE('INTERAKT_API_KEY', ''); // Enable Interakt User Management. Interakt Account number must be set first. Enter Interakt API Key.
-DEFINE('CLOUDFLARE_ORIGIN_CA_KEY', ''); // Enable Cloudflare DNS Support. Enter Origin CA Key found on https://www.cloudflare.com/a/profile under the API Key section. Must start with 'v1.0'.
+DEFINE('CLOUDFLARE_API_KEY', ''); // Enable Cloudflare DNS Support. Enter API Key found on https://www.cloudflare.com/a/profile under the API Key section.
+DEFINE('CLOUDFLARE_EMAIL', ''); // Enable Cloudflare DNS Support. Enter email address on account with API Key.
 
 ///////////////////////////////////////////////////////////////////////
 // DO NOT EDIT BELOW THIS LINE - CONVERTING AND PROCESSING CONSTANTS //
