@@ -63,7 +63,7 @@ DEFINE('WEB_ENABLED', '".$webenabled."'); // Enable or disable web section. Ex: 
 DEFINE('DNS_ENABLED', '".$dnsenabled."'); // Enable or disable dns section. Ex: 'true' or 'false'.
 DEFINE('MAIL_ENABLED', '".$mailenabled."'); // Enable or disable mail section. Ex: 'true' or 'false'.
 DEFINE('DB_ENABLED', '".$dbenabled."'); // Enable or disable database section. Ex: 'true' or 'false'.
-DEFINE'SOFTACULOUS_URL', '".$softaculouslink."'); // Enable or disable link to Softaculous. Ex: 'true' or 'false'.
+DEFINE('SOFTACULOUS_URL', '".$softaculouslink."'); // Enable or disable link to Softaculous. Ex: 'true' or 'false'.
 DEFINE('OLD_CP_LINK', '".$oldcplink."'); // Enable or disable link to old cpanel. Ex: 'true' or 'false'.
 
 

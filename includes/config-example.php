@@ -31,7 +31,7 @@ DEFINE('WEB_ENABLED', 'true'); // Enable or disable web section. Ex: 'true' or '
 DEFINE('DNS_ENABLED', 'true'); // Enable or disable dns section. Ex: 'true' or 'false'.
 DEFINE('MAIL_ENABLED', 'true'); // Enable or disable mail section. Ex: 'true' or 'false'.
 DEFINE('DB_ENABLED', 'true'); // Enable or disable database section. Ex: 'true' or 'false'.
-DEFINE'SOFTACULOUS_URL', 'true'); // Enable or disable link to Softaculous. Ex: 'true' or 'false'.
+DEFINE('SOFTACULOUS_URL', 'true'); // Enable or disable link to Softaculous. Ex: 'true' or 'false'.
 DEFINE('OLD_CP_LINK', 'true'); // Enable or disable link to old cpanel. Ex: 'true' or 'false'.
 
 // INTEGRATIONS //
