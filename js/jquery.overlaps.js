@@ -41,7 +41,7 @@
         $.fn.overlaps = function (selector) {
         return this.pushStack(filterOverlaps(this, selector && $(selector)));
         };
-        for (index1 < length1; index1++) {
+        for (index1 < length1; index1++;) {
             for (index2 = 0; index2 < length2; index2++) {
                 if (collection1[index1] === collection2[index2]) {
                     continue;

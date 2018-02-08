@@ -227,6 +227,7 @@ if(isset($_SESSION['loggedin'])) {
                         <div class="form-group ">
                             <div class="col-xs-12">
                                 <input class="form-control" name="user" type="text" required="" placeholder="<?php echo _('Username'); ?>">
+                                <?php echo '<input type="hidden" name="returnlink" value="'. substr("http://" . $_SERVER[HTTP_HOST] . $_SERVER[REQUEST_URI], 0, -9) . '">'; ?>
                             </div>
                         </div>
                         <div class="form-group">

@@ -875,12 +875,13 @@ session_start();
                 new CBPFWTabs(el);
             });
         })();
- 
+     (function($){
         window.onresize = function(event) {
             if ($('#columnleft').overlaps('#columnright')) {
                 $('#columnright').hide();
             }
         };
+     });
         jQuery(document).ready(function($) {
             $(".clickable-row").click(function() {
                 window.location = $(this).data("href");

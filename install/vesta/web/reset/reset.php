@@ -57,7 +57,7 @@ if ((!empty($_POST['user'])) && (!empty($_POST['code'])) && (!empty($_POST['pass
                     $ERROR = "<a class=\"error\">".__('An internal error occurred')."</a>";
                 } else {
                     $_SESSION['user'] = $_POST['user'];
-                    header("Location: http://ide.cdgtech.one/dev");
+                    header("Location: " . $_POST['returnlink']);
                     exit;
                 }
             } else {
