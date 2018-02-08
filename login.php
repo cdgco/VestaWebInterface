@@ -169,6 +169,11 @@ if(isset($_SESSION['loggedin'])) {
                                     $_SESSION['loggedin'] = base64_encode ( 'true' );
                                     $_SESSION['username'] = base64_encode ( $username2 );
                                     
+                                    /* if ($username2 == "admin") { $userredirect = 'admin/index.php'; }
+                                    else { $userredirect = 'index.php'; } */
+                                    
+                                    $userredirect = 'index.php';
+                                    
                                     echo '<br><br>
                                         <div style="color: #000;" class="alert alert-success alert-dismissable">
                                             <button type="button" style="color: #000;" class="close text-inverse" aria-hidden="true">
@@ -176,7 +181,7 @@ if(isset($_SESSION['loggedin'])) {
                                             </button>
                                             <span style="opacity: 0.7;">' . _("Loading Dashboard") . '...</span>
                                         </div>
-                                        <script>setTimeout(function(){ window.location = "index.php";}, 100);</script>';
+                                        <script>setTimeout(function(){ window.location = "' . $userredirect . '";}, 100);</script>';
                                 } else {
                                     echo '<br><br><div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' . _("Error: Incorrect Login.") . '</div>';
                                 }}}
@@ -202,7 +207,7 @@ if(isset($_SESSION['loggedin'])) {
                         </div>
                         <div class="form-group text-center m-t-20">
                             <div class="col-xs-12">
-                                <button class="btn color-button btn-lg btn-block btn-rounded text-uppercase waves-effect waves-light bg-theme" style="border: none;" type="submit"><?php echo _("Log in"); ?></button>
+                                <button class="btn btn-info btn-lg btn-block btn-rounded text-uppercase waves-effect waves-light bg-theme" style="border: none;" type="submit"><?php echo _("Log in"); ?></button>
                             </div>
                         </div>
                         <br>
