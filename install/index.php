@@ -246,6 +246,14 @@ require '../includes/arrays.php';
 </div>
 <!-- Text input-->
 <div class="form-group">
+  <label class="col-md-4 control-label" for="VESTA_EMAIL">Email Address</label>  
+  <div class="col-md-4">
+  <input id="VESTA_EMAIL" name="EMAILADDR" type="text" placeholder="name@example.com" class="form-control input-md">
+  <span class="help-block">By entering an email, you may receive alerts regarding the security and status of your installation.</span>  
+  </div>
+</div>
+<!-- Text input-->
+<div class="form-group">
   <label class="col-md-4 control-label" for="VESTA_HOST_ADDRESS">Vesta Host Address</label>  
   <div class="col-md-4">
   <input id="VESTA_HOST_ADDRESS" name="VESTA_HOST_ADDRESS" type="text" placeholder="myhost.com or 12.34.56.78" class="form-control input-md" required="">
