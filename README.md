@@ -14,4 +14,4 @@ For installation, details, live demo and technical information, visit the [VWI D
 
 ## Support
 
-For support regarding Vesta Web Interface, you can email me at support [at] cdgtech.one, visit the support portal online at http://support.cdgtech.one, or click the buttons in the bottom left and right hand corners of the live demo to chat or leave feedback.
+For support regarding Vesta Web Interface, please view the documentation, email me at carter [at] cdgtech.one or visit the support portal online at http://support.cdgtech.one.
