@@ -194,7 +194,7 @@ session_start();
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="white-box">
-                            <form class="form-horizontal form-material" autocomplete="off" method="post" action="../../change/ip.php">
+                            <form class="form-horizontal form-material" autocomplete="off" method="post" action="../change/ip.php">
                                 <div class="form-group">
                                     <label class="col-md-12"><?php echo _("IP Address"); ?></label>
                                     <div class="col-md-12">
@@ -207,14 +207,12 @@ session_start();
                                     <label class="col-md-12"><?php echo _("Netmask"); ?></label>
                                     <div class="col-md-12">
                                         <input type="text" disabled value="<?php print_r($ipdata[0]['NETMASK']); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;" class="form-control uneditable-input form-control-static"> 
-                                        <input type="hidden" name="v_netmask" value="<?php print_r($ipdata[0]['NETMASK']); ?>"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12"><?php echo _("Interface"); ?></label>
                                     <div class="col-md-12">
                                         <input type="text" disabled value="<?php print_r($ipdata[0]['INTERFACE']); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;" class="form-control uneditable-input form-control-static"> 
-                                        <input type="hidden" name="v_interface" value="<?php print_r($ipdata[0]['INTERFACE']); ?>"> 
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -223,6 +221,7 @@ session_start();
                                         <div class="checkbox checkbox-info">
                                             <input id="checkbox4" type="checkbox" name="v_shared" onclick="checkDiv();" <?php if($ipdata[0]['STATUS'] == 'shared') {echo 'checked';} ?>>
                                             <label for="checkbox4"><?php echo _("Enabled"); ?></label>
+                                            <input type="hidden" name="v_shared-x" value="<?php print_r($ipdata[0]['STATUS']); ?>"> 
                                         </div>
                                     </div>
                                 </div>
@@ -242,6 +241,7 @@ session_start();
 
                                                 ?>
                                             </select>
+                                            <input type="hidden" name="v_assigned-x" value="<?php print_r($ipdata[0]['OWNER']); ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -250,6 +250,7 @@ session_start();
                                     <div class="col-md-12">
                                         <input type="text" name="v_domain" value="<?php echo $ipdata[0]['NAME']; ?>" autocomplete="new-password" class="form-control form-control-line"> 
                                         <small class="form-text text-muted"><?php echo _("Optional"); ?></small>
+                                        <input type="hidden" name="v_domain-x" value="<?php print_r($ipdata[0]['NAME']); ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -257,6 +258,7 @@ session_start();
                                     <div class="col-md-12">
                                         <input type="text" name="v_nat" value="<?php echo $ipdata[0]['NAT']; ?>" autocomplete="new-password" class="form-control form-control-line"> 
                                         <small class="form-text text-muted"><?php echo _("Optional"); ?></small>
+                                        <input type="hidden" name="v_nat-x" value="<?php print_r($ipdata[0]['NAT']); ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -303,7 +305,7 @@ $('.datepicker').datepicker();
                 }
                 else {document.getElementById('shared-div').style.display = 'block';}
             }
-        
+        <?php echo 'document.getElementById("typeselect").value = \'' . $ipdata[0]['OWNER'] . '\';'; ?>
         jQuery(function($){
             $('.footable').footable();
         });
@@ -320,6 +322,13 @@ $('.datepicker').datepicker();
            if(isset($_GET['error']) && $_GET['error'] == "1") {
                 echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
             } 
+            $returntotal = $_POST['r1'] + $_POST['r2'] + $_POST['r3'] + $_POST['r4'];
+            if(isset($_POST['r1']) && $returntotal == 0) {
+                echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
+            } 
+            if(isset($_POST['r1']) && $returntotal != 0) {
+                echo "swal({title:'" . _("Error Updating IP Address") . "<br>" . "(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . "." . $_POST['r4'] . ")<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+            }
         ?>
     </script>
 </body>
