@@ -187,6 +187,7 @@ textdomain('messages');
                             <ul class="nav nav-second-level collapse" >
                                 <li> <a href="profile.php" id="profileactive"><i class="ti-home fa-fw <?php if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo 'text-inverse';} ?>"></i> <span style="<?php if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo 'color:#54667a;font-weight:300;';} ?>" class="hide-menu"> <?php echo _("My Account"); ?></span></a></li>
                                 <li> <a href="profile.php?settings=open" id="settingsactive"><i class="ti-settings fa-fw "></i> <span class="hide-menu"> <?php echo _("Account Settings"); ?></span></a></li>
+                                <li> <a href="log.php"><i class="ti-layout-list-post fa-fw"></i><span class="hide-menu"><?php echo _("Log"); ?></span></a> </li>
                             </ul>
                         </li>
                         <?php if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '<li class="devider"></li>

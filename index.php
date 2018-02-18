@@ -186,6 +186,7 @@ session_start();
                                 <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
                                     <li> <a href="profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> <?php echo _("My Account"); ?></span></a></li>
                                     <li> <a href="profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> <?php echo _("Account Settings"); ?></span></a></li>
+                                    <li> <a href="log.php"><i class="ti-layout-list-post fa-fw"></i><span class="hide-menu"><?php echo _("Log"); ?></span></a> </li>
                                 </ul>
                             </li>
                         <?php if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '<li class="devider"></li>
@@ -241,22 +242,7 @@ session_start();
                                     </form>
                                 </div>
                                 <div class="input-group-btn">
-                                    <button type="button" onclick="document.getElementById('rebuildform').submit();swal({
-                                                                   title: '<?php echo _("Processing"); ?>',
-                                                                   text: '',
-                                                                   timer: 5000,
-                                                                   onOpen: function () {
-                                                                   swal.showLoading()
-                                                                   }
-                                                                   }).then(
-                                                                   function () {},
-                                                                   // handling the promise rejection
-                                                                   function (dismiss) {
-                                                                   if (dismiss === 'timer') {
-                                                                   console.log('<?php echo _("I was closed by the timer"); ?>')
-                                                                   }
-                                                                   }
-                                                                   )" class=" pull-right btn waves-effect waves-light color-button"><i class="ti-angle-right"></i></button>
+                                    <button type="button" onclick='document.getElementById("rebuildform").submit();swal({title: "<?php echo _('Processing'); ?>", text: "",timer: 5000,onOpen: function () {swal.showLoading();}}).then(function () {},function (dismiss) {if (dismiss === "timer") {}})' class=" pull-right btn waves-effect waves-light color-button"><i class="ti-angle-right"></i></button>
                                 </div>
                             </div>
                         </div>
