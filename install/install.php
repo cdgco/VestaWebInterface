@@ -237,6 +237,7 @@ include("../includes/versioncheck.php");
     echo '<input type="hidden" name="gae" value="'.$GAE.'">';
     echo '<input type="hidden" name="iae" value="'.$IAE.'">';
     echo '<input type="hidden" name="cfe" value="'.$CFE.'">';
+    echo '<input type="hidden" name="version" value="'.$currentversion.'">';
     
     
 ?>

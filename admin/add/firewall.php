@@ -2,19 +2,19 @@
 
 session_start();
 
-if (file_exists( '../../includes/config.php' )) { require( '../../includes/config.php'); }  else { header( 'Location: ../../install' );};
+    if (file_exists( '../../includes/config.php' )) { require( '../../includes/config.php'); }  else { header( 'Location: ../../install' );};
 
     if(base64_decode($_SESSION['loggedin']) == 'true') {}
-      else { header('Location: ../login.php'); }
+      else { header('Location: ../../login.php'); }
     if($username != 'admin') { header("Location: ../../"); }
 
     $postvars = array(
       array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
-      array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-ips','arg1' => 'json'));
+    );
 
     $curl0 = curl_init();
-    $curl1 = curl_init();
     $curlstart = 0; 
+
 
     while($curlstart <= 1) {
         curl_setopt(${'curl' . $curlstart}, CURLOPT_URL, $vst_url);
@@ -28,8 +28,6 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
 
     $admindata = json_decode(curl_exec($curl0), true)[$username];
     $useremail = $admindata['CONTACT'];
-    $ipname = array_keys(json_decode(curl_exec($curl1), true));
-    $ipdata = array_values(json_decode(curl_exec($curl1), true));
     if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
     setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
     bindtextdomain('messages', '../../locale');
@@ -46,7 +44,7 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/ico" href="../../plugins/images/favicon.ico">
-    <title><?php echo $sitetitle; ?> - <?php echo _("IP"); ?></title>
+    <title><?php echo $sitetitle; ?> - <?php echo _("Firewall"); ?></title>
     <link href="../../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
     <link href="../../plugins/bower_components/footable/css/footable.bootstrap.css" rel="stylesheet">
@@ -57,14 +55,14 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
     <link href="../../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.min.css" />
     <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
-    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?> 
     <!--[if lt IE 9]>
        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
 
-<body class="fix-header">
+<body class="fix-header" onload="checkDiv();">
     <!-- ============================================================== -->
     <!-- Preloader -->
     <!-- ============================================================== -->
@@ -73,18 +71,12 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
             <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
         </svg>
     </div>
-    <!-- ============================================================== -->
-    <!-- Wrapper -->
-    <!-- ============================================================== -->
     <div id="wrapper">
-        <!-- ============================================================== -->
-        <!-- Topbar header - style you can find in pages.scss -->
-        <!-- ============================================================== -->
         <nav class="navbar navbar-default navbar-static-top m-b-0">
             <div class="navbar-header">
                 <div class="top-left-part">
                     <!-- Logo -->
-                    <a class="logo" href="../index.php">
+                    <a class="logo" href="../../index.php">
                         <!-- Logo icon image, you can use font-icon also --><b>
                         <!--This is dark logo icon--><img src="../../plugins/images/admin-logo.png" alt="home" class="logo-1 dark-logo" /><!--This is light logo icon--><img src="../../plugins/images/admin-logo-dark.png" alt="home" class="logo-1 light-logo" />
                      </b>
@@ -99,7 +91,7 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
                 </ul>
                 <ul class="nav navbar-top-links navbar-right pull-right">
 
-                   <li class="dropdown">
+                    <li class="dropdown">
                         <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($uname); ?></b><span class="caret"></span> </a>
                         <ul class="dropdown-menu dropdown-user animated flipInY">
                             <li>
@@ -138,15 +130,15 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
                             </li>
                             <li class="devider"></li>
                             <li> <a active href="../#" class="active waves-effect"><i class="mdi mdi-wrench fa-fw" data-icon="v"></i> <span class="hide-menu"><?php echo _("Administration"); ?><span class="fa arrow"></span> </span></a>
-                                <ul class="nav nav-second-level">
-                                    <li> <a href="users.php"><i class="ti-user fa-fw"></i><span class="hide-menu"><?php echo _("Users"); ?></span></a> </li>
-                                    <li> <a href="packages.php"><i class="ti-package fa-fw"></i><span class="hide-menu"><?php echo _("Packages"); ?></span></a> </li>
-                                    <li> <a href="ip.php"><i class="fa fa-sliders fa-fw"></i><span class="hide-menu"><?php echo _("IP"); ?></span></a> </li>
-                                    <li> <a href="graphs.php"><i class="ti-pie-chart fa-fw"></i><span class="hide-menu"><?php echo _("Graphs"); ?></span></a> </li>
-                                    <li> <a href="stats.php"><i class="ti-stats-up fa-fw"></i><span class="hide-menu"><?php echo _("Statistics"); ?></span></a> </li>
-                                    <li> <a href="updates.php"><i class="mdi mdi-weather-cloudy fa-fw"></i><span class="hide-menu"><?php echo _("Updates"); ?></span></a> </li>
-                                    <li> <a href="firewall.php"><i class="fa fa-shield fa-fw"></i><span class="hide-menu"><?php echo _("Firewall"); ?></span></a> </li>
-                                    <li> <a href="server.php"><i class="fa fa-server fa-fw"></i><span class="hide-menu"><?php echo _("Server"); ?></span></a> </li>
+                                <ul class="nav nav-second-level in active">
+                                    <li> <a href="../list/users.php"><i class="ti-user fa-fw"></i><span class="hide-menu"><?php echo _("Users"); ?></span></a> </li>
+                                    <li> <a href="../list/packages.php"><i class="ti-package fa-fw"></i><span class="hide-menu"><?php echo _("Packages"); ?></span></a> </li>
+                                    <li> <a href="../list/ip.php"><i class="fa fa-sliders fa-fw"></i><span class="hide-menu"><?php echo _("IP"); ?></span></a> </li>
+                                    <li> <a href="../list/graphs.php"><i class="ti-pie-chart fa-fw"></i><span class="hide-menu"><?php echo _("Graphs"); ?></span></a> </li>
+                                    <li> <a href="../list/stats.php"><i class="ti-stats-up fa-fw"></i><span class="hide-menu"><?php echo _("Statistics"); ?></span></a> </li>
+                                    <li> <a href="../list/updates.php"><i class="mdi mdi-weather-cloudy fa-fw"></i><span class="hide-menu"><?php echo _("Updates"); ?></span></a> </li>
+                                    <li class="active"> <a href="../list/firewall.php" class="active"><i class="fa fa-shield fa-fw"></i><span class="hide-menu"><?php echo _("Firewall"); ?></span></a> </li>
+                                    <li> <a href="../list/server.php"><i class="fa fa-server fa-fw"></i><span class="hide-menu"><?php echo _("Server"); ?></span></a> </li>
                                 </ul>
                             </li>
                             <li class="devider"></li>
@@ -183,77 +175,72 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
                         <?php if ($oldcpurl == '' || $supporturl == '') {} else { echo '<li class="devider"></li>'; } ?>
                         <?php if ($oldcpurl != '') { echo '<li><a href="../../' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> ' . _("Control Panel v1") . '</span></a></li>'; } ?>
                         <?php if ($supporturl != '') { echo '<li><a href="../../' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">' . _("Support") . '</span></a></li>'; } ?>
-                        </ul>
             </div>
         </div>
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page Content -->
-        <!-- ============================================================== -->
-<div id="page-wrapper">
-            <div class="container-fluid">
+        <div id="page-wrapper">
+           <div class="container-fluid">
                 <div class="row bg-title">
-                    <!-- .page title -->
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title"><?php echo _("Manage IP Addresses"); ?></h4> </div>
-                    <!-- /.page title -->
+                        <h4 class="page-title"><?php echo _("Add Firewall Rule"); ?></h4>
+                    </div>
                 </div>
-                <!-- .row -->
-
-<!-- .row -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="white-box"> <ul class="side-icon-text pull-right">
-                                                        <li><a href="../add/ip.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add IP Address"); ?></span></a></li>
-                                                    </ul>
-                            <h3 class="box-title m-b-0"><?php echo _("IPs"); ?></h3><br>
-
-                           <table class="table footable m-b-0" data-paging-size="10" data-paging="true" data-sorting="true">
-                                <thead>
-                                    <tr>
-                                        <th data-sortable="false"> <?php echo _("Address"); ?> </th>
-                                        <th data-toggle="true" data-type="numeric"> <?php echo _("Domains"); ?> </th>
-                                        <th> <?php echo _("Owner"); ?> </th>
-                                        <th> <?php echo _("Status"); ?> </th>
-                                        <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo _("Created"); ?> </th>
-                                        <th data-sortable="false"> <?php echo _("Action"); ?> </th>
-                                        <th data-breakpoints="all"> <?php echo _("Netmask"); ?> </th>
-                                        <th data-breakpoints="all"> <?php echo _("Interface"); ?> </th>
-                                        <th data-breakpoints="all"> <?php echo _("Users"); ?> </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-<?php
-if($ipname[0] != '') { 
-                                                                $x1 = 0; 
-
-                                                                do {
-                                                                    echo '<tr>
-                                                                    <td>' . $ipname[$x1] . '</td>
-                                                                    <td data-sort-value="' . $ipdata[$x1]['U_WEB_DOMAINS'] . '">' . $ipdata[$x1]['U_WEB_DOMAINS'] . '</td>
-                                                                    <td>' . $ipdata[$x1]['OWNER'] . '</td>                                                                  
-                                                                    <td>' . ucfirst($ipdata[$x1]['STATUS']) . '</td>
-                                                                    <td data-sort-value="' . $ipdata[$x1]['DATE'] . '">' . $ipdata[$x1]['DATE'] . '</td><td>
-                                            <button type="button" onclick="window.location=\'../edit/ip.php?ip=' . $ipname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button><button onclick="confirmDelete(\'' . $ipname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
-                                                                </td><td>' . $ipdata[$x1]['NETMASK'] . '</td>
-                                                                    <td>' . $ipdata[$x1]['INTERFACE'] . '</td>
-                                                                    <td>' . str_replace(',',', ',$ipdata[$x1]['U_SYS_USERS']) . '</td>';
-                                                                    $x1++;
-                                                                } while (isset($ipname[$x1])); }
-                                                            ?>
-                                </tbody>
-                            </table>
+                        <div class="white-box">
+                            <form class="form-horizontal form-material" autocomplete="off" method="post" action="../create/firewall.php">
+                                <div class="form-group">
+                                    <label class="col-md-12"><?php echo _("Type"); ?></label>
+                                    <div class="col-md-12">
+                                        <select class="form-control" name="v_type" id="typeselect">
+                                            <option value="ACCEPT">Accept</option>
+                                            <option value="DROP">Drop</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12"><?php echo _("Protocol"); ?></label>
+                                    <div class="col-md-12">
+                                        <select class="form-control" name="v_protocol" id="protocolselect">
+                                            <option value="TCP">TCP</option>
+                                            <option value="UDP">UDP</option>
+                                            <option value="ICMP">ICMP</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12"><?php echo _("Port"); ?></label>
+                                    <div class="col-md-12">
+                                        <input type="text" name="v_port" value="<?php echo $firedata[0]['PORT']; ?>" autocomplete="new-password" class="form-control form-control-line" required> 
+                                        <small class="form-text text-muted"><?php echo _("Ranges are acceptable"); ?></small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12"><?php echo _("IP Address"); ?></label>
+                                    <div class="col-md-12">
+                                        <input type="text" name="v_ip" autocomplete="new-password" class="form-control form-control-line" required> 
+                                        <small class="form-text text-muted"><?php echo _("CIDR format is supported"); ?></small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12"><?php echo _("Comment"); ?></label>
+                                    <div class="col-md-12">
+                                        <input type="text" name="v_comment" autocomplete="new-password" class="form-control form-control-line"> 
+                                        <small class="form-text text-muted"><?php echo _("Optional"); ?></small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <button class="btn btn-success" onclick="processLoader();"><?php echo _("Add Rule"); ?></button> &nbsp;
+                                            <a href="../list/firewall.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-                <!-- /.row -->
-
             </div>
-            <!-- /.container-fluid -->
            <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
-        </div>
+    </div>
     </div>
     <script src="../../plugins/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="../../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
@@ -264,65 +251,46 @@ if($ipname[0] != '') {
     <script src="../../plugins/bower_components/moment/moment.js"></script>
     <script src="../../plugins/bower_components/footable/js/footable.min.js"></script>
     <script src="../../plugins/bower_components/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
+    <script src="../../plugins/bower_components/custom-select/custom-select.min.js"></script>
     <script src="../../js/footable-init.js"></script>
     <script src="../../js/custom.js"></script>
     <script src="../../js/dashboard1.js"></script>
     <script src="../../js/cbpFWTabs.js"></script>
     <script src="../../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.all.js"></script>
+    <script src="../../plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
     <script type="text/javascript">
+$('.datepicker').datepicker();
         (function () {
                 [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {
                 new CBPFWTabs(el);
             });
-        })();
-    </script>
-<script>
-jQuery(function($){
-	$('.footable').footable();
-});
-function confirmDelete(e){
-e1 = String(e)
-swal({
-  title: '<?php echo _("Delete IP Address"); ?>:<br>' + e1 +' ?',
-  text: "<?php echo _("You won't be able to revert this!"); ?>",
-  type: 'warning',
-  showCancelButton: true,
-  confirmButtonColor: '#3085d6',
-  cancelButtonColor: '#d33',
-  confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
-}).then(function () {
-swal({
-  title: '<?php echo _("Processing"); ?>',
-  text: '',
-  timer: 5000,
-  onOpen: function () {
-    swal.showLoading()
-  }
-}).then(
-  function () {},
-  function (dismiss) {}
-)
-window.location.replace("../delete/ip.php?ip=" + e1);
-})}
-
-    <?php
-            
+        })(); 
+        jQuery(function($){
+            $('.footable').footable();
+        });
+        function processLoader(){
+            swal({
+              title: '<?php echo _("Processing"); ?>',
+              text: '',
+              timer: 5000,
+              onOpen: function () {
+                swal.showLoading()
+              }
+            })};
+        <?php
            if(isset($_GET['error']) && $_GET['error'] == "1") {
                 echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
             } 
-           if(isset($_POST['delcode']) && $_POST['delcode'] == "0") {
-                echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
+            $returntotal = $_POST['r1'] + $_POST['r2'] + $_POST['r3'] + $_POST['r4'];
+            if(isset($_POST['r1']) && $returntotal == 0) {
+                echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
             } 
-            if(isset($_POST['addcode']) && $_POST['addcode'] == "0") {
-                echo "swal({title:'" . _("Successfully Created!") . "', type:'success'});";
-            } 
-            if(isset($_POST['delcode']) && $_POST['delcode'] > "0") { echo "swal({title:'" . $errorcode[$_POST['delcode']] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+            if(isset($_POST['r1']) && $returntotal != 0) {
+                echo "swal({title:'" . _("Error Updating Firewall Rule") . "<br>" . "(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . "." . $_POST['r4'] . ")<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
             }
-            if(isset($_POST['addcode']) && $_POST['addcode'] > "0") { echo "swal({title:'" . $errorcode[$_POST['addcode']] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
-            }
-    ?>
-</script>
+        ?>
+    </script>
 </body>
 
 </html>

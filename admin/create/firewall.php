@@ -7,11 +7,17 @@ session_start();
     else { header('Location: ../../login.php'); }
     if($username != 'admin') { header("Location: ../../"); }
 
-    $v_address = $_GET['ip'];
+    $v_type = $_POST['v_type'];
+    $v_protocol = $_POST['v_protocol'];
+    $v_port = $_POST['v_port'];
+    $v_ip = $_POST['v_ip'];
+    $v_comment = $_POST['v_comment'];
+    
+    if ((!isset($_POST['v_type'])) || ($_POST['v_type'] == '')) { header('Location: ../add/firewall.php?error=1');}
+    elseif ((!isset($_POST['v_ip'])) || ($_POST['v_ip'] == '')) { header('Location: ../add/firewall.php?error=1');}
+    elseif ((!isset($_POST['v_port'])) || ($_POST['v_port'] == '')) { header('Location: ../add/firewall.php?error=1');}
 
-    if ((!isset($_GET['ip'])) || ($_GET['ip'] == '')) { header('Location: ../list/ip.php?error=1');}
-
-    $postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-sys-ip','arg1' => $v_address);
+    $postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-firewall-rule','arg1' => $v_type,'arg2' => $v_ip, 'arg3' => $v_port, 'arg4' => $v_protocol, 'arg5' => $v_comment);
 
     $curl0 = curl_init();
     curl_setopt($curl0, CURLOPT_URL, $vst_url);
@@ -35,9 +41,9 @@ session_start();
             </svg>
         </div>
         
-<form id="form" action="../list/ip.php" method="post">
+<form id="form" action="../list/firewall.php" method="post">
 <?php 
-    echo '<input type="hidden" name="delcode" value="'.$r1.'">';
+    echo '<input type="hidden" name="addcode" value="'.$r1.'">';
 ?>
 </form>
 <script type="text/javascript">

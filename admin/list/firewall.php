@@ -10,7 +10,7 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
 
     $postvars = array(
       array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
-      array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-ips','arg1' => 'json'));
+      array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-firewall','arg1' => 'json'));
 
     $curl0 = curl_init();
     $curl1 = curl_init();
@@ -28,8 +28,8 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
 
     $admindata = json_decode(curl_exec($curl0), true)[$username];
     $useremail = $admindata['CONTACT'];
-    $ipname = array_keys(json_decode(curl_exec($curl1), true));
-    $ipdata = array_values(json_decode(curl_exec($curl1), true));
+    $firename = array_keys(json_decode(curl_exec($curl1), true));
+    $firedata = array_values(json_decode(curl_exec($curl1), true));
     if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
     setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
     bindtextdomain('messages', '../../locale');
@@ -46,7 +46,7 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/ico" href="../../plugins/images/favicon.ico">
-    <title><?php echo $sitetitle; ?> - <?php echo _("IP"); ?></title>
+    <title><?php echo $sitetitle; ?> - <?php echo _("Firewall"); ?></title>
     <link href="../../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
     <link href="../../plugins/bower_components/footable/css/footable.bootstrap.css" rel="stylesheet">
@@ -197,7 +197,7 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
                 <div class="row bg-title">
                     <!-- .page title -->
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title"><?php echo _("Manage IP Addresses"); ?></h4> </div>
+                        <h4 class="page-title"><?php echo _("Manage Firewall"); ?></h4> </div>
                     <!-- /.page title -->
                 </div>
                 <!-- .row -->
@@ -206,42 +206,46 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="white-box"> <ul class="side-icon-text pull-right">
-                                                        <li><a href="../add/ip.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add IP Address"); ?></span></a></li>
+                                                       <li><a href="fail2ban.php"><span class="circle circle-sm bg-danger di"><i class="ti-list"></i></span><span><?php echo _("List Fail2Ban"); ?></span></a></li>
+                                                        <li><a href="../add/firewall.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Rule"); ?></span></a></li>
                                                     </ul>
-                            <h3 class="box-title m-b-0"><?php echo _("IPs"); ?></h3><br>
+                            <h3 class="box-title m-b-0"><?php echo _("Rules"); ?></h3><br>
 
-                           <table class="table footable m-b-0" data-paging-size="10" data-paging="true" data-sorting="true">
+                           <table class="table footable m-b-0" data-paging="false" data-sorting="true">
                                 <thead>
                                     <tr>
-                                        <th data-sortable="false"> <?php echo _("Address"); ?> </th>
-                                        <th data-toggle="true" data-type="numeric"> <?php echo _("Domains"); ?> </th>
-                                        <th> <?php echo _("Owner"); ?> </th>
-                                        <th> <?php echo _("Status"); ?> </th>
-                                        <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo _("Created"); ?> </th>
+                                        <th data-sortable="false"></th>
+                                        <th> <?php echo _("Type"); ?> </th>
+                                        <th> <?php echo _("Protocol"); ?> </th>
+                                        <th> <?php echo _("Comment"); ?> </th>
+                                        <th> <?php echo _("Port"); ?> </th>
+                                        <th> <?php echo _("IP Address"); ?> </th>
                                         <th data-sortable="false"> <?php echo _("Action"); ?> </th>
-                                        <th data-breakpoints="all"> <?php echo _("Netmask"); ?> </th>
-                                        <th data-breakpoints="all"> <?php echo _("Interface"); ?> </th>
-                                        <th data-breakpoints="all"> <?php echo _("Users"); ?> </th>
                                     </tr>
                                 </thead>
                                 <tbody>
 <?php
-if($ipname[0] != '') { 
+if($firename[0] != '') { 
                                                                 $x1 = 0; 
 
                                                                 do {
-                                                                    echo '<tr>
-                                                                    <td>' . $ipname[$x1] . '</td>
-                                                                    <td data-sort-value="' . $ipdata[$x1]['U_WEB_DOMAINS'] . '">' . $ipdata[$x1]['U_WEB_DOMAINS'] . '</td>
-                                                                    <td>' . $ipdata[$x1]['OWNER'] . '</td>                                                                  
-                                                                    <td>' . ucfirst($ipdata[$x1]['STATUS']) . '</td>
-                                                                    <td data-sort-value="' . $ipdata[$x1]['DATE'] . '">' . $ipdata[$x1]['DATE'] . '</td><td>
-                                            <button type="button" onclick="window.location=\'../edit/ip.php?ip=' . $ipname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button><button onclick="confirmDelete(\'' . $ipname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
-                                                                </td><td>' . $ipdata[$x1]['NETMASK'] . '</td>
-                                                                    <td>' . $ipdata[$x1]['INTERFACE'] . '</td>
-                                                                    <td>' . str_replace(',',', ',$ipdata[$x1]['U_SYS_USERS']) . '</td>';
+                                                                    echo '<tr'; if($firedata[$x1]['SUSPENDED'] != 'no') { echo ' style="background: #efefef"'; } echo '>';
+                                                                    if($firedata[$x1]['SUSPENDED'] != 'no') { echo '<td><b>Suspended</b></td>'; }
+                                                                    else { echo '<td></td>'; }
+                                                                    echo '<td>' . $firedata[$x1]['ACTION'] . '</td>
+                                                                    <td>' . $firedata[$x1]['PROTOCOL'] . '</td>
+                                                                    <td>' . $firedata[$x1]['COMMENT'] . '</td>
+                                                                    <td>' . $firedata[$x1]['PORT'] . '</td>
+                                                                    <td>' . $firedata[$x1]['IP'] . '</td><td>
+                                            <button type="button" onclick="window.location=\'../edit/firewall.php?rule=' . $firename[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button>';
+                                                                    
+                                                                if ($firedata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="window.location=\'../suspend/firewall.php?rule=' . $firename[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
+                                                                else { echo '<button type="button" onclick="window.location=\'../unsuspend/firewall.php?rule=' . $firename[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
+                                                                    
+                                                                        echo '<button onclick="confirmDelete(\'' . $firename[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
+                                                                </td>';
                                                                     $x1++;
-                                                                } while (isset($ipname[$x1])); }
+                                                                } while (isset($firename[$x1])); }
                                                             ?>
                                 </tbody>
                             </table>
@@ -284,7 +288,7 @@ jQuery(function($){
 function confirmDelete(e){
 e1 = String(e)
 swal({
-  title: '<?php echo _("Delete IP Address"); ?>:<br>' + e1 +' ?',
+  title: '<?php echo _("Delete Rule"); ?>?',
   text: "<?php echo _("You won't be able to revert this!"); ?>",
   type: 'warning',
   showCancelButton: true,
@@ -303,7 +307,7 @@ swal({
   function () {},
   function (dismiss) {}
 )
-window.location.replace("../delete/ip.php?ip=" + e1);
+window.location.replace("../delete/firewall.php?rule=" + e1);
 })}
 
     <?php
@@ -317,6 +321,11 @@ window.location.replace("../delete/ip.php?ip=" + e1);
             if(isset($_POST['addcode']) && $_POST['addcode'] == "0") {
                 echo "swal({title:'" . _("Successfully Created!") . "', type:'success'});";
             } 
+            if(isset($_POST['r1']) && $_POST['r1'] == "0") {
+                echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
+            } 
+            if(isset($_POST['r1']) && $_POST['r1'] > "0") { echo "swal({title:'" . $errorcode[$_POST['r1']] . "<br><br>" . _("Please try again later or contact support.") . "', type:'error'});";
+            }
             if(isset($_POST['delcode']) && $_POST['delcode'] > "0") { echo "swal({title:'" . $errorcode[$_POST['delcode']] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
             }
             if(isset($_POST['addcode']) && $_POST['addcode'] > "0") { echo "swal({title:'" . $errorcode[$_POST['addcode']] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";

@@ -7,11 +7,13 @@ session_start();
     else { header('Location: ../../login.php'); }
     if($username != 'admin') { header("Location: ../../"); }
 
-    $v_address = $_GET['ip'];
+    $v_ip = $_POST['v_ip'];
+    $v_chain = $_POST['v_chain'];
+    
+    if ((!isset($_POST['v_chain'])) || ($_POST['v_chain'] == '')) { header('Location: ../add/fail2ban.php?error=1');}
+    elseif ((!isset($_POST['v_ip'])) || ($_POST['v_ip'] == '')) { header('Location: ../add/fail2ban.php?error=1');}
 
-    if ((!isset($_GET['ip'])) || ($_GET['ip'] == '')) { header('Location: ../list/ip.php?error=1');}
-
-    $postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-sys-ip','arg1' => $v_address);
+    $postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-firewall-ban','arg1' => $v_ip,'arg2' => $v_chain);
 
     $curl0 = curl_init();
     curl_setopt($curl0, CURLOPT_URL, $vst_url);
@@ -35,9 +37,9 @@ session_start();
             </svg>
         </div>
         
-<form id="form" action="../list/ip.php" method="post">
+<form id="form" action="../list/fail2ban.php" method="post">
 <?php 
-    echo '<input type="hidden" name="delcode" value="'.$r1.'">';
+    echo '<input type="hidden" name="addcode" value="'.$r1.'">';
 ?>
 </form>
 <script type="text/javascript">
