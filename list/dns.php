@@ -156,7 +156,7 @@
                    <ul class="nav" id="side-menu">
                                 <li> 
                                     <a href="../index.php" class="waves-effect">
-                                        <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu"><?php echo _("Dashboard"); ?></span>
+                                        <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu"><?php echo _("Home"); ?></span>
                                     </a> 
                                 </li>
 
