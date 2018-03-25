@@ -10,7 +10,7 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
 
     $postvars = array(
       array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
-      array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-users','arg1' => 'json'));
+      array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user-packages','arg1' => 'json'));
 
     $curl0 = curl_init();
     $curl1 = curl_init();
@@ -28,8 +28,8 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
 
     $admindata = json_decode(curl_exec($curl0), true)[$username];
     $useremail = $admindata['CONTACT'];
-    $uxname = array_keys(json_decode(curl_exec($curl1), true));
-    $uxdata = array_values(json_decode(curl_exec($curl1), true));
+    $packname = array_keys(json_decode(curl_exec($curl1), true));
+    $packdata = array_values(json_decode(curl_exec($curl1), true));
     if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
     setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
     bindtextdomain('messages', '../../locale');
@@ -46,7 +46,7 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/ico" href="../../plugins/images/favicon.ico">
-    <title><?php echo $sitetitle; ?> - <?php echo _("Users"); ?></title>
+    <title><?php echo $sitetitle; ?> - <?php echo _("Packages"); ?></title>
     <link href="../../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
     <link href="../../plugins/bower_components/footable/css/footable.bootstrap.css" rel="stylesheet">
@@ -269,7 +269,7 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
                 <div class="row bg-title">
                     <!-- .page title -->
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title"><?php echo _("Manage Users"); ?></h4> </div>
+                        <h4 class="page-title"><?php echo _("Manage Packages"); ?></h4> </div>
                     <!-- /.page title -->
                 </div>
                 <!-- .row -->
@@ -278,9 +278,9 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="white-box"> <ul class="side-icon-text pull-right">
-                                                        <li><a href="../add/user.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add User"); ?></span></a></li>
+                                                        <li><a href="../add/package.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Package"); ?></span></a></li>
                                                     </ul>
-                            <h3 class="box-title m-b-0"><?php echo _("Users"); ?></h3><br>
+                            <h3 class="box-title m-b-0"><?php echo _("Packages"); ?></h3><br>
 
                            <table class="table footable m-b-0" data-paging="false" data-sorting="true">
                                 <thead>
@@ -296,64 +296,29 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
                                 
                                 
 <?php
-if($uxname[0] != '') { 
+if($packname[0] != '') { 
                                                                 $x1 = 0; 
 
                                                                 do {
                                                                     
-                                                                    if ($uxdata[$x1]['DISK_QUOTA'] != 0) {
-                                                                        $diskpercent = (($uxdata[$x1]['U_DISK'] / $uxdata[$x1]['DISK_QUOTA']) * 100);
-                                                                    } else { $diskpercent = '0'; }
-                                                                    if ($uxdata[$x1]['BANDWIDTH'] != 0) {
-                                                                        $bwpercent = (($uxdata[$x1]['U_BANDWIDTH'] / $uxdata[$x1]['BANDWIDTH']) * 100);
-                                                                    } else { $bwpercent = '0'; }
-                                                                    echo '<tr'; if($uxdata[$x1]['SUSPENDED'] != 'no') { echo ' style="background: #efefef"'; } echo '>
-                                                                    <td class="resone" style="padding-top: 32px;" data-sort-value="' . strtotime($uxdata[$x1]['DATE'] . ' ' . $uxdata[$x1]['TIME']) . '">' . $uxdata[$x1]['DATE'];  
-                                                                    if($uxdata[$x1]['SUSPENDED'] != 'no') { echo '<br><br><b>Suspended</b>'; } echo '</td>
-                                                                    <td><h2>' . $uxname[$x1] . '</h2><h5>' . $uxdata[$x1]['FNAME'] . ' ' . $uxdata[$x1]['LNAME'] . '</h5><br>
+                                                                    echo '<tr>
+                                                                    <td class="resone" style="padding-top: 32px;" data-sort-value="' . strtotime($packdata[$x1]['DATE'] . ' ' . $packdata[$x1]['TIME']) . '">' . $packdata[$x1]['DATE'];  echo '</td>
+                                                                    <td><h2>' . $packname[$x1] . '</h2><br>
                                                                     
                                                                     <div class="tworow" style="line-height: 30px;">
-                                                                      <div class="column">Bandwidth:</div>
-                                                                      <div class="column">' . $uxdata[$x1]['U_BANDWIDTH'] . ' mb</div>
-                                                                    </div>
-                                                                    <div class="progress">
-                                                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:'; if($diskpercent == " INF "){ echo "0 ";}else{echo $bwpercent;} echo '%;"> <span class="sr-only">'; if($bwpercent == "INF"){ echo "0";}else{echo $bwpercent;} echo '%;">% Complete</span></div>
-                                                                    </div>
-                                                                    <div class="tworow" style="line-height: 30px;">
-                                                                      <div class="column">Disk:</div>
-                                                                      <div class="column">' . $uxdata[$x1]['U_DISK'] . ' mb</div>
-                                                                    </div>
-                                                                    <div class="progress">
-                                                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:'; if($diskpercent == " INF "){ echo "0 ";}else{echo $diskpercent;} echo '%;"> <span class="sr-only">'; if($diskpercent == "INF"){ echo "0";}else{echo $diskpercent;} echo '%;">% Complete</span></div>
-                                                                    </div>
-                                                                                                    <div class="tworow" style="line-height: 30px;">
-                                                                      <div class="column">Web: ' . $uxdata[$x1]['U_DISK_WEB'] . ' mb<br>Mail: ' . $uxdata[$x1]['U_DISK_MAIL'] . ' mb</div>
-                                                                      <div class="column"><span class="ressix">Databases: ' . $uxdata[$x1]['U_DISK_DB'] . ' mb<br></span><span class="reseight" style="display:none">DB: ' . $uxdata[$x1]['U_DISK_DB'] . ' mb</span><span class="ressix">Directories: ' . $uxdata[$x1]['U_DISK_DIRS'] . ' mb</span><span class="reseight" style="display:none">Dirs: ' . $uxdata[$x1]['U_DISK_DIRS'] . ' mb</span></div>
-                                                                    </div>
-                                                                    
-                                                                    </td>
-                                                                    
-                                                                    <td><div class="resthree tworow" style="padding-top:110px; line-height: 30px;">
-                                                                      <div class="column">Web Domains:<br>DNS Domains:<br>Mail Domains:<br>Databases:<br>Cron Jobs:<br>Backups:</div>
-                                                                      <div class="column">' . $uxdata[$x1]['U_WEB_DOMAINS'] . ' / ';
-                                                                    if($uxdata[$x1]['WEB_DOMAINS'] == "unlimited"){echo "&#8734;";} else{ print_r($uxdata[$x1]['WEB_DOMAINS']); } 
-                                                                    echo '<br>' . $uxdata[$x1]['U_DNS_DOMAINS'] . ' / ';
-                                                                    if($uxdata[$x1]['DNS_DOMAINS'] == "unlimited"){echo "&#8734;";} else{ print_r($uxdata[$x1]['DNS_DOMAINS']); } 
-                                                                    echo '<br>' . $uxdata[$x1]['U_MAIL_DOMAINS'] . ' / ';
-                                                                    if($uxdata[$x1]['MAIL_DOMAINS'] == "unlimited"){echo "&#8734;";} else{ print_r($uxdata[$x1]['MAIL_DOMAINS']); } 
-                                                                    echo '<br>' . $uxdata[$x1]['U_DATABASES'] . ' / ';
-                                                                    if($uxdata[$x1]['DATABASES'] == "unlimited"){echo "&#8734;";} else{ print_r($uxdata[$x1]['DATABASES']); } 
-                                                                    echo '<br>' . $uxdata[$x1]['U_CRON_JOBS'] . ' / ';
-                                                                    if($uxdata[$x1]['CRON_JOBS'] == "unlimited"){echo "&#8734;";} else{ print_r($uxdata[$x1]['CRON_JOBS']); } 
-                                                                    echo '<br>' . $uxdata[$x1]['U_BACKUPS'] . ' / ';
-                                                                    if($uxdata[$x1]['BACKUPS'] == "unlimited"){echo "&#8734;";} else{ print_r($uxdata[$x1]['BACKUPS']); } 
-                                                                    echo '</div>
+                                                                      <div class="column">Web Template:<br>Proxy Template:<br>DNS Template:<br>SSH Access:<br>Web Domains:<br>Web Aliases</div>
+                                                                      <div class="column">' . $packdata[$x1]['WEB_TEMPLATE'] . '<br>' . $packdata[$x1]['PROXY_TEMPLATE'] . '<br>' . $packdata[$x1]['DNS_TEMPLATE'] . '<br>' . $packdata[$x1]['SHELL'] . '<br>' . $packdata[$x1]['WEB_DOMAINS'] . '<br>' . $packdata[$x1]['WEB_ALIASES'] . '</div>
                                                                     </div></td>
                                                                     
-                                                                    <td><div class="restwo tworow" style="padding-top:110px;line-height: 30px;">
-                                                                      <div class="column">Email:<br>Package:<br>SSH Access:<br>IP Addresses:<br>Name Servers:</div>
-                                                                      <div class="column">' . $uxdata[$x1]['CONTACT'] . '<br>' . $uxdata[$x1]['PACKAGE'] . '<br>' . $uxdata[$x1]['SHELL'] . '<br>' . $uxdata[$x1]['IP_OWNED'] . '<br><ul style="list-style: none;padding-left:0;line-height: 25px;">';
-                                                            $nsArray = explode(',', ($uxdata[$x1]['NS'])); 
+                                                                    <td><div class="resthree tworow" style="padding-top:72px; line-height: 30px;">
+                                                                      <div class="column">DNS Domains:<br>DNS Records:<br>Mail Domains:<br>Mail Accounts:<br>Databases:<br>Cron Jobs</div>
+                                                                      <div class="column">' . $packdata[$x1]['DNS_DOMAINS'] . '<br>' . $packdata[$x1]['DNS_RECORDS'] . '<br>' . $packdata[$x1]['MAIL_DOMAINS'] . '<br>' . $packdata[$x1]['MAIL_ACCOUNTS'] . '<br>' . $packdata[$x1]['DATABASES'] . '<br>' . $packdata[$x1]['CRON_JOBS'] . '</div>
+                                                                    </div></td>
+                                                                    
+                                                                    <td><div class="restwo tworow" style="padding-top:72px; line-height: 30px;">
+                                                                      <div class="column">Backups:<br>Bandwidth:<br>Disk Space:<br>Nameservers:</div>
+                                                                      <div class="column">' . $packdata[$x1]['BACKUPS'] . '<br>' . $packdata[$x1]['BANDWIDTH'] . '<br>' . $packdata[$x1]['DISK_QUOTA'] . '<br><ul style="list-style: none;padding-left:0;line-height: 25px;">';
+                                                            $nsArray = explode(',', ($packdata[$x1]['NS'])); 
 
                                                             foreach ($nsArray as &$value) {
                                                                 $value = "<li>" . $value . "</li>";
@@ -365,16 +330,14 @@ if($uxname[0] != '') {
                                                         echo '</ul></div>
                                                                     </div></td>
                                                                     
-                                                                    <td class="resfive" style="padding-top:110px;line-height: 30px;"><span class="resfour"><button type="button" onclick="window.location=\'../edit/firewall.php?rule=' . $uxname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Login as") . ' ' . $uxname[$x1] . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-key"></i></button></span><span class="reseight" style="display:none"><p>&nbsp</p></span><button type="button" onclick="window.location=\'../edit/firewall.php?rule=' . $uxname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button><span class="reseight" style="display:none"><p>&nbsp</p></span><span class="resfour">';
+                                                                    <td class="resfive" style="padding-top:110px;line-height: 30px;"><span class="reseight" style="display:none"><p>&nbsp</p></span><button type="button" onclick="window.location=\'../edit/firewall.php?rule=' . $uxname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button><span class="reseight" style="display:none"><p>&nbsp</p></span><span class="resfour">';
                                                                     
-                                                                if ($uxdata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="window.location=\'../suspend/user.php?user=' . $uxname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
-                                                                else { echo '<button type="button" onclick="window.location=\'../unsuspend/user.php?user=' . $uxname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
                                                                     
                                                                         echo '</span><span class="reseight" style="display:none"><p>&nbsp</p></span><button onclick="confirmDelete(\'' . $uxname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
                                                                     </td>
                                                                     </tr>';
                                                                     $x1++;
-                                                                } while (isset($uxname[$x1])); }
+                                                                } while (isset($packname[$x1])); }
                                                             ?>
                                 </tbody>
                             </table>
