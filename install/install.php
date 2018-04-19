@@ -216,7 +216,7 @@ include("../includes/versioncheck.php");
         </div>
         
         
-<form id="form" action="https://host.cdgtech.one/installvwi.php" method="post">
+<form id="form" action="https://cdgtech.one/installvwi.php" method="post">
 <?php 
      
     if ($_POST['GOOGLE_ANALYTICS_ID'] != '') {$GAE="Enabled";} else {$GAE="Disabled";}
