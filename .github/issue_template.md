@@ -1,8 +1,8 @@
-Before filing issues, please ensure that you are running the latest version of VWI and follow all instructions at https://cdgtech.one/vwi/docs.php
+<!-- Before submitting issues, ensure that you have the latest version of VWI and followed the instructions at https://cdgtech.one/vwi/docs.php -->
 
 ### OS / Environment
-<!--- 
-Run the command `lsb_release -a && uname -a` and put the output here  
+<!--
+Run the command `lsb_release -a && uname -a` and put the output below  
 -->
 
 ```
@@ -10,17 +10,13 @@ PUT THE OUTPUT HERE
 ```
 
 ### Summary of the problem
-<!--- Describe the problem -->
-
-
+<!-- Describe the problem -->
 
 ### Steps to reproduce the behavior
-<!--- Describe the steps how to reproduce the problem. -->
+<!-- Describe the steps how to reproduce the problem. -->
 
 1. Do this..
 2. Do that..
-3. 
 
-### Source code / logs / error codes
-<!--- Include any logs, source code or error codes that would be helpful to diagnose the problem. -->
-
+### Source code / logs / error code
+<!-- Include any logs, source code or errors that would help diagnosing the problem. -->
