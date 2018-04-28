@@ -365,7 +365,7 @@ if($uxname[0] != '') {
                                                         echo '</ul></div>
                                                                     </div></td>
                                                                     
-                                                                    <td class="resfive" style="padding-top:110px;line-height: 30px;"><span class="resfour"><button type="button" onclick="window.location=\'../edit/firewall.php?rule=' . $uxname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Login as") . ' ' . $uxname[$x1] . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-key"></i></button></span><span class="reseight" style="display:none"><p>&nbsp</p></span><button type="button" onclick="window.location=\'../edit/firewall.php?rule=' . $uxname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button><span class="reseight" style="display:none"><p>&nbsp</p></span><span class="resfour">';
+                                                                    <td class="resfive" style="padding-top:110px;line-height: 30px;"><span class="resfour"><button type="button" onclick="window.location=\'../edit/user.php?user=' . $uxname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Login as") . ' ' . $uxname[$x1] . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-key"></i></button></span><span class="reseight" style="display:none"><p>&nbsp</p></span><button type="button" onclick="window.location=\'../edit/user.php?user=' . $uxname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button><span class="reseight" style="display:none"><p>&nbsp</p></span><span class="resfour">';
                                                                     
                                                                 if ($uxdata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="window.location=\'../suspend/user.php?user=' . $uxname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
                                                                 else { echo '<button type="button" onclick="window.location=\'../unsuspend/user.php?user=' . $uxname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
@@ -414,11 +414,10 @@ if($uxname[0] != '') {
 jQuery(function($){
 	$('.footable').footable();
 });
-function confirmDelete(e,f){
+function confirmDelete(e){
 e1 = String(e)
-e2 = String(f)
 swal({
-  title: '<?php echo _("Delete"); ?> ' + e1 + ' <?php echo _("ban for IP"); ?>:<br>' + e2 +' ?',
+  title: '<?php echo _("Delete"); ?> ' + e1 + '?',
   text: "<?php echo _("You won't be able to revert this!"); ?>",
   type: 'warning',
   showCancelButton: true,
@@ -437,7 +436,7 @@ swal({
   function () {},
   function (dismiss) {}
 )
-window.location.replace("../delete/fail2ban.php?chain=" + e1 + "&ip=" + e2);
+window.location.replace("../delete/user.php?user=" + e1);
 })}
 
     <?php

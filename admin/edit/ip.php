@@ -57,6 +57,7 @@ session_start();
     <link href="../../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
     <link href="../../plugins/bower_components/footable/css/footable.bootstrap.css" rel="stylesheet">
     <link href="../../plugins/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+    <link href="../../plugins/bower_components/custom-select/custom-select.css" rel="stylesheet">
     <link href="../../css/animate.css" rel="stylesheet">
     <link href="../../css/style.css" rel="stylesheet">
     <link href="../../plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
@@ -230,7 +231,7 @@ session_start();
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Assigned User"); ?></label>
                                         <div class="col-md-12">
-                                            <select class="form-control" name="v_assigned" id="typeselect">
+                                            <select class="form-control select2" name="v_assigned" id="typeselect">
                                                 <?php
                                                 if($uxname[0] != '') {
                                                     $x2 = 0; 
@@ -309,6 +310,9 @@ $('.datepicker').datepicker();
         <?php echo 'document.getElementById("typeselect").value = \'' . $ipdata[0]['OWNER'] . '\';'; ?>
         jQuery(function($){
             $('.footable').footable();
+        });
+        $(document).ready(function() {
+            $('.select2').select2();
         });
         function processLoader(){
             swal({

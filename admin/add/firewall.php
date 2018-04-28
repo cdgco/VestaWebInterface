@@ -49,6 +49,7 @@ session_start();
     <link href="../../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
     <link href="../../plugins/bower_components/footable/css/footable.bootstrap.css" rel="stylesheet">
     <link href="../../plugins/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+    <link href="../../plugins/bower_components/custom-select/custom-select.css" rel="stylesheet">
     <link href="../../css/animate.css" rel="stylesheet">
     <link href="../../css/style.css" rel="stylesheet">
     <link href="../../plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
@@ -191,7 +192,7 @@ session_start();
                                 <div class="form-group">
                                     <label class="col-md-12"><?php echo _("Type"); ?></label>
                                     <div class="col-md-12">
-                                        <select class="form-control" name="v_type" id="typeselect">
+                                        <select class="form-control select2" name="v_type" id="typeselect">
                                             <option value="ACCEPT">Accept</option>
                                             <option value="DROP">Drop</option>
                                         </select>
@@ -200,7 +201,7 @@ session_start();
                                 <div class="form-group">
                                     <label class="col-md-12"><?php echo _("Protocol"); ?></label>
                                     <div class="col-md-12">
-                                        <select class="form-control" name="v_protocol" id="protocolselect">
+                                        <select class="form-control select2" name="v_protocol" id="protocolselect">
                                             <option value="TCP">TCP</option>
                                             <option value="UDP">UDP</option>
                                             <option value="ICMP">ICMP</option>
@@ -268,6 +269,9 @@ $('.datepicker').datepicker();
         })(); 
         jQuery(function($){
             $('.footable').footable();
+        });
+        $(document).ready(function() {
+            $('.select2').select2();
         });
         function processLoader(){
             swal({
