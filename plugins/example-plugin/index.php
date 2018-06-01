@@ -6,21 +6,18 @@ session_start();
 
     if(base64_decode($_SESSION['loggedin']) == 'true') {}
       else { header('Location: ../../login.php'); }
-    if($username != 'admin') { header("Location: ../../"); }
 
     $postvars = array(
       array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
-      array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-interfaces','arg1' => 'json'),
-      array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-users','arg1' => 'json')
+      array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user-packages','arg1' => 'json')
     );
 
     $curl0 = curl_init();
     $curl1 = curl_init();
-    $curl2 = curl_init();
     $curlstart = 0; 
 
 
-    while($curlstart <= 2) {
+    while($curlstart <= 1) {
         curl_setopt(${'curl' . $curlstart}, CURLOPT_URL, $vst_url);
         curl_setopt(${'curl' . $curlstart}, CURLOPT_RETURNTRANSFER,true);
         curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYPEER, false);
@@ -31,13 +28,30 @@ session_start();
     } 
 
     $admindata = json_decode(curl_exec($curl0), true)[$username];
-    $ipname = json_decode(curl_exec($curl1), true);
-    $uxname = array_keys(json_decode(curl_exec($curl2), true));
+    $packname = array_keys(json_decode(curl_exec($curl1), true));
     $useremail = $admindata['CONTACT'];
     if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
     setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
     bindtextdomain('messages', '../../locale');
     textdomain('messages');
+
+foreach ($plugins as $result) {
+    if (file_exists('../' . $result)) {
+        if (file_exists('../' . $result . '/manifest.xml') && file_exists('../' . $result . '/index.php')) {
+            $get = file_get_contents('../' . $result . '/manifest.xml');
+            $xml   = simplexml_load_string($get, 'SimpleXMLElement', LIBXML_NOCDATA);
+            $arr = json_decode(json_encode((array)$xml), TRUE);
+            if (isset($arr['name']) && !empty($arr['name']) && isset($arr['fa-icon']) && !empty($arr['fa-icon']) && isset($arr['section']) && !empty($arr['section']) && isset($arr['admin-only']) && !empty($arr['admin-only'])){
+                array_push($pluginlinks,$result);
+                array_push($pluginnames,$arr['name']);
+                array_push($pluginicons,$arr['fa-icon']);
+                array_push($pluginsections,$arr['section']);
+                array_push($pluginadminonly,$arr['admin-only']);
+            }
+            
+        }    
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +64,7 @@ session_start();
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/ico" href="../../plugins/images/favicon.ico">
-    <title><?php echo $sitetitle; ?> - <?php echo _("IP"); ?></title>
+    <title><?php echo $sitetitle; ?> - <?php echo _("Example Plugin"); ?></title>
     <link href="../../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
     <link href="../../plugins/bower_components/footable/css/footable.bootstrap.css" rel="stylesheet">
@@ -69,7 +83,7 @@ session_start();
     <![endif]-->
 </head>
 
-<body class="fix-header" onload="checkDiv();">
+<body class="fix-header">
     <!-- ============================================================== -->
     <!-- Preloader -->
     <!-- ============================================================== -->
@@ -136,19 +150,6 @@ session_start();
                                 </a> 
                             </li>
                             <li class="devider"></li>
-                            <li> <a active href="../#" class="active waves-effect"><i class="mdi mdi-wrench fa-fw" data-icon="v"></i> <span class="hide-menu"><?php echo _("Administration"); ?><span class="fa arrow"></span> </span></a>
-                                <ul class="nav nav-second-level in active">
-                                    <li> <a href="../list/users.php"><i class="ti-user fa-fw"></i><span class="hide-menu"><?php echo _("Users"); ?></span></a> </li>
-                                    <li> <a href="../list/packages.php"><i class="ti-package fa-fw"></i><span class="hide-menu"><?php echo _("Packages"); ?></span></a> </li>
-                                    <li class="active"> <a href="../list/ip.php" class="active"><i class="fa fa-sliders fa-fw"></i><span class="hide-menu"><?php echo _("IP"); ?></span></a> </li>
-                                    <li> <a href="../list/graphs.php"><i class="ti-pie-chart fa-fw"></i><span class="hide-menu"><?php echo _("Graphs"); ?></span></a> </li>
-                                    <li> <a href="../list/stats.php"><i class="ti-stats-up fa-fw"></i><span class="hide-menu"><?php echo _("Statistics"); ?></span></a> </li>
-                                    <li> <a href="../list/updates.php"><i class="mdi mdi-weather-cloudy fa-fw"></i><span class="hide-menu"><?php echo _("Updates"); ?></span></a> </li>
-                                    <li> <a href="../list/firewall.php"><i class="fa fa-shield fa-fw"></i><span class="hide-menu"><?php echo _("Firewall"); ?></span></a> </li>
-                                    <li> <a href="../list/server.php"><i class="fa fa-server fa-fw"></i><span class="hide-menu"><?php echo _("Server"); ?></span></a> </li>
-                                </ul>
-                            </li>
-                            <li class="devider"></li>
                             <li>
                                 <a href="../../#" class="waves-effect"><i  class="mdi mdi-account fa-fw"></i><span class="hide-menu"> <?php print_r($uname); ?><span class="fa arrow"></span></span>
                                 </a>
@@ -182,97 +183,20 @@ session_start();
                         <?php if ($oldcpurl == '' || $supporturl == '') {} else { echo '<li class="devider"></li>'; } ?>
                         <?php if ($oldcpurl != '') { echo '<li><a href="../../' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> ' . _("Control Panel v1") . '</span></a></li>'; } ?>
                         <?php if ($supporturl != '') { echo '<li><a href="../../' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">' . _("Support") . '</span></a></li>'; } ?>
+                </ul>
             </div>
         </div>
         <div id="page-wrapper">
            <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title"><?php echo _("Add IP Address"); ?></h4>
+                        <h4 class="page-title"><?php echo _("Example Plugin"); ?></h4>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="white-box">
-                            <form class="form-horizontal form-material" autocomplete="off" method="post" action="../create/ip.php">
-                                <div class="form-group">
-                                    <label class="col-md-12"><?php echo _("IP Address"); ?></label>
-                                    <div class="col-md-12">
-                                        <input type="text" name="v_address" autocomplete="new-password" class="form-control form-control-line" required> 
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-12"><?php echo _("Netmask"); ?></label>
-                                    <div class="col-md-12">
-                                        <input type="text" name="v_netmask" autocomplete="new-password" class="form-control form-control-line" required> 
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-12"><?php echo _("Interface"); ?></label>
-                                    <div class="col-md-12">
-                                        <select class="form-control select2" name="v_interface" id="typeselect">
-                                            <?php
-                                            if($ipname[0] != '') {
-                                                $x1 = 0; 
-
-                                                do {
-                                                    echo '<option value="' . $ipname[$x1] . '">' . $ipname[$x1] . '</option>';
-                                                    $x1++;
-                                                } while ($ipname[$x1] != ''); }
-
-                                            ?>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-12"><?php echo _("Shared"); ?></label>
-                                    <div class="col-md-12">
-                                        <div class="checkbox checkbox-info">
-                                            <input id="checkbox4" type="checkbox" name="v_shared" onclick="checkDiv();" checked>
-                                            <label for="checkbox4"><?php echo _("Enabled"); ?></label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="shared-div" style="margin-left: 4%;display:none;">
-                                    <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Assigned User"); ?></label>
-                                        <div class="col-md-12">
-                                            <select class="form-control select2" name="v_assigned" id="typeselect">
-                                                <?php
-                                                if($uxname[0] != '') {
-                                                    $x2 = 0; 
-
-                                                    do {
-                                                        echo '<option value="' . $uxname[$x2] . '">' . $uxname[$x2] . '</option>';
-                                                        $x2++;
-                                                    } while ($uxname[$x2] != ''); }
-
-                                                ?>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-12"><?php echo _("Assigned Domain"); ?></label>
-                                    <div class="col-md-12">
-                                        <input type="text" name="v_domain" autocomplete="new-password" class="form-control form-control-line"> 
-                                        <small class="form-text text-muted"><?php echo _("Optional"); ?></small>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-12"><?php echo _("NAT IP Association"); ?></label>
-                                    <div class="col-md-12">
-                                        <input type="text" name="v_nat" autocomplete="new-password" class="form-control form-control-line"> 
-                                        <small class="form-text text-muted"><?php echo _("Optional"); ?></small>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-12">
-                                        <button class="btn btn-success" onclick="processLoader();"><?php echo _("Add IP"); ?></button> &nbsp;
-                                            <a href="../list/ip.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
-                                    </div>
-                                </div>
-                            </form>
+                            <p>This is an example plugin.</p>
                         </div>
                     </div>
                 </div>
@@ -297,41 +221,25 @@ session_start();
     <script src="../../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.all.js"></script>
     <script src="../../plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-    <script type="text/javascript">
-$('.datepicker').datepicker();
-        (function () {
-                [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {
-                new CBPFWTabs(el);
-            });
-        })(); 
-        function checkDiv(){
-                if(document.getElementById("checkbox4").checked) {
-                    document.getElementById('shared-div').style.display = 'none';
-                }
-                else {document.getElementById('shared-div').style.display = 'block';}
-            }
+        <script type="text/javascript">
+        <?php 
         
-        jQuery(function($){
-            $('.footable').footable();
-        });
-        $(document).ready(function() {
-            $('.select2').select2();
-        });
-        function processLoader(){
-            swal({
-              title: '<?php echo _("Processing"); ?>',
-              text: '',
-              timer: 5000,
-              onOpen: function () {
-                swal.showLoading()
-              }
-            })};
-        <?php
-           if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
-            } 
-        ?>
+        if(isset($pluginnames[0]) && $pluginnames[0] != '') {
+            $currentplugin = 0; 
+            do {
+                if (!strpos($pluginadminonly[$currentplugin] , 'y') && !strpos($pluginadminonly[$currentplugin] , 'Y')) {
+                    $currentstring = "<li><a href='../" . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";
+                }
+
+                else {
+                         $currentstring = "<?php if($username == 'admin') { echo \"<li><a href='../" . $pluginnames[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>\";} ?>";
+                }
+                echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');
+                      var plugindata" . $currentplugin . " = \"" . $currentstring . "\";
+                      plugincontainer" . $currentplugin . ".innerHTML += plugindata" . $currentplugin . ";\n";
+                $currentplugin++;
+            } while ($pluginnames[$currentplugin] != ''); }
+         ?>
     </script>
 </body>
-
 </html>

@@ -1,0 +1,30 @@
+<plugin>
+    <!-- App name as seen in menu. -->
+    <name>Example Plugin Name</name>
+    <!-- Font-Awesome Icon Code. Ex: fa-phone . View http://astronautweb.co/snippet/font-awesome-icons-v4-2/ for valid tags. v4.2.0 or less only. -->
+    <fa-icon>fa-phone</fa-icon>
+    <!-- Section to list app under in menu. "account", "management", "apps" or "administration". Administration is show to admin only. -->
+    <section>management</section> 
+    <!-- Developer name to be displayed in plugins list. -->
+    <developer>Developer Company</developer>
+    <!-- Plugin version to be displayed in plugins list. -->
+    <version>1.0.2</version>
+    <!-- Display plugin to admin only? "yes" or "no". -->
+    <admin-only>No</admin-only>
+    <!-- Hide your plugin from menus? "yes" or "no". Coming soon. -->
+    <hide></hide>
+     <!-- Hide your plugin from menus? "yes" or "no". Coming soon. -->
+    <custom-tag></custom-tag>
+     <!-- 
+
+    Cutom menu tag if custom-tag = "yes". Coming soon.
+
+    Example Basic Tag: 
+        <li><a href='../" . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa fa-phone fa-fw'></i><span class='hide-menu'>" . _("Plugin Name") . "</span></a></li>
+
+    Example PHP Validated Tag:
+        <?php if($condition === true) { echo \"<li><a href='../" . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa fa-phone fa-fw'></i><span class='hide-menu'>" . _("Plugin Name") . "</span></a></li>\";} ?>
+    
+    -->
+    <custom-tag-content></custom-tag-content>
+</plugin>
