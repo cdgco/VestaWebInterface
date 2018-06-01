@@ -5,10 +5,11 @@
 [![GitHub repo size in bytes](https://img.shields.io/github/repo-size/cdgco/vestawebinterface.svg)](https://github.com/cdgco/VestaWebInterface/releases)
 [![GitHub (pre-)release](https://img.shields.io/github/release/cdgco/vestawebinterface/all.svg)](https://github.com/cdgco/VestaWebInterface/releases)
 
-Vesta Web Interface is a PHP interface that integrates with the VestaCP API to provide a beautiful user friendly experience. VWI features the ability to rebrand the control panel, change the theme, install it wherever you want, restrict access to users, easily edit options and offers integrations to services such as Google Analytics, Cloudflare, Interakt and many more coming soon. 
+Vesta Web Interface is a PHP interface that integrates with the VestaCP API to provide a beautiful user friendly experience. VWI features the ability to rebrand the control panel, change the theme, install it wherever you want, restrict access to users, easily edit options and offers integrations to services such as Google Analytics, Cloudflare, Interakt and many more coming soon along with the ability to install or develop your own integrations and apps with the new VWI Plugin System.
 
-Vesta Web Interface is currently only a user control panel, but admin control options will be coming soon along with more integrations, themes, and great features such as multi-server support.
+While the admin control panel is still in alpha development, Vesta Web Interface is primarily only a user control panel. The Admin Panel will be fully availble in public beta v0.5.0 along with more integrations, themes, and great features such as multi-server support*, extended localization*, billing system*, and extended softaculous support*.
 
+* Not available in v0.5.0.
 
 For installation, details, live demo and technical information, visit the [VWI Documentation](http://cdgtech.one/vwi)
 
