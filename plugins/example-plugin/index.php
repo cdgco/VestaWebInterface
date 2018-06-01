@@ -37,7 +37,7 @@ session_start();
 
 foreach ($plugins as $result) {
     if (file_exists('../' . $result)) {
-        if (file_exists('../' . $result . '/manifest.xml') && file_exists('../' . $result . '/index.php')) {
+        if (file_exists('../' . $result . '/manifest.xml')) {
             $get = file_get_contents('../' . $result . '/manifest.xml');
             $xml   = simplexml_load_string($get, 'SimpleXMLElement', LIBXML_NOCDATA);
             $arr = json_decode(json_encode((array)$xml), TRUE);

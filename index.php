@@ -63,7 +63,7 @@ session_start();
 
     foreach ($plugins as $result) {
         if (file_exists('plugins/' . $result)) {
-            if (file_exists('plugins/' . $result . '/manifest.xml') && file_exists('plugins/' . $result . '/index.php')) {
+            if (file_exists('plugins/' . $result . '/manifest.xml')) {
                 $get = file_get_contents('plugins/' . $result . '/manifest.xml');
                 $xml   = simplexml_load_string($get, 'SimpleXMLElement', LIBXML_NOCDATA);
                 $arr = json_decode(json_encode((array)$xml), TRUE);
@@ -863,24 +863,28 @@ session_start();
     <script src="plugins/bower_components/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
     <script src="js/footable-init.js"></script>
     <script type="text/javascript">
-        <?php 
-        
-        if(isset($pluginnames[0]) && $pluginnames[0] != '') {
-            $currentplugin = 0; 
-            do {
-                if (!strpos($pluginadminonly[$currentplugin] , 'y') && !strpos($pluginadminonly[$currentplugin] , 'Y')) {
-                    $currentstring = "<li><a href='plugins/" . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";
-                }
+            <?php 
 
-                else {
-                         $currentstring = "<?php if($username == 'admin') { echo \"<li><a href='plugins/" . $pluginnames[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>\";} ?>";
-                }
-                echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');
-                      var plugindata" . $currentplugin . " = \"" . $currentstring . "\";
-                      plugincontainer" . $currentplugin . ".innerHTML += plugindata" . $currentplugin . ";\n";
-                $currentplugin++;
-            } while ($pluginnames[$currentplugin] != ''); }
-        
+            if(isset($pluginnames[0]) && $pluginnames[0] != '') {
+                $currentplugin = 0; 
+                do {
+                    if (!strpos($pluginadminonly[$currentplugin] , 'y') && !strpos($pluginadminonly[$currentplugin] , 'Y')) {
+                        $currentstring = "<li><a href='plugins/" . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";
+                    }
+
+                    else {
+                             $currentstring = "<?php if($username == 'admin') { echo \"<li><a href='plugins/" . $pluginnames[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>\";} ?>";
+                    }
+                    echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');
+                          var plugindata" . $currentplugin . " = \"" . $currentstring . "\";
+                          plugincontainer" . $currentplugin . ".innerHTML += plugindata" . $currentplugin . ";\n";
+                    $currentplugin++;
+                } while ($pluginnames[$currentplugin] != ''); }
+
+            ?>
+    </script>
+    <script type="text/javascript">
+        <?php 
         
         if(substr(sprintf('%o', fileperms('includes')), -4) == '0777') {
             echo "$.toast({

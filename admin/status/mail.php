@@ -33,6 +33,24 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
     setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
     bindtextdomain('messages', '../../locale');
     textdomain('messages');
+
+    foreach ($plugins as $result) {
+        if (file_exists('../../plugins/' . $result)) {
+            if (file_exists('../../plugins/' . $result . '/manifest.xml')) {
+                $get = file_get_contents('../../plugins/' . $result . '/manifest.xml');
+                $xml   = simplexml_load_string($get, 'SimpleXMLElement', LIBXML_NOCDATA);
+                $arr = json_decode(json_encode((array)$xml), TRUE);
+                if (isset($arr['name']) && !empty($arr['name']) && isset($arr['fa-icon']) && !empty($arr['fa-icon']) && isset($arr['section']) && !empty($arr['section']) && isset($arr['admin-only']) && !empty($arr['admin-only'])){
+                    array_push($pluginlinks,$result);
+                    array_push($pluginnames,$arr['name']);
+                    array_push($pluginicons,$arr['fa-icon']);
+                    array_push($pluginsections,$arr['section']);
+                    array_push($pluginadminonly,$arr['admin-only']);
+                }
+
+            }    
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -255,6 +273,27 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
     <script src="../../js/cbpFWTabs.js"></script>
     <script src="../../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.all.js"></script>
+    <script type="text/javascript">
+        <?php 
+
+        if(isset($pluginnames[0]) && $pluginnames[0] != '') {
+            $currentplugin = 0; 
+            do {
+                if (!strpos($pluginadminonly[$currentplugin] , 'y') && !strpos($pluginadminonly[$currentplugin] , 'Y')) {
+                    $currentstring = "<li><a href='../../plugins/" . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";
+                }
+
+                else {
+                         $currentstring = "<?php if($username == 'admin') { echo \"<li><a href='../../plugins/" . $pluginnames[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>\";} ?>";
+                }
+                echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');
+                      var plugindata" . $currentplugin . " = \"" . $currentstring . "\";
+                      plugincontainer" . $currentplugin . ".innerHTML += plugindata" . $currentplugin . ";\n";
+                $currentplugin++;
+            } while ($pluginnames[$currentplugin] != ''); }
+
+        ?>
+</script>
     <script type="text/javascript">
         (function () {
                 [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {

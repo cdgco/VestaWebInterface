@@ -35,6 +35,7 @@ DEFINE('SOFTACULOUS_URL', 'true'); // Enable or disable link to Softaculous. Ex:
 DEFINE('OLD_CP_LINK', 'true'); // Enable or disable link to old cpanel. Ex: 'true' or 'false'.
 
 // INTEGRATIONS //
+DEFINE('PLUGINS', ''); // Plugin folder name, exactly as specified, seperated by comma.
 DEFINE('GOOGLE_ANALYTICS_ID', ''); // Enable Google Analytics Tracking. Enter Tracking ID.
 DEFINE('INTERAKT_APP_ID', ''); // Enable Interakt Support / Tools. Enter Interakt App ID.
 DEFINE('INTERAKT_API_KEY', ''); // Enable Interakt User Management. Interakt Account number must be set first. Enter Interakt API Key.
@@ -163,5 +164,12 @@ else{
 }
 require 'arrays.php';
 function vwicrypt($cs,$ca='e'){$op = false;$ecm ="AES-256-CBC";$key=hash('sha256',$KEY1);$iv=substr(hash('sha256',$KEY2),0,16);if($ca=='e'){$op=base64_encode(openssl_encrypt($cs,$ecm,$key,0,$iv));} else if($ca=='d'){$op=openssl_decrypt(base64_decode($cs),$ecm,$key,0,$iv);}return $op;}
+
+$plugins = explode(",", PLUGINS);
+$pluginlinks = array();
+$pluginnames = array();
+$pluginicons = array();
+$pluginsections = array();
+$pluginadminonly = array();
 
 ?>
