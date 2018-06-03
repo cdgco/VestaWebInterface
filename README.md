@@ -16,3 +16,10 @@ For installation, details, live demo and technical information, visit the [VWI D
 ## Support
 
 For support regarding Vesta Web Interface, please view the documentation, email me at carter [at] cdgtech.one or visit the support portal online at http://support.cdgtech.one.
+
+## Development
+
+Donate to help show your support and allow me to spend more time focused on development.
+I do development on the side while in school, so your support is much appreciated!
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](http://paypal.me/CJREvents)
