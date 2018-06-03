@@ -20,10 +20,10 @@
     Cutom menu tag if custom-tag = "yes". Coming soon.
 
     Example Basic Tag: 
-        <li><a href='../" . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa fa-phone fa-fw'></i><span class='hide-menu'>" . _("Plugin Name") . "</span></a></li>
+        <li><a href='../" . $pluginlinks[$currentplugin] . "/' ><i class='fa fa-phone fa-fw'></i><span class='hide-menu'>" . _("Plugin Name") . "</span></a></li>
 
     Example PHP Validated Tag:
-        <?php if($condition === true) { echo \"<li><a href='../" . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa fa-phone fa-fw'></i><span class='hide-menu'>" . _("Plugin Name") . "</span></a></li>\";} ?>
+        <?php if($condition === true) { echo \"<li><a href='../" . $pluginlinks[$currentplugin] . "/' ><i class='fa fa-phone fa-fw'></i><span class='hide-menu'>" . _("Plugin Name") . "</span></a></li>\";} ?>
     
     -->
     <custom-tag-content></custom-tag-content>

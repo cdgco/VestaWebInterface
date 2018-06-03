@@ -145,7 +145,7 @@ foreach ($plugins as $result) {
                 </div>
                <ul class="nav" id="side-menu">
                             <li> 
-                                <a href="../index.php" class=" waves-effect">
+                                <a href="../../index.php" class=" waves-effect">
                                     <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu"><?php echo _("Home"); ?></span>
                                 </a> 
                             </li>
@@ -228,11 +228,11 @@ foreach ($plugins as $result) {
             $currentplugin = 0; 
             do {
                 if (!strpos($pluginadminonly[$currentplugin] , 'y') && !strpos($pluginadminonly[$currentplugin] , 'Y')) {
-                    $currentstring = "<li><a href='../" . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";
+                    $currentstring = "<li><a href='../" . $pluginlinks[$currentplugin] . "/' ><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";
                 }
 
                 else {
-                         $currentstring = "<?php if($username == 'admin') { echo \"<li><a href='../" . $pluginnames[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>\";} ?>";
+                         $currentstring = "<?php if($username == 'admin') { echo \"<li><a href='../" . $pluginnames[$currentplugin] . "/' ><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>\";} ?>";
                 }
                 echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');
                       var plugindata" . $currentplugin . " = \"" . $currentstring . "\";
