@@ -30,4 +30,4 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
 Donate to help show your support and allow me to spend more time focused on development.
 I do development on the side while in school, so your support is much appreciated!
 
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](http://paypal.me/CJREvents)
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](http://paypal.me/CJREvents) [![Join the chat at https://gitter.im/VestaWebInterface/Lobby](https://badges.gitter.im/VestaWebInterface/Lobby.svg)](https://gitter.im/VestaWebInterface/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
