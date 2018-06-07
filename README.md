@@ -4,6 +4,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/89b83ed998d2615a4bd6/maintainability)](https://codeclimate.com/github/cdgco/VestaWebInterface/maintainability)
 [![GitHub repo size in bytes](https://img.shields.io/github/repo-size/cdgco/vestawebinterface.svg)](https://github.com/cdgco/VestaWebInterface/releases)
 [![GitHub (pre-)release](https://img.shields.io/github/release/cdgco/vestawebinterface/all.svg)](https://github.com/cdgco/VestaWebInterface/releases)
+[![](https://data.jsdelivr.com/v1/package/gh/cdgco/VestaWebInterface/badge?style=rounded)](https://www.jsdelivr.com/package/gh/cdgco/VestaWebInterface)
  [![Join the chat at https://gitter.im/VestaWebInterface/Lobby](https://badges.gitter.im/VestaWebInterface/Lobby.svg)](https://gitter.im/VestaWebInterface/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
  
 Vesta Web Interface is a PHP interface that integrates with the VestaCP API to provide a beautiful user friendly experience. VWI features the ability to rebrand the control panel, change the theme, install it wherever you want, restrict access to users, easily edit options and offers integrations to services such as Google Analytics, Cloudflare, Interakt and many more coming soon along with the ability to install or develop your own integrations and apps with the new VWI Plugin System.
