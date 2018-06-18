@@ -215,7 +215,7 @@ session_start();
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="white-box">
-                            <form class="form-horizontal form-material" autocomplete="off" method="post" action="../create/user.php">
+                            <form class="form-horizontal form-material" autocomplete="off" method="post" action="../change/user.php">
                                 <div class="form-group">
                                     <label class="col-md-12"><?php echo _("Username"); ?></label>
                                     <div class="col-md-12">
@@ -234,6 +234,7 @@ session_start();
                                     <label class="col-md-12"><?php echo _("Email"); ?></label>
                                     <div class="col-md-12">
                                             <input type="email" name="email" value="<?php echo $uxdata[0]["CONTACT"]; ?>" class="form-control form-control-line">
+                                        <input type="hidden" name="email-x" value='<?php echo $uxdata[0]["CONTACT"]; ?>'>
                                     </div>
                                 </div>
                                 <div class="form-group" style="overflow: visible;">
@@ -251,6 +252,7 @@ session_start();
 
                                                 ?>
                                             </select>
+                                            <input type="hidden" name="package-x" value='<?php echo $uxdata[0]["PACKAGE"]; ?>'>
                                         </div>
                                     </div>
                                     <div class="form-group" style="overflow: visible;">
@@ -288,18 +290,21 @@ session_start();
                                                     <option value="ua"><?php print_r($countries['ua']); ?></option>
                                                     <option value="vi"><?php print_r($countries['vi']); ?></option>
                                                 </select>
+                                                <input type="hidden" name="language-x" value='<?php echo $uxdata[0]["LANGUAGE"]; ?>'>
                                             </div>
                                         </div>
                                 <div class="form-group">
                                     <label class="col-md-12"><?php echo _("First Name"); ?></label>
                                     <div class="col-md-12">
                                             <input type="text" name="fname" value="<?php echo $uxdata[0]["FNAME"]; ?>" class="form-control form-control-line">
+                                        <input type="hidden" name="fname-x" value='<?php echo $uxdata[0]["FNAME"]; ?>'>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12"><?php echo _("Last Name"); ?></label>
                                     <div class="col-md-12">
                                             <input type="text" name="lname" value="<?php echo $uxdata[0]["LNAME"]; ?>" class="form-control form-control-line">
+                                        <input type="hidden" name="lname-x" value='<?php echo $uxdata[0]["LNAME"]; ?>'>
                                     </div>
                                 </div>
                                 <div class="form-group" style="overflow: visible;">
@@ -315,6 +320,7 @@ session_start();
                                                     <option value="sh">sh</option>
                                                     <option value="tcsh">tcsh</option>
                                                 </select>
+                                                <input type="hidden" name="ssh-x" value='<?php echo $uxdata[0]["SHELL"]; ?>'>
                                             </div>
                                         </div>
                                 <div class="form-group">
@@ -337,6 +343,14 @@ session_start();
 
                                                 <div id="ns8" style="display:<?php if(explode(',', ($uxdata[0]['NS']))[7] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($uxdata[0]['NS']))[7]); ?>" class="form-control form-control-line" name="ns8" id="ns8x"><br><div id="ns8wrapper"><a style="cursor:pointer;" id="remove6" onclick="rem7();"><?php echo _("Remove One"); ?></a></div></div>
                                             </div>
+                                    <input type="hidden" name="ns1-x" value='<?php echo explode(',', ($uxdata[0]['NS']))[0]; ?>'>
+                                    <input type="hidden" name="ns2-x" value='<?php echo explode(',', ($uxdata[0]['NS']))[1]; ?>'>
+                                    <input type="hidden" name="ns3-x" value='<?php echo explode(',', ($uxdata[0]['NS']))[2]; ?>'>
+                                    <input type="hidden" name="ns4-x" value='<?php echo explode(',', ($uxdata[0]['NS']))[3]; ?>'>
+                                    <input type="hidden" name="ns5-x" value='<?php echo explode(',', ($uxdata[0]['NS']))[4]; ?>'>
+                                    <input type="hidden" name="ns6-x" value='<?php echo explode(',', ($uxdata[0]['NS']))[5]; ?>'>
+                                    <input type="hidden" name="ns7-x" value='<?php echo explode(',', ($uxdata[0]['NS']))[6]; ?>'>
+                                    <input type="hidden" name="ns8-x" value='<?php echo explode(',', ($uxdata[0]['NS']))[7]; ?>'>
                                         </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
@@ -485,12 +499,12 @@ if( document.getElementById('ns" . $rem1count . "').style.display = 'block' ) {
            if(isset($_GET['error']) && $_GET['error'] == "1") {
                 echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
             } 
-            $returntotal = $_POST['r1'] + $_POST['r2'] + $_POST['r3'] + $_POST['r4'];
+            $returntotal = $_POST['r1'] + $_POST['r2'] + $_POST['r3'] + $_POST['r4'] + $_POST['r5'] + $_POST['r6'] + $_POST['r7'];
             if(isset($_POST['r1']) && $returntotal == 0) {
                 echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
             } 
             if(isset($_POST['r1']) && $returntotal != 0) {
-                echo "swal({title:'" . _("Error Updating Firewall Rule") . "<br>" . "(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . "." . $_POST['r4'] . ")<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . _("Error Updating Firewall Rule") . "<br>" . "(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . "." . $_POST['r4'] . "." . $_POST['r5'] . "." . $_POST['r6'] . "." . $_POST['r7'] . ")<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
             }
         ?>
     </script>
