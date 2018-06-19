@@ -222,8 +222,8 @@ else { $period = "daily";}
                     </div>
                     <div class="col-lg-2 col-sm-8 col-md-8 col-xs-12 pull-right">
                         <div style="margin-right:257px;width:220px;" class="btn-group bootstrap-select input-group-btn">
-                            <form id="loguserform" action="graph.php" method="get">
-                                <select class="selectpicker pull-right m-l-20" id="loguser" name="period" data-style="form-control">';
+                            <form id="loguserform" action="graphs.php" method="get">
+                                <select class="selectpicker pull-right m-l-20" id="period" name="period" data-style="form-control">';
                                     <option value="daily">Daily</option>
                                     <option value="weekly">Weekly</option>
                                     <option value="monthly">Monthly</option>
@@ -326,7 +326,7 @@ jQuery(function($){
     
 <?php
     
-if ($username = 'admin') { echo 'document.getElementById("loguser").value = \'' . $logusername . '\';';}
+echo 'document.getElementById("period").value = \'' . $period . '\';';
     
 ?>
 function confirmDelete(e){
