@@ -67,7 +67,7 @@ else { $period = "daily";}
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/ico" href="../../plugins/images/favicon.ico">
-    <title><?php echo $sitetitle; ?> - <?php echo _("Stats"); ?></title>
+    <title><?php echo $sitetitle; ?> - <?php echo _("Graphs"); ?></title>
     <link href="../../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
     <link href="../../plugins/bower_components/footable/css/footable.bootstrap.css" rel="stylesheet">
@@ -218,7 +218,7 @@ else { $period = "daily";}
                 <div class="row bg-title" style="overflow:visible;">
                     <!-- .page title -->
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title"><?php echo _("User Stats"); ?></h4> 
+                        <h4 class="page-title"><?php echo _("RRD Graphs"); ?></h4> 
                     </div>
                     <div class="col-lg-2 col-sm-8 col-md-8 col-xs-12 pull-right">
                         <div style="margin-right:257px;width:220px;" class="btn-group bootstrap-select input-group-btn">
