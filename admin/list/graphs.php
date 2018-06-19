@@ -4,13 +4,16 @@ session_start();
 
 if (file_exists( '../../includes/config.php' )) { require( '../../includes/config.php'); }  else { header( 'Location: ../../install' );};
 
-    if(base64_decode($_SESSION['loggedin']) == 'true') {}
-      else { header('Location: ../login.php'); }
-    if($username != 'admin') { header("Location: ../../"); }
+if(base64_decode($_SESSION['loggedin']) == 'true') {}
+else { header('Location: ../../login.php'); }
+if($username != 'admin') { header("Location: ../../"); }
+
+if (isset($_GET['period']) && $_GET['period'] != '') { $period = $_GET['period'];}
+else { $period = "daily";}
 
     $postvars = array(
       array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
-      array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user-packages','arg1' => 'json'));
+      array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-rrd','arg1' => 'json'));
 
     $curl0 = curl_init();
     $curl1 = curl_init();
@@ -28,8 +31,8 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
 
     $admindata = json_decode(curl_exec($curl0), true)[$username];
     $useremail = $admindata['CONTACT'];
-    $packname = array_keys(json_decode(curl_exec($curl1), true));
-    $packdata = array_values(json_decode(curl_exec($curl1), true));
+    $graphname = array_keys(json_decode(curl_exec($curl1), true));
+    $graphdata = array_values(json_decode(curl_exec($curl1), true));
     if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
     setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
     bindtextdomain('messages', '../../locale');
@@ -64,7 +67,7 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/ico" href="../../plugins/images/favicon.ico">
-    <title><?php echo $sitetitle; ?> - <?php echo _("Packages"); ?></title>
+    <title><?php echo $sitetitle; ?> - <?php echo _("Stats"); ?></title>
     <link href="../../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
     <link href="../../plugins/bower_components/footable/css/footable.bootstrap.css" rel="stylesheet">
@@ -75,83 +78,11 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
     <link href="../../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.min.css" />
     <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
-    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?> 
     <!--[if lt IE 9]>
        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <style>
-    .column {
-    float: left;
-    width: 50%;
-}
-
-/* Clear floats after the columns */
-.tworow:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-        
-@media screen and (max-width: 1400px) {
-    .resone { display:none !important;}
-        }      
-@media screen and (max-width: 1275px) {
-    .resone { display:none !important;}
-    .restwo { display:none !important;}
-        }
-@media screen and (max-width: 875px) {
-    .resone { display:none !important;}
-    .restwo { display:none !important;}
-    .resthree { display:none !important;}
-        }
-@media screen and (max-width: 600px) {
-    .resone { display:none !important;}
-    .restwo { display:none !important;}
-    .resthree { display:none !important;}
-    .resfour { display:block !important;}
-     .resfive { display:block !important;
-         padding-left: 0px;
-    padding-right: 0px;}
-     .ressix { display:none !important; }
-     .reseight { display:block !important; 
-     }
-    .reseight p {
-   line-height: 5% !important;
-}
-        }
-@media screen and (max-width: 460px) {
-    .resone { display:none !important;}
-    .restwo { display:none !important;}
-    .resthree { display:none !important;}
-    .resfour { display:block !important;}
-     .resfive { display:block !important;
-         padding-left: 0px;
-    padding-right: 0px;}
-     .ressix { display:none !important; }
-     .reseight { display:block !important; 
-     }
-    .reseight p {
-   line-height: 5% !important;
-}
-        }
- @media screen and (max-width: 450px) {
-    .resone { display:none !important;}
-    .restwo { display:none !important;}
-    .resthree { display:none !important;}
-    .resfour { display:block !important;}
-     .resfive { display:block !important;
-         padding-left: 0px;
-    padding-right: 0px;}
-     .ressix { display:none !important; }
-     .reseight { display:block !important; 
-     }
-    .reseight p {
-   line-height: 5% !important;
-}
-        }       
-        
-    </style>
 </head>
 
 <body class="fix-header">
@@ -174,7 +105,7 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
             <div class="navbar-header">
                 <div class="top-left-part">
                     <!-- Logo -->
-                    <a class="logo" href="../index.php">
+                    <a class="logo" href="index.php">
                         <!-- Logo icon image, you can use font-icon also --><b>
                         <!--This is dark logo icon--><img src="../../plugins/images/admin-logo.png" alt="home" class="logo-1 dark-logo" /><!--This is light logo icon--><img src="../../plugins/images/admin-logo-dark.png" alt="home" class="logo-1 light-logo" />
                      </b>
@@ -189,7 +120,7 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
                 </ul>
                 <ul class="nav navbar-top-links navbar-right pull-right">
 
-                   <li class="dropdown">
+                                       <li class="dropdown">
                         <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($uname); ?></b><span class="caret"></span> </a>
                         <ul class="dropdown-menu dropdown-user animated flipInY">
                             <li>
@@ -222,13 +153,13 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
                 </div>
                <ul class="nav" id="side-menu">
                             <li> 
-                                <a href="../index.php" class=" waves-effect">
+                                <a href="../../index.php" class="waves-effect">
                                     <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu"><?php echo _("Home"); ?></span>
                                 </a> 
                             </li>
                             <li class="devider"></li>
                             <li> <a active href="../#" class="active waves-effect"><i class="mdi mdi-wrench fa-fw" data-icon="v"></i> <span class="hide-menu"><?php echo _("Administration"); ?><span class="fa arrow"></span> </span></a>
-                                <ul class="nav nav-second-level in active">
+                                <ul class="nav nav-second-level" id="appendadministration">
                                     <li> <a href="users.php"><i class="ti-user fa-fw"></i><span class="hide-menu"><?php echo _("Users"); ?></span></a> </li>
                                     <li> <a href="packages.php"><i class="ti-package fa-fw"></i><span class="hide-menu"><?php echo _("Packages"); ?></span></a> </li>
                                     <li> <a href="ip.php"><i class="fa fa-sliders fa-fw"></i><span class="hide-menu"><?php echo _("IP"); ?></span></a> </li>
@@ -241,16 +172,16 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
                             </li>
                             <li class="devider"></li>
                             <li>
-                                <a href="../../#" class="waves-effect"><i  class="mdi mdi-account fa-fw"></i><span class="hide-menu"> <?php print_r($uname); ?><span class="fa arrow"></span></span>
+                                <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> <?php print_r($uname); ?><span class="fa arrow"></span></span>
                                 </a>
-                                <ul class="nav nav-second-level collapse" id="appendaccount" aria-expanded="false" style="height: 0px;">
-                                    <li> <a href="../../profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> <?php echo _("My Account"); ?></span></a></li>
-                                    <li> <a href="../../profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> <?php echo _("Account Settings"); ?></span></a></li>
+                                <ul class="nav nav-second-level collapse" >
+                                    <li> <a href="../../profile.php" id="profileactive"><i class="ti-home fa-fw <?php if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo 'text-inverse';} ?>"></i> <span style="<?php if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo 'color:#54667a;font-weight:300;';} ?>" class="hide-menu"> <?php echo _("My Account"); ?></span></a></li>
+                                    <li> <a href="../../profile.php?settings=open" id="settingsactive"><i class="ti-settings fa-fw "></i> <span class="hide-menu"> <?php echo _("Account Settings"); ?></span></a></li>
                                     <li> <a href="../../log.php"><i class="ti-layout-list-post fa-fw"></i><span class="hide-menu"><?php echo _("Log"); ?></span></a> </li>
                                 </ul>
                             </li>
                         <?php if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '<li class="devider"></li>
-                            <li> <a href="../../#" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">' . _("Management") . '<span class="fa arrow"></span> </span></a>
+                            <li> <a href="#" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">'. _("Management") . '<span class="fa arrow"></span> </span></a>
                                 <ul class="nav nav-second-level" id="appendmanagement">'; } ?>
                         <?php if ($webenabled == 'true') { echo '<li> <a href="../../list/web.php"><i class="ti-world fa-fw"></i><span class="hide-menu">' . _("Web") . '</span></a> </li>'; } ?>
                         <?php if ($dnsenabled == 'true') { echo '<li> <a href="../../list/dns.php"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">' . _("DNS") . '</span></a> </li>'; } ?>
@@ -261,18 +192,18 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
                         <li> <a href="../../list/cron.php" class="waves-effect"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu"><?php echo _("Cron Jobs"); ?></span></a> </li>
                         <li> <a href="../../list/backups.php" class="waves-effect"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu"><?php echo _("Backups"); ?></span></a> </li>
                         <?php if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {} else { echo '<li class="devider"></li>
-                            <li><a href="../../#" class="waves-effect"><i class="mdi mdi-apps fa-fw"></i> <span class="hide-menu">' . _("Apps") . '<span class="fa arrow"></span></span></a>
+                            <li><a href="#" class="waves-effect"><i class="mdi mdi-apps fa-fw"></i> <span class="hide-menu">' . _("Apps") . '<span class="fa arrow"></span></span></a>
                                 <ul class="nav nav-second-level" id="appendapps">'; } ?>
-                        <?php if ($ftpurl != '') { echo '<li><a href="../' . $ftpurl . '" target="_blank"><i class="fa fa-file-code-o fa-fw"></i><span class="hide-menu">' . _("FTP") . '</span></a></li>';} ?>
-                        <?php if ($webmailurl != '') { echo '<li><a href="../../' . $webmailurl . '" target="_blank"><i class="fa fa-envelope-o fa-fw"></i><span class="hide-menu">' . _("Webmail") . '</span></a></li>';} ?>
-                        <?php if ($phpmyadmin != '') { echo '<li><a href="../../' . $phpmyadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . _("phpMyAdmin") . '</span></a></li>';} ?>
-                        <?php if ($phppgadmin != '') { echo '<li><a href="../../' . $phppgadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . _("phpPgAdmin") . '</span></a></li>';} ?>
+                        <?php if ($ftpurl != '') { echo '<li><a href="' . $ftpurl . '" target="_blank"><i class="fa fa-file-code-o fa-fw"></i><span class="hide-menu">' . _("FTP") . '</span></a></li>';} ?>
+                        <?php if ($webmailurl != '') { echo '<li><a href="' . $webmailurl . '" target="_blank"><i class="fa fa-envelope-o fa-fw"></i><span class="hide-menu">' . _("Webmail") . '</span></a></li>';} ?>
+                        <?php if ($phpmyadmin != '') { echo '<li><a href="' . $phpmyadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . _("phpMyAdmin") . '</span></a></li>';} ?>
+                        <?php if ($phppgadmin != '') { echo '<li><a href="' . $phppgadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . _("phpPgAdmin") . '</span></a></li>';} ?>
                         <?php if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {} else { echo '</ul></li>';} ?>
                         <li class="devider"></li>
-                        <li><a href="../../process/logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu"><?php echo _("Log out"); ?></span></a></li>
+                        <li><a href="process/logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu"><?php echo _("Log out"); ?></span></a></li>
                         <?php if ($oldcpurl == '' || $supporturl == '') {} else { echo '<li class="devider"></li>'; } ?>
-                        <?php if ($oldcpurl != '') { echo '<li><a href="../../' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> ' . _("Control Panel v1") . '</span></a></li>'; } ?>
-                        <?php if ($supporturl != '') { echo '<li><a href="../../' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">' . _("Support") . '</span></a></li>'; } ?>
+                        <?php if ($oldcpurl != '') { echo '<li><a href="' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> ' . _("Control Panel v1") . '</span></a></li>'; } ?>
+                        <?php if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">' . _("Support") . '</span></a></li>'; } ?>
                         </ul>
             </div>
         </div>
@@ -284,79 +215,55 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
         <!-- ============================================================== -->
 <div id="page-wrapper">
             <div class="container-fluid">
-                <div class="row bg-title">
+                <div class="row bg-title" style="overflow:visible;">
                     <!-- .page title -->
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title"><?php echo _("Manage Packages"); ?></h4> </div>
+                        <h4 class="page-title"><?php echo _("User Stats"); ?></h4> 
+                    </div>
+                    <div class="col-lg-2 col-sm-8 col-md-8 col-xs-12 pull-right">
+                        <div style="margin-right:257px;width:220px;" class="btn-group bootstrap-select input-group-btn">
+                            <form id="loguserform" action="graph.php" method="get">
+                                <select class="selectpicker pull-right m-l-20" id="loguser" name="period" data-style="form-control">';
+                                    <option value="daily">Daily</option>
+                                    <option value="weekly">Weekly</option>
+                                    <option value="monthly">Monthly</option>
+                                    <option value="yearly">Yearly</option>
+                                 </select>
+                            </form>
+                        </div>
+                        <div class="input-group-btn">
+                            <button type="button" onclick='document.getElementById("loguserform").submit();swal({title: "Processing", text: "",timer: 5000,onOpen: function () {swal.showLoading();}}).then(function () {},function (dismiss) {if (dismiss === "timer") {}})' class=" pull-right btn waves-effect waves-light color-button"><i class="ti-angle-right"></i></button>
+                        </div>
+                    </div>
                     <!-- /.page title -->
                 </div>
                 <!-- .row -->
-
-<!-- .row -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="white-box"> <ul class="side-icon-text pull-right">
-                                                        <li><a href="../add/package.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Package"); ?></span></a></li>
-                                                    </ul>
-                            <h3 class="box-title m-b-0"><?php echo _("Packages"); ?></h3><br>
+                        <div class="white-box">
 
-                           <table class="table footable m-b-0" data-paging="false" data-sorting="true">
+                            <table class="table footable m-b-0"  data-sorting="true">
                                 <thead>
                                     <tr>
-                                        <th class="resone" data-type="numeric" data-sorted="true" data-direction="DESC"></th>
+                                        <th> </th>
                                         <th data-sortable="false"></th>
-                                        <th class="resthree" data-sortable="false"></th>
-                                        <th class="restwo" data-sortable="false"></th>
-                                        <th class="resfive" data-sortable="false"></th>
+                                        <th data-sortable="false"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                
-                                
-<?php
-if($packname[0] != '') { 
-                                                                $x1 = 0; 
+                                    <?php 
+                                    if($graphname[0] != '') {
+                                            $x1 = 0; 
 
-                                                                do {
-                                                                    
-                                                                    echo '<tr>
-                                                                    <td class="resone" style="padding-top: 32px;" data-sort-value="' . strtotime($packdata[$x1]['DATE'] . ' ' . $packdata[$x1]['TIME']) . '">' . $packdata[$x1]['DATE'];  echo '</td>
-                                                                    <td><h2>' . $packname[$x1] . '</h2><br>
-                                                                    
-                                                                    <div class="tworow" style="line-height: 30px;">
-                                                                      <div class="column">Web Template:<br>Proxy Template:<br>DNS Template:<br>SSH Access:<br>Web Domains:<br>Web Aliases</div>
-                                                                      <div class="column">' . $packdata[$x1]['WEB_TEMPLATE'] . '<br>' . $packdata[$x1]['PROXY_TEMPLATE'] . '<br>' . $packdata[$x1]['DNS_TEMPLATE'] . '<br>' . $packdata[$x1]['SHELL'] . '<br>' . $packdata[$x1]['WEB_DOMAINS'] . '<br>' . $packdata[$x1]['WEB_ALIASES'] . '</div>
-                                                                    </div></td>
-                                                                    
-                                                                    <td><div class="resthree tworow" style="padding-top:72px; line-height: 30px;">
-                                                                      <div class="column">DNS Domains:<br>DNS Records:<br>Mail Domains:<br>Mail Accounts:<br>Databases:<br>Cron Jobs</div>
-                                                                      <div class="column">' . $packdata[$x1]['DNS_DOMAINS'] . '<br>' . $packdata[$x1]['DNS_RECORDS'] . '<br>' . $packdata[$x1]['MAIL_DOMAINS'] . '<br>' . $packdata[$x1]['MAIL_ACCOUNTS'] . '<br>' . $packdata[$x1]['DATABASES'] . '<br>' . $packdata[$x1]['CRON_JOBS'] . '</div>
-                                                                    </div></td>
-                                                                    
-                                                                    <td><div class="restwo tworow" style="padding-top:72px; line-height: 30px;">
-                                                                      <div class="column">Backups:<br>Bandwidth:<br>Disk Space:<br>Nameservers:</div>
-                                                                      <div class="column">' . $packdata[$x1]['BACKUPS'] . '<br>' . $packdata[$x1]['BANDWIDTH'] . '<br>' . $packdata[$x1]['DISK_QUOTA'] . '<br><ul style="list-style: none;padding-left:0;line-height: 25px;">';
-                                                            $nsArray = explode(',', ($packdata[$x1]['NS'])); 
-
-                                                            foreach ($nsArray as &$value) {
-                                                                $value = "<li>" . $value . "</li>";
-                                                            }  
-                                                            foreach($nsArray as $val) {
-                                                                echo $val;
-                                                            } 
-                                                           
-                                                        echo '</ul></div>
-                                                                    </div></td>
-                                                                    
-                                                                    <td class="resfive" style="padding-top:110px;line-height: 30px;"><span class="reseight" style="display:none"><p>&nbsp</p></span><button type="button" onclick="window.location=\'../edit/package.php?package=' . $packname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button><span class="reseight" style="display:none"><p>&nbsp</p></span><span class="resfour">';
-                                                                    
-                                                                    
-                                                                        echo '</span><span class="reseight" style="display:none"><p>&nbsp</p></span><button onclick="confirmDelete(\'' . $packname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
-                                                                    </td>
-                                                                    </tr>';
-                                                                    $x1++;
-                                                                } while (isset($packname[$x1])); }
-                                                            ?>
+                                            do {
+                                                echo '<tr>
+                                                <td><h2>' . $graphdata[$x1]['TITLE'] . '</h2></td>
+                                                <td><img src="' . $url8083 . '/list/rrd/vwi.php?/rrd/' . $graphdata[$x1]['TYPE'] . '/' . $period . '-' . $graphdata[$x1]['RRD'] . '.png"></td>
+                                                <td><a href="' . $url8083 . '/list/rrd/vwi.php?/rrd/' . $graphdata[$x1]['TYPE'] . '/' . $period . '-' . $graphdata[$x1]['RRD'] . '.png" download="' . $period . '-' . $graphdata[$x1]['RRD'] . '.png"><button type="button" onclick="" data-toggle="tooltip" data-original-title="' . _("Download") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-download"></i></button></a></td>
+                                                </tr>';
+                                                $x1++;
+                                            } while ($graphname[$x1] != ''); }
+                                        ?>
                                 </tbody>
                             </table>
                         </div>
@@ -366,7 +273,7 @@ if($packname[0] != '') {
 
             </div>
             <!-- /.container-fluid -->
-           <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+            <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
         </div>
     </div>
     <script src="../../plugins/bower_components/jquery/dist/jquery.min.js"></script>
@@ -416,11 +323,16 @@ if($packname[0] != '') {
 jQuery(function($){
 	$('.footable').footable();
 });
-function confirmDelete(e,f){
+    
+<?php
+    
+if ($username = 'admin') { echo 'document.getElementById("loguser").value = \'' . $logusername . '\';';}
+    
+?>
+function confirmDelete(e){
 e1 = String(e)
-e2 = String(f)
 swal({
-  title: '<?php echo _("Delete package:"); ?> ' + e1 + ' ?',
+  title: '<?php echo _("Delete Database"); ?>:<br> ' + e1 +' ?',
   text: "<?php echo _("You won't be able to revert this!"); ?>",
   type: 'warning',
   showCancelButton: true,
@@ -439,11 +351,10 @@ swal({
   function () {},
   function (dismiss) {}
 )
-window.location.replace("../delete/package.php?package=" + e1);
+ window.location.replace("../../delete/db.php?db=" + e1);
 })}
 
-    <?php
-            
+<?php
            if(isset($_GET['error']) && $_GET['error'] == "1") {
                 echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
             } 
@@ -453,16 +364,11 @@ window.location.replace("../delete/package.php?package=" + e1);
             if(isset($_POST['addcode']) && $_POST['addcode'] == "0") {
                 echo "swal({title:'" . _("Successfully Created!") . "', type:'success'});";
             } 
-            if(isset($_POST['r1']) && $_POST['r1'] == "0") {
-                echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
-            } 
-            if(isset($_POST['r1']) && $_POST['r1'] > "0") { echo "swal({title:'" . $errorcode[$_POST['r1']] . "<br><br>" . _("Please try again later or contact support.") . "', type:'error'});";
+            if(isset($_POST['delcode']) && $_POST['delcode'] > "0") { echo "swal({title:'" . $errorcode[$_POST['delcode']] . "<br><br>" . _("Please try again later or contact support.") . "', type:'error'});";
             }
-            if(isset($_POST['delcode']) && $_POST['delcode'] > "0") { echo "swal({title:'" . $errorcode[$_POST['delcode']] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+            if(isset($_POST['addcode']) && $_POST['addcode'] > "0") { echo "swal({title:'" . $errorcode[$_POST['addcode']] . "<br><br>" . _("Please try again later or contact support.") . "', type:'error'});";
             }
-            if(isset($_POST['addcode']) && $_POST['addcode'] > "0") { echo "swal({title:'" . $errorcode[$_POST['addcode']] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
-            }
-    ?>
+?>
 </script>
 </body>
 
