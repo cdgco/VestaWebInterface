@@ -41,8 +41,6 @@ date_default_timezone_set('".$_POST['TIMEZONE']."'); // Server Time Zone - See h
 DEFINE('SITE_NAME', '".$_POST['SITENAME']."'); // Site name for use in page titles. Ex: 'My Host Company'.
 DEFINE('THEME', '".$_POST['THEME']."'); // Accepted options are 'default', 'blue', 'purple' and 'orange'
 DEFINE('LANGUAGE', '".$_POST['LANGUAGE']."'); // See VWI Documentation or arrays.php file for accepted formats.
-DEFINE('KEY1', '".$a."'); // Random Key #1 for encryption / decryption.
-DEFINE('KEY2', '".$b."'); // Random Key #2 for encryption / decryption.
 
 // VESTA API SETTINGS //
 DEFINE('VESTA_HOST_ADDRESS', '".$_POST['VESTA_HOST_ADDRESS']."'); // URL or IP Address of VestaCP. Ex: 'myhost.com' or '12.34.56.78'.
@@ -50,6 +48,8 @@ DEFINE('VESTA_SSL_ENABLED', '".$sslenabled."'); // If ssl is enabled on VestaCP 
 DEFINE('VESTA_PORT', '".$_POST['VESTA_PORT']."'); // VestaCP port. Ex: '8083'.
 DEFINE('VESTA_ADMIN_UNAME', '".$_POST['VESTA_ADMIN_UNAME']."'); // Username of VestaCP Admin account. Ex: 'admin'.
 DEFINE('VESTA_ADMIN_PW', '".$_POST['VESTA_ADMIN_PW']."'); // Password for VestaCP Admin account. Ex: 'MyPassword1'.
+DEFINE('KEY1', '".$a."'); // Random Key #1 for encryption / decryption.
+DEFINE('KEY2', '".$b."'); // Random Key #2 for encryption / decryption.
 
 // OPTIONAL SETTINGS //
 DEFINE('FTP_URL', '".$_POST['FTP_URL']."'); // URL for Web FTP. Leave blank if you do not have a Web FTP Interface. Set as 'disabled' to remove the Web FTP option.
@@ -65,7 +65,6 @@ DEFINE('MAIL_ENABLED', '".$mailenabled."'); // Enable or disable mail section. E
 DEFINE('DB_ENABLED', '".$dbenabled."'); // Enable or disable database section. Ex: 'true' or 'false'.
 DEFINE('SOFTACULOUS_URL', '".$softaculouslink."'); // Enable or disable link to Softaculous. Ex: 'true' or 'false'.
 DEFINE('OLD_CP_LINK', '".$oldcplink."'); // Enable or disable link to old cpanel. Ex: 'true' or 'false'.
-
 
 // INTEGRATIONS //
 DEFINE('PLUGINS', ''); // Plugin folder name, exactly as specified, seperated by comma.
@@ -133,7 +132,7 @@ else{
 \$vst_username = VESTA_ADMIN_UNAME;
 \$vst_password = VESTA_ADMIN_PW;
 \$themecolor = THEME . '.css';
-\$uname = base64_decode(\$_SESSION['username']);
+\$initialusername = base64_decode(\$_SESSION['username']);
 \$loggedin = base64_decode(\$_SESSION['loggedin']);
 \$locale = LANGUAGE;
 \$username = \$uname;

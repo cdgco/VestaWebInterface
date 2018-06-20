@@ -100,14 +100,25 @@ $url8083 = $vst_ssl . VESTA_HOST_ADDRESS . ':' . $vesta_port;
 $vst_username = VESTA_ADMIN_UNAME;
 $vst_password = VESTA_ADMIN_PW;
 $themecolor = THEME . '.css';
-$uname = base64_decode($_SESSION['username']);
+$initialusername = base64_decode($_SESSION['username']);
 $loggedin = base64_decode($_SESSION['loggedin']);
 $locale = LANGUAGE;
-$username = $uname;
-$sitetitle = SITE_NAME;
-$cfapikey = CLOUDFLARE_ORIGIN_CA_KEY;
+
+if($initialusername == 'admin' && isset($_SESSION['proxied']) && base64_decode($_SESSION['proxied']) != '')   {
+    $username = base64_decode($_SESSION['proxied']);
+    $uname = base64_decode($_SESSION['proxied']);
+    $displayname = $initialusername . ' &rarr; ' . base64_decode($_SESSION['proxied']);
+}  
+else {
+    $uname = $initialusername;
+    $username = $initialusername;
+    $displayname = $initialusername;
+}
+
 $KEY1 = KEY1;
 $KEY2 = KEY2;
+$sitetitle = SITE_NAME;
+$cfapikey = CLOUDFLARE_ORIGIN_CA_KEY;
 
 if(WEBMAIL_URL == ''){
  $webmailurl = $vst_ssl . VESTA_HOST_ADDRESS . '/webmail';
@@ -150,10 +161,10 @@ else{
 }
 
 if(SOFTACULOUS_URL == 'false'){
- \$softaculousurl = '';
+ $softaculousurl = '';
 }
 else{
- \$softaculousurl = \$url8083 . '/softaculous';
+ $softaculousurl = $url8083 . '/softaculous';
 }
 
 if(OLD_CP_LINK == 'false'){
@@ -162,6 +173,7 @@ if(OLD_CP_LINK == 'false'){
 else{
  $oldcpurl = $url8083;
 }
+
 require 'arrays.php';
 function vwicrypt($cs,$ca='e'){$op = false;$ecm ="AES-256-CBC";$key=hash('sha256',$KEY1);$iv=substr(hash('sha256',$KEY2),0,16);if($ca=='e'){$op=base64_encode(openssl_encrypt($cs,$ecm,$key,0,$iv));} else if($ca=='d'){$op=openssl_decrypt(base64_decode($cs),$ecm,$key,0,$iv);}return $op;}
 
