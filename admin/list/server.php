@@ -10,8 +10,8 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
 
     $postvars = array(
       array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
-      array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-vesta-autoupdate','arg1' => 'json'),
-      array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-vesta-updates','arg1' => 'json'),
+      array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-info','arg1' => 'json'),
+      array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-services','arg1' => 'json'),
     );
 
     $curl0 = curl_init();
@@ -31,11 +31,9 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
 
     $admindata = json_decode(curl_exec($curl0), true)[$username];
     $useremail = $admindata['CONTACT'];
-    $autoupdatename = array_keys(json_decode(curl_exec($curl1), true));
-    $updatename = array_keys(json_decode(curl_exec($curl2), true));
-    $updatedata = array_values(json_decode(curl_exec($curl2), true));
-    $updateArr = array_column(json_decode(curl_exec($curl2), true), 'UPDATED');
-    $updatetest = array_search('no', $requestArr);
+    $sysdata = array_values(json_decode(curl_exec($curl1), true));
+    $servicename = array_keys(json_decode(curl_exec($curl2), true));
+    $servicedata = array_values(json_decode(curl_exec($curl2), true));
 
     if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
     setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
@@ -59,6 +57,12 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
             }    
         }
     }
+
+function secondsToTime($seconds) {
+    $dtF = new \DateTime('@0');
+    $dtT = new \DateTime("@$seconds");
+    return $dtF->diff($dtT)->format('%a days, %h hours');
+}
 ?>
 
 <!DOCTYPE html>
@@ -71,7 +75,7 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/ico" href="../../plugins/images/favicon.ico">
-    <title><?php echo $sitetitle; ?> - <?php echo _("Updates"); ?></title>
+    <title><?php echo $sitetitle; ?> - <?php echo _("Server"); ?></title>
     <link href="../../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
     <link href="../../plugins/bower_components/footable/css/footable.bootstrap.css" rel="stylesheet">
@@ -222,7 +226,7 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
                 <div class="row bg-title">
                     <!-- .page title -->
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title"><?php echo _("Updates"); ?></h4> </div>
+                        <h4 class="page-title"><?php echo _("Server"); ?></h4> </div>
                     <!-- /.page title -->
                 </div>
                 <!-- .row -->
@@ -230,13 +234,12 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
 <!-- .row -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="white-box"> <ul class="side-icon-text pull-right">
-                            <?php if(isset($updatetest) || $updatetest != ''){ echo '<li><a href="../procss/updateall.php"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="ti-reload"></i></span><span>' . _("Update All") . '</span></a></li>';} 
-                            
-                            if($autoupdatename[0] == "Enabled"){ echo '<li><a href="../delete/autoupdate.php"><span class="circle circle-sm bg-danger di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><span>' . _("Disable Autoupdate") . '</span></a></li>';} if($autoupdatename[0] != "Enabled"){ echo '<li><a href="../create/autoupdate.php"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><span>' . _("Enable Autoupdate") . '</span></a></li>';} ?>
-                                                    </ul>
+                        <div class="white-box">
+                            <ul class="side-icon-text pull-right">
+                                <li><a href="#"><span class="circle circle-sm bg-info di" style="padding-top: 11px;"><i class="ti-settings"></i></span><span><?php echo _("Configure"); ?></span></a></li>
+                            </ul>
 
-                           <table class="table footable m-b-0" data-paging="false" data-sorting="true">
+                            <table class="table footable m-b-0" data-paging="false" data-sorting="true">
                                 <thead>
                                     <tr>
                                         <th></th>
@@ -247,32 +250,59 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td><h1><b><?php print_r($sysdata[0]['HOSTNAME']); ?></b></h1><br><b><?php print_r($sysdata[0]['OS'] . ' ' . $sysdata[0]['VERSION']); ?></b> (<?php print_r($sysdata[0]['ARCH']); ?>)S</td>
+                                        <td><h1>&nbsp;</h1><br>Load Average: <b><?php print_r($sysdata[0]['LOADAVERAGE']); ?></b></td>
+                                        <td><h1>&nbsp;</h1><br>Uptime: <b><?php print_r(secondsToTime($sysdata[0]['UPTIME'] * 60)); ?></b></td>
+                                        <td><h2>&nbsp;</h2>
+                                            <button type="button" data-toggle="tooltip" data-original-title="<?php echo _("Configure"); ?>" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-settings"></i></button>
+                                            <button type="button" data-toggle="tooltip" data-original-title="<?php echo _("Restart"); ?>" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button>
+                                        
+                                        </td>
+                                    </tr>
+                                </tbody>
+                           <table class="table footable m-b-0" data-paging="false" data-sorting="true">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
                                     <?php
-                                    if($updatename[0] != '') { 
+                                    if($servicename[0] != '') { 
                                             $x1 = 0; 
 
                                             do {
-                                                echo '<tr'; if($updatedata[$x1]['UPDATED'] != 'yes') { echo ' style="background: rgba(251, 255, 0, 0.27)"'; } echo '>';
-                                                if($updatedata[$x1]['UPDATED'] != 'yes') { echo '<td><b>out of date</b></td>'; }
-                                                else { echo '<td><br>updated</td>'; }
-                                                echo '<td><h2>' . $updatename[$x1] . '</h2><br>' . $updatedata[$x1]['DESCR'] . '<br></td>
-                                                <td><br>Version: <b>' . $updatedata[$x1]['VERSION'] . '</b> (' . $updatedata[$x1]['ARCH'] . ')<br></td>
-                                                <td><br>Release: ' . $updatedata[$x1]['RELEASE'] . '<br></td><td>';
+                                                echo '<tr'; if($servicedata[$x1]['STATE'] != 'running') { echo ' style="background: #efefef"'; } echo '>';
+                                                echo '<td></td>
+                                                      <td></td>
+                                                <td><h2>' . $servicename[$x1] . '</h2><br>' . $servicedata[$x1]['SYSTEM'] . '<br>&nbsp;</td>
+                                                <td><h2>&nbsp;</h2><br>CPU: ' . $servicedata[$x1]['CPU'] . '</td>
+                                                <td><h2>&nbsp;</h2><br>Memory: ' . $servicedata[$x1]['MEM'] . '</td>
+                                                <td><h2>&nbsp;</h2><br>Uptime: ' . secondsToTime($servicedata[$x1]['RTIME'] * 60) . '</td>
+                                                <td><h4>&nbsp;</h4>
+                                                    <button type="button" data-toggle="tooltip" data-original-title="' . _("Configure") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-settings"></i></button>';  
+                                                    if ($servicedata[$x1]['STATE'] != 'running') { echo '<button type="button" data-toggle="tooltip" data-original-title="' . _("Start") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-control-play"></i></button>'; } else { echo '<button type="button" data-toggle="tooltip" data-original-title="' . _("Stop") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-control-stop"></i></button>'; }
+                                                    echo '<button type="button" data-toggle="tooltip" data-original-title="' . _("Restart") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></td>
 
-                                            if ($updatedata[$x1]['UPDATED'] != 'yes') { echo '<button type="button" onclick="window.location=\'../process/update.php?package=' . $updatename[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Update") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button>'; }
-
-                                            echo '</td>';
+                                           </tr>';
                                                 $x1++;
-                                            } while (isset($updatename[$x1])); }
+                                            } while (isset($servicename[$x1])); }
                                         ?>
+                               
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
                 <!-- /.row -->
-
-            </div>
             <!-- /.container-fluid -->
            <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
         </div>
