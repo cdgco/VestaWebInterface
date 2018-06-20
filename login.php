@@ -169,10 +169,8 @@ if(isset($_SESSION['loggedin'])) {
                                     $_SESSION['loggedin'] = base64_encode ( 'true' );
                                     $_SESSION['username'] = base64_encode ( $username2 );
                                     
-                                    /* if ($username2 == "admin") { $userredirect = 'admin/list/users.php'; }
-                                    else { $userredirect = 'index.php'; } */
-                                    
-                                    $userredirect = 'index.php';
+                                    if ($username2 == "admin" && DEFAULT_TO_ADMIN == "true") { $userredirect = 'admin/list/users.php'; }
+                                    else { $userredirect = 'index.php'; }
                                     
                                     echo '<br><br>
                                         <div style="color: #000;" class="alert alert-success alert-dismissable">

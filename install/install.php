@@ -14,7 +14,8 @@ function randomPassword() {
 $a = randomPassword();
 $b = randomPassword();
 if ($_POST['x'] != '1') { if (file_exists( '../includes/config.php' )) { header( 'Location: ../index.php' );}; }
-
+if($_POST['DEFAULT_TO_ADMIN'] == 'on'){ $defaultadmin = 'true'; }
+else { $defaultadmin = 'false'; }
 if($_POST['VESTA_SSL_ENABLED'] == 'on'){ $sslenabled = 'true'; }
 else { $sslenabled = 'false'; }
 if($_POST['ENABLE_WEB'] == 'on'){ $webenabled = 'true'; }
@@ -41,6 +42,7 @@ date_default_timezone_set('".$_POST['TIMEZONE']."'); // Server Time Zone - See h
 DEFINE('SITE_NAME', '".$_POST['SITENAME']."'); // Site name for use in page titles. Ex: 'My Host Company'.
 DEFINE('THEME', '".$_POST['THEME']."'); // Accepted options are 'default', 'blue', 'purple' and 'orange'
 DEFINE('LANGUAGE', '".$_POST['LANGUAGE']."'); // See VWI Documentation or arrays.php file for accepted formats.
+DEFINE('DEFAULT_TO_ADMIN', '".$defaultadmin."'); // Choose whether or not the admin user should initially go to the admin or user panel.
 
 // VESTA API SETTINGS //
 DEFINE('VESTA_HOST_ADDRESS', '".$_POST['VESTA_HOST_ADDRESS']."'); // URL or IP Address of VestaCP. Ex: 'myhost.com' or '12.34.56.78'.
@@ -135,7 +137,18 @@ else{
 \$initialusername = base64_decode(\$_SESSION['username']);
 \$loggedin = base64_decode(\$_SESSION['loggedin']);
 \$locale = LANGUAGE;
-\$username = \$uname;
+
+if(\$initialusername == 'admin' && isset(\$_SESSION['proxied']) && base64_decode(\$_SESSION['proxied']) != '')   {
+    \$username = base64_decode(\$_SESSION['proxied']);
+    \$uname = base64_decode(\$_SESSION['proxied']);
+    \$displayname = \$initialusername . ' &rarr; ' . base64_decode(\$_SESSION['proxied']);
+}  
+else {
+    \$uname = \$initialusername;
+    \$username = \$initialusername;
+    \$displayname = \$initialusername;
+}
+
 \$KEY1 = KEY1;
 \$KEY2 = KEY2;
 \$sitetitle = SITE_NAME;

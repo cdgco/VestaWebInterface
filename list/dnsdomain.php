@@ -220,7 +220,21 @@ textdomain('messages');
                                     <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu"><?php echo _("Home"); ?></span>
                                 </a> 
                             </li>
-
+                        <?php if($initialusername == "admin"){ echo 
+                            '<li class="devider"></li>
+                            <li> <a href="../#" class="waves-effect"><i class="mdi mdi-wrench fa-fw" data-icon="v"></i> <span class="hide-menu">' . _("Administration") . '<span class="fa arrow"></span> </span></a>
+                                <ul class="nav nav-second-level">
+                                    <li> <a href="../admin/list/users.php"><i class="ti-user fa-fw"></i><span class="hide-menu">' . _("Users") . '</span></a> </li>
+                                    <li> <a href="../admin/list/packages.php"><i class="ti-package fa-fw"></i><span class="hide-menu">' . _("Packages") . '</span></a> </li>
+                                    <li> <a href="../admin/list/ip.php"><i class="fa fa-sliders fa-fw"></i><span class="hide-menu">' . _("IP") . '</span></a> </li>
+                                    <li> <a href="../admin/list/graphs.php"><i class="ti-pie-chart fa-fw"></i><span class="hide-menu">' . _("Graphs") . '</span></a> </li>
+                                    <li> <a href="../admin/list/stats.php"><i class="ti-stats-up fa-fw"></i><span class="hide-menu">' . _("Statistics") . '</span></a> </li>
+                                    <li> <a href="../admin/list/updates.php"><i class="mdi mdi-weather-cloudy fa-fw"></i><span class="hide-menu">' . _("Updates") . '</span></a> </li>
+                                    <li> <a href="../admin/list/firewall.php"><i class="fa fa-shield fa-fw"></i><span class="hide-menu">' . _("Firewall") . '</span></a> </li>
+                                    <li> <a href="../admin/list/server.php"><i class="fa fa-server fa-fw"></i><span class="hide-menu">' . _("Server") . '</span></a> </li>
+                                </ul>
+                            </li>';
+                            } ?>
                             <li class="devider"></li>
                             <li>
                                 <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> <?php print_r($displayname); ?><span class="fa arrow"></span></span>

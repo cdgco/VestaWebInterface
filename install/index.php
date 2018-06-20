@@ -244,6 +244,16 @@ require '../includes/arrays.php';
         </select>
     </div>
 </div>
+<div class="form-group">
+  <label class="col-md-4 control-label" for="DEFAULT_TO_ADMIN">Vesta SSL</label>
+  <div class="col-md-4">
+    <label class="checkbox-inline" for="DEFAULT_TO_ADMIN-0">
+      <input type="checkbox" name="DEFAULT_TO_ADMIN" id="DEFAULT_TO_ADMIN-0" checked>
+      Enabled
+    </label>
+    <span class="help-block">Choose whether or not the admin should go to the admin panel by default after login.</span>  
+  </div>
+</div>
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="VESTA_EMAIL">Email Address</label>  
