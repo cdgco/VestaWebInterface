@@ -295,7 +295,7 @@ if($cronname[0] != '') {
     $c5 = $crondata[$x1]['WDAY'];
     $crontime = $c1 .' '.$c2 .' '.$c3 .' '.$c4 .' '.$c5;
     $schedule = CronSchedule::fromCronString($crontime);
-                                                                    echo '<tr>
+                                                                    echo '<tr'; if($crondata[$x1]['SUSPENDED'] != 'no') { echo ' style="background: #efefef"'; } echo '>
                                                                     <td data-sort-value="' . $cronname[$x1] . '">' . $cronname[$x1] . '</td>
                                                                     <td>' . $crondata[$x1]['CMD'] . '</td>
 <td>';                                                                   
@@ -306,8 +306,12 @@ if($cronname[0] != '') {
                                                                            echo '</td>
                                                                     <td data-sort-value="' . $crondata[$x1]['DATE'] . '">' . $crondata[$x1]['DATE'] . '</td><td>
                                             
-<button onclick="window.location=\'../edit/cron.php?job=' . $cronname[$x1] . '\';" type="button" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-cog"></i></button>
-<button onclick="confirmDelete(\'' . $cronname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
+                                                                    <button onclick="window.location=\'../edit/cron.php?job=' . $cronname[$x1] . '\';" type="button" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-cog"></i></button>';
+                                                                    
+                                                                    if ($initialusername == "admin" && $crondata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="window.location=\'../admin/suspend/cron.php?user=' . $username . '&resource=' . $cronname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
+                                                                    elseif ($initialusername == "admin" && $crondata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="window.location=\'../admin/unsuspend/cron.php?user=' . $username . '&resource=' . $cronname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }   
+                                                                    
+                                                                    echo '<button onclick="confirmDelete(\'' . $cronname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
                                         </td>
 <td>'; echo $schedule->asNaturalLanguage() . ' ( ' . $crontime . ' )</td>
                                                                     </tr>';
@@ -482,6 +486,12 @@ swal({
             if(isset($_POST['delcode']) && $_POST['delcode'] > "0") { echo "swal({title:'" . $errorcode[$_POST['delcode']] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
             }
             if(isset($_POST['addcode']) && $_POST['addcode'] > "0") { echo "swal({title:'" . $errorcode[$_POST['addcode']] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+            }
+            if(isset($_POST['u1']) && $_POST['u1'] == 0) {
+                echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
+            } 
+            if(isset($_POST['u1']) && $_POST['u1'] != 0) {
+                echo "swal({title:'" . _("Error Updating Mail Domain") . "<br>" . "(E: " . $_POST['u1'] . ")" . _("Please try again or contact support.") . "<br><br>', type:'error'});";
             }
     
 ?>

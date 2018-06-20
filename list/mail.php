@@ -307,7 +307,7 @@ if($mailname[0] != '') {
                                                                 $x1 = 0; 
 
                                                                 do {
-                                                                    echo '<tr>
+                                                                   echo '<tr'; if($maildata[$x1]['SUSPENDED'] != 'no') { echo ' style="background: #efefef"'; } echo '>
                                                                     <td>' . $mailname[$x1] . '</td>
                                                                     <td data-sort-value="' . $maildata[$x1]['ACCOUNTS'] . '">' . $maildata[$x1]['ACCOUNTS'] . '</td>
                                                                     <td data-sort-value="' . $maildata[$x1]['U_DISK'] . '">' . $maildata[$x1]['U_DISK'] . ' mb</td>
@@ -322,8 +322,12 @@ if($mailname[0] != '') {
 
 <button type="button" onclick="window.location=\'../add/mailaccount.php?domain=' . $mailname[$x1] . '\';" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Add Accounts") . '"><i class="fa fa-plus"></i></button>
 <button type="button" onclick="window.location=\'../list/maildomain.php?domain=' . $mailname[$x1] . '\';" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("List Accounts") . '"><i class="ti-menu-alt"></i></button>
-<button type="button" onclick="window.location=\'../edit/mail.php?domain=' . $mailname[$x1] . '\';" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button>
-<button onclick="confirmDelete(\'' . $mailname[$x1] . '\')" type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="icon-trash" ></i></button>
+<button type="button" onclick="window.location=\'../edit/mail.php?domain=' . $mailname[$x1] . '\';" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button>';
+
+    if ($initialusername == "admin" && $maildata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="window.location=\'../admin/suspend/mail.php?user=' . $username . '&resource=' . $mailname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
+    elseif ($initialusername == "admin" && $maildata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="window.location=\'../admin/unsuspend/mail.php?user=' . $username . '&resource=' . $mailname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }    
+
+echo '<button onclick="confirmDelete(\'' . $mailname[$x1] . '\')" type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="icon-trash" ></i></button>
                                         </td>
                                                                     <td>'; if($maildata[$x1]['CATCHALL'] != ''){ echo $maildata[$x1]['CATCHALL'];} else { echo _("None");} echo '</td>
                                                                     <td>';                                                                   
@@ -446,6 +450,12 @@ window.location.replace("../delete/mail.php?domain=" + e1);
             if(isset($_POST['delcode']) && $_POST['delcode'] > "0") { echo "swal({title:'" . $errorcode[$_POST['delcode']] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
             }
             if(isset($_POST['addcode']) && $_POST['addcode'] > "0") { echo "swal({title:'" . $errorcode[$_POST['addcode']] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+            }
+            if(isset($_POST['u1']) && $_POST['u1'] == 0) {
+                echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
+            } 
+            if(isset($_POST['u1']) && $_POST['u1'] != 0) {
+                echo "swal({title:'" . _("Error Updating Mail Domain") . "<br>" . "(E: " . $_POST['u1'] . ")" . _("Please try again or contact support.") . "<br><br>', type:'error'});";
             }
     
 ?>

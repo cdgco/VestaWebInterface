@@ -310,7 +310,7 @@ if($domainname[0] != '') {
                                                                 $x1 = 0; 
 
                                                                 do {
-                                                                    echo '<tr>
+                                                                    echo '<tr'; if($domaindata[$x1]['SUSPENDED'] != 'no') { echo ' style="background: #efefef"'; } echo '>
                                                                     <td>' . $domainname[$x1] . '</td>
                                                                     <td data-sort-value="' . $domaindata[$x1]['U_DISK'] . '">' . $domaindata[$x1]['U_DISK'] . ' mb</td>
                                                                     <td data-sort-value="' . $domaindata[$x1]['U_BANDWIDTH'] . '">' . $domaindata[$x1]['U_BANDWIDTH'] . ' mb</td><td>';                                                                   
@@ -320,7 +320,12 @@ if($domainname[0] != '') {
                                                                              echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
                                                                            echo '</td>
                                                                     <td data-sort-value="' . $domaindata[$x1]['DATE'] . '">' . $domaindata[$x1]['DATE'] . '</td><td>
-                                            <button type="button" onclick="window.location=\'../edit/domain.php?domain=' . $domainname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button><button onclick="confirmDelete(\'' . $domainname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>'; if($domaindata[$x1]['STATS'] != ""){  echo '<button type="button" onclick="window.location=\'http://' . $domainname[$x1] . '/vstats/\';" data-toggle="tooltip" data-original-title="' . _("View Stats") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-stats-up"></i></button>';} echo '
+                                            <button type="button" onclick="window.location=\'../edit/domain.php?domain=' . $domainname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button>';
+                                            
+                                            if ($initialusername == "admin" && $domaindata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="window.location=\'../admin/suspend/domain.php?user=' . $username . '&resource=' . $domainname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
+                                            elseif ($initialusername == "admin" && $domaindata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="window.location=\'../admin/unsuspend/domain.php?user=' . $username . '&resource=' . $domainname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }                        
+                                            
+                                            echo '<button onclick="confirmDelete(\'' . $domainname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>'; if($domaindata[$x1]['STATS'] != ""){  echo '<button type="button" onclick="window.location=\'http://' . $domainname[$x1] . '/vstats/\';" data-toggle="tooltip" data-original-title="' . _("View Stats") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-stats-up"></i></button>';} echo '
                                         </td>
                                                                     <td>'; if(implode(', ', explode(",", $domaindata[$x1]['ALIAS'])) == "") { echo _("None");} else{ echo implode(', ', explode(",", $domaindata[$x1]['ALIAS']));} echo '</td>
                                                                     <td>' . ucfirst($domaindata[$x1]['TPL']) . '</td>
@@ -439,13 +444,18 @@ window.location.replace("../delete/domain.php?domain=" + e1);
             }
             
             $addtotal = $_POST['a1'] + $_POST['a2'] + $_POST['a3'] + $_POST['a4'] + $_POST['a5'] + $_POST['a6'] + $_POST['a7'] + $_POST['a8'];
-            if(isset($_POST['r1']) && $returntotal == 0) {
+            if(isset($_POST['a1']) && $addtotal == 0) {
                 echo "swal({title:'" . _("Successfully Created!") . "', type:'success'});";
             } 
-            if(isset($_POST['r1']) && $returntotal != 0) {
+            if(isset($_POST['a1']) && $addtotal != 0) {
                 echo "swal({title:'" . _("Error Creating Web Domain") . "<br>"  . "(E: " . $_POST['a1'] . "." . $_POST['a2'] . "." . $_POST['a3'] . "." . $_POST['a4'] . "." . $_POST['a5'] . "." . $_POST['a6'] . "." . $_POST['a7'] . "." . $_POST['a8'] . ")" . _("Please try again or contact support.") . "<br><br>', type:'error'});";
             }
-    
+            if(isset($_POST['u1']) && $_POST['u1'] == 0) {
+                echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
+            } 
+            if(isset($_POST['u1']) && $_POST['u1'] != 0) {
+                echo "swal({title:'" . _("Error Updating Web Domain") . "<br>" . "(E: " . $_POST['u1'] . ")" . _("Please try again or contact support.") . "<br><br>', type:'error'});";
+            }
     ?>
 </script>
 </body>

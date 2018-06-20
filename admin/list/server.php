@@ -161,7 +161,7 @@ function secondsToTime($seconds) {
                 </div>
                <ul class="nav" id="side-menu">
                             <li> 
-                                <a href="../index.php" class=" waves-effect">
+                                <a href="../../index.php" class=" waves-effect">
                                     <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu"><?php echo _("Home"); ?></span>
                                 </a> 
                             </li>
@@ -235,9 +235,10 @@ function secondsToTime($seconds) {
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="white-box">
-                            <!-- <ul class="side-icon-text pull-right">
-                                <li><a href="#"><span class="circle circle-sm bg-info di" style="padding-top: 11px;"><i class="ti-settings"></i></span><span><?php echo _("Configure"); ?></span></a></li>
-                            </ul> -->
+                            <ul class="side-icon-text pull-right">
+                                <li><a href="../status/cpu.php"><span class="circle circle-sm bg-info di" style="padding-top: 11px;"><i class="ti-pulse"></i></span><span><?php echo _("Show Status"); ?></span></a></li>
+                                <!-- <li><a href="#"><span class="circle circle-sm bg-info di" style="padding-top: 11px;"><i class="ti-settings"></i></span><span><?php echo _("Configure"); ?></span></a></li> -->
+                            </ul>
 
                             <table class="table footable m-b-0" data-paging="false" data-sorting="true">
                                 <thead>
@@ -252,7 +253,7 @@ function secondsToTime($seconds) {
                                 <tbody>
                                     <tr>
                                         <td></td>
-                                        <td><h1><b><?php print_r($sysdata[0]['HOSTNAME']); ?></b></h1><br><b><?php print_r($sysdata[0]['OS'] . ' ' . $sysdata[0]['VERSION']); ?></b> (<?php print_r($sysdata[0]['ARCH']); ?>)S</td>
+                                        <td><h1><b><?php print_r($sysdata[0]['HOSTNAME']); ?></b></h1><br><b><?php print_r($sysdata[0]['OS'] . ' ' . $sysdata[0]['VERSION']); ?></b> (<?php print_r($sysdata[0]['ARCH']); ?>)</td>
                                         <td><h1>&nbsp;</h1><br>Load Average: <b><?php print_r($sysdata[0]['LOADAVERAGE']); ?></b></td>
                                         <td><h1>&nbsp;</h1><br>Uptime: <b><?php print_r(secondsToTime($sysdata[0]['UPTIME'] * 60)); ?></b></td>
                                         <!-- <td><h2>&nbsp;</h2>

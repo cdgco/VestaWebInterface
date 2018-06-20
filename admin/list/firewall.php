@@ -150,7 +150,7 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
                 </div>
                <ul class="nav" id="side-menu">
                             <li> 
-                                <a href="../index.php" class=" waves-effect">
+                                <a href="../../index.php" class=" waves-effect">
                                     <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu"><?php echo _("Home"); ?></span>
                                 </a> 
                             </li>
@@ -258,7 +258,7 @@ if($firename[0] != '') {
                                             <button type="button" onclick="window.location=\'../edit/firewall.php?rule=' . $firename[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button>';
                                                                     
                                                                 if ($firedata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="window.location=\'../suspend/firewall.php?rule=' . $firename[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
-                                                                else { echo '<button type="button" onclick="window.location=\'../unsuspend/firewall.php?rule=' . $firename[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
+                                                                else { echo '<button type="button" onclick="window.location=\'../unsuspend/firewall.php?rule=' . $firename[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }
                                                                     
                                                                         echo '<button onclick="confirmDelete(\'' . $firename[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
                                                                 </td>';

@@ -222,7 +222,7 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
                 </div>
                <ul class="nav" id="side-menu">
                             <li> 
-                                <a href="../index.php" class=" waves-effect">
+                                <a href="../../index.php" class=" waves-effect">
                                     <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu"><?php echo _("Home"); ?></span>
                                 </a> 
                             </li>
@@ -386,7 +386,7 @@ if($uxname[0] != '') {
                                                                     <td class="resfive" style="padding-top:110px;line-height: 30px;"><span class="resfour"><button type="button" onclick="window.location=\'../process/loginas.php?user=' . $uxname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Login as") . ' ' . $uxname[$x1] . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-key"></i></button></span><span class="reseight" style="display:none"><p>&nbsp</p></span><button type="button" onclick="window.location=\'../edit/user.php?user=' . $uxname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button><span class="reseight" style="display:none"><p>&nbsp</p></span><span class="resfour">';
                                                                     
                                                                 if ($uxdata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="window.location=\'../suspend/user.php?user=' . $uxname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
-                                                                else { echo '<button type="button" onclick="window.location=\'../unsuspend/user.php?user=' . $uxname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
+                                                                else { echo '<button type="button" onclick="window.location=\'../unsuspend/user.php?user=' . $uxname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }
                                                                     
                                                                         echo '</span><span class="reseight" style="display:none"><p>&nbsp</p></span><button onclick="confirmDelete(\'' . $uxname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
                                                                     </td>

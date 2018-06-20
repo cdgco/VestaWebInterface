@@ -409,7 +409,7 @@
                                                                             else { ${'cfenabled' . $dnsname[$x1]} = 'false'; }}
                                                                         else { ${'cfenabled' . $dnsname[$x1]} = 'off'; }  
                                                                      }
-                                                                        echo '<tr>
+                                                                        echo '<tr'; if($dnsdata[$x1]['SUSPENDED'] != 'no') { echo ' style="background: #efefef"'; } echo '>
                                                                         <td>' . $dnsname[$x1] . '</td>';
                                                                         
                                                                          if (${'cfenabled' . $dnsname[$x1]} == 'true') { echo '<td data-sort-value="' . $cfcount . '">' . $cfcount . '</td>'; } 
@@ -434,6 +434,9 @@
     if (${'cfenabled' . $dnsname[$x1]} == 'true' && CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != '') { echo '<button onclick="window.location=\'cfdomain.php?domain=' . $dnsname[$x1] . '\';" type="button" data-toggle="tooltip" data-original-title="' . _("List Records") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-menu-alt"></i></button>'; } 
     else { echo '<button onclick="window.location=\'dnsdomain.php?domain=' . $dnsname[$x1] . '\';" type="button" data-toggle="tooltip" data-original-title="' . _("List Records") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-menu-alt"></i></button>'; }
 
+    if ($initialusername == "admin" && $dnsdata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="window.location=\'../admin/suspend/dns.php?user=' . $username . '&resource=' . $dnsname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
+    elseif ($initialusername == "admin" && $dnsdata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="window.location=\'../admin/unsuspend/dns.php?user=' . $username . '&resource=' . $dnsname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }                 
+                                                                        
     echo '<button type="button" onclick="window.location=\'../edit/dns.php?domain=' . $dnsname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button><button onclick="confirmDelete(\'' . $dnsname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>'; 
      if (${'sub' . $dnsname[$x1]} == 'yes') {                                                                   
     if (${'cfenabled' . $dnsname[$x1]} == 'true' && CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != '') { echo '<button type="button" onclick="window.location=\'../delete/cloudflare.php?domain=' . $dnsname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Disable Cloudflare") . '" class="btn btn-outline btn-circle btn-md m-r-5 color-button"><i class="icon-cloudflare">&#xe801;</i></button>'; } 
@@ -559,6 +562,13 @@
                 if(isset($_POST['delcode']) && $_POST['delcode'] > "0") { echo "swal({title:'" . $errorcode[$_POST['delcode']] . "<br><br>" . _("Please try again later or contact support.") . "', type:'error'});";
                 }
                 if(isset($_POST['addcode']) && $_POST['addcode'] > "0") { echo "swal({title:'" . $errorcode[$_POST['addcode']] . "<br><br>" . _("Please try again later or contact support.") . "', type:'error'});";
+                }
+        
+                if(isset($_POST['u1']) && $_POST['u1'] == 0) {
+                    echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
+                } 
+                if(isset($_POST['u1']) && $_POST['u1'] != 0) {
+                    echo "swal({title:'" . _("Error Updating DNS Domain") . "<br>" . "(E: " . $_POST['u1'] . ")" . _("Please try again or contact support.") . "<br><br>', type:'error'});";
                 }
 
     ?>

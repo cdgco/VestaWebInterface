@@ -290,7 +290,7 @@ if($dbname[0] != '') {
                                                                 $x1 = 0; 
 
                                                                 do {
-                                                                    echo '<tr>
+                                                                    echo '<tr'; if($dbdata[$x1]['SUSPENDED'] != 'no') { echo ' style="background: #efefef"'; } echo '>
                                                                     <td>' . $dbname[$x1] . '</td>
                                                                     <td>' . $dbdata[$x1]['DBUSER'] . '</td>
                                                                     <td data-sort-value="' . $dbdata[$x1]['U_DISK'] . '">' . $dbdata[$x1]['U_DISK'] . ' mb</td>
@@ -301,7 +301,12 @@ if($dbname[0] != '') {
                                                                              echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
                                                                            echo '</td>
                                                                     <td data-sort-value="' . $dbdata[$x1]['DATE'] . '">' . $dbdata[$x1]['DATE'] . '</td><td>
-                                            <button type="button" onclick="window.location=\'../edit/db.php?db=' . $dbname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button><button onclick="confirmDelete(\'' . $dbname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
+                                                                    <button type="button" onclick="window.location=\'../edit/db.php?db=' . $dbname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button>';
+                                                                    
+                                                                    if ($initialusername == "admin" && $dbdata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="window.location=\'../admin/suspend/db.php?user=' . $username . '&resource=' . $dbname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
+                                                                    elseif ($initialusername == "admin" && $dbdata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="window.location=\'../admin/unsuspend/db.php?user=' . $username . '&resource=' . $dbname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }   
+                                                                    
+                                                                    echo '<button onclick="confirmDelete(\'' . $dbname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
                                         </td>
                                                                     <td>' . $dbdata[$x1]['HOST'] . '</td>
                                                                     <td>' . $dbdata[$x1]['TYPE'] . '</td>
@@ -407,6 +412,12 @@ swal({
             if(isset($_POST['delcode']) && $_POST['delcode'] > "0") { echo "swal({title:'" . $errorcode[$_POST['delcode']] . "<br><br>" . _("Please try again later or contact support.") . "', type:'error'});";
             }
             if(isset($_POST['addcode']) && $_POST['addcode'] > "0") { echo "swal({title:'" . $errorcode[$_POST['addcode']] . "<br><br>" . _("Please try again later or contact support.") . "', type:'error'});";
+            }
+            if(isset($_POST['u1']) && $_POST['u1'] == 0) {
+                echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
+            } 
+            if(isset($_POST['u1']) && $_POST['u1'] != 0) {
+                echo "swal({title:'" . _("Error Updating Mail Domain") . "<br>" . "(E: " . $_POST['u1'] . ")" . _("Please try again or contact support.") . "<br><br>', type:'error'});";
             }
 ?>
 </script>
