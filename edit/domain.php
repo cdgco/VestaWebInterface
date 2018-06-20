@@ -133,12 +133,12 @@ textdomain('messages');
                     <ul class="nav navbar-top-links navbar-right pull-right">
 
                         <li class="dropdown">
-                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($uname); ?></b><span class="caret"></span> </a>
+                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
                         <ul class="dropdown-menu dropdown-user animated flipInY">
                             <li>
                                 <div class="dw-user-box">
                                     <div class="u-text">
-                                        <h4><?php print_r($uname); ?></h4>
+                                        <h4><?php print_r($displayname); ?></h4>
                                         <p class="text-muted"><?php print_r($useremail); ?></p></div>
                                 </div>
                             </li>
@@ -172,7 +172,7 @@ textdomain('messages');
 
                             <li class="devider"></li>
                             <li>
-                                <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> <?php print_r($uname); ?><span class="fa arrow"></span></span>
+                                <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> <?php print_r($displayname); ?><span class="fa arrow"></span></span>
                                 </a>
                                 <ul class="nav nav-second-level collapse" id="appendaccount" aria-expanded="false" style="height: 0px;">
                                     <li> <a href="../profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> <?php echo _("My Account"); ?></span></a></li>
@@ -496,7 +496,7 @@ textdomain('messages');
                                             <label class="col-md-12"><?php echo _("Username"); ?></label><br>
                                             <div class="col-md-12">
                                                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                                                    <div class="input-group-addon"><?php print_r($uname); ?>_</div>
+                                                    <div class="input-group-addon"><?php print_r($displayname); ?>_</div>
                                                     <input type="hidden" name="v_ftpuname-x" value="<?php $prefix = $uname . '_'; $str = $ftpuser[0]; if (substr($str, 0, strlen($prefix)) == $prefix) { $str = substr($str, strlen($prefix));} print_r($str); ?>">
                                                     <input type="text" class="form-control" name="v_ftpuname" value="<?php $prefix = $uname . '_'; $str = $ftpuser[0]; if (substr($str, 0, strlen($prefix)) == $prefix) { $str = substr($str, strlen($prefix));} print_r($str); ?>" style="padding-left: 0.5%;">    
                                                 </div>
@@ -514,7 +514,7 @@ textdomain('messages');
                                             <div class="col-md-12">
                                                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                                     <input type="hidden" name="v_ftpdir-x" value="<?php echo $ftpdir[0]; ?>">
-                                                    <div class="input-group-addon">/home/<?php print_r($uname); ?>/web/<?php print_r($requestdomain); ?>/</div>
+                                                    <div class="input-group-addon">/home/<?php print_r($displayname); ?>/web/<?php print_r($requestdomain); ?>/</div>
                                                     <input type="text" class="form-control" name="v_ftpdir" value="<?php echo $ftpdir[0]; ?>" style="padding-left: 0.5%;">    
                                                 </div>
                                             </div>
