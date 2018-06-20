@@ -235,9 +235,9 @@ function secondsToTime($seconds) {
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="white-box">
-                            <ul class="side-icon-text pull-right">
+                            <!-- <ul class="side-icon-text pull-right">
                                 <li><a href="#"><span class="circle circle-sm bg-info di" style="padding-top: 11px;"><i class="ti-settings"></i></span><span><?php echo _("Configure"); ?></span></a></li>
-                            </ul>
+                            </ul> -->
 
                             <table class="table footable m-b-0" data-paging="false" data-sorting="true">
                                 <thead>
@@ -246,7 +246,7 @@ function secondsToTime($seconds) {
                                         <th></th>
                                         <th></th>
                                         <th></th>
-                                        <th></th>
+                                        <!-- <th></th>  -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -255,11 +255,11 @@ function secondsToTime($seconds) {
                                         <td><h1><b><?php print_r($sysdata[0]['HOSTNAME']); ?></b></h1><br><b><?php print_r($sysdata[0]['OS'] . ' ' . $sysdata[0]['VERSION']); ?></b> (<?php print_r($sysdata[0]['ARCH']); ?>)S</td>
                                         <td><h1>&nbsp;</h1><br>Load Average: <b><?php print_r($sysdata[0]['LOADAVERAGE']); ?></b></td>
                                         <td><h1>&nbsp;</h1><br>Uptime: <b><?php print_r(secondsToTime($sysdata[0]['UPTIME'] * 60)); ?></b></td>
-                                        <td><h2>&nbsp;</h2>
+                                        <!-- <td><h2>&nbsp;</h2>
                                             <button type="button" data-toggle="tooltip" data-original-title="<?php echo _("Configure"); ?>" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-settings"></i></button>
                                             <button type="button" data-toggle="tooltip" data-original-title="<?php echo _("Restart"); ?>" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button>
                                         
-                                        </td>
+                                        </td> -->
                                     </tr>
                                 </tbody>
                            <table class="table footable m-b-0" data-paging="false" data-sorting="true">
@@ -271,7 +271,7 @@ function secondsToTime($seconds) {
                                         <th></th>
                                         <th></th>
                                         <th></th>
-                                        <th></th>
+                                        <!-- <th></th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -286,13 +286,13 @@ function secondsToTime($seconds) {
                                                 <td><h2>' . $servicename[$x1] . '</h2><br>' . $servicedata[$x1]['SYSTEM'] . '<br>&nbsp;</td>
                                                 <td><h2>&nbsp;</h2><br>CPU: ' . $servicedata[$x1]['CPU'] . '</td>
                                                 <td><h2>&nbsp;</h2><br>Memory: ' . $servicedata[$x1]['MEM'] . '</td>
-                                                <td><h2>&nbsp;</h2><br>Uptime: ' . secondsToTime($servicedata[$x1]['RTIME'] * 60) . '</td>
-                                                <td><h4>&nbsp;</h4>
+                                                <td><h2>&nbsp;</h2><br>Uptime: ' . secondsToTime($servicedata[$x1]['RTIME'] * 60) . '</td>';
+                                                /* <td><h4>&nbsp;</h4>
                                                     <button type="button" data-toggle="tooltip" data-original-title="' . _("Configure") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-settings"></i></button>';  
                                                     if ($servicedata[$x1]['STATE'] != 'running') { echo '<button type="button" data-toggle="tooltip" data-original-title="' . _("Start") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-control-play"></i></button>'; } else { echo '<button type="button" data-toggle="tooltip" data-original-title="' . _("Stop") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-control-stop"></i></button>'; }
-                                                    echo '<button type="button" data-toggle="tooltip" data-original-title="' . _("Restart") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></td>
+                                                    echo '<button type="button" data-toggle="tooltip" data-original-title="' . _("Restart") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></td> */
 
-                                           </tr>';
+                                           echo '</tr>';
                                                 $x1++;
                                             } while (isset($servicename[$x1])); }
                                         ?>
