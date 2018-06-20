@@ -9,6 +9,7 @@ date_default_timezone_set('America/Los_Angeles'); // Server Time Zone - See http
 DEFINE('SITE_NAME', 'My Host'); // Site name for use in page titles. Ex: 'My Host Company'.
 DEFINE('THEME', 'default'); // Accepted options are 'default', 'blue', 'purple' and 'orange'
 DEFINE('LANGUAGE', 'en_US.utf8'); // See VWI Documentation or arrays.php file for accepted formats.
+DEFINE('DEFAULT_TO_ADMIN', 'true'); // Choose whether or not the admin user should initially go to the admin or user panel.
 
 // VESTA API SETTINGS //
 DEFINE('VESTA_HOST_ADDRESS', ''); // URL or IP Address of VestaCP. Ex: 'myhost.com' or '12.34.56.78'.
