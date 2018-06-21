@@ -51,7 +51,6 @@ foreach ($plugins as $result) {
                 array_push($pluginsections,$arr['section']);
                 array_push($pluginadminonly,$arr['admin-only']);
             }
-
         }    
     }
 }
@@ -80,27 +79,18 @@ foreach ($plugins as $result) {
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
         <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?> 
         <!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->  
     </head>
 
     <body class="fix-header">
-        <!-- ============================================================== -->
-        <!-- Preloader -->
-        <!-- ============================================================== -->
         <div class="preloader">
             <svg class="circular" viewBox="25 25 50 50">
                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
             </svg>
         </div>
-        <!-- ============================================================== -->
-        <!-- Wrapper -->
-        <!-- ============================================================== -->
         <div id="wrapper">
-            <!-- ============================================================== -->
-            <!-- Topbar header - style you can find in pages.scss -->
-            <!-- ============================================================== -->
             <nav class="navbar navbar-default navbar-static-top m-b-0">
                 <div class="navbar-header">
                     <div class="top-left-part">
@@ -113,8 +103,6 @@ foreach ($plugins as $result) {
                             <!--This is dark logo text--><img src="../plugins/images/admin-text.png" alt="home" class="hidden-xs dark-logo" /><!--This is light logo text--><img src="../plugins/images/admin-text-dark.png" alt="home" class="hidden-xs light-logo" />
                             </span> </a>
                     </div>
-                    <!-- /Logo -->
-                    <!-- Search input and Toggle icon -->
                     <ul class="nav navbar-top-links navbar-left">
                         <li><a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs"><i class="ti-close ti-menu"></i></a></li>      
                     </ul>
@@ -127,7 +115,8 @@ foreach ($plugins as $result) {
                                     <div class="dw-user-box">
                                         <div class="u-text">
                                             <h4><?php print_r($displayname); ?></h4>
-                                            <p class="text-muted"><?php print_r($useremail); ?></p></div>
+                                            <p class="text-muted"><?php print_r($useremail); ?></p>
+                                        </div>
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
@@ -158,7 +147,7 @@ foreach ($plugins as $result) {
                             </a> 
                         </li>
                         <?php if($initialusername == "admin"){ echo 
-    '<li class="devider"></li>
+                        '<li class="devider"></li>
                             <li> <a href="../#" class="waves-effect"><i class="mdi mdi-wrench fa-fw" data-icon="v"></i> <span class="hide-menu">' . _("Administration") . '<span class="fa arrow"></span> </span></a>
                                 <ul class="nav nav-second-level">
                                     <li> <a href="../admin/list/users.php"><i class="ti-user fa-fw"></i><span class="hide-menu">' . _("Users") . '</span></a> </li>
@@ -208,17 +197,10 @@ foreach ($plugins as $result) {
                         <?php if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">' . _("Support") . '</span></a></li>'; } ?>
                     </ul>
                 </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Left Sidebar -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Page Content -->
-            <!-- ============================================================== -->
+            </div>  
             <div id="page-wrapper">
                 <div class="container-fluid">
                     <div class="row bg-title">
-                        <!-- .page title -->
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                             <h4 class="page-title"><?php echo _("Manage Mail Accounts"); ?></h4> 
                         </div>
@@ -229,13 +211,7 @@ foreach ($plugins as $result) {
                             </li>
                         </ul>
                     </div>
-                    <!-- .row -->
-
-                    <!-- ============================================================== -->
-                    <!-- chats, message & profile widgets -->
-                    <!-- ============================================================== -->
                     <div class="row">
-                        <!-- .col -->
                         <div class="col-lg-12 col-md-6 col-sm-12">
                             <div class="panel">
                                 <div class="sk-chat-widgets">
@@ -280,34 +256,33 @@ foreach ($plugins as $result) {
 
                                             do {
                                                 echo '<tr'; if($maildata[$x1]['SUSPENDED'] != 'no') { echo ' style="background: #efefef"'; } echo '>
-                                                                    <td>' . $mailname[$x1] . '@' . $requestmail . '</td>
-                                                                    <td data-sort-value="' . $maildata[$x1]['U_DISK'] . '">' . $maildata[$x1]['U_DISK'] . ' mb</td>
-                                                                    <td>';                                                                   
-                                                if($maildata[$x1]['SUSPENDED'] == "no"){ 
-                                                    echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
-                                                else{ 
-                                                    echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
-                                                echo '</td>
-                                                                    <td data-sort-value="' . $maildata[$x1]['DATE'] . '">' . $maildata[$x1]['DATE'] . '</td><td>
+                                                        <td>' . $mailname[$x1] . '@' . $requestmail . '</td>
+                                                        <td data-sort-value="' . $maildata[$x1]['U_DISK'] . '">' . $maildata[$x1]['U_DISK'] . ' mb</td>
+                                                        <td>';                                                                   
+                                                        if($maildata[$x1]['SUSPENDED'] == "no"){ 
+                                                            echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
+                                                        else{ 
+                                                            echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
+                                                        echo '</td>
+                                                        <td data-sort-value="' . $maildata[$x1]['DATE'] . '">' . $maildata[$x1]['DATE'] . '</td><td>
+                                                            <button type="button" onclick="window.location=\'../edit/mailaccount.php?domain=' . $requestmail . '&account=' . $mailname[$x1] . '\';" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button>';
 
-                                        <button type="button" onclick="window.location=\'../edit/mailaccount.php?domain=' . $requestmail . '&account=' . $mailname[$x1] . '\';" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button>';
+                                                            if ($initialusername == "admin" && $maildata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="window.location=\'../admin/suspend/mailaccount.php?user=' . $username . '&account=' . $mailname[$x1] . '&resource=' . $requestmail . '\';" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
+                                                            elseif ($initialusername == "admin" && $maildata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="window.location=\'../admin/unsuspend/mailaccount.php?user=' . $username . '&account=' . $mailname[$x1] . '&resource=' . $requestmail . '\';" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }   
 
-                                                if ($initialusername == "admin" && $maildata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="window.location=\'../admin/suspend/mailaccount.php?user=' . $username . '&account=' . $mailname[$x1] . '&resource=' . $requestmail . '\';" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
-                                                elseif ($initialusername == "admin" && $maildata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="window.location=\'../admin/unsuspend/mailaccount.php?user=' . $username . '&account=' . $mailname[$x1] . '&resource=' . $requestmail . '\';" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }   
-
-
-                                                echo '<button type="button" onclick="confirmDelete(\'' . $mailname[$x1] . '\')" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="icon-trash" ></i></button>
-                                        </td>
-                                                                    <td>' . $maildata[$x1]['QUOTA'] . ' mb</td>
-                                                                    <td>'; if(implode(', ', explode(",", $maildata[$x1]['ALIAS'])) == "") { echo _("None"); } else{ echo implode(', ', explode(",", $maildata[$x1]['ALIAS']));} echo '</td>
-                                                                     <td>'; if($maildata[$x1]['FWD'] == ""){ echo '<span class="label label-table label-danger">' . _("Disabled") . '</span>';} 
-                                                else {  echo implode(', ', explode(",", $maildata[$x1]['FWD']));} 
-                                                echo '</td>
-                                                                    <td>'; if($maildata[$x1]['AUTOREPLY'] == "no"){ 
-                                                                        echo '<span class="label label-table label-danger">' . _("Disabled") . '</span>';} 
-                                                else{ 
-                                                    echo '<span class="label label-table label-success">' . _("Enabled") . '</span>';} 
-                                                echo '</td>';
+                                                            echo '<button type="button" onclick="confirmDelete(\'' . $mailname[$x1] . '\')" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="icon-trash" ></i></button>
+                                                        </td>
+                                                        <td>' . $maildata[$x1]['QUOTA'] . ' mb</td>
+                                                        <td>'; if(implode(', ', explode(",", $maildata[$x1]['ALIAS'])) == "") { echo _("None"); } else{ echo implode(', ', explode(",", $maildata[$x1]['ALIAS']));} echo '</td>
+                                                        <td>'; if($maildata[$x1]['FWD'] == ""){ echo '<span class="label label-table label-danger">' . _("Disabled") . '</span>';} 
+                                                        else {  echo implode(', ', explode(",", $maildata[$x1]['FWD']));} 
+                                                        echo '</td>
+                                                        <td>'; if($maildata[$x1]['AUTOREPLY'] == "no"){ 
+                                                            echo '<span class="label label-table label-danger">' . _("Disabled") . '</span>';} 
+                                                        else{ 
+                                                            echo '<span class="label label-table label-success">' . _("Enabled") . '</span>';} 
+                                                        echo '</td>
+                                                    </tr>';
                                                 $x1++;
                                             } while ($mailname[$x1] != ''); }
                                         ?>
@@ -316,10 +291,7 @@ foreach ($plugins as $result) {
                             </div>
                         </div>
                     </div>
-                    <!-- /.row -->
-
                 </div>
-                <!-- /.container-fluid -->
                 <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
             </div>
         </div>
@@ -442,5 +414,4 @@ foreach ($plugins as $result) {
             ?>
         </script>
     </body>
-
 </html>

@@ -52,7 +52,6 @@ foreach ($plugins as $result) {
                 array_push($pluginsections,$arr['section']);
                 array_push($pluginadminonly,$arr['admin-only']);
             }
-
         }    
     }
 }
@@ -80,17 +79,14 @@ foreach ($plugins as $result) {
         <link href="../../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.min.css" />
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
-    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?> 
+        <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?> 
         <!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->   
     </head>
 
     <body class="fix-header" onload="checkDiv();">
-        <!-- ============================================================== -->
-        <!-- Preloader -->
-        <!-- ============================================================== -->
         <div class="preloader">
             <svg class="circular" viewBox="25 25 50 50">
                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
@@ -109,8 +105,6 @@ foreach ($plugins as $result) {
                             <!--This is dark logo text--><img src="../../plugins/images/admin-text.png" alt="home" class="hidden-xs dark-logo" /><!--This is light logo text--><img src="../../plugins/images/admin-text-dark.png" alt="home" class="hidden-xs light-logo" />
                             </span> </a>
                     </div>
-                    <!-- /Logo -->
-                    <!-- Search input and Toggle icon -->
                     <ul class="nav navbar-top-links navbar-left">
                         <li><a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs"><i class="ti-close ti-menu"></i></a></li>      
                     </ul>
@@ -200,7 +194,7 @@ foreach ($plugins as $result) {
                         <?php if ($oldcpurl == '' || $supporturl == '') {} else { echo '<li class="devider"></li>'; } ?>
                         <?php if ($oldcpurl != '') { echo '<li><a href="../../' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> ' . _("Control Panel v1") . '</span></a></li>'; } ?>
                         <?php if ($supporturl != '') { echo '<li><a href="../../' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">' . _("Support") . '</span></a></li>'; } ?>
-                        </div>
+                    </div>
                 </div>
                 <div id="page-wrapper">
                     <div class="container-fluid">
@@ -237,7 +231,6 @@ foreach ($plugins as $result) {
                                                             echo '<option value="' . $ipname[$x1] . '">' . $ipname[$x1] . '</option>';
                                                             $x1++;
                                                         } while ($ipname[$x1] != ''); }
-
                                                     ?>
                                                 </select>
                                             </div>
@@ -264,7 +257,6 @@ foreach ($plugins as $result) {
                                                                 echo '<option value="' . $uxname[$x2] . '">' . $uxname[$x2] . '</option>';
                                                                 $x2++;
                                                             } while ($uxname[$x2] != ''); }
-
                                                         ?>
                                                     </select>
                                                 </div>
@@ -371,6 +363,5 @@ foreach ($plugins as $result) {
                 } 
                 ?>
             </script>
-            </body>
-
-        </html>
+        </body>
+    </html>

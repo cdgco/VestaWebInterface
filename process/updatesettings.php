@@ -6,8 +6,6 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: ../login.php'); }
 
-
-// Setup variables for API call
 $language = $_POST['language'];
 $vst_returncode = 'yes';
 $password = $_POST['password'];

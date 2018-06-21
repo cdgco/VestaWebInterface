@@ -30,7 +30,6 @@ if($verified == "yes"){
     $rs1 = curl_exec($curl0);
     print_r($r1);
 }
-
 // If accessed directly, redirect to 403 error
 header('Location: ../error-pages/403.html');
 ?>

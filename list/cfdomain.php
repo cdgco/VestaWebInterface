@@ -102,7 +102,6 @@ foreach ($plugins as $result) {
                 array_push($pluginsections,$arr['section']);
                 array_push($pluginadminonly,$arr['admin-only']);
             }
-
         }    
     }
 }
@@ -143,7 +142,6 @@ foreach ($plugins as $result) {
                 font-style: normal;
             }
 
-
             .icon-cloudflare
             {
                 font-family: "fontello";
@@ -156,27 +154,18 @@ foreach ($plugins as $result) {
 
         </style>
         <!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
     </head>
 
     <body class="fix-header">
-        <!-- ============================================================== -->
-        <!-- Preloader -->
-        <!-- ============================================================== -->
         <div class="preloader">
             <svg class="circular" viewBox="25 25 50 50">
                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
             </svg>
         </div>
-        <!-- ============================================================== -->
-        <!-- Wrapper -->
-        <!-- ============================================================== -->
         <div id="wrapper">
-            <!-- ============================================================== -->
-            <!-- Topbar header - style you can find in pages.scss -->
-            <!-- ============================================================== -->
             <nav class="navbar navbar-default navbar-static-top m-b-0">
                 <div class="navbar-header">
                     <div class="top-left-part">
@@ -189,13 +178,10 @@ foreach ($plugins as $result) {
                             <!--This is dark logo text--><img src="../plugins/images/admin-text.png" alt="home" class="hidden-xs dark-logo" /><!--This is light logo text--><img src="../plugins/images/admin-text-dark.png" alt="home" class="hidden-xs light-logo" />
                             </span> </a>
                     </div>
-                    <!-- /Logo -->
-                    <!-- Search input and Toggle icon -->
                     <ul class="nav navbar-top-links navbar-left">
                         <li><a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs"><i class="ti-close ti-menu"></i></a></li>      
                     </ul>
                     <ul class="nav navbar-top-links navbar-right pull-right">
-
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
                             <ul class="dropdown-menu dropdown-user animated flipInY">
@@ -203,7 +189,8 @@ foreach ($plugins as $result) {
                                     <div class="dw-user-box">
                                         <div class="u-text">
                                             <h4><?php print_r($displayname); ?></h4>
-                                            <p class="text-muted"><?php print_r($useremail); ?></p></div>
+                                            <p class="text-muted"><?php print_r($useremail); ?></p>
+                                        </div>
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
@@ -234,7 +221,7 @@ foreach ($plugins as $result) {
                             </a> 
                         </li>
                         <?php if($initialusername == "admin"){ echo 
-    '<li class="devider"></li>
+                        '<li class="devider"></li>
                             <li> <a href="../#" class="waves-effect"><i class="mdi mdi-wrench fa-fw" data-icon="v"></i> <span class="hide-menu">' . _("Administration") . '<span class="fa arrow"></span> </span></a>
                                 <ul class="nav nav-second-level">
                                     <li> <a href="../admin/list/users.php"><i class="ti-user fa-fw"></i><span class="hide-menu">' . _("Users") . '</span></a> </li>
@@ -247,7 +234,7 @@ foreach ($plugins as $result) {
                                     <li> <a href="../admin/list/server.php"><i class="fa fa-server fa-fw"></i><span class="hide-menu">' . _("Server") . '</span></a> </li>
                                 </ul>
                             </li>';
-                                                             } ?>
+                            } ?>
                         <li class="devider"></li>
                         <li>
                             <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> <?php print_r($displayname); ?><span class="fa arrow"></span></span>
@@ -285,16 +272,9 @@ foreach ($plugins as $result) {
                     </ul>
                 </div>
             </div>
-            <!-- ============================================================== -->
-            <!-- End Left Sidebar -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Page Content -->
-            <!-- ============================================================== -->
             <div id="page-wrapper">
                 <div class="container-fluid">
                     <div class="row bg-title">
-                        <!-- .page title -->
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                             <h4 class="page-title"><?php echo _("Manage DNS Domain"); ?></h4>
                         </div>
@@ -309,13 +289,7 @@ foreach ($plugins as $result) {
                             </li>
                         </ul>
                     </div>
-                    <!-- .row -->
-
-                    <!-- ============================================================== -->
-                    <!-- chats, message & profile widgets -->
-                    <!-- ============================================================== -->
                     <div class="row">
-                        <!-- .col -->
                         <div class="col-lg-12 col-md-6 col-sm-12">
                             <div class="panel">
                                 <div class="sk-chat-widgets">
@@ -354,10 +328,10 @@ foreach ($plugins as $result) {
                                             <?php 
                                             foreach ($records as &$val1) {
                                                 echo '<tr>
-                                                                    <td>' . $val1['name'] . '</td>
-                                                                    <td>' . $val1['type'] . '</td>
-                                                                    <td>' . $val1['content'] . '</td>
-                                                                    <td>';                                                                   
+                                                        <td>' . $val1['name'] . '</td>
+                                                        <td>' . $val1['type'] . '</td>
+                                                        <td>' . $val1['content'] . '</td>
+                                                        <td>';                                                                   
                                                 if($val1['proxiable'] === true){ 
                                                     if($val1['proxied'] === true){
                                                         echo '<span class="label label-table label-success">' . _("On") . '</span>';} 
@@ -366,12 +340,13 @@ foreach ($plugins as $result) {
                                                 else{ 
                                                     echo '<span class="label label-table label-inverse">' . _("N/A") . '</span>';} 
                                                 echo '</td>
-                                                                    <td>
-                                                                    <button type="button" onclick="window.location=\'../edit/cfrecord.php?domain=' . $cfid . '&record=' . $val1['id'] . '\';" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button>
-                                                                    <button type="button" onclick="confirmDelete(\'' . $val1['id'] . '\')" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="icon-trash" ></i></button>
-                                                                    </td>
-                                                                    <td>' . date("Y-m-d", strtotime($val1['created_on'])) . '</td></tr>';
-                                            }
+                                                      <td>
+                                                            <button type="button" onclick="window.location=\'../edit/cfrecord.php?domain=' . $cfid . '&record=' . $val1['id'] . '\';" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button>
+                                                            <button type="button" onclick="confirmDelete(\'' . $val1['id'] . '\')" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="icon-trash" ></i></button>
+                                                     </td>
+                                                     <td>' . date("Y-m-d", strtotime($val1['created_on'])) . '</td>
+                                                     </tr>';
+                                                }
                                             ?>
                                         </tbody>
                                     </table>
@@ -379,10 +354,7 @@ foreach ($plugins as $result) {
                             </div>
                         </div>
                     </div>
-                    <!-- /.row -->
-
                 </div>
-                <!-- /.container-fluid -->
                 <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
             </div>
         </div>
@@ -498,9 +470,7 @@ foreach ($plugins as $result) {
             } 
             if(isset($_POST['delcode']) && $_POST['delcode'] > "0") { echo "swal({title:'" . $errorcode[$_POST['delcode']] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
                                                                     }
-
             ?>
         </script>
     </body>
-
 </html>

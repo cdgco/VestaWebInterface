@@ -21,11 +21,9 @@ if(isset($_POST['username'])){
 
     if(isset($_POST['password'])){
 
-        // Account
         $username2 = $_POST['username'];
         $password = $_POST['password'];
 
-        // Prepare POST query
         $postvars = array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-check-user-password','arg1' => $username2,'arg2' => $password);
 
         $curl = curl_init();
@@ -56,11 +54,8 @@ textdomain('messages');
         <meta name="author" content="">
         <link rel="icon" type="image/ico" href="plugins/images/favicon.ico">
         <title><?php echo $sitetitle . ' - ' . _("Login"); ?></title>
-        <!-- Bootstrap Core CSS -->
         <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <!-- animation CSS -->
         <link href="css/animate.css" rel="stylesheet">
-        <!-- Custom CSS -->
         <link href="css/style.css" rel="stylesheet">
         <link href="plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
@@ -81,12 +76,11 @@ textdomain('messages');
                 -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
                 transition: background-color 5000s ease-in-out 0s;
             }</style>
-        <!-- color CSS -->
         <link href="css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme"  rel="stylesheet">
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
-<![endif]-->
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.css" />
     </head>
@@ -140,7 +134,6 @@ textdomain('messages');
                 echo _("Fatal Error (Code: 20). Please contact support.") . "', type: 'error'})</script>";
             }}
         ?>
-        <!-- Preloader -->
         <div class="preloader">
             <div class="cssload-speeding-wheel"></div>
         </div>
@@ -150,7 +143,6 @@ textdomain('messages');
                     <a href="javascript:void(0)" class="p-20 di"><img src="plugins/images/admin-logo.png" class="logo-1"></a>
                     <div class="lg-content">
                         <h2><?php echo $sitetitle . ' ' . _("Control Panel"); ?> <br></h2><p><?php require 'includes/versioncheck.php'; ?></p>
-
                     </div>
                 </div>
             </div>
@@ -163,8 +155,6 @@ textdomain('messages');
                         <?php
                         if(isset($_POST['username'])){
                             if(isset($_POST['password'])){
-
-                                // Check result
                                 if($answer == "OK") {
                                     $_SESSION['loggedin'] = base64_encode ( 'true' );
                                     $_SESSION['username'] = base64_encode ( $username2 );
@@ -185,7 +175,6 @@ textdomain('messages');
                                 }}}
 
                         ?>
-
                         <div class="form-group m-t-20">
                             <div class="col-xs-12">
                                 <label><?php echo _("Username"); ?></label>
@@ -241,44 +230,34 @@ textdomain('messages');
                     </form>
                 </div>
             </div>            
-
-
         </section>
-        <!-- jQuery -->
         <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
         <script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
-        <!-- Bootstrap Core JavaScript -->
         <script src="bootstrap/dist/js/bootstrap.min.js"></script>
-        <!-- Menu Plugin JavaScript -->
         <script src="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
-        <!--slimscroll JavaScript -->
         <script src="js/jquery.slimscroll.js"></script>
-        <!--Wave Effects -->
         <script src="js/waves.js"></script>
-        <!-- Custom Theme JavaScript -->
         <script src="js/custom.js"></script>
-        <!--Style Switcher -->
         <script src="plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
         <script>
             <?php if(!isset($serverconnection)){
-    echo "$.toast({
-                        heading: '" . _("Error") . "'
-                        , text: '" . _("Failed to connect to server.") . "<br>" . _("Please check config.php") . "'
-                        , icon: 'error'
-                        , position: 'top-right'
-                        , hideAfter: false
-                        , allowToastClose: false
-                    });"; }
+            echo "$.toast({
+                heading: '" . _("Error") . "'
+                , text: '" . _("Failed to connect to server.") . "<br>" . _("Please check config.php") . "'
+                , icon: 'error'
+                , position: 'top-right'
+                , hideAfter: false
+                , allowToastClose: false
+            });"; }
             if(substr(sprintf('%o', fileperms('includes')), -4) == '0777') {
                 echo "$.toast({
-                        heading: '" . _("Warning") . "'
-                        , text: '" . _("Includes folder has not been secured") . "'
-                        , icon: 'warning'
-                        , position: 'top-right'
-                        , hideAfter: 3500
-                        , bgColor: '#ff8000'
-                    });";
-
+                    heading: '" . _("Warning") . "'
+                    , text: '" . _("Includes folder has not been secured") . "'
+                    , icon: 'warning'
+                    , position: 'top-right'
+                    , hideAfter: 3500
+                    , bgColor: '#ff8000'
+                });";
             } ?>
         </script>
     </body>

@@ -117,7 +117,6 @@ foreach ($plugins as $result) {
                 array_push($pluginsections,$arr['section']);
                 array_push($pluginadminonly,$arr['admin-only']);
             }
-
         }    
     }
 }
@@ -144,17 +143,14 @@ foreach ($plugins as $result) {
         <link href="../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.min.css" />
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
-    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?> 
+        <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?> 
         <!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
     </head>
 
     <body class="fix-header">
-        <!-- ============================================================== -->
-        <!-- Preloader -->
-        <!-- ============================================================== -->
         <div class="preloader">
             <svg class="circular" viewBox="25 25 50 50">
                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
@@ -173,8 +169,6 @@ foreach ($plugins as $result) {
                             <!--This is dark logo text--><img src="../plugins/images/admin-text.png" alt="home" class="hidden-xs dark-logo" /><!--This is light logo text--><img src="../plugins/images/admin-text-dark.png" alt="home" class="hidden-xs light-logo" />
                             </span> </a>
                     </div>
-                    <!-- /Logo -->
-                    <!-- Search input and Toggle icon -->
                     <ul class="nav navbar-top-links navbar-left">
                         <li><a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs"><i class="ti-close ti-menu"></i></a></li>      
                     </ul>
@@ -218,7 +212,7 @@ foreach ($plugins as $result) {
                             </a> 
                         </li>
                         <?php if($initialusername == "admin"){ echo 
-    '<li class="devider"></li>
+                        '<li class="devider"></li>
                             <li> <a href="../#" class="waves-effect"><i class="mdi mdi-wrench fa-fw" data-icon="v"></i> <span class="hide-menu">' . _("Administration") . '<span class="fa arrow"></span> </span></a>
                                 <ul class="nav nav-second-level">
                                     <li> <a href="../admin/list/users.php"><i class="ti-user fa-fw"></i><span class="hide-menu">' . _("Users") . '</span></a> </li>
@@ -392,44 +386,44 @@ foreach ($plugins as $result) {
                                             <input type="text" value="<?php if ($cfenabled == "true") { echo "3600"; } else { print_r($dnsdata[0]['TTL']); } ?>" class="form-control form-control-line" <?php if ($cfenabled == "true") { echo 'disabled style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;" class="form-control uneditable-input form-control-line"'; } else { echo 'name="v_ttl" class="form-control form-control-line"'; } ?> id="email"> </div>
                                     </div>
                                     <?php if ($cfenabled != "off" && $sub == "no") { echo '
-                                <input type="hidden" name="v_cf_id" value="' . $cfid . '"> 
-                                <div class="form-group">
-                                    <label class="col-md-12">' . _("Cloudflare Support") . '</label>
-                                    <div class="col-md-12">
-                                        <div class="checkbox checkbox-info">
-                                            <input type="hidden" name="v_cf-x" value="'; if($cfenabled == 'true') {echo 'yes';} else { echo 'no';} echo '" > 
-                                            <input id="checkbox4" type="checkbox" name="v_cf" onclick="checkDiv();" '; if($cfenabled == 'true') {echo 'checked';} echo ' >
-                                            <label for="checkbox4">' . _("Enabled") . '</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="cf-div" style="margin-left: 4%;">
+                                    <input type="hidden" name="v_cf_id" value="' . $cfid . '"> 
                                     <div class="form-group">
-                                        <label class="col-md-12">' . _("Security Level") . '</label>
+                                        <label class="col-md-12">' . _("Cloudflare Support") . '</label>
                                         <div class="col-md-12">
-                                            <input type="hidden" name="v_cf_level-x" onclick="checkDiv();" value="' . $cflevel . '">
-                                            <select class="form-control select3" name="v_cf_level" id="select3">
-                                                <option value="essentially_off">Essentially Off</option>
-                                                <option value="low">Low</option>
-                                                <option value="medium">Medium</option>
-                                                <option value="high">High</option>
-                                                <option value="Under Attack">I\'m Under Attack!</option>
-                                            </select>
+                                            <div class="checkbox checkbox-info">
+                                                <input type="hidden" name="v_cf-x" value="'; if($cfenabled == 'true') {echo 'yes';} else { echo 'no';} echo '" > 
+                                                <input id="checkbox4" type="checkbox" name="v_cf" onclick="checkDiv();" '; if($cfenabled == 'true') {echo 'checked';} echo ' >
+                                                <label for="checkbox4">' . _("Enabled") . '</label>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">' . _("SSL Setting") . '</label>
-                                        <div class="col-md-12">
-                                            <input type="hidden" name="v_cf_ssl-x" value="' . $cfssl .'">
-                                            <select class="form-control select4" name="v_cf_ssl" id="select4">
-                                                <option value="off" selected>Off</option>
-                                                <option value="flexible">Flexible</option>
-                                                <option value="full">Full</option>
-                                                <option value="strict">Full (Strict)</option>
-                                            </select>
+                                    <div id="cf-div" style="margin-left: 4%;">
+                                        <div class="form-group">
+                                            <label class="col-md-12">' . _("Security Level") . '</label>
+                                            <div class="col-md-12">
+                                                <input type="hidden" name="v_cf_level-x" onclick="checkDiv();" value="' . $cflevel . '">
+                                                <select class="form-control select3" name="v_cf_level" id="select3">
+                                                    <option value="essentially_off">Essentially Off</option>
+                                                    <option value="low">Low</option>
+                                                    <option value="medium">Medium</option>
+                                                    <option value="high">High</option>
+                                                    <option value="Under Attack">I\'m Under Attack!</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>'; } ?>
+                                        <div class="form-group">
+                                            <label class="col-md-12">' . _("SSL Setting") . '</label>
+                                            <div class="col-md-12">
+                                                <input type="hidden" name="v_cf_ssl-x" value="' . $cfssl .'">
+                                                <select class="form-control select4" name="v_cf_ssl" id="select4">
+                                                    <option value="off" selected>Off</option>
+                                                    <option value="flexible">Flexible</option>
+                                                    <option value="full">Full</option>
+                                                    <option value="strict">Full (Strict)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>'; } ?>
                                     <div class="form-group">
                                         <div class="col-sm-12">
                                             <button class="btn btn-success" onclick="processLoader();"><?php echo _("Update Domain"); ?></button> &nbsp;
@@ -527,17 +521,17 @@ foreach ($plugins as $result) {
                 })};
 
             <?php if ($cfenabled != "off" && $sub == "no") { echo '
-        if ("' . $cfenabled . '" == "true") { document.getElementById("select3").value = "' . $cfdata3[0][30]['value'] .'"; document.getElementById("select4").value = "' . $cfdata3[0][34]['value'] .'"; }
-        if(document.getElementById("checkbox4").checked) {
-                document.getElementById("cf-div").style.display = "block";
-            }
-        else { document.getElementById("cf-div").style.display = "none"; }
-        function checkDiv(){
+            if ("' . $cfenabled . '" == "true") { document.getElementById("select3").value = "' . $cfdata3[0][30]['value'] .'"; document.getElementById("select4").value = "' . $cfdata3[0][34]['value'] .'"; }
             if(document.getElementById("checkbox4").checked) {
-                document.getElementById("cf-div").style.display = "block";
-            }
+                    document.getElementById("cf-div").style.display = "block";
+                }
             else { document.getElementById("cf-div").style.display = "none"; }
-        }'; } 
+            function checkDiv(){
+                if(document.getElementById("checkbox4").checked) {
+                    document.getElementById("cf-div").style.display = "block";
+                }
+                else { document.getElementById("cf-div").style.display = "none"; }
+            }'; } 
             if(isset($_GET['error']) && $_GET['error'] == "1") {
                 echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
             }
@@ -551,5 +545,4 @@ foreach ($plugins as $result) {
             ?>
         </script>
     </body>
-
 </html>

@@ -76,15 +76,12 @@ foreach ($plugins as $result) {
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
     <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?> 
         <!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
     </head>
 
     <body class="fix-header" onload="checkDiv();">
-        <!-- ============================================================== -->
-        <!-- Preloader -->
-        <!-- ============================================================== -->
         <div class="preloader">
             <svg class="circular" viewBox="25 25 50 50">
                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
@@ -103,8 +100,6 @@ foreach ($plugins as $result) {
                             <!--This is dark logo text--><img src="../../plugins/images/admin-text.png" alt="home" class="hidden-xs dark-logo" /><!--This is light logo text--><img src="../../plugins/images/admin-text-dark.png" alt="home" class="hidden-xs light-logo" />
                             </span> </a>
                     </div>
-                    <!-- /Logo -->
-                    <!-- Search input and Toggle icon -->
                     <ul class="nav navbar-top-links navbar-left">
                         <li><a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs"><i class="ti-close ti-menu"></i></a></li>      
                     </ul>
@@ -117,7 +112,8 @@ foreach ($plugins as $result) {
                                     <div class="dw-user-box">
                                         <div class="u-text">
                                             <h4><?php print_r($displayname); ?></h4>
-                                            <p class="text-muted"><?php print_r($useremail); ?></p></div>
+                                            <p class="text-muted"><?php print_r($useremail); ?></p>
+                                        </div>
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
@@ -194,7 +190,7 @@ foreach ($plugins as $result) {
                         <?php if ($oldcpurl == '' || $supporturl == '') {} else { echo '<li class="devider"></li>'; } ?>
                         <?php if ($oldcpurl != '') { echo '<li><a href="../../' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> ' . _("Control Panel v1") . '</span></a></li>'; } ?>
                         <?php if ($supporturl != '') { echo '<li><a href="../../' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">' . _("Support") . '</span></a></li>'; } ?>
-                        </div>
+                    </div>
                 </div>
                 <div id="page-wrapper">
                     <div class="container-fluid">
@@ -239,82 +235,81 @@ foreach ($plugins as $result) {
                             </div>
                         </div>
                     </div>
-                    <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
-                </div>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
             </div>
-            <script src="../../plugins/bower_components/jquery/dist/jquery.min.js"></script>
-            <script src="../../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
-            <script src="../../bootstrap/dist/js/bootstrap.min.js"></script>
-            <script src="../../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
-            <script src="../../js/jquery.slimscroll.js"></script>
-            <script src="../../js/waves.js"></script>
-            <script src="../../plugins/bower_components/moment/moment.js"></script>
-            <script src="../../plugins/bower_components/footable/js/footable.min.js"></script>
-            <script src="../../plugins/bower_components/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
-            <script src="../../plugins/bower_components/custom-select/custom-select.min.js"></script>
-            <script src="../../js/footable-init.js"></script>
-            <script src="../../js/custom.js"></script>
-            <script src="../../js/dashboard1.js"></script>
-            <script src="../../js/cbpFWTabs.js"></script>
-            <script src="../../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.all.js"></script>
-            <script src="../../plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-            <script type="text/javascript">
-                <?php 
+        </div>
+        <script src="../../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="../../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
+        <script src="../../bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+        <script src="../../js/jquery.slimscroll.js"></script>
+        <script src="../../js/waves.js"></script>
+        <script src="../../plugins/bower_components/moment/moment.js"></script>
+        <script src="../../plugins/bower_components/footable/js/footable.min.js"></script>
+        <script src="../../plugins/bower_components/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
+        <script src="../../plugins/bower_components/custom-select/custom-select.min.js"></script>
+        <script src="../../js/footable-init.js"></script>
+        <script src="../../js/custom.js"></script>
+        <script src="../../js/dashboard1.js"></script>
+        <script src="../../js/cbpFWTabs.js"></script>
+        <script src="../../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.all.js"></script>
+        <script src="../../plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+        <script type="text/javascript">
+            <?php 
 
-                if(isset($pluginnames[0]) && $pluginnames[0] != '') {
-                    $currentplugin = 0; 
-                    do {
-                        if (!strpos($pluginadminonly[$currentplugin] , 'y') && !strpos($pluginadminonly[$currentplugin] , 'Y')) {
-                            $currentstring = "<li><a href='../../plugins/" . $pluginlinks[$currentplugin] . "/' ><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";
-                        }
+            if(isset($pluginnames[0]) && $pluginnames[0] != '') {
+                $currentplugin = 0; 
+                do {
+                    if (!strpos($pluginadminonly[$currentplugin] , 'y') && !strpos($pluginadminonly[$currentplugin] , 'Y')) {
+                        $currentstring = "<li><a href='../../plugins/" . $pluginlinks[$currentplugin] . "/' ><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";
+                    }
 
-                        else {
-                            $currentstring = "<?php if($username == 'admin') { echo \"<li><a href='../../plugins/" . $pluginnames[$currentplugin] . "/' ><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>\";} ?>";
-                        }
-                        echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');
-                      var plugindata" . $currentplugin . " = \"" . $currentstring . "\";
-                      plugincontainer" . $currentplugin . ".innerHTML += plugindata" . $currentplugin . ";\n";
-                        $currentplugin++;
-                    } while ($pluginnames[$currentplugin] != ''); }
+                    else {
+                        $currentstring = "<?php if($username == 'admin') { echo \"<li><a href='../../plugins/" . $pluginnames[$currentplugin] . "/' ><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>\";} ?>";
+                    }
+                    echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');
+                  var plugindata" . $currentplugin . " = \"" . $currentstring . "\";
+                  plugincontainer" . $currentplugin . ".innerHTML += plugindata" . $currentplugin . ";\n";
+                    $currentplugin++;
+                } while ($pluginnames[$currentplugin] != ''); }
 
-                ?>
-            </script>
-            <script type="text/javascript">
-                $('.datepicker').datepicker();
-                (function () {
-                    [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {
-                        new CBPFWTabs(el);
-                    });
-                })(); 
-                jQuery(function($){
-                    $('.footable').footable();
+            ?>
+        </script>
+        <script type="text/javascript">
+            $('.datepicker').datepicker();
+            (function () {
+                [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {
+                    new CBPFWTabs(el);
                 });
-                $(document).ready(function() {
-                    $('.select2').select2();
-                });
-                function processLoader(){
-                    swal({
-                        title: '<?php echo _("Processing"); ?>',
-                        text: '',
-                        timer: 5000,
-                        onOpen: function () {
-                            swal.showLoading()
-                        }
-                    })};
-                <?php
-                if(isset($_GET['error']) && $_GET['error'] == "1") {
-                    echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
-                } 
-                $returntotal = $_POST['r1'] + $_POST['r2'] + $_POST['r3'] + $_POST['r4'];
-                if(isset($_POST['r1']) && $returntotal == 0) {
-                    echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
-                } 
-                if(isset($_POST['r1']) && $returntotal != 0) {
-                    echo "swal({title:'" . _("Error Updating Firewall Rule") . "<br>" . "(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . "." . $_POST['r4'] . ")<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
-                }
-                ?>
-            </script>
-            </body>
-
-        </html>
+            })(); 
+            jQuery(function($){
+                $('.footable').footable();
+            });
+            $(document).ready(function() {
+                $('.select2').select2();
+            });
+            function processLoader(){
+                swal({
+                    title: '<?php echo _("Processing"); ?>',
+                    text: '',
+                    timer: 5000,
+                    onOpen: function () {
+                        swal.showLoading()
+                    }
+                })};
+            <?php
+            if(isset($_GET['error']) && $_GET['error'] == "1") {
+                echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+            } 
+            $returntotal = $_POST['r1'] + $_POST['r2'] + $_POST['r3'] + $_POST['r4'];
+            if(isset($_POST['r1']) && $returntotal == 0) {
+                echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
+            } 
+            if(isset($_POST['r1']) && $returntotal != 0) {
+                echo "swal({title:'" . _("Error Updating Firewall Rule") . "<br>" . "(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . "." . $_POST['r4'] . ")<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+            }
+            ?>
+        </script>
+    </body>
+</html>

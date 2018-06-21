@@ -85,15 +85,12 @@ foreach ($plugins as $result) {
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
     <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?> 
         <!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
     </head>
 
     <body class="fix-header">
-        <!-- ============================================================== -->
-        <!-- Preloader -->
-        <!-- ============================================================== -->
         <div class="preloader">
             <svg class="circular" viewBox="25 25 50 50">
                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
@@ -112,8 +109,6 @@ foreach ($plugins as $result) {
                             <!--This is dark logo text--><img src="../../plugins/images/admin-text.png" alt="home" class="hidden-xs dark-logo" /><!--This is light logo text--><img src="../../plugins/images/admin-text-dark.png" alt="home" class="hidden-xs light-logo" />
                             </span> </a>
                     </div>
-                    <!-- /Logo -->
-                    <!-- Search input and Toggle icon -->
                     <ul class="nav navbar-top-links navbar-left">
                         <li><a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs"><i class="ti-close ti-menu"></i></a></li>      
                     </ul>
@@ -203,7 +198,7 @@ foreach ($plugins as $result) {
                         <?php if ($oldcpurl == '' || $supporturl == '') {} else { echo '<li class="devider"></li>'; } ?>
                         <?php if ($oldcpurl != '') { echo '<li><a href="../../' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> ' . _("Control Panel v1") . '</span></a></li>'; } ?>
                         <?php if ($supporturl != '') { echo '<li><a href="../../' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">' . _("Support") . '</span></a></li>'; } ?>
-                        </div>
+                    </div>
                 </div>
                 <div id="page-wrapper">
                     <div class="container-fluid">
@@ -229,12 +224,10 @@ foreach ($plugins as $result) {
                                                     <?php
                                                     if($webtemplates[0] != '') {
                                                         $x2 = 0; 
-
                                                         do {
                                                             echo '<option value="' . $webtemplates[$x2] . '">' . $webtemplates[$x2] . '</option>';
                                                             $x2++;
                                                         } while ($webtemplates[$x2] != ''); }
-
                                                     ?>
                                                 </select>
                                             </div>
@@ -246,12 +239,10 @@ foreach ($plugins as $result) {
                                                     <?php
                                                     if($proxytemplates[0] != '') {
                                                         $x3 = 0; 
-
                                                         do {
                                                             echo '<option value="' . $proxytemplates[$x3] . '">' . $proxytemplates[$x3] . '</option>';
                                                             $x3++;
                                                         } while ($proxytemplates[$x3] != ''); }
-
                                                     ?>
                                                 </select>
                                             </div>
@@ -263,12 +254,10 @@ foreach ($plugins as $result) {
                                                     <?php
                                                     if($dnstemplates[0] != '') {
                                                         $x4 = 0; 
-
                                                         do {
                                                             echo '<option value="' . $dnstemplates[$x4] . '">' . $dnstemplates[$x4] . '</option>';
                                                             $x4++;
                                                         } while ($dnstemplates[$x4] != ''); }
-
                                                     ?>
                                                 </select>
                                             </div>
@@ -412,21 +401,13 @@ foreach ($plugins as $result) {
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("Default Nameservers"); ?></label>
                                             <div class="col-md-12">
-
                                                 <div><input type="text" value="ns1.example.ltd" class="form-control form-control-line" name="ns1" id="ns1x"><br></div>
-
                                                 <div><input type="text" value="ns2.example.ltd" class="form-control form-control-line" name="ns2" id="ns2x"><br><div id="ns2wrapper"><a style="cursor:pointer;" id="addmore" onclick="add1();"><?php echo _("Add One"); ?></a></div></div>
-
                                                 <div id="ns3" style="display:<?php if(explode(',', ($packdata[0]['NS']))[2] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" class="form-control form-control-line" name="ns3" id="ns3x"><br><div id="ns3wrapper"><a style="cursor:pointer;" id="addmore1" onclick="add2();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove1" onclick="rem2();"><?php echo _("Remove One"); ?></a></div></div>
-
                                                 <div id="ns4" style="display:<?php if(explode(',', ($packdata[0]['NS']))[3] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" class="form-control form-control-line" name="ns4" id="ns4x"><br><div id="ns4wrapper"><a style="cursor:pointer;" id="addmore2" onclick="add3();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove2" onclick="rem3();"><?php echo _("Remove One"); ?></a></div></div>
-
                                                 <div id="ns5" style="display:<?php if(explode(',', ($packdata[0]['NS']))[4] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" class="form-control form-control-line" name="ns5" id="ns5x"><br><div id="ns5wrapper"><a style="cursor:pointer;" id="addmore3" onclick="add4();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove3" onclick="rem4();"><?php echo _("Remove One"); ?></a></div></div>
-
                                                 <div id="ns6" style="display:<?php if(explode(',', ($packdata[0]['NS']))[5] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" class="form-control form-control-line" name="ns6" id="ns6x"><br><div id="ns6wrapper"><a style="cursor:pointer;" id="addmore4" onclick="add5();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove4" onclick="rem5();"><?php echo _("Remove One"); ?></a></div></div>
-
                                                 <div id="ns7" style="display:<?php if(explode(',', ($packdata[0]['NS']))[6] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" class="form-control form-control-line" name="ns7" id="ns7x"><br><div id="ns7wrapper"><a style="cursor:pointer;" id="addmore5" onclick="add6();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove5" onclick="rem6();"><?php echo _("Remove One"); ?></a></div></div>
-
                                                 <div id="ns8" style="display:<?php if(explode(',', ($packdata[0]['NS']))[7] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" class="form-control form-control-line" name="ns8" id="ns8x"><br><div id="ns8wrapper"><a style="cursor:pointer;" id="remove6" onclick="rem7();"><?php echo _("Remove One"); ?></a></div></div>
                                             </div>
                                         </div>
@@ -530,8 +511,8 @@ foreach ($plugins as $result) {
 
                 while($checkcount <= 7) {
                     echo "if( document.getElementById('ns" . $check1count . "x').value != '') {
-            document.getElementById('ns" . $checkcount . "wrapper').style.display = 'none';
-}";
+                    document.getElementById('ns" . $checkcount . "wrapper').style.display = 'none';
+                }";
 
                     $checkcount++;
                     $check1count++;
@@ -544,11 +525,11 @@ foreach ($plugins as $result) {
 
                 while($addcount <= 6) {
                     echo "function add" . $addcount ."() {
-if( document.getElementById('ns" . $add2count . "').style.display = 'none' ) {
-            document.getElementById('ns" . $add2count . "').style.display = 'block'; 
-            document.getElementById('ns" . $add1count . "wrapper').style.display = 'none';
-        } 
-}";
+                        if( document.getElementById('ns" . $add2count . "').style.display = 'none' ) {
+                            document.getElementById('ns" . $add2count . "').style.display = 'block'; 
+                            document.getElementById('ns" . $add1count . "wrapper').style.display = 'none';
+                        } 
+                    }";
                     $addcount++;
                     $add1count++;
                     $add2count++;
@@ -560,12 +541,12 @@ if( document.getElementById('ns" . $add2count . "').style.display = 'none' ) {
 
                 while($remcount <= 7) {
                     echo "function rem" . $remcount ."() {
-if( document.getElementById('ns" . $rem1count . "').style.display = 'block' ) {
-            document.getElementById('ns" . $rem1count . "').style.display = 'none'; 
-            document.getElementById('ns" . $remcount . "wrapper').style.display = 'block';
-            document.getElementById('ns" . $rem1count . "x').value = '';
-        } 
-}";
+                        if( document.getElementById('ns" . $rem1count . "').style.display = 'block' ) {
+                            document.getElementById('ns" . $rem1count . "').style.display = 'none'; 
+                            document.getElementById('ns" . $remcount . "wrapper').style.display = 'block';
+                            document.getElementById('ns" . $rem1count . "x').value = '';
+                        } 
+                    }";
                     $remcount++;
                     $rem1count++;
                 } 
@@ -580,6 +561,5 @@ if( document.getElementById('ns" . $rem1count . "').style.display = 'block' ) {
                                                               }
                 ?>
             </script>
-            </body>
-
-        </html>
+        </body>
+    </html>

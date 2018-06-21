@@ -1,94 +1,31 @@
 <?php
-/*
- * Plugin:        StreamlineFoundation
- *
- * Class:        Schedule
- *
- * Description:    Provides scheduling mechanics including creating a schedule, testing if a specific moment is part of the schedule, moving back
- *                and forth between scheduled moments in time and translating the created schedule back to a human readable form.
- *
- * Usage:        ::fromCronString() creates a new Schedule class and requires a string in the cron ('* * * * *', $language) format.
- *
- *                ->next(<datetime>) returns the first scheduled datetime after <datetime> in array format.
- *                ->nextAsString(<datetime>) does the same with an ISO string as the result.
- *                ->nextAsTime(<datetime>) does the same with a UNIX timestamp as the result.
- *
- *                ->previous(<datetime>) returns the first scheduled datetime before <datetime> in array format.
- *                ->previousAsString(<datetime>) does the same with an ISO string as the result.
- *                ->previousAsTime(<datetime>) does the same with a UNIX timestamp as the result.
- *
- *                ->asNaturalLanguage() returns the entire schedule in natural language form.
- *
- *                In the next and previous functions, <datetime> can be a UNIX timestamp, an ISO string or an array format such as returned by
- *                next() and previous().
- *
- * Copyright:    2012 Joost Brugman (joost@brugmanholding.com, joost@joostbrugman.com)
- *        
- *                This file is part of the Streamline plugin "StreamlineFoundation" and referenced in the next paragraphs inside this comment block as "this
- *                plugin". It is based on the Streamline application framework.
- *
- *                This plugin is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as
- *                published by the Free Software Foundation, either version 3 of the License, or any later version. This plugin is distributed in the
- *                hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
- *                PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public
- *                License along with Streamline.  If not, see <http://www.gnu.org/licenses/>.
- */
 class CronSchedule
 {
-	// The actual minutes, hours, daysOfMonth, months, daysOfWeek and years selected by the provided cron specification.
 	private    $_minutes            = array();
 	private    $_hours                = array();
 	private    $_daysOfMonth        = array();
 	private    $_months            = array();
 	private    $_daysOfWeek        = array();
 	private    $_years                = array();
-	// The original cron specification in compiled form.
 	private $_cronMinutes        = array();
 	private $_cronHours            = array();
 	private $_cronDaysOfMonth    = array();
 	private $_cronMonths        = array();
 	private $_cronDaysOfWeek    = array();
 	private $_cronYears            = array();
-	// The language table
 	private $_lang                = FALSE;
-	/**
-	 * Minimum and maximum years to cope with the Year 2038 problem in UNIX. We run PHP which most likely runs on a UNIX environment so we
-	 * must assume vulnerability.
-	 */
-	protected $RANGE_YEARS_MIN    = 1970;    // Must match date range supported by date(). See also: http://en.wikipedia.org/wiki/Year_2038_problem
-	protected $RANGE_YEARS_MAX    = 2037;    // Must match date range supported by date(). See also: http://en.wikipedia.org/wiki/Year_2038_problem
-	/**
-	 * Function:    __construct
-	 *
-	 * Description:    Performs only base initialization, including language initialization.
-	 *
-	 * Parameters:    $language            The languagecode of the chosen language.
-	 */
+	protected $RANGE_YEARS_MIN    = 1970;
+	protected $RANGE_YEARS_MAX    = 2037;
 	public function __construct($language = 'en')
 	{
 		$this->initLang($language);
 	}
-	//
-	// Function:    fromCronString
-	//
-	// Description:    Creates a new Schedule object based on a Cron specification.
-	//
-	// Parameters:    $cronSpec            A string containing a cron specification.
-	//                $language            The language to use to create a natural language representation of the string
-	//
-	// Result:        A new Schedule object. An \Exception is thrown if the specification is invalid.
-	//
 	final public static function fromCronString($cronSpec = '* * * * * *', $language = 'en')
 	{
-		// Split input liberal. Single or multiple Spaces, Tabs and Newlines are all allowed as separators.
 		if(count($elements = preg_split('/\s+/', $cronSpec)) < 5)
 			throw new Exception('Invalid specification.');
-		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		// Named ranges in cron entries
-		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		$arrMonths        = array('JAN' => 1, 'FEB' => 2, 'MAR' => 3, 'APR' => 4, 'MAY' => 5, 'JUN' => 6, 'JUL' => 7, 'AUG' => 8, 'SEP' => 9, 'OCT' => 10, 'NOV' => 11, 'DEC' => 12);
 		$arrDaysOfWeek    = array('SUN' => 0, 'MON' => 1, 'TUE' => 2, 'WED' => 3, 'THU' => 4, 'FRI' => 5, 'SAT' => 6);
-		// Translate the cron specification into arrays that hold specifications of the actual dates
 		$newCron = new CronSchedule($language);
 		$newCron->_cronMinutes        = $newCron->cronInterpret($elements[0],                               0,                           59, array(),            'minutes');
 		$newCron->_cronHours        = $newCron->cronInterpret($elements[1],                               0,                           23, array(),            'hours');
@@ -106,28 +43,10 @@ class CronSchedule
 		}
 		return $newCron;
 	}
-	/*
-	 * Function:    cronInterpret
-	 *
-	 * Description:    Interprets a single field from a cron specification. Throws an \Exception if the specification is in some way invalid.
-	 *
-	 * Parameters:    $specification        The actual text from the spefication, such as 12-38/3
-	 *                $rangeMin            The lowest value for specification.
-	 *                $rangeMax            The highest value for specification
-	 *                $namesItems            A key/value pair where value is a value between $rangeMin and $rangeMax and key is the name for that value.
-	 *                $errorName            The name of the category to use in case of an error.
-	 *
-	 * Result:        An array with entries, each of which is an array with the following fields:
-	 *                'number1'            The first number of the range or the number specified
-	 *                'number2'            The second number of the range if a range is specified
-	 *                'hasInterval'        TRUE if a range is specified. FALSE otherwise
-	 *                'interval'            The interval if a range is specified.
-	 */
 	final private function cronInterpret($specification, $rangeMin, $rangeMax, $namedItems, $errorName)
 	{
 		if((!is_string($specification)) && (!(is_int($specification))))
 			throw new Exception('Invalid specification.');
-		// Multiple values, separated by comma
 		$specs = array();
 		$specs['rangeMin'] = $rangeMin;
 		$specs['rangeMax'] = $rangeMax;
@@ -137,13 +56,8 @@ class CronSchedule
 		{
 			$hasRange        = (($posRange        = strpos($segment, '-')) !== FALSE);
 			$hasInterval    = (($posIncrement    = strpos($segment, '/')) !== FALSE);
-			/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-			// Check: Increment without range is invalid
-			//if(!$hasRange && $hasInterval)                                                throw new \Exception("Invalid Range ($errorName).");
-			// Check: Increment must be final specification
 			if($hasRange && $hasInterval)
 				if($posIncrement < $posRange)                                            throw new \Exception("Invalid order ($errorName).");
-			// GetSegments
 			$segmentNumber1        = $segment;
 			$segmentNumber2        = '';
 			$segmentIncrement    = '';
@@ -158,7 +72,6 @@ class CronSchedule
 				$segmentNumber2 = substr($segmentNumber1, $posRange + 1);
 				$segmentNumber1 = substr($segmentNumber1, 0, $posRange);
 			}
-			// Get and validate first value in range
 			if($segmentNumber1 == '*')
 			{
 				$intNumber1 = $rangeMin;
@@ -170,7 +83,6 @@ class CronSchedule
 				if(array_key_exists(strtoupper($segmentNumber1), $namedItems)) $segmentNumber1 = $namedItems[strtoupper($segmentNumber1)];
 				if(((string) ($intNumber1 = (int) $segmentNumber1)) != $segmentNumber1)        throw new \Exception("Invalid symbol ($errorName).");
 				if(($intNumber1 < $rangeMin) || ($intNumber1 > $rangeMax))                    throw new \Exception("Out of bounds ($errorName).");
-				// Get and validate second value in range
 				if($hasRange)
 				{
 					if(array_key_exists(strtoupper($segmentNumber2), $namedItems)) $segmentNumber2 = $namedItems[strtoupper($segmentNumber2)];
@@ -179,13 +91,11 @@ class CronSchedule
 					if($intNumber1 > $intNumber2)                                            throw new \Exception("Invalid range ($errorName).");
 				}
 			}
-			// Get and validate increment
 			if($hasInterval)
 			{
 				if(($intIncrement = (int) $segmentIncrement) != $segmentIncrement)        throw new \Exception("Invalid symbol ($errorName).");
 				if($intIncrement < 1)                                                    throw new \Exception("Out of bounds ($errorName).");
 			}
-			// Apply range and increment
 			$elem = array();
 			$elem['number1'] = $intNumber1;
 			$elem['hasInterval'] = $hasRange;
@@ -198,22 +108,6 @@ class CronSchedule
 		}
 		return $specs;
 	}
-	//
-	// Function:    cronCreateItems
-	//
-	// Description:    Uses the interpreted cron specification of a single item from a cron specification to create an array with keys that match the
-	//                selected items.
-	//
-	// Parameters:    $cronInterpreted    The interpreted specification
-	//
-	// Result:        An array where each key identifies a matching entry. E.g. the cron specification */10 for minutes will yield an array
-	//                [0] => 1
-	//                [10] => 1
-	//                [20] => 1
-	//                [30] => 1
-	//                [40] => 1
-	//                [50] => 1
-	//
 	final private function cronCreateItems($cronInterpreted)
 	{
 		$items = array();
@@ -228,18 +122,6 @@ class CronSchedule
 		ksort($items);
 		return $items;
 	}
-	//
-	// Function:    dtFromParameters
-	//
-	// Description:    Transforms a flexible parameter passing of a datetime specification into an internally used array.
-	//
-	// Parameters:    $time                If a string interpreted as a datetime string in the YYYY-MM-DD HH:II format and other parameters ignored.
-	//                                    If an array $minute, $hour, $day, $month and $year are passed as keys 0-4 and other parameters ignored.
-	//                                    If a string, interpreted as unix time.
-	//                                    If omitted or specified FALSE, defaults to the current time.
-	//
-	// Result:        An array with indices 0-4 holding the actual interpreted values for $minute, $hour, $day, $month and $year.
-	//
 	final private function dtFromParameters($time = FALSE)
 	{
 		if($time === FALSE)
@@ -265,61 +147,22 @@ class CronSchedule
 			return FALSE;
 		return $arrDt[4].'-'.(strlen($arrDt[3]) == 1 ? '0' : '').$arrDt[3].'-'.(strlen($arrDt[2]) == 1 ? '0' : '').$arrDt[2].' '.(strlen($arrDt[1]) == 1 ? '0' : '').$arrDt[1].':'.(strlen($arrDt[0]) == 1 ? '0' : '').$arrDt[0].':00';
 	}
-	//
-	// Function:    match
-	//
-	// Description:    Returns TRUE if the specified date and time corresponds to a scheduled point in time. FALSE otherwise.
-	//
-	// Parameters:    $time                If a string interpreted as a datetime string in the YYYY-MM-DD HH:II format and other parameters ignored.
-	//                                    If an array $minute, $hour, $day, $month and $year are passed as keys 0-4 and other parameters ignored.
-	//                                    If a string, interpreted as unix time.
-	//                                    If omitted or specified FALSE, defaults to the current time.
-	//
-	// Result:        TRUE if the schedule matches the specified datetime. FALSE otherwise.
-	//
 	final public function match($time = FALSE)
 	{
-		// Convert parameters to array datetime
 		$arrDT = $this->dtFromParameters($time);
-		// Verify match
-		// Years
 		if(!array_key_exists($arrDT[4], $this->_years)) return FALSE;
-		// Day of week
 		if(!array_key_exists(date('w', strtotime($arrDT[4].'-'.$arrDT[3].'-'.$arrDT[2])), $this->_daysOfWeek)) return FALSE;
-		// Month
 		if(!array_key_exists($arrDT[3], $this->_months)) return FALSE;
-		// Day of month
 		if(!array_key_exists($arrDT[2], $this->_daysOfMonth)) return FALSE;
-		// Hours
 		if(!array_key_exists($arrDT[1], $this->_hours)) return FALSE;
-		// Minutes
 		if(!array_key_exists($arrDT[0], $this->_minutes)) return FALSE;
 		return TRUE;
 	}
-	//
-	// Function:    next
-	//
-	// Description:    Acquires the first scheduled datetime beyond the provided one.
-	//
-	// Parameters:    $time                If a string interpreted as a datetime string in the YYYY-MM-DD HH:II format and other parameters ignored.
-	//                                    If an array $minute, $hour, $day, $month and $year are passed as keys 0-4 and other parameters ignored.
-	//                                    If a string, interpreted as unix time.
-	//                                    If omitted or specified FALSE, defaults to the current time.
-	//
-	// Result:        An array with the following keys:
-	//                0                    Next scheduled minute
-	//                1                    Next scheduled hour
-	//                2                    Next scheduled date
-	//                3                    Next scheduled month
-	//                4                    Next scheduled year
-	//
 	final public function next($time)
 	{
-		// Convert parameters to array datetime
 		$arrDT = $this->dtFromParameters($time);
 		while(1)
 		{
-			// Verify the current date is in range. If not, move into range and consider this the next position
 			if(!array_key_exists($arrDT[4], $this->_years))
 			{
 				if(($arrDT[4] = $this->getEarliestItem($this->_years, $arrDT[4], FALSE)) === FALSE)
@@ -352,7 +195,6 @@ class CronSchedule
 				$arrDT[0] = $this->getEarliestItem($this->_minutes, $arrDT[0]);
 				break;
 			}
-			// Advance minute, hour, date, month and year while overflowing.
 			$daysInThisMonth = date('t', strtotime($arrDT[4].'-'.$arrDT[3]));
 			if($this->advanceItem($this->_minutes, 0, 59, $arrDT[0]))
 				if($this->advanceItem($this->_hours, 0, 23, $arrDT[1]))
@@ -362,11 +204,9 @@ class CronSchedule
 								return FALSE;
 			break;
 		}
-		// If Datetime now points to a day that is schedule then return.
 		$dayOfWeek = date('w', strtotime($this->dtAsString($arrDT)));
 		if(array_key_exists($dayOfWeek, $this->_daysOfWeek))
 			return $arrDT;
-		// Otherwise move to next scheduled date
 		return $this->next($arrDT);
 	}
 	final public function nextAsString($time)
@@ -377,83 +217,37 @@ class CronSchedule
 	{
 		return strtotime($this->dtAsString($this->next($time)));
 	}
-	//
-	// Function:    advanceItem
-	//
-	// Description:    Advances the current item to the next one (the next minute, the next hour, etc.).
-	//
-	// Parameters:    $arrItems            A reference to the collection in which to advance.
-	//                $rangeMin            The lowest possible value for $current.
-	//                $rangeMax            The highest possible value for $current
-	//                $current            The index that is being incremented.
-	//
-	// Result:        FALSE if current did not overflow (reset back to the earliest possible value). TRUE if it did.
-	//
 	final private function advanceItem($arrItems, $rangeMin, $rangeMax, & $current)
 	{
-		// Advance pointer
 		$current++;
-		// If still before start, move to earliest
 		if($current < $rangeMin)
 			$current = $this->getEarliestItem($arrItems);
-		// Parse items until found or overflow
 		for(;$current <= $rangeMax; $current++)
 			if(array_key_exists($current, $arrItems))
-				return FALSE; // We did not overflow
-		// Or overflow
+				return FALSE;
 		$current = $this->getEarliestItem($arrItems);
 		return TRUE;
 	}
-	//
-	// Function:    getEarliestItem
-	//
-	// Description:    Retrieves the earliest item in a collection, e.g. the earliest minute or the earliest month.
-	//
-	// Parameters:    $arrItems            A reference to the collection in which to search.
-	//                $afterItem            The highest index that is to be skipped.
-	//
 	final private function getEarliestItem($arrItems, $afterItem = FALSE, $allowOverflow = TRUE)
 	{
-		// If no filter is specified, return the earliest listed item.
 		if($afterItem === FALSE)
 		{
 			reset($arrItems);
 			return key($arrItems);
 		}
-		// Or parse until we passed $afterItem
 		foreach($arrItems as $key => $value)
 			if($key > $afterItem)
 				return $key;
-		// If still nothing found, we may have exhausted our options.
 		if(!$allowOverflow)
 			return FALSE;
 		reset($arrItems);
 		return key($arrItems);
 	}
-	//
-	// Function:    previous
-	//
-	// Description:    Acquires the first scheduled datetime before the provided one.
-	//
-	// Parameters:    $time                If a string interpreted as a datetime string in the YYYY-MM-DD HH:II format and other parameters ignored.
-	//                                    If an array $minute, $hour, $day, $month and $year are passed as keys 0-4 and other parameters ignored.
-	//                                    If a string, interpreted as unix time.
-	//                                    If omitted or specified FALSE, defaults to the current time.
-	//
-	// Result:        An array with the following keys:
-	//                0                    Previous scheduled minute
-	//                1                    Previous scheduled hour
-	//                2                    Previous scheduled date
-	//                3                    Previous scheduled month
-	//                4                    Previous scheduled year
-	//
 	final public function previous($time)
 	{
-		// Convert parameters to array datetime
 		$arrDT = $this->dtFromParameters($time);
 		while(1)
 		{
-			// Verify the current date is in range. If not, move into range and consider this the previous position
 			if(!array_key_exists($arrDT[4], $this->_years))
 			{
 				if(($arrDT[4] = $this->getLatestItem($this->_years, $arrDT[4], FALSE)) === FALSE)
@@ -486,7 +280,6 @@ class CronSchedule
 				$arrDT[0] = $this->getLatestItem($this->_minutes, $arrDT[0]);
 				break;
 			}
-			// Recede minute, hour, date, month and year while overflowing.
 			$daysInPreviousMonth = date('t', strtotime('-1 month', strtotime($arrDT[4].'-'.$arrDT[3])));
 			if($this->recedeItem($this->_minutes, 0, 59, $arrDT[0]))
 				if($this->recedeItem($this->_hours, 0, 23, $arrDT[1]))
@@ -496,11 +289,9 @@ class CronSchedule
 								return FALSE;
 			break;
 		}
-		// If Datetime now points to a day that is schedule then return.
 		$dayOfWeek = date('w', strtotime($this->dtAsString($arrDT)));
 		if(array_key_exists($dayOfWeek, $this->_daysOfWeek))
 			return $arrDT;
-		// Otherwise move to next scheduled date
 		return $this->previous($arrDT);
 	}
 	final public function previousAsString($time)
@@ -511,87 +302,41 @@ class CronSchedule
 	{
 		return strtotime($this->dtAsString($this->previous($time)));
 	}
-	//
-	// Function:    recedeItem
-	//
-	// Description:    Recedes the current item to the previous one (the previous minute, the previous hour, etc.).
-	//
-	// Parameters:    $arrItems            A reference to the collection in which to recede.
-	//                $rangeMin            The lowest possible value for $current.
-	//                $rangeMax            The highest possible value for $current
-	//                $current            The index that is being decremented.
-	//
-	// Result:        FALSE if current did not overflow (reset back to the highest possible value). TRUE if it did.
-	//
 	final private function recedeItem($arrItems, $rangeMin, $rangeMax, & $current)
 	{
-		// Recede pointer
 		$current--;
-		// If still above highest, move to highest
 		if($current > $rangeMax)
 			$current = $this->getLatestItem($arrItems, $rangeMax + 1);
-		// Parse items until found or overflow
 		for(;$current >= $rangeMin; $current--)
 			if(array_key_exists($current, $arrItems))
-				return FALSE; // We did not overflow
-		// Or overflow
+				return FALSE;
 		$current = $this->getLatestItem($arrItems, $rangeMax + 1);
 		return TRUE;
 	}
-	//
-	// Function:    getLatestItem
-	//
-	// Description:    Retrieves the latest item in a collection, e.g. the latest minute or the latest month.
-	//
-	// Parameters:    $arrItems            A reference to the collection in which to search.
-	//                $beforeItem            The lowest index that is to be skipped.
-	//
 	final private function getLatestItem($arrItems, $beforeItem = FALSE, $allowOverflow = TRUE)
 	{
-		// If no filter is specified, return the latestlisted item.
 		if($beforeItem === FALSE)
 		{
 			end($arrItems);
 			return key($arrItems);
 		}
-		// Or parse until we passed $beforeItem
 		end($arrItems);
 		do
 		{
 			if(($key = key($arrItems)) < $beforeItem)
 				return $key;
 		} while(prev($arrItems));
-		// If still nothing found, we may have exhausted our options.
 		if(!$allowOverflow)
 			return FALSE;
 		end($arrItems);
 		return key($arrItems);
 	}
-	//
-	// Function:
-	//
-	// Description:
-	//
-	// Parameters:
-	//
-	// Result:
-	//
 	final private function getClass($spec)
 	{
 		if(!$this->classIsSpecified($spec))        return '0';
 		if($this->classIsSingleFixed($spec))    return '1';
 		return '2';
 	}
-	//
-	// Function:
-	//
-	// Description:    Returns TRUE if the Cron Specification is specified. FALSE otherwise. This is true if the specification has more than one entry
-	//                or is anything than the entire approved range ("*").
-	//
-	// Parameters:
-	//
-	// Result:
-	//
 	final private function classIsSpecified($spec)
 	{
 		if($spec['elements'][0]['hasInterval'] == FALSE)            return TRUE;
@@ -600,16 +345,6 @@ class CronSchedule
 		if($spec['elements'][0]['interval'] != 1)                    return TRUE;
 		return FALSE;
 	}
-	//
-	// Function:
-	//
-	// Description:    Returns TRUE if the Cron Specification is specified as a single value. FALSE otherwise. This is true only if there is only
-	//                one entry and the entry is only a single number (e.g. "10")
-	//
-	// Parameters:
-	//
-	// Result:
-	//
 	final private function classIsSingleFixed($spec)
 	{
 		return (count($spec['elements']) == 1) && (!$spec['elements'][0]['hasInterval']);
@@ -871,15 +606,6 @@ class CronSchedule
 		if($p6 !== FALSE)    $txt = str_replace('@6', $p6, $txt);
 		return $txt;
 	}
-	//
-	// Function:    natlangRange
-	//
-	// Description:    Converts a range into natural language
-	//
-	// Parameters:
-	//
-	// Result:
-	//
 	final private function natlangRange($spec, $entryFunction, $p1 = FALSE)
 	{
 		$arrIntervals = array();
@@ -890,11 +616,6 @@ class CronSchedule
 			$txt .= ($index == 0 ? '' : ($index == (count($arrIntervals) - 1) ? ' '.$this->natlangApply('separator_and').' ' : ', ')).$arrIntervals[$index];
 		return $txt;
 	}
-	//
-	// Function:    natlangElementMinute
-	//
-	// Description:    Converts an entry from the minute specification to natural language.
-	//
 	final private function natlangElementMinute($elem)
 	{
 		if(!$elem['hasInterval'])
@@ -907,11 +628,6 @@ class CronSchedule
 			$txt .= ' ('.$this->natlangApply('elemMin: between_X_and_Y', $this->natlangApply('ordinal: '.$elem['number1']), $this->natlangApply('ordinal: '.$elem['number2'])).')';
 		return $txt;
 	}
-	//
-	// Function:    natlangElementHour
-	//
-	// Description:    Converts an entry from the hour specification to natural language.
-	//
 	final private function natlangElementHour($elem, $asBetween)
 	{
 		if(!$elem['hasInterval'])
@@ -925,11 +641,6 @@ class CronSchedule
 			$txt .= ' ('.$this->natlangApply('elemHour: between_X:00_and_Y:59', $elem['number1'], $elem['number2']).')';
 		return $txt;
 	}
-	//
-	// Function:    natlangElementDayOfMonth
-	//
-	// Description:    Converts an entry from the day of month specification to natural language.
-	//
 	final private function natlangElementDayOfMonth($elem)
 	{
 		if(!$elem['hasInterval'])
@@ -939,11 +650,6 @@ class CronSchedule
 			$txt .= ' ('.$this->natlangApply('elemDOM: between_the_Xth_and_Yth', $this->natlangApply('ordinal: '.$elem['number1']), $this->natlangApply('ordinal: '.$elem['number2'])).')';
 		return $txt;
 	}
-	//
-	// Function:    natlangElementDayOfMonth
-	//
-	// Description:    Converts an entry from the month specification to natural language.
-	//
 	final private function natlangElementMonth($elem)
 	{
 		if(!$elem['hasInterval'])
@@ -953,11 +659,6 @@ class CronSchedule
 			$txt .= ' ('.$this->natlangApply('elemMonth: between_X_and_Y', $this->natlangApply('month: '.$elem['number1']), $this->natlangApply('month: '.$elem['number2'])).')';
 		return $txt;
 	}
-	//
-	// Function:    natlangElementYear
-	//
-	// Description:    Converts an entry from the year specification to natural language.
-	//
 	final private function natlangElementYear($elem)
 	{
 		if(!$elem['hasInterval'])
@@ -967,20 +668,10 @@ class CronSchedule
 			$txt .= ' ('.$this->natlangApply('elemYear: from_X_through_Y', $elem['number1'], $elem['number2']).')';
 		return $txt;
 	}
-	//
-	// Function:    asNaturalLanguage
-	//
-	// Description:    Returns the current cron specification in natural language.
-	//
-	// Parameters:    None
-	//
-	// Result:        A string containing a natural language text.
-	//
 	final public function asNaturalLanguage()
 	{
 		$switchForceDateExplaination = FALSE;
 		$switchDaysOfWeekAreExcluding = TRUE;
-		// Generate Time String
 		$txtMinutes                    = array();
 		$txtMinutes[0]                = $this->natlangApply('elemMin: every_minute');
 		$txtMinutes[1]                = $this->natlangElementMinute($this->_cronMinutes['elements'][0]);
@@ -997,46 +688,18 @@ class CronSchedule
 		$classHours                    = $this->getClass($this->_cronHours);
 		switch($classMinutes.$classHours)
 		{
-			// Special case: Unspecified date + Unspecified month
-			//
-			// Rule: The language for unspecified fields is omitted if a more detailed field has already been explained.
-			//
-			// The minutes field always yields an explaination, at the very least in the form of 'every minute'. This rule states that if the
-			// hour is not specified, it can be omitted because 'every minute' is already sufficiently clear.
-			//
 			case '00':
 				$txtTime = $txtMinutes[0];
 				break;
-			// Special case: Fixed minutes and fixed hours
-			//
-			// The default writing would be something like 'every 20 minutes past 04:00', but the more common phrasing would be: At 04:20.
-			//
-			// We will switch ForceDateExplaination on, so that even a non-specified date yields an explaination (e.g. 'every day')
-			//
 			case '11':
 				$txtTime = $this->natlangApply('elemMin: at_X:Y', $this->natlangPad2($this->_cronHours['elements'][0]['number1']), $this->natlangPad2($this->_cronMinutes['elements'][0]['number1']));
 				$switchForceDateExplaination = TRUE;
 				break;
-			// Special case: Between :00 and :59
-			//
-			// If hours are specified, but minutes are not, then the minutes string will yield something like 'every minute'. We must the
-			// differentiate the hour specification because the minutes specification does not relate to all minutes past the hour, but only to
-			// those minutes between :00 and :59
-			//
-			// We will switch ForceDateExplaination on, so that even a non-specified date yields an explaination (e.g. 'every day')
-			//
 			case '01':
 			case '02':
 				$txtTime = $txtMinutes[$classMinutes].' '.$txtHours[$classHours]['between'];
 				$switchForceDateExplaination = TRUE;
 				break;
-			// Special case: Past the hour
-			//
-			// If minutes are specified and hours are specified, then the specification of minutes is always limited to a maximum of 60 minutes
-			// and always applies to the minutes 'past the hour'.
-			//
-			// We will switch ForceDateExplaination on, so that even a non-specified date yields an explaination (e.g. 'every day')
-			//
 			case '12':
 			case '22':
 			case '21':
@@ -1047,7 +710,6 @@ class CronSchedule
 				$txtTime = $txtMinutes[$classMinutes].' '.$txtHours[$classHours];
 				break;
 		}
-		// Generate Date String
 		$txtDaysOfMonth        = array();
 		$txtDaysOfMonth[0]    = '';
 		$txtDaysOfMonth[1]    = $this->natlangApply('elemDOM: on_the_X', $this->natlangApply('ordinal: '.$this->_cronDaysOfMonth['elements'][0]['number1']));
@@ -1062,16 +724,6 @@ class CronSchedule
 			$switchDaysOfWeekAreExcluding = FALSE;
 		switch($classDaysOfMonth.$classMonths)
 		{
-			// Special case: Unspecified date + Unspecified month
-			//
-			// Rule: The language for unspecified fields is omitted if a more detailed field has already been explained.
-			//
-			// The time fields always yield an explaination, at the very least in the form of 'every minute'. This rule states that if the date
-			// is not specified, it can be omitted because 'every minute' is already sufficiently clear.
-			//
-			// There are some time specifications that do not contain an 'every' reference, but reference a specific time of day. In those cases
-			// the date explaination is enforced.
-			//
 			case '00':
 				$txtDate = '';
 				break;
@@ -1079,7 +731,6 @@ class CronSchedule
 				$txtDate = ' '.$txtDaysOfMonth[$classDaysOfMonth].' '.$txtMonths[$classMonths];
 				break;
 		}
-		// Generate Year String
 		if ($this->_cronYears) {
 			$txtYears            = array();
 			$txtYears[0]        = '';
@@ -1088,7 +739,6 @@ class CronSchedule
 			$classYears            = $this->getClass($this->_cronYears);
 			$txtYear = $txtYears[$classYears];
 		}
-		// Generate DaysOfWeek String
 		$collectDays = 0;
 		foreach($this->_cronDaysOfWeek['elements'] as $elem)
 		{
@@ -1098,7 +748,7 @@ class CronSchedule
 			else
 				$collectDays |= pow(2, $elem['number1']);
 		}
-		if($collectDays == 127)    // * all days
+		if($collectDays == 127)
 		{
 			if(!$switchDaysOfWeekAreExcluding)
 				$txtDays = ' '.$this->natlangApply('elemDOM: on_every_day');

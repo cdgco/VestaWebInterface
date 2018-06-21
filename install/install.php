@@ -234,38 +234,38 @@ include("../includes/versioncheck.php");
                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
             </svg>
         </div>
-        
-        
-<form id="form" action="https://cdgtech.one/installvwi.php" method="post">
-<?php 
-     
-    if ($_POST['GOOGLE_ANALYTICS_ID'] != '') {$GAE="Enabled";} else {$GAE="Disabled";}
-    if ($_POST['INTERAKT_APP_ID'] != '') {$IAE="Enabled";} else {$IAE="Disabled";}
-    if ($_POST['CLOUDFLARE_API_KEY'] != '') {$CFE="Enabled";} else {$CFE="Disabled";}
-    
-    echo '<input type="hidden" name="url" value="'.$_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI].'">';
-    echo '<input type="hidden" name="name" value="'.$_POST['SITENAME'].'">';
-    echo '<input type="hidden" name="theme" value="'.$_POST['THEME'].'">';
-    echo '<input type="hidden" name="language" value="'.$_POST['LANGUAGE'].'">';
-    echo '<input type="hidden" name="timezone" value="'.$_POST['TIMEZONE'].'">';
-    echo '<input type="hidden" name="clientip" value="'.$_SERVER[REMOTE_ADDR].'">';
-    echo '<input type="hidden" name="serverip" value="'.$_SERVER[SERVER_ADDR].'">';
-    echo '<input type="hidden" name="https" value="'.$_SERVER[HTTPS].'">';
-    echo '<input type="hidden" name="serverprotocol" value="'.$_SERVER[SERVER_PROTOCOL].'">';
-    echo '<input type="hidden" name="time" value="'.$_SERVER[REQUEST_TIME].'">';
-    echo '<input type="hidden" name="email" value="'.$_POST['EMAILADDR'].'">';
-    echo '<input type="hidden" name="gae" value="'.$GAE.'">';
-    echo '<input type="hidden" name="iae" value="'.$IAE.'">';
-    echo '<input type="hidden" name="cfe" value="'.$CFE.'">';
-    echo '<input type="hidden" name="version" value="'.$currentversion.'">';
-    
-    
-?>
 
-</form>
-<script type="text/javascript">
-    document.getElementById('form').submit();
-</script>
-            </body>
-        <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+
+        <form id="form" action="https://cdgtech.one/installvwi.php" method="post">
+            <?php 
+
+            if ($_POST['GOOGLE_ANALYTICS_ID'] != '') {$GAE="Enabled";} else {$GAE="Disabled";}
+            if ($_POST['INTERAKT_APP_ID'] != '') {$IAE="Enabled";} else {$IAE="Disabled";}
+            if ($_POST['CLOUDFLARE_API_KEY'] != '') {$CFE="Enabled";} else {$CFE="Disabled";}
+
+            echo '<input type="hidden" name="url" value="'.$_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI].'">';
+            echo '<input type="hidden" name="name" value="'.$_POST['SITENAME'].'">';
+            echo '<input type="hidden" name="theme" value="'.$_POST['THEME'].'">';
+            echo '<input type="hidden" name="language" value="'.$_POST['LANGUAGE'].'">';
+            echo '<input type="hidden" name="timezone" value="'.$_POST['TIMEZONE'].'">';
+            echo '<input type="hidden" name="clientip" value="'.$_SERVER[REMOTE_ADDR].'">';
+            echo '<input type="hidden" name="serverip" value="'.$_SERVER[SERVER_ADDR].'">';
+            echo '<input type="hidden" name="https" value="'.$_SERVER[HTTPS].'">';
+            echo '<input type="hidden" name="serverprotocol" value="'.$_SERVER[SERVER_PROTOCOL].'">';
+            echo '<input type="hidden" name="time" value="'.$_SERVER[REQUEST_TIME].'">';
+            echo '<input type="hidden" name="email" value="'.$_POST['EMAILADDR'].'">';
+            echo '<input type="hidden" name="gae" value="'.$GAE.'">';
+            echo '<input type="hidden" name="iae" value="'.$IAE.'">';
+            echo '<input type="hidden" name="cfe" value="'.$CFE.'">';
+            echo '<input type="hidden" name="version" value="'.$currentversion.'">';
+
+
+            ?>
+
+        </form>
+        <script type="text/javascript">
+            document.getElementById('form').submit();
+        </script>
+    </body>
+    <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
 </html>

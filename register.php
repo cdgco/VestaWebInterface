@@ -36,12 +36,9 @@ textdomain('messages');
         <meta name="author" content="">
         <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
         <title><?php echo $sitetitle; ?> - <?php echo _('Register'); ?></title>
-        <!-- Bootstrap Core CSS -->
         <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="bootstrap/dist/css/bootstrap-select.min.css" rel="stylesheet">
-        <!-- animation CSS -->
         <link href="css/animate.css" rel="stylesheet">
-        <!-- Custom CSS -->
         <link href="css/style.css" rel="stylesheet">
         <link href="plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
@@ -66,14 +63,11 @@ textdomain('messages');
                 transition: background-color 5000s ease-in-out 0s;
             }
         </style>
-        <!-- color CSS -->
         <link href="css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
     </head>
 
     <body>
@@ -82,7 +76,8 @@ textdomain('messages');
                 <div class="inner-panel">
                     <a href="javascript:void(0)" class="p-20 di"><img src="plugins/images/admin-logo.png" class="logo-1"></a>
                     <div class="lg-content">
-                        <h2><?php echo $sitetitle; ?> <?php echo _('Control Panel'); ?> <br></h2><p><?php require 'includes/versioncheck.php'; ?></p> </div>
+                        <h2><?php echo $sitetitle; ?> <?php echo _('Control Panel'); ?> <br></h2><p><?php require 'includes/versioncheck.php'; ?></p>
+                    </div>
                 </div>
             </div>
 
@@ -140,48 +135,38 @@ textdomain('messages');
                     confirm_password.setCustomValidity('');
                 }
             }
-
             password.onchange = validatePassword;
             confirm_password.onkeyup = validatePassword;
         </script>
-        <!-- jQuery -->
         <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
         <script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
-        <!-- Bootstrap Core JavaScript -->
         <script src="bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="bootstrap/dist/js/bootstrap-select.min.js"></script>
-        <!-- Menu Plugin JavaScript -->
         <script src="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
-        <!--slimscroll JavaScript -->
         <script src="js/jquery.slimscroll.js"></script>
-        <!--Wave Effects -->
         <script src="js/waves.js"></script>
-        <!-- Custom Theme JavaScript -->
         <script src="js/custom.js"></script>
-        <!--Style Switcher -->
         <script src="plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
         <script>
             <?php if(!isset($serverconnection)){
-    echo "$.toast({
-                        heading: '" . _("Error") . "'
-                        , text: '" . _("Failed to connect to server.") . "<br>" . _("Please check config.php") . "'
-                        , icon: 'error'
-                        , position: 'top-right'
-                        , hideAfter: false
-                        , allowToastClose: false
-                    });"; }
+            echo "$.toast({
+                heading: '" . _("Error") . "'
+                , text: '" . _("Failed to connect to server.") . "<br>" . _("Please check config.php") . "'
+                , icon: 'error'
+                , position: 'top-right'
+                , hideAfter: false
+                , allowToastClose: false
+            });"; }
             if(substr(sprintf('%o', fileperms('includes')), -4) == '0777') {
                 echo "$.toast({
-                        heading: '" . _("Warning") . "'
-                        , text: '" . _("Includes folder has not been secured") . "'
-                        , icon: 'warning'
-                        , position: 'top-right'
-                        , hideAfter: 3500
-                        , bgColor: '#ff8000'
-                    });";
-
+                    heading: '" . _("Warning") . "'
+                    , text: '" . _("Includes folder has not been secured") . "'
+                    , icon: 'warning'
+                    , position: 'top-right'
+                    , hideAfter: 3500
+                    , bgColor: '#ff8000'
+                });";
             } ?>
         </script>
     </body>
-
 </html>

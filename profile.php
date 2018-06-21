@@ -44,7 +44,6 @@ foreach ($plugins as $result) {
                 array_push($pluginsections,$arr['section']);
                 array_push($pluginadminonly,$arr['admin-only']);
             }
-
         }    
     }
 }
@@ -84,25 +83,25 @@ foreach ($plugins as $result) {
             }
         </style>
         <!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
     </head>
     <body class="fix-header">
         <?php if(INTERAKT_APP_ID != ''){ echo '<script>
-	window.mySettings = {
-	first_name: "' . $admindata['FNAME'] . '",
-	last_name: "' . $admindata['LNAME'] . '",
-	suspended: "' . $admindata['SUSPENDED'] . '",
-	package: "' . $admindata['PACKAGE'] . '",
-	language: "' . $admindata['LANGUAGE'] . '",
-	uname: "' . $username . '",
-	email: "' . $admindata['CONTACT'] . '",
-	created_at: ' . strtotime($admindata['DATE'] . ' ' . $admindata['TIME']) . ',
-	joined_at: "' . $admindata['DATE'] . ' ' . $admindata['TIME'] . '",
-	app_id: "' . INTERAKT_APP_ID . '"
-	};
-    </script>'; } ?>
+        window.mySettings = {
+        first_name: "' . $admindata['FNAME'] . '",
+        last_name: "' . $admindata['LNAME'] . '",
+        suspended: "' . $admindata['SUSPENDED'] . '",
+        package: "' . $admindata['PACKAGE'] . '",
+        language: "' . $admindata['LANGUAGE'] . '",
+        uname: "' . $username . '",
+        email: "' . $admindata['CONTACT'] . '",
+        created_at: ' . strtotime($admindata['DATE'] . ' ' . $admindata['TIME']) . ',
+        joined_at: "' . $admindata['DATE'] . ' ' . $admindata['TIME'] . '",
+        app_id: "' . INTERAKT_APP_ID . '"
+        };
+        </script>'; } ?>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.js"></script>
         <?php
 
@@ -114,23 +113,23 @@ foreach ($plugins as $result) {
         if(isset($_GET['password']) && isset($_GET['email']) && isset($_GET['lang']) && isset($_GET['ns']) && isset($_GET['name'])) { $answer1 = $pwcode + $emailcode + $langcode + $nscode + $namecode; }
         if(isset($answer1)) { $answer = (int)$answer1; }
         if(isset($pwcode) || isset($emailcode) || isset($langcode) || isset($nscode) || isset($namecode)){
-            if($answer == "0") {
-                echo "<script> swal({title:'" . _("Successfully Updated!") . "', type:'success'})</script>";
-            } 
-            if(isset($answer) && $answer == "1" || isset($answer) && $answer == "2") { echo "<script> swal('" . _("Invalid data entered in form.") . "<br>" .  _("Please try again.") . "', '<br>"; 
-                                                                                      if(isset($pwcode) && $pwcode != "0"){ echo " P: " . $pwcode;}
-                                                                                      if(isset($emailcode) && $emailcode != "0"){ echo " E: " . $emailcode;}
-                                                                                      if(isset($langcode) && $langcode != "0"){ echo " L: " . $langcode;}
-                                                                                      if(isset($nscode) && $nscode != "0"){ echo " NS: " . $nscode;}
-                                                                                      if(isset($namecode) && $namecode != "0"){ echo " N: " . $namecode;}
-                                                                                      echo "', 'error')</script>";}
-            if(isset($answer) && $answer > "2") { echo "<script> swal('" . _("Please try again or contact support.") . "', '<br>"; 
-                                                 if(isset($pwcode) && $pwcode != "0"){ echo " P: " . $pwcode;}
-                                                 if(isset($emailcode) && $emailcode != "0"){ echo " E: " . $emailcode;}
-                                                 if(isset($langcode) && $langcode != "0"){ echo " L: " . $langcode;}
-                                                 if(isset($nscode) && $nscode != "0"){ echo " NS: " . $nscode;}
-                                                 if(isset($namecode) && $namecode != "0"){ echo " N: " . $namecode;}
-                                                 echo "', 'error')</script>";}
+        if($answer == "0") {
+        echo "<script> swal({title:'" . _("Successfully Updated!") . "', type:'success'})</script>";
+        } 
+        if(isset($answer) && $answer == "1" || isset($answer) && $answer == "2") { echo "<script> swal('" . _("Invalid data entered in form.") . "<br>" .  _("Please try again.") . "', '<br>"; 
+        if(isset($pwcode) && $pwcode != "0"){ echo " P: " . $pwcode;}
+        if(isset($emailcode) && $emailcode != "0"){ echo " E: " . $emailcode;}
+        if(isset($langcode) && $langcode != "0"){ echo " L: " . $langcode;}
+        if(isset($nscode) && $nscode != "0"){ echo " NS: " . $nscode;}
+        if(isset($namecode) && $namecode != "0"){ echo " N: " . $namecode;}
+        echo "', 'error')</script>";}
+        if(isset($answer) && $answer > "2") { echo "<script> swal('" . _("Please try again or contact support.") . "', '<br>"; 
+         if(isset($pwcode) && $pwcode != "0"){ echo " P: " . $pwcode;}
+         if(isset($emailcode) && $emailcode != "0"){ echo " E: " . $emailcode;}
+         if(isset($langcode) && $langcode != "0"){ echo " L: " . $langcode;}
+         if(isset($nscode) && $nscode != "0"){ echo " NS: " . $nscode;}
+         if(isset($namecode) && $namecode != "0"){ echo " N: " . $namecode;}
+         echo "', 'error')</script>";}
         }
         ?>
 
@@ -198,7 +197,7 @@ foreach ($plugins as $result) {
                             </a> 
                         </li>
                         <?php if($initialusername == "admin"){ echo 
-    '<li class="devider"></li>
+                        '<li class="devider"></li>
                             <li> <a href="../#" class="waves-effect"><i class="mdi mdi-wrench fa-fw" data-icon="v"></i> <span class="hide-menu">' . _("Administration") . '<span class="fa arrow"></span> </span></a>
                                 <ul class="nav nav-second-level">
                                     <li> <a href="admin/list/users.php"><i class="ti-user fa-fw"></i><span class="hide-menu">' . _("Users") . '</span></a> </li>
@@ -253,8 +252,8 @@ foreach ($plugins as $result) {
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title"><?php echo _("My Account"); ?></h4> </div>
-
+                            <h4 class="page-title"><?php echo _("My Account"); ?></h4> 
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4 col-xs-12">
@@ -263,10 +262,10 @@ foreach ($plugins as $result) {
                                     <div class="overlay-box bg-theme">
                                         <div class="user-content"><br><br>
                                             <h4 class="text-white"><?php print_r($username); ?></h4>
-                                            <h5 class="text-white"><?php print_r($admindata['CONTACT']); ?></h5> </div>
+                                            <h5 class="text-white"><?php print_r($admindata['CONTACT']); ?></h5> 
+                                        </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                         <div class="col-md-8 col-xs-12">
@@ -301,20 +300,21 @@ foreach ($plugins as $result) {
                                             </div>
                                         </div>
                                         <hr>
-                                        <strong><?php echo _("Nameservers"); ?>:</strong><p class="m-t-30">
-                                        <ul class="dashed">
-                                            <?php 
-                                            $nsArray = explode(',', ($admindata['NS'])); 
+                                        <strong><?php echo _("Nameservers"); ?>:</strong>
+                                        <p class="m-t-30">
+                                            <ul class="dashed">
+                                        <?php 
+                                        $nsArray = explode(',', ($admindata['NS'])); 
 
-                                            foreach ($nsArray as &$value) {
-                                                $value = "<li>" . $value . "</li>";
-                                            }  
-                                            foreach($nsArray as $val) {
-                                                echo $val;
-                                            } 
+                                        foreach ($nsArray as &$value) {
+                                            $value = "<li>" . $value . "</li>";
+                                        }  
+                                        foreach($nsArray as $val) {
+                                            echo $val;
+                                        } 
                                             ?>
                                         </ul>
-                                        </p>
+                                    </p>
 
                                 </div>
                                 <div class="tab-pane <?php if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo "active"; } ?>" id="settings">
@@ -335,35 +335,36 @@ foreach ($plugins as $result) {
                                         <div class="form-group">
                                             <label for="username" class="col-md-12"><?php echo _("Username"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="text" disabled value="<?php print_r($username); ?>" class="form-control form-control-line" name="username" id="username"> </div>
+                                                <input type="text" disabled value="<?php print_r($username); ?>" class="form-control form-control-line" name="username" id="username"> 
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="password" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10)"> <?php echo _("Generate"); ?></a></label>
                                             <div class="col-md-12 input-group" style="padding-left: 15px;">
                                                 <input type="password" class="form-control form-control-line" autocomplete="new-password" name="password" id="password">                                    <span class="input-group-btn"> 
                                                 <button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler(this)" id="tg" type="button"><i class="ti-eye"></i></button> 
-                                                </span>  </div>
+                                                </span> 
+                                            </div>
                                         </div>
-
-
                                         <div class="form-group">
                                             <label class="col-sm-6 pull-left"><?php echo _("First Name"); ?></label><label class="col-sm-6 pull-right"><?php echo _("Last Name"); ?></label>
                                             <div class="col-sm-6 pull-left">
-                                                <input type="text" name="fname" value="<?php print_r($admindata['FNAME']); ?>" class="form-control form-control-line"> </div>
+                                                <input type="text" name="fname" value="<?php print_r($admindata['FNAME']); ?>" class="form-control form-control-line"> 
+                                            </div>
                                             <div class="col-sm-6 pull-right">
-                                                <input type="text" name="lname" value="<?php print_r($admindata['LNAME']); ?>" class="form-control form-control-line"> </div>
+                                                <input type="text" name="lname" value="<?php print_r($admindata['LNAME']); ?>" class="form-control form-control-line"> 
+                                            </div>
                                         </div>
-
                                         <div class="form-group">
                                             <label for="email" class="col-md-12"><?php echo _("Email"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="email" value="<?php print_r($admindata['CONTACT']); ?>" class="form-control form-control-line" name="email" id="email"> </div>
+                                                <input type="email" value="<?php print_r($admindata['CONTACT']); ?>" class="form-control form-control-line" name="email" id="email"> 
+                                            </div>
                                         </div>
                                         <div class="form-group" style="overflow: visible;">
                                             <label class="col-md-12"><?php echo _("Language"); ?></label>
                                             <div class="col-md-12">
                                                 <select class="form-control select2" name="language" id="select2">
-
                                                     <option value="ar"><?php print_r($countries['ar']); ?></option>
                                                     <option value="bs"><?php print_r($countries['bs']); ?></option>
                                                     <option value="cn"><?php print_r($countries['cn']); ?></option>
@@ -399,21 +400,13 @@ foreach ($plugins as $result) {
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("Default Nameservers"); ?></label>
                                             <div class="col-md-12">
-
                                                 <div><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[0]); ?>" class="form-control form-control-line" name="ns1" id="ns1x"><br></div>
-
                                                 <div><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[1]); ?>" class="form-control form-control-line" name="ns2" id="ns2x"><br><div id="ns2wrapper"><a style="cursor:pointer;" id="addmore" onclick="add1();"><?php echo _("Add One"); ?></a></div></div>
-
                                                 <div id="ns3" style="display:<?php if(explode(',', ($admindata['NS']))[2] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[2]); ?>" class="form-control form-control-line" name="ns3" id="ns3x"><br><div id="ns3wrapper"><a style="cursor:pointer;" id="addmore1" onclick="add2();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove1" onclick="rem2();"><?php echo _("Remove One"); ?></a></div></div>
-
                                                 <div id="ns4" style="display:<?php if(explode(',', ($admindata['NS']))[3] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[3]); ?>" class="form-control form-control-line" name="ns4" id="ns4x"><br><div id="ns4wrapper"><a style="cursor:pointer;" id="addmore2" onclick="add3();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove2" onclick="rem3();"><?php echo _("Remove One"); ?></a></div></div>
-
                                                 <div id="ns5" style="display:<?php if(explode(',', ($admindata['NS']))[4] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[4]); ?>" class="form-control form-control-line" name="ns5" id="ns5x"><br><div id="ns5wrapper"><a style="cursor:pointer;" id="addmore3" onclick="add4();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove3" onclick="rem4();"><?php echo _("Remove One"); ?></a></div></div>
-
                                                 <div id="ns6" style="display:<?php if(explode(',', ($admindata['NS']))[5] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[5]); ?>" class="form-control form-control-line" name="ns6" id="ns6x"><br><div id="ns6wrapper"><a style="cursor:pointer;" id="addmore4" onclick="add5();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove4" onclick="rem5();"><?php echo _("Remove One"); ?></a></div></div>
-
                                                 <div id="ns7" style="display:<?php if(explode(',', ($admindata['NS']))[6] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[6]); ?>" class="form-control form-control-line" name="ns7" id="ns7x"><br><div id="ns7wrapper"><a style="cursor:pointer;" id="addmore5" onclick="add6();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove5" onclick="rem6();"><?php echo _("Remove One"); ?></a></div></div>
-
                                                 <div id="ns8" style="display:<?php if(explode(',', ($admindata['NS']))[7] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[7]); ?>" class="form-control form-control-line" name="ns8" id="ns8x"><br><div id="ns8wrapper"><a style="cursor:pointer;" id="remove6" onclick="rem7();"><?php echo _("Remove One"); ?></a></div></div>
                                             </div>
                                         </div>
@@ -444,7 +437,7 @@ foreach ($plugins as $result) {
             </div>
             <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require 'includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
         </div>
-        </div>
+    </div>
     <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
     <script src="bootstrap/dist/js/bootstrap.min.js"></script>
@@ -510,8 +503,8 @@ foreach ($plugins as $result) {
 
         while($checkcount <= 7) {
             echo "if( document.getElementById('ns" . $check1count . "x').value != '') {
-            document.getElementById('ns" . $checkcount . "wrapper').style.display = 'none';
-}";
+                document.getElementById('ns" . $checkcount . "wrapper').style.display = 'none';
+            }";
 
             $checkcount++;
             $check1count++;
@@ -524,11 +517,11 @@ foreach ($plugins as $result) {
 
         while($addcount <= 6) {
             echo "function add" . $addcount ."() {
-if( document.getElementById('ns" . $add2count . "').style.display = 'none' ) {
-            document.getElementById('ns" . $add2count . "').style.display = 'block'; 
-            document.getElementById('ns" . $add1count . "wrapper').style.display = 'none';
-        } 
-}";
+                if( document.getElementById('ns" . $add2count . "').style.display = 'none' ) {
+                        document.getElementById('ns" . $add2count . "').style.display = 'block'; 
+                        document.getElementById('ns" . $add1count . "wrapper').style.display = 'none';
+                } 
+            }";
             $addcount++;
             $add1count++;
             $add2count++;
@@ -540,12 +533,12 @@ if( document.getElementById('ns" . $add2count . "').style.display = 'none' ) {
 
         while($remcount <= 7) {
             echo "function rem" . $remcount ."() {
-if( document.getElementById('ns" . $rem1count . "').style.display = 'block' ) {
-            document.getElementById('ns" . $rem1count . "').style.display = 'none'; 
-            document.getElementById('ns" . $remcount . "wrapper').style.display = 'block';
-            document.getElementById('ns" . $rem1count . "x').value = '';
-        } 
-}";
+                if( document.getElementById('ns" . $rem1count . "').style.display = 'block' ) {
+                    document.getElementById('ns" . $rem1count . "').style.display = 'none'; 
+                    document.getElementById('ns" . $remcount . "wrapper').style.display = 'block';
+                    document.getElementById('ns" . $rem1count . "x').value = '';
+                } 
+            }";
             $remcount++;
             $rem1count++;
         } 
@@ -561,16 +554,14 @@ if( document.getElementById('ns" . $rem1count . "').style.display = 'block' ) {
         ?>
     </script>
     <?php if(INTERAKT_APP_ID != ''){ echo '
-<script>
-  (function() {
-  var interakt = document.createElement("script");
-  interakt.type = "text/javascript"; interakt.async = true;
-  interakt.src = "//cdn.interakt.co/interakt/' . INTERAKT_APP_ID . '.js";
-  var scrpt = document.getElementsByTagName("script")[0];
-  scrpt.parentNode.insertBefore(interakt, scrpt);
-  })()
-</script>'; } ?>
-
+    <script>
+      (function() {
+      var interakt = document.createElement("script");
+      interakt.type = "text/javascript"; interakt.async = true;
+      interakt.src = "//cdn.interakt.co/interakt/' . INTERAKT_APP_ID . '.js";
+      var scrpt = document.getElementsByTagName("script")[0];
+      scrpt.parentNode.insertBefore(interakt, scrpt);
+      })()
+    </script>'; } ?>
     </body>
-
 </html>

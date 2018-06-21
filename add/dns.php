@@ -43,7 +43,6 @@ foreach ($plugins as $result) {
                 array_push($pluginsections,$arr['section']);
                 array_push($pluginadminonly,$arr['admin-only']);
             }
-
         }    
     }
 }
@@ -72,17 +71,14 @@ if (CLOUDFLARE_EMAIL == '' || CLOUDFLARE_API_KEY == ''){ $cfenabled = 'off'; }
         <link href="../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.min.css" />
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
-    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?> 
+        <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?> 
         <!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
     </head>
 
     <body class="fix-header">
-        <!-- ============================================================== -->
-        <!-- Preloader -->
-        <!-- ============================================================== -->
         <div class="preloader">
             <svg class="circular" viewBox="25 25 50 50">
                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
@@ -101,8 +97,6 @@ if (CLOUDFLARE_EMAIL == '' || CLOUDFLARE_API_KEY == ''){ $cfenabled = 'off'; }
                             <!--This is dark logo text--><img src="../plugins/images/admin-text.png" alt="home" class="hidden-xs dark-logo" /><!--This is light logo text--><img src="../plugins/images/admin-text-dark.png" alt="home" class="hidden-xs light-logo" />
                             </span> </a>
                     </div>
-                    <!-- /Logo -->
-                    <!-- Search input and Toggle icon -->
                     <ul class="nav navbar-top-links navbar-left">
                         <li><a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs"><i class="ti-close ti-menu"></i></a></li>      
                     </ul>
@@ -146,7 +140,7 @@ if (CLOUDFLARE_EMAIL == '' || CLOUDFLARE_API_KEY == ''){ $cfenabled = 'off'; }
                             </a> 
                         </li>
                         <?php if($initialusername == "admin"){ echo 
-    '<li class="devider"></li>
+                        '<li class="devider"></li>
                             <li> <a href="../#" class="waves-effect"><i class="mdi mdi-wrench fa-fw" data-icon="v"></i> <span class="hide-menu">' . _("Administration") . '<span class="fa arrow"></span> </span></a>
                                 <ul class="nav nav-second-level">
                                     <li> <a href="../admin/list/users.php"><i class="ti-user fa-fw"></i><span class="hide-menu">' . _("Users") . '</span></a> </li>
@@ -221,40 +215,40 @@ if (CLOUDFLARE_EMAIL == '' || CLOUDFLARE_API_KEY == ''){ $cfenabled = 'off'; }
                                     </div>
                                     <div id="cloudflare">
                                         <?php if ($cfenabled != "off") { echo ' 
-                                <div class="form-group">
-                                    <label class="col-md-12">' . _("Cloudflare Support") . '</label>
-                                    <div class="col-md-12">
-                                        <div class="checkbox checkbox-info">
-                                            <input id="checkbox4" type="checkbox" name="v_cf" onclick="checkDiv();">
-                                            <label for="checkbox4">' . _("Enabled") . '</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="cf-div" style="margin-left: 4%;">
                                     <div class="form-group">
-                                        <label class="col-md-12">' . _("Security Level") . '</label>
+                                        <label class="col-md-12">' . _("Cloudflare Support") . '</label>
                                         <div class="col-md-12">
-                                            <select class="form-control select3" name="v_cf_level" id="select3">
-                                                <option value="essentially_off">Essentially Off</option>
-                                                <option value="low">Low</option>
-                                                <option value="medium">Medium</option>
-                                                <option value="high">High</option>
-                                                <option value="Under Attack">I\'m Under Attack!</option>
-                                            </select>
+                                            <div class="checkbox checkbox-info">
+                                                <input id="checkbox4" type="checkbox" name="v_cf" onclick="checkDiv();">
+                                                <label for="checkbox4">' . _("Enabled") . '</label>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">' . _("SSL Setting") . '</label>
-                                        <div class="col-md-12">
-                                            <select class="form-control select4" name="v_cf_ssl" id="select4">
-                                                <option value="off" selected>Off</option>
-                                                <option value="flexible">Flexible</option>
-                                                <option value="full">Full</option>
-                                                <option value="strict">Full (Strict)</option>
-                                            </select>
+                                    <div id="cf-div" style="margin-left: 4%;">
+                                        <div class="form-group">
+                                            <label class="col-md-12">' . _("Security Level") . '</label>
+                                            <div class="col-md-12">
+                                                <select class="form-control select3" name="v_cf_level" id="select3">
+                                                    <option value="essentially_off">Essentially Off</option>
+                                                    <option value="low">Low</option>
+                                                    <option value="medium">Medium</option>
+                                                    <option value="high">High</option>
+                                                    <option value="Under Attack">I\'m Under Attack!</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>'; } ?>
+                                        <div class="form-group">
+                                            <label class="col-md-12">' . _("SSL Setting") . '</label>
+                                            <div class="col-md-12">
+                                                <select class="form-control select4" name="v_cf_ssl" id="select4">
+                                                    <option value="off" selected>Off</option>
+                                                    <option value="flexible">Flexible</option>
+                                                    <option value="full">Full</option>
+                                                    <option value="strict">Full (Strict)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>'; } ?>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12"><a style="cursor: pointer;" onclick="toggle_visibility('togglediv');"><?php echo _("Advanced Options"); ?></a></label>
@@ -362,24 +356,24 @@ if (CLOUDFLARE_EMAIL == '' || CLOUDFLARE_API_KEY == ''){ $cfenabled = 'off'; }
 
             <?php if ($cfenabled != "off") { echo '
 
-        if(document.getElementById("checkbox4").checked) {
-                document.getElementById("cf-div").style.display = "block";
-            }
-        else { document.getElementById("cf-div").style.display = "none"; }
-        function checkDiv(){
             if(document.getElementById("checkbox4").checked) {
-                document.getElementById("cf-div").style.display = "block";
-            }
+                    document.getElementById("cf-div").style.display = "block";
+                }
             else { document.getElementById("cf-div").style.display = "none"; }
-        }'; } 
+            function checkDiv(){
+                if(document.getElementById("checkbox4").checked) {
+                    document.getElementById("cf-div").style.display = "block";
+                }
+                else { document.getElementById("cf-div").style.display = "none"; }
+            }'; } 
 
             $checkcount = 2;
             $check1count = 3;
 
             while($checkcount <= 7) {
                 echo "if( document.getElementById('ns" . $check1count . "x').value != '') {
-            document.getElementById('ns" . $checkcount . "wrapper').style.display = 'none';
-}";
+                    document.getElementById('ns" . $checkcount . "wrapper').style.display = 'none';
+                }";
 
                 $checkcount++;
                 $check1count++;
@@ -392,11 +386,11 @@ if (CLOUDFLARE_EMAIL == '' || CLOUDFLARE_API_KEY == ''){ $cfenabled = 'off'; }
 
             while($addcount <= 6) {
                 echo "function add" . $addcount ."() {
-if( document.getElementById('ns" . $add2count . "').style.display = 'none' ) {
-            document.getElementById('ns" . $add2count . "').style.display = 'block'; 
-            document.getElementById('ns" . $add1count . "wrapper').style.display = 'none';
-        } 
-}";
+                    if( document.getElementById('ns" . $add2count . "').style.display = 'none' ) {
+                        document.getElementById('ns" . $add2count . "').style.display = 'block'; 
+                        document.getElementById('ns" . $add1count . "wrapper').style.display = 'none';
+                    } 
+                }";
                 $addcount++;
                 $add1count++;
                 $add2count++;
@@ -408,12 +402,12 @@ if( document.getElementById('ns" . $add2count . "').style.display = 'none' ) {
 
             while($remcount <= 7) {
                 echo "function rem" . $remcount ."() {
-if( document.getElementById('ns" . $rem1count . "').style.display = 'block' ) {
-            document.getElementById('ns" . $rem1count . "').style.display = 'none'; 
-            document.getElementById('ns" . $remcount . "wrapper').style.display = 'block';
-            document.getElementById('ns" . $rem1count . "x').value = '';
-        } 
-}";
+                    if( document.getElementById('ns" . $rem1count . "').style.display = 'block' ) {
+                        document.getElementById('ns" . $rem1count . "').style.display = 'none'; 
+                        document.getElementById('ns" . $remcount . "wrapper').style.display = 'block';
+                        document.getElementById('ns" . $rem1count . "x').value = '';
+                    } 
+                }";
                 $remcount++;
                 $rem1count++;
             } 
@@ -451,5 +445,4 @@ if( document.getElementById('ns" . $rem1count . "').style.display = 'block' ) {
             ?>
         </script>
     </body>
-
 </html>

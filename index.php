@@ -74,7 +74,6 @@ foreach ($plugins as $result) {
                 array_push($pluginsections,$arr['section']);
                 array_push($pluginadminonly,$arr['admin-only']);
             }
-
         }    
     }
 }
@@ -101,20 +100,19 @@ foreach ($plugins as $result) {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.css" />
         <link href="css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
         <?php if(GOOGLE_ANALYTICS_ID != ''){ 
-            echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
-            <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?>
-
-            <!--[if lt IE 9]>
+        echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
+        <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?>
+        <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-            <![endif]-->
+        <![endif]-->
     </head>
 
     <body class="fix-header">
         <?php if(INTERAKT_APP_ID != ''){ 
             echo '<script>
             window.mySettings = {
-            first_name: "' . $admindata['FNAME'] . '",
+            first   _name: "' . $admindata['FNAME'] . '",
             last_name: "' . $admindata['LNAME'] . '",
             suspended: "' . $admindata['SUSPENDED'] . '",
             package: "' . $admindata['PACKAGE'] . '",
@@ -201,7 +199,7 @@ foreach ($plugins as $result) {
                             </a> 
                         </li>
                         <?php if($initialusername == "admin"){ echo 
-    '<li class="devider"></li>
+                        '<li class="devider"></li>
                             <li> <a href="../#" class="waves-effect"><i class="mdi mdi-wrench fa-fw" data-icon="v"></i> <span class="hide-menu">' . _("Administration") . '<span class="fa arrow"></span> </span></a>
                                 <ul class="nav nav-second-level">
                                     <li> <a href="admin/list/users.php"><i class="ti-user fa-fw"></i><span class="hide-menu">' . _("Users") . '</span></a> </li>
@@ -316,633 +314,630 @@ foreach ($plugins as $result) {
                                                     <?php if(empty($admindata['U_DISK'])){echo "mb";} else{ if($admindata['U_DISK'] < 1024) { echo 'mb'; } else { echo 'gb'; }} ?>
                                                 </h6>
                                             </center>
-                                        </center>
+                                        </li>
+                                        <br><br>
+                                        <li class="col-middle">
+                                            <h4 style="width:200%"><?php echo _("Disk Space"); ?></h4>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-3 col-sm-6 row-in-br">
+                                    <ul class="col-in">
+                                        <li>
+                                            <span class="circle circle-md bg-success"><i class=" ti-world"></i></span>
+                                        </li>
+                                        <li class="col-last">
+                                            <h3 style="font-size:36px;" class="text-right m-t-15">
+                                                <?php print_r($admindata['U_WEB_DOMAINS']); ?> /
+                                                <?php if($admindata['WEB_DOMAINS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['WEB_DOMAINS']); } ?>
+                                            </h3>
+                                        </li><br><br>
+                                        <li class="col-middle">
+                                            <h4 style="width:200%"><?php echo _("Web Domains"); ?></h4>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-3 col-sm-6  b-0">
+                                    <ul class="col-in">
+                                        <li>
+                                            <span class="circle circle-md bg-warning"><i class="fa fa-envelope"></i></span>
+                                        </li>
+                                        <li class="col-last">
+                                            <h3 style="font-size:36px;" class="text-right m-t-15">
+                                                <?php print_r($admindata['U_MAIL_ACCOUNTS']); ?> /
+                                                <?php if($admindata['MAIL_ACCOUNTS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['MAIL_ACCOUNTS'] * $admindata['MAIL_DOMAINS']); } ?>
+                                            </h3>
+                                        </li><br><br>
+                                        <li class="col-middle">
+                                            <h4 style="width:200%"><?php echo _("Email Addresses"); ?></h4>
+
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="row">
+                        <div class="col-md-8 col-lg-9">
+                            <div class="manage-users">
+                                <div class="sttabs tabs-style-iconbox">
+                                    <nav>
+                                        <ul>
+                                            <?php if ($webenabled == 'true') { echo '<li><a href="#section-iconbox-1" class="sticon ti-world"><span>' . _("Web") . '</span></a></li>'; } ?>
+                                            <?php if ($dnsenabled == 'true') { echo '<li><a href="#section-iconbox-2" class="sticon fa fa-sitemap"><span>' . _("DNS") . '</span></a></li>'; } ?>
+                                            <?php if ($mailenabled == 'true') { echo '<li><a href="#section-iconbox-3" class="sticon fa fa-envelope"><span>' . _("Mail") . '</span></a></li>'; } ?>
+                                            <?php if ($dbenabled == 'true') { echo '<li><a href="#section-iconbox-4" class="sticon fa fa-database"><span>' . _("Database") . '</span></a></li>'; } ?>
+                                        </ul>
+                                    </nav>
+                                    <div class="content-wrap">
+                                        <?php if ($webenabled != 'true') { echo '<!--';} ?>
+                                        <section id="section-iconbox-1">
+                                            <div class="p-20 row">
+                                                <div class="col-sm-6">
+                                                    <h3 class="m-t-0"><?php echo _("Manage Web Domains"); ?></h3>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <ul class="side-icon-text pull-right">
+                                                        <li><a href="add/domain.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Domain"); ?></span></a></li>
+                                                        <li><a href="list/web.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span><?php echo _("Manage"); ?></span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="table-responsive manage-table">
+                                                <table class="table footable m-b-0" data-paging-size="5" data-paging="true" cellspacing="14"  data-page-size="5"  data-sorting="true">
+                                                    <thead>
+                                                        <tr>
+                                                            <th data-toggle="true"><?php echo _("DOMAIN"); ?></th>
+                                                            <th data-type="numeric"><?php echo _("DISK"); ?></th>
+                                                            <th data-type="numeric"><?php echo _("BANDWIDTH"); ?></th>
+                                                            <th><?php echo _("SSL"); ?></th>
+                                                            <th><?php echo _("STATUS"); ?></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody><?php
+                                                        if($domainname[0] != '') {
+                                                            $x1 = 0; 
+
+                                                            do {
+                                                                echo '<tr class="advance-table-row clickable-row" data-href="edit/domain.php?domain='.$domainname[$x1].'">
+                                                                        <td>' . $domainname[$x1] . '</td>
+                                                                        <td data-sort-value="' . $domaindata[$x1]['U_DISK'] . '">' . $domaindata[$x1]['U_DISK'] . ' mb</td>
+                                                                        <td data-sort-value="' . $domaindata[$x1]['U_BANDWIDTH'] . '">' . $domaindata[$x1]['U_BANDWIDTH'] . ' mb</td>
+                                                                        <td>';                                                                   
+                                                                if($domaindata[$x1]['SSL'] == "yes"){ 
+                                                                    echo '<span class="label label-table label-success">' . _("Enabled") . '</span>';} 
+                                                                else{ 
+                                                                    echo '<span class="label label-table label-danger">' . _("Disabled") . '</span>';} 
+                                                                echo '</td><td>';                                                                   
+                                                                if($domaindata[$x1]['SUSPENDED'] == "no"){ 
+                                                                    echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
+                                                                else{ 
+                                                                    echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
+                                                                echo '</td>
+                                                                    </tr>';
+                                                                $x1++;
+                                                            } while (isset($domainname[$x1])); }
+
+                                                        ?></tbody>
+                                                </table>
+                                            </div>
+
+                                        </section><?php if ($webenabled != 'true') { echo '-->';} ?>
+                                        <?php if ($dnsenabled != 'true') { echo '<!--';} ?>
+                                        <section id="section-iconbox-2">
+                                            <div class="p-20 row">
+                                                <div class="col-sm-6">
+                                                    <h3 class="m-t-0"><?php echo _("Manage DNS Domains"); ?></h3>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <ul class="side-icon-text pull-right">
+                                                        <li><a href="add/dns.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add DNS"); ?></span></a></li>
+                                                        <li><a href="list/dns.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span><?php echo _("Manage"); ?></span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="table-responsive manage-table">
+                                                <table class="table footable m-b-0" data-paging-size="5" data-paging="true" cellspacing="14"  data-page-size="5"  data-sorting="true">
+                                                    <thead>
+                                                        <tr>
+                                                            <th data-toggle="true"><?php echo _("DOMAIN"); ?></th>
+                                                            <th data-type="numeric"><?php echo _("RECORDS"); ?></th>
+                                                            <th><?php echo _("STATUS"); ?></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody><?php
+                                                        if($dnsname[0] != '') {
+                                                            $x2 = 0; 
+
+                                                            do {
+                                                                if(count(explode('.', $requestdns)) > 2) { 
+                                                                    $sub = 'yes';
+                                                                } else{ 
+                                                                    $sub = 'no'; 
+                                                                } 
+                                                                if ($sub == "no") {
+                                                                    if (CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != ''){
+                                                                        $cfenabled = curl_init();
+
+                                                                        curl_setopt($cfenabled, CURLOPT_URL, "https://api.cloudflare.com/client/v4/zones?name=" . $dnsname[$x2]);
+                                                                        curl_setopt($cfenabled, CURLOPT_RETURNTRANSFER,true);
+                                                                        curl_setopt($cfenabled, CURLOPT_SSL_VERIFYPEER, false);
+                                                                        curl_setopt($cfenabled, CURLOPT_SSL_VERIFYHOST, false);
+                                                                        curl_setopt($cfenabled, CURLOPT_CUSTOMREQUEST, "GET");
+                                                                        curl_setopt($cfenabled, CURLOPT_HTTPHEADER, array(
+                                                                            "X-Auth-Email: " . CLOUDFLARE_EMAIL,
+                                                                            "X-Auth-Key: " . CLOUDFLARE_API_KEY));
+
+                                                                        $cfdata = array_values(json_decode(curl_exec($cfenabled), true));
+                                                                        $cfid = $cfdata[0][0]['id'];
+                                                                        $cfname = $cfdata[0][0]['name'];
+                                                                        if ($cfname != '' && isset($cfname) && $cfname == $dnsname[$x2]){
+
+                                                                            $cfns = curl_init();
+                                                                            curl_setopt($cfns, CURLOPT_URL, $vst_url);
+                                                                            curl_setopt($cfns, CURLOPT_RETURNTRANSFER,true);
+                                                                            curl_setopt($cfns, CURLOPT_SSL_VERIFYPEER, false);
+                                                                            curl_setopt($cfns, CURLOPT_SSL_VERIFYHOST, false);
+                                                                            curl_setopt($cfns, CURLOPT_POST, true);
+                                                                            curl_setopt($cfns, CURLOPT_POSTFIELDS, http_build_query(array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-dns-records','arg1' => $username,'arg2' => $dnsname[$x2], 'arg3' => 'json')));
+
+                                                                            $cfdata = array_values(json_decode(curl_exec($cfns), true));
+
+                                                                            $cfnumber = array_keys(json_decode(curl_exec($cfns), true));
+                                                                            $requestArr = array_column(json_decode(curl_exec($cfns), true), 'TYPE');
+                                                                            $requestrecord = array_search('NS', $requestArr);
+
+                                                                            $nsvalue = $cfdata[$requestrecord]['VALUE'];
+                                                                            if( strpos( $nsvalue, '.ns.cloudflare.com' ) !== false ) {
+                                                                                $cfrecords = curl_init();
+
+                                                                                curl_setopt($cfrecords, CURLOPT_URL, "https://api.cloudflare.com/client/v4/zones/" . $cfid . "/dns_records");
+                                                                                curl_setopt($cfrecords, CURLOPT_RETURNTRANSFER,true);
+                                                                                curl_setopt($cfrecords, CURLOPT_SSL_VERIFYPEER, false);
+                                                                                curl_setopt($cfrecords, CURLOPT_SSL_VERIFYHOST, false);
+                                                                                curl_setopt($cfrecords, CURLOPT_CUSTOMREQUEST, "GET");
+                                                                                curl_setopt($cfrecords, CURLOPT_HTTPHEADER, array(
+                                                                                    "X-Auth-Email: " . CLOUDFLARE_EMAIL,
+                                                                                    "X-Auth-Key: " . CLOUDFLARE_API_KEY));
+
+                                                                                $cfdata2 = array_values(json_decode(curl_exec($cfrecords), true));
+                                                                                $cfcount = $cfdata2[1]['count'];
+
+                                                                                echo '<tr class="advance-table-row clickable-row" data-href="list/cfdomain.php?domain='.$dnsname[$x2].'">
+                                                                                        <td>' . $dnsname[$x2] . '</td><td data-sort-value="' . $cfcount . '">' . $cfcount . '</td>';
+                                                                                $recordcount = $recordcount + $cfcount;
+                                                                            }
+                                                                            else { echo '<tr class="advance-table-row clickable-row" data-href="list/dnsdomain.php?domain='.$dnsname[$x2].'">
+                                                                                        <td>' . $dnsname[$x2] . '</td><td data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>'; 
+                                                                                  $recordcount = $recordcount + $dnsdata[$x2]['RECORDS'];}
+                                                                        }
+                                                                        else { echo '<tr class="advance-table-row clickable-row" data-href="list/dnsdomain.php?domain='.$dnsname[$x2].'">
+                                                                                        <td>' . $dnsname[$x2] . '</td><td data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>'; 
+                                                                              $recordcount = $recordcount + $dnsdata[$x2]['RECORDS'];}
+                                                                    }
+                                                                    else { echo '<tr class="advance-table-row clickable-row" data-href="list/dnsdomain.php?domain='.$dnsname[$x2].'">
+                                                                                        <td>' . $dnsname[$x2] . '</td><td data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>'; 
+                                                                          $recordcount = $recordcount + $dnsdata[$x2]['RECORDS'];}
+                                                                }
+                                                                else { echo '<tr class="advance-table-row clickable-row" data-href="list/dnsdomain.php?domain='.$dnsname[$x2].'">
+                                                                                        <td>' . $dnsname[$x2] . '</td><td data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>'; 
+                                                                      $recordcount = $recordcount + $dnsdata[$x2]['RECORDS']; }
+                                                                echo '<td>';                                                                   
+                                                                if($dnsdata[$x2]['SUSPENDED'] == "no"){ 
+                                                                    echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
+                                                                else{ 
+                                                                    echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
+                                                                echo '</td>
+                                                                                    </tr>';
+                                                                $x2++;
+                                                            } while (isset($dnsname[$x2])); }
+
+                                                        ?></tbody>
+                                                </table>
+                                            </div>
+                                        </section><?php if ($dnsenabled != 'true') { echo '-->';} ?>
+                                        <?php if ($mailenabled != 'true') { echo '<!--';} ?>
+                                        <section id="section-iconbox-3">
+                                            <div class="p-20 row">
+                                                <div class="col-sm-6">
+                                                    <h3 class="m-t-0"><?php echo _("Manage Mail Domains"); ?></h3>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <ul class="side-icon-text pull-right">
+                                                        <li><a href="add/mail.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Mail"); ?></span></a></li>
+                                                        <li><a href="list/mail.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span><?php echo _("Manage"); ?></span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="table-responsive manage-table">
+                                                <table class="table footable m-b-0" data-paging-size="5" data-paging="true" cellspacing="14"  data-page-size="5"  data-sorting="true">
+                                                    <thead>
+                                                        <tr>
+                                                            <th data-toggle="true"><?php echo _("DOMAIN"); ?></th>
+                                                            <th data-type="numeric"><?php echo _("ACCOUNTS"); ?></th>
+                                                            <th><?php echo _("STATUS"); ?></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody><?php
+                                                        if($mailname[0] != '') {
+                                                            $x3 = 0; 
+
+                                                            do {
+                                                                echo '<tr class="advance-table-row clickable-row" data-href="list/maildomain.php?domain='.$mailname[$x3].'">
+                                                                    <td>' . $mailname[$x3] . '</td>
+                                                                    <td data-sort-value="' . $maildata[$x3]['ACCOUNTS'] . '">' . $maildata[$x3]['ACCOUNTS'] . '</td>
+                                                                    <td>';                                                                   
+                                                                    if($maildata[$x3]['SUSPENDED'] == "no"){ 
+                                                                        echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
+                                                                    else{ 
+                                                                        echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
+                                                                    echo '</td>
+                                                                </tr>';
+                                                                $x3++;
+                                                            } while (isset($mailname[$x3])); }
+
+                                                        ?></tbody>
+                                                </table>
+                                            </div>
+                                        </section><?php if ($mailenabled != 'true') { echo '-->';} ?>
+                                        <?php if ($dbenabled != 'true') { echo '<!--';} ?>
+                                        <section id="section-iconbox-4">
+                                            <div class="p-20 row">
+                                                <div class="col-sm-6">
+                                                    <h3 class="m-t-0"><?php echo _("Manage Databases"); ?></h3>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <ul class="side-icon-text pull-right">
+                                                        <li><a href="add/db.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Database"); ?></span></a></li>
+                                                        <li><a href="list/db.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span><?php echo _("Manage"); ?></span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="table-responsive manage-table">
+                                                <table class="table footable m-b-0" data-paging-size="5" data-paging="true" cellspacing="14"  data-page-size="5"  data-sorting="true">
+                                                    <thead>
+                                                        <tr>
+                                                            <th data-toggle="true"><?php echo _("DATABASE"); ?></th>
+                                                            <th><?php echo _("USER"); ?></th>
+                                                            <th><?php echo _("STATUS"); ?></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody><?php
+                                                        if($dbname[0] != '') {
+                                                            $x4 = 0; 
+
+                                                            do {
+                                                                echo '<tr class="advance-table-row clickable-row" data-href="edit/db.php?db='.$dbdata[$x4]['DATABASE'].'">
+                                                                    <td>' . $dbdata[$x4]['DATABASE'] . '</td>
+                                                                    <td>' . $dbdata[$x4]['DBUSER'] . '</td>
+                                                                    <td>';                                                                   
+                                                                    if($dbdata[$x4]['SUSPENDED'] == "no"){ 
+                                                                        echo '<span class="label label-table label-success">Active</span>';} 
+                                                                    else{ 
+                                                                        echo '<span class="label label-table label-danger">Suspended</span>';} 
+                                                                    echo '</td>
+                                                                </tr>';
+                                                                $x4++;
+                                                            } while (isset($dbname[$x4])); }
+
+                                                        ?></tbody>
+                                                </table>
+                                            </div>
+                                        </section><?php if ($dbenabled != 'true') { echo '-->';} ?>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div> 
+                        <div <?php if ($webenabled != 'true' && $dnsenabled != 'true' && $mailenabled != 'true' && $dbenabled != 'true') {echo 'style="display:none;"';} ?> class="col-lg-3 col-md-6">
+                            <div class="white-box">
+                                <h3 class="box-title"><?php echo _("Disk Quota Used"); ?></h3>
+                                <ul class="country-state  p-t-20">
+
+                                    <li>
+                                        <h2>
+                                            <?php print_r($admindata['U_DISK']); ?> mb</h2> <small><?php echo _("Total Disk Space"); ?></small>
+                                        <div class="pull-right"><?php 
+                                            if ($admindata['DISK_QUOTA'] != 0) {
+                                                $diskpercent = (($admindata['U_DISK'] / $admindata['DISK_QUOTA']) * 100);
+                                            } else { $diskpercent = '0'; }
+                                            if(is_infinite($diskpercent)){ echo "0";}else{echo $diskpercent;} ?>%</div>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-inverse" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?php if($diskpercent == " INF "){ echo "0 ";}else{echo $diskpercent;} ?>%;"> <span class="sr-only"><?php if($diskpercent == "INF"){ echo "0";}else{echo $diskpercent;} ?>%;">% Complete</span></div>
+                                        </div>
                                     </li>
-                                </li><br><br>
-                            <li class="col-middle">
-                                <h4 style="width:200%"><?php echo _("Disk Space"); ?></h4>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 row-in-br">
-                        <ul class="col-in">
-                            <li>
-                                <span class="circle circle-md bg-success"><i class=" ti-world"></i></span>
-                            </li>
-                            <li class="col-last">
-                                <h3 style="font-size:36px;" class="text-right m-t-15">
-                                    <?php print_r($admindata['U_WEB_DOMAINS']); ?> /
-                                    <?php if($admindata['WEB_DOMAINS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['WEB_DOMAINS']); } ?>
-                                </h3>
-                            </li><br><br>
-                            <li class="col-middle">
-                                <h4 style="width:200%"><?php echo _("Web Domains"); ?></h4>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 col-sm-6  b-0">
-                        <ul class="col-in">
-                            <li>
-                                <span class="circle circle-md bg-warning"><i class="fa fa-envelope"></i></span>
-                            </li>
-                            <li class="col-last">
-                                <h3 style="font-size:36px;" class="text-right m-t-15">
-                                    <?php print_r($admindata['U_MAIL_ACCOUNTS']); ?> /
-                                    <?php if($admindata['MAIL_ACCOUNTS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['MAIL_ACCOUNTS'] * $admindata['MAIL_DOMAINS']); } ?>
-                                </h3>
-                            </li><br><br>
-                            <li class="col-middle">
-                                <h4 style="width:200%"><?php echo _("Email Addresses"); ?></h4>
-
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-
-    <div class="row">
-        <div class="col-md-8 col-lg-9">
-            <div class="manage-users">
-                <div class="sttabs tabs-style-iconbox">
-                    <nav>
-                        <ul>
-                            <?php if ($webenabled == 'true') { echo '<li><a href="#section-iconbox-1" class="sticon ti-world"><span>' . _("Web") . '</span></a></li>'; } ?>
-                            <?php if ($dnsenabled == 'true') { echo '<li><a href="#section-iconbox-2" class="sticon fa fa-sitemap"><span>' . _("DNS") . '</span></a></li>'; } ?>
-                            <?php if ($mailenabled == 'true') { echo '<li><a href="#section-iconbox-3" class="sticon fa fa-envelope"><span>' . _("Mail") . '</span></a></li>'; } ?>
-                            <?php if ($dbenabled == 'true') { echo '<li><a href="#section-iconbox-4" class="sticon fa fa-database"><span>' . _("Database") . '</span></a></li>'; } ?>
-                        </ul>
-                    </nav>
-                    <div class="content-wrap">
-                        <?php if ($webenabled != 'true') { echo '<!--';} ?>
-                        <section id="section-iconbox-1">
-                            <div class="p-20 row">
-                                <div class="col-sm-6">
-                                    <h3 class="m-t-0"><?php echo _("Manage Web Domains"); ?></h3>
-                                </div>
-                                <div class="col-sm-6">
-                                    <ul class="side-icon-text pull-right">
-                                        <li><a href="add/domain.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Domain"); ?></span></a></li>
-                                        <li><a href="list/web.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span><?php echo _("Manage"); ?></span></a></li>
-                                    </ul>
-                                </div>
+                                </ul><br><br>
+                                <h3 class="box-title"><?php echo _("Disk Usage Breakdown"); ?></h3>
+                                <ul class="country-state  p-t-20">
+                                    <li>
+                                        <h2>
+                                            <?php  
+                                                if ($admindata['U_DISK'] != 0) { $diskpercent1 = (($admindata['U_DISK_WEB'] / $admindata['U_DISK']) * 100); } 
+                                                else { $diskpercent1 = '0'; } 
+                                                echo $admindata['U_DISK_WEB']; 
+                                            ?> mb</h2> <small><?php echo _("Web Data"); ?></small>
+                                        <div class="pull-right">
+                                            <?php if($diskpercent1 == "INF"){ echo "0";}else{echo round($diskpercent1);} ?>%</div>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?php if($diskpercent1 == " INF "){ echo "0 ";}else{echo $diskpercent1;} ?>%;"> <span class="sr-only"><?php if($diskpercent1 == "INF"){ echo "0";}else{echo round($diskpercent1);} ?>% Complete</span></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <h2><?php 
+                                                if ($admindata['U_DISK'] != '0') { $diskpercent2 = (($admindata['U_DISK_MAIL'] / $admindata['U_DISK']) * 100); } 
+                                                else { $diskpercent2 = '0'; } 
+                                                echo $admindata['U_DISK_MAIL']; 
+                                            ?> mb</h2> <small><?php echo _("Mail Data"); ?></small>
+                                        <div class="pull-right">
+                                            <?php if($diskpercent2 == "INF"){ echo "0";}else{echo round($diskpercent2);} ?>%</div>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?php if($diskpercent2 == " INF "){ echo "0 ";}else{echo $diskpercent2;} ?>%;"> <span class="sr-only"><?php if($diskpercent2 == "INF"){ echo "0";}else{echo round($diskpercent2);} ?>% Complete</span></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <h2>
+                                            <?php 
+                                                if ($admindata['U_DISK'] != '0') { $diskpercent3 = (($admindata['U_DISK_DB'] / $admindata['U_DISK']) * 100); } 
+                                                else {  $diskpercent3 = '0'; } 
+                                                echo $admindata['U_DISK_DB']; 
+                                            ?> mb</h2> <small><?php echo _("Databases"); ?></small>
+                                        <div class="pull-right">
+                                            <?php if($diskpercent3 == "INF"){ echo "0";}else{echo round($diskpercent3);} ?>%</div>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?php if($diskpercent3 == " INF "){ echo "0 ";}else{echo $diskpercent3;} ?>%;"> <span class="sr-only"><?php if($diskpercent3 == "INF"){ echo "0";}else{echo round($diskpercent3);} ?>% Complete</span></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <h2>
+                                            <?php 
+                                                if ($admindata['U_DISK'] != '0') { $diskpercent4 = (($admindata['U_DISK_DIRS'] / $admindata['U_DISK']) * 100); } 
+                                                else { $diskpercent4 = '0'; } 
+                                                echo $admindata['U_DISK_DIRS']; 
+                                            ?> mb</h2> <small><?php echo _("User Directories"); ?></small>
+                                        <div class="pull-right">
+                                            <?php if($diskpercent4 == "INF"){ echo "0";}else{echo round($diskpercent4);} ?>%</div>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?php if($diskpercent4 == " INF "){ echo "0 ";}else{echo $diskpercent4;} ?>%;"> <span class="sr-only"><?php if($diskpercent4 == "INF"){ echo "0";}else{echo round($diskpercent4);} ?>% Complete</span></div>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
-                            <div class="table-responsive manage-table">
-                                <table class="table footable m-b-0" data-paging-size="5" data-paging="true" cellspacing="14"  data-page-size="5"  data-sorting="true">
-                                    <thead>
-                                        <tr>
-                                            <th data-toggle="true"><?php echo _("DOMAIN"); ?></th>
-                                            <th data-type="numeric"><?php echo _("DISK"); ?></th>
-                                            <th data-type="numeric"><?php echo _("BANDWIDTH"); ?></th>
-                                            <th><?php echo _("SSL"); ?></th>
-                                            <th><?php echo _("STATUS"); ?></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody><?php
-                                        if($domainname[0] != '') {
-                                            $x1 = 0; 
-
-                                            do {
-                                                echo '<tr class="advance-table-row clickable-row" data-href="edit/domain.php?domain='.$domainname[$x1].'">
-                                                        <td>' . $domainname[$x1] . '</td>
-                                                        <td data-sort-value="' . $domaindata[$x1]['U_DISK'] . '">' . $domaindata[$x1]['U_DISK'] . ' mb</td>
-                                                        <td data-sort-value="' . $domaindata[$x1]['U_BANDWIDTH'] . '">' . $domaindata[$x1]['U_BANDWIDTH'] . ' mb</td>
-                                                        <td>';                                                                   
-                                                if($domaindata[$x1]['SSL'] == "yes"){ 
-                                                    echo '<span class="label label-table label-success">' . _("Enabled") . '</span>';} 
-                                                else{ 
-                                                    echo '<span class="label label-table label-danger">' . _("Disabled") . '</span>';} 
-                                                echo '</td><td>';                                                                   
-                                                if($domaindata[$x1]['SUSPENDED'] == "no"){ 
-                                                    echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
-                                                else{ 
-                                                    echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
-                                                echo '</td>
-                                                    </tr>';
-                                                $x1++;
-                                            } while (isset($domainname[$x1])); }
-
-                                        ?></tbody>
-                                </table>
-                            </div>
-
-                        </section><?php if ($webenabled != 'true') { echo '-->';} ?>
-                        <?php if ($dnsenabled != 'true') { echo '<!--';} ?>
-                        <section id="section-iconbox-2">
-                            <div class="p-20 row">
-                                <div class="col-sm-6">
-                                    <h3 class="m-t-0"><?php echo _("Manage DNS Domains"); ?></h3>
-                                </div>
-                                <div class="col-sm-6">
-                                    <ul class="side-icon-text pull-right">
-                                        <li><a href="add/dns.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add DNS"); ?></span></a></li>
-                                        <li><a href="list/dns.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span><?php echo _("Manage"); ?></span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="table-responsive manage-table">
-                                <table class="table footable m-b-0" data-paging-size="5" data-paging="true" cellspacing="14"  data-page-size="5"  data-sorting="true">
-                                    <thead>
-                                        <tr>
-                                            <th data-toggle="true"><?php echo _("DOMAIN"); ?></th>
-                                            <th data-type="numeric"><?php echo _("RECORDS"); ?></th>
-                                            <th><?php echo _("STATUS"); ?></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody><?php
-                                        if($dnsname[0] != '') {
-                                            $x2 = 0; 
-
-                                            do {
-                                                if(count(explode('.', $requestdns)) > 2) { 
-                                                    $sub = 'yes';
-                                                } else{ 
-                                                    $sub = 'no'; 
-                                                } 
-                                                if ($sub == "no") {
-                                                    if (CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != ''){
-                                                        $cfenabled = curl_init();
-
-                                                        curl_setopt($cfenabled, CURLOPT_URL, "https://api.cloudflare.com/client/v4/zones?name=" . $dnsname[$x2]);
-                                                        curl_setopt($cfenabled, CURLOPT_RETURNTRANSFER,true);
-                                                        curl_setopt($cfenabled, CURLOPT_SSL_VERIFYPEER, false);
-                                                        curl_setopt($cfenabled, CURLOPT_SSL_VERIFYHOST, false);
-                                                        curl_setopt($cfenabled, CURLOPT_CUSTOMREQUEST, "GET");
-                                                        curl_setopt($cfenabled, CURLOPT_HTTPHEADER, array(
-                                                            "X-Auth-Email: " . CLOUDFLARE_EMAIL,
-                                                            "X-Auth-Key: " . CLOUDFLARE_API_KEY));
-
-                                                        $cfdata = array_values(json_decode(curl_exec($cfenabled), true));
-                                                        $cfid = $cfdata[0][0]['id'];
-                                                        $cfname = $cfdata[0][0]['name'];
-                                                        if ($cfname != '' && isset($cfname) && $cfname == $dnsname[$x2]){
-
-                                                            $cfns = curl_init();
-                                                            curl_setopt($cfns, CURLOPT_URL, $vst_url);
-                                                            curl_setopt($cfns, CURLOPT_RETURNTRANSFER,true);
-                                                            curl_setopt($cfns, CURLOPT_SSL_VERIFYPEER, false);
-                                                            curl_setopt($cfns, CURLOPT_SSL_VERIFYHOST, false);
-                                                            curl_setopt($cfns, CURLOPT_POST, true);
-                                                            curl_setopt($cfns, CURLOPT_POSTFIELDS, http_build_query(array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-dns-records','arg1' => $username,'arg2' => $dnsname[$x2], 'arg3' => 'json')));
-
-                                                            $cfdata = array_values(json_decode(curl_exec($cfns), true));
-
-                                                            $cfnumber = array_keys(json_decode(curl_exec($cfns), true));
-                                                            $requestArr = array_column(json_decode(curl_exec($cfns), true), 'TYPE');
-                                                            $requestrecord = array_search('NS', $requestArr);
-
-                                                            $nsvalue = $cfdata[$requestrecord]['VALUE'];
-                                                            if( strpos( $nsvalue, '.ns.cloudflare.com' ) !== false ) {
-                                                                $cfrecords = curl_init();
-
-                                                                curl_setopt($cfrecords, CURLOPT_URL, "https://api.cloudflare.com/client/v4/zones/" . $cfid . "/dns_records");
-                                                                curl_setopt($cfrecords, CURLOPT_RETURNTRANSFER,true);
-                                                                curl_setopt($cfrecords, CURLOPT_SSL_VERIFYPEER, false);
-                                                                curl_setopt($cfrecords, CURLOPT_SSL_VERIFYHOST, false);
-                                                                curl_setopt($cfrecords, CURLOPT_CUSTOMREQUEST, "GET");
-                                                                curl_setopt($cfrecords, CURLOPT_HTTPHEADER, array(
-                                                                    "X-Auth-Email: " . CLOUDFLARE_EMAIL,
-                                                                    "X-Auth-Key: " . CLOUDFLARE_API_KEY));
-
-                                                                $cfdata2 = array_values(json_decode(curl_exec($cfrecords), true));
-                                                                $cfcount = $cfdata2[1]['count'];
-
-                                                                echo '<tr class="advance-table-row clickable-row" data-href="list/cfdomain.php?domain='.$dnsname[$x2].'">
-                                                                        <td>' . $dnsname[$x2] . '</td><td data-sort-value="' . $cfcount . '">' . $cfcount . '</td>';
-                                                                $recordcount = $recordcount + $cfcount;
-                                                            }
-                                                            else { echo '<tr class="advance-table-row clickable-row" data-href="list/dnsdomain.php?domain='.$dnsname[$x2].'">
-                                                                        <td>' . $dnsname[$x2] . '</td><td data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>'; 
-                                                                  $recordcount = $recordcount + $dnsdata[$x2]['RECORDS'];}
-                                                        }
-                                                        else { echo '<tr class="advance-table-row clickable-row" data-href="list/dnsdomain.php?domain='.$dnsname[$x2].'">
-                                                                        <td>' . $dnsname[$x2] . '</td><td data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>'; 
-                                                              $recordcount = $recordcount + $dnsdata[$x2]['RECORDS'];}
-                                                    }
-                                                    else { echo '<tr class="advance-table-row clickable-row" data-href="list/dnsdomain.php?domain='.$dnsname[$x2].'">
-                                                                        <td>' . $dnsname[$x2] . '</td><td data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>'; 
-                                                          $recordcount = $recordcount + $dnsdata[$x2]['RECORDS'];}
-                                                }
-                                                else { echo '<tr class="advance-table-row clickable-row" data-href="list/dnsdomain.php?domain='.$dnsname[$x2].'">
-                                                                        <td>' . $dnsname[$x2] . '</td><td data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>'; 
-                                                      $recordcount = $recordcount + $dnsdata[$x2]['RECORDS']; }
-                                                echo '<td>';                                                                   
-                                                if($dnsdata[$x2]['SUSPENDED'] == "no"){ 
-                                                    echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
-                                                else{ 
-                                                    echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
-                                                echo '</td>
-                                                                    </tr>';
-                                                $x2++;
-                                            } while (isset($dnsname[$x2])); }
-
-                                        ?></tbody>
-                                </table>
-                            </div>
-                        </section><?php if ($dnsenabled != 'true') { echo '-->';} ?>
-                        <?php if ($mailenabled != 'true') { echo '<!--';} ?>
-                        <section id="section-iconbox-3">
-                            <div class="p-20 row">
-                                <div class="col-sm-6">
-                                    <h3 class="m-t-0"><?php echo _("Manage Mail Domains"); ?></h3>
-                                </div>
-                                <div class="col-sm-6">
-                                    <ul class="side-icon-text pull-right">
-                                        <li><a href="add/mail.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Mail"); ?></span></a></li>
-                                        <li><a href="list/mail.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span><?php echo _("Manage"); ?></span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="table-responsive manage-table">
-                                <table class="table footable m-b-0" data-paging-size="5" data-paging="true" cellspacing="14"  data-page-size="5"  data-sorting="true">
-                                    <thead>
-                                        <tr>
-                                            <th data-toggle="true"><?php echo _("DOMAIN"); ?></th>
-                                            <th data-type="numeric"><?php echo _("ACCOUNTS"); ?></th>
-                                            <th><?php echo _("STATUS"); ?></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody><?php
-                                        if($mailname[0] != '') {
-                                            $x3 = 0; 
-
-                                            do {
-                                                echo '<tr class="advance-table-row clickable-row" data-href="list/maildomain.php?domain='.$mailname[$x3].'">
-                                                                        <td>' . $mailname[$x3] . '</td>
-                                                                        <td data-sort-value="' . $maildata[$x3]['ACCOUNTS'] . '">' . $maildata[$x3]['ACCOUNTS'] . '</td>
-                                                                        <td>';                                                                   
-                                                if($maildata[$x3]['SUSPENDED'] == "no"){ 
-                                                    echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
-                                                else{ 
-                                                    echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
-                                                echo '</td>
-                                                                    </tr>';
-                                                $x3++;
-                                            } while (isset($mailname[$x3])); }
-
-                                        ?></tbody>
-                                </table>
-                            </div>
-                        </section><?php if ($mailenabled != 'true') { echo '-->';} ?>
-                        <?php if ($dbenabled != 'true') { echo '<!--';} ?>
-                        <section id="section-iconbox-4">
-                            <div class="p-20 row">
-                                <div class="col-sm-6">
-                                    <h3 class="m-t-0"><?php echo _("Manage Databases"); ?></h3>
-                                </div>
-                                <div class="col-sm-6">
-                                    <ul class="side-icon-text pull-right">
-                                        <li><a href="add/db.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Database"); ?></span></a></li>
-                                        <li><a href="list/db.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span><?php echo _("Manage"); ?></span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="table-responsive manage-table">
-                                <table class="table footable m-b-0" data-paging-size="5" data-paging="true" cellspacing="14"  data-page-size="5"  data-sorting="true">
-                                    <thead>
-                                        <tr>
-                                            <th data-toggle="true"><?php echo _("DATABASE"); ?></th>
-                                            <th><?php echo _("USER"); ?></th>
-                                            <th><?php echo _("STATUS"); ?></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody><?php
-                                        if($dbname[0] != '') {
-                                            $x4 = 0; 
-
-                                            do {
-                                                echo '<tr class="advance-table-row clickable-row" data-href="edit/db.php?db='.$dbdata[$x4]['DATABASE'].'">
-                                                                        <td>' . $dbdata[$x4]['DATABASE'] . '</td>
-                                                                        <td>' . $dbdata[$x4]['DBUSER'] . '</td>
-                                                                        <td>';                                                                   
-                                                if($dbdata[$x4]['SUSPENDED'] == "no"){ 
-                                                    echo '<span class="label label-table label-success">Active</span>';} 
-                                                else{ 
-                                                    echo '<span class="label label-table label-danger">Suspended</span>';} 
-                                                echo '</td>
-                                                                    </tr>';
-                                                $x4++;
-                                            } while (isset($dbname[$x4])); }
-
-                                        ?></tbody>
-                                </table>
-                            </div>
-                        </section><?php if ($dbenabled != 'true') { echo '-->';} ?>
-                    </div>
-                </div>
-            </div> 
-        </div> 
-        <div <?php if ($webenabled != 'true' && $dnsenabled != 'true' && $mailenabled != 'true' && $dbenabled != 'true') {echo 'style="display:none;"';} ?> class="col-lg-3 col-md-6">
-            <div class="white-box">
-                <h3 class="box-title"><?php echo _("Disk Quota Used"); ?></h3>
-                <ul class="country-state  p-t-20">
-
-                    <li>
-                        <h2>
-                            <?php print_r($admindata['U_DISK']); ?> mb</h2> <small><?php echo _("Total Disk Space"); ?></small>
-                        <div class="pull-right"><?php 
-                            if ($admindata['DISK_QUOTA'] != 0) {
-                                $diskpercent = (($admindata['U_DISK'] / $admindata['DISK_QUOTA']) * 100);
-                            } else { $diskpercent = '0'; }
-                            if(is_infinite($diskpercent)){ echo "0";}else{echo $diskpercent;} ?>%</div>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-inverse" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?php if($diskpercent == " INF "){ echo "0 ";}else{echo $diskpercent;} ?>%;"> <span class="sr-only"><?php if($diskpercent == "INF"){ echo "0";}else{echo $diskpercent;} ?>%;">% Complete</span></div>
                         </div>
-                    </li>
-                </ul><br><br>
-                <h3 class="box-title"><?php echo _("Disk Usage Breakdown"); ?></h3>
-                <ul class="country-state  p-t-20">
-                    <li>
-                        <h2>
-                            <?php  
-                                if ($admindata['U_DISK'] != 0) { $diskpercent1 = (($admindata['U_DISK_WEB'] / $admindata['U_DISK']) * 100); } 
-                                else { $diskpercent1 = '0'; } 
-                                echo $admindata['U_DISK_WEB']; 
-                            ?> mb</h2> <small><?php echo _("Web Data"); ?></small>
-                        <div class="pull-right">
-                            <?php if($diskpercent1 == "INF"){ echo "0";}else{echo round($diskpercent1);} ?>%</div>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?php if($diskpercent1 == " INF "){ echo "0 ";}else{echo $diskpercent1;} ?>%;"> <span class="sr-only"><?php if($diskpercent1 == "INF"){ echo "0";}else{echo round($diskpercent1);} ?>% Complete</span></div>
-                        </div>
-                    </li>
-                    <li>
-                        <h2><?php 
-                                if ($admindata['U_DISK'] != '0') { $diskpercent2 = (($admindata['U_DISK_MAIL'] / $admindata['U_DISK']) * 100); } 
-                                else { $diskpercent2 = '0'; } 
-                                echo $admindata['U_DISK_MAIL']; 
-                            ?> mb</h2> <small><?php echo _("Mail Data"); ?></small>
-                        <div class="pull-right">
-                            <?php if($diskpercent2 == "INF"){ echo "0";}else{echo round($diskpercent2);} ?>%</div>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?php if($diskpercent2 == " INF "){ echo "0 ";}else{echo $diskpercent2;} ?>%;"> <span class="sr-only"><?php if($diskpercent2 == "INF"){ echo "0";}else{echo round($diskpercent2);} ?>% Complete</span></div>
-                        </div>
-                    </li>
-                    <li>
-                        <h2>
-                            <?php 
-                                if ($admindata['U_DISK'] != '0') { $diskpercent3 = (($admindata['U_DISK_DB'] / $admindata['U_DISK']) * 100); } 
-                                else {  $diskpercent3 = '0'; } 
-                                echo $admindata['U_DISK_DB']; 
-                            ?> mb</h2> <small><?php echo _("Databases"); ?></small>
-                        <div class="pull-right">
-                            <?php if($diskpercent3 == "INF"){ echo "0";}else{echo round($diskpercent3);} ?>%</div>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?php if($diskpercent3 == " INF "){ echo "0 ";}else{echo $diskpercent3;} ?>%;"> <span class="sr-only"><?php if($diskpercent3 == "INF"){ echo "0";}else{echo round($diskpercent3);} ?>% Complete</span></div>
-                        </div>
-                    </li>
-                    <li>
-                        <h2>
-                            <?php 
-                                if ($admindata['U_DISK'] != '0') { $diskpercent4 = (($admindata['U_DISK_DIRS'] / $admindata['U_DISK']) * 100); } 
-                                else { $diskpercent4 = '0'; } 
-                                echo $admindata['U_DISK_DIRS']; 
-                            ?> mb</h2> <small><?php echo _("User Directories"); ?></small>
-                        <div class="pull-right">
-                            <?php if($diskpercent4 == "INF"){ echo "0";}else{echo round($diskpercent4);} ?>%</div>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?php if($diskpercent4 == " INF "){ echo "0 ";}else{echo $diskpercent4;} ?>%;"> <span class="sr-only"><?php if($diskpercent4 == "INF"){ echo "0";}else{echo round($diskpercent4);} ?>% Complete</span></div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6 col-sm-12 col-xs-12">
-                <div class="row">
-                    <div class="col-lg-6 col-sm-6 col-xs-12">
-                        <div class="white-box" style="margin:14px;">
-                            <h3 class="box-title"><?php echo _("DNS Domains"); ?></h3>
-                            <ul class="list-inline two-part">
-                                <li><i class="fa fa-list-alt text-danger"></i></li>
-                                <li class="text-right">
-                                    <h1>
-                                        <?php echo $admindata['U_DNS_DOMAINS']; ?> /
-                                        <?php if($admindata['DNS_DOMAINS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['DNS_DOMAINS']); } ?>
-                                    </h1>
-                                </li><br><br>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-sm-6 col-xs-12">
-                        <div class="white-box" style="margin:14px;">
-                            <h3 class="box-title"><?php echo _("DNS Records"); ?></h3>
-                            <ul class="list-inline two-part">
-                                <li><i class="fa fa-sitemap text-danger"></i></li>
-                                <li class="text-right">
-                                    <h1 id="recordcount">
-                                    </h1>
-                                </li><br><br>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-sm-6 col-xs-12">
-                        <div class="white-box" style="margin:14px;">
-                            <h3 class="box-title"><?php echo _("Mail Domains"); ?></h3>
-                            <ul class="list-inline two-part">
-                                <li><i class="fa fa-envelope-square text-warning"></i></li>
-                                <li class="text-right">
-                                    <h1>
-                                        <?php echo $admindata['U_MAIL_DOMAINS']; ?> /
-                                        <?php if($admindata['MAIL_DOMAINS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['MAIL_DOMAINS']); } ?>
-                                    </h1>
-                                </li><br><br>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-sm-6 col-xs-12">
-                        <div class="white-box" style="margin:14px;">
-                            <h3 class="box-title"><?php echo _("Backups"); ?></h3>
-                            <ul class="list-inline two-part">
-                                <li><i class="ti-cloud-up text-info"></i></li>
-                                <li class="text-right">
-                                    <h1>
-                                        <?php echo $admindata['U_BACKUPS']; ?> /
-                                        <?php if($admindata['BACKUPS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['BACKUPS']); } ?>
-                                    </h1>
-                                </li><br><br>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-sm-12 col-xs-12">
-                <div class="news-slide m-b-30 dashboard-slide">
-                    <div class="vcarousel slide" style="margin:14px;">
-                        <div class="carousel-inner" style="height:415px;">
-                            <div class="active item">
-                                <div class="overlaybg"><img src="plugins/images/profile-menu.png" /></div>
-                                <div class="news-content"><span class="label label-danger label-rounded"><?php echo _("Account Details"); ?></span><br>
-
-                                    <div class="columnleft" style="margin-top:10px; float: left;">
-                                        <h2 style="width: 200%;"><?php echo _("Username"); ?>:
-                                            <?php print_r($username); ?><br><?php echo _("Email"); ?>:
-                                            <?php print_r($admindata['CONTACT']); ?><br><br> <?php echo _("Plan"); ?>:
-                                            <?php print_r($admindata['PACKAGE']); ?><br><?php echo _("Bandwidth"); ?>:
-                                            <?php if($admindata['BANDWIDTH'] == "unlimited"){ echo "Unlimited";} else { print_r($admindata['BANDWIDTH'] . " mb");} ?> <br><?php echo _("Disk Quota"); ?>:
-                                            <?php if($admindata['DISK_QUOTA'] == "unlimited"){ echo "Unlimited";} else { print_r($admindata['DISK_QUOTA'] . " mb");} ?>
-                                        </h2>
-
-
-                                    </div>
-
-                                    <div class="columnright" style="margin-top:10px; margin-right:80px;float: right;">
-                                        <h2><?php echo _("Nameservers"); ?>: <br>
-                                            <ul class="dashed">
-                                                <?php 
-                                                $nsArray = explode(',', ($admindata['NS'])); 
-
-                                                foreach ($nsArray as &$value) {
-                                                    $value = "<li>" . $value . "</li>";
-                                                }  
-                                                foreach($nsArray as $val) {
-                                                    echo $val;
-                                                } 
-                                                ?>
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-12 col-xs-12">
+                                <div class="row">
+                                    <div class="col-lg-6 col-sm-6 col-xs-12">
+                                        <div class="white-box" style="margin:14px;">
+                                            <h3 class="box-title"><?php echo _("DNS Domains"); ?></h3>
+                                            <ul class="list-inline two-part">
+                                                <li><i class="fa fa-list-alt text-danger"></i></li>
+                                                <li class="text-right">
+                                                    <h1>
+                                                        <?php echo $admindata['U_DNS_DOMAINS']; ?> /
+                                                        <?php if($admindata['DNS_DOMAINS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['DNS_DOMAINS']); } ?>
+                                                    </h1>
+                                                </li><br><br>
                                             </ul>
-                                        </h2>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-6 col-xs-12">
+                                        <div class="white-box" style="margin:14px;">
+                                            <h3 class="box-title"><?php echo _("DNS Records"); ?></h3>
+                                            <ul class="list-inline two-part">
+                                                <li><i class="fa fa-sitemap text-danger"></i></li>
+                                                <li class="text-right">
+                                                    <h1 id="recordcount">
+                                                    </h1>
+                                                </li><br><br>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-6 col-xs-12">
+                                        <div class="white-box" style="margin:14px;">
+                                            <h3 class="box-title"><?php echo _("Mail Domains"); ?></h3>
+                                            <ul class="list-inline two-part">
+                                                <li><i class="fa fa-envelope-square text-warning"></i></li>
+                                                <li class="text-right">
+                                                    <h1>
+                                                        <?php echo $admindata['U_MAIL_DOMAINS']; ?> /
+                                                        <?php if($admindata['MAIL_DOMAINS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['MAIL_DOMAINS']); } ?>
+                                                    </h1>
+                                                </li><br><br>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-6 col-xs-12">
+                                        <div class="white-box" style="margin:14px;">
+                                            <h3 class="box-title"><?php echo _("Backups"); ?></h3>
+                                            <ul class="list-inline two-part">
+                                                <li><i class="ti-cloud-up text-info"></i></li>
+                                                <li class="text-right">
+                                                    <h1>
+                                                        <?php echo $admindata['U_BACKUPS']; ?> /
+                                                        <?php if($admindata['BACKUPS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['BACKUPS']); } ?>
+                                                    </h1>
+                                                </li><br><br>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-12 col-xs-12">
+                                <div class="news-slide m-b-30 dashboard-slide">
+                                    <div class="vcarousel slide" style="margin:14px;">
+                                        <div class="carousel-inner" style="height:415px;">
+                                            <div class="active item">
+                                                <div class="overlaybg"><img src="plugins/images/profile-menu.png" /></div>
+                                                <div class="news-content"><span class="label label-danger label-rounded"><?php echo _("Account Details"); ?></span><br>
+
+                                                    <div class="columnleft" style="margin-top:10px; float: left;">
+                                                        <h2 style="width: 200%;"><?php echo _("Username"); ?>:
+                                                            <?php print_r($username); ?><br><?php echo _("Email"); ?>:
+                                                            <?php print_r($admindata['CONTACT']); ?><br><br> <?php echo _("Plan"); ?>:
+                                                            <?php print_r($admindata['PACKAGE']); ?><br><?php echo _("Bandwidth"); ?>:
+                                                            <?php if($admindata['BANDWIDTH'] == "unlimited"){ echo "Unlimited";} else { print_r($admindata['BANDWIDTH'] . " mb");} ?> <br><?php echo _("Disk Quota"); ?>:
+                                                            <?php if($admindata['DISK_QUOTA'] == "unlimited"){ echo "Unlimited";} else { print_r($admindata['DISK_QUOTA'] . " mb");} ?>
+                                                        </h2>
+
+
+                                                    </div>
+
+                                                    <div class="columnright" style="margin-top:10px; margin-right:80px;float: right;">
+                                                        <h2><?php echo _("Nameservers"); ?>: <br>
+                                                            <ul class="dashed">
+                                                                <?php 
+                                                                $nsArray = explode(',', ($admindata['NS'])); 
+
+                                                                foreach ($nsArray as &$value) {
+                                                                    $value = "<li>" . $value . "</li>";
+                                                                }  
+                                                                foreach($nsArray as $val) {
+                                                                    echo $val;
+                                                                } 
+                                                                ?>
+                                                            </ul>
+                                                        </h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-sm-6 col-xs-12">
+                                <div class="white-box" style="margin:14px;">
+                                    <h3 class="box-title"><?php echo _("Databases"); ?></h3>
+                                    <ul class="list-inline two-part">
+                                        <li><i class="fa fa-database text-purple"></i></li>
+                                        <li class="text-right">
+                                            <h1>
+                                                <?php echo $admindata['U_DATABASES']; ?> /
+                                                <?php if($admindata['DATABASES'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['DATABASES']); } ?>
+                                            </h1>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-6 col-xs-12">
+                                <div class="white-box" style="margin:14px;">
+                                    <h3 class="box-title"><?php echo _("Cron Jobs"); ?></h3>
+                                    <ul class="list-inline two-part">
+                                        <li><i class="ti-timer text-inverse"></i></li>
+                                        <li class="text-right">
+                                            <h1>
+                                                <?php echo $admindata['U_CRON_JOBS']; ?> /
+                                                <?php if($admindata['CRON_JOBS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['CRON_JOBS']); } ?>
+                                            </h1>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-12 col-xs-12">
+                                <div class="white-box" style="margin:14px;">
+                                    <h3 class="box-title"><?php echo _("Web Aliases"); ?></h3>
+                                    <ul class="list-inline two-part">
+                                        <li><i class="ti-layers text-success"></i></li>
+                                        <li class="text-right">
+                                            <h1>
+                                                <?php echo $admindata['U_WEB_ALIASES']; ?> /
+                                                <?php if($admindata['WEB_ALIASES'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['WEB_ALIASES'] * $admindata['WEB_DOMAINS']); } ?>
+                                            </h1>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require 'includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-3 col-sm-6 col-xs-12">
-                <div class="white-box" style="margin:14px;">
-                    <h3 class="box-title"><?php echo _("Databases"); ?></h3>
-                    <ul class="list-inline two-part">
-                        <li><i class="fa fa-database text-purple"></i></li>
-                        <li class="text-right">
-                            <h1>
-                                <?php echo $admindata['U_DATABASES']; ?> /
-                                <?php if($admindata['DATABASES'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['DATABASES']); } ?>
-                            </h1>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 col-xs-12">
-                <div class="white-box" style="margin:14px;">
-                    <h3 class="box-title"><?php echo _("Cron Jobs"); ?></h3>
-                    <ul class="list-inline two-part">
-                        <li><i class="ti-timer text-inverse"></i></li>
-                        <li class="text-right">
-                            <h1>
-                                <?php echo $admindata['U_CRON_JOBS']; ?> /
-                                <?php if($admindata['CRON_JOBS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['CRON_JOBS']); } ?>
-                            </h1>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-6 col-sm-12 col-xs-12">
-                <div class="white-box" style="margin:14px;">
-                    <h3 class="box-title"><?php echo _("Web Aliases"); ?></h3>
-                    <ul class="list-inline two-part">
-                        <li><i class="ti-layers text-success"></i></li>
-                        <li class="text-right">
-                            <h1>
-                                <?php echo $admindata['U_WEB_ALIASES']; ?> /
-                                <?php if($admindata['WEB_ALIASES'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['WEB_ALIASES'] * $admindata['WEB_DOMAINS']); } ?>
-                            </h1>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="plugins/bower_components/toast-master/js/jquery.toast.js"></script>
+        <script src="bootstrap/dist/js/bootstrap-select.min.js"></script>
+        <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+        <script src="js/jquery.slimscroll.js"></script>
+        <script src="js/waves.js"></script>
+        <script src="js/jquery.overlaps.js"></script>
+        <script src="plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+        <script src="plugins/bower_components/moment/moment.js"></script>
+        <script src="js/dashboard1.js"></script>
+        <script src="js/cbpFWTabs.js"></script>
+        <script src="plugins/bower_components/footable/js/footable.min.js"></script>
+        <script src="plugins/bower_components/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
+        <script src="js/footable-init.js"></script>
+        <script type="text/javascript">
+            <?php 
 
-        </div>
-    </div>
-    <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require 'includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
-    </div>
-</div>
-</div>
-<script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
-<script src="plugins/bower_components/toast-master/js/jquery.toast.js"></script>
-<script src="bootstrap/dist/js/bootstrap-select.min.js"></script>
-<script src="bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
-<script src="js/jquery.slimscroll.js"></script>
-<script src="js/waves.js"></script>
-<script src="js/jquery.overlaps.js"></script>
-<script src="plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
-<script src="plugins/bower_components/moment/moment.js"></script>
-<script src="js/dashboard1.js"></script>
-<script src="js/cbpFWTabs.js"></script>
-<script src="plugins/bower_components/footable/js/footable.min.js"></script>
-<script src="plugins/bower_components/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
-<script src="js/footable-init.js"></script>
-<script type="text/javascript">
-    <?php 
+            if(isset($pluginnames[0]) && $pluginnames[0] != '') {
+                $currentplugin = 0; 
+                do {
+                    if (!strpos($pluginadminonly[$currentplugin] , 'y') && !strpos($pluginadminonly[$currentplugin] , 'Y')) {
+                        $currentstring = "<li><a href='plugins/" . $pluginlinks[$currentplugin] . "/' ><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";
+                    }
 
-    if(isset($pluginnames[0]) && $pluginnames[0] != '') {
-        $currentplugin = 0; 
-        do {
-            if (!strpos($pluginadminonly[$currentplugin] , 'y') && !strpos($pluginadminonly[$currentplugin] , 'Y')) {
-                $currentstring = "<li><a href='plugins/" . $pluginlinks[$currentplugin] . "/' ><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";
-            }
+                    else {
+                        $currentstring = "<?php if($username == 'admin') { echo \"<li><a href='plugins/" . $pluginnames[$currentplugin] . "/' ><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>\";} ?>";
+                    }
+                    echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');
+                                  var plugindata" . $currentplugin . " = \"" . $currentstring . "\";
+                                  plugincontainer" . $currentplugin . ".innerHTML += plugindata" . $currentplugin . ";\n";
+                    $currentplugin++;
+                } while ($pluginnames[$currentplugin] != ''); }
 
-            else {
-                $currentstring = "<?php if($username == 'admin') { echo \"<li><a href='plugins/" . $pluginnames[$currentplugin] . "/' ><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>\";} ?>";
-            }
-            echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');
-                          var plugindata" . $currentplugin . " = \"" . $currentstring . "\";
-                          plugincontainer" . $currentplugin . ".innerHTML += plugindata" . $currentplugin . ";\n";
-            $currentplugin++;
-        } while ($pluginnames[$currentplugin] != ''); }
+            ?>
+        </script>
+        <script type="text/javascript">
+            <?php 
 
-    ?>
-</script>
-<script type="text/javascript">
-    <?php 
+            if(substr(sprintf('%o', fileperms('includes')), -4) == '0777') {
+                echo "$.toast({
+                                heading: '" . _("Warning") . "'
+                                , text: '" . _("Includes folder has not been secured") . "'
+                                , icon: 'warning'
+                                , position: 'top-right'
+                                , hideAfter: 3500
+                                , bgColor: '#ff8000'
+                            });";
 
-    if(substr(sprintf('%o', fileperms('includes')), -4) == '0777') {
-        echo "$.toast({
-                        heading: '" . _("Warning") . "'
-                        , text: '" . _("Includes folder has not been secured") . "'
-                        , icon: 'warning'
-                        , position: 'top-right'
-                        , hideAfter: 3500
-                        , bgColor: '#ff8000'
-                    });";
+            } ?>
+            document.getElementById("recordcount").innerHTML = "<?php if ($recordcount == "") { echo "0";} else { echo $recordcount; } ?>  / <?php if($admindata['DNS_RECORDS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['DNS_DOMAINS'] * $admindata['DNS_RECORDS']); } ?>";
+            (function() {
+                [].slice.call(document.querySelectorAll('.sttabs')).forEach(function(el) {
+                    new CBPFWTabs(el);
+                });
+            })();
+            (function($){
+                window.onresize = function(event) {
+                    if ($('#columnleft').overlaps('#columnright')) {
+                        $('#columnright').hide();
+                    }
+                };
+            });
+            jQuery(document).ready(function($) {
+                $(".clickable-row").click(function() {
+                    window.location = $(this).data("href");
+                });
+            });
+            jQuery(function($){
+                $('.footable').footable();
+            });
+        </script>
+        <script src="js/custom.js"></script>
+        <?php if(INTERAKT_APP_ID != ''){ echo '
+            <script>
+              (function() {
+              var interakt = document.createElement("script");
+              interakt.type = "text/javascript"; interakt.async = true;
+              interakt.src = "//cdn.interakt.co/interakt/' . INTERAKT_APP_ID . '.js";
+              var scrpt = document.getElementsByTagName("script")[0];
+              scrpt.parentNode.insertBefore(interakt, scrpt);
+              })()
+            </script>'; } ?>
 
-    } ?>
-    document.getElementById("recordcount").innerHTML = "<?php if ($recordcount == "") { echo "0";} else { echo $recordcount; } ?>  / <?php if($admindata['DNS_RECORDS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['DNS_DOMAINS'] * $admindata['DNS_RECORDS']); } ?>";
-    (function() {
-        [].slice.call(document.querySelectorAll('.sttabs')).forEach(function(el) {
-            new CBPFWTabs(el);
-        });
-    })();
-    (function($){
-        window.onresize = function(event) {
-            if ($('#columnleft').overlaps('#columnright')) {
-                $('#columnright').hide();
-            }
-        };
-    });
-    jQuery(document).ready(function($) {
-        $(".clickable-row").click(function() {
-            window.location = $(this).data("href");
-        });
-    });
-    jQuery(function($){
-        $('.footable').footable();
-    });
-</script>
-<script src="js/custom.js"></script>
-<?php if(INTERAKT_APP_ID != ''){ echo '
-    <script>
-      (function() {
-      var interakt = document.createElement("script");
-      interakt.type = "text/javascript"; interakt.async = true;
-      interakt.src = "//cdn.interakt.co/interakt/' . INTERAKT_APP_ID . '.js";
-      var scrpt = document.getElementsByTagName("script")[0];
-      scrpt.parentNode.insertBefore(interakt, scrpt);
-      })()
-    </script>'; } ?>
-
-</body>
+    </body>
 </html>

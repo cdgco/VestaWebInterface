@@ -90,7 +90,6 @@ foreach ($plugins as $result) {
                 array_push($pluginsections,$arr['section']);
                 array_push($pluginadminonly,$arr['admin-only']);
             }
-
         }    
     }
 }
@@ -143,27 +142,18 @@ foreach ($plugins as $result) {
 
         </style>
         <!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->  
     </head>
 
     <body class="fix-header">
-        <!-- ============================================================== -->
-        <!-- Preloader -->
-        <!-- ============================================================== -->
         <div class="preloader">
             <svg class="circular" viewBox="25 25 50 50">
                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
             </svg>
         </div>
-        <!-- ============================================================== -->
-        <!-- Wrapper -->
-        <!-- ============================================================== -->
         <div id="wrapper">
-            <!-- ============================================================== -->
-            <!-- Topbar header - style you can find in pages.scss -->
-            <!-- ============================================================== -->
             <nav class="navbar navbar-default navbar-static-top m-b-0">
                 <div class="navbar-header">
                     <div class="top-left-part">
@@ -176,8 +166,6 @@ foreach ($plugins as $result) {
                             <!--This is dark logo text--><img src="../plugins/images/admin-text.png" alt="home" class="hidden-xs dark-logo" /><!--This is light logo text--><img src="../plugins/images/admin-text-dark.png" alt="home" class="hidden-xs light-logo" />
                             </span> </a>
                     </div>
-                    <!-- /Logo -->
-                    <!-- Search input and Toggle icon -->
                     <ul class="nav navbar-top-links navbar-left">
                         <li><a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs"><i class="ti-close ti-menu"></i></a></li>      
                     </ul>
@@ -221,7 +209,7 @@ foreach ($plugins as $result) {
                             </a> 
                         </li>
                         <?php if($initialusername == "admin"){ echo 
-    '<li class="devider"></li>
+                        '<li class="devider"></li>
                             <li> <a href="../#" class="waves-effect"><i class="mdi mdi-wrench fa-fw" data-icon="v"></i> <span class="hide-menu">' . _("Administration") . '<span class="fa arrow"></span> </span></a>
                                 <ul class="nav nav-second-level">
                                     <li> <a href="../admin/list/users.php"><i class="ti-user fa-fw"></i><span class="hide-menu">' . _("Users") . '</span></a> </li>
@@ -272,16 +260,9 @@ foreach ($plugins as $result) {
                     </ul>
                 </div>
             </div>
-            <!-- ============================================================== -->
-            <!-- End Left Sidebar -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Page Content -->
-            <!-- ============================================================== -->
             <div id="page-wrapper">
                 <div class="container-fluid">
                     <div class="row bg-title">
-                        <!-- .page title -->
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                             <h4 class="page-title"><?php echo _("Manage DNS Domain"); ?></h4>
                         </div>
@@ -302,13 +283,7 @@ foreach ($plugins as $result) {
                             </li>
                         </ul>
                     </div>
-                    <!-- .row -->
-
-                    <!-- ============================================================== -->
-                    <!-- chats, message & profile widgets -->
-                    <!-- ============================================================== -->
                     <div class="row">
-                        <!-- .col -->
                         <div class="col-lg-12 col-md-6 col-sm-12">
                             <div class="panel">
                                 <div class="sk-chat-widgets">
@@ -350,18 +325,18 @@ foreach ($plugins as $result) {
 
                                                 do {
                                                     echo '<tr>
-                                                                    <td>' . $dnsdata[$x1]['RECORD'] . '</td>
-                                                                    <td>' . $dnsdata[$x1]['TYPE'] . '</td>
-                                                                    <td>' . $dnsdata[$x1]['VALUE'] . '</td><td>
-                                                                    <button type="button" onclick="window.location=\'../edit/dnsrecord.php?domain=' . $requestdns . '&record=' . $dnsname[$x1] . '\';" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button>
-                                                                    <button type="button" onclick="confirmDelete(\'' . $dnsname[$x1] . '\')" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="icon-trash" ></i></button>
-                                                                    </td><td>';                                                                   
+                                                            <td>' . $dnsdata[$x1]['RECORD'] . '</td>
+                                                            <td>' . $dnsdata[$x1]['TYPE'] . '</td>
+                                                            <td>' . $dnsdata[$x1]['VALUE'] . '</td><td>
+                                                            <button type="button" onclick="window.location=\'../edit/dnsrecord.php?domain=' . $requestdns . '&record=' . $dnsname[$x1] . '\';" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button>
+                                                            <button type="button" onclick="confirmDelete(\'' . $dnsname[$x1] . '\')" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="icon-trash" ></i></button>
+                                                            </td><td>';                                                                   
                                                     if($dnsdata[$x1]['SUSPENDED'] == "no"){ 
                                                         echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
                                                     else{ 
                                                         echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
                                                     echo '</td>
-                                                                    <td>' . $dnsdata[$x1]['DATE'] . '</td>';
+                                                            <td>' . $dnsdata[$x1]['DATE'] . '</td>';
                                                     $x1++;
                                                 } while ($dnsname[$x1] != ''); }
                                             ?>
@@ -371,10 +346,7 @@ foreach ($plugins as $result) {
                             </div>
                         </div>
                     </div>
-                    <!-- /.row -->
-
                 </div>
-                <!-- /.container-fluid -->
                 <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
             </div>
         </div>
@@ -442,14 +414,14 @@ foreach ($plugins as $result) {
                 var subDomain = (url.match(new RegExp(/\./g))) ? true : false;
 
                 <?php if ($cfenabled != "off") { echo 'if(subDomain === false) {
-                document.getElementById("cloudflare").style.display = "block";
-                document.getElementById("cloudflare1").style.display = "none";
-            }
-        else { document.getElementById("cloudflare1").style.display = "block";
-               document.getElementById("cloudflare").style.display = "none"; }
-
-    }
-    subDomain();'; } ?>
+                        document.getElementById("cloudflare").style.display = "block";
+                        document.getElementById("cloudflare1").style.display = "none";
+                    }
+                    else { 
+                        document.getElementById("cloudflare1").style.display = "block";
+                        document.getElementById("cloudflare").style.display = "none"; }
+                    }
+                    subDomain();'; } ?>
                 function confirmDelete(e){
                     e1 = String(e)
                     e0 = '<?php print_r($requestdns); ?>';
@@ -517,5 +489,4 @@ foreach ($plugins as $result) {
                 ?>
         </script>
     </body>
-
 </html>
