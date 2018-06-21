@@ -34,23 +34,23 @@ setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
 bindtextdomain('messages', './locale');
 textdomain('messages');
 
-    foreach ($plugins as $result) {
-        if (file_exists('../plugins/' . $result)) {
-            if (file_exists('../plugins/' . $result . '/manifest.xml')) {
-                $get = file_get_contents('../plugins/' . $result . '/manifest.xml');
-                $xml   = simplexml_load_string($get, 'SimpleXMLElement', LIBXML_NOCDATA);
-                $arr = json_decode(json_encode((array)$xml), TRUE);
-                if (isset($arr['name']) && !empty($arr['name']) && isset($arr['fa-icon']) && !empty($arr['fa-icon']) && isset($arr['section']) && !empty($arr['section']) && isset($arr['admin-only']) && !empty($arr['admin-only'])){
-                    array_push($pluginlinks,$result);
-                    array_push($pluginnames,$arr['name']);
-                    array_push($pluginicons,$arr['fa-icon']);
-                    array_push($pluginsections,$arr['section']);
-                    array_push($pluginadminonly,$arr['admin-only']);
-                }
+foreach ($plugins as $result) {
+    if (file_exists('../plugins/' . $result)) {
+        if (file_exists('../plugins/' . $result . '/manifest.xml')) {
+            $get = file_get_contents('../plugins/' . $result . '/manifest.xml');
+            $xml   = simplexml_load_string($get, 'SimpleXMLElement', LIBXML_NOCDATA);
+            $arr = json_decode(json_encode((array)$xml), TRUE);
+            if (isset($arr['name']) && !empty($arr['name']) && isset($arr['fa-icon']) && !empty($arr['fa-icon']) && isset($arr['section']) && !empty($arr['section']) && isset($arr['admin-only']) && !empty($arr['admin-only'])){
+                array_push($pluginlinks,$result);
+                array_push($pluginnames,$arr['name']);
+                array_push($pluginicons,$arr['fa-icon']);
+                array_push($pluginsections,$arr['section']);
+                array_push($pluginadminonly,$arr['admin-only']);
+            }
 
-            }    
-        }
+        }    
     }
+}
 ?>
 
 <!DOCTYPE html>
@@ -85,23 +85,23 @@ textdomain('messages');
         <form id="download" method="post">
             <input type="hidden" form="download" id="formurl" name="url"/>
             <input type="hidden" form="download" name="download" value="yes"/>
-        <script>
-           function closeModal() {    
-                swal.close() 
-            }
-            
-            async function getPassword(){
-            swal({
-  title: '<?php echo _("Confirm Password"); ?>',
-  html:
-    '<input type="hidden" form="download" name="user" value="<?php echo $username; ?>"/>' +
-    '<br><div class="form-group"><input form="download" type="password" class="form-control" name="password" id="pwinput" placeholder="<?php echo _("Password"); ?>"></div><button type="submit" class="btn btn-primary"><?php echo _("Submit"); ?></button>',
-  showCloseButton: true,
-  showCancelButton: false,
-  showConfirmButton: false
-}).catch(swal.noop)};
-        </script>
-            </form>
+            <script>
+                function closeModal() {    
+                    swal.close() 
+                }
+
+                async function getPassword(){
+                    swal({
+                        title: '<?php echo _("Confirm Password"); ?>',
+                        html:
+                        '<input type="hidden" form="download" name="user" value="<?php echo $username; ?>"/>' +
+                        '<br><div class="form-group"><input form="download" type="password" class="form-control" name="password" id="pwinput" placeholder="<?php echo _("Password"); ?>"></div><button type="submit" class="btn btn-primary"><?php echo _("Submit"); ?></button>',
+                        showCloseButton: true,
+                        showCancelButton: false,
+                        showConfirmButton: false
+                    }).catch(swal.noop)};
+            </script>
+        </form>
         <!-- ============================================================== -->
         <!-- Preloader -->
         <!-- ============================================================== -->
@@ -136,45 +136,45 @@ textdomain('messages');
                     </ul>
                     <ul class="nav navbar-top-links navbar-right pull-right">
 
-                                           <li class="dropdown">
-                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
-                        <ul class="dropdown-menu dropdown-user animated flipInY">
-                            <li>
-                                <div class="dw-user-box">
-                                    <div class="u-text">
-                                        <h4><?php print_r($displayname); ?></h4>
-                                        <p class="text-muted"><?php print_r($useremail); ?></p></div>
-                                </div>
-                            </li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
-                            <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <div class="navbar-default sidebar" role="navigation">
-            <div class="sidebar-nav slimscrollsidebar">
-                <div class="sidebar-head">
-                    <h3>
-                        <span class="fa-fw open-close">
-                            <i class="ti-menu hidden-xs"></i>
-                            <i class="ti-close visible-xs"></i>
-                        </span> 
-                        <span class="hide-menu"><?php echo _("Navigation"); ?></span>
-                    </h3>  
+                        <li class="dropdown">
+                            <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
+                            <ul class="dropdown-menu dropdown-user animated flipInY">
+                                <li>
+                                    <div class="dw-user-box">
+                                        <div class="u-text">
+                                            <h4><?php print_r($displayname); ?></h4>
+                                            <p class="text-muted"><?php print_r($useremail); ?></p></div>
+                                    </div>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
+                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
-               <ul class="nav" id="side-menu">
-                            <li> 
-                                <a href="../index.php" class="waves-effect">
-                                    <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu"><?php echo _("Home"); ?></span>
-                                </a> 
-                            </li>
+            </nav>
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav slimscrollsidebar">
+                    <div class="sidebar-head">
+                        <h3>
+                            <span class="fa-fw open-close">
+                                <i class="ti-menu hidden-xs"></i>
+                                <i class="ti-close visible-xs"></i>
+                            </span> 
+                            <span class="hide-menu"><?php echo _("Navigation"); ?></span>
+                        </h3>  
+                    </div>
+                    <ul class="nav" id="side-menu">
+                        <li> 
+                            <a href="../index.php" class="waves-effect">
+                                <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu"><?php echo _("Home"); ?></span>
+                            </a> 
+                        </li>
                         <?php if($initialusername == "admin"){ echo 
-                            '<li class="devider"></li>
+    '<li class="devider"></li>
                             <li> <a href="../#" class="waves-effect"><i class="mdi mdi-wrench fa-fw" data-icon="v"></i> <span class="hide-menu">' . _("Administration") . '<span class="fa arrow"></span> </span></a>
                                 <ul class="nav nav-second-level">
                                     <li> <a href="../admin/list/users.php"><i class="ti-user fa-fw"></i><span class="hide-menu">' . _("Users") . '</span></a> </li>
@@ -187,17 +187,17 @@ textdomain('messages');
                                     <li> <a href="../admin/list/server.php"><i class="fa fa-server fa-fw"></i><span class="hide-menu">' . _("Server") . '</span></a> </li>
                                 </ul>
                             </li>';
-                            } ?>
-                            <li class="devider"></li>
-                            <li>
-                                <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> <?php print_r($displayname); ?><span class="fa arrow"></span></span>
-                                </a>
-                                <ul class="nav nav-second-level collapse" id="appendaccount" aria-expanded="false" style="height: 0px;">
-                                    <li> <a href="../profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> <?php echo _("My Account"); ?></span></a></li>
-                                    <li> <a href="../profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> <?php echo _("Acount Settings"); ?></span></a></li>
-                                    <li> <a href="../log.php"><i class="ti-layout-list-post fa-fw"></i><span class="hide-menu"><?php echo _("Log"); ?></span></a> </li>
-                                </ul>
-                            </li>
+                                                             } ?>
+                        <li class="devider"></li>
+                        <li>
+                            <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> <?php print_r($displayname); ?><span class="fa arrow"></span></span>
+                            </a>
+                            <ul class="nav nav-second-level collapse" id="appendaccount" aria-expanded="false" style="height: 0px;">
+                                <li> <a href="../profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> <?php echo _("My Account"); ?></span></a></li>
+                                <li> <a href="../profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> <?php echo _("Acount Settings"); ?></span></a></li>
+                                <li> <a href="../log.php"><i class="ti-layout-list-post fa-fw"></i><span class="hide-menu"><?php echo _("Log"); ?></span></a> </li>
+                            </ul>
+                        </li>
                         <?php if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '<li class="devider"></li>
                             <li> <a href="#" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">'. _("Management") . '<span class="fa arrow"></span> </span></a>
                                 <ul class="nav nav-second-level" id="appendmanagement">'; } ?>
@@ -222,7 +222,7 @@ textdomain('messages');
                         <?php if ($oldcpurl == '' || $supporturl == '') {} else { echo '<li class="devider"></li>'; } ?>
                         <?php if ($oldcpurl != '') { echo '<li><a href="' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> ' . _("Control Panel v1") . '</span></a></li>'; } ?>
                         <?php if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">' . _("Support") . '</span></a></li>'; } ?>
-                        </ul>
+                    </ul>
                 </div>
             </div>
             <!-- ============================================================== -->
@@ -273,7 +273,7 @@ textdomain('messages');
                                 <li><a href="../edit/backupexclusions.php"><span class="circle circle-sm bg-inverse di"><i class="fa fa-ban"></i></span><span><?php echo _("Backup Exclusions"); ?></span></a></li>
                                 </ul>
                                 <h3 class="box-title m-b-0"><?php echo _("Backups"); ?></h3><br>
-              
+
                                 <table class="table footable m-b-0" data-paging-size="10" data-paging="true" data-sorting="true">
                                     <thead>
                                         <tr>
@@ -337,111 +337,111 @@ textdomain('messages');
             </div>
         </div>
 
-        
-    <?php if(isset($_POST['download']) && $_POST['download'] == "yes") {    
-        echo '<form method="post" id="formx" action="' . $_POST['url'] . '">
+
+        <?php if(isset($_POST['download']) && $_POST['download'] == "yes") {    
+    echo '<form method="post" id="formx" action="' . $_POST['url'] . '">
         <input type="hidden" name="user" value="' . $_POST['user'] . '"/>
         <input type="hidden" name="password" value="' . $_POST['password'] . '">
         </form>'; } 
         ?> 
-    
+
     </body>
-        <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
-        <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
-        <script src="../js/jquery.slimscroll.js"></script>
-        <script src="../js/waves.js"></script>
-        <script src="../plugins/bower_components/moment/moment.js"></script>
-        <script src="../plugins/bower_components/footable/js/footable.min.js"></script>
-        <script src="../plugins/bower_components/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
-        <script src="../js/footable-init.js"></script>
-        <script src="../js/custom.js"></script>
-        <script src="../js/dashboard1.js"></script>
-        <script src="../js/cbpFWTabs.js"></script>
-        <script src="../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.all.js"></script>
+    <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
+    <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <script src="../js/jquery.slimscroll.js"></script>
+    <script src="../js/waves.js"></script>
+    <script src="../plugins/bower_components/moment/moment.js"></script>
+    <script src="../plugins/bower_components/footable/js/footable.min.js"></script>
+    <script src="../plugins/bower_components/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
+    <script src="../js/footable-init.js"></script>
+    <script src="../js/custom.js"></script>
+    <script src="../js/dashboard1.js"></script>
+    <script src="../js/cbpFWTabs.js"></script>
+    <script src="../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.all.js"></script>
     <script type="text/javascript">
-            <?php 
+        <?php 
 
-            if(isset($pluginnames[0]) && $pluginnames[0] != '') {
-                $currentplugin = 0; 
-                do {
-                    if (!strpos($pluginadminonly[$currentplugin] , 'y') && !strpos($pluginadminonly[$currentplugin] , 'Y')) {
-                        $currentstring = "<li><a href='../plugins/" . $pluginlinks[$currentplugin] . "/' ><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";
-                    }
+        if(isset($pluginnames[0]) && $pluginnames[0] != '') {
+            $currentplugin = 0; 
+            do {
+                if (!strpos($pluginadminonly[$currentplugin] , 'y') && !strpos($pluginadminonly[$currentplugin] , 'Y')) {
+                    $currentstring = "<li><a href='../plugins/" . $pluginlinks[$currentplugin] . "/' ><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";
+                }
 
-                    else {
-                             $currentstring = "<?php if($username == 'admin') { echo \"<li><a href='../plugins/" . $pluginnames[$currentplugin] . "/' ><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>\";} ?>";
-                    }
-                    echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');
+                else {
+                    $currentstring = "<?php if($username == 'admin') { echo \"<li><a href='../plugins/" . $pluginnames[$currentplugin] . "/' ><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>\";} ?>";
+                }
+                echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');
                           var plugindata" . $currentplugin . " = \"" . $currentstring . "\";
                           plugincontainer" . $currentplugin . ".innerHTML += plugindata" . $currentplugin . ";\n";
-                    $currentplugin++;
-                } while ($pluginnames[$currentplugin] != ''); }
+                $currentplugin++;
+            } while ($pluginnames[$currentplugin] != ''); }
 
-            ?>
+        ?>
     </script>
-        <script type="text/javascript">
-            (function () {
-                [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {
-                    new CBPFWTabs(el);
-                });
-            })();
-        </script>
-        <script>
-            jQuery(function($){
-                $('.footable').footable();
+    <script type="text/javascript">
+        (function () {
+            [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {
+                new CBPFWTabs(el);
             });
-          function confirmDelete(e){
-                e1 = String(e)
+        })();
+    </script>
+    <script>
+        jQuery(function($){
+            $('.footable').footable();
+        });
+        function confirmDelete(e){
+            e1 = String(e)
+            swal({
+                title: '<?php echo _("Delete Backup"); ?>:<br> ' + e1 +' ?',
+                text: "<?php echo _("You won't be able to revert this!"); ?>",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
+            }).then(function () {
                 swal({
-                    title: '<?php echo _("Delete Backup"); ?>:<br> ' + e1 +' ?',
-                    text: "<?php echo _("You won't be able to revert this!"); ?>",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
-                }).then(function () {
-                    swal({
-                        title: '<?php echo _("Processing"); ?>',
-                        text: '',
-                        timer: 5000,
-                        onOpen: function () {
-                            swal.showLoading()
-                        }
-                    }).then(
-                        function () {},
-                        function (dismiss) {}
-                    )
-                    window.location.replace("../delete/backup.php?backup=" + e1);
-                })}
-            
-            <?php            
-           if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
-            } 
-            if(isset($_POST['delcode']) && $_POST['delcode'] == "0") {
-                echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
-            } 
-            if(isset($_POST['addcode']) && $_POST['addcode'] == "0") {
-                echo "swal({title:'" . _("Backup Scheduled!") . "', type:'success'});";
-            } 
-            if(isset($_POST['restore']) && $_POST['restore'] == "0") {
-                echo "swal({title:'" . _("Restore Scheduled!") . "', type:'success'});";
-            } 
-            if(isset($_POST['delcode']) && $_POST['delcode'] > "0") { echo "swal({title:'" . $errorcode[$_POST['delcode']] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
-            }
-            if(isset($_POST['addcode']) && $_POST['addcode'] > "0") { echo "swal({title:'" . $errorcode[$_POST['addcode']] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
-            }
-            if(isset($_POST['restore']) && $_POST['restore'] > "0") { echo "swal({title:'" . $errorcode[$_POST['restore']] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
-            }
-            ?>
-                <?php if(isset($_POST['download']) && $_POST['download'] == "yes") {    
-        echo '$(".preloader").fadeOut();
+                    title: '<?php echo _("Processing"); ?>',
+                    text: '',
+                    timer: 5000,
+                    onOpen: function () {
+                        swal.showLoading()
+                    }
+                }).then(
+                    function () {},
+                    function (dismiss) {}
+                )
+                window.location.replace("../delete/backup.php?backup=" + e1);
+            })}
+
+        <?php            
+        if(isset($_GET['error']) && $_GET['error'] == "1") {
+            echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+        } 
+        if(isset($_POST['delcode']) && $_POST['delcode'] == "0") {
+            echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
+        } 
+        if(isset($_POST['addcode']) && $_POST['addcode'] == "0") {
+            echo "swal({title:'" . _("Backup Scheduled!") . "', type:'success'});";
+        } 
+        if(isset($_POST['restore']) && $_POST['restore'] == "0") {
+            echo "swal({title:'" . _("Restore Scheduled!") . "', type:'success'});";
+        } 
+        if(isset($_POST['delcode']) && $_POST['delcode'] > "0") { echo "swal({title:'" . $errorcode[$_POST['delcode']] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+                                                                }
+        if(isset($_POST['addcode']) && $_POST['addcode'] > "0") { echo "swal({title:'" . $errorcode[$_POST['addcode']] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+                                                                }
+        if(isset($_POST['restore']) && $_POST['restore'] > "0") { echo "swal({title:'" . $errorcode[$_POST['restore']] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+                                                                }
+        ?>
+        <?php if(isset($_POST['download']) && $_POST['download'] == "yes") {    
+    echo '$(".preloader").fadeOut();
             document.getElementById(\'formx\').submit();'; } 
         ?> 
-        </script>
+    </script>
 
 </html>

@@ -39,23 +39,23 @@ setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
 bindtextdomain('messages', '../locale');
 textdomain('messages');
 
-    foreach ($plugins as $result) {
-        if (file_exists('../plugins/' . $result)) {
-            if (file_exists('../plugins/' . $result . '/manifest.xml')) {
-                $get = file_get_contents('../plugins/' . $result . '/manifest.xml');
-                $xml   = simplexml_load_string($get, 'SimpleXMLElement', LIBXML_NOCDATA);
-                $arr = json_decode(json_encode((array)$xml), TRUE);
-                if (isset($arr['name']) && !empty($arr['name']) && isset($arr['fa-icon']) && !empty($arr['fa-icon']) && isset($arr['section']) && !empty($arr['section']) && isset($arr['admin-only']) && !empty($arr['admin-only'])){
-                    array_push($pluginlinks,$result);
-                    array_push($pluginnames,$arr['name']);
-                    array_push($pluginicons,$arr['fa-icon']);
-                    array_push($pluginsections,$arr['section']);
-                    array_push($pluginadminonly,$arr['admin-only']);
-                }
+foreach ($plugins as $result) {
+    if (file_exists('../plugins/' . $result)) {
+        if (file_exists('../plugins/' . $result . '/manifest.xml')) {
+            $get = file_get_contents('../plugins/' . $result . '/manifest.xml');
+            $xml   = simplexml_load_string($get, 'SimpleXMLElement', LIBXML_NOCDATA);
+            $arr = json_decode(json_encode((array)$xml), TRUE);
+            if (isset($arr['name']) && !empty($arr['name']) && isset($arr['fa-icon']) && !empty($arr['fa-icon']) && isset($arr['section']) && !empty($arr['section']) && isset($arr['admin-only']) && !empty($arr['admin-only'])){
+                array_push($pluginlinks,$result);
+                array_push($pluginnames,$arr['name']);
+                array_push($pluginicons,$arr['fa-icon']);
+                array_push($pluginsections,$arr['section']);
+                array_push($pluginadminonly,$arr['admin-only']);
+            }
 
-            }    
-        }
+        }    
     }
+}
 ?>
 
 <!DOCTYPE html>
@@ -115,45 +115,45 @@ textdomain('messages');
                     </ul>
                     <ul class="nav navbar-top-links navbar-right pull-right">
 
-                       <li class="dropdown">
-                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
-                        <ul class="dropdown-menu dropdown-user animated flipInY">
-                            <li>
-                                <div class="dw-user-box">
-                                    <div class="u-text">
-                                        <h4><?php print_r($displayname); ?></h4>
-                                        <p class="text-muted"><?php print_r($useremail); ?></p></div>
-                                </div>
-                            </li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
-                            <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <div class="navbar-default sidebar" role="navigation">
-            <div class="sidebar-nav slimscrollsidebar">
-                <div class="sidebar-head">
-                    <h3>
-                        <span class="fa-fw open-close">
-                            <i class="ti-menu hidden-xs"></i>
-                            <i class="ti-close visible-xs"></i>
-                        </span> 
-                        <span class="hide-menu"><?php echo _("Navigation"); ?></span>
-                    </h3>  
+                        <li class="dropdown">
+                            <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
+                            <ul class="dropdown-menu dropdown-user animated flipInY">
+                                <li>
+                                    <div class="dw-user-box">
+                                        <div class="u-text">
+                                            <h4><?php print_r($displayname); ?></h4>
+                                            <p class="text-muted"><?php print_r($useremail); ?></p></div>
+                                    </div>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
+                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
-               <ul class="nav" id="side-menu">
-                            <li> 
-                                <a href="../index.php" class="waves-effect">
-                                    <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu"><?php echo _("Home"); ?></span>
-                                </a> 
-                            </li>
+            </nav>
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav slimscrollsidebar">
+                    <div class="sidebar-head">
+                        <h3>
+                            <span class="fa-fw open-close">
+                                <i class="ti-menu hidden-xs"></i>
+                                <i class="ti-close visible-xs"></i>
+                            </span> 
+                            <span class="hide-menu"><?php echo _("Navigation"); ?></span>
+                        </h3>  
+                    </div>
+                    <ul class="nav" id="side-menu">
+                        <li> 
+                            <a href="../index.php" class="waves-effect">
+                                <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu"><?php echo _("Home"); ?></span>
+                            </a> 
+                        </li>
                         <?php if($initialusername == "admin"){ echo 
-                            '<li class="devider"></li>
+    '<li class="devider"></li>
                             <li> <a href="../#" class="waves-effect"><i class="mdi mdi-wrench fa-fw" data-icon="v"></i> <span class="hide-menu">' . _("Administration") . '<span class="fa arrow"></span> </span></a>
                                 <ul class="nav nav-second-level">
                                     <li> <a href="../admin/list/users.php"><i class="ti-user fa-fw"></i><span class="hide-menu">' . _("Users") . '</span></a> </li>
@@ -166,17 +166,17 @@ textdomain('messages');
                                     <li> <a href="../admin/list/server.php"><i class="fa fa-server fa-fw"></i><span class="hide-menu">' . _("Server") . '</span></a> </li>
                                 </ul>
                             </li>';
-                            } ?>
-                            <li class="devider"></li>
-                            <li>
-                                <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> <?php print_r($displayname); ?><span class="fa arrow"></span></span>
-                                </a>
-                                <ul class="nav nav-second-level collapse" id="appendaccount" aria-expanded="false" style="height: 0px;">
-                                    <li> <a href="../profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> <?php echo _("My Account"); ?></span></a></li>
-                                    <li> <a href="../profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> <?php echo _("Acount Settings"); ?></span></a></li>
-                                    <li> <a href="../log.php"><i class="ti-layout-list-post fa-fw"></i><span class="hide-menu"><?php echo _("Log"); ?></span></a> </li>
-                                </ul>
-                            </li>
+                                                             } ?>
+                        <li class="devider"></li>
+                        <li>
+                            <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> <?php print_r($displayname); ?><span class="fa arrow"></span></span>
+                            </a>
+                            <ul class="nav nav-second-level collapse" id="appendaccount" aria-expanded="false" style="height: 0px;">
+                                <li> <a href="../profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> <?php echo _("My Account"); ?></span></a></li>
+                                <li> <a href="../profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> <?php echo _("Acount Settings"); ?></span></a></li>
+                                <li> <a href="../log.php"><i class="ti-layout-list-post fa-fw"></i><span class="hide-menu"><?php echo _("Log"); ?></span></a> </li>
+                            </ul>
+                        </li>
                         <?php if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '<li class="devider"></li>
                             <li class="active"> <a href="#" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">'. _("Management") . '<span class="fa arrow"></span> </span></a>
                                 <ul class="nav nav-second-level" id="appendmanagement">'; } ?>
@@ -201,7 +201,7 @@ textdomain('messages');
                         <?php if ($oldcpurl == '' || $supporturl == '') {} else { echo '<li class="devider"></li>'; } ?>
                         <?php if ($oldcpurl != '') { echo '<li><a href="' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> ' . _("Control Panel v1") . '</span></a></li>'; } ?>
                         <?php if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">' . _("Support") . '</span></a></li>'; } ?>
-                        </ul>
+                    </ul>
                 </div>
             </div>
             <div id="page-wrapper">
@@ -242,53 +242,53 @@ textdomain('messages');
                                         <label class="col-md-12"><a style="cursor: pointer;" onclick="toggle_visibility('togglediv');"><?php echo _("Advanced Options"); ?></a></label>
                                     </div>
                                     <div id="togglediv" style="display:none;">
-                                    <div class="form-group">
-                                        <label for="email" class="col-md-12"><?php echo _("Quota"); ?></label>
-                                        <div class="col-md-12">
-                                            <input type="text" name="v_quota" class="form-control"> 
-                                            <small class="form-text text-muted"><?php echo _("In Megabytes"); ?></small>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Aliases"); ?></label>
-                                        <div class="col-md-12">
-                                            <textarea class="form-control"  name="v_alias" rows="4"></textarea>
-                                            <small class="form-text text-muted"><?php echo _("Use Local-Part"); ?></small>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Forward To"); ?></label>
-                                        <div class="col-md-12">
-                                            <textarea class="form-control" id="fwdto" name="v_fwd" rows="4"></textarea>
-                                            <small class="form-text text-muted"><?php echo _("One Or More Email Addresses"); ?></small>
-                                        </div>
-                                    </div>
-                                          <div id="togglediv2" style="display:none;">
-                                    <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Don't Store Forwarded Mail"); ?></label>
-                                        <div class="col-md-12">
-                                            <div class="checkbox checkbox-info">
-                                                <input id="checkbox4"  name="v_fwd_only" type="checkbox">
-                                                <label for="checkbox4"> <?php echo _("Enabled"); ?> </label>
+                                        <div class="form-group">
+                                            <label for="email" class="col-md-12"><?php echo _("Quota"); ?></label>
+                                            <div class="col-md-12">
+                                                <input type="text" name="v_quota" class="form-control"> 
+                                                <small class="form-text text-muted"><?php echo _("In Megabytes"); ?></small>
                                             </div>
                                         </div>
-                                    </div>
-                                        </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Autoreply"); ?></label>
-                                        <div class="col-md-12">
-                                            <div class="checkbox checkbox-info">
-                                                <input id="checkbox5" type="checkbox"  name="v_autoreply" onclick="checkDiv();">
-                                                <label for="checkbox5"> <?php echo _("Enabled"); ?> </label>
+                                        <div class="form-group">
+                                            <label class="col-md-12"><?php echo _("Aliases"); ?></label>
+                                            <div class="col-md-12">
+                                                <textarea class="form-control"  name="v_alias" rows="4"></textarea>
+                                                <small class="form-text text-muted"><?php echo _("Use Local-Part"); ?></small>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group" id="msg-div" style="margin-left: 4%;">
-                                        <label class="col-md-12"><?php echo _("Message"); ?></label>
-                                        <div class="col-md-12">
-                                            <textarea class="form-control"  name="v_message" rows="4"> </textarea>
+                                        <div class="form-group">
+                                            <label class="col-md-12"><?php echo _("Forward To"); ?></label>
+                                            <div class="col-md-12">
+                                                <textarea class="form-control" id="fwdto" name="v_fwd" rows="4"></textarea>
+                                                <small class="form-text text-muted"><?php echo _("One Or More Email Addresses"); ?></small>
+                                            </div>
                                         </div>
-                                    </div></div>
+                                        <div id="togglediv2" style="display:none;">
+                                            <div class="form-group">
+                                                <label class="col-md-12"><?php echo _("Don't Store Forwarded Mail"); ?></label>
+                                                <div class="col-md-12">
+                                                    <div class="checkbox checkbox-info">
+                                                        <input id="checkbox4"  name="v_fwd_only" type="checkbox">
+                                                        <label for="checkbox4"> <?php echo _("Enabled"); ?> </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12"><?php echo _("Autoreply"); ?></label>
+                                            <div class="col-md-12">
+                                                <div class="checkbox checkbox-info">
+                                                    <input id="checkbox5" type="checkbox"  name="v_autoreply" onclick="checkDiv();">
+                                                    <label for="checkbox5"> <?php echo _("Enabled"); ?> </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" id="msg-div" style="margin-left: 4%;">
+                                            <label class="col-md-12"><?php echo _("Message"); ?></label>
+                                            <div class="col-md-12">
+                                                <textarea class="form-control"  name="v_message" rows="4"> </textarea>
+                                            </div>
+                                        </div></div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
                                             <button class="btn btn-success" onclick="processLoader();"><?php echo _("Add Account"); ?></button> &nbsp;
@@ -492,7 +492,7 @@ textdomain('messages');
                                                             </div>
                                                             <div class="col-sm-7">
                                                                 <p>
-                                                                   <span class="mailUN"></span><?php echo '@' . $requestdomain; ?><br>  
+                                                                    <span class="mailUN"></span><?php echo '@' . $requestdomain; ?><br>  
                                                                     <span class="mailPW"></span><br>
                                                                     <?php echo $requestdomain; ?><br>
                                                                     993<br>
@@ -582,7 +582,7 @@ textdomain('messages');
                     }
 
                     else {
-                             $currentstring = "<?php if($username == 'admin') { echo \"<li><a href='../plugins/" . $pluginnames[$currentplugin] . "/' ><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>\";} ?>";
+                        $currentstring = "<?php if($username == 'admin') { echo \"<li><a href='../plugins/" . $pluginnames[$currentplugin] . "/' ><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>\";} ?>";
                     }
                     echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');
                           var plugindata" . $currentplugin . " = \"" . $currentstring . "\";
@@ -591,7 +591,7 @@ textdomain('messages');
                 } while ($pluginnames[$currentplugin] != ''); }
 
             ?>
-    </script>
+        </script>
         <script type="text/javascript">
             function toggle_visibility(id) {
                 var e = document.getElementById(id);
@@ -600,12 +600,12 @@ textdomain('messages');
                 else
                     e.style.display = 'block';
             }
-                $('#fwdto').keyup(function(){
-                    if($(this).val().length)
-                        $('#togglediv2').show();
-                    else
-                        $('#togglediv2').hide();
-                });
+            $('#fwdto').keyup(function(){
+                if($(this).val().length)
+                    $('#togglediv2').show();
+                else
+                    $('#togglediv2').hide();
+            });
             $('.datepicker').datepicker();
             (function () {
                 [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {
@@ -638,7 +638,7 @@ textdomain('messages');
                 document.getElementsByClassName("mailPW")[3].innerHTML = mailPW;
                 document.getElementsByClassName("mailPW")[4].innerHTML = mailPW;
                 document.getElementsByClassName("mailPW")[5].innerHTML = mailPW;
-                }
+            }
             function fillSpan2() {
                 var mailUN = document.getElementById('accountname').value;
                 document.getElementsByClassName("mailUN")[0].innerHTML = mailUN;
@@ -647,7 +647,7 @@ textdomain('messages');
                 document.getElementsByClassName("mailUN")[3].innerHTML = mailUN;
                 document.getElementsByClassName("mailUN")[4].innerHTML = mailUN;
                 document.getElementsByClassName("mailUN")[5].innerHTML = mailUN;
-                }
+            }
             function generatePassword(length) {
                 var password = '', character; 
                 while (length > password.length) {
@@ -661,19 +661,19 @@ textdomain('messages');
                 fillSpan();
             }
             function processLoader(){
-            swal({
-              title: '<?php echo _("Processing"); ?>',
-              text: '',
-              timer: 5000,
-              onOpen: function () {
-                swal.showLoading()
-              }
-            })};
-        <?php
-           if(isset($_GET['error']) && $_GET['error'] == "1") {
+                swal({
+                    title: '<?php echo _("Processing"); ?>',
+                    text: '',
+                    timer: 5000,
+                    onOpen: function () {
+                        swal.showLoading()
+                    }
+                })};
+            <?php
+            if(isset($_GET['error']) && $_GET['error'] == "1") {
                 echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
             } 
-        ?>
+            ?>
         </script>
     </body>
 

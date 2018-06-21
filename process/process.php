@@ -44,25 +44,25 @@ $answer = curl_exec($curl);
 // Check if Interakt Integration is enabled
 if (INTERAKT_APP_ID != '' && INTERAKT_API_KEY != ''){
 
-// Prepare POST query
-$postvars1 = array(
-    'uname' => $username1,
-    'email' => $email,
-    'package' => $package,
-    'name' => $fullname,
-    'created_at' => $currenttime
-);
-// Send POST query via cURL
-$curl0 = curl_init();
+    // Prepare POST query
+    $postvars1 = array(
+        'uname' => $username1,
+        'email' => $email,
+        'package' => $package,
+        'name' => $fullname,
+        'created_at' => $currenttime
+    );
+    // Send POST query via cURL
+    $curl0 = curl_init();
 
-curl_setopt($curl0, CURLOPT_URL, 'https://app.interakt.co/api/v1/members');
-curl_setopt($curl0, CURLOPT_RETURNTRANSFER,true);
-curl_setopt($curl0, CURLOPT_USERPWD, INTERAKT_APP_ID . ':' . INTERAKT_API_KEY);
-curl_setopt($curl0, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($curl0, CURLOPT_SSL_VERIFYHOST, false);
-curl_setopt($curl0, CURLOPT_POST, true);
-curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query($postvars1));
-$r1 = curl_exec($curl0);
+    curl_setopt($curl0, CURLOPT_URL, 'https://app.interakt.co/api/v1/members');
+    curl_setopt($curl0, CURLOPT_RETURNTRANSFER,true);
+    curl_setopt($curl0, CURLOPT_USERPWD, INTERAKT_APP_ID . ':' . INTERAKT_API_KEY);
+    curl_setopt($curl0, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($curl0, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt($curl0, CURLOPT_POST, true);
+    curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query($postvars1));
+    $r1 = curl_exec($curl0);
 }
 
 // If accessed directly, redirect to 403 error
@@ -70,7 +70,7 @@ header('Location: ../error-pages/403.html');
 
 // Check result. Send response code
 if(isset($answer)) {
-header("Location: ../login.php?code=".$answer);
+    header("Location: ../login.php?code=".$answer);
 }
 
 ?>
@@ -86,5 +86,5 @@ header("Location: ../login.php?code=".$answer);
             </svg>
         </div>
     </body>
-        <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
 </html>

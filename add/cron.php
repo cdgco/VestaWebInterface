@@ -30,23 +30,23 @@ setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
 bindtextdomain('messages', '../locale');
 textdomain('messages');
 
-    foreach ($plugins as $result) {
-        if (file_exists('../plugins/' . $result)) {
-            if (file_exists('../plugins/' . $result . '/manifest.xml')) {
-                $get = file_get_contents('../plugins/' . $result . '/manifest.xml');
-                $xml   = simplexml_load_string($get, 'SimpleXMLElement', LIBXML_NOCDATA);
-                $arr = json_decode(json_encode((array)$xml), TRUE);
-                if (isset($arr['name']) && !empty($arr['name']) && isset($arr['fa-icon']) && !empty($arr['fa-icon']) && isset($arr['section']) && !empty($arr['section']) && isset($arr['admin-only']) && !empty($arr['admin-only'])){
-                    array_push($pluginlinks,$result);
-                    array_push($pluginnames,$arr['name']);
-                    array_push($pluginicons,$arr['fa-icon']);
-                    array_push($pluginsections,$arr['section']);
-                    array_push($pluginadminonly,$arr['admin-only']);
-                }
+foreach ($plugins as $result) {
+    if (file_exists('../plugins/' . $result)) {
+        if (file_exists('../plugins/' . $result . '/manifest.xml')) {
+            $get = file_get_contents('../plugins/' . $result . '/manifest.xml');
+            $xml   = simplexml_load_string($get, 'SimpleXMLElement', LIBXML_NOCDATA);
+            $arr = json_decode(json_encode((array)$xml), TRUE);
+            if (isset($arr['name']) && !empty($arr['name']) && isset($arr['fa-icon']) && !empty($arr['fa-icon']) && isset($arr['section']) && !empty($arr['section']) && isset($arr['admin-only']) && !empty($arr['admin-only'])){
+                array_push($pluginlinks,$result);
+                array_push($pluginnames,$arr['name']);
+                array_push($pluginicons,$arr['fa-icon']);
+                array_push($pluginsections,$arr['section']);
+                array_push($pluginadminonly,$arr['admin-only']);
+            }
 
-            }    
-        }
+        }    
     }
+}
 ?>
 
 <!DOCTYPE html>
@@ -137,14 +137,14 @@ textdomain('messages');
                             <span class="hide-menu"><?php echo _("Navigation"); ?></span>
                         </h3>  
                     </div>
-                   <ul class="nav" id="side-menu">
-                            <li> 
-                                <a href="../index.php" class="waves-effect">
-                                    <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu"><?php echo _("Home"); ?></span>
-                                </a> 
-                            </li>
+                    <ul class="nav" id="side-menu">
+                        <li> 
+                            <a href="../index.php" class="waves-effect">
+                                <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu"><?php echo _("Home"); ?></span>
+                            </a> 
+                        </li>
                         <?php if($initialusername == "admin"){ echo 
-                            '<li class="devider"></li>
+    '<li class="devider"></li>
                             <li> <a href="../#" class="waves-effect"><i class="mdi mdi-wrench fa-fw" data-icon="v"></i> <span class="hide-menu">' . _("Administration") . '<span class="fa arrow"></span> </span></a>
                                 <ul class="nav nav-second-level">
                                     <li> <a href="../admin/list/users.php"><i class="ti-user fa-fw"></i><span class="hide-menu">' . _("Users") . '</span></a> </li>
@@ -157,17 +157,17 @@ textdomain('messages');
                                     <li> <a href="../admin/list/server.php"><i class="fa fa-server fa-fw"></i><span class="hide-menu">' . _("Server") . '</span></a> </li>
                                 </ul>
                             </li>';
-                            } ?>
-                            <li class="devider"></li>
-                            <li>
-                                <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> <?php print_r($displayname); ?><span class="fa arrow"></span></span>
-                                </a>
-                                <ul class="nav nav-second-level collapse" id="appendaccount" aria-expanded="false" style="height: 0px;">
-                                    <li> <a href="../profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> <?php echo _("My Account"); ?></span></a></li>
-                                    <li> <a href="../profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> <?php echo _("Account Settings"); ?></span></a></li>
-                                    <li> <a href="../log.php"><i class="ti-layout-list-post fa-fw"></i><span class="hide-menu"><?php echo _("Log"); ?></span></a> </li>
-                                </ul>
-                            </li>
+                                                             } ?>
+                        <li class="devider"></li>
+                        <li>
+                            <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> <?php print_r($displayname); ?><span class="fa arrow"></span></span>
+                            </a>
+                            <ul class="nav nav-second-level collapse" id="appendaccount" aria-expanded="false" style="height: 0px;">
+                                <li> <a href="../profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> <?php echo _("My Account"); ?></span></a></li>
+                                <li> <a href="../profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> <?php echo _("Account Settings"); ?></span></a></li>
+                                <li> <a href="../log.php"><i class="ti-layout-list-post fa-fw"></i><span class="hide-menu"><?php echo _("Log"); ?></span></a> </li>
+                            </ul>
+                        </li>
                         <?php if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '<li class="devider"></li>
                             <li> <a href="#" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">'. _("Management") . '<span class="fa arrow"></span> </span></a>
                                 <ul class="nav nav-second-level" id="appendmanagement">'; } ?>
@@ -192,7 +192,7 @@ textdomain('messages');
                         <?php if ($oldcpurl == '' || $supporturl == '') {} else { echo '<li class="devider"></li>'; } ?>
                         <?php if ($oldcpurl != '') { echo '<li><a href="' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> ' . _("Control Panel v1") . '</span></a></li>'; } ?>
                         <?php if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">' . _("Support") . '</span></a></li>'; } ?>
-                        </ul>
+                    </ul>
                 </div>
             </div>
             <div id="page-wrapper">
@@ -293,10 +293,10 @@ textdomain('messages');
                                                                 <option value="*/15"><?php echo _("every"); ?> 15</option>
                                                                 <option value="*/30"><?php echo _("every"); ?> 30</option>
                                                             </select>
-                                                    <input type="hidden" name="h_hour" value="*">
-                                                    <input type="hidden" name="h_day" value="*">
-                                                    <input type="hidden" name="h_month" value="*">
-                                                    <input type="hidden" name="h_wday" value="*">
+                                                            <input type="hidden" name="h_hour" value="*">
+                                                            <input type="hidden" name="h_day" value="*">
+                                                            <input type="hidden" name="h_month" value="*">
+                                                            <input type="hidden" name="h_wday" value="*">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
@@ -324,19 +324,19 @@ textdomain('messages');
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="col-md-12"><?php echo _("Minute"); ?></label>
-                                                    <div class="col-md-12">
-                                                        <select class="form-control" name="h_min">
-                                                            <option value="0" selected="selected">00</option>
-                                                            <option value="15">15</option>
-                                                            <option value="30">30</option>
-                                                            <option value="45">45</option>
-                                                        </select>
+                                                        <div class="col-md-12">
+                                                            <select class="form-control" name="h_min">
+                                                                <option value="0" selected="selected">00</option>
+                                                                <option value="15">15</option>
+                                                                <option value="30">30</option>
+                                                                <option value="45">45</option>
+                                                            </select>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="col-sm-12">
-                                                        <button class="btn btn-success"><?php echo _("Generate"); ?></button>
-                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-sm-12">
+                                                            <button class="btn btn-success"><?php echo _("Generate"); ?></button>
+                                                        </div>
                                                     </div>
                                                 </form>
                                             </div>
@@ -436,60 +436,60 @@ textdomain('messages');
                                                             </select>
                                                         </div>
                                                     </div>
-                                                <div class="form-group">
-                                                    <label class="col-sm-6 pull-left"><?php echo _("Hour"); ?></label><label class="col-sm-6 pull-right"><?php echo _("Minute"); ?></label>
-                                                    <div class="col-sm-6 pull-left">
-                                                        <select class="form-control" name="h_hour">
-                                                            <option value="0">00</option>
-                                                            <option value="1">01</option>
-                                                            <option value="2">02</option>
-                                                            <option value="3">03</option>
-                                                            <option value="4">04</option>
-                                                            <option value="5">05</option>
-                                                            <option value="6">06</option>
-                                                            <option value="7">07</option>
-                                                            <option value="8">08</option>
-                                                            <option value="9">09</option>
-                                                            <option value="10">10</option>
-                                                            <option value="11">11</option>
-                                                            <option value="12" selected="selected">12</option>
-                                                            <option value="13">13</option>
-                                                            <option value="14">14</option>
-                                                            <option value="15">15</option>
-                                                            <option value="16">16</option>
-                                                            <option value="17">17</option>
-                                                            <option value="18">18</option>
-                                                            <option value="19">19</option>
-                                                            <option value="20">20</option>
-                                                            <option value="21">21</option>
-                                                            <option value="22">22</option>
-                                                            <option value="23">23</option>
-                                                        </select>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-6 pull-left"><?php echo _("Hour"); ?></label><label class="col-sm-6 pull-right"><?php echo _("Minute"); ?></label>
+                                                        <div class="col-sm-6 pull-left">
+                                                            <select class="form-control" name="h_hour">
+                                                                <option value="0">00</option>
+                                                                <option value="1">01</option>
+                                                                <option value="2">02</option>
+                                                                <option value="3">03</option>
+                                                                <option value="4">04</option>
+                                                                <option value="5">05</option>
+                                                                <option value="6">06</option>
+                                                                <option value="7">07</option>
+                                                                <option value="8">08</option>
+                                                                <option value="9">09</option>
+                                                                <option value="10">10</option>
+                                                                <option value="11">11</option>
+                                                                <option value="12" selected="selected">12</option>
+                                                                <option value="13">13</option>
+                                                                <option value="14">14</option>
+                                                                <option value="15">15</option>
+                                                                <option value="16">16</option>
+                                                                <option value="17">17</option>
+                                                                <option value="18">18</option>
+                                                                <option value="19">19</option>
+                                                                <option value="20">20</option>
+                                                                <option value="21">21</option>
+                                                                <option value="22">22</option>
+                                                                <option value="23">23</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-sm-6 pull-right">
+                                                            <select class="form-control" name="h_min">
+                                                                <option value="0" selected="selected">00</option>
+                                                                <option value="1">01</option>
+                                                                <option value="2">02</option>
+                                                                <option value="5">05</option>
+                                                                <option value="10">10</option>
+                                                                <option value="15">15</option>
+                                                                <option value="20">20</option>
+                                                                <option value="25">25</option>
+                                                                <option value="30">30</option>
+                                                                <option value="35">35</option>
+                                                                <option value="40">40</option>
+                                                                <option value="45">45</option>
+                                                                <option value="50">50</option>
+                                                                <option value="55">55</option>
+                                                            </select>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-sm-6 pull-right">
-                                                        <select class="form-control" name="h_min">
-                                                            <option value="0" selected="selected">00</option>
-                                                            <option value="1">01</option>
-                                                            <option value="2">02</option>
-                                                            <option value="5">05</option>
-                                                            <option value="10">10</option>
-                                                            <option value="15">15</option>
-                                                            <option value="20">20</option>
-                                                            <option value="25">25</option>
-                                                            <option value="30">30</option>
-                                                            <option value="35">35</option>
-                                                            <option value="40">40</option>
-                                                            <option value="45">45</option>
-                                                            <option value="50">50</option>
-                                                            <option value="55">55</option>
-                                                        </select>
+                                                    <div class="form-group">
+                                                        <div class="col-sm-12">
+                                                            <button class="btn btn-success"><?php echo _("Generate"); ?></button>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="col-sm-12">
-                                                        <button class="btn btn-success"><?php echo _("Generate"); ?></button>
-                                                    </div>
-                                                </div>
                                                 </form>
                                             </div>
                                             <div class="tab-pane" id="5">
@@ -620,7 +620,7 @@ textdomain('messages');
                         </div>
                     </div>
                 </div>
-                 <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
             </div>
         </div>
         <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
@@ -651,7 +651,7 @@ textdomain('messages');
                     }
 
                     else {
-                             $currentstring = "<?php if($username == 'admin') { echo \"<li><a href='../plugins/" . $pluginnames[$currentplugin] . "/' ><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>\";} ?>";
+                        $currentstring = "<?php if($username == 'admin') { echo \"<li><a href='../plugins/" . $pluginnames[$currentplugin] . "/' ><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>\";} ?>";
                     }
                     echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');
                           var plugindata" . $currentplugin . " = \"" . $currentstring . "\";
@@ -660,7 +660,7 @@ textdomain('messages');
                 } while ($pluginnames[$currentplugin] != ''); }
 
             ?>
-    </script>
+        </script>
         <script type="text/javascript">
             $('.generator form').submit(function(){
                 $('#vstobjects input[name=v_min]').val($(this).find(':input[name=h_min]').val());
@@ -675,19 +675,19 @@ textdomain('messages');
                 $('.footable').footable();
             });
             function processLoader(){
-            swal({
-              title: '<?php echo _("Processing"); ?>',
-              text: '',
-              timer: 5000,
-              onOpen: function () {
-                swal.showLoading()
-              }
-            })};
-        <?php
-           if(isset($_GET['error']) && $_GET['error'] == "1") {
+                swal({
+                    title: '<?php echo _("Processing"); ?>',
+                    text: '',
+                    timer: 5000,
+                    onOpen: function () {
+                        swal.showLoading()
+                    }
+                })};
+            <?php
+            if(isset($_GET['error']) && $_GET['error'] == "1") {
                 echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
             } 
-        ?>
+            ?>
         </script>
     </body>
 

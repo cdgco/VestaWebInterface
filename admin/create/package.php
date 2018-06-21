@@ -2,12 +2,12 @@
 
 session_start();
 
-    if (file_exists( '../../includes/config.php' )) { require( '../../includes/config.php'); }  else { header( 'Location: ../../install' );};
-    if(base64_decode($_SESSION['loggedin']) == 'true') {}
-    else { header('Location: ../../login.php'); }
-    if($username != 'admin') { header("Location: ../../"); }
+if (file_exists( '../../includes/config.php' )) { require( '../../includes/config.php'); }  else { header( 'Location: ../../install' );};
+if(base64_decode($_SESSION['loggedin']) == 'true') {}
+else { header('Location: ../../login.php'); }
+if($username != 'admin') { header("Location: ../../"); }
 
-    if ((!isset($_POST['v_package-name'])) || (!isset($_POST['v_webtpl'])) || (!isset($_POST['v_prxtpl'])) || (!isset($_POST['v_dnstpl'])) || (!isset($_POST['v_web-domains'])) || (!isset($_POST['v_web-aliases'])) || (!isset($_POST['v_dns-domains'])) || (!isset($_POST['v_dns-records'])) || (!isset($_POST['v_mail-domains'])) || (!isset($_POST['v_mail-accounts'])) || (!isset($_POST['v_databases'])) || (!isset($_POST['v_cron-jobs'])) || (!isset($_POST['v_quota'])) || (!isset($_POST['v_bandwidth'])) || (!isset($_POST['ns1'])) || (!isset($_POST['ns2'])) || (!isset($_POST['ssh'])) || (!isset($_POST['v_backups']))) { header('Location: ../add/package.php?error=1');}
+if ((!isset($_POST['v_package-name'])) || (!isset($_POST['v_webtpl'])) || (!isset($_POST['v_prxtpl'])) || (!isset($_POST['v_dnstpl'])) || (!isset($_POST['v_web-domains'])) || (!isset($_POST['v_web-aliases'])) || (!isset($_POST['v_dns-domains'])) || (!isset($_POST['v_dns-records'])) || (!isset($_POST['v_mail-domains'])) || (!isset($_POST['v_mail-accounts'])) || (!isset($_POST['v_databases'])) || (!isset($_POST['v_cron-jobs'])) || (!isset($_POST['v_quota'])) || (!isset($_POST['v_bandwidth'])) || (!isset($_POST['ns1'])) || (!isset($_POST['ns2'])) || (!isset($_POST['ssh'])) || (!isset($_POST['v_backups']))) { header('Location: ../add/package.php?error=1');}
 
 $nsfull = '';
 if(isset($_POST['ns3']) && $_POST['ns3'] != ''){ $nsfull = "," . $_POST['ns3'];}
@@ -19,17 +19,17 @@ if(isset($_POST['ns3']) && $_POST['ns3'] != '' && isset($_POST['ns4']) && $_POST
 
 function ftp_file_put_contents($remote_file, $file_string) {
 
-$ftp_server=VESTA_HOST_ADDRESS; 
-$ftp_user_name=VESTA_ADMIN_UNAME; 
-$ftp_user_pass=VESTA_ADMIN_PW;
-$local_file=fopen('php://temp', 'r+');
-fwrite($local_file, $file_string);
-rewind($local_file);       
-$ftp_conn=ftp_connect($ftp_server); 
-@$login_result=ftp_login($ftp_conn, $ftp_user_name, $ftp_user_pass); 
-if($login_result) $upload_result=ftp_fput($ftp_conn, $remote_file, $local_file, FTP_ASCII);
-ftp_close($ftp_conn);
-fclose($local_file); }
+    $ftp_server=VESTA_HOST_ADDRESS; 
+    $ftp_user_name=VESTA_ADMIN_UNAME; 
+    $ftp_user_pass=VESTA_ADMIN_PW;
+    $local_file=fopen('php://temp', 'r+');
+    fwrite($local_file, $file_string);
+    rewind($local_file);       
+    $ftp_conn=ftp_connect($ftp_server); 
+    @$login_result=ftp_login($ftp_conn, $ftp_user_name, $ftp_user_pass); 
+    if($login_result) $upload_result=ftp_fput($ftp_conn, $remote_file, $local_file, FTP_ASCII);
+    ftp_close($ftp_conn);
+    fclose($local_file); }
 
 $writestr = "WEB_TEMPLATE='".$_POST['v_package-name']."'\n
 BACKEND_TEMPLATE='".$_POST['v_webtpl']."'\n
@@ -83,15 +83,15 @@ ftp_delete($ftp_conn, $_POST['v_package-name'] . '.pkg')
                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
             </svg>
         </div>
-        
-<form id="form" action="../list/packages.php" method="post">
-<?php 
+
+        <form id="form" action="../list/packages.php" method="post">
+            <?php 
     echo '<input type="hidden" name="addcode" value="'.$r1.'">';
-?>
-</form>
-<script type="text/javascript">
-    document.getElementById('form').submit();
-</script>
-                    </body>
-        <script src="../../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+            ?>
+        </form>
+        <script type="text/javascript">
+            document.getElementById('form').submit();
+        </script>
+    </body>
+    <script src="../../plugins/bower_components/jquery/dist/jquery.min.js"></script>
 </html>

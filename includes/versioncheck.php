@@ -15,7 +15,7 @@ curl_close($ch);
 $data2 = json_decode($data, true);
 $ghversion = $data2[0]['name'];
 if (isset($ghversion) && $ghversion != '') {
-if ($ghversion == $currentversion) { echo $currentversion; } else {echo '<a href="https://github.com/cdgco/VestaWebInterface/releases" style="text-decoration: underline;" data-toggle="tooltip" title="' . $ghversion . ' Now Available!">' . $currentversion . ' (Outdated)</a>';}
+    if ($ghversion == $currentversion) { echo $currentversion; } else {echo '<a href="https://github.com/cdgco/VestaWebInterface/releases" style="text-decoration: underline;" data-toggle="tooltip" title="' . $ghversion . ' Now Available!">' . $currentversion . ' (Outdated)</a>';}
 } 
 else { echo $currentversion;}
 ?>

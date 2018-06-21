@@ -75,13 +75,13 @@ else {
                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
             </svg>
         </div>
-        
-<form id="form" action="../list/backups.php" method="post">
-<?php echo '<input type="hidden" name="restore" value="'.$r1.'">'; ?>
-</form>
-<script type="text/javascript">
-    document.getElementById('form').submit();
-</script>
-                    </body>
-        <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+
+        <form id="form" action="../list/backups.php" method="post">
+            <?php echo '<input type="hidden" name="restore" value="'.$r1.'">'; ?>
+        </form>
+        <script type="text/javascript">
+            document.getElementById('form').submit();
+        </script>
+    </body>
+    <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
 </html>

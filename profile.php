@@ -31,23 +31,23 @@ setlocale(LC_MESSAGES, $locale);
 bindtextdomain('messages', 'locale');
 textdomain('messages');
 
-    foreach ($plugins as $result) {
-        if (file_exists('plugins/' . $result)) {
-            if (file_exists('plugins/' . $result . '/manifest.xml')) {
-                $get = file_get_contents('plugins/' . $result . '/manifest.xml');
-                $xml   = simplexml_load_string($get, 'SimpleXMLElement', LIBXML_NOCDATA);
-                $arr = json_decode(json_encode((array)$xml), TRUE);
-                if (isset($arr['name']) && !empty($arr['name']) && isset($arr['fa-icon']) && !empty($arr['fa-icon']) && isset($arr['section']) && !empty($arr['section']) && isset($arr['admin-only']) && !empty($arr['admin-only'])){
-                    array_push($pluginlinks,$result);
-                    array_push($pluginnames,$arr['name']);
-                    array_push($pluginicons,$arr['fa-icon']);
-                    array_push($pluginsections,$arr['section']);
-                    array_push($pluginadminonly,$arr['admin-only']);
-                }
+foreach ($plugins as $result) {
+    if (file_exists('plugins/' . $result)) {
+        if (file_exists('plugins/' . $result . '/manifest.xml')) {
+            $get = file_get_contents('plugins/' . $result . '/manifest.xml');
+            $xml   = simplexml_load_string($get, 'SimpleXMLElement', LIBXML_NOCDATA);
+            $arr = json_decode(json_encode((array)$xml), TRUE);
+            if (isset($arr['name']) && !empty($arr['name']) && isset($arr['fa-icon']) && !empty($arr['fa-icon']) && isset($arr['section']) && !empty($arr['section']) && isset($arr['admin-only']) && !empty($arr['admin-only'])){
+                array_push($pluginlinks,$result);
+                array_push($pluginnames,$arr['name']);
+                array_push($pluginicons,$arr['fa-icon']);
+                array_push($pluginsections,$arr['section']);
+                array_push($pluginadminonly,$arr['admin-only']);
+            }
 
-            }    
-        }
+        }    
     }
+}
 
 ?>
 <!DOCTYPE html>
@@ -198,7 +198,7 @@ textdomain('messages');
                             </a> 
                         </li>
                         <?php if($initialusername == "admin"){ echo 
-                            '<li class="devider"></li>
+    '<li class="devider"></li>
                             <li> <a href="../#" class="waves-effect"><i class="mdi mdi-wrench fa-fw" data-icon="v"></i> <span class="hide-menu">' . _("Administration") . '<span class="fa arrow"></span> </span></a>
                                 <ul class="nav nav-second-level">
                                     <li> <a href="admin/list/users.php"><i class="ti-user fa-fw"></i><span class="hide-menu">' . _("Users") . '</span></a> </li>
@@ -211,7 +211,7 @@ textdomain('messages');
                                     <li> <a href="admin/list/server.php"><i class="fa fa-server fa-fw"></i><span class="hide-menu">' . _("Server") . '</span></a> </li>
                                 </ul>
                             </li>';
-                            } ?>
+                                                             } ?>
                         <li class="devider"></li>
                         <li>
                             <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> <?php print_r($displayname); ?><span class="fa arrow"></span></span>
@@ -331,7 +331,7 @@ textdomain('messages');
                                         <input type="hidden" name="ns6-x" value="<?php print_r(explode(',', ($admindata['NS']))[5]); ?>"/>
                                         <input type="hidden" name="ns7-x" value="<?php print_r(explode(',', ($admindata['NS']))[6]); ?>"/>
                                         <input type="hidden" name="ns8-x" value="<?php print_r(explode(',', ($admindata['NS']))[7]); ?>"/>
-                                        
+
                                         <div class="form-group">
                                             <label for="username" class="col-md-12"><?php echo _("Username"); ?></label>
                                             <div class="col-md-12">
@@ -466,7 +466,7 @@ textdomain('messages');
                 }
 
                 else {
-                         $currentstring = "<?php if($username == 'admin') { echo \"<li><a href='plugins/" . $pluginnames[$currentplugin] . "/' ><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>\";} ?>";
+                    $currentstring = "<?php if($username == 'admin') { echo \"<li><a href='plugins/" . $pluginnames[$currentplugin] . "/' ><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>\";} ?>";
                 }
                 echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');
                       var plugindata" . $currentplugin . " = \"" . $currentstring . "\";
@@ -475,7 +475,7 @@ textdomain('messages');
             } while ($pluginnames[$currentplugin] != ''); }
 
         ?>
-</script>
+    </script>
     <script>
         function toggler(e) {
             if( e.name == 'Hide' ) {
@@ -549,16 +549,16 @@ if( document.getElementById('ns" . $rem1count . "').style.display = 'block' ) {
             $remcount++;
             $rem1count++;
         } 
-            
-            $returntotal = $_POST['r1'] + $_POST['r2'] + $_POST['r3'] + $_POST['r4'] + $_POST['r5'];
-            if(isset($_POST['r1']) && $returntotal == 0) {
-                echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
-            } 
-            if(isset($_POST['r1']) && $returntotal != 0) {
-                echo "swal({title:'" . _("Error Updating Profile") . "<br>" . "(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . "." . $_POST['r4'] . "." . $_POST['r5'] . ")<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
-            }
-    
-    ?>
+
+        $returntotal = $_POST['r1'] + $_POST['r2'] + $_POST['r3'] + $_POST['r4'] + $_POST['r5'];
+        if(isset($_POST['r1']) && $returntotal == 0) {
+            echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
+        } 
+        if(isset($_POST['r1']) && $returntotal != 0) {
+            echo "swal({title:'" . _("Error Updating Profile") . "<br>" . "(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . "." . $_POST['r4'] . "." . $_POST['r5'] . ")<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+        }
+
+        ?>
     </script>
     <?php if(INTERAKT_APP_ID != ''){ echo '
 <script>

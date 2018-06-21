@@ -7,21 +7,21 @@ if(isset($_SESSION['loggedin'])) {
     if(base64_decode($_SESSION['loggedin']) == 'true') { header('Location: index.php'); }
 }
 
-    $postvars0 = array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-info','arg1' => 'json');
+$postvars0 = array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-info','arg1' => 'json');
 
-    $curl0 = curl_init();
-    curl_setopt($curl0, CURLOPT_URL, $vst_url);
-    curl_setopt($curl0, CURLOPT_RETURNTRANSFER,true);
-    curl_setopt($curl0, CURLOPT_SSL_VERIFYPEER, false);
-    curl_setopt($curl0, CURLOPT_SSL_VERIFYHOST, false);
-    curl_setopt($curl0, CURLOPT_POST, true);
-    curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query($postvars0));
-    $serverconnection = array_values(json_decode(curl_exec($curl0), true))[0]['OS'];
+$curl0 = curl_init();
+curl_setopt($curl0, CURLOPT_URL, $vst_url);
+curl_setopt($curl0, CURLOPT_RETURNTRANSFER,true);
+curl_setopt($curl0, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($curl0, CURLOPT_SSL_VERIFYHOST, false);
+curl_setopt($curl0, CURLOPT_POST, true);
+curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query($postvars0));
+$serverconnection = array_values(json_decode(curl_exec($curl0), true))[0]['OS'];
 
-    setlocale(LC_CTYPE, $locale);
-    setlocale(LC_MESSAGES, $locale);
-    bindtextdomain('messages', 'locale');
-    textdomain('messages');
+setlocale(LC_CTYPE, $locale);
+setlocale(LC_MESSAGES, $locale);
+bindtextdomain('messages', 'locale');
+textdomain('messages');
 
 ?>
 
@@ -161,8 +161,8 @@ if(isset($_SESSION['loggedin'])) {
         <!--Style Switcher -->
         <script src="plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
         <script>
-        <?php if(!isset($serverconnection)){
-            echo "$.toast({
+            <?php if(!isset($serverconnection)){
+    echo "$.toast({
                         heading: '" . _("Error") . "'
                         , text: '" . _("Failed to connect to server.") . "<br>" . _("Please check config.php") . "'
                         , icon: 'error'
@@ -170,8 +170,8 @@ if(isset($_SESSION['loggedin'])) {
                         , hideAfter: false
                         , allowToastClose: false
                     });"; }
-if(substr(sprintf('%o', fileperms('includes')), -4) == '0777') {
-         echo "$.toast({
+            if(substr(sprintf('%o', fileperms('includes')), -4) == '0777') {
+                echo "$.toast({
                         heading: '" . _("Warning") . "'
                         , text: '" . _("Includes folder has not been secured") . "'
                         , icon: 'warning'
@@ -179,8 +179,8 @@ if(substr(sprintf('%o', fileperms('includes')), -4) == '0777') {
                         , hideAfter: 3500
                         , bgColor: '#ff8000'
                     });";
-        
-                } ?>
+
+            } ?>
         </script>
     </body>
 

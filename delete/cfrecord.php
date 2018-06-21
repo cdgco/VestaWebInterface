@@ -14,8 +14,8 @@ curl_setopt($cf, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($cf, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($cf, CURLOPT_CUSTOMREQUEST, "DELETE");
 curl_setopt($cf, CURLOPT_HTTPHEADER, array(
-"X-Auth-Email: " . CLOUDFLARE_EMAIL,
-"X-Auth-Key: " . CLOUDFLARE_API_KEY));
+    "X-Auth-Email: " . CLOUDFLARE_EMAIL,
+    "X-Auth-Key: " . CLOUDFLARE_API_KEY));
 
 curl_exec($cf);
 ?>
@@ -30,15 +30,15 @@ curl_exec($cf);
                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
             </svg>
         </div>
-        
-<form id="form" action="../list/cfdomain.php?domain=<?php echo $_GET['domain']; ?>" method="post">
-<?php 
-    echo '<input type="hidden" name="delcode" value="0">';
-?>
-</form>
-<script type="text/javascript">
-    document.getElementById('form').submit();
-</script>
-                    </body>
-        <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+
+        <form id="form" action="../list/cfdomain.php?domain=<?php echo $_GET['domain']; ?>" method="post">
+            <?php 
+            echo '<input type="hidden" name="delcode" value="0">';
+            ?>
+        </form>
+        <script type="text/javascript">
+            document.getElementById('form').submit();
+        </script>
+    </body>
+    <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
 </html>

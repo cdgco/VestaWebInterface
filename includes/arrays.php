@@ -1,7 +1,7 @@
 <?php
 
 
-    $ulang = array
+$ulang = array
     (
     'ar' => 'ar_EG.utf8',
     'bs' => 'bs_BA.utf8',
@@ -32,9 +32,9 @@
     'tw' => 'zh_TW.utf8',
     'ua' => 'uk_UA.utf8',
     'vi' => 'vi_VN'
-    );
+);
 
-    $errorcode = array
+$errorcode = array
     (
     "1" => "Not enough arguments provided. (1.E_ARGS)",
     "2" => "Invalid object or argument. (2.E_INVALID)",
@@ -56,9 +56,9 @@
     "18" => "Update operation failed. (18.E_RRD)",
     "19" => "Update operation failed. (19.E_UPDATE)",
     "20" => "Service restart failed. (20.E_RESTART)"
-    );
+);
 
-    $countries = array
+$countries = array
     (
     'ar' => 'Arabic (العربية)',
     'bs' => 'Bosnian (bosanski / босански)',
@@ -89,5 +89,5 @@
     'tw' => 'Taiwanese Mandarin (臺灣華語)',
     'ua' => 'Ukrainian (українська мова)',
     'vi' => 'Vietnamese (Tiếng Việt / 㗂越)'
-    );
+);
 ?>

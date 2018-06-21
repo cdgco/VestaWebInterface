@@ -13,9 +13,9 @@
     <admin-only>No</admin-only>
     <!-- Hide your plugin from menus? "yes" or "no". Coming soon. -->
     <hide></hide>
-     <!-- Hide your plugin from menus? "yes" or "no". Coming soon. -->
+    <!-- Hide your plugin from menus? "yes" or "no". Coming soon. -->
     <custom-tag></custom-tag>
-     <!-- 
+    <!-- 
 
     Cutom menu tag if custom-tag = "yes". Coming soon.
 
@@ -24,7 +24,7 @@
 
     Example PHP Validated Tag:
         <?php if($condition === true) { echo \"<li><a href='../" . $pluginlinks[$currentplugin] . "/' ><i class='fa fa-phone fa-fw'></i><span class='hide-menu'>" . _("Plugin Name") . "</span></a></li>\";} ?>
-    
+
     -->
     <custom-tag-content></custom-tag-content>
 </plugin>

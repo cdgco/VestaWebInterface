@@ -10,7 +10,7 @@ $username = $username;
 $verified = $_POST['verified'];
 
 $postvars = array(
-array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-delete-cron-reports','arg1' => $username)
+    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-delete-cron-reports','arg1' => $username)
 );
 
 $curl0 = curl_init();
@@ -27,8 +27,8 @@ if($verified == "yes"){
         $curlstart++;
     } 
 
-$rs1 = curl_exec($curl0);
-print_r($r1);
+    $rs1 = curl_exec($curl0);
+    print_r($r1);
 }
 // If accessed directly, redirect to 403 error
 header('Location: ../error-pages/403.html');

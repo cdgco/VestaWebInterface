@@ -28,12 +28,17 @@ DEFINE('PHPPGADMIN_URL', 'disabled'); // phpPgAdmin URL. Leave blank for VestaCP
 DEFINE('SUPPORT_URL', 'disabled'); // Support URL. Leave blank or set to 'disabled' to disable.
 
 // ENABLE OR DISABLE SECTIONS //
+DEFINE('ADMIN_ENABLED', 'true'); // Enable or disable link to old cpanel. Ex: 'true' or 'false'.
+DEFINE('PROFILE_ENABLED', 'true'); // Enable or disable link to old cpanel. Ex: 'true' or 'false'.
 DEFINE('WEB_ENABLED', 'true'); // Enable or disable web section. Ex: 'true' or 'false'.
 DEFINE('DNS_ENABLED', 'true'); // Enable or disable dns section. Ex: 'true' or 'false'.
 DEFINE('MAIL_ENABLED', 'true'); // Enable or disable mail section. Ex: 'true' or 'false'.
 DEFINE('DB_ENABLED', 'true'); // Enable or disable database section. Ex: 'true' or 'false'.
+DEFINE('CRON_ENABLED', 'true'); // Enable or disable link to old cpanel. Ex: 'true' or 'false'.
+DEFINE('BACKUPS_ENABLED', 'true'); // Enable or disable link to old cpanel. Ex: 'true' or 'false'.
 DEFINE('SOFTACULOUS_URL', 'true'); // Enable or disable link to Softaculous. Ex: 'true' or 'false'.
-DEFINE('OLD_CP_LINK', 'true'); // Enable or disable link to old cpanel. Ex: 'true' or 'false'.
+DEFINE('OLD_CP_LINK', 'false'); // Enable or disable link to old cpanel. Ex: 'true' or 'false'.
+DEFINE('REGISTRATIONS_ENABLED', 'false'); // Enable or disable link to old cpanel. Ex: 'true' or 'false'.
 
 // INTEGRATIONS //
 DEFINE('PLUGINS', ''); // Plugin folder name, exactly as specified, seperated by comma.
@@ -48,52 +53,52 @@ DEFINE('CLOUDFLARE_EMAIL', ''); // Enable Cloudflare DNS Support. Enter email ad
 ///////////////////////////////////////////////////////////////////////
 
 if(VESTA_SSL_ENABLED == 'false'){
- $vst_ssl = 'http://';
+    $vst_ssl = 'http://';
 }
 else{
- $vst_ssl = 'https://';
+    $vst_ssl = 'https://';
 }
 
 if(VESTA_PORT == ''){
- $vesta_port = '8083';
+    $vesta_port = '8083';
 }
 else{
- $vesta_port = VESTA_PORT;
+    $vesta_port = VESTA_PORT;
 }
 
 if(FTP_URL == ''){
- $ftpurl = 'http://net2ftp.com/';
+    $ftpurl = 'http://net2ftp.com/';
 }
 elseif(FTP_URL == 'disabled'){
- $ftpurl = '';
+    $ftpurl = '';
 }
 else{
- $ftpurl = FTP_URL;
+    $ftpurl = FTP_URL;
 }
 
 if(WEB_ENABLED != 'true'){
- $webenabled = '';
+    $webenabled = '';
 }
 else{
- $webenabled = WEB_ENABLED;
+    $webenabled = WEB_ENABLED;
 }
 if(DNS_ENABLED != 'true'){
- $dnsenabled = '';
+    $dnsenabled = '';
 }
 else{
- $dnsenabled = DNS_ENABLED;
+    $dnsenabled = DNS_ENABLED;
 }
 if(MAIL_ENABLED != 'true'){
- $mailenabled = '';
+    $mailenabled = '';
 }
 else{
- $mailenabled = MAIL_ENABLED;
+    $mailenabled = MAIL_ENABLED;
 }
 if(DB_ENABLED != 'true'){
- $dbenabled = '';
+    $dbenabled = '';
 }
 else{
- $dbenabled = DB_ENABLED;
+    $dbenabled = DB_ENABLED;
 }
 
 $vst_url = $vst_ssl . VESTA_HOST_ADDRESS . ':' . $vesta_port . '/api/';
@@ -122,57 +127,57 @@ $sitetitle = SITE_NAME;
 $cfapikey = CLOUDFLARE_ORIGIN_CA_KEY;
 
 if(WEBMAIL_URL == ''){
- $webmailurl = $vst_ssl . VESTA_HOST_ADDRESS . '/webmail';
+    $webmailurl = $vst_ssl . VESTA_HOST_ADDRESS . '/webmail';
 }
 elseif(WEBMAIL_URL == 'disabled'){
- $webmailurl = '';
+    $webmailurl = '';
 }
 else{
- $webmailurl = WEBMAIL_URL;
+    $webmailurl = WEBMAIL_URL;
 }
 
 if(PHPMYADMIN_URL == ''){
- $phpmyadmin = $vst_ssl . VESTA_HOST_ADDRESS . '/phpmyadmin';
+    $phpmyadmin = $vst_ssl . VESTA_HOST_ADDRESS . '/phpmyadmin';
 }
 elseif(PHPMYADMIN_URL == 'disabled'){
- $phpmyadmin = '';
+    $phpmyadmin = '';
 }
 else{
- $phpmyadmin = PHPMYADMIN_URL;
+    $phpmyadmin = PHPMYADMIN_URL;
 }
 
 if(PHPPGADMIN_URL == ''){
- $phppgadmin = $vst_ssl . VESTA_HOST_ADDRESS . '/phppgadmin';
+    $phppgadmin = $vst_ssl . VESTA_HOST_ADDRESS . '/phppgadmin';
 }
 elseif(PHPPGADMIN_URL == 'disabled'){
- $phppgadmin = '';
+    $phppgadmin = '';
 }
 else{
- $phppgadmin = PHPPGADMIN_URL;
+    $phppgadmin = PHPPGADMIN_URL;
 }
 
 if(SUPPORT_URL == ''){
- $supporturl = '';
+    $supporturl = '';
 }
 elseif(SUPPORT_URL == 'disabled'){
- $supporturl = '';
+    $supporturl = '';
 }
 else{
- $supporturl = SUPPORT_URL;
+    $supporturl = SUPPORT_URL;
 }
 
 if(SOFTACULOUS_URL == 'false'){
- $softaculousurl = '';
+    $softaculousurl = '';
 }
 else{
- $softaculousurl = $url8083 . '/softaculous';
+    $softaculousurl = $url8083 . '/softaculous';
 }
 
 if(OLD_CP_LINK == 'false'){
- $oldcpurl = '';
+    $oldcpurl = '';
 }
 else{
- $oldcpurl = $url8083;
+    $oldcpurl = $url8083;
 }
 
 require 'arrays.php';

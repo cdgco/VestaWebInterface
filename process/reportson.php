@@ -10,11 +10,11 @@ $username = $username;
 $verified = $_POST['verified'];
 
 $postvars = array(
-array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-add-cron-reports','arg1' => $username)
+    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-add-cron-reports','arg1' => $username)
 );
-   
-    $curl0 = curl_init();
-    $curlstart = 0; 
+
+$curl0 = curl_init();
+$curlstart = 0; 
 
 if($verified == "yes"){
     while($curlstart <= 0) {
@@ -27,8 +27,8 @@ if($verified == "yes"){
         $curlstart++;
     } 
 
-$rs1 = curl_exec($curl0);
-print_r($r1);
+    $rs1 = curl_exec($curl0);
+    print_r($r1);
 }
 
 // If accessed directly, redirect to 403 error

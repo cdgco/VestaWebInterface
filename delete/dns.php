@@ -30,15 +30,15 @@ $r1 = curl_exec($curl0);
                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
             </svg>
         </div>
-        
-<form id="form" action="../list/dns.php" method="post">
-<?php 
-    echo '<input type="hidden" name="delcode" value="'.$r1.'">';
-?>
-</form>
-<script type="text/javascript">
-    document.getElementById('form').submit();
-</script>
-                    </body>
-        <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+
+        <form id="form" action="../list/dns.php" method="post">
+            <?php 
+            echo '<input type="hidden" name="delcode" value="'.$r1.'">';
+            ?>
+        </form>
+        <script type="text/javascript">
+            document.getElementById('form').submit();
+        </script>
+    </body>
+    <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
 </html>

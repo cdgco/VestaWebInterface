@@ -2,34 +2,34 @@
 
 session_start();
 
-    if (file_exists( '../../includes/config.php' )) { require( '../../includes/config.php'); }  else { header( 'Location: ../../install' );};
-    if(base64_decode($_SESSION['loggedin']) == 'true') {}
-    else { header('Location: ../../login.php'); }
-    if($username != 'admin') { header("Location: ../../"); }
+if (file_exists( '../../includes/config.php' )) { require( '../../includes/config.php'); }  else { header( 'Location: ../../install' );};
+if(base64_decode($_SESSION['loggedin']) == 'true') {}
+else { header('Location: ../../login.php'); }
+if($username != 'admin') { header("Location: ../../"); }
 
-    $v_uname = $_POST['user'];
-    $v_pass = $_POST['password'];
-    $v_email = $_POST['email'];
-    $v_package = $_POST['package'];
-    $v_fname = $_POST['fname'];
-    $v_lname = $_POST['lname'];
-    
+$v_uname = $_POST['user'];
+$v_pass = $_POST['password'];
+$v_email = $_POST['email'];
+$v_package = $_POST['package'];
+$v_fname = $_POST['fname'];
+$v_lname = $_POST['lname'];
 
-    if ((!isset($_POST['user'])) || ($_POST['user'] == '')) { header('Location: ../add/user.php?error=1');}
-    elseif ((!isset($_POST['password'])) || ($_POST['password'] == '')) { header('Location: ../add/user.php?error=1');}
-    elseif ((!isset($_POST['email'])) || ($_POST['email'] == '')) { header('Location: ../add/user.php?error=1');}
-    elseif ((!isset($_POST['package'])) || ($_POST['package'] == '')) { header('Location: ../add/user.php?error=1');}
 
-    $postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-user','arg1' => $v_uname,'arg2' => $v_pass, 'arg3' => $v_email, 'arg4' => $v_package, 'arg5' => $v_fname, 'arg6' => $v_lname);
+if ((!isset($_POST['user'])) || ($_POST['user'] == '')) { header('Location: ../add/user.php?error=1');}
+elseif ((!isset($_POST['password'])) || ($_POST['password'] == '')) { header('Location: ../add/user.php?error=1');}
+elseif ((!isset($_POST['email'])) || ($_POST['email'] == '')) { header('Location: ../add/user.php?error=1');}
+elseif ((!isset($_POST['package'])) || ($_POST['package'] == '')) { header('Location: ../add/user.php?error=1');}
 
-    $curl0 = curl_init();
-    curl_setopt($curl0, CURLOPT_URL, $vst_url);
-    curl_setopt($curl0, CURLOPT_RETURNTRANSFER,true);
-    curl_setopt($curl0, CURLOPT_SSL_VERIFYPEER, false);
-    curl_setopt($curl0, CURLOPT_SSL_VERIFYHOST, false);
-    curl_setopt($curl0, CURLOPT_POST, true);
-    curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query($postvars));
-    $r1 = curl_exec($curl0);
+$postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-user','arg1' => $v_uname,'arg2' => $v_pass, 'arg3' => $v_email, 'arg4' => $v_package, 'arg5' => $v_fname, 'arg6' => $v_lname);
+
+$curl0 = curl_init();
+curl_setopt($curl0, CURLOPT_URL, $vst_url);
+curl_setopt($curl0, CURLOPT_RETURNTRANSFER,true);
+curl_setopt($curl0, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($curl0, CURLOPT_SSL_VERIFYHOST, false);
+curl_setopt($curl0, CURLOPT_POST, true);
+curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query($postvars));
+$r1 = curl_exec($curl0);
 
 ?>
 <!DOCTYPE html>
@@ -43,15 +43,15 @@ session_start();
                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
             </svg>
         </div>
-        
-<form id="form" action="../list/users.php" method="post">
-<?php 
-    echo '<input type="hidden" name="addcode" value="'.$r1.'">';
-?>
-</form>
-<script type="text/javascript">
-    document.getElementById('form').submit();
-</script>
-                    </body>
-        <script src="../../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+
+        <form id="form" action="../list/users.php" method="post">
+            <?php 
+            echo '<input type="hidden" name="addcode" value="'.$r1.'">';
+            ?>
+        </form>
+        <script type="text/javascript">
+            document.getElementById('form').submit();
+        </script>
+    </body>
+    <script src="../../plugins/bower_components/jquery/dist/jquery.min.js"></script>
 </html>

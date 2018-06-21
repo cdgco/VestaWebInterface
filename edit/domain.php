@@ -56,23 +56,23 @@ setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
 bindtextdomain('messages', '../locale');
 textdomain('messages');
 
-    foreach ($plugins as $result) {
-        if (file_exists('../plugins/' . $result)) {
-            if (file_exists('../plugins/' . $result . '/manifest.xml')) {
-                $get = file_get_contents('../plugins/' . $result . '/manifest.xml');
-                $xml   = simplexml_load_string($get, 'SimpleXMLElement', LIBXML_NOCDATA);
-                $arr = json_decode(json_encode((array)$xml), TRUE);
-                if (isset($arr['name']) && !empty($arr['name']) && isset($arr['fa-icon']) && !empty($arr['fa-icon']) && isset($arr['section']) && !empty($arr['section']) && isset($arr['admin-only']) && !empty($arr['admin-only'])){
-                    array_push($pluginlinks,$result);
-                    array_push($pluginnames,$arr['name']);
-                    array_push($pluginicons,$arr['fa-icon']);
-                    array_push($pluginsections,$arr['section']);
-                    array_push($pluginadminonly,$arr['admin-only']);
-                }
+foreach ($plugins as $result) {
+    if (file_exists('../plugins/' . $result)) {
+        if (file_exists('../plugins/' . $result . '/manifest.xml')) {
+            $get = file_get_contents('../plugins/' . $result . '/manifest.xml');
+            $xml   = simplexml_load_string($get, 'SimpleXMLElement', LIBXML_NOCDATA);
+            $arr = json_decode(json_encode((array)$xml), TRUE);
+            if (isset($arr['name']) && !empty($arr['name']) && isset($arr['fa-icon']) && !empty($arr['fa-icon']) && isset($arr['section']) && !empty($arr['section']) && isset($arr['admin-only']) && !empty($arr['admin-only'])){
+                array_push($pluginlinks,$result);
+                array_push($pluginnames,$arr['name']);
+                array_push($pluginicons,$arr['fa-icon']);
+                array_push($pluginsections,$arr['section']);
+                array_push($pluginadminonly,$arr['admin-only']);
+            }
 
-            }    
-        }
+        }    
     }
+}
 ?>
 
 <!DOCTYPE html>
@@ -133,44 +133,44 @@ textdomain('messages');
                     <ul class="nav navbar-top-links navbar-right pull-right">
 
                         <li class="dropdown">
-                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
-                        <ul class="dropdown-menu dropdown-user animated flipInY">
-                            <li>
-                                <div class="dw-user-box">
-                                    <div class="u-text">
-                                        <h4><?php print_r($displayname); ?></h4>
-                                        <p class="text-muted"><?php print_r($useremail); ?></p></div>
-                                </div>
-                            </li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
-                            <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <div class="navbar-default sidebar" role="navigation">
-            <div class="sidebar-nav slimscrollsidebar">
-                <div class="sidebar-head">
-                    <h3>
-                        <span class="fa-fw open-close">
-                            <i class="ti-menu hidden-xs"></i>
-                            <i class="ti-close visible-xs"></i>
-                        </span> 
-                        <span class="hide-menu"><?php echo _("Navigation"); ?></span>
-                    </h3>  
+                            <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
+                            <ul class="dropdown-menu dropdown-user animated flipInY">
+                                <li>
+                                    <div class="dw-user-box">
+                                        <div class="u-text">
+                                            <h4><?php print_r($displayname); ?></h4>
+                                            <p class="text-muted"><?php print_r($useremail); ?></p></div>
+                                    </div>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
+                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
-               <ul class="nav" id="side-menu">
-                            <li> 
-                                <a href="../index.php" class="waves-effect">
-                                    <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu"><?php echo _("Home"); ?></span>
-                                </a> 
-                            </li>
+            </nav>
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav slimscrollsidebar">
+                    <div class="sidebar-head">
+                        <h3>
+                            <span class="fa-fw open-close">
+                                <i class="ti-menu hidden-xs"></i>
+                                <i class="ti-close visible-xs"></i>
+                            </span> 
+                            <span class="hide-menu"><?php echo _("Navigation"); ?></span>
+                        </h3>  
+                    </div>
+                    <ul class="nav" id="side-menu">
+                        <li> 
+                            <a href="../index.php" class="waves-effect">
+                                <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu"><?php echo _("Home"); ?></span>
+                            </a> 
+                        </li>
                         <?php if($initialusername == "admin"){ echo 
-                            '<li class="devider"></li>
+    '<li class="devider"></li>
                             <li> <a href="../#" class="waves-effect"><i class="mdi mdi-wrench fa-fw" data-icon="v"></i> <span class="hide-menu">' . _("Administration") . '<span class="fa arrow"></span> </span></a>
                                 <ul class="nav nav-second-level">
                                     <li> <a href="../admin/list/users.php"><i class="ti-user fa-fw"></i><span class="hide-menu">' . _("Users") . '</span></a> </li>
@@ -183,17 +183,17 @@ textdomain('messages');
                                     <li> <a href="../admin/list/server.php"><i class="fa fa-server fa-fw"></i><span class="hide-menu">' . _("Server") . '</span></a> </li>
                                 </ul>
                             </li>';
-                            } ?>
-                            <li class="devider"></li>
-                            <li>
-                                <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> <?php print_r($displayname); ?><span class="fa arrow"></span></span>
-                                </a>
-                                <ul class="nav nav-second-level collapse" id="appendaccount" aria-expanded="false" style="height: 0px;">
-                                    <li> <a href="../profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> <?php echo _("My Account"); ?></span></a></li>
-                                    <li> <a href="../profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> <?php echo _("Acount Settings"); ?></span></a></li>
-                                    <li> <a href="../log.php"><i class="ti-layout-list-post fa-fw"></i><span class="hide-menu"><?php echo _("Log"); ?></span></a> </li>
-                                </ul>
-                            </li>
+                                                             } ?>
+                        <li class="devider"></li>
+                        <li>
+                            <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> <?php print_r($displayname); ?><span class="fa arrow"></span></span>
+                            </a>
+                            <ul class="nav nav-second-level collapse" id="appendaccount" aria-expanded="false" style="height: 0px;">
+                                <li> <a href="../profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu"> <?php echo _("My Account"); ?></span></a></li>
+                                <li> <a href="../profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> <?php echo _("Acount Settings"); ?></span></a></li>
+                                <li> <a href="../log.php"><i class="ti-layout-list-post fa-fw"></i><span class="hide-menu"><?php echo _("Log"); ?></span></a> </li>
+                            </ul>
+                        </li>
                         <?php if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '<li class="devider"></li>
                             <li class="active"> <a href="#" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">'. _("Management") . '<span class="fa arrow"></span> </span></a>
                                 <ul class="nav nav-second-level" id="appendmanagement">'; } ?>
@@ -218,7 +218,7 @@ textdomain('messages');
                         <?php if ($oldcpurl == '' || $supporturl == '') {} else { echo '<li class="devider"></li>'; } ?>
                         <?php if ($oldcpurl != '') { echo '<li><a href="' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> ' . _("Control Panel v1") . '</span></a></li>'; } ?>
                         <?php if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">' . _("Support") . '</span></a></li>'; } ?>
-                        </ul>
+                    </ul>
                 </div>
             </div>
             <div id="page-wrapper">
@@ -228,11 +228,11 @@ textdomain('messages');
                             <h4 class="page-title"><?php echo _("Edit Web Domain"); ?></h4>
                         </div>
                         <ul class="side-icon-text pull-right">
-                                        <li style="position: relative;top: -3px;">
-                                            <a onclick="confirmDelete();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span><?php echo _("Delete Domain"); ?></span>
-                                            </a>
-                                        </li>
-                                    </ul>
+                            <li style="position: relative;top: -3px;">
+                                <a onclick="confirmDelete();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span><?php echo _("Delete Domain"); ?></span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                     <div class="row">
                         <div class="col-lg-4 col-md-6 col-sm-12">
@@ -575,7 +575,7 @@ textdomain('messages');
                     }
 
                     else {
-                             $currentstring = "<?php if($username == 'admin') { echo \"<li><a href='../plugins/" . $pluginnames[$currentplugin] . "/' ><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>\";} ?>";
+                        $currentstring = "<?php if($username == 'admin') { echo \"<li><a href='../plugins/" . $pluginnames[$currentplugin] . "/' ><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>\";} ?>";
                     }
                     echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');
                           var plugindata" . $currentplugin . " = \"" . $currentstring . "\";
@@ -584,7 +584,7 @@ textdomain('messages');
                 } while ($pluginnames[$currentplugin] != ''); }
 
             ?>
-    </script>
+        </script>
         <script type="text/javascript">
             (function () {
                 [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {
@@ -686,39 +686,39 @@ textdomain('messages');
                 $('.footable').footable();
             });
             function confirmDelete(){
-            swal({
-              title: '<?php echo _("Delete Domain"); ?>:<br> <?php echo $requestdomain; ?>' + ' ?',
-              text: "<?php echo _("You won't be able to revert this!"); ?>",
-              type: 'warning',
-              showCancelButton: true,
-              confirmButtonColor: '#3085d6',
-              cancelButtonColor: '#d33',
-              confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
-            }).then(function () {
-            swal({
-              title: '<?php echo _("Processing"); ?>',
-              text: '',
-              timer: 5000,
-              onOpen: function () {
-                swal.showLoading()
-              }
-            }).then(
-              function () {},
-              function (dismiss) {}
-            )
-            window.location.replace("../delete/domain.php?domain=<?php echo $requestdomain; ?>");
-        })}
+                swal({
+                    title: '<?php echo _("Delete Domain"); ?>:<br> <?php echo $requestdomain; ?>' + ' ?',
+                    text: "<?php echo _("You won't be able to revert this!"); ?>",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
+                }).then(function () {
+                    swal({
+                        title: '<?php echo _("Processing"); ?>',
+                        text: '',
+                        timer: 5000,
+                        onOpen: function () {
+                            swal.showLoading()
+                        }
+                    }).then(
+                        function () {},
+                        function (dismiss) {}
+                    )
+                    window.location.replace("../delete/domain.php?domain=<?php echo $requestdomain; ?>");
+                })}
             function processLoader(){
-            swal({
-              title: '<?php echo _("Processing"); ?>',
-              text: '',
-              timer: 5000,
-              onOpen: function () {
-                swal.showLoading()
-              }
-            })};
-            
-    <?php
+                swal({
+                    title: '<?php echo _("Processing"); ?>',
+                    text: '',
+                    timer: 5000,
+                    onOpen: function () {
+                        swal.showLoading()
+                    }
+                })};
+
+            <?php
             if(isset($_GET['error']) && $_GET['error'] == "1") {
                 echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
             }
@@ -729,8 +729,8 @@ textdomain('messages');
             if(isset($_POST['r1']) && $returntotal != 0) {
                 echo "swal({title:'" . _("Error Updating Web Domain") . "<br>" . "(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . "." . $_POST['r4'] . "." . $_POST['r5'] . "." . $_POST['r6'] . "." . $_POST['r7'] . "." . $_POST['r8'] . "." . $_POST['r9'] . ")<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
             }
-    
-    ?>
+
+            ?>
         </script>
     </body>
 
