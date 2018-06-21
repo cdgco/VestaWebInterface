@@ -205,6 +205,7 @@ require '../includes/arrays.php';
       <option value="blue">Blue</option>
       <option value="purple">Purple</option>
       <option value="orange">Orange</option>
+      <option value="orange">Dark</option>
     </select>
   </div>
 </div>

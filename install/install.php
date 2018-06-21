@@ -40,7 +40,7 @@ $writestr = "<?php
 // CPANEL SETTINGS //
 date_default_timezone_set('".$_POST['TIMEZONE']."'); // Server Time Zone - See http://php.net/manual/en/timezones.php for syntax.
 DEFINE('SITE_NAME', '".$_POST['SITENAME']."'); // Site name for use in page titles. Ex: 'My Host Company'.
-DEFINE('THEME', '".$_POST['THEME']."'); // Accepted options are 'default', 'blue', 'purple' and 'orange'
+DEFINE('THEME', '".$_POST['THEME']."'); // Accepted options are 'default', 'blue', 'purple', 'orange' and 'dark'.
 DEFINE('LANGUAGE', '".$_POST['LANGUAGE']."'); // See VWI Documentation or arrays.php file for accepted formats.
 DEFINE('DEFAULT_TO_ADMIN', '".$defaultadmin."'); // Choose whether or not the admin user should initially go to the admin or user panel.
 

@@ -245,7 +245,7 @@ if (file_exists( '../../includes/config.php' )) { require( '../../includes/confi
                     <div>
                         <div class="white-box">
                              <h3 class="box-title m-b-0"><?php echo _("CPU"); ?></h3>
-                              <div style="color: #ff6701; padding: 10px 0 20px 20px; background: #fff; ">.</div><div class="l-center">
+                              <br><br><div class="l-center">
   <pre style="color: #555"><?php print_r($cpudata); ?> 
                             </pre></div>     
                         </div>

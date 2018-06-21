@@ -425,6 +425,7 @@ textdomain('messages');
                                                     <option value="blue" <?php if(base64_decode($_COOKIE["theme"]) == "blue.css") { echo "selected"; } ?>><?php echo _("Blue"); ?></option>
                                                     <option value="purple" <?php if(base64_decode($_COOKIE["theme"]) == "purple.css") { echo "selected"; } ?>><?php echo _("Purple"); ?></option>
                                                     <option value="orange" <?php if(base64_decode($_COOKIE["theme"]) == "orange.css") { echo "selected"; } ?>><?php echo _("Orange"); ?></option>
+                                                    <option value="dark" <?php if(base64_decode($_COOKIE["theme"]) == "dark.css") { echo "selected"; } ?>><?php echo _("Dark"); ?></option>
                                                 </select>
                                             </div>
                                         </div>
