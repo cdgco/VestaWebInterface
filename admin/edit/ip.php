@@ -2,7 +2,7 @@
 
 session_start();
 
-if (file_exists( '../../includes/config.php' )) { require( '../../includes/config.php'); }  else { header( 'Location: ../../install' );};
+if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' );};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: ../../login.php'); }
@@ -151,10 +151,10 @@ foreach ($plugins as $result) {
                         </li>
                         <li class="devider"></li>
                         <li> <a active href="../#" class="active waves-effect"><i class="mdi mdi-wrench fa-fw" data-icon="v"></i> <span class="hide-menu"><?php echo _("Administration"); ?><span class="fa arrow"></span> </span></a>
-                            <ul class="nav nav-second-level in active">
+                            <ul class="nav nav-second-level in">
                                 <li> <a href="../list/users.php"><i class="ti-user fa-fw"></i><span class="hide-menu"><?php echo _("Users"); ?></span></a> </li>
                                 <li> <a href="../list/packages.php"><i class="ti-package fa-fw"></i><span class="hide-menu"><?php echo _("Packages"); ?></span></a> </li>
-                                <li class="active"> <a href="../list/ip.php" class="active"><i class="fa fa-sliders fa-fw"></i><span class="hide-menu"><?php echo _("IP"); ?></span></a> </li>
+                                <li> <a href="../list/ip.php" class="active"><i class="fa fa-sliders fa-fw"></i><span class="hide-menu"><?php echo _("IP"); ?></span></a> </li>
                                 <li> <a href="../list/graphs.php"><i class="ti-pie-chart fa-fw"></i><span class="hide-menu"><?php echo _("Graphs"); ?></span></a> </li>
                                 <li> <a href="../list/stats.php"><i class="ti-stats-up fa-fw"></i><span class="hide-menu"><?php echo _("Statistics"); ?></span></a> </li>
                                 <li> <a href="../list/updates.php"><i class="mdi mdi-weather-cloudy fa-fw"></i><span class="hide-menu"><?php echo _("Updates"); ?></span></a> </li>

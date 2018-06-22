@@ -3,7 +3,7 @@
 session_start();
 
 // Include settings & variables
-if (file_exists( '../includes/config.php' )) { require( '../includes/config.php'); }  else { header( 'Location: ../install' );};
+if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
 
 // Check if cookie exists, decrypt, then redirect if not logged in
 if(base64_decode($_SESSION['loggedin']) == 'true') {}

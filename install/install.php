@@ -1,19 +1,10 @@
 <?php
-
-function randomPassword() {
-    $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
-    $pass = array(); //remember to declare $pass as an array
-    $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
-    for ($i = 0; $i < 8; $i++) {
-        $n = rand(0, $alphaLength);
-        $pass[] = $alphabet[$n];
-    }
-    return implode($pass); //turn the array into a string
-}
+require("../includes/config.php");
+function randomPassword() { $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'; $pass = array(); $alphaLength = strlen($alphabet) - 1; for ($i = 0; $i < 8; $i++) { $n = rand(0, $alphaLength); $pass[] = $alphabet[$n]; } return implode($pass); }
 
 $a = randomPassword();
 $b = randomPassword();
-if ($_POST['x'] != '1') { if (file_exists( '../includes/config.php' )) { header( 'Location: ../index.php' );}; }
+
 if($_POST['DEFAULT_TO_ADMIN'] == 'on'){ $defaultadmin = 'true'; }
 else { $defaultadmin = 'false'; }
 if($_POST['VESTA_SSL_ENABLED'] == 'on'){ $sslenabled = 'true'; }
@@ -30,198 +21,96 @@ if($_POST['ENABLE_SOFTURL'] == 'on'){ $softaculouslink = 'true'; }
 else { $softaculouslink = 'false'; }
 if($_POST['ENABLE_OLDCPURL'] == 'on'){ $oldcplink = 'true'; }
 else { $oldcplink = 'false'; }
+if($_POST['ENABLE_ADMIN'] == 'on'){ $adminenabled = 'true'; }
+else { $adminenabled = 'false'; }
+if($_POST['ENABLE_PROFILE'] == 'on'){ $profileenabled = 'true'; }
+else { $profileenabled = 'false'; }
+if($_POST['ENABLE_CRON'] == 'on'){ $cronenabled = 'true'; }
+else { $cronenabled = 'false'; }
+if($_POST['ENABLE_BACKUPS'] == 'on'){ $backupsenabled = 'true'; }
+else { $backupsenabled = 'false'; }
+if($_POST['ENABLE_REG'] == 'on'){ $regenabled = 'true'; }
+else { $regenabled = 'false'; }
 
-$writestr = "<?php
+$con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
 
-//////////////////////////////////////////////////////////
-// VESTA WEB INTERFACE CONFIGURATION - EDIT VALUES HERE //
-//////////////////////////////////////////////////////////
+$sql1 = "DROP TABLE IF EXISTS `".$mysql_table."config`;";
 
-// CPANEL SETTINGS //
-date_default_timezone_set('".$_POST['TIMEZONE']."'); // Server Time Zone - See http://php.net/manual/en/timezones.php for syntax.
-DEFINE('SITE_NAME', '".$_POST['SITENAME']."'); // Site name for use in page titles. Ex: 'My Host Company'.
-DEFINE('THEME', '".$_POST['THEME']."'); // Accepted options are 'default', 'blue', 'purple', 'orange' and 'dark'.
-DEFINE('LANGUAGE', '".$_POST['LANGUAGE']."'); // See VWI Documentation or arrays.php file for accepted formats.
-DEFINE('DEFAULT_TO_ADMIN', '".$defaultadmin."'); // Choose whether or not the admin user should initially go to the admin or user panel.
+if (!mysqli_query($con, $sql1)) { echo "Error dropping table: " . mysqli_error($con); }
+mysqli_close($con);
 
-// VESTA API SETTINGS //
-DEFINE('VESTA_HOST_ADDRESS', '".$_POST['VESTA_HOST_ADDRESS']."'); // URL or IP Address of VestaCP. Ex: 'myhost.com' or '12.34.56.78'.
-DEFINE('VESTA_SSL_ENABLED', '".$sslenabled."'); // If ssl is enabled on VestaCP - Ex: 'true' or 'false'.
-DEFINE('VESTA_PORT', '".$_POST['VESTA_PORT']."'); // VestaCP port. Ex: '8083'.
-DEFINE('VESTA_ADMIN_UNAME', '".$_POST['VESTA_ADMIN_UNAME']."'); // Username of VestaCP Admin account. Ex: 'admin'.
-DEFINE('VESTA_ADMIN_PW', '".$_POST['VESTA_ADMIN_PW']."'); // Password for VestaCP Admin account. Ex: 'MyPassword1'.
-DEFINE('KEY1', '".$a."'); // Random Key #1 for encryption / decryption.
-DEFINE('KEY2', '".$b."'); // Random Key #2 for encryption / decryption.
+$con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
 
-// OPTIONAL SETTINGS //
-DEFINE('FTP_URL', '".$_POST['FTP_URL']."'); // URL for Web FTP. Leave blank if you do not have a Web FTP Interface. Set as 'disabled' to remove the Web FTP option.
-DEFINE('WEBMAIL_URL', '".$_POST['WEBMAIL_URL']."'); // Webmail URL. Leave blank for VestaCP default. Set as 'disabled' to remove the webmail option.
-DEFINE('PHPMYADMIN_URL', '".$_POST['PHPMYADMIN_URL']."'); // phpMyAdmin URL. Leave blank for VestaCP default. Set as 'disabled; to remove phpMyAdmin option.
-DEFINE('PHPPGADMIN_URL', '".$_POST['PHPPGADMIN_URL']."'); // phpPgAdmin URL. Leave blank for VestaCP default. Set as 'disabled; to remove phpPgAdmin option.
-DEFINE('SUPPORT_URL', '".$_POST['SUPPORT_URL']."'); // Support URL. Leave blank or set to 'disabled' to disable.
+$sql2 = "CREATE TABLE IF NOT EXISTS `".$mysql_table."config` (
+  `VARIABLE` varchar(64) NOT NULL,
+  `VALUE` varchar(1024) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8";
 
-// ENABLE OR DISABLE SECTIONS //
-DEFINE('WEB_ENABLED', '".$webenabled."'); // Enable or disable web section. Ex: 'true' or 'false'.
-DEFINE('DNS_ENABLED', '".$dnsenabled."'); // Enable or disable dns section. Ex: 'true' or 'false'.
-DEFINE('MAIL_ENABLED', '".$mailenabled."'); // Enable or disable mail section. Ex: 'true' or 'false'.
-DEFINE('DB_ENABLED', '".$dbenabled."'); // Enable or disable database section. Ex: 'true' or 'false'.
-DEFINE('SOFTACULOUS_URL', '".$softaculouslink."'); // Enable or disable link to Softaculous. Ex: 'true' or 'false'.
-DEFINE('OLD_CP_LINK', '".$oldcplink."'); // Enable or disable link to old cpanel. Ex: 'true' or 'false'.
+if (mysqli_query($con, $sql2)) {} else { echo "Error creating table: " . mysqli_error($con); }
 
-// INTEGRATIONS //
-DEFINE('PLUGINS', ''); // Plugin folder name, exactly as specified, seperated by comma.
-DEFINE('GOOGLE_ANALYTICS_ID', '".$_POST['GOOGLE_ANALYTICS_ID']."'); // Enable Google Analytics Tracking. Enter Tracking ID.
-DEFINE('INTERAKT_APP_ID', '".$_POST['INTERAKT_APP_ID']."'); // Enable Interakt Support / Tools. Enter Interakt App ID.
-DEFINE('INTERAKT_API_KEY', '".$_POST['INTERAKT_API_KEY']."'); // Enable Interakt User Management. Interakt Account number must be set first. Enter Interakt API Key.
-DEFINE('CLOUDFLARE_API_KEY', '".$_POST['CLOUDFLARE_API_KEY']."'); // Enable Cloudflare DNS Support. Enter API Key found on https://www.cloudflare.com/a/profile under the API Key section.
-DEFINE('CLOUDFLARE_EMAIL', '".$_POST['CLOUDFLARE_EMAIL']."'); // Enable Cloudflare DNS Support. Enter email address on account with API Key.
+mysqli_close($con);
 
-///////////////////////////////////////////////////////////////////////
-// DO NOT EDIT BELOW THIS LINE - CONVERTING AND PROCESSING CONSTANTS //
-///////////////////////////////////////////////////////////////////////
+$con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
 
-if(VESTA_SSL_ENABLED == 'false'){
- \$vst_ssl = 'http://';
-}
-else{
- \$vst_ssl = 'https://';
-}
+$1 = mysqli_real_escape_string($con, $_POST['SITENAME']);
+$2 = mysqli_real_escape_string($con, $_POST['THEME']);
+$3 = mysqli_real_escape_string($con, $_POST['LANGUAGE']);
+$4 = mysqli_real_escape_string($con, $_POST['VESTA_HOST_ADDRESS']);
+$5 = mysqli_real_escape_string($con, $_POST['VESTA_PORT']);
+$6 = mysqli_real_escape_string($con, $_POST['VESTA_ADMIN_UNAME']);
+$7 = mysqli_real_escape_string($con, $_POST['VESTA_ADMIN_PW']);
+$8 = mysqli_real_escape_string($con, $_POST['FTP_URL']);
+$9 = mysqli_real_escape_string($con, $_POST['WEBMAIL_URL']);
+$10 = mysqli_real_escape_string($con, $_POST['PHPMYADMIN_URL']);
+$11 = mysqli_real_escape_string($con, $_POST['PHPPGADMIN_URL']);
+$12 = mysqli_real_escape_string($con, $_POST['SUPPORT_URL']);
+$13 = mysqli_real_escape_string($con, $_POST['GOOGLE_ANALYTICS_ID']);
+$14 = mysqli_real_escape_string($con, $_POST['INTERAKT_APP_ID']);
+$15 = mysqli_real_escape_string($con, $_POST['INTERAKT_API_KEY']);
+$16 = mysqli_real_escape_string($con, $_POST['CLOUDFLARE_API_KEY']);
+$17 = mysqli_real_escape_string($con, $_POST['CLOUDFLARE_EMAIL']);
+$18 = mysqli_real_escape_string($con, $_POST['PLUGINS']);
+$19 = mysqli_real_escape_string($con, $_POST['TIMEZONE']);
 
-if(VESTA_PORT == ''){
- \$vesta_port = '8083';
-}
-else{
- \$vesta_port = VESTA_PORT;
-}
+$sql3 = "INSERT INTO `".$mysql_table."config` (`VARIABLE`, `VALUE`) VALUES
+('SITE_NAME', '".$1."'),
+('THEME', '".$2."'),
+('LANGUAGE', '".$3."'),
+('DEFAULT_TO_ADMIN', '".$defaultadmin."'),
+('VESTA_HOST_ADDRESS', '".$4."'),
+('VESTA_SSL_ENABLED', '".$sslenabled."'),
+('VESTA_PORT', '".$5."'),
+('VESTA_ADMIN_UNAME', '".$6."'),
+('VESTA_ADMIN_PW', '".$7."'),
+('FTP_URL', '".$8."'),
+('WEBMAIL_URL', '".$9."'),
+('PHPMYADMIN_URL', '".$10."'),
+('PHPPGADMIN_URL', '".$11."'),
+('SUPPORT_URL', '".$12."'),
+('ADMIN_ENABLED', '".$adminenabled."'),
+('PROFILE_ENABLED', '".$profileenabled."'),
+('WEB_ENABLED', '".$webenabled."'),
+('DNS_ENABLED', '".$dnsenabled."'),
+('MAIL_ENABLED', '".$mailenabled."'),
+('DB_ENABLED', '".$dbenabled."'),
+('CRON_ENABLED', '".$cronenabled."'),
+('BACKUPS_ENABLED', '".$backupsenabled."'),
+('SOFTACULOUS_URL', '".$softaculouslink."'),
+('OLD_CP_LINK', '".$oldcplink."'),
+('REGISTRATIONS_ENABLED', '".$regenabled."'),
+('GOOGLE_ANALYTICS_ID', '".$13."'),
+('INTERAKT_APP_ID', '".$14."'),
+('INTERAKT_API_KEY', '".$15."'),
+('CLOUDFLARE_API_KEY', '".$16."'),
+('CLOUDFLARE_EMAIL', '".$17."'),
+('PLUGINS', '".$18."'),
+('TIMEZONE', '".$19."'),
+('KEY1', '".$a."'),
+('KEY2', '".$b."');";
 
-if(FTP_URL == ''){
- \$ftpurl = 'http://net2ftp.com/';
-}
-elseif(FTP_URL == 'disabled'){
- \$ftpurl = '';
-}
-else{
- \$ftpurl = FTP_URL;
-}
+if (mysqli_query($con, $sql3)) {} else { echo "Error populating table: " . mysqli_error($con); }
 
-if(WEB_ENABLED != 'true'){
- \$webenabled = '';
-}
-else{
- \$webenabled = WEB_ENABLED;
-}
-if(DNS_ENABLED != 'true'){
- \$dnsenabled = '';
-}
-else{
- \$dnsenabled = DNS_ENABLED;
-}
-if(MAIL_ENABLED != 'true'){
- \$mailenabled = '';
-}
-else{
- \$mailenabled = MAIL_ENABLED;
-}
-if(DB_ENABLED != 'true'){
- \$dbenabled = '';
-}
-else{
- \$dbenabled = DB_ENABLED;
-}
-
-\$vst_url = \$vst_ssl . VESTA_HOST_ADDRESS . ':' . \$vesta_port . '/api/';
-\$url8083 = \$vst_ssl . VESTA_HOST_ADDRESS . ':' . \$vesta_port;
-\$vst_username = VESTA_ADMIN_UNAME;
-\$vst_password = VESTA_ADMIN_PW;
-\$themecolor = THEME . '.css';
-\$initialusername = base64_decode(\$_SESSION['username']);
-\$loggedin = base64_decode(\$_SESSION['loggedin']);
-\$locale = LANGUAGE;
-
-if(\$initialusername == 'admin' && isset(\$_SESSION['proxied']) && base64_decode(\$_SESSION['proxied']) != '')   {
-    \$username = base64_decode(\$_SESSION['proxied']);
-    \$uname = base64_decode(\$_SESSION['proxied']);
-    \$displayname = \$initialusername . ' &rarr; ' . base64_decode(\$_SESSION['proxied']);
-}  
-else {
-    \$uname = \$initialusername;
-    \$username = \$initialusername;
-    \$displayname = \$initialusername;
-}
-
-\$KEY1 = KEY1;
-\$KEY2 = KEY2;
-\$sitetitle = SITE_NAME;
-\$cfapikey = CLOUDFLARE_ORIGIN_CA_KEY;
-
-if(WEBMAIL_URL == ''){
- \$webmailurl = \$vst_ssl . VESTA_HOST_ADDRESS . '/webmail';
-}
-elseif(WEBMAIL_URL == 'disabled'){
- \$webmailurl = '';
-}
-else{
- \$webmailurl = WEBMAIL_URL;
-}
-
-if(PHPMYADMIN_URL == ''){
- \$phpmyadmin = \$vst_ssl . VESTA_HOST_ADDRESS . '/phpmyadmin';
-}
-elseif(PHPMYADMIN_URL == 'disabled'){
- \$phpmyadmin = '';
-}
-else{
- \$phpmyadmin = PHPMYADMIN_URL;
-}
-
-if(PHPPGADMIN_URL == ''){
- \$phppgadmin = \$vst_ssl . VESTA_HOST_ADDRESS . '/phppgadmin';
-}
-elseif(PHPPGADMIN_URL == 'disabled'){
- \$phppgadmin = '';
-}
-else{
- \$phppgadmin = PHPPGADMIN_URL;
-}
-
-if(SUPPORT_URL == ''){
- \$supporturl = '';
-}
-elseif(SUPPORT_URL == 'disabled'){
- \$supporturl = '';
-}
-else{
- \$supporturl = SUPPORT_URL;
-}
-
-if(SOFTACULOUS_URL == 'false'){
- \$softaculousurl = '';
-}
-else{
- \$softaculousurl = \$url8083 . '/softaculous';
-}
-
-if(OLD_CP_LINK == 'false'){
- \$oldcpurl = '';
-}
-else{
- \$oldcpurl = \$url8083;
-}
-
-require 'arrays.php';
-function vwicrypt(\$cs,\$ca='e'){\$op = false;\$ecm =\"AES-256-CBC\";\$key=hash('sha256',\$KEY1);\$iv=substr(hash('sha256',\$KEY2),0,16);if(\$ca=='e'){\$op=base64_encode(openssl_encrypt(\$cs,\$ecm,\$key,0,\$iv));} else if(\$ca=='d'){\$op=openssl_decrypt(base64_decode(\$cs),\$ecm,\$key,0,\$iv);}return \$op;}
-
-\$plugins = explode(',', PLUGINS);
-\$pluginlinks = array();
-\$pluginnames = array();
-\$pluginicons = array();
-\$pluginsections = array();
-\$pluginadminonly = array();
-
-?>";
-
-file_put_contents('../includes/config.php', $writestr);
-include("../includes/versioncheck.php");
+mysqli_close($con);
 ?>
 <!DOCTYPE html>
 <html lang="en">

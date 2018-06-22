@@ -1,6 +1,6 @@
 <?php
 
-require "config.php";
+require "includes.php";
 
 if (strpos($vwipanel,'http://') === false && strpos($vwipanel,'https://') === false){
     $vwipanel = 'http://'.$vwipanel;
