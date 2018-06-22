@@ -254,7 +254,7 @@ function primaryMenu($l4, $l5, $a2) {
         if(isset($cronenabled) && $cronenabled != ''){
         echo '<li> <a href="' . $l4 . 'cron.php" class="waves-effect'; if($a2 == 'cron') { echo ' active'; } echo '"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">' . _("Cron Jobs") . '</span></a> </li>'; }
         if(isset($backupsenabled) && $backupsenabled != ''){
-        echo '<li> <a href="' . $l4 . 'backups.php" class="waves-effect'; if($a2 == 'backups') { echo ' active'; } echo '"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu">' . _("Backups") . '</span></a> </li>';
+        echo '<li> <a href="' . $l4 . 'backups.php" class="waves-effect'; if($a2 == 'backups') { echo ' active'; } echo '"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu">' . _("Backups") . '</span></a> </li>'; }
         if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {} else { echo '<li class="devider"></li>
             <li><a href="#" class="waves-effect"><i class="mdi mdi-apps fa-fw"></i> <span class="hide-menu">' . _("Apps") . '<span class="fa arrow"></span></span></a>
                 <ul class="nav nav-second-level" id="appendapps">'; }
