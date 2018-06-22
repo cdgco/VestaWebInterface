@@ -52,41 +52,41 @@ mysqli_close($con);
 
 $con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
 
-$1 = mysqli_real_escape_string($con, $_POST['SITENAME']);
-$2 = mysqli_real_escape_string($con, $_POST['THEME']);
-$3 = mysqli_real_escape_string($con, $_POST['LANGUAGE']);
-$4 = mysqli_real_escape_string($con, $_POST['VESTA_HOST_ADDRESS']);
-$5 = mysqli_real_escape_string($con, $_POST['VESTA_PORT']);
-$6 = mysqli_real_escape_string($con, $_POST['VESTA_ADMIN_UNAME']);
-$7 = mysqli_real_escape_string($con, $_POST['VESTA_ADMIN_PW']);
-$8 = mysqli_real_escape_string($con, $_POST['FTP_URL']);
-$9 = mysqli_real_escape_string($con, $_POST['WEBMAIL_URL']);
-$10 = mysqli_real_escape_string($con, $_POST['PHPMYADMIN_URL']);
-$11 = mysqli_real_escape_string($con, $_POST['PHPPGADMIN_URL']);
-$12 = mysqli_real_escape_string($con, $_POST['SUPPORT_URL']);
-$13 = mysqli_real_escape_string($con, $_POST['GOOGLE_ANALYTICS_ID']);
-$14 = mysqli_real_escape_string($con, $_POST['INTERAKT_APP_ID']);
-$15 = mysqli_real_escape_string($con, $_POST['INTERAKT_API_KEY']);
-$16 = mysqli_real_escape_string($con, $_POST['CLOUDFLARE_API_KEY']);
-$17 = mysqli_real_escape_string($con, $_POST['CLOUDFLARE_EMAIL']);
-$18 = mysqli_real_escape_string($con, $_POST['PLUGINS']);
-$19 = mysqli_real_escape_string($con, $_POST['TIMEZONE']);
+$v1 = mysqli_real_escape_string($con, $_POST['SITENAME']);
+$v2 = mysqli_real_escape_string($con, $_POST['THEME']);
+$v3 = mysqli_real_escape_string($con, $_POST['LANGUAGE']);
+$v4 = mysqli_real_escape_string($con, $_POST['VESTA_HOST_ADDRESS']);
+$v5 = mysqli_real_escape_string($con, $_POST['VESTA_PORT']);
+$v6 = mysqli_real_escape_string($con, $_POST['VESTA_ADMIN_UNAME']);
+$v7 = mysqli_real_escape_string($con, $_POST['VESTA_ADMIN_PW']);
+$v8 = mysqli_real_escape_string($con, $_POST['FTP_URL']);
+$v9 = mysqli_real_escape_string($con, $_POST['WEBMAIL_URL']);
+$v10 = mysqli_real_escape_string($con, $_POST['PHPMYADMIN_URL']);
+$v11 = mysqli_real_escape_string($con, $_POST['PHPPGADMIN_URL']);
+$v12 = mysqli_real_escape_string($con, $_POST['SUPPORT_URL']);
+$v13 = mysqli_real_escape_string($con, $_POST['GOOGLE_ANALYTICS_ID']);
+$v14 = mysqli_real_escape_string($con, $_POST['INTERAKT_APP_ID']);
+$v15 = mysqli_real_escape_string($con, $_POST['INTERAKT_API_KEY']);
+$v16 = mysqli_real_escape_string($con, $_POST['CLOUDFLARE_API_KEY']);
+$v17 = mysqli_real_escape_string($con, $_POST['CLOUDFLARE_EMAIL']);
+$v18 = mysqli_real_escape_string($con, $_POST['PLUGINS']);
+$v19 = mysqli_real_escape_string($con, $_POST['TIMEZONE']);
 
 $sql3 = "INSERT INTO `".$mysql_table."config` (`VARIABLE`, `VALUE`) VALUES
-('SITE_NAME', '".$1."'),
-('THEME', '".$2."'),
-('LANGUAGE', '".$3."'),
+('SITE_NAME', '".$v1."'),
+('THEME', '".$v2."'),
+('LANGUAGE', '".$v3."'),
 ('DEFAULT_TO_ADMIN', '".$defaultadmin."'),
-('VESTA_HOST_ADDRESS', '".$4."'),
+('VESTA_HOST_ADDRESS', '".$v4."'),
 ('VESTA_SSL_ENABLED', '".$sslenabled."'),
-('VESTA_PORT', '".$5."'),
-('VESTA_ADMIN_UNAME', '".$6."'),
-('VESTA_ADMIN_PW', '".$7."'),
-('FTP_URL', '".$8."'),
-('WEBMAIL_URL', '".$9."'),
-('PHPMYADMIN_URL', '".$10."'),
-('PHPPGADMIN_URL', '".$11."'),
-('SUPPORT_URL', '".$12."'),
+('VESTA_PORT', '".$v5."'),
+('VESTA_ADMIN_UNAME', '".$v6."'),
+('VESTA_ADMIN_PW', '".$v7."'),
+('FTP_URL', '".$v8."'),
+('WEBMAIL_URL', '".$v9."'),
+('PHPMYADMIN_URL', '".$v10."'),
+('PHPPGADMIN_URL', '".$v11."'),
+('SUPPORT_URL', '".$v12."'),
 ('ADMIN_ENABLED', '".$adminenabled."'),
 ('PROFILE_ENABLED', '".$profileenabled."'),
 ('WEB_ENABLED', '".$webenabled."'),
@@ -98,13 +98,13 @@ $sql3 = "INSERT INTO `".$mysql_table."config` (`VARIABLE`, `VALUE`) VALUES
 ('SOFTACULOUS_URL', '".$softaculouslink."'),
 ('OLD_CP_LINK', '".$oldcplink."'),
 ('REGISTRATIONS_ENABLED', '".$regenabled."'),
-('GOOGLE_ANALYTICS_ID', '".$13."'),
-('INTERAKT_APP_ID', '".$14."'),
-('INTERAKT_API_KEY', '".$15."'),
-('CLOUDFLARE_API_KEY', '".$16."'),
-('CLOUDFLARE_EMAIL', '".$17."'),
-('PLUGINS', '".$18."'),
-('TIMEZONE', '".$19."'),
+('GOOGLE_ANALYTICS_ID', '".$v13."'),
+('INTERAKT_APP_ID', '".$v14."'),
+('INTERAKT_API_KEY', '".$v15."'),
+('CLOUDFLARE_API_KEY', '".$v16."'),
+('CLOUDFLARE_EMAIL', '".$v17."'),
+('PLUGINS', '".$v18."'),
+('TIMEZONE', '".$v19."'),
 ('KEY1', '".$a."'),
 ('KEY2', '".$b."');";
 

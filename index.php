@@ -196,7 +196,7 @@ foreach ($plugins as $result) {
                         <?php indexMenu("./"); 
                               adminMenu("admin/list/", "");
                               profileMenu("./");
-                              primaryMenu("list/", "./", "");
+                              primaryMenu("list/", "process/", "");
                         ?>
                     </ul>
                 </div>

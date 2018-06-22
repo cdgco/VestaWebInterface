@@ -199,7 +199,7 @@ $pluginadminonly = array();
 
 function indexMenu($l1) {
     echo '<li> 
-            <a active href="' . $l1 . 'index.php" class="active waves-effect">
+            <a href="' . $l1 . 'index.php" class="waves-effect">
                 <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu">' . _("Home") . '</span>
             </a> 
         </li>';
@@ -209,7 +209,7 @@ function adminMenu($l2, $a1) {
     if(base64_decode($_SESSION['username']) == "admin"){
     echo '<li class="devider"></li>
             <li> <a href="#" class="waves-effect"><i class="mdi mdi-wrench fa-fw" data-icon="v"></i> <span class="hide-menu">' . _("Administration") . '<span class="fa arrow"></span> </span></a>
-                <ul class="nav nav-second-level'; if(isset($a1) || $a1 != '') { echo ' in'; } echo '>
+                <ul class="nav nav-second-level'; if(isset($a1) || $a1 != '') { echo ' in'; } echo '">
                     <li> <a href="' . $l2 . 'users.php"'; if($a1 == 'users') { echo ' class="active"'; } echo '><i class="ti-user fa-fw"></i><span class="hide-menu">' . _("Users") . '</span></a> </li>
                     <li> <a href="' . $l2 . 'packages.php"'; if($a1 == 'packages') { echo ' class="active"'; } echo '><i class="ti-package fa-fw"></i><span class="hide-menu">' . _("Packages") . '</span></a> </li>
                     <li> <a href="' . $l2 . 'ip.php"'; if($a1 == 'ip') { echo ' class="active"'; } echo '><i class="fa fa-sliders fa-fw"></i><span class="hide-menu">' . _("IP") . '</span></a> </li>
@@ -223,19 +223,13 @@ function adminMenu($l2, $a1) {
     } 
 }
 function profileMenu($l3) {
+    global $displayname;
     echo
         '<li class="devider"></li>
         <li>
-            <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu">';
-            if(base64_decode($_SESSION['username']) == "admin" && isset($_SESSION['proxied']) && base64_decode($_SESSION['proxied']) != '')   {
-                echo base64_decode($_SESSION['username']) . " &rarr; " . base64_decode($_SESSION['proxied']);
-            }  
-            else {
-                echo base64_decode($_SESSION['username']);
-            }
-            echo '<span class="fa arrow"></span></span>
+            <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu">' . $displayname . '<span class="fa arrow"></span></span>
             </a>
-            <ul class="nav nav-second-level collapse" id="appendaccount" aria-expanded="false" style="height: 0px;">
+            <ul class="nav nav-second-level collapse" id="appendaccount">
                 <li> <a href="' . $l3 . 'profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu">' . _("My Account") . '</span></a></li>
                 <li> <a href="' . $l3 . 'profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu">' . _("Account Settings") . '</span></a></li>
                 <li> <a href="' . $l3 . 'log.php"><i class="ti-layout-list-post fa-fw"></i><span class="hide-menu">' . _("Log") . '</span></a> </li>
@@ -248,9 +242,9 @@ function primaryMenu($l4, $l5, $a2) {
             <li'; if($a2 == 'web' || $a2 == 'dns' || $a2 == 'mail' || $a2 == 'db') { echo ' class="active"'; } echo '> <a href="#" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">' . _("Management") . '<span class="fa arrow"></span> </span></a>
                 <ul class="nav nav-second-level" id="appendmanagement">'; }
         if ($webenabled == 'true') { echo '<li> <a href="' . $l4 . 'web.php"'; if($a2 == 'web') { echo ' class="active"'; } echo '><i class="ti-world fa-fw"></i><span class="hide-menu">' . _("Web") . '</span></a> </li>'; }
-        if ($dnsenabled == 'true') { echo '<li> <a href="' . $l4 . 'list/dns.php"'; if($a2 == 'dns') { echo ' class="active"'; } echo '><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">' . _("DNS") . '</span></a> </li>'; }
-        if ($mailenabled == 'true') { echo '<li> <a href="' . $l4 . 'list/mail.php"'; if($a2 == 'mail') { echo ' class="active"'; } echo '><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">' . _("Mail") . '</span></a> </li>'; }
-        if ($dbenabled == 'true') { echo '<li> <a href="' . $l4 . 'list/db.php"'; if($a2 == 'db') { echo ' class="active"'; } echo '><i class="fa fa-database fa-fw"></i><span class="hide-menu">' . _("Database") . '</span></a> </li>'; }
+        if ($dnsenabled == 'true') { echo '<li> <a href="' . $l4 . 'dns.php"'; if($a2 == 'dns') { echo ' class="active"'; } echo '><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">' . _("DNS") . '</span></a> </li>'; }
+        if ($mailenabled == 'true') { echo '<li> <a href="' . $l4 . 'mail.php"'; if($a2 == 'mail') { echo ' class="active"'; } echo '><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">' . _("Mail") . '</span></a> </li>'; }
+        if ($dbenabled == 'true') { echo '<li> <a href="' . $l4 . 'db.php"'; if($a2 == 'db') { echo ' class="active"'; } echo '><i class="fa fa-database fa-fw"></i><span class="hide-menu">' . _("Database") . '</span></a> </li>'; }
         if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '</ul>
             </li>'; } echo
         '<li> <a href="' . $l4 . 'cron.php" class="waves-effect'; if($a2 == 'cron') { echo ' active'; } echo '"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">' . _("Cron Jobs") . '</span></a> </li>
@@ -264,7 +258,7 @@ function primaryMenu($l4, $l5, $a2) {
         if ($phppgadmin != '') { echo '<li><a href="' . $phppgadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . _("phpPgAdmin") . '</span></a></li>';}
         if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {} else { echo '</ul></li>';}
         echo '<li class="devider"></li>
-        <li><a href="' . $l5 . 'process/logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu">' . _("Log out") . '</span></a></li>';
+        <li><a href="' . $l5 . 'logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu">' . _("Log out") . '</span></a></li>';
         if ($oldcpurl == '' || $supporturl == '') {} else { echo '<li class="devider"></li>'; }
         if ($oldcpurl != '') { echo '<li><a href="' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> ' . _("Control Panel v1") . '</span></a></li>'; }
         if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">' . _("Support") . '</span></a></li>'; }
