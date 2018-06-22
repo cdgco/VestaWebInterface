@@ -8,6 +8,8 @@ require_once '../includes/cronparser.php';
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: ../login.php'); }
 
+if(isset($cronenabled) && $cronenabled != 'true'){ header("Location: ../error-pages/403.html"); }
+
 $postvars = array(
     array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
     array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-cron-jobs','arg1' => $username,'arg2' => 'json'));

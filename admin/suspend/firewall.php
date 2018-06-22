@@ -7,6 +7,8 @@ if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: ../../login.php'); }
 if($username != 'admin') { header("Location: ../../"); }
 
+if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
+
 $v_rule = $_GET['rule'];
 
 if ((!isset($_GET['rule'])) || ($_GET['rule'] == '')) { header('Location: ../list/firewall.php?error=1');}

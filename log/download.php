@@ -6,6 +6,8 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/includes.ph
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: ../login.php'); }
 
+if(isset($webenabled) && $webenabled != 'true'){ header("Location: ../error-pages/403.html"); }
+
 $v_domain = $_POST['domain'];
 if ($_POST['type'] == 'access') $type = 'access';
 if ($_POST['type'] == 'error') $type = 'error';

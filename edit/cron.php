@@ -7,6 +7,8 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/includes.ph
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: ../login.php'); }
 
+if(isset($cronenabled) && $cronenabled != 'true'){ header("Location: ../error-pages/403.html"); }
+
 $requestjob = $_GET['job'];
 
 if (isset($requestjob) && $requestjob != '') {}

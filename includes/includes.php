@@ -206,10 +206,12 @@ function indexMenu($l1) {
 }
 
 function adminMenu($l2, $a1) {
-    if(base64_decode($_SESSION['username']) == "admin"){
+    global $adminenabled;
+    global $initialusername;
+    if($initialusername == "admin" && isset($adminenabled) && $adminenabled != ''){
     echo '<li class="devider"></li>
             <li> <a href="#" class="waves-effect"><i class="mdi mdi-wrench fa-fw" data-icon="v"></i> <span class="hide-menu">' . _("Administration") . '<span class="fa arrow"></span> </span></a>
-                <ul class="nav nav-second-level'; if(isset($a1) || $a1 != '') { echo ' in'; } echo '">
+                <ul class="nav nav-second-level'; if(isset($a1) && $a1 != '') { echo ' in'; } echo '">
                     <li> <a href="' . $l2 . 'users.php"'; if($a1 == 'users') { echo ' class="active"'; } echo '><i class="ti-user fa-fw"></i><span class="hide-menu">' . _("Users") . '</span></a> </li>
                     <li> <a href="' . $l2 . 'packages.php"'; if($a1 == 'packages') { echo ' class="active"'; } echo '><i class="ti-package fa-fw"></i><span class="hide-menu">' . _("Packages") . '</span></a> </li>
                     <li> <a href="' . $l2 . 'ip.php"'; if($a1 == 'ip') { echo ' class="active"'; } echo '><i class="fa fa-sliders fa-fw"></i><span class="hide-menu">' . _("IP") . '</span></a> </li>
@@ -224,6 +226,7 @@ function adminMenu($l2, $a1) {
 }
 function profileMenu($l3) {
     global $displayname;
+    if(isset($profileenabled) && $profileenabled != ''){
     echo
         '<li class="devider"></li>
         <li>
@@ -235,6 +238,7 @@ function profileMenu($l3) {
                 <li> <a href="' . $l3 . 'log.php"><i class="ti-layout-list-post fa-fw"></i><span class="hide-menu">' . _("Log") . '</span></a> </li>
             </ul>
         </li>';
+    }
 }
 function primaryMenu($l4, $l5, $a2) {
         global $webenabled; global $dnsenabled; global $mailenabled; global $dbenabled; global $ftpurl; global $webmailurl; global $phpmyadmin; global $phppgadmin; global $oldcpurl; global $supporturl;
@@ -246,9 +250,11 @@ function primaryMenu($l4, $l5, $a2) {
         if ($mailenabled == 'true') { echo '<li> <a href="' . $l4 . 'mail.php"'; if($a2 == 'mail') { echo ' class="active"'; } echo '><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">' . _("Mail") . '</span></a> </li>'; }
         if ($dbenabled == 'true') { echo '<li> <a href="' . $l4 . 'db.php"'; if($a2 == 'db') { echo ' class="active"'; } echo '><i class="fa fa-database fa-fw"></i><span class="hide-menu">' . _("Database") . '</span></a> </li>'; }
         if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '</ul>
-            </li>'; } echo
-        '<li> <a href="' . $l4 . 'cron.php" class="waves-effect'; if($a2 == 'cron') { echo ' active'; } echo '"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">' . _("Cron Jobs") . '</span></a> </li>
-        <li> <a href="' . $l4 . 'backups.php" class="waves-effect'; if($a2 == 'backups') { echo ' active'; } echo '"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu">' . _("Backups") . '</span></a> </li>';
+            </li>'; }
+        if(isset($cronenabled) && $cronenabled != ''){
+        echo '<li> <a href="' . $l4 . 'cron.php" class="waves-effect'; if($a2 == 'cron') { echo ' active'; } echo '"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">' . _("Cron Jobs") . '</span></a> </li>'; }
+        if(isset($backupsenabled) && $backupsenabled != ''){
+        echo '<li> <a href="' . $l4 . 'backups.php" class="waves-effect'; if($a2 == 'backups') { echo ' active'; } echo '"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu">' . _("Backups") . '</span></a> </li>';
         if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '') {} else { echo '<li class="devider"></li>
             <li><a href="#" class="waves-effect"><i class="mdi mdi-apps fa-fw"></i> <span class="hide-menu">' . _("Apps") . '<span class="fa arrow"></span></span></a>
                 <ul class="nav nav-second-level" id="appendapps">'; }

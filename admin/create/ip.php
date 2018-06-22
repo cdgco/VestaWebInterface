@@ -7,6 +7,8 @@ if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: ../../login.php'); }
 if($username != 'admin') { header("Location: ../../"); }
 
+if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
+
 $v_address = $_POST['v_address'];
 $v_netmask = $_POST['v_netmask'];
 $v_interface = $_POST['v_interface'];

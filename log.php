@@ -7,6 +7,8 @@ if (file_exists( 'includes/config.php' )) { require( 'includes/includes.php'); }
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: login.php'); }
 
+if(isset($profileenabled) && $profileenabled != 'true'){ header("Location: error-pages/403.html"); }
+
 if (isset($_GET['user']) && $_GET['user'] != '' && $username == 'admin') { $logusername = $_GET['user'];}
 else { $logusername = $username;}
 

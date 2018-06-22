@@ -6,6 +6,8 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/includes.ph
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: ../login.php'); }
 
+if(isset($webenabled) && $webenabled != 'true'){ header("Location: ../error-pages/403.html"); }
+
 $postvars = array(
     array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-web-domain','arg1' => $username,'arg2' => $_GET['domain']),
     array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-dns-domain','arg1' => $username,'arg2' => $_GET['domain']),

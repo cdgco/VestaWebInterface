@@ -6,6 +6,8 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/includes.ph
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: ../login.php'); }
 
+if(isset($dnsenabled) && $dnsenabled != 'true'){ header("Location: ../error-pages/403.html"); }
+
 $v_rid = $_POST['v_id'];
 $v_zid = $_POST['v_zid'];
 $v_domain = $_POST['v_domain'];

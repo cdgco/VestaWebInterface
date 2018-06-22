@@ -7,6 +7,8 @@ if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: ../../login.php'); }
 if($initialusername != 'admin') { header("Location: ../../"); }
 
+if(isset($dbenabled) && $dbenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
+
 $v_resource = $_GET['resource'];
 $v_user = $_GET['user'];
 

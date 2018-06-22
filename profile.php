@@ -7,6 +7,8 @@ if (file_exists( 'includes/config.php' )) { require( 'includes/includes.php'); }
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: login.php'); }
 
+if(isset($profileenabled) && $profileenabled != 'true'){ header("Location: error-pages/403.html"); }
+
 $postvars = array(array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'));
 
 $curl0 = curl_init();

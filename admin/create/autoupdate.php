@@ -7,6 +7,8 @@ if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: ../../login.php'); }
 if($username != 'admin') { header("Location: ../../"); }
 
+if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
+
 $postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-cron-vesta-autoupdate');
 
 $curl0 = curl_init();

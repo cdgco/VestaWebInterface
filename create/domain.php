@@ -6,6 +6,8 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/includes.ph
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: ../login.php'); }
 
+if(isset($webenabled) && $webenabled != 'true'){ header("Location: ../error-pages/403.html"); }
+
 // Remove www. from domain and lowercase
 $v_domain = preg_replace("/^www\./i", "", $_POST['v_domain']);
 $v_domain = strtolower($v_domain);

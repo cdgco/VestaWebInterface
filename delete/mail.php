@@ -6,6 +6,8 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/includes.ph
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: ../login.php'); }
 
+if(isset($mailenabled) && $mailenabled != 'true'){ header("Location: ../error-pages/403.html"); }
+
 $postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-mail-domain','arg1' => $username,'arg2' => $_GET['domain']);
 
 $curl0 = curl_init();

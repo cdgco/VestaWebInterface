@@ -8,6 +8,8 @@ if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: ../../login.php'); }
 if($username != 'admin') { header("Location: ../../"); }
 
+if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
+
 if (isset($_GET['period']) && $_GET['period'] != '') { $period = $_GET['period'];}
 else { $period = "daily";}
 

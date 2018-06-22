@@ -6,6 +6,8 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/includes.ph
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: ../login.php'); }
 
+if(isset($profileenabled) && $profileenabled != 'true'){ header("Location: ../error-pages/403.html"); }
+
 $language = $_POST['language'];
 $vst_returncode = 'yes';
 $password = $_POST['password'];

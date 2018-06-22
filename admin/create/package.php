@@ -7,6 +7,8 @@ if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: ../../login.php'); }
 if($username != 'admin') { header("Location: ../../"); }
 
+if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
+
 if ((!isset($_POST['v_package-name'])) || (!isset($_POST['v_webtpl'])) || (!isset($_POST['v_prxtpl'])) || (!isset($_POST['v_dnstpl'])) || (!isset($_POST['v_web-domains'])) || (!isset($_POST['v_web-aliases'])) || (!isset($_POST['v_dns-domains'])) || (!isset($_POST['v_dns-records'])) || (!isset($_POST['v_mail-domains'])) || (!isset($_POST['v_mail-accounts'])) || (!isset($_POST['v_databases'])) || (!isset($_POST['v_cron-jobs'])) || (!isset($_POST['v_quota'])) || (!isset($_POST['v_bandwidth'])) || (!isset($_POST['ns1'])) || (!isset($_POST['ns2'])) || (!isset($_POST['ssh'])) || (!isset($_POST['v_backups']))) { header('Location: ../add/package.php?error=1');}
 
 $nsfull = '';

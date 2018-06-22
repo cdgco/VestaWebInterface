@@ -7,6 +7,8 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/includes.ph
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: ../login.php'); }
 
+if(isset($webenabled) && $webenabled != 'true'){ header("Location: ../error-pages/403.html"); }
+
 $ssldomain = $_POST['domain'];
 $sslemail = $_POST['email'];
 $sslcountry = $_POST['country'];

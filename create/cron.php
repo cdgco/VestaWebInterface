@@ -6,6 +6,8 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/includes.ph
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: ../login.php'); }
 
+if(isset($cronenabled) && $cronenabled != 'true'){ header("Location: ../error-pages/403.html"); }
+
 $v_min = $_POST['v_min'];
 $v_hour = $_POST['v_hour'];
 $v_day = $_POST['v_day'];

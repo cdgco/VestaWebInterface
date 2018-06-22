@@ -7,6 +7,8 @@ if(isset($_SESSION['loggedin'])) {
     if(base64_decode($_SESSION['loggedin']) == 'true') { header('Location: index.php'); }
 }
 
+if(isset($regenabled) && $regenabled != 'true'){ header("Location: error-pages/403.html"); }
+
 $postvars0 = array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-info','arg1' => 'json');
 
 $curl0 = curl_init();

@@ -6,6 +6,8 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/includes.ph
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: ../login.php'); }
 
+if(isset($dnsenabled) && $dnsenabled != 'true'){ header("Location: ../error-pages/403.html"); }
+
 $cf = curl_init();
 
 curl_setopt($cf, CURLOPT_URL, "https://api.cloudflare.com/client/v4/zones/".$_GET['zid']."/dns_records/".$_GET['id']);

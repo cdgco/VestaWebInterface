@@ -5,6 +5,8 @@ session_start();
 if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
 if(base64_decode($_SESSION['loggedin']) != 'true') { header('Location: ../login.php'); }
 
+if(isset($cronenabled) && $cronenabled != 'true'){ header("Location: ../error-pages/403.html"); }
+
 if (isset($_POST['v_min']) { $v_min = $_POST['v_min']; }
 elseif (isset($_POST['v_hour']) { $v_hour = $_POST['v_hour']; }
 elseif (isset($_POST['v_day']) { $v_month = $_POST['v_month']; }

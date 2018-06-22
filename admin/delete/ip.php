@@ -7,6 +7,8 @@ if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: ../../login.php'); }
 if($username != 'admin') { header("Location: ../../"); }
 
+if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
+
 $v_address = $_GET['ip'];
 
 if ((!isset($_GET['ip'])) || ($_GET['ip'] == '')) { header('Location: ../list/ip.php?error=1');}

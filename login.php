@@ -197,12 +197,13 @@ textdomain('messages');
                                 <button class="btn btn-info btn-lg btn-block btn-rounded text-uppercase waves-effect waves-light bg-theme" style="border: none;" type="submit"><?php echo _("Log in"); ?></button>
                             </div>
                         </div>
-                        <br>
+                        <?php if($regenabled == 'true') {
+                        echo '<br>
                         <div class="form-group m-b-0">
                             <div class="col-sm-12 text-center">
-                                <p><?php echo _("Don't have an account?"); ?> <a href="register.php" class="text-primary m-l-5"><b><?php echo _("Sign Up"); ?></b></a></p>
+                                <p><?php echo _("Don\'t have an account?"); ?> <a href="register.php" class="text-primary m-l-5"><b><?php echo _("Sign Up"); ?></b></a></p>
                             </div>
-                        </div>
+                        </div>'; } ?>
                     </form>
                     <form class="form-horizontal" id="recoverform" method="post" action="<?php echo $url8083; ?>/reset/reset.php">
                         <div class="form-group m-t-20">
