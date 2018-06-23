@@ -12,7 +12,7 @@ The VWI Plugin System allows simple development and installation for custom apps
 Development Instructions:
 1. Name your project somthing unique as there cannot be two plugins with the same name.
 2. Every plugin must include a manifest.xml file in the base of the plugin folder. (An example of this file can be found in the plugins/example-plugin folder).
-3. The manifest.xml file must include a plugin name, icon, section, and admin-only value. Acceptable values for icons are font-awesome icons from v4.2 or older. Acceptable values for section are "account", "management", "apps" or "administration", administration being an admin only section. Acceptable values for admin-only are "yes" or "no".
+3. The manifest.xml file must include a plugin name, icon, section, admin-only, new-tab, hide, custom-tag, and custom-tag-content value. Further details are available within the example manifest.xml.
 4. Include a README.md with installation instructions, a link to this page, and a link to the VestaWebInterface repository home.
 4. Once finished and made available online, create a pull request to this file adding your plugin.
 

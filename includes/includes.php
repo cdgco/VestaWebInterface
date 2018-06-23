@@ -198,6 +198,9 @@ $pluginnames = array();
 $pluginicons = array();
 $pluginsections = array();
 $pluginadminonly = array();
+$pluginnewtab = array();
+$pluginhide = array();
+
 
 function indexMenu($l1) {
     echo '<li> 

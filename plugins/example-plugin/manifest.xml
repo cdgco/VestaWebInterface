@@ -10,21 +10,9 @@
     <!-- Plugin version to be displayed in plugins list. -->
     <version>1.0.2</version>
     <!-- Display plugin to admin only? "yes" or "no". -->
-    <admin-only>No</admin-only>
-    <!-- Hide your plugin from menus? "yes" or "no". Coming soon. -->
-    <hide></hide>
-    <!-- Hide your plugin from menus? "yes" or "no". Coming soon. -->
-    <custom-tag></custom-tag>
-    <!-- 
-
-    Cutom menu tag if custom-tag = "yes". Coming soon.
-
-    Example Basic Tag: 
-        <li><a href='../" . $pluginlinks[$currentplugin] . "/' ><i class='fa fa-phone fa-fw'></i><span class='hide-menu'>" . _("Plugin Name") . "</span></a></li>
-
-    Example PHP Validated Tag:
-        <?php if($condition === true) { echo \"<li><a href='../" . $pluginlinks[$currentplugin] . "/' ><i class='fa fa-phone fa-fw'></i><span class='hide-menu'>" . _("Plugin Name") . "</span></a></li>\";} ?>
-
-    -->
-    <custom-tag-content></custom-tag-content>
+    <admin-only>Yes</admin-only>
+    <!-- Open link in new tab? "yes" or "no" -->
+    <new-tab>Yes</new-tab>
+    <!-- Hide your plugin from menus? "yes" or "no". -->
+    <hide>No</hide>
 </plugin>
