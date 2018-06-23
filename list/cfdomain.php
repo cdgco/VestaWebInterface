@@ -87,7 +87,7 @@ $recorddata = array_values(json_decode(curl_exec($cfrecords), true));
 $records = $recorddata[0];
 
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
+setlocale("LC_CTYPE", $locale); setlocale("LC_MESSAGES", $locale);
 bindtextdomain('messages', '../locale');
 textdomain('messages');
 

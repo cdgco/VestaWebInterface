@@ -16,6 +16,7 @@ $sslstate = $_POST['state'];
 $sslcity = $_POST['city'];
 $sslorg = $_POST['org'];
 $sslunit = $_POST['unit'];
+$sslalias = $_POST['aliases'];
 
 if (isset($ssldomain) && $ssldomain != '' && isset($sslemail) && $sslemail != '' && isset($sslcountry) && $sslcountry != '' && isset($sslstate) && $sslstate != '' && isset($sslcity) && $sslcity != '' && isset($sslorg) && $sslorg != '' && isset($sslunit) && $sslunit != '' ) {}
 else { header('Location: generatecsr.php?error=1'); }
@@ -23,7 +24,7 @@ else { header('Location: generatecsr.php?error=1'); }
 
 $postvars = array(
     array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-generate-ssl-cert','arg1' => $ssldomain,'arg2' => $sslemail, 'arg3' => $sslcountry,'arg4' => $sslstate,'arg5' => $sslcity,'arg6' => $sslorg,'arg7' => $sslunit,'arg8' => '','arg9' => 'json'));
+    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-generate-ssl-cert','arg1' => $ssldomain,'arg2' => $sslemail, 'arg3' => $sslcountry,'arg4' => $sslstate,'arg5' => $sslcity,'arg6' => $sslorg,'arg7' => $sslunit,'arg8' => $sslalias,'arg9' => 'json'));
 
 $curl0 = curl_init();
 $curl1 = curl_init();
@@ -165,6 +166,18 @@ foreach ($plugins as $result) {
                         <div class="col-lg-12">
                             <div class="white-box">
                                 <div class="form-horizontal form-material">
+                                    <div class="form-group">
+                                        <label class="col-md-12"><?php echo _("Domain"); ?></label>
+                                        <div class="col-md-12">
+                                            <input type="text" disabled value="<?php echo $ssldomain; ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12"><?php echo _("Aliases"); ?></label>
+                                        <div class="col-md-12">
+                                            <input type="text" disabled value="<?php echo $sslalias; ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <label class="col-md-12">SSL CSR</label>
                                         <div class="col-md-12">

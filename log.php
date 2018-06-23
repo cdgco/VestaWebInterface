@@ -38,7 +38,7 @@ $logname = array_keys(json_decode(curl_exec($curl1), true));
 $logdata = array_values(json_decode(curl_exec($curl1), true));
 $sysusers = array_keys(json_decode(curl_exec($curl2), true));
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
+setlocale("LC_CTYPE", $locale); setlocale("LC_MESSAGES", $locale);
 bindtextdomain('messages', '../locale');
 textdomain('messages');
 

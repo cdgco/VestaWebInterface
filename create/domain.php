@@ -71,6 +71,21 @@ if (!empty($_POST['v_ftpenabled'])) {
 } else {
     $v_ftpx = 'no';
 }
+
+function ftp_file_put_contents($remote_file, $file_string) {
+
+    $ftp_server=VESTA_HOST_ADDRESS; 
+    $ftp_user_name=VESTA_ADMIN_UNAME; 
+    $ftp_user_pass=VESTA_ADMIN_PW;
+    $local_file=fopen('php://temp', 'r+');
+    fwrite($local_file, $file_string);
+    rewind($local_file);       
+    $ftp_conn=ftp_connect($ftp_server); 
+    @$login_result=ftp_login($ftp_conn, $ftp_user_name, $ftp_user_pass); 
+    if($login_result) $upload_result=ftp_fput($ftp_conn, $remote_file, $local_file, FTP_ASCII);
+    ftp_close($ftp_conn);
+    fclose($local_file); }
+
 if ((!isset($v_domain)) || ($v_domain == '')) { header('Location: ../add/domain.php?error=1');}
 elseif ((!isset($_POST['v_ip'])) || ($_POST['v_ip'] == '')) { header('Location: ../add/domain.php?error=1');}
 else {
@@ -172,8 +187,43 @@ else {
         $r7 = curl_exec($curl7);
 
     } 
-    elseif ($v_sslx == 'yes') {
-        /* NEEDS TO BE INTEGRATED INTO BACKEND */
+    elseif ($v_sslx == 'yes'  && isset($_POST['v_ssldir']) && isset($_POST['v_sslcrt']) && isset($_POST['v_sslkey'])) {
+        
+        $writestr1 = str_replace("\r\n", "\n",  $_POST['v_sslcrt']);
+        $writestr2 = str_replace("\r\n", "\n",  $_POST['v_sslkey']);
+        ftp_file_put_contents($v_domain . '.crt', $writestr1);
+        ftp_file_put_contents($v_domain . '.key', $writestr2);
+        
+        if(isset($_POST['v_sslca'])) {
+            $writestr3 = str_replace("\r\n", "\n",  $_POST['v_sslca']);
+            ftp_file_put_contents($v_domain . '.ca', $writestr);
+        }
+        
+        $postvars8 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain-ssl','arg1' => $username, 'arg2' => $v_domain, 'arg3'=> "/home/admin/", 'arg4' => $_POST['v_ssldir']);
+        
+        $curl8 = curl_init();
+        curl_setopt($curl8, CURLOPT_URL, $vst_url);
+        curl_setopt($curl8, CURLOPT_RETURNTRANSFER,true);
+        curl_setopt($curl8, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($curl8, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($curl8, CURLOPT_POST, true);
+        curl_setopt($curl8, CURLOPT_POSTFIELDS, http_build_query($postvars8));
+        $r7 = curl_exec($curl8);
+        
+        sleep(5); // Give Vesta some time to process files before deleting.
+
+        $ftp_server=VESTA_HOST_ADDRESS; 
+        $ftp_user_name=VESTA_ADMIN_UNAME; 
+        $ftp_user_pass=VESTA_ADMIN_PW;
+        $ftp_conn=ftp_connect($ftp_server); 
+        $login_result = ftp_login($ftp_conn, $ftp_user_name, $ftp_user_pass);
+        ftp_delete($ftp_conn, $v_domain . '.crt');
+        ftp_delete($ftp_conn, $v_domain . '.key');
+        
+        if(isset($_POST['v_sslca']) && $_POST['v_sslca'] != '') {
+            ftp_delete($ftp_conn, $v_domain . '.ca');
+        }
+        
     }
     else { $r7 = '0';}
     if ($v_ftpx == 'yes') {

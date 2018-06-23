@@ -41,7 +41,6 @@ while($curlstart <= 6) {
     curl_setopt(${'curl' . $curlstart}, CURLOPT_POSTFIELDS, http_build_query($postvars[$curlstart]));
     $curlstart++;
 } 
-
 $admindata = json_decode(curl_exec($curl0), true)[$username];
 $useremail = $admindata['CONTACT'];
 $domainname = array_keys(json_decode(curl_exec($curl1), true));
@@ -51,10 +50,9 @@ $proxytemplates = array_values(json_decode(curl_exec($curl3), true));
 $userips = array_keys(json_decode(curl_exec($curl4), true));
 $domainssl = array_values(json_decode(curl_exec($curl5), true));
 $webstats = array_values(json_decode(curl_exec($curl6), true));
-
 if ($domainname[0] == '') { header('Location: ../list/web.php'); }
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
+setlocale("LC_CTYPE", $locale); setlocale("LC_MESSAGES", $locale);
 bindtextdomain('messages', '../locale');
 textdomain('messages');
 
@@ -352,34 +350,34 @@ foreach ($plugins as $result) {
                                             <label class="col-md-12"><?php echo _("SSL Directory"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_ssldir-x" value="<?php echo $domaindata[0]['SSL_HOME']; ?>">
-                                                <select class="form-control" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_ssldir">
+                                                <select class="form-control form-control-static" name="v_ssldir">
                                                     <option value="same" <?php if($domaindata[0]['SSL_HOME'] == 'same') {echo 'selected';} ?>>public_html</option>
                                                     <option value="single" <?php if($domaindata[0]['SSL_HOME'] == 'single') {echo 'selected';} ?>>public_shtml</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("SSL Certificate"); ?> / <a href="../process/generatecsr.php?domain=<?php echo $requestdomain; ?>"><?php echo _("Generate CSR"); ?></a></label>
+                                            <label class="col-md-12"><?php echo _("SSL Certificate"); ?> / <a href="../process/generatecsr.php?domain=<?php echo $requestdomain; ?>" target="_blank"><?php echo _("Generate CSR"); ?></a></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_sslcrt-x" value="<?php echo $domaindata[0]['CRT']; ?>">
-                                                <textarea class="form-control" rows="4" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_sslcrt"><?php print_r($domainssl[0]['CRT']); ?></textarea>
+                                                <textarea class="form-control" rows="4" class="form-control form-control-static" name="v_sslcrt"><?php print_r($domainssl[0]['CRT']); ?></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("SSL Key"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_sslkey-x" value="<?php echo $domaindata[0]['KEY']; ?>">
-                                                <textarea class="form-control" rows="4" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_sslkey"><?php print_r($domainssl[0]['KEY']); ?></textarea>
+                                                <textarea class="form-control" rows="4" class="form-control form-control-static" name="v_sslkey"><?php print_r($domainssl[0]['KEY']); ?></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("SSL Certificate Authority / Intermediate"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_sslca-x" value="<?php echo $domaindata[0]['CA']; ?>">
-                                                <textarea class="form-control" rows="4" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_sslca"><?php print_r($domainssl[0]['CA']); ?></textarea>
+                                                <textarea class="form-control" rows="4" class="form-control form-control-static" name="v_sslca"><?php print_r($domainssl[0]['CA']); ?></textarea>
                                             </div>
                                         </div>
-                                        <div class="form-group" style="margin-left: 0.1%;display:<?php if($domainssl[0]['CRT'] != ''){echo 'block';} else { echo 'none';} ?>">
+                                        <div class="form-group" style="margin-left: 0.1%;display:<?php if($domainssl[0]['NOT_BEFORE'] != ''){echo 'block';} else { echo 'none';} ?>">
                                             <ul class="list-unstyled">
                                                 <li><?php echo _("Subject"); ?>:  <?php print_r($domainssl[0]['SUBJECT']); ?></li>
                                                 <li><?php echo _("Aliases"); ?>:  <?php print_r($domainssl[0]['ALIASES']); ?></li>
@@ -644,7 +642,7 @@ foreach ($plugins as $result) {
                 swal({
                     title: '<?php echo _("Processing"); ?>',
                     text: '',
-                    timer: 5000,
+                    timer: 100000,
                     onOpen: function () {
                         swal.showLoading()
                     }

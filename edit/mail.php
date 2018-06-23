@@ -38,7 +38,7 @@ $maildata = array_values(json_decode(curl_exec($curl1), true));
 $mailname = array_keys(json_decode(curl_exec($curl1), true));
 if ($mailname[0] == '') { header('Location: ../list/mail.php'); }
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
+setlocale("LC_CTYPE", $locale); setlocale("LC_MESSAGES", $locale);
 bindtextdomain('messages', '../locale');
 textdomain('messages');
 

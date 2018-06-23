@@ -37,8 +37,8 @@ if(isset($_POST['username'])){
     }
 }
 
-setlocale(LC_CTYPE, $locale);
-setlocale(LC_MESSAGES, $locale);
+setlocale("LC_CTYPE", $locale);
+setlocale("LC_MESSAGES", $locale);
 bindtextdomain('messages', 'locale');
 textdomain('messages');
 

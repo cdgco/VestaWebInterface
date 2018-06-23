@@ -16,7 +16,7 @@ else { header('Location: ../list/web.php'); }
 
 $postvars = array(
     array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-database','arg1' => $username,'arg2' => $requestdb, 'arg3' => 'json'));
+    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-domain','arg1' => $username,'arg2' => $requestdomain, 'arg3' => 'json'));
 
 $curl0 = curl_init();
 $curl1 = curl_init();
@@ -34,9 +34,9 @@ while($curlstart <= 1) {
 
 $admindata = json_decode(curl_exec($curl0), true)[$username];
 $useremail = $admindata['CONTACT'];
-$dbname = array_keys(json_decode(curl_exec($curl1), true));
-$dbdata = array_values(json_decode(curl_exec($curl1), true));
-
+$domainname = array_keys(json_decode(curl_exec($curl1), true));
+$domaindata = array_values(json_decode(curl_exec($curl1), true));
+if ($domainname[0] == '') { header('Location: ../list/web.php'); }
 foreach ($plugins as $result) {
     if (file_exists('../plugins/' . $result)) {
         if (file_exists('../plugins/' . $result . '/manifest.xml')) {
@@ -161,6 +161,12 @@ foreach ($plugins as $result) {
                                         <label class="col-md-12">Domain</label>
                                         <div class="col-md-12">
                                             <input type="text" name="domain" value="<?php echo $requestdomain; ?>" class="form-control"> 
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Aliases</label>
+                                        <div class="col-md-12">
+                                            <input type="text" name="aliases" <?php if($domaindata[0]['ALIAS'] != '') {echo "value='" . $domaindata[0]['ALIAS'] . "' "; } else { echo "placeholder='Comma Seperated. Ex: alias.com,alias.site.com'"; } ?> class="form-control"> 
                                         </div>
                                     </div>
                                     <div class="form-group">

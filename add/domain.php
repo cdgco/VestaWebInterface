@@ -37,7 +37,7 @@ $userips = array_keys(json_decode(curl_exec($curl1), true));
 $proxytemplates = array_values(json_decode(curl_exec($curl2), true));
 $webstats = array_values(json_decode(curl_exec($curl3), true));
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
+setlocale("LC_CTYPE", $locale); setlocale("LC_MESSAGES", $locale);
 bindtextdomain('messages', '../locale');
 textdomain('messages');
 
@@ -254,28 +254,28 @@ foreach ($plugins as $result) {
                                             <div class="form-group">
                                                 <label class="col-md-12"><?php echo _("SSL Directory"); ?></label>
                                                 <div class="col-md-12">
-                                                    <select disabled name="v_ssldir" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static">
+                                                    <select name="v_ssldir" class="form-control uneditable-input form-control-static">
                                                         <option value="public_html" selected>public_html</option>
                                                         <option value="public_shtml">public_shtml</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-12"><?php echo _("SSL Certificate"); ?> / <a class="sslfill"><?php echo _("Generate CSR"); ?></a></label>
+                                                <label class="col-md-12"><?php echo _("SSL Certificate"); ?> / <a class="sslfill"  target="_blank"><?php echo _("Generate CSR"); ?></a></label>
                                                 <div class="col-md-12">
-                                                    <textarea style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_sslcrt" rows="4"></textarea>
+                                                    <textarea class="form-control uneditable-input form-control-static" name="v_sslcrt" rows="4"></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-md-12"><?php echo _("SSL Key"); ?></label>
                                                 <div class="col-md-12">
-                                                    <textarea style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_sslkey" rows="4"></textarea>
+                                                    <textarea class="form-control uneditable-input form-control-static" name="v_sslkey" rows="4"></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-md-12"><?php echo _("SSL Certificate Authority / Intermediate"); ?></label>
                                                 <div class="col-md-12">
-                                                    <textarea style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static" disabled name="v_sslca" rows="4"></textarea>
+                                                    <textarea class="form-control uneditable-input form-control-static" name="v_sslca" rows="4"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -514,7 +514,7 @@ foreach ($plugins as $result) {
                 swal({
                     title: '<?php echo _("Processing"); ?>',
                     text: '',
-                    timer: 5000,
+                    timer: 100000,
                     onOpen: function () {
                         swal.showLoading()
                     }
