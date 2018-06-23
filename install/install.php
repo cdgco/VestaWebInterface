@@ -108,7 +108,8 @@ $sql3 = "INSERT INTO `".$mysql_table."config` (`VARIABLE`, `VALUE`) VALUES
 ('KEY1', '".$a."'),
 ('KEY2', '".$b."'),
 ('ICON', 'admin-logo.png'),
-('LOGO', 'admin-text.png');";
+('LOGO', 'admin-text.png'),
+('FAVICON', 'favicon.ico');";
 
 if (mysqli_query($con, $sql3)) {} else { echo "Error populating table: " . mysqli_error($con); }
 

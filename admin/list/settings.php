@@ -64,7 +64,7 @@ foreach ($plugins as $result) {
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <link rel="icon" type="image/ico" href="../../plugins/images/favicon.ico">
+        <link rel="icon" type="image/ico" href="../../plugins/images/<?php echo $cpfavicon; ?>">
         <title><?php echo $sitetitle; ?> - <?php echo _("Settings"); ?></title>
         <link href="../../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
@@ -412,6 +412,15 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <label class="col-md-12">Current Favicon:</label><br>
+                                        <img src="../../plugins/images/<?php echo $cpfavicon; ?>" style="border:1px solid black;height:32px;right: -20px;position: relative;"/>&nbsp;&nbsp;<img src="../../plugins/images/<?php echo $cpfavicon; ?>" style="background-color:black;height: 32px;right: -20px;position: relative;"/><br><br>
+                                        <label class="col-md-12">New Favicon:</label>
+                                        <div class="col-md-12">
+                                            <input name="FAVICON" id="file3" accept=".ico" type="file" class="form-control input-md">
+                                            <span class="help-block">Recommended 32x32px .ico</span>  
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="col-md-12">Current Icon:</label><br>
                                         <img src="../../plugins/images/<?php echo $cpicon; ?>" style="border:1px solid black;height: 40px;right: -20px;position: relative;"/>&nbsp;&nbsp;<img src="../../plugins/images/<?php echo $cpicon; ?>" style="background-color:black;height: 40px;right: -20px;position: relative;"/><br><br>
                                         <label class="col-md-12">New Icon:</label>
@@ -660,6 +669,14 @@ foreach ($plugins as $result) {
             uploadField2.onchange = function() {
                 if(this.files[0].size > 1048576){
                    alert("Logo is too big! 1MB Limit.");
+                   this.value = "";
+                };
+            };
+            var uploadField3 = document.getElementById("file3");
+
+            uploadField2.onchange = function() {
+                if(this.files[0].size > 1048576){
+                   alert("Favicon is too big! 1MB Limit.");
                    this.value = "";
                 };
             };

@@ -10,6 +10,7 @@ if($username != 'admin') { header("Location: ../../"); }
 if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
 $r1 = 0;
 $extsAllowed = array( 'jpg', 'jpeg', 'png', 'gif' );
+$extsAllowed2 = array( 'ico' );
 
 if(isset($_FILES['ICON']) && $_FILES['ICON']['name'] != ''){
     if($_FILES['ICON']['error'] > 0) { $r1 = $r1 + 1; }
@@ -37,6 +38,21 @@ if(isset($_FILES['LOGO'])  && $_FILES['LOGO']['name'] != ''){
         $i2 = mysqli_real_escape_string($conn, "uploads/" . $_FILES['LOGO']['name']);
         $sql200 = "UPDATE ".$mysql_table."config SET `VALUE` = '".$i2."' WHERE `VARIABLE` = 'LOGO';";
         if (mysqli_query($conn, $sql200)) {} else { $r1 = $r1 + 1; }
+        mysqli_close($conn);
+    } } 
+    else { $r1 = $r1 + 1; }
+   }
+if(isset($_FILES['FAVICON'])  && $_FILES['FAVICON']['name'] != ''){
+    if($_FILES['FAVICON']['error'] > 0) { $r1 = $r1 + 1; }
+	$extUpload3 = strtolower( substr( strrchr($_FILES['FAVICON']['name'], '.') ,1) ) ;
+	if (in_array($extUpload3, $extsAllowed2) ) { 
+	   $name3 = "../../plugins/images/uploads/{$_FILES['FAVICON']['name']}";
+	   $result3 = move_uploaded_file($_FILES['FAVICON']['tmp_name'], $name3);
+	if($result3){
+        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
+        $i3 = mysqli_real_escape_string($conn, "uploads/" . $_FILES['FAVICON']['name']);
+        $sql300 = "UPDATE ".$mysql_table."config SET `VALUE` = '".$i3."' WHERE `VARIABLE` = 'FAVICON';";
+        if (mysqli_query($conn, $sql300)) {} else { $r1 = $r1 + 1; }
         mysqli_close($conn);
     } } 
     else { $r1 = $r1 + 1; }
