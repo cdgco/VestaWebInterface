@@ -220,12 +220,13 @@ function adminMenu($l2, $a1) {
                     <li> <a href="' . $l2 . 'updates.php"'; if($a1 == 'updates') { echo ' class="active"'; } echo '><i class="mdi mdi-weather-cloudy fa-fw"></i><span class="hide-menu">' . _("Updates") . '</span></a> </li>
                     <li> <a href="' . $l2 . 'firewall.php"'; if($a1 == 'firewall') { echo ' class="active"'; } echo '><i class="fa fa-shield fa-fw"></i><span class="hide-menu">' . _("Firewall") . '</span></a> </li>
                     <li> <a href="' . $l2 . 'server.php"'; if($a1 == 'server') { echo ' class="active"'; } echo '><i class="fa fa-server fa-fw"></i><span class="hide-menu">' . _("Server") . '</span></a> </li>
+                    <li> <a href="' . $l2 . 'settings.php"'; if($a1 == 'settings') { echo ' class="active"'; } echo '><i class="fa fa-cogs fa-fw"></i><span class="hide-menu">' . _("Settings") . '</span></a> </li>
                 </ul>
             </li>';
     } 
 }
 function profileMenu($l3) {
-    global $displayname;
+    global $displayname; global $profileenabled;
     if(isset($profileenabled) && $profileenabled != ''){
     echo
         '<li class="devider"></li>
@@ -241,7 +242,7 @@ function profileMenu($l3) {
     }
 }
 function primaryMenu($l4, $l5, $a2) {
-        global $webenabled; global $dnsenabled; global $mailenabled; global $dbenabled; global $ftpurl; global $webmailurl; global $phpmyadmin; global $phppgadmin; global $oldcpurl; global $supporturl;
+        global $webenabled; global $dnsenabled; global $mailenabled; global $dbenabled; global $ftpurl; global $webmailurl; global $phpmyadmin; global $phppgadmin; global $oldcpurl; global $supporturl; global $cronenabled; global $backupsenabled;
         if ($webenabled != 'true' && $dnsenabled != 'true' && $mailenabled != 'true' && $dbenabled != 'true') {} else { echo '<li class="devider"></li>
             <li'; if($a2 == 'web' || $a2 == 'dns' || $a2 == 'mail' || $a2 == 'db') { echo ' class="active"'; } echo '> <a href="#" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">' . _("Management") . '<span class="fa arrow"></span> </span></a>
                 <ul class="nav nav-second-level" id="appendmanagement">'; }
