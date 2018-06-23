@@ -71,7 +71,7 @@ $ftp_user_name=VESTA_ADMIN_UNAME;
 $ftp_user_pass=VESTA_ADMIN_PW;
 $ftp_conn=ftp_connect($ftp_server); 
 $login_result = ftp_login($ftp_conn, $ftp_user_name, $ftp_user_pass);
-ftp_delete($ftp_conn, $_POST['v_package-name'] . '.pkg')
+ftp_delete($ftp_conn, $_POST['v_package-name'] . '.pkg');
 ?>
 
 <!DOCTYPE html>

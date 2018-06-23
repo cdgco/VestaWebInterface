@@ -159,7 +159,7 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-md-12 col-xs-12">
                             <div class="white-box">
-                                <form class="form-horizontal form-material" autocomplete="off" method="post">
+                                <form class="form-horizontal form-material" action="../change/backupexclusion.php" autocomplete="off" method="post">
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Web Domains"); ?></label>
                                         <div class="col-md-12">
@@ -222,7 +222,7 @@ foreach ($plugins as $result) {
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button disabled class="btn btn-success" onclick="processLoader();"><?php echo _("Save"); ?></button> &nbsp;
+                                            <button class="btn btn-success" onclick="processLoader();"><?php echo _("Save"); ?></button> &nbsp;
                                             <a href="../list/backups.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
                                         </div>
                                     </div>
