@@ -8,8 +8,39 @@ else { header('Location: ../../login.php'); }
 if($username != 'admin') { header("Location: ../../"); }
 
 if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
-
 $r1 = 0;
+$extsAllowed = array( 'jpg', 'jpeg', 'png', 'gif' );
+
+if(isset($_FILES['ICON']) && $_FILES['ICON']['name'] != ''){
+    if($_FILES['ICON']['error'] > 0) { $r1 = $r1 + 1; }
+	$extUpload1 = strtolower( substr( strrchr($_FILES['ICON']['name'], '.') ,1) ) ;
+	if (in_array($extUpload1, $extsAllowed) ) { 
+	   $name1 = "../../plugins/images/uploads/{$_FILES['ICON']['name']}";
+	   $result1 = move_uploaded_file($_FILES['ICON']['tmp_name'], $name1);
+	if($result1){
+        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
+        $i1 = mysqli_real_escape_string($conn, "uploads/" . $_FILES['ICON']['name']);
+        $sql100 = "UPDATE ".$mysql_table."config SET `VALUE` = '".$i1."' WHERE `VARIABLE` = 'ICON';";
+        if (mysqli_query($conn, $sql100)) {} else { $r1 = $r1 + 1; }
+        mysqli_close($conn);
+    } } 
+    else { $r1 = $r1 + 1; }
+   }
+if(isset($_FILES['LOGO'])  && $_FILES['LOGO']['name'] != ''){
+    if($_FILES['LOGO']['error'] > 0) { $r1 = $r1 + 1; }
+	$extUpload2 = strtolower( substr( strrchr($_FILES['LOGO']['name'], '.') ,1) ) ;
+	if (in_array($extUpload2, $extsAllowed) ) { 
+	   $name2 = "../../plugins/images/uploads/{$_FILES['LOGO']['name']}";
+	   $result2 = move_uploaded_file($_FILES['LOGO']['tmp_name'], $name2);
+	if($result2){
+        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
+        $i2 = mysqli_real_escape_string($conn, "uploads/" . $_FILES['LOGO']['name']);
+        $sql200 = "UPDATE ".$mysql_table."config SET `VALUE` = '".$i2."' WHERE `VARIABLE` = 'LOGO';";
+        if (mysqli_query($conn, $sql200)) {} else { $r1 = $r1 + 1; }
+        mysqli_close($conn);
+    } } 
+    else { $r1 = $r1 + 1; }
+   }
 if(isset($_POST['SITENAME']) && $sitetitle != $_POST['SITENAME']) {
     $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
     $v1 = mysqli_real_escape_string($conn, $_POST['SITENAME']);

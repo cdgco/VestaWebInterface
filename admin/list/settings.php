@@ -94,12 +94,9 @@ foreach ($plugins as $result) {
                     <div class="top-left-part">
                         <!-- Logo -->
                         <a class="logo" href="../../index.php">
-                            <!-- Logo icon image, you can use font-icon also --><b>
-                            <!--This is dark logo icon--><img src="../../plugins/images/admin-logo.png" alt="home" class="logo-1 dark-logo" /><!--This is light logo icon--><img src="../../plugins/images/admin-logo-dark.png" alt="home" class="logo-1 light-logo" />
-                            </b>
-                            <!-- Logo text image you can use text also --><span class="hidden-xs">
-                            <!--This is dark logo text--><img src="../../plugins/images/admin-text.png" alt="home" class="hidden-xs dark-logo" /><!--This is light logo text--><img src="../../plugins/images/admin-text-dark.png" alt="home" class="hidden-xs light-logo" />
-                            </span> </a>
+                            <img src="../../plugins/images/<?php echo $cpicon; ?>" alt="home" class="logo-1 dark-logo" />
+                            <img src="../../plugins/images/<?php echo $cplogo; ?>" alt="home" class="hidden-xs dark-logo" />
+                        </a>
                     </div>
                     <ul class="nav navbar-top-links navbar-left">
                         <li><a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs"><i class="ti-close ti-menu"></i></a></li>      
@@ -156,7 +153,7 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box">
-                                <form class="form-horizontal form-material" autocomplete="off" method="post" action="../change/settings.php">
+                                <form class="form-horizontal form-material" autocomplete="off" method="post" action="../change/settings.php" enctype="multipart/form-data">
                                     <h3>Server Configuration</h3><br><hr><br>
                                     <div class="form-group"  style="overflow: visible;">
                                         <label class="col-md-12">Server Timezone</label>
@@ -412,6 +409,26 @@ foreach ($plugins as $result) {
 
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Current Icon:</label><br>
+                                        <img src="../../plugins/images/<?php echo $cpicon; ?>" style="border:1px solid black;height: 40px;right: -20px;position: relative;"/>&nbsp;&nbsp;<img src="../../plugins/images/<?php echo $cpicon; ?>" style="background-color:black;height: 40px;right: -20px;position: relative;"/><br><br>
+                                        <label class="col-md-12">New Icon:</label>
+                                        <div class="col-md-12">
+                                            <input name="ICON" id="file" accept=".png,.gif,.jpg,.jpeg" type="file" class="form-control input-md">
+                                            <span class="help-block">Recommended 40x40px .png or .gif. (.png, .gif, .jpg, and .jpeg up to 1MB allowed.)</span>  
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Current Logo:</label><br>
+                                        <img src="../../plugins/images/<?php echo $cplogo; ?>" style="border:1px solid black;height:60px;right: -20px;position: relative;"/>&nbsp;&nbsp;<img src="../../plugins/images/<?php echo $cplogo; ?>" style="background-color:black;height: 60px;right: -20px;position: relative;"/><br><br>
+                                        <label class="col-md-12">New Logo:</label>
+                                        <div class="col-md-12">
+                                            <input name="LOGO" id="file2" accept=".png,.gif,.jpg,.jpeg" type="file" class="form-control input-md">
+                                            <span class="help-block">Recommended 134x24px .png or .gif. (.png, .gif, .jpg, and .jpeg up to 1MB allowed.)</span>  
+                                        </div>
+                                    </div>
+                                    
                                     <br><h3>Enable / Disable Sections</h3><br><hr><br>
                                     <div class="form-group">
                                         <label class="col-md-12">Web Enabled</label>
@@ -645,6 +662,23 @@ foreach ($plugins as $result) {
             ?>
         </script>
         <script type="text/javascript">
+            var uploadField = document.getElementById("file");
+
+            uploadField.onchange = function() {
+                if(this.files[0].size > 1048576){
+                   alert("Icon is too big! 1MB Limit.");
+                   this.value = "";
+                };
+            };
+            var uploadField2 = document.getElementById("file2");
+
+            uploadField2.onchange = function() {
+                if(this.files[0].size > 1048576){
+                   alert("Logo is too big! 1MB Limit.");
+                   this.value = "";
+                };
+            };
+            
             $('.datepicker').datepicker();
             (function () {
                 [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {
@@ -673,7 +707,7 @@ foreach ($plugins as $result) {
             if(isset($_POST['r1']) && $_POST['r1'] == "0") {
                 echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
             } 
-            if(isset($_POST['r1']) && $_POST['r1'] > "0") { echo "swal({title:'Error Updating. Please Try Again.', type:'error'});";
+            if(isset($_POST['r1']) && $_POST['r1'] > "0") { echo "swal({title:'Error Updating: " . $_POST['r1'] . ". Please Try Again.', type:'error'});";
                                                           }
             ?>
         </script>

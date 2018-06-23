@@ -60,12 +60,20 @@ require '../includes/arrays.php';
     <td style="font-size:16px;"><span style="color:<?php if (extension_loaded('ftp')) {echo "limegreen";  $a6 = 0; } else { echo "red";  $a6 = 1; } ?>"><?php if (extension_loaded('ftp')) {echo "Installed"; } else { echo "Not Installed"; } ?></span></td> 
   </tr>
 <tr>
+    <td style="font-size:16px;">PHP File Uploads:</td>
+    <td style="font-size:16px;"><span style="color:<?php if(ini_get('file_uploads') == 1) {echo "limegreen";  $a7 = 0; } else { echo "red";  $a7 = 1; } ?>"><?php if(ini_get('file_uploads') == 1) {echo "Enabled"; } else { echo "Disabled"; } ?></span></td> 
+  </tr>                          
+<tr>
     <td style="font-size:16px;">'includes' is writable (777):</td>
-    <td style="font-size:16px;"><span style="color:<?php if (substr(sprintf("%o",fileperms("../includes")),-3) == "777") {echo "limegreen";  $a7 = 0; } else { echo "red";  $a7 = 1; } ?>"><?php if (substr(sprintf("%o",fileperms("../includes")),-3) == "777") {echo "Writable";} else { echo "Not Writable";} ?></span></td> 
+    <td style="font-size:16px;"><span style="color:<?php if (substr(sprintf("%o",fileperms("../includes")),-3) == "777") {echo "limegreen";  $a8 = 0; } else { echo "red";  $a8 = 1; } ?>"><?php if (substr(sprintf("%o",fileperms("../includes")),-3) == "777") {echo "Writable";} else { echo "Not Writable";} ?></span></td> 
   </tr>
 <tr>
     <td style="font-size:16px;">'tmp' is writable (777):</td>
-    <td style="font-size:16px;"><span style="color:<?php if (substr(sprintf("%o",fileperms("../tmp")),-3) == "777") {echo "limegreen";  $a8 = 0; } else { echo "red";  $a8 = 1; } ?>"><?php if (substr(sprintf("%o",fileperms("../tmp")),-3) == "777") {echo "Writable";} else { echo "Not Writable";} ?></span></td> 
+    <td style="font-size:16px;"><span style="color:<?php if (substr(sprintf("%o",fileperms("../tmp")),-3) == "777") {echo "limegreen";  $a9 = 0; } else { echo "red";  $a9 = 1; } ?>"><?php if (substr(sprintf("%o",fileperms("../tmp")),-3) == "777") {echo "Writable";} else { echo "Not Writable";} ?></span></td> 
+  </tr>
+<tr>
+    <td style="font-size:16px;">'plugins/images/uploads' is writable (777):</td>
+    <td style="font-size:16px;"><span style="color:<?php if (substr(sprintf("%o",fileperms("../tmp")),-3) == "777") {echo "limegreen";  $a9 = 0; } else { echo "red";  $a9 = 1; } ?>"><?php if (substr(sprintf("%o",fileperms("../tmp")),-3) == "777") {echo "Writable";} else { echo "Not Writable";} ?></span></td> 
   </tr>
                         
                      

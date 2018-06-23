@@ -110,6 +110,8 @@ DEFINE('CLOUDFLARE_EMAIL', $config["CLOUDFLARE_EMAIL"]);
 
 $key1 = $config["KEY1"];
 $key2 = $config["KEY2"];
+$cpicon = $config["ICON"];
+$cplogo = $config["LOGO"];
 
 $vst_url = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . ':' . $vesta_port . '/api/';
 $url8083 = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . ':' . $vesta_port;

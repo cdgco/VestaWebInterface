@@ -106,7 +106,9 @@ $sql3 = "INSERT INTO `".$mysql_table."config` (`VARIABLE`, `VALUE`) VALUES
 ('PLUGINS', '".$v18."'),
 ('TIMEZONE', '".$v19."'),
 ('KEY1', '".$a."'),
-('KEY2', '".$b."');";
+('KEY2', '".$b."'),
+('ICON', 'admin-logo.png'),
+('LOGO', 'admin-text.png');";
 
 if (mysqli_query($con, $sql3)) {} else { echo "Error populating table: " . mysqli_error($con); }
 

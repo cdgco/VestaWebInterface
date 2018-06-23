@@ -140,7 +140,7 @@ textdomain('messages');
         <section id="wrapper" class="new-login-register">
             <div class="lg-info-panel bg-theme">
                 <div class="inner-panel">
-                    <a href="javascript:void(0)" class="p-20 di"><img src="plugins/images/admin-logo.png" class="logo-1"></a>
+                    <a href="javascript:void(0)" class="p-20 di"><img src="plugins/images/<?php echo $cpicon; ?>" class="logo-1"></a>
                     <div class="lg-content">
                         <h2><?php echo $sitetitle . ' ' . _("Control Panel"); ?> <br></h2><p><?php require 'includes/versioncheck.php'; ?></p>
                     </div>

@@ -141,11 +141,11 @@ foreach ($plugins as $result) {
                     <div class="top-left-part">
                         <a class="logo" href="index.php">
                             <b>
-                                <img src="plugins/images/admin-logo.png" alt="home" class="logo-1 dark-logo" />
+                                <img src="plugins/images/<?php echo $cpicon; ?>" alt="home" class="logo-1 dark-logo" />
                                 <img src="plugins/images/admin-logo-dark.png" alt="home" class="logo-1 light-logo" />
                             </b>
                             <span class="hidden-xs">
-                                <img src="plugins/images/admin-text.png" alt="home" class="hidden-xs dark-logo" />
+                                <img src="plugins/images/<?php echo $cplogo; ?>" alt="home" class="hidden-xs dark-logo" />
                                 <img src="plugins/images/admin-text-dark.png" alt="home" class="hidden-xs light-logo" />
                             </span> 
                         </a>
