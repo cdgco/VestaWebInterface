@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-
+$configlocation = "includes/";
 if (file_exists( 'includes/config.php' )) { require( 'includes/includes.php'); }  else { header( 'Location: install' );};
 if(isset($_SESSION['loggedin'])) {
     if(base64_decode($_SESSION['loggedin']) == 'true') { header('Location: index.php'); }
@@ -150,7 +150,55 @@ textdomain('messages');
         <script src="js/custom.js"></script>
         <script src="plugins/components/styleswitcher/jQuery.style.switcher.js"></script>
         <script>
-            <?php if(!isset($serverconnection)){
+             <?php 
+            if($configstyle == '2'){
+                if($warningson == "all"){
+                    if(substr(sprintf('%o', fileperms($configlocation)), -4) == '0777') {
+                        echo "$.toast({
+                                heading: '"._("Warning")."', 
+                                text: '"._("Includes folder has not been secured")."',
+                                icon: 'warning',
+                                position: 'top-right',
+                                hideAfter: 3500,
+                                bgColor: '#ff8000'
+                            });";
+
+                    } 
+                    if(isset($mysqldown) && $mysqldown == 'yes') {
+                        echo "$.toast({
+                                heading: '" . _("Database Error") . "',
+                                text: '" . _("MySQL Server Failed To Connect") . "',
+                                icon: 'error',
+                                position: 'top-right',
+                                hideAfter: false
+                            });";
+                    } 
+                }
+            }
+            else {
+                if(substr(sprintf('%o', fileperms($configlocation)), -4) == '0777') {
+                    echo "$.toast({
+                            heading: '"._("Warning")."', 
+                            text: '"._("Includes folder has not been secured")."',
+                            icon: 'warning',
+                            position: 'top-right',
+                            hideAfter: 3500,
+                            bgColor: '#ff8000'
+                        });";
+
+                } 
+                if(isset($mysqldown) && $mysqldown == 'yes') {
+                    echo "$.toast({
+                            heading: '" . _("Database Error") . "',
+                            text: '" . _("MySQL Server Failed To Connect") . "',
+                            icon: 'error',
+                            position: 'top-right',
+                            hideAfter: false
+                        });";
+
+                }    
+            }
+            if(!isset($serverconnection)){
             echo "$.toast({
                 heading: '" . _("Error") . "'
                 , text: '" . _("Failed to connect to server.") . "<br>" . _("Please check config.php") . "'
@@ -159,16 +207,7 @@ textdomain('messages');
                 , hideAfter: false
                 , allowToastClose: false
             });"; }
-            if(substr(sprintf('%o', fileperms('includes')), -4) == '0777') {
-                echo "$.toast({
-                    heading: '" . _("Warning") . "'
-                    , text: '" . _("Includes folder has not been secured") . "'
-                    , icon: 'warning'
-                    , position: 'top-right'
-                    , hideAfter: 3500
-                    , bgColor: '#ff8000'
-                });";
-            } ?>
+            ?>
         </script>
     </body>
 </html>

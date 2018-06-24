@@ -2,3 +2,6 @@ ReflectSDR/*
 ReflectSDR
 includes/config.php
 bfg.jar
+includes/config.json
+config.json
+tmp/config.json

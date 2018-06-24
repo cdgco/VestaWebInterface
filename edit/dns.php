@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-
+$configlocation = "../includes/";
 if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
@@ -458,7 +458,12 @@ foreach ($plugins as $result) {
                     }
                 })};
 
-            <?php if ($cfenabled != "off" && $sub == "no") { echo '
+            <?php 
+            
+            
+            includeScript();
+            
+            if ($cfenabled != "off" && $sub == "no") { echo '
             if ("' . $cfenabled . '" == "true") { document.getElementById("select3").value = "' . $cfdata3[0][30]['value'] .'"; document.getElementById("select4").value = "' . $cfdata3[0][34]['value'] .'"; }
             if(document.getElementById("checkbox4").checked) {
                     document.getElementById("cf-div").style.display = "block";

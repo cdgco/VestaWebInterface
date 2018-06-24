@@ -1,5 +1,6 @@
 <?php
 if (!file_exists( '../includes/config.php' )) { header('step2.php'); } 
+$configlocation = "../includes/";
 require("../includes/config.php");
 function randomPassword() { $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'; $pass = array(); $alphaLength = strlen($alphabet) - 1; for ($i = 0; $i < 8; $i++) { $n = rand(0, $alphaLength); $pass[] = $alphabet[$n]; } return implode($pass); }
 
@@ -84,6 +85,9 @@ $sql3 = "INSERT INTO `".$mysql_table."config` (`VARIABLE`, `VALUE`) VALUES
 ('VESTA_PORT', '".$v5."'),
 ('VESTA_ADMIN_UNAME', '".$v6."'),
 ('VESTA_ADMIN_PW', '".$v7."'),
+('KEY1', '".$a."'),
+('KEY2', '".$b."'),
+('WARNINGS_ENABLED', 'admin'),
 ('ICON', 'admin-logo.png'),
 ('LOGO', 'admin-text.png'),
 ('FAVICON', 'favicon.ico'),
@@ -118,9 +122,7 @@ $sql3 = "INSERT INTO `".$mysql_table."config` (`VARIABLE`, `VALUE`) VALUES
 ('INTERAKT_APP_ID', '".$v14."'),
 ('INTERAKT_API_KEY', '".$v15."'),
 ('CLOUDFLARE_API_KEY', '".$v16."'),
-('CLOUDFLARE_EMAIL', '".$v17."'),
-('KEY1', '".$a."'),
-('KEY2', '".$b."');";
+('CLOUDFLARE_EMAIL', '".$v17."');";
 
 if (mysqli_query($con, $sql3)) {} else { echo "Error populating table: " . mysqli_error($con); }
 

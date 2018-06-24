@@ -9,11 +9,38 @@
 // Require MySQL Credentials & Arrays of Countries, Languages and Error Codes in all pages
 require("config.php"); require("arrays.php");
 
-// Initiate connection to MySQL DB and convert data into PHP Array
-$con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db); $config = array();
-$result=mysqli_query($con,"SELECT VARIABLE,VALUE FROM " . $mysql_table . "config");
-while ($row = mysqli_fetch_assoc($result)) { $config[$row["VARIABLE"]] = $row["VALUE"]; }
-mysqli_free_result($result); mysqli_close($con);
+$configstyle = '1';
+
+$con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
+
+if($configstyle != '2') {
+    // Method 1: Initiate connection to MySQL DB and convert data into PHP Array
+    if (!$con) { $mysqldown = 'yes'; }
+    $config = array(); $result=mysqli_query($con,"SELECT VARIABLE,VALUE FROM " . $mysql_table . "config");
+    while ($row = mysqli_fetch_assoc($result)) { $config[$row["VARIABLE"]] = $row["VALUE"]; }
+    mysqli_free_result($result); mysqli_close($con);
+}
+else {
+    // Method 2: Connection to MySQL, save config locally every 30 min, grab locally if connection fails.
+    
+    // Location of config.json. If possible, place outside of document root to ensure access is blocked.
+    $co1 = $configlocation . "../tmp/";
+    
+    if (!$con) { $config = json_decode(file_get_contents( $co1 . 'config.json'), true); $mysqldown = 'yes'; }
+    else { 
+        $config = array(); $result=mysqli_query($con,"SELECT VARIABLE,VALUE FROM " . $mysql_table . "config");
+        while ($row = mysqli_fetch_assoc($result)) { $config[$row["VARIABLE"]] = $row["VALUE"]; }
+        mysqli_free_result($result); mysqli_close($con);
+        if (!file_exists( $co1 . 'config.json' )) { 
+            file_put_contents( $co1 . "config.json",json_encode($config));
+        }  
+        // Reload Config Every Hour (1800 Seconds) or if DB has been updated
+        elseif ((time()-filemtime( $co1 . "config.json")) > 1800 || $config != json_decode(file_get_contents( $co1 . 'config.json'), true)) { 
+            file_put_contents( $co1 . "config.json",json_encode($config)); 
+        }
+    }
+}
+
 
 // Grab Session data for username & status
 $initialusername = base64_decode($_SESSION['username']);
@@ -70,6 +97,10 @@ $vst_username = $config["VESTA_ADMIN_UNAME"];
 
 DEFINE('VESTA_ADMIN_PW', $config["VESTA_ADMIN_PW"]);
 $vst_password = $config["VESTA_ADMIN_PW"];
+
+$KEY1 = $config["KEY1"]; $key1 = $config["KEY1"];
+$KEY2 = $config["KEY2"]; $key2 = $config["KEY2"];
+$warningson = strtolower($config["WARNINGS_ENABLED"]);
 
 $cpicon = $config["ICON"];
 $cplogo = $config["LOGO"];
@@ -233,9 +264,6 @@ DEFINE('CLOUDFLARE_EMAIL', $config["CLOUDFLARE_EMAIL"]);
 $vst_url = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . ':' . $vesta_port . '/api/';
 $url8083 = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . ':' . $vesta_port;
 
-$KEY1 = $config["KEY1"]; $key1 = $config["KEY1"];
-$KEY2 = $config["KEY2"]; $key2 = $config["KEY2"];
-
 ///////////////////
 // VWI Functions //
 ///////////////////
@@ -323,5 +351,54 @@ function primaryMenu($l4, $l5, $a2) {
         if ($oldcpurl == '' || $supporturl == '') {} else { echo '<li class="devider"></li>'; }
         if ($oldcpurl != '') { echo '<li><a href="' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> ' . _("Control Panel v1") . '</span></a></li>'; }
         if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">' . _("Support") . '</span></a></li>'; }
+}
+function includeScript() {
+    global $configlocation; global $mysqldown; global $initialusername; global $warningson;
+    if($warningson == "all"){
+        if(substr(sprintf('%o', fileperms($configlocation)), -4) == '0777') {
+            echo "$.toast({
+                    heading: '"._("Warning")."', 
+                    text: '"._("Includes folder has not been secured")."',
+                    icon: 'warning',
+                    position: 'top-right',
+                    hideAfter: 3500,
+                    bgColor: '#ff8000'
+                });";
+
+        } 
+        if(isset($mysqldown) && $mysqldown == 'yes') {
+            echo "$.toast({
+                    heading: '" . _("Database Error") . "',
+                    text: '" . _("MySQL Server Failed To Connect") . "',
+                    icon: 'error',
+                    position: 'top-right',
+                    hideAfter: false
+                });";
+
+        } 
+    }
+    elseif($warningson == "admin" && $initialusername == "admin"){
+        if(substr(sprintf('%o', fileperms($configlocation)), -4) == '0777') {
+            echo "$.toast({
+                    heading: '"._("Warning")."', 
+                    text: '"._("Includes folder has not been secured")."',
+                    icon: 'warning',
+                    position: 'top-right',
+                    hideAfter: 3500,
+                    bgColor: '#ff8000'
+                });";
+
+        } 
+        if(isset($mysqldown) && $mysqldown == 'yes') {
+            echo "$.toast({
+                    heading: '" . _("Database Error") . "',
+                    text: '" . _("MySQL Server Failed To Connect") . "',
+                    icon: 'error',
+                    position: 'top-right',
+                    hideAfter: false
+                });";
+
+        } 
+    }
 }
 ?>

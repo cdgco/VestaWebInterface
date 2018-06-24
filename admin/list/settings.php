@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-
+$configlocation = "../../includes/";
 if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' );};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
@@ -411,6 +411,17 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <label class="col-md-12">Warnings Enabled</label>
+                                        <div class="col-md-12">
+                                            <div class="radio-info">
+                                            <label class="radio-inline"><input value="all" type="radio" name="ENABLE_WARNINGS" <?php if($config["WARNINGS_ENABLED"] == 'all'){ echo 'checked'; } ?>/>All Users</label>
+                                            <label class="radio-inline"><input value="admin" type="radio" name="ENABLE_WARNINGS" <?php if($config["WARNINGS_ENABLED"] == 'admin'){ echo 'checked'; } ?>/>Admin Only</label>  
+                                            <label class="radio-inline"><input value="false" type="radio" name="ENABLE_WARNINGS" <?php if($config["WARNINGS_ENABLED"] != 'all' && $config["WARNINGS_ENABLED"] != 'admin'){ echo 'checked'; } ?>/>Disabled</label>
+                                            </div>
+                                            <span class="help-block">Display messages for installation warnings and connection errors.</span>  
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="col-md-12">Encryption Key 1</label>
                                         <div class="col-md-12">
                                             <input name="KEY1" type="text" value="<?php echo $key1; ?>" class="form-control input-md">
@@ -714,8 +725,8 @@ foreach ($plugins as $result) {
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" onclick="processLoader();"><?php echo _("Update Settings"); ?></button> &nbsp;
-                                            <a href="../list/firewall.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
+                                            <button class="btn btn-success" <?php if(isset($mysqldown) && $mysqldown = 'yes') { echo 'disabled'; } ?> onclick="processLoader();"><?php echo _("Update Settings"); ?></button> &nbsp;
+                                            <a href="../list/users.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </form>
@@ -816,6 +827,9 @@ foreach ($plugins as $result) {
                     }
                 })};
             <?php
+            
+            includeScript();
+            
             if(isset($_POST['r1']) && $_POST['r1'] == "0") {
                 echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
             } 

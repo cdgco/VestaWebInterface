@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-
+$configlocation = "includes/";
 if (file_exists( 'includes/config.php' )) { require( 'includes/includes.php'); }  else { header( 'Location: install' );};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
@@ -445,6 +445,9 @@ foreach ($plugins as $result) {
 
 
         <?php 
+        
+        includeScript();
+        
         $checkcount = 2;
         $check1count = 3;
 

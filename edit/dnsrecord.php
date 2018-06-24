@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-
+$configlocation = "../includes/";
 // Include settings & variables
 if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
 
@@ -354,6 +354,9 @@ foreach ($plugins as $result) {
                 })};
 
             <?php
+            
+            includeScript();
+            
             if(isset($_GET['error']) && $_GET['error'] == "1") {
                 echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
             }

@@ -18,6 +18,9 @@ INSERT INTO `vwi_config` (`VARIABLE`, `VALUE`) VALUES
 ('VESTA_PORT', '8083'),
 ('VESTA_ADMIN_UNAME', 'admin'),
 ('VESTA_ADMIN_PW', ''),
+('KEY1', 'INSERT-KEY-HERE'),
+('KEY2', 'INSERT-KEY-HERE'),
+('WARNINGS_ENABLED', 'admin'),
 ('ICON', 'admin-logo.png'),
 ('LOGO', 'admin-text.png'),
 ('FAVICON', 'favicon.ico'),
@@ -52,7 +55,5 @@ INSERT INTO `vwi_config` (`VARIABLE`, `VALUE`) VALUES
 ('INTERAKT_APP_ID', ''),
 ('INTERAKT_API_KEY', ''),
 ('CLOUDFLARE_API_KEY', ''),
-('CLOUDFLARE_EMAIL', ''),
-('KEY1', 'INSERT-KEY-HERE'),
-('KEY2', 'INSERT-KEY-HERE');
+('CLOUDFLARE_EMAIL', '');
 COMMIT;

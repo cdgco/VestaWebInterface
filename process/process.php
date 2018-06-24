@@ -1,5 +1,5 @@
 <?php
-
+$configlocation = "../includes/";
 if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
 
 $vst_returncode = 'yes';
