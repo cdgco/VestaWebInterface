@@ -1,7 +1,7 @@
 <plugin>
     <!-- App name as seen in menu. -->
     <name>Example Plugin Name</name>
-    <!-- Font-Awesome Icon Code. Ex: fa-phone . View http://astronautweb.co/snippet/font-awesome-icons-v4-2/ for valid tags. v4.2.0 or less only. -->
+    <!-- Font-Awesome Icon Code. Ex: fa-phone . -->
     <fa-icon>fa-phone</fa-icon>
     <!-- Section to list app under in menu. "account", "management", "apps" or "administration". Administration is show to admin only. -->
     <section>management</section> 
