@@ -2,6 +2,38 @@
 @import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900);
 @import "spinners.css";
 @import "icons/material-design-iconic-font/css/materialdesignicons.min.css";
+
+@font-face {
+      font-family: 'fontello';
+      src: url('./font/fontello.eot?93153592');
+      src: url('./font/fontello.eot?93153592#iefix') format('embedded-opentype'),
+           url('./font/fontello.woff?93153592') format('woff'),
+           url('./font/fontello.ttf?93153592') format('truetype'),
+           url('./font/fontello.svg?93153592#fontello') format('svg');
+      font-weight: normal;
+      font-style: normal;
+    }
+.icon-cloudflare
+{
+    font-family: "fontello";
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    font-size: 150%;
+    top: -5.2px;
+    position: relative;
+}
+.icon-softaculous
+{
+    font-family: "fontello";
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    font-size: 250%;
+    top: 9.4px;
+    right: 3px;
+    position: relative;
+}
 ul.dashed {
     list-style-type: none;
 }
