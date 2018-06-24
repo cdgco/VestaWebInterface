@@ -102,8 +102,8 @@ if($phpmailenabled == "true" && isset($_POST['v_sendemail']) && $_POST['v_sendem
     $mail->setFrom($mailfrom, $mailname);
     $mail->addAddress($_POST['v_sendemail']);
     $mail->Subject = 'Email Credentials';
-    $mail->Body = 'Username: ' . addslashes($v_account) . '@' . addslashes($v_domain) . '<br>IMAP Hostname: ' . addslashes(VESTA_HOST_ADDRESS) . '<br>IMAP Port: 143<br>IMAP Security: STARTTLS<br>IMAP Auth Method: Normal Password<br>SMTP Hostname: ' . addslashes(VESTA_HOST_ADDRESS) . '<br>SMTP Port: 587<br>SMTP Security: STARTTLS<br>SMTP Auth Method: Normal Password<br>Password: ' . addslashes($_POST['password']) . '<br>' . addslashes($webmailurlx1); 
-    $mail->AltBody = 'Username: ' . addslashes($v_account) . '@' . addslashes($v_domain) . '\nIMAP Hostname: ' . addslashes(VESTA_HOST_ADDRESS) . '\nIMAP Port: 143\nIMAP Security: STARTTLS\nIMAP Auth Method: Normal Password\nSMTP Hostname: ' . addslashes(VESTA_HOST_ADDRESS) . '\nSMTP Port: 587\nSMTP Security: STARTTLS\nSMTP Auth Method: Normal Password\nPassword: ' . addslashes($_POST['password']) . '\n' . addslashes($webmailurlx0);
+    $mail->Body = 'Username: ' . $_POST['v_account'] . '@' . $_POST['v_domain'] . '<br>IMAP Hostname: ' . addslashes(VESTA_HOST_ADDRESS) . '<br>IMAP Port: 143<br>IMAP Security: STARTTLS<br>IMAP Auth Method: Normal Password<br>SMTP Hostname: ' . addslashes(VESTA_HOST_ADDRESS) . '<br>SMTP Port: 587<br>SMTP Security: STARTTLS<br>SMTP Auth Method: Normal Password<br>Password: ' . $_POST['password'] . '<br>' . addslashes($webmailurlx1); 
+    $mail->AltBody = 'Username: ' . $_POST['v_account'] . '@' . $_POST['v_domain'] . '\nIMAP Hostname: ' . addslashes(VESTA_HOST_ADDRESS) . '\nIMAP Port: 143\nIMAP Security: STARTTLS\nIMAP Auth Method: Normal Password\nSMTP Hostname: ' . addslashes(VESTA_HOST_ADDRESS) . '\nSMTP Port: 587\nSMTP Security: STARTTLS\nSMTP Auth Method: Normal Password\nPassword: ' . $_POST['password'] . '\n' . addslashes($webmailurlx0);
 
     if($smtpenabled == "true" && $smtphost != '' && $smtpport != '') {
         $mail->isSMTP();

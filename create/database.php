@@ -48,8 +48,8 @@ if($phpmailenabled == "true" && isset($_POST['v_sendemail']) && $_POST['v_sendem
     $mail->setFrom($mailfrom, $mailname);
     $mail->addAddress($_POST['v_sendemail']);
     $mail->Subject = 'Database Credentials';
-    $mail->Body = 'Database has been created successfully.<br><br>Database: ' . addslashes($username) . '_' . addslashes($v_1) . '<br>User: ' . addslashes($username) . '_' . addslashes($v_2) . '<br>Password: ' . addslashes($v_3) . '<br>' . addslashes($phpadmin); 
-    $mail->AltBody = 'Database has been created successfully.\n\n>Database: ' . addslashes($username) . '_' . addslashes($v_1) . '\nUser: ' . addslashes($username) . '_' . addslashes($v_2) . '\nPassword: ' . addslashes($v_3) . '\n' . addslashes($phpadmin); 
+    $mail->Body = 'Database has been created successfully.<br><br>Database: ' . $username . '_' . $_POST['v_database'] . '<br>User: ' . $username . '_' . $_POST['v_dbuser'] . '<br>Password: ' . $_POST['password'] . '<br>' . addslashes($phpadmin); 
+    $mail->AltBody = 'Database has been created successfully.\n\n>Database: ' . $username . '_' . $_POST['v_database'] . '\nUser: ' . $username . '_' . $_POST['v_dbuser'] . '\nPassword: ' . $_POST['password'] . '\n' . addslashes($phpadmin); 
 
     if($smtpenabled == "true" && $smtphost != '' && $smtpport != '') {
         $mail->isSMTP();
