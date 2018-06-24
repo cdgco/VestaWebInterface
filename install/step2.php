@@ -1,17 +1,19 @@
-<?php
+<?php 
+
+if (file_exists( '../includes/config.php' )) { header( 'Location: index.php' );}; 
 
 if((isset($_POST['MYSQL_HOST'])) && (isset($_POST['MYSQL_UNAME'])) && (isset($_POST['MYSQL_PW'])) && (isset($_POST['MYSQL_DB'])) && (isset($_POST['MYSQL_TABLE']))) {
-    
-$mysqli = new mysqli($_POST['MYSQL_HOST'], $_POST['MYSQL_UNAME'], $_POST['MYSQL_PW'], $_POST['MYSQL_DB']);
 
-if ($mysqli->connect_errno) {
-    $connection = "failed";
-    exit();
-}
+    $mysqli = new mysqli($_POST['MYSQL_HOST'], $_POST['MYSQL_UNAME'], $_POST['MYSQL_PW'], $_POST['MYSQL_DB']);
 
-if ($mysqli->ping()) {
-       
-$writestr = "<?php
+    if ($mysqli->connect_errno) {
+        $connection = "failed";
+        exit();
+    }
+
+    if ($mysqli->ping()) {
+
+        $writestr = "<?php
 
 ///////////////////////////////////////
 // VESTA WEB INTERFACE CONFIGURATION //
@@ -25,15 +27,15 @@ $writestr = "<?php
 
 ?>";
 
-    file_put_contents('../includes/config.php', $writestr);
-    
-    $connection = "success";
+        file_put_contents('../includes/config.php', $writestr);
 
-} else {
-    $connection = "failed";
-}
+        $connection = "success";
 
-$mysqli->close();
+    } else {
+        $connection = "failed";
+    }
+
+    $mysqli->close();
 }
 
 ?>
@@ -70,7 +72,7 @@ $mysqli->close();
                         <h3>Server Configuration</h3>
                     </center><br>
                     <input type="hidden" value="1" name="x"/>
-                    
+
 
                     <!-- Text input-->
                     <div class="form-group">

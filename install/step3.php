@@ -377,7 +377,7 @@ require '../includes/arrays.php';
                             </div>
                         </div>
                     </div>
-                    
+
                     <center><br>
                         <h3>Optional Links</h3>
                     </center><br>
