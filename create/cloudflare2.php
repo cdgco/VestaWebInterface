@@ -273,7 +273,7 @@ curl_exec($curl4);
         <script type="text/javascript">
             document.getElementById('form').submit();
         </script>
-        <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="../plugins/components/jquery/dist/jquery.min.js"></script>
         <script>
             setTimeout( function(){ 
                 $('.loader').addClass("special"); 

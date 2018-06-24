@@ -7,6 +7,11 @@ if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: ../login.php'); }
 
 if(isset($dbenabled) && $dbenabled != 'true'){ header("Location: ../error-pages/403.html"); }
+require '../plugins/components/PHPMailer/src/PHPMailer.php';
+require '../plugins/components/PHPMailer/src/SMTP.php';
+require '../plugins/components/PHPMailer/src/Exception.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
 
 $v_1 = $_POST['v_database'];
 $v_2 = $_POST['v_dbuser'];
@@ -33,6 +38,38 @@ curl_setopt($curl0, CURLOPT_POST, true);
 curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query($postvars));
 $r1 = curl_exec($curl0);
 
+if($phpmailenabled == "true" && isset($_POST['v_sendemail']) && $_POST['v_sendemail'] != '') {
+    
+    $phpadmin = '';
+    if($v_4 == 'pgsql'){ $phpadmin = $phppgadmin; }
+    if($v_4 == 'mysql'){ $phpadmin = $phpmyadmin; }
+    
+    $mail = new PHPMailer;
+    $mail->setFrom($mailfrom, $mailname);
+    $mail->addAddress($_POST['v_sendemail']);
+    $mail->Subject = 'Database Credentials';
+    $mail->Body = 'Database has been created successfully.<br><br>Database: ' . addslashes($username) . '_' . addslashes($v_1) . '<br>User: ' . addslashes($username) . '_' . addslashes($v_2) . '<br>Password: ' . addslashes($v_3) . '<br>' . addslashes($phpadmin); 
+    $mail->AltBody = 'Database has been created successfully.\n\n>Database: ' . addslashes($username) . '_' . addslashes($v_1) . '\nUser: ' . addslashes($username) . '_' . addslashes($v_2) . '\nPassword: ' . addslashes($v_3) . '\n' . addslashes($phpadmin); 
+
+    if($smtpenabled == "true" && $smtphost != '' && $smtpport != '') {
+        $mail->isSMTP();
+        $mail->SMTPDebug = 0;
+        $mail->Host = $smtphost;
+        $mail->Port = $smtpport;
+        if($smtpauth == "true") {
+            $mail->SMTPAuth = true;
+            $mail->Username = $smtpuname;
+            $mail->Password = $smtppw;
+        }
+        if($smtpenc == 'tls') {
+         $mail->SMTPSecure = 'tls';  
+        }
+        elseif($smtpenc == 'ssl') {
+         $mail->SMTPSecure = 'ssl';  
+        }
+    }
+    $mail->send();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,5 +92,5 @@ $r1 = curl_exec($curl0);
             document.getElementById('form').submit();
         </script>
     </body>
-    <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../plugins/components/jquery/dist/jquery.min.js"></script>
 </html>

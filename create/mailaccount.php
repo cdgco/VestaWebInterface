@@ -7,6 +7,11 @@ if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: ../login.php'); }
 
 if(isset($mailenabled) && $mailenabled != 'true'){ header("Location: ../error-pages/403.html"); }
+require '../plugins/components/PHPMailer/src/PHPMailer.php';
+require '../plugins/components/PHPMailer/src/SMTP.php';
+require '../plugins/components/PHPMailer/src/Exception.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
 
 $v_domain = $_POST['v_domain'];
 $v_account = $_POST['v_account'];
@@ -88,6 +93,37 @@ else {
         $r4 = curl_exec($curl4);
     } else { $r4 = '0'; }
 }
+if($phpmailenabled == "true" && isset($_POST['v_sendemail']) && $_POST['v_sendemail'] != '') {
+    
+    if($webmailurl != ''){ $webmailurlx0 = "Webmail URL: <a href='" . $webmailurl . "'>" . $webmailurl . "</a>"; } else { $webmailurlx1 = ''; }
+    if($webmailurl != ''){ $webmailurlx1 = "Webmail URL: " . $webmailurl; } else { $webmailurlx0 = ''; }
+    addslashes(
+    $mail = new PHPMailer;
+    $mail->setFrom($mailfrom, $mailname);
+    $mail->addAddress($_POST['v_sendemail']);
+    $mail->Subject = 'Email Credentials';
+    $mail->Body = 'Username: ' . addslashes($v_account) . '@' . addslashes($v_domain) . '<br>IMAP Hostname: ' . addslashes(VESTA_HOST_ADDRESS) . '<br>IMAP Port: 143<br>IMAP Security: STARTTLS<br>IMAP Auth Method: Normal Password<br>SMTP Hostname: ' . addslashes(VESTA_HOST_ADDRESS) . '<br>SMTP Port: 587<br>SMTP Security: STARTTLS<br>SMTP Auth Method: Normal Password<br>Password: ' . addslashes($_POST['password']) . '<br>' . addslashes($webmailurlx1); 
+    $mail->AltBody = 'Username: ' . addslashes($v_account) . '@' . addslashes($v_domain) . '\nIMAP Hostname: ' . addslashes(VESTA_HOST_ADDRESS) . '\nIMAP Port: 143\nIMAP Security: STARTTLS\nIMAP Auth Method: Normal Password\nSMTP Hostname: ' . addslashes(VESTA_HOST_ADDRESS) . '\nSMTP Port: 587\nSMTP Security: STARTTLS\nSMTP Auth Method: Normal Password\nPassword: ' . addslashes($_POST['password']) . '\n' . addslashes($webmailurlx0);
+
+    if($smtpenabled == "true" && $smtphost != '' && $smtpport != '') {
+        $mail->isSMTP();
+        $mail->SMTPDebug = 0;
+        $mail->Host = $smtphost;
+        $mail->Port = $smtpport;
+        if($smtpauth == "true") {
+            $mail->SMTPAuth = true;
+            $mail->Username = $smtpuname;
+            $mail->Password = $smtppw;
+        }
+        if($smtpenc == 'tls') {
+         $mail->SMTPSecure = 'tls';  
+        }
+        elseif($smtpenc == 'ssl') {
+         $mail->SMTPSecure = 'ssl';  
+        }
+    }
+    $mail->send();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -114,5 +150,5 @@ else {
             document.getElementById('form').submit();
         </script>
     </body>
-    <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../plugins/components/jquery/dist/jquery.min.js"></script>
 </html>

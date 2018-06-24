@@ -110,7 +110,17 @@ $sql3 = "INSERT INTO `".$mysql_table."config` (`VARIABLE`, `VALUE`) VALUES
 ('KEY2', '".$b."'),
 ('ICON', 'admin-logo.png'),
 ('LOGO', 'admin-text.png'),
-('FAVICON', 'favicon.ico');";
+('FAVICON', 'favicon.ico'),
+('PHPMAIL_ENABLED', 'false'),
+('MAIL_FROM', 'hello@".$v4."'),
+('MAIL_NAME', '".$v1."'),
+('SMTP_ENABLED', 'false'),
+('SMTP_PORT', '587'),
+('SMTP_HOST', ''),
+('SMTP_AUTH', 'true'),
+('SMTP_UNAME', ''),
+('SMTP_PW', ''),
+('SMTP_ENC', 'tls');";
 
 if (mysqli_query($con, $sql3)) {} else { echo "Error populating table: " . mysqli_error($con); }
 
@@ -160,5 +170,5 @@ mysqli_close($con);
             document.getElementById('form').submit();
         </script>
     </body>
-    <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../plugins/components/jquery/dist/jquery.min.js"></script>
 </html>

@@ -75,12 +75,12 @@ foreach ($plugins as $result) {
         <link rel="icon" type="image/ico" href="../plugins/images/<?php echo $cpfavicon; ?>">
         <title><?php echo $sitetitle; ?> - <?php echo _("Database"); ?></title>
         <link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
-        <link href="../plugins/bower_components/footable/css/footable.bootstrap.css" rel="stylesheet">
-        <link href="../plugins/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+        <link href="../plugins/components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+        <link href="../plugins/components/footable/css/footable.bootstrap.css" rel="stylesheet">
+        <link href="../plugins/components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
         <link href="../css/animate.css" rel="stylesheet">
         <link href="../css/style.css" rel="stylesheet">
-        <link href="../plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
+        <link href="../plugins/components/toast-master/css/jquery.toast.css" rel="stylesheet">
         <link href="../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.min.css" />
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
@@ -170,21 +170,7 @@ foreach ($plugins as $result) {
                                         <label class="col-md-12"><?php echo _("Database"); ?></label>
                                         <div class="col-md-12">
                                             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                                                <div class="input-group-addon">                        <?php if($initialusername == "admin"){ echo 
-                            '<li class="devider"></li>
-                            <li> <a href="../#" class="waves-effect"><i class="mdi mdi-wrench fa-fw" data-icon="v"></i> <span class="hide-menu">' . _("Administration") . '<span class="fa arrow"></span> </span></a>
-                                <ul class="nav nav-second-level">
-                                    <li> <a href="../admin/list/users.php"><i class="ti-user fa-fw"></i><span class="hide-menu">' . _("Users") . '</span></a> </li>
-                                    <li> <a href="../admin/list/packages.php"><i class="ti-package fa-fw"></i><span class="hide-menu">' . _("Packages") . '</span></a> </li>
-                                    <li> <a href="../admin/list/ip.php"><i class="fa fa-sliders fa-fw"></i><span class="hide-menu">' . _("IP") . '</span></a> </li>
-                                    <li> <a href="../admin/list/graphs.php"><i class="ti-pie-chart fa-fw"></i><span class="hide-menu">' . _("Graphs") . '</span></a> </li>
-                                    <li> <a href="../admin/list/stats.php"><i class="ti-stats-up fa-fw"></i><span class="hide-menu">' . _("Statistics") . '</span></a> </li>
-                                    <li> <a href="../admin/list/updates.php"><i class="mdi mdi-weather-cloudy fa-fw"></i><span class="hide-menu">' . _("Updates") . '</span></a> </li>
-                                    <li> <a href="../admin/list/firewall.php"><i class="fa fa-shield fa-fw"></i><span class="hide-menu">' . _("Firewall") . '</span></a> </li>
-                                    <li> <a href="../admin/list/server.php"><i class="fa fa-server fa-fw"></i><span class="hide-menu">' . _("Server") . '</span></a> </li>
-                                </ul>
-                            </li>';
-                                                                                                                                            } ?>_</div>
+                                                <div class="input-group-addon"><?php print_r($uname); ?>_</div>
                                                 <input type="text" class="form-control" name="v_database" style="padding-left: 0.5%;">
                                             </div>
                                         </div>
@@ -283,6 +269,15 @@ foreach ($plugins as $result) {
                                             </select>
                                         </div>
                                     </div>
+                                    <?php if($phpmailenabled == 'true') {
+                                        echo '
+                                        <div class="form-group">
+                                            <label class="col-md-12">' . _("Send Credentials To Email") . '</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control form-control-line" autocomplete="new-password" name="v_sendemail">    
+                                            </div>
+                                        </div>';
+                                    } ?>
                                     <div class="form-group">
                                         <div class="col-sm-12">
                                             <button class="btn btn-success" onclick="processLoader();"><?php echo _("Add Database"); ?></button> &nbsp;
@@ -297,21 +292,21 @@ foreach ($plugins as $result) {
                 <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
             </div>
         </div>
-        <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
+        <script src="../plugins/components/jquery/dist/jquery.min.js"></script>
+        <script src="../plugins/components/toast-master/js/jquery.toast.js"></script>
         <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+        <script src="../plugins/components/sidebar-nav/dist/sidebar-nav.min.js"></script>
         <script src="../js/jquery.slimscroll.js"></script>
         <script src="../js/waves.js"></script>
-        <script src="../plugins/bower_components/moment/moment.js"></script>
-        <script src="../plugins/bower_components/footable/js/footable.min.js"></script>
-        <script src="../plugins/bower_components/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
-        <script src="../plugins/bower_components/custom-select/custom-select.min.js"></script>
+        <script src="../plugins/components/moment/moment.js"></script>
+        <script src="../plugins/components/footable/js/footable.min.js"></script>
+        <script src="../plugins/components/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
+        <script src="../plugins/components/custom-select/custom-select.min.js"></script>
         <script src="../js/footable-init.js"></script>
         <script src="../js/custom.js"></script>
         <script src="../js/dashboard1.js"></script>
         <script src="../js/cbpFWTabs.js"></script>
-        <script src="../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+        <script src="../plugins/components/styleswitcher/jQuery.style.switcher.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.all.js"></script>
         <script type="text/javascript">
             <?php 
@@ -350,7 +345,7 @@ foreach ($plugins as $result) {
                 swal({
                     title: '<?php echo _("Processing"); ?>',
                     text: '',
-                    timer: 5000,
+                    timer: 100000,
                     onOpen: function () {
                         swal.showLoading()
                     }

@@ -56,11 +56,11 @@
 </section>
 
 <!-- jQuery -->
-<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.4.0-Beta/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.4.0-Beta/plugins/components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.4.0-Beta/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Menu Plugin JavaScript -->
-<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.4.0-Beta/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.4.0-Beta/plugins/components/sidebar-nav/dist/sidebar-nav.min.js"></script>
 
 <!--slimscroll JavaScript -->
 <script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.4.0-Beta/js/jquery.slimscroll.js"></script>
@@ -69,6 +69,6 @@
 <!-- Custom Theme JavaScript -->
 <script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.4.0-Beta/js/custom.js"></script>
 <!--Style Switcher -->
-<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.4.0-Beta/plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.4.0-Beta/plugins/components/styleswitcher/jQuery.style.switcher.js"></script>
 </body>
 </html>

@@ -1,21 +1,107 @@
 <?php
 
-include("config.php");
+////////////////////////////////////////////////////////////////////////////////
+//                                                                            //
+//         Vesta Web Interface Configuration, Variables and Functions         //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
 
+// Require MySQL Credentials & Arrays of Countries, Languages and Error Codes in all pages
+require("config.php"); require("arrays.php");
+
+// Initiate connection to MySQL DB and convert data into PHP Array
 $con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db); $config = array();
 $result=mysqli_query($con,"SELECT VARIABLE,VALUE FROM " . $mysql_table . "config");
 while ($row = mysqli_fetch_assoc($result)) { $config[$row["VARIABLE"]] = $row["VALUE"]; }
 mysqli_free_result($result); mysqli_close($con);
 
+// Grab Session data for username & status
+$initialusername = base64_decode($_SESSION['username']);
+$loggedin = base64_decode($_SESSION['loggedin']);
+
+// System for login as user
+if($initialusername == "admin" && isset($_SESSION['proxied']) && base64_decode($_SESSION['proxied']) != '')   {
+    $username = base64_decode($_SESSION['proxied']);
+    $uname = base64_decode($_SESSION['proxied']);
+    $displayname = $initialusername . " &rarr; " . base64_decode($_SESSION['proxied']);
+}  
+else {
+    $uname = $initialusername;
+    $username = $initialusername;
+    $displayname = $initialusername;
+}
+
+/////////////////////////////////////////////////////////////////////////////////                
+//         Vesta Web Interface Configuration Conversions & Definitions         //
+//                       Ordered the same as settings.php                      //
+/////////////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////
+// Server Configuration //
+//////////////////////////
 
 date_default_timezone_set($config["TIMEZONE"]);
-
-
+$sitetitle = $config["SITE_NAME"];
+$themecolor = $config["THEME"] . '.css';
+$locale = $config["LANGUAGE"];
 if($config["DEFAULT_TO_ADMIN"] != 'true'){
     $defaulttoadmin = '';
 }
 else{
     $defaulttoadmin = $config["DEFAULT_TO_ADMIN"];
+}
+DEFINE('VESTA_HOST_ADDRESS', $config["VESTA_HOST_ADDRESS"]); 
+if($config["VESTA_SSL_ENABLED"] == 'false'){
+    $vst_ssl = 'http://';
+}
+else{
+    $vst_ssl = 'https://';
+}
+if($config["VESTA_PORT"] == ''){
+    $vesta_port = '8083';
+}
+else{
+    $vesta_port = $config["VESTA_PORT"];
+}
+
+DEFINE('VESTA_ADMIN_UNAME', $config["VESTA_ADMIN_UNAME"]);
+$vst_username = $config["VESTA_ADMIN_UNAME"];
+
+DEFINE('VESTA_ADMIN_PW', $config["VESTA_ADMIN_PW"]);
+$vst_password = $config["VESTA_ADMIN_PW"];
+
+$cpicon = $config["ICON"];
+$cplogo = $config["LOGO"];
+$cpfavicon = $config["FAVICON"];
+
+///////////////////////////////
+// Enable / Disable Sections //
+///////////////////////////////
+
+if($config["WEB_ENABLED"] != 'true'){
+    $webenabled = '';
+}
+else{
+    $webenabled = $config["WEB_ENABLED"];
+}
+if($config["DNS_ENABLED"] != 'true'){
+    $dnsenabled = '';
+}
+else{
+    $dnsenabled = $config["DNS_ENABLED"];
+}
+if($config["MAIL_ENABLED"] != 'true'){
+    $mailenabled = '';
+}
+else{
+    $mailenabled = $config["MAIL_ENABLED"];
+}
+if($config["DB_ENABLED"] != 'true'){
+    $dbenabled = '';
+}
+else{
+    $dbenabled = $config["DB_ENABLED"];
 }
 if($config["ADMIN_ENABLED"] != 'true'){
     $adminenabled = '';
@@ -47,21 +133,36 @@ if($config["REGISTRATIONS_ENABLED"] != 'true'){
 else{
     $regenabled = $config["REGISTRATIONS_ENABLED"];
 }
-
-
-if($config["VESTA_SSL_ENABLED"] == 'false'){
-    $vst_ssl = 'http://';
+if($config["SOFTACULOUS_URL"] == 'false'){
+    $softaculousurl = '';
 }
 else{
-    $vst_ssl = 'https://';
+    $softaculousurl = $url8083 . '/softaculous';
 }
-
-if($config["VESTA_PORT"] == ''){
-    $vesta_port = '8083';
+if($config["OLD_CP_LINK"] == 'false'){
+    $oldcpurl = '';
 }
 else{
-    $vesta_port = $config["VESTA_PORT"];
+    $oldcpurl = $url8083;
 }
+//////////
+// MAIL //
+//////////
+
+$phpmailenabled = strtolower($config["PHPMAIL_ENABLED"]);
+$mailfrom = $config["MAIL_FROM"];
+$mailname = $config["MAIL_NAME"];
+$smtpenabled = strtolower($config["SMTP_ENABLED"]);
+$smtpport = $config["SMTP_PORT"];
+$smtphost = $config["SMTP_HOST"];
+$smtpauth = strtolower($config["SMTP_AUTH"]);
+$smtpuname = $config["SMTP_UNAME"];
+$smtppw = $config["SMTP_PW"];
+$smtpenc = strtolower($config["SMTP_ENC"]);
+
+////////////////////
+// Optional Links //
+////////////////////
 
 if($config["FTP_URL"] == ''){
     $ftpurl = 'http://net2ftp.com/';
@@ -72,70 +173,6 @@ elseif($config["FTP_URL"] == 'disabled'){
 else{
     $ftpurl = $config["FTP_URL"];
 }
-
-if($config["WEB_ENABLED"] != 'true'){
-    $webenabled = '';
-}
-else{
-    $webenabled = $config["WEB_ENABLED"];
-}
-if($config["DNS_ENABLED"] != 'true'){
-    $dnsenabled = '';
-}
-else{
-    $dnsenabled = $config["DNS_ENABLED"];
-}
-if($config["MAIL_ENABLED"] != 'true'){
-    $mailenabled = '';
-}
-else{
-    $mailenabled = $config["MAIL_ENABLED"];
-}
-if($config["DB_ENABLED"] != 'true'){
-    $dbenabled = '';
-}
-else{
-    $dbenabled = $config["DB_ENABLED"];
-}
-
-DEFINE('VESTA_HOST_ADDRESS', $config["VESTA_HOST_ADDRESS"]); 
-DEFINE('VESTA_ADMIN_UNAME', $config["VESTA_ADMIN_UNAME"]);
-DEFINE('VESTA_ADMIN_PW', $config["VESTA_ADMIN_PW"]);
-
-DEFINE('GOOGLE_ANALYTICS_ID', $config["GOOGLE_ANALYTICS_ID"]);
-DEFINE('INTERAKT_APP_ID', $config["INTERAKT_APP_ID"]);
-DEFINE('INTERAKT_API_KEY', $config["INTERAKT_API_KEY"]);
-DEFINE('CLOUDFLARE_API_KEY', $config["CLOUDFLARE_API_KEY"]);
-DEFINE('CLOUDFLARE_EMAIL', $config["CLOUDFLARE_EMAIL"]);
-
-$key1 = $config["KEY1"];
-$key2 = $config["KEY2"];
-$cpicon = $config["ICON"];
-$cplogo = $config["LOGO"];
-$cpfavicon = $config["FAVICON"];
-
-$vst_url = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . ':' . $vesta_port . '/api/';
-$url8083 = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . ':' . $vesta_port;
-$vst_username = $config["VESTA_ADMIN_UNAME"];
-$vst_password = $config["VESTA_ADMIN_PW"];
-$themecolor = $config["THEME"] . '.css';
-$initialusername = base64_decode($_SESSION['username']);
-$loggedin = base64_decode($_SESSION['loggedin']);
-$locale = $config["LANGUAGE"];
-
-if($initialusername == "admin" && isset($_SESSION['proxied']) && base64_decode($_SESSION['proxied']) != '')   {
-    $username = base64_decode($_SESSION['proxied']);
-    $uname = base64_decode($_SESSION['proxied']);
-    $displayname = $initialusername . " &rarr; " . base64_decode($_SESSION['proxied']);
-}  
-else {
-    $uname = $initialusername;
-    $username = $initialusername;
-    $displayname = $initialusername;
-}
-$sitetitle = $config["SITE_NAME"];
-$cfapikey = $config["CLOUDFLARE_API_KEY"];
-
 if($config["WEBMAIL_URL"] == ''){
     $webmailurl = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . '/webmail';
 }
@@ -145,7 +182,6 @@ elseif($config["WEBMAIL_URL"] == 'disabled'){
 else{
     $webmailurl = $config["WEBMAIL_URL"];
 }
-
 if($config["PHPMYADMIN_URL"] == ''){
     $phpmyadmin = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . '/phpmyadmin';
 }
@@ -155,7 +191,6 @@ elseif($config["PHPMYADMIN_URL"] == 'disabled'){
 else{
     $phpmyadmin = $config["PHPMYADMIN_URL"];
 }
-
 if($config["PHPPGADMIN_URL"] == ''){
     $phppgadmin = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . '/phppgadmin';
 }
@@ -165,7 +200,6 @@ elseif($config["PHPPGADMIN_URL"] == 'disabled'){
 else{
     $phppgadmin = $config["PHPPGADMIN_URL"];
 }
-
 if($config["SUPPORT_URL"] == ''){
     $supporturl = '';
 }
@@ -176,23 +210,9 @@ else{
     $supporturl = $config["SUPPORT_URL"];
 }
 
-if($config["SOFTACULOUS_URL"] == 'false'){
-    $softaculousurl = '';
-}
-else{
-    $softaculousurl = $url8083 . '/softaculous';
-}
-
-if($config["OLD_CP_LINK"] == 'false'){
-    $oldcpurl = '';
-}
-else{
-    $oldcpurl = $url8083;
-}
-
-require 'arrays.php';
-function vwicrypt($cs,$ca='e'){$op = false;$ecm ="AES-256-CBC";$key=hash('sha256',$KEY1);$iv=substr(hash('sha256',$KEY2),0,16);if($ca=='e'){$op=base64_encode(openssl_encrypt($cs,$ecm,$key,0,$iv));} else if($ca=='d'){$op=openssl_decrypt(base64_decode($cs),$ecm,$key,0,$iv);}return $op;}
-
+//////////////////////////
+// Optional Integration //
+//////////////////////////
 $plugins = explode(",", $config["PLUGINS"]);
 $pluginlinks = array();
 $pluginnames = array();
@@ -202,7 +222,34 @@ $pluginadminonly = array();
 $pluginnewtab = array();
 $pluginhide = array();
 
+DEFINE('GOOGLE_ANALYTICS_ID', $config["GOOGLE_ANALYTICS_ID"]);
+DEFINE('INTERAKT_APP_ID', $config["INTERAKT_APP_ID"]);
+DEFINE('INTERAKT_API_KEY', $config["INTERAKT_API_KEY"]);
+DEFINE('CLOUDFLARE_API_KEY', $config["CLOUDFLARE_API_KEY"]);
+$cfapikey = $config["CLOUDFLARE_API_KEY"];
+DEFINE('CLOUDFLARE_EMAIL', $config["CLOUDFLARE_EMAIL"]);
 
+
+$vst_url = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . ':' . $vesta_port . '/api/';
+$url8083 = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . ':' . $vesta_port;
+
+$KEY1 = $config["KEY1"]; $key1 = $config["KEY1"];
+$KEY2 = $config["KEY2"]; $key2 = $config["KEY2"];
+
+///////////////////
+// VWI Functions //
+///////////////////
+
+function vwicrypt($cs,$ca='e') { 
+    $op = false; $ecm ="AES-256-CBC"; $key=hash('sha256',$KEY1); $iv=substr(hash('sha256',$KEY2),0,16); 
+    if($ca=='e'){
+        $op=base64_encode(openssl_encrypt($cs,$ecm,$key,0,$iv));
+    } 
+    elseif($ca=='d'){
+        $op=openssl_decrypt(base64_decode($cs),$ecm,$key,0,$iv);
+    }
+    return $op;
+}
 function indexMenu($l1) {
     echo '<li> 
             <a href="' . $l1 . 'index.php" class="waves-effect">
@@ -210,7 +257,6 @@ function indexMenu($l1) {
             </a> 
         </li>';
 }
-
 function adminMenu($l2, $a1) {
     global $adminenabled;
     global $initialusername;

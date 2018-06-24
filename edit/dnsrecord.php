@@ -85,12 +85,12 @@ foreach ($plugins as $result) {
         <link rel="icon" type="image/ico" href="../plugins/images/<?php echo $cpfavicon; ?>">
         <title><?php echo $sitetitle; ?> - <?php echo _("DNS"); ?></title>
         <link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
-        <link href="../plugins/bower_components/footable/css/footable.bootstrap.css" rel="stylesheet">
-        <link href="../plugins/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+        <link href="../plugins/components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+        <link href="../plugins/components/footable/css/footable.bootstrap.css" rel="stylesheet">
+        <link href="../plugins/components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
         <link href="../css/animate.css" rel="stylesheet">
         <link href="../css/style.css" rel="stylesheet">
-        <link href="../plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
+        <link href="../plugins/components/toast-master/css/jquery.toast.css" rel="stylesheet">
         <link href="../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.min.css" />
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
@@ -289,23 +289,23 @@ foreach ($plugins as $result) {
                 <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
             </div>
         </div>
-        <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
+        <script src="../plugins/components/jquery/dist/jquery.min.js"></script>
+        <script src="../plugins/components/toast-master/js/jquery.toast.js"></script>
         <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+        <script src="../plugins/components/sidebar-nav/dist/sidebar-nav.min.js"></script>
         <script src="../js/jquery.slimscroll.js"></script>
         <script src="../js/waves.js"></script>
-        <script src="../plugins/bower_components/moment/moment.js"></script>
-        <script src="../plugins/bower_components/footable/js/footable.min.js"></script>
-        <script src="../plugins/bower_components/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
-        <script src="../plugins/bower_components/custom-select/custom-select.min.js"></script>
+        <script src="../plugins/components/moment/moment.js"></script>
+        <script src="../plugins/components/footable/js/footable.min.js"></script>
+        <script src="../plugins/components/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
+        <script src="../plugins/components/custom-select/custom-select.min.js"></script>
         <script src="../js/footable-init.js"></script>
         <script src="../js/custom.js"></script>
         <script src="../js/dashboard1.js"></script>
         <script src="../js/cbpFWTabs.js"></script>
-        <script src="../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+        <script src="../plugins/components/styleswitcher/jQuery.style.switcher.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.all.js"></script>
-        <script src="../plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+        <script src="../plugins/components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
         <script type="text/javascript">
             <?php 
             $pluginlocation = "../plugins/"; if(isset($pluginnames[0]) && $pluginnames[0] != '') { $currentplugin = 0; do { if (strtolower($pluginhide[$currentplugin]) != 'y' && strtolower($pluginhide[$currentplugin]) != 'yes') { if (strtolower($pluginadminonly[$currentplugin]) != 'y' && strtolower($pluginadminonly[$currentplugin]) != 'yes') { if (strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; } else { $currentstring = "<li><a href='".$pluginlocation.$pluginlinks[$currentplugin]."/'><i class='fa ".$pluginicons[$currentplugin]." fa-fw'></i><span class='hide-menu'>"._($pluginnames[$currentplugin])."</span></a></li>"; }} else { if(strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";} } else { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; }}} echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');\n var plugindata" . $currentplugin . " = \"" . $currentstring . "\";\n plugincontainer" . $currentplugin . ".innerHTML += plugindata" . $currentplugin . ";\n"; } $currentplugin++; } while ($pluginnames[$currentplugin] != ''); } ?>

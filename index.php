@@ -95,12 +95,12 @@ foreach ($plugins as $result) {
         <title><?php echo $sitetitle; ?> - <?php echo _("Dashboard"); ?></title>
         <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="bootstrap/dist/css/bootstrap-select.min.css" rel="stylesheet">
-        <link href="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
-        <link href="plugins/bower_components/footable/css/footable.bootstrap.css" rel="stylesheet">
-        <link href="plugins/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+        <link href="plugins/components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+        <link href="plugins/components/footable/css/footable.bootstrap.css" rel="stylesheet">
+        <link href="plugins/components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
         <link href="css/animate.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-        <link href="plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
+        <link href="plugins/components/toast-master/css/jquery.toast.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.css" />
         <link href="css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
         <?php if(GOOGLE_ANALYTICS_ID != ''){ 
@@ -810,20 +810,20 @@ foreach ($plugins as $result) {
                 </div>
             </div>
         </div>
-        <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="plugins/bower_components/toast-master/js/jquery.toast.js"></script>
+        <script src="plugins/components/jquery/dist/jquery.min.js"></script>
+        <script src="plugins/components/toast-master/js/jquery.toast.js"></script>
         <script src="bootstrap/dist/js/bootstrap-select.min.js"></script>
         <script src="bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+        <script src="plugins/components/sidebar-nav/dist/sidebar-nav.min.js"></script>
         <script src="js/jquery.slimscroll.js"></script>
         <script src="js/waves.js"></script>
         <script src="js/jquery.overlaps.js"></script>
-        <script src="plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
-        <script src="plugins/bower_components/moment/moment.js"></script>
+        <script src="plugins/components/styleswitcher/jQuery.style.switcher.js"></script>
+        <script src="plugins/components/moment/moment.js"></script>
         <script src="js/dashboard1.js"></script>
         <script src="js/cbpFWTabs.js"></script>
-        <script src="plugins/bower_components/footable/js/footable.min.js"></script>
-        <script src="plugins/bower_components/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
+        <script src="plugins/components/footable/js/footable.min.js"></script>
+        <script src="plugins/components/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
         <script src="js/footable-init.js"></script>
         <script type="text/javascript">
         <?php 

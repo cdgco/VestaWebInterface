@@ -321,7 +321,7 @@ if (CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != ''){
                 </div>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.4.0-Beta/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.4.0-Beta/plugins/components/jquery/dist/jquery.min.js"></script>
         <script>
             setTimeout( function(){ 
                 $('.loader').addClass("special"); 

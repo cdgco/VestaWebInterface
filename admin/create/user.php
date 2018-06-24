@@ -55,5 +55,5 @@ $r1 = curl_exec($curl0);
             document.getElementById('form').submit();
         </script>
     </body>
-    <script src="../../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../plugins/components/jquery/dist/jquery.min.js"></script>
 </html>

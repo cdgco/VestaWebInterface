@@ -76,9 +76,9 @@ foreach ($plugins as $result) {
         <link rel="icon" type="image/ico" href="../plugins/images/<?php echo $cpfavicon; ?>">
         <title><?php echo $sitetitle; ?> - SSL</title>
         <link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
-        <link href="../plugins/bower_components/footable/css/footable.bootstrap.css" rel="stylesheet">
-        <link href="../plugins/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+        <link href="../plugins/components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+        <link href="../plugins/components/footable/css/footable.bootstrap.css" rel="stylesheet">
+        <link href="../plugins/components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
         <link href="../css/animate.css" rel="stylesheet">
         <link href="../css/style.css" rel="stylesheet">
         <link href="../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
@@ -209,20 +209,20 @@ foreach ($plugins as $result) {
                 <footer class="footer text-center">&copy; Copyright <?php echo date("Y") . ' ' . $sitetitle; ?>. All Rights Reserved. Vesta Web Interface <?php require '../includes/versioncheck.php'; ?> by CDG Web Services.</footer>
             </div>
         </div>
-        <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="../plugins/components/jquery/dist/jquery.min.js"></script>
         <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+        <script src="../plugins/components/sidebar-nav/dist/sidebar-nav.min.js"></script>
         <script src="../js/jquery.slimscroll.js"></script>
         <script src="../js/waves.js"></script>
-        <script src="../plugins/bower_components/moment/moment.js"></script>
-        <script src="../plugins/bower_components/footable/js/footable.min.js"></script>
-        <script src="../plugins/bower_components/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
-        <script src="../plugins/bower_components/custom-select/custom-select.min.js"></script>
+        <script src="../plugins/components/moment/moment.js"></script>
+        <script src="../plugins/components/footable/js/footable.min.js"></script>
+        <script src="../plugins/components/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
+        <script src="../plugins/components/custom-select/custom-select.min.js"></script>
         <script src="../js/footable-init.js"></script>
         <script src="../js/custom.js"></script>
         <script src="../js/dashboard1.js"></script>
         <script src="../js/cbpFWTabs.js"></script>
-        <script src="../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+        <script src="../plugins/components/styleswitcher/jQuery.style.switcher.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.all.js"></script>
         <script type="text/javascript">
             <?php 

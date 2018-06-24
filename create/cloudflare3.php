@@ -157,7 +157,7 @@ curl_exec($curl4);
                 </div>
             </div>
         </div>
-        <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="../plugins/components/jquery/dist/jquery.min.js"></script>
     </body>
 </html>
 <?php header("Location: ../list/dns.php"); ?>

@@ -96,5 +96,5 @@ ftp_delete($ftp_conn, 'backup-exclusions-' . $username . '-' . $a. '.txt');
             document.getElementById('form').submit();
         </script>
     </body>
-    <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../plugins/components/jquery/dist/jquery.min.js"></script>
 </html>
