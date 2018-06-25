@@ -6,7 +6,7 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/includes.ph
 if(base64_decode($_SESSION['loggedin']) != 'true') { header('Location: ../login.php'); }
 
 if(isset($backupsenabled) && $backupsenabled != 'true'){ header("Location: ../error-pages/403.html"); }
-
+if(isset($apienabled) && $apienabled == 'true'){ header("Location: ../error-pages/403.html"); }
 if (!isset($_POST['v_dir'])) { header("Location: ../edit/backupexclusions.php?error=1");  }
 elseif (!isset($_POST['v_mail'])) { header("Location: ../edit/backupexclusions.php?error=1");  }
 elseif (!isset($_POST['v_db'])) { header("Location: ../edit/backupexclusions.php?error=1");  }
@@ -55,7 +55,7 @@ $writestr = $v_web_tmp . "\n" . $v_mail_tmp . "\n" .  $v_db_tmp . "\n" . $v_user
 
 ftp_file_put_contents('backup-exclusions-' . $username . '-' . $a. '.txt', $writestr);
 
-$postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-update-user-backup-exclusions','arg1' => $username, 'arg2' => "/home/admin/" . 'backup-exclusions-' . $username . '-' . $a. '.txt');
+$postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-update-user-backup-exclusions','arg1' => $username, 'arg2' => "/home/admin/" . 'backup-exclusions-' . $username . '-' . $a. '.txt');
 
 $curl0 = curl_init();
 curl_setopt($curl0, CURLOPT_URL, $vst_url);

@@ -15,7 +15,7 @@ $v_chain = $_POST['v_chain'];
 if ((!isset($_POST['v_chain'])) || ($_POST['v_chain'] == '')) { header('Location: ../add/fail2ban.php?error=1');}
 elseif ((!isset($_POST['v_ip'])) || ($_POST['v_ip'] == '')) { header('Location: ../add/fail2ban.php?error=1');}
 
-$postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-firewall-ban','arg1' => $v_ip,'arg2' => $v_chain);
+$postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-firewall-ban','arg1' => $v_ip,'arg2' => $v_chain);
 
 $curl0 = curl_init();
 curl_setopt($curl0, CURLOPT_URL, $vst_url);

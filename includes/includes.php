@@ -9,7 +9,7 @@
 // Require MySQL Credentials & Arrays of Countries, Languages and Error Codes in all pages
 require("config.php"); require("arrays.php");
 
-$configstyle = '1';
+$configstyle = '2';
 
 $con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
 
@@ -92,11 +92,30 @@ else{
     $vesta_port = $config["VESTA_PORT"];
 }
 
-DEFINE('VESTA_ADMIN_UNAME', $config["VESTA_ADMIN_UNAME"]);
-$vst_username = $config["VESTA_ADMIN_UNAME"];
+if ($config["VESTA_METHOD"] == "api"){
+    DEFINE('VESTA_API_KEY', $config["VESTA_API_KEY"]);
+    $vst_apikey = $config["VESTA_API_KEY"];
+    
+    DEFINE('VESTA_ADMIN_UNAME', '');
+    $vst_username = '';
 
-DEFINE('VESTA_ADMIN_PW', $config["VESTA_ADMIN_PW"]);
-$vst_password = $config["VESTA_ADMIN_PW"];
+    DEFINE('VESTA_ADMIN_PW', '');
+    $vst_password = '';
+    
+    $apienabled = 'true';
+}
+else {
+    DEFINE('VESTA_API_KEY', '');
+    $vst_apikey = '';
+    
+    DEFINE('VESTA_ADMIN_UNAME', $config["VESTA_ADMIN_UNAME"]);
+    $vst_username = $config["VESTA_ADMIN_UNAME"];
+
+    DEFINE('VESTA_ADMIN_PW', $config["VESTA_ADMIN_PW"]);
+    $vst_password = $config["VESTA_ADMIN_PW"];
+    
+    $apienabled = 'false';
+}
 
 $KEY1 = $config["KEY1"]; $key1 = $config["KEY1"];
 $KEY2 = $config["KEY2"]; $key2 = $config["KEY2"];

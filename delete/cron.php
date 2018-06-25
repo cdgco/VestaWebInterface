@@ -8,7 +8,7 @@ else { header('Location: ../login.php'); }
 
 if(isset($cronenabled) && $cronenabled != 'true'){ header("Location: ../error-pages/403.html"); }
 
-$postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-cron-job','arg1' => $username,'arg2' => $_GET['job']);
+$postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-cron-job','arg1' => $username,'arg2' => $_GET['job']);
 
 $curl0 = curl_init();
 

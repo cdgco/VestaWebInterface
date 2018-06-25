@@ -30,7 +30,7 @@ if ($_GET['type'] == 'udir') {$udir = $_GET['object'];}
 
 if (!empty($_GET['type'])) {
     $postvars = array(
-        array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-schedule-user-restore','arg1' => $username,'arg2' => $backup,'arg3' => $web,'arg4' => $dns,'arg5' => $mail,'arg6' => $db,'arg7' => $cron,'arg8' => $udir));
+        array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-schedule-user-restore','arg1' => $username,'arg2' => $backup,'arg3' => $web,'arg4' => $dns,'arg5' => $mail,'arg6' => $db,'arg7' => $cron,'arg8' => $udir));
 
     $curl0 = curl_init();
     $curlstart = 0; 
@@ -48,7 +48,7 @@ if (!empty($_GET['type'])) {
 } 
 else {
     $postvars = array(
-        array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-schedule-user-restore','arg1' => $username,'arg2' => $backup));
+        array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-schedule-user-restore','arg1' => $username,'arg2' => $backup));
 
     $curl0 = curl_init();
     $curlstart = 0; 

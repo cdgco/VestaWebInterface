@@ -19,20 +19,6 @@ if(isset($_POST['ns3']) && $_POST['ns3'] != '' && isset($_POST['ns4']) && $_POST
 if(isset($_POST['ns3']) && $_POST['ns3'] != '' && isset($_POST['ns4']) && $_POST['ns4'] != '' && isset($_POST['ns5']) && $_POST['ns5'] != '' && isset($_POST['ns6']) && $_POST['ns6'] != '' && isset($_POST['ns7']) && $_POST['ns7'] != ''){ $nsfull = "," . $_POST['ns3'] . "," . $_POST['ns4'] . "," . $_POST['ns5'] . "," . $_POST['ns6'] . "," . $_POST['ns7']; }
 if(isset($_POST['ns3']) && $_POST['ns3'] != '' && isset($_POST['ns4']) && $_POST['ns4'] != '' && isset($_POST['ns5']) && $_POST['ns5'] != '' && isset($_POST['ns6']) && $_POST['ns6'] != '' && isset($_POST['ns7']) && $_POST['ns7'] != '' && isset($_POST['ns8']) && $_POST['ns8'] != ''){ $nsfull = "," . $_POST['ns3'] . "," . $_POST['ns4'] . "," . $_POST['ns5'] . "," . $_POST['ns6'] . "," . $_POST['ns7'] . "," . $_POST['ns8']; }
 
-function ftp_file_put_contents($remote_file, $file_string) {
-
-    $ftp_server=VESTA_HOST_ADDRESS; 
-    $ftp_user_name=VESTA_ADMIN_UNAME; 
-    $ftp_user_pass=VESTA_ADMIN_PW;
-    $local_file=fopen('php://temp', 'r+');
-    fwrite($local_file, $file_string);
-    rewind($local_file);       
-    $ftp_conn=ftp_connect($ftp_server); 
-    @$login_result=ftp_login($ftp_conn, $ftp_user_name, $ftp_user_pass); 
-    if($login_result) $upload_result=ftp_fput($ftp_conn, $remote_file, $local_file, FTP_ASCII);
-    ftp_close($ftp_conn);
-    fclose($local_file); }
-
 $writestr = "WEB_TEMPLATE='".$_POST['v_package-name']."'\n
 BACKEND_TEMPLATE='".$_POST['v_webtpl']."'\n
 PROXY_TEMPLATE='".$_POST['v_prxtpl']."'\n
@@ -53,9 +39,7 @@ BACKUPS='".$_POST['v_backups']."'\n
 TIME='".date('H:i:s')."'\n
 DATE='".date('Y-m-d')."'";
 
-ftp_file_put_contents($_POST['v_package-name'] . '.pkg', $writestr);
-
-$postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-user-package','arg1' => "/home/admin/",'arg2' => $_POST['v_package-name'],'arg3' => "yes");
+$postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-make-tmp-file','arg1' => $writestr,'arg2' => $_POST['v_package-name'] . 'pkg','arg3' => "yes");
 
 $curl0 = curl_init();
 curl_setopt($curl0, CURLOPT_URL, $vst_url);
@@ -64,14 +48,19 @@ curl_setopt($curl0, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($curl0, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($curl0, CURLOPT_POST, true);
 curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query($postvars));
-$r1 = curl_exec($curl0);
+curl_exec($curl0);
 
-$ftp_server=VESTA_HOST_ADDRESS; 
-$ftp_user_name=VESTA_ADMIN_UNAME; 
-$ftp_user_pass=VESTA_ADMIN_PW;
-$ftp_conn=ftp_connect($ftp_server); 
-$login_result = ftp_login($ftp_conn, $ftp_user_name, $ftp_user_pass);
-ftp_delete($ftp_conn, $_POST['v_package-name'] . '.pkg');
+$postvars1 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-user-package','arg1' => $_POST['v_package-name'] . 'pkg','arg2' => $_POST['v_package-name'],'arg3' => "yes");
+
+$curl1 = curl_init();
+curl_setopt($curl1, CURLOPT_URL, $vst_url);
+curl_setopt($curl1, CURLOPT_RETURNTRANSFER,true);
+curl_setopt($curl1, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($curl1, CURLOPT_SSL_VERIFYHOST, false);
+curl_setopt($curl1, CURLOPT_POST, true);
+curl_setopt($curl1, CURLOPT_POSTFIELDS, http_build_query($postvars1));
+$r1 = curl_exec($curl1);
+
 ?>
 
 <!DOCTYPE html>

@@ -10,10 +10,10 @@ else { header('Location: ../login.php'); }
 if(isset($webenabled) && $webenabled != 'true'){ header("Location: ../error-pages/403.html"); }
 
 $postvars = array(
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user-ips','arg1' => $username,'arg2' => 'json'),
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-templates-proxy','arg1' => 'json'),
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-stats','arg1' => 'json'));
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user-ips','arg1' => $username,'arg2' => 'json'),
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-templates-proxy','arg1' => 'json'),
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-stats','arg1' => 'json'));
 
 $curl0 = curl_init();
 $curl1 = curl_init();
@@ -99,14 +99,10 @@ foreach ($plugins as $result) {
             <nav class="navbar navbar-default navbar-static-top m-b-0">
                 <div class="navbar-header">
                     <div class="top-left-part">
-                        <!-- Logo -->
                         <a class="logo" href="../index.php">
-                            <!-- Logo icon image, you can use font-icon also --><b>
-                            <!--This is dark logo icon--><img src="../plugins/images/<?php echo $cpicon; ?>" alt="home" class="logo-1 dark-logo" /><!--This is light logo icon--><img src="../plugins/images/admin-logo-dark.png" alt="home" class="logo-1 light-logo" />
-                            </b>
-                            <!-- Logo text image you can use text also --><span class="hidden-xs">
-                            <!--This is dark logo text--><img src="../plugins/images/<?php echo $cplogo; ?>" alt="home" class="hidden-xs dark-logo" /><!--This is light logo text--><img src="../plugins/images/admin-text-dark.png" alt="home" class="hidden-xs light-logo" />
-                            </span> </a>
+                            <img src="../plugins/images/<?php echo $cpicon; ?>" alt="home" class="logo-1 dark-logo" />
+                            <img src="../plugins/images/<?php echo $cplogo; ?>" alt="home" class="hidden-xs dark-logo" />
+                        </a>
                     </div>
                     <ul class="nav navbar-top-links navbar-left">
                         <li><a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs"><i class="ti-close ti-menu"></i></a></li>      
@@ -167,7 +163,7 @@ foreach ($plugins as $result) {
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Domain"); ?></label>
                                         <div class="col-md-12">
-                                            <input type="text" name="v_domain" autocomplete="new-password" id="domain" onkeyup="checkwww();csrlink();" class="form-control"> 
+                                            <input type="text" name="v_domain" autocomplete="new-password" id="domain" onkeyup="checkwww();csrlink();" class="form-control" required> 
                                         </div>
                                     </div>
                                     <div class="form-group" style="overflow: visible;">
@@ -254,7 +250,7 @@ foreach ($plugins as $result) {
                                             <div class="form-group">
                                                 <label class="col-md-12"><?php echo _("SSL Directory"); ?></label>
                                                 <div class="col-md-12">
-                                                    <select name="v_ssldir" class="form-control uneditable-input form-control-static">
+                                                    <select name="v_ssldir" class="form-control form-control-static" <?php if($apienabled == 'true'){ echo "disabled"; } ?>>
                                                         <option value="public_html" selected>public_html</option>
                                                         <option value="public_shtml">public_shtml</option>
                                                     </select>
@@ -263,19 +259,19 @@ foreach ($plugins as $result) {
                                             <div class="form-group">
                                                 <label class="col-md-12"><?php echo _("SSL Certificate"); ?> / <a class="sslfill"  target="_blank"><?php echo _("Generate CSR"); ?></a></label>
                                                 <div class="col-md-12">
-                                                    <textarea class="form-control uneditable-input form-control-static" name="v_sslcrt" rows="4"></textarea>
+                                                    <textarea class="form-control form-control-static" name="v_sslcrt" rows="4" <?php if($apienabled == 'true'){ echo "disabled"; } ?>></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-md-12"><?php echo _("SSL Key"); ?></label>
                                                 <div class="col-md-12">
-                                                    <textarea class="form-control uneditable-input form-control-static" name="v_sslkey" rows="4"></textarea>
+                                                    <textarea class="form-control form-control-static" name="v_sslkey" rows="4" <?php if($apienabled == 'true'){ echo "disabled"; } ?>></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-md-12"><?php echo _("SSL Certificate Authority / Intermediate"); ?></label>
                                                 <div class="col-md-12">
-                                                    <textarea class="form-control uneditable-input form-control-static" name="v_sslca" rows="4"></textarea>
+                                                    <textarea class="form-control form-control-static" name="v_sslca" rows="4" <?php if($apienabled == 'true'){ echo "disabled"; } ?>></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -369,8 +365,8 @@ foreach ($plugins as $result) {
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" onclick="processLoader();"><?php echo _("Add Domain"); ?></button> &nbsp;
-                                            <a href="../list/web.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
+                                            <button class="btn btn-success" type="submit" onclick="processLoader();"><?php echo _("Add Domain"); ?></button> &nbsp;
+                                            <a href="../list/web.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </form>
@@ -401,8 +397,7 @@ foreach ($plugins as $result) {
         <script type="text/javascript">
             <?php 
             $pluginlocation = "../plugins/"; if(isset($pluginnames[0]) && $pluginnames[0] != '') { $currentplugin = 0; do { if (strtolower($pluginhide[$currentplugin]) != 'y' && strtolower($pluginhide[$currentplugin]) != 'yes') { if (strtolower($pluginadminonly[$currentplugin]) != 'y' && strtolower($pluginadminonly[$currentplugin]) != 'yes') { if (strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; } else { $currentstring = "<li><a href='".$pluginlocation.$pluginlinks[$currentplugin]."/'><i class='fa ".$pluginicons[$currentplugin]." fa-fw'></i><span class='hide-menu'>"._($pluginnames[$currentplugin])."</span></a></li>"; }} else { if(strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";} } else { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; }}} echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');\n var plugindata" . $currentplugin . " = \"" . $currentstring . "\";\n plugincontainer" . $currentplugin . ".innerHTML += plugindata" . $currentplugin . ";\n"; } $currentplugin++; } while ($pluginnames[$currentplugin] != ''); } ?>
-        </script>
-        <script type="text/javascript">
+
             document.getElementById('select7').value = 'none'; 
             function showauth(){
                 if(document.getElementById('select7').value != 'none') {
@@ -514,12 +509,44 @@ foreach ($plugins as $result) {
                 swal({
                     title: '<?php echo _("Processing"); ?>',
                     text: '',
-                    timer: 100000,
                     onOpen: function () {
                         swal.showLoading()
                     }
                 })};
-            <?php
+            function loadLoader(){
+                swal({
+                    title: '<?php echo _("Loading"); ?>',
+                    text: '',
+                    onOpen: function () {
+                        swal.showLoading()
+                    }
+                })};
+           <?php 
+            if($warningson == "all"){
+                if(isset($apienabled) && $apienabled == 'true') {
+                    echo "$.toast({
+                            heading: '" . _("Feature Disabled") . "',
+                            text: '" . _("Custom SSL Certificates are incompatible with API Key Authentication.") . "',
+                            icon: 'warning',
+                            position: 'top-right',
+                            bgColor: '#ff8000',
+                            hideAfter: false
+                        });";
+                } 
+            }
+            elseif($warningson == "admin" && $initialusername == "admin"){
+                if(isset($apienabled) && $apienabled == 'true') {
+                    echo "$.toast({
+                            heading: '" . _("Feature Disabled") . "',
+                            text: '" . _("Custom SSL Certificates are incompatible with API Key Authentication.") . "',
+                            icon: 'warning',
+                            position: 'top-right',
+                            bgColor: '#ff8000',
+                            hideAfter: false
+                        });";
+
+                } 
+            }
             
             includeScript();
             

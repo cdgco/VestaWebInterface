@@ -9,7 +9,7 @@ if(isset($_SESSION['loggedin'])) {
 
 if(isset($regenabled) && $regenabled != 'true'){ header("Location: error-pages/403.html"); }
 
-$postvars0 = array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-info','arg1' => 'json');
+$postvars0 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-info','arg1' => 'json');
 
 $curl0 = curl_init();
 curl_setopt($curl0, CURLOPT_URL, $vst_url);
@@ -114,7 +114,7 @@ textdomain('messages');
                             </div></div>
                         <div class="form-group text-center m-t-20">
                             <div class="col-xs-12">
-                                <button disabled class="btn color-button btn-lg btn-block text-uppercase waves-effect waves-light bg-theme" style="border:none;" type="submit"><?php echo _('Sign Up'); ?></button>
+                                <button class="btn color-button btn-lg btn-block text-uppercase waves-effect waves-light bg-theme" style="border:none;" type="submit"><?php echo _('Sign Up'); ?></button>
                             </div>
                         </div>
                         <div class="form-group m-b-0">

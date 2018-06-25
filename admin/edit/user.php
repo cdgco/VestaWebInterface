@@ -12,9 +12,9 @@ if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../err
 
 if(!isset($_GET['user'])) { header("Location: ../list/users.php"); }
 $postvars = array(
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user-packages','arg1' => 'json'),
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $_GET['user'],'arg2' => 'json'),
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user-packages','arg1' => 'json'),
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $_GET['user'],'arg2' => 'json'),
 
 );
 
@@ -103,14 +103,12 @@ foreach ($plugins as $result) {
             <nav class="navbar navbar-default navbar-static-top m-b-0">
                 <div class="navbar-header">
                     <div class="top-left-part">
-                        <!-- Logo -->
                         <a class="logo" href="../../index.php">
-                            <!-- Logo icon image, you can use font-icon also --><b>
-                            <!--This is dark logo icon--><img src="../../plugins/images/<?php echo $cpicon; ?>" alt="home" class="logo-1 dark-logo" /><!--This is light logo icon--><img src="../../plugins/images/admin-logo-dark.png" alt="home" class="logo-1 light-logo" />
-                            </b>
-                            <!-- Logo text image you can use text also --><span class="hidden-xs">
-                            <!--This is dark logo text--><img src="../../plugins/images/<?php echo $cplogo; ?>" alt="home" class="hidden-xs dark-logo" /><!--This is light logo text--><img src="../../plugins/images/admin-text-dark.png" alt="home" class="hidden-xs light-logo" />
-                            </span> </a>
+                            <img src="../../plugins/images/<?php echo $cpicon; ?>" alt="home" class="logo-1 dark-logo" />
+                            <span class="hidden-xs">
+                                <img src="../../plugins/images/<?php echo $cplogo; ?>" alt="home" class="hidden-xs dark-logo" />
+                            </span>
+                        </a>
                     </div>
                     <ul class="nav navbar-top-links navbar-left">
                         <li><a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs"><i class="ti-close ti-menu"></i></a></li>      
@@ -185,7 +183,7 @@ foreach ($plugins as $result) {
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Email"); ?></label>
                                         <div class="col-md-12">
-                                            <input type="email" name="email" value="<?php echo $uxdata[0]["CONTACT"]; ?>" class="form-control form-control-line">
+                                            <input type="email" name="email" value="<?php echo $uxdata[0]["CONTACT"]; ?>" class="form-control form-control-line" required>
                                             <input type="hidden" name="email-x" value='<?php echo $uxdata[0]["CONTACT"]; ?>'>
                                         </div>
                                     </div>
@@ -248,14 +246,14 @@ foreach ($plugins as $result) {
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("First Name"); ?></label>
                                         <div class="col-md-12">
-                                            <input type="text" name="fname" value="<?php echo $uxdata[0]["FNAME"]; ?>" class="form-control form-control-line">
+                                            <input type="text" name="fname" value="<?php echo $uxdata[0]["FNAME"]; ?>" class="form-control form-control-line" required>
                                             <input type="hidden" name="fname-x" value='<?php echo $uxdata[0]["FNAME"]; ?>'>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Last Name"); ?></label>
                                         <div class="col-md-12">
-                                            <input type="text" name="lname" value="<?php echo $uxdata[0]["LNAME"]; ?>" class="form-control form-control-line">
+                                            <input type="text" name="lname" value="<?php echo $uxdata[0]["LNAME"]; ?>" class="form-control form-control-line" required>
                                             <input type="hidden" name="lname-x" value='<?php echo $uxdata[0]["LNAME"]; ?>'>
                                         </div>
                                     </div>
@@ -279,9 +277,9 @@ foreach ($plugins as $result) {
                                         <label class="col-md-12"><?php echo _("Default Nameservers"); ?></label>
                                         <div class="col-md-12">
 
-                                            <div><input type="text" value="<?php print_r(explode(',', ($uxdata[0]['NS']))[0]); ?>" class="form-control form-control-line" name="ns1" id="ns1x"><br></div>
+                                            <div><input type="text" value="<?php print_r(explode(',', ($uxdata[0]['NS']))[0]); ?>" class="form-control form-control-line" name="ns1" id="ns1x" required><br></div>
 
-                                            <div><input type="text" value="<?php print_r(explode(',', ($uxdata[0]['NS']))[1]); ?>" class="form-control form-control-line" name="ns2" id="ns2x"><br><div id="ns2wrapper"><a style="cursor:pointer;" id="addmore" onclick="add1();"><?php echo _("Add One"); ?></a></div></div>
+                                            <div><input type="text" value="<?php print_r(explode(',', ($uxdata[0]['NS']))[1]); ?>" class="form-control form-control-line" name="ns2" id="ns2x" required><br><div id="ns2wrapper"><a style="cursor:pointer;" id="addmore" onclick="add1();"><?php echo _("Add One"); ?></a></div></div>
 
                                             <div id="ns3" style="display:<?php if(explode(',', ($uxdata[0]['NS']))[2] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($uxdata[0]['NS']))[2]); ?>" class="form-control form-control-line" name="ns3" id="ns3x"><br><div id="ns3wrapper"><a style="cursor:pointer;" id="addmore1" onclick="add2();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove1" onclick="rem2();"><?php echo _("Remove One"); ?></a></div></div>
 
@@ -306,8 +304,8 @@ foreach ($plugins as $result) {
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" onclick="processLoader();"><?php echo _("Update User"); ?></button> &nbsp;
-                                            <a href="../list/users.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
+                                            <button class="btn btn-success" onclick="processLoader();" type="submit"><?php echo _("Update User"); ?></button> &nbsp;
+                                            <a href="../list/users.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </form>
@@ -338,8 +336,7 @@ foreach ($plugins as $result) {
         <script type="text/javascript">
             <?php 
             $pluginlocation = "../../plugins/"; if(isset($pluginnames[0]) && $pluginnames[0] != '') { $currentplugin = 0; do { if (strtolower($pluginhide[$currentplugin]) != 'y' && strtolower($pluginhide[$currentplugin]) != 'yes') { if (strtolower($pluginadminonly[$currentplugin]) != 'y' && strtolower($pluginadminonly[$currentplugin]) != 'yes') { if (strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; } else { $currentstring = "<li><a href='".$pluginlocation.$pluginlinks[$currentplugin]."/'><i class='fa ".$pluginicons[$currentplugin]." fa-fw'></i><span class='hide-menu'>"._($pluginnames[$currentplugin])."</span></a></li>"; }} else { if(strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";} } else { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; }}} echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');\n var plugindata" . $currentplugin . " = \"" . $currentstring . "\";\n plugincontainer" . $currentplugin . ".innerHTML += plugindata" . $currentplugin . ";\n"; } $currentplugin++; } while ($pluginnames[$currentplugin] != ''); } ?> 
-        </script>
-        <script type="text/javascript">
+
             $('.datepicker').datepicker();
             (function () {
                 [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {
@@ -380,7 +377,14 @@ foreach ($plugins as $result) {
                 swal({
                     title: '<?php echo _("Processing"); ?>',
                     text: '',
-                    timer: 5000,
+                    onOpen: function () {
+                        swal.showLoading()
+                    }
+                })};
+            function loadLoader(){
+                swal({
+                    title: '<?php echo _("Loading"); ?>',
+                    text: '',
                     onOpen: function () {
                         swal.showLoading()
                     }

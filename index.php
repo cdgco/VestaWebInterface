@@ -8,7 +8,7 @@ if (file_exists( 'includes/config.php' )) { require 'includes/includes.php'; }  
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: login.php'); }
 
-$postvarsx = array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-info','arg1' => 'json');
+$postvarsx = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-info','arg1' => 'json');
 
 $curlx = curl_init();
 curl_setopt($curlx, CURLOPT_URL, $vst_url);
@@ -21,11 +21,11 @@ $serverconnection = array_values(json_decode(curl_exec($curlx), true))[0]['OS'];
 if(!isset($serverconnection)) { unset($_SESSION['username']); setcookie('username', null, -1, '/'); unset($_SESSION['loggedin']); setcookie('loggedin', null, -1, '/'); header('Location: login.php'); exit;}
 
 $postvars = array(
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-domains','arg1' => $username,'arg2' => 'json'),
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-dns-domains','arg1' => $username,'arg2' => 'json'),
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-mail-domains','arg1' => $username,'arg2' => 'json'),
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-databases','arg1' => $username,'arg2' => 'json')
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-domains','arg1' => $username,'arg2' => 'json'),
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-dns-domains','arg1' => $username,'arg2' => 'json'),
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-mail-domains','arg1' => $username,'arg2' => 'json'),
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-databases','arg1' => $username,'arg2' => 'json')
 );
 
 $curl0 = curl_init();
@@ -145,14 +145,8 @@ foreach ($plugins as $result) {
                 <div class="navbar-header">
                     <div class="top-left-part">
                         <a class="logo" href="index.php">
-                            <b>
-                                <img src="plugins/images/<?php echo $cpicon; ?>" alt="home" class="logo-1 dark-logo" />
-                                <img src="plugins/images/admin-logo-dark.png" alt="home" class="logo-1 light-logo" />
-                            </b>
-                            <span class="hidden-xs">
-                                <img src="plugins/images/<?php echo $cplogo; ?>" alt="home" class="hidden-xs dark-logo" />
-                                <img src="plugins/images/admin-text-dark.png" alt="home" class="hidden-xs light-logo" />
-                            </span> 
+                            <img src="plugins/images/<?php echo $cpicon; ?>" alt="home" class="logo-1 dark-logo" />
+                            <img src="plugins/images/<?php echo $cplogo; ?>" alt="home" class="hidden-xs dark-logo" />
                         </a>
                     </div>
                     <ul class="nav navbar-top-links navbar-left">
@@ -437,7 +431,7 @@ foreach ($plugins as $result) {
                                                                             curl_setopt($cfns, CURLOPT_SSL_VERIFYPEER, false);
                                                                             curl_setopt($cfns, CURLOPT_SSL_VERIFYHOST, false);
                                                                             curl_setopt($cfns, CURLOPT_POST, true);
-                                                                            curl_setopt($cfns, CURLOPT_POSTFIELDS, http_build_query(array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-dns-records','arg1' => $username,'arg2' => $dnsname[$x2], 'arg3' => 'json')));
+                                                                            curl_setopt($cfns, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-dns-records','arg1' => $username,'arg2' => $dnsname[$x2], 'arg3' => 'json')));
 
                                                                             $cfdata = array_values(json_decode(curl_exec($cfns), true));
 
@@ -828,10 +822,11 @@ foreach ($plugins as $result) {
         <script src="js/footable-init.js"></script>
         <script type="text/javascript">
         <?php 
-        $pluginlocation = "plugins/"; if(isset($pluginnames[0]) && $pluginnames[0] != '') { $currentplugin = 0; do { if (strtolower($pluginhide[$currentplugin]) != 'y' && strtolower($pluginhide[$currentplugin]) != 'yes') { if (strtolower($pluginadminonly[$currentplugin]) != 'y' && strtolower($pluginadminonly[$currentplugin]) != 'yes') { if (strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; } else { $currentstring = "<li><a href='".$pluginlocation.$pluginlinks[$currentplugin]."/'><i class='fa ".$pluginicons[$currentplugin]." fa-fw'></i><span class='hide-menu'>"._($pluginnames[$currentplugin])."</span></a></li>"; }} else { if(strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";} } else { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; }}} echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');\n var plugindata" . $currentplugin . " = \"" . $currentstring . "\";\n plugincontainer" . $currentplugin . ".innerHTML += plugindata" . $currentplugin . ";\n"; } $currentplugin++; } while ($pluginnames[$currentplugin] != ''); } ?>
-        </script>
-        <script type="text/javascript">
-            <?php includeScript(); ?>
+        $pluginlocation = "plugins/"; if(isset($pluginnames[0]) && $pluginnames[0] != '') { $currentplugin = 0; do { if (strtolower($pluginhide[$currentplugin]) != 'y' && strtolower($pluginhide[$currentplugin]) != 'yes') { if (strtolower($pluginadminonly[$currentplugin]) != 'y' && strtolower($pluginadminonly[$currentplugin]) != 'yes') { if (strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; } else { $currentstring = "<li><a href='".$pluginlocation.$pluginlinks[$currentplugin]."/'><i class='fa ".$pluginicons[$currentplugin]." fa-fw'></i><span class='hide-menu'>"._($pluginnames[$currentplugin])."</span></a></li>"; }} else { if(strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";} } else { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; }}} echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');\n var plugindata" . $currentplugin . " = \"" . $currentstring . "\";\n plugincontainer" . $currentplugin . ".innerHTML += plugindata" . $currentplugin . ";\n"; } $currentplugin++; } while ($pluginnames[$currentplugin] != ''); } 
+            
+            includeScript(); 
+            ?>
+            
             document.getElementById("recordcount").innerHTML = "<?php if ($recordcount == "") { echo "0";} else { echo $recordcount; } ?>  / <?php if($admindata['DNS_RECORDS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['DNS_DOMAINS'] * $admindata['DNS_RECORDS']); } ?>";
             (function() {
                 [].slice.call(document.querySelectorAll('.sttabs')).forEach(function(el) {

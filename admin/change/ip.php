@@ -22,10 +22,10 @@ if (!empty($_POST['v_shared'])) {
 
 if (isset($_POST['v_address']) && $_POST['v_address'] != '') {
     $postvars = array(
-        array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-sys-ip-status','arg1' => $v_1,'arg2' => $v_5),
-        array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-sys-ip-owner','arg1' => $v_1,'arg2' => $v_4),
-        array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-sys-ip-name','arg1' => $v_1,'arg2' => $v_2),
-        array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-sys-ip-nat','arg1' => $v_1,'arg2' => $v_3, 'arg3' => 'no'));
+        array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-sys-ip-status','arg1' => $v_1,'arg2' => $v_5),
+        array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-sys-ip-owner','arg1' => $v_1,'arg2' => $v_4),
+        array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-sys-ip-name','arg1' => $v_1,'arg2' => $v_2),
+        array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-sys-ip-nat','arg1' => $v_1,'arg2' => $v_3, 'arg3' => 'no'));
 
     if ($v_5 != $_POST['v_shared-x']) { 
 

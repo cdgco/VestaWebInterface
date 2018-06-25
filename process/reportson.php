@@ -12,7 +12,7 @@ $username = $username;
 $verified = $_POST['verified'];
 
 $postvars = array(
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-add-cron-reports','arg1' => $username)
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-add-cron-reports','arg1' => $username)
 );
 
 $curl0 = curl_init();

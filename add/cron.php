@@ -10,7 +10,7 @@ else { header('Location: ../login.php'); }
 if(isset($cronenabled) && $cronenabled != 'true'){ header("Location: ../error-pages/403.html"); }
 
 $postvars = array(
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'));
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'));
 
 $curl0 = curl_init();
 $curlstart = 0; 
@@ -90,14 +90,10 @@ foreach ($plugins as $result) {
             <nav class="navbar navbar-default navbar-static-top m-b-0">
                 <div class="navbar-header">
                     <div class="top-left-part">
-                        <!-- Logo -->
                         <a class="logo" href="../index.php">
-                            <!-- Logo icon image, you can use font-icon also --><b>
-                            <!--This is dark logo icon--><img src="../plugins/images/<?php echo $cpicon; ?>" alt="home" class="logo-1 dark-logo" /><!--This is light logo icon--><img src="../plugins/images/admin-logo-dark.png" alt="home" class="logo-1 light-logo" />
-                            </b>
-                            <!-- Logo text image you can use text also --><span class="hidden-xs">
-                            <!--This is dark logo text--><img src="../plugins/images/<?php echo $cplogo; ?>" alt="home" class="hidden-xs dark-logo" /><!--This is light logo text--><img src="../plugins/images/admin-text-dark.png" alt="home" class="hidden-xs light-logo" />
-                            </span> </a>
+                            <img src="../plugins/images/<?php echo $cpicon; ?>" alt="home" class="logo-1 dark-logo" />
+                            <img src="../plugins/images/<?php echo $cplogo; ?>" alt="home" class="hidden-xs dark-logo" />
+                        </a>
                     </div>
                     <ul class="nav navbar-top-links navbar-left">
                         <li><a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs"><i class="ti-close ti-menu"></i></a></li>      
@@ -158,7 +154,7 @@ foreach ($plugins as $result) {
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Command"); ?></label>
                                         <div class="col-md-12">
-                                            <input type="text" form="vstobjects" name="v_cmd" class="form-control"> 
+                                            <input type="text" form="vstobjects" name="v_cmd" class="form-control" required> 
                                         </div>
                                     </div>
                                 </div>
@@ -172,37 +168,37 @@ foreach ($plugins as $result) {
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Minute"); ?></label>
                                         <div class="col-md-12">
-                                            <input type="text" name="v_min" class="form-control"> 
+                                            <input type="text" name="v_min" class="form-control" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Hour"); ?></label>
                                         <div class="col-md-12">
-                                            <input type="text" name="v_hour" class="form-control"> 
+                                            <input type="text" name="v_hour" class="form-control" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Day"); ?></label>
                                         <div class="col-md-12">
-                                            <input type="text" name="v_day" class="form-control"> 
+                                            <input type="text" name="v_day" class="form-control" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Month"); ?></label>
                                         <div class="col-md-12">
-                                            <input type="text" name="v_month" class="form-control"> 
+                                            <input type="text" name="v_month" class="form-control" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Day of Week"); ?></label>
                                         <div class="col-md-12">
-                                            <input type="text" name="v_wday" class="form-control"> 
+                                            <input type="text" name="v_wday" class="form-control" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" onclick="processLoader();"><?php echo _("Add Cron"); ?></button> &nbsp;
-                                            <a href="../list/cron.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
+                                            <button class="btn btn-success" type="submit" onclick="processLoader();"><?php echo _("Add Cron"); ?></button> &nbsp;
+                                            <a href="../list/cron.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </div>
@@ -595,8 +591,7 @@ foreach ($plugins as $result) {
             includeScript();
             
             $pluginlocation = "../plugins/"; if(isset($pluginnames[0]) && $pluginnames[0] != '') { $currentplugin = 0; do { if (strtolower($pluginhide[$currentplugin]) != 'y' && strtolower($pluginhide[$currentplugin]) != 'yes') { if (strtolower($pluginadminonly[$currentplugin]) != 'y' && strtolower($pluginadminonly[$currentplugin]) != 'yes') { if (strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; } else { $currentstring = "<li><a href='".$pluginlocation.$pluginlinks[$currentplugin]."/'><i class='fa ".$pluginicons[$currentplugin]." fa-fw'></i><span class='hide-menu'>"._($pluginnames[$currentplugin])."</span></a></li>"; }} else { if(strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";} } else { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; }}} echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');\n var plugindata" . $currentplugin . " = \"" . $currentstring . "\";\n plugincontainer" . $currentplugin . ".innerHTML += plugindata" . $currentplugin . ";\n"; } $currentplugin++; } while ($pluginnames[$currentplugin] != ''); } ?>
-        </script>
-        <script type="text/javascript">
+
             $('.generator form').submit(function(){
                 $('#vstobjects input[name=v_min]').val($(this).find(':input[name=h_min]').val());
                 $('#vstobjects input[name=v_hour]').val($(this).find(':input[name=h_hour]').val());
@@ -613,7 +608,14 @@ foreach ($plugins as $result) {
                 swal({
                     title: '<?php echo _("Processing"); ?>',
                     text: '',
-                    timer: 5000,
+                    onOpen: function () {
+                        swal.showLoading()
+                    }
+                })};
+            function loadLoader(){
+                swal({
+                    title: '<?php echo _("Loading"); ?>',
+                    text: '',
                     onOpen: function () {
                         swal.showLoading()
                     }

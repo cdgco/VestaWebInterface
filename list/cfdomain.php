@@ -37,7 +37,7 @@ if (CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != ''){
         curl_setopt($cfns, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($cfns, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($cfns, CURLOPT_POST, true);
-        curl_setopt($cfns, CURLOPT_POSTFIELDS, http_build_query(array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-dns-records','arg1' => $username,'arg2' => $requestdns, 'arg3' => 'json')));
+        curl_setopt($cfns, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-dns-records','arg1' => $username,'arg2' => $requestdns, 'arg3' => 'json')));
 
         $cfdata = array_values(json_decode(curl_exec($cfns), true));
 
@@ -53,7 +53,7 @@ if (CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != ''){
 }
 else { header('Location: ../list/dnsdomain.php?domain='.$requestdns); }
 
-$postvars = array(array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'));
+$postvars = array(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'));
 
 $curl0 = curl_init();
 $curlstart = 0; 
@@ -173,14 +173,10 @@ foreach ($plugins as $result) {
             <nav class="navbar navbar-default navbar-static-top m-b-0">
                 <div class="navbar-header">
                     <div class="top-left-part">
-                        <!-- Logo -->
                         <a class="logo" href="../index.php">
-                            <!-- Logo icon image, you can use font-icon also --><b>
-                            <!--This is dark logo icon--><img src="../plugins/images/<?php echo $cpicon; ?>" alt="home" class="logo-1 dark-logo" /><!--This is light logo icon--><img src="../plugins/images/admin-logo-dark.png" alt="home" class="logo-1 light-logo" />
-                            </b>
-                            <!-- Logo text image you can use text also --><span class="hidden-xs">
-                            <!--This is dark logo text--><img src="../plugins/images/<?php echo $cplogo; ?>" alt="home" class="hidden-xs dark-logo" /><!--This is light logo text--><img src="../plugins/images/admin-text-dark.png" alt="home" class="hidden-xs light-logo" />
-                            </span> </a>
+                            <img src="../plugins/images/<?php echo $cpicon; ?>" alt="home" class="logo-1 dark-logo" />
+                            <img src="../plugins/images/<?php echo $cplogo; ?>" alt="home" class="hidden-xs dark-logo" />
+                        </a>
                     </div>
                     <ul class="nav navbar-top-links navbar-left">
                         <li><a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs"><i class="ti-close ti-menu"></i></a></li>      
@@ -331,15 +327,13 @@ foreach ($plugins as $result) {
         <script type="text/javascript">
             <?php 
             $pluginlocation = "../plugins/"; if(isset($pluginnames[0]) && $pluginnames[0] != '') { $currentplugin = 0; do { if (strtolower($pluginhide[$currentplugin]) != 'y' && strtolower($pluginhide[$currentplugin]) != 'yes') { if (strtolower($pluginadminonly[$currentplugin]) != 'y' && strtolower($pluginadminonly[$currentplugin]) != 'yes') { if (strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; } else { $currentstring = "<li><a href='".$pluginlocation.$pluginlinks[$currentplugin]."/'><i class='fa ".$pluginicons[$currentplugin]." fa-fw'></i><span class='hide-menu'>"._($pluginnames[$currentplugin])."</span></a></li>"; }} else { if(strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";} } else { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; }}} echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');\n var plugindata" . $currentplugin . " = \"" . $currentstring . "\";\n plugincontainer" . $currentplugin . ".innerHTML += plugindata" . $currentplugin . ";\n"; } $currentplugin++; } while ($pluginnames[$currentplugin] != ''); } ?>
-        </script>
-        <script type="text/javascript">
+
             (function () {
                 [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {
                     new CBPFWTabs(el);
                 });
             })();
-        </script>
-        <script>
+
             jQuery(function($){
                 $('.footable').footable();
             });
@@ -359,7 +353,6 @@ foreach ($plugins as $result) {
                     swal({
                         title: '<?php echo _("Processing"); ?>',
                         text: '',
-                        timer: 5000,
                         onOpen: function () {
                             swal.showLoading()
                         }
@@ -382,7 +375,6 @@ foreach ($plugins as $result) {
                     swal({
                         title: '<?php echo _("Processing"); ?>',
                         text: '',
-                        timer: 5000,
                         onOpen: function () {
                             swal.showLoading()
                         }

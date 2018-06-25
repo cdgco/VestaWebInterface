@@ -11,7 +11,7 @@ if($username != 'admin') { header("Location: ../../"); }
 if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
 
 $postvars = array(
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json')
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json')
 );
 
 $curl0 = curl_init();
@@ -84,7 +84,7 @@ foreach ($plugins as $result) {
         <![endif]-->
     </head>
 
-    <body class="fix-header" onload="checkDiv();checkDiv2();checkDiv3();">
+    <body class="fix-header" onload="checkDiv();checkDiv1();checkDiv2();checkDiv3();">
         <div class="preloader">
             <svg class="circular" viewBox="25 25 50 50">
                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
@@ -94,7 +94,6 @@ foreach ($plugins as $result) {
             <nav class="navbar navbar-default navbar-static-top m-b-0">
                 <div class="navbar-header">
                     <div class="top-left-part">
-                        <!-- Logo -->
                         <a class="logo" href="../../index.php">
                             <img src="../../plugins/images/<?php echo $cpicon; ?>" alt="home" class="logo-1 dark-logo" />
                             <img src="../../plugins/images/<?php echo $cplogo; ?>" alt="home" class="hidden-xs dark-logo" />
@@ -155,7 +154,7 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box">
-                                <form class="form-horizontal form-material" autocomplete="off" method="post" action="../change/settings.php" enctype="multipart/form-data">
+                                <form class="form-horizontal form-material" id="form" autocomplete="off" method="post" action="../change/settings.php" enctype="multipart/form-data">
                                     <h3>Server Configuration</h3><br><hr><br>
                                     <div class="form-group"  style="overflow: visible;">
                                         <label class="col-md-12">Server Timezone</label>
@@ -397,17 +396,36 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12" for="VESTA_ADMIN_UNAME">Vesta Admin Username</label>  
+                                        <label class="col-md-12">API Method</label>
                                         <div class="col-md-12">
-                                            <input id="VESTA_ADMIN_UNAME" name="VESTA_ADMIN_UNAME" type="text" value="<?php echo $vst_username; ?>" class="form-control input-md" required="">
-
+                                            <div class="radio-info">
+                                            <label class="radio-inline"><input onclick="checkDiv1();" value="credentials" type="radio" name="VESTA_METHOD" <?php if($config["VESTA_METHOD"] != 'api'){ echo 'checked'; } ?>/>Username / Password</label>
+                                            <label class="radio-inline"><input id="apienabled" onclick="checkDiv1();" value="api" type="radio" name="VESTA_METHOD" <?php if($config["VESTA_METHOD"] == 'api'){ echo 'checked'; } ?>/>API Key</label>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12" for="VESTA_ADMIN_PW">Vesta Admin Password</label>
-                                        <div class="col-md-12">
-                                            <input id="VESTA_ADMIN_PW" name="VESTA_ADMIN_PW" type="text" value="<?php echo $vst_password; ?>" class="form-control input-md" required="">
+                                    <div id="api" style="margin-left: 4%;">
+                                        <div class="form-group">
+                                            <label class="col-md-12">Vesta API Key</label>  
+                                            <div class="col-md-12">
+                                                <input name="VESTA_API_KEY" id="apikey" type="text" value="<?php echo $vst_apikey; ?>" class="form-control input-md">
+                                                <span class="help-block">Adding & editing custom SSL certificates and backup exclusions does not Work with API key. Features will be disabled.</span>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="cred" style="margin-left: 4%;">
+                                        <div class="form-group">
+                                            <label class="col-md-12" for="VESTA_ADMIN_UNAME">Vesta Admin Username</label>  
+                                            <div class="col-md-12">
+                                                <input id="VESTA_ADMIN_UNAME" id="uname" name="VESTA_ADMIN_UNAME" type="text" value="<?php echo $vst_username; ?>" class="form-control input-md">
 
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12" for="VESTA_ADMIN_PW">Vesta Admin Password</label>
+                                            <div class="col-md-12">
+                                                <input id="VESTA_ADMIN_PW" id="pw" name="VESTA_ADMIN_PW" type="text" value="<?php echo $vst_password; ?>" class="form-control input-md">
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -424,13 +442,13 @@ foreach ($plugins as $result) {
                                     <div class="form-group">
                                         <label class="col-md-12">Encryption Key 1</label>
                                         <div class="col-md-12">
-                                            <input name="KEY1" type="text" value="<?php echo $key1; ?>" class="form-control input-md">
+                                            <input name="KEY1" type="text" value="<?php echo $key1; ?>" class="form-control input-md" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Encryption Key 2</label>
                                         <div class="col-md-12">
-                                            <input name="KEY2" type="text" value="<?php echo $key2; ?>" class="form-control input-md">
+                                            <input name="KEY2" type="text" value="<?php echo $key2; ?>" class="form-control input-md" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -725,8 +743,8 @@ foreach ($plugins as $result) {
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" <?php if(isset($mysqldown) && $mysqldown = 'yes') { echo 'disabled'; } ?> onclick="processLoader();"><?php echo _("Update Settings"); ?></button> &nbsp;
-                                            <a href="../list/users.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
+                                            <button type="submit" class="btn btn-success" <?php if(isset($mysqldown) && $mysqldown = 'yes') { echo 'disabled'; } ?>><?php echo _("Update Settings"); ?></button> &nbsp;
+                                            <a href="../list/users.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button" onclick="loadLoader();"><?php echo _("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </form>
@@ -757,13 +775,30 @@ foreach ($plugins as $result) {
         <script type="text/javascript">
             <?php 
             $pluginlocation = "../../plugins/"; if(isset($pluginnames[0]) && $pluginnames[0] != '') { $currentplugin = 0; do { if (strtolower($pluginhide[$currentplugin]) != 'y' && strtolower($pluginhide[$currentplugin]) != 'yes') { if (strtolower($pluginadminonly[$currentplugin]) != 'y' && strtolower($pluginadminonly[$currentplugin]) != 'yes') { if (strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; } else { $currentstring = "<li><a href='".$pluginlocation.$pluginlinks[$currentplugin]."/'><i class='fa ".$pluginicons[$currentplugin]." fa-fw'></i><span class='hide-menu'>"._($pluginnames[$currentplugin])."</span></a></li>"; }} else { if(strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";} } else { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; }}} echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');\n var plugindata" . $currentplugin . " = \"" . $currentstring . "\";\n plugincontainer" . $currentplugin . ".innerHTML += plugindata" . $currentplugin . ";\n"; } $currentplugin++; } while ($pluginnames[$currentplugin] != ''); } ?> 
-        </script>
-        <script type="text/javascript">
+            $('#form').submit(function(ev) {
+                ev.preventDefault();
+                processLoader();
+                this.submit();
+            });
+        
             function checkDiv(){
                 if(document.getElementById("phpmailenabled").checked) {
                     document.getElementById('div1').style.display = 'block';
                 }
                 else {document.getElementById('div1').style.display = 'none';}
+            }
+            function checkDiv1(){
+                if(document.getElementById("apienabled").checked) {
+                    document.getElementById('api').style.display = 'block';
+                    document.getElementById('cred').style.display = 'none';
+                    document.getElementById("apikey").required = true;
+                }
+                else {
+                    document.getElementById('api').style.display = 'none';
+                    document.getElementById('cred').style.display = 'block';
+                    document.getElementById("uname").required = true;
+                    document.getElementById("pw").required = true;
+                }
             }
             function checkDiv2(){
                 if(document.getElementById("smtpenabled").checked) {
@@ -821,7 +856,14 @@ foreach ($plugins as $result) {
                 swal({
                     title: '<?php echo _("Processing"); ?>',
                     text: '',
-                    timer: 100000,
+                    onOpen: function () {
+                        swal.showLoading()
+                    }
+                })};
+            function loadLoader(){
+                swal({
+                    title: '<?php echo _("Loading"); ?>',
+                    text: '',
                     onOpen: function () {
                         swal.showLoading()
                     }

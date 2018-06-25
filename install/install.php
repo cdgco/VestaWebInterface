@@ -83,6 +83,8 @@ $sql3 = "INSERT INTO `".$mysql_table."config` (`VARIABLE`, `VALUE`) VALUES
 ('VESTA_HOST_ADDRESS', '".$v4."'),
 ('VESTA_SSL_ENABLED', '".$sslenabled."'),
 ('VESTA_PORT', '".$v5."'),
+('VESTA_METHOD', 'credentials'),
+('VESTA_API_KEY', ''),
 ('VESTA_ADMIN_UNAME', '".$v6."'),
 ('VESTA_ADMIN_PW', '".$v7."'),
 ('KEY1', '".$a."'),

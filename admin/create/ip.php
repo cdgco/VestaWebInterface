@@ -26,7 +26,7 @@ if (!empty($_POST['v_shared'])) {
 if ((!isset($_POST['v_address'])) || ($_POST['v_address'] == '')) { header('Location: ../list/ip.php?error=1');}
 elseif ((!isset($_POST['v_netmask'])) || ($_POST['v_netmask'] == '')) { header('Location: ../add/ip.php?error=1');}
 
-$postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-sys-ip','arg1' => $v_address,'arg2' => $v_netmask, 'arg3' => $v_interface, 'arg4' => $v_assigned, 'arg5' => $v_shared, 'arg6' => $v_domain, 'arg7' => $v_nat);
+$postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-sys-ip','arg1' => $v_address,'arg2' => $v_netmask, 'arg3' => $v_interface, 'arg4' => $v_assigned, 'arg5' => $v_shared, 'arg6' => $v_domain, 'arg7' => $v_nat);
 
 $curl0 = curl_init();
 curl_setopt($curl0, CURLOPT_URL, $vst_url);

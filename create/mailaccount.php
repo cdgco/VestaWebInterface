@@ -33,7 +33,7 @@ if ((!isset($_POST['v_domain'])) || ($_POST['v_domain'] == '')) { header('Locati
 elseif ((!isset($_POST['v_account'])) || ($_POST['v_account'] == '')) { header('Location: ../add/mailaccount.php?error=1&domain=' . $v_domain);}
 elseif ((!isset($_POST['password'])) || ($_POST['password'] == '')) { header('Location: ../add/mailaccount.php?error=1&domain=' . $v_domain);}
 else {
-    $postvars0 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-account','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account'], 'arg4' => $_POST['password'], 'arg5' => $_POST['v_quota']);
+    $postvars0 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-account','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account'], 'arg4' => $_POST['password'], 'arg5' => $_POST['v_quota']);
 
     $curl0 = curl_init();
     curl_setopt($curl0, CURLOPT_URL, $vst_url);
@@ -45,7 +45,7 @@ else {
     $r0 = curl_exec($curl0);
 
     if ($_POST['v_alias']){
-        $postvars1 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-account-alias','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account'], 'arg4' => $_POST['v_alias']);
+        $postvars1 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-account-alias','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account'], 'arg4' => $_POST['v_alias']);
 
         $curl1 = curl_init();
         curl_setopt($curl1, CURLOPT_URL, $vst_url);
@@ -57,7 +57,7 @@ else {
         $r1 = curl_exec($curl1);
     } else { $r1 = '0'; }
     if ($_POST['v_fwd']){
-        $postvars2 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-account-forward','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account'], 'arg4' => $_POST['v_fwd']);
+        $postvars2 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-account-forward','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account'], 'arg4' => $_POST['v_fwd']);
 
         $curl2 = curl_init();
         curl_setopt($curl2, CURLOPT_URL, $vst_url);
@@ -69,7 +69,7 @@ else {
         $r2 = curl_exec($curl2);
     } else { $r2 = '0'; }
     if (isset($_POST['v_fwd']) && $v_fwd_only == 'yes' ) {
-        $postvars3 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-account-fwd-only','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account']);
+        $postvars3 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-account-fwd-only','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account']);
 
         $curl3 = curl_init();
         curl_setopt($curl3, CURLOPT_URL, $vst_url);
@@ -81,7 +81,7 @@ else {
         $r3 = curl_exec($curl3);
     } else { $r3 = '0'; }
     if ($v_autoreply == 'yes' && isset($_POST['v_message'])) {
-        $postvars4 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-account-autoreply','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account'], 'arg4' => $_POST['v_message']);
+        $postvars4 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-account-autoreply','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account'], 'arg4' => $_POST['v_message']);
 
         $curl4 = curl_init();
         curl_setopt($curl4, CURLOPT_URL, $vst_url);

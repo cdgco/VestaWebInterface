@@ -14,9 +14,9 @@ else { $logusername = $username;}
 if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
 
 $postvars = array(
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user-stats','arg1' => $logusername,'arg2' => 'json'),
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-users','arg1' => 'json'));
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user-stats','arg1' => $logusername,'arg2' => 'json'),
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-users','arg1' => 'json'));
 
 $curl0 = curl_init();
 $curl1 = curl_init();
@@ -101,14 +101,10 @@ foreach ($plugins as $result) {
             <nav class="navbar navbar-default navbar-static-top m-b-0">
                 <div class="navbar-header">
                     <div class="top-left-part">
-                        <!-- Logo -->
-                        <a class="logo" href="index.php">
-                            <!-- Logo icon image, you can use font-icon also --><b>
-                            <!--This is dark logo icon--><img src="../../plugins/images/<?php echo $cpicon; ?>" alt="home" class="logo-1 dark-logo" /><!--This is light logo icon--><img src="../../plugins/images/admin-logo-dark.png" alt="home" class="logo-1 light-logo" />
-                            </b>
-                            <!-- Logo text image you can use text also --><span class="hidden-xs">
-                            <!--This is dark logo text--><img src="../../plugins/images/<?php echo $cplogo; ?>" alt="home" class="hidden-xs dark-logo" /><!--This is light logo text--><img src="../../plugins/images/admin-text-dark.png" alt="home" class="hidden-xs light-logo" />
-                            </span> </a>
+                        <a class="logo" href="../../index.php">
+                            <img src="../../plugins/images/<?php echo $cpicon; ?>" alt="home" class="logo-1 dark-logo" />
+                            <img src="../../plugins/images/<?php echo $cplogo; ?>" alt="home" class="hidden-xs dark-logo" />
+                        </a>
                     </div>
                     <ul class="nav navbar-top-links navbar-left">
                         <li><a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs"><i class="ti-close ti-menu"></i></a></li>      
@@ -250,15 +246,12 @@ foreach ($plugins as $result) {
         <script type="text/javascript">
             <?php 
             $pluginlocation = "../../plugins/"; if(isset($pluginnames[0]) && $pluginnames[0] != '') { $currentplugin = 0; do { if (strtolower($pluginhide[$currentplugin]) != 'y' && strtolower($pluginhide[$currentplugin]) != 'yes') { if (strtolower($pluginadminonly[$currentplugin]) != 'y' && strtolower($pluginadminonly[$currentplugin]) != 'yes') { if (strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; } else { $currentstring = "<li><a href='".$pluginlocation.$pluginlinks[$currentplugin]."/'><i class='fa ".$pluginicons[$currentplugin]." fa-fw'></i><span class='hide-menu'>"._($pluginnames[$currentplugin])."</span></a></li>"; }} else { if(strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";} } else { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; }}} echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');\n var plugindata" . $currentplugin . " = \"" . $currentstring . "\";\n plugincontainer" . $currentplugin . ".innerHTML += plugindata" . $currentplugin . ";\n"; } $currentplugin++; } while ($pluginnames[$currentplugin] != ''); } ?> 
-        </script>
-        <script type="text/javascript">
+
             (function () {
                 [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {
                     new CBPFWTabs(el);
                 });
             })();
-        </script>
-        <script>
             jQuery(function($){
                 $('.footable').footable();
             });
@@ -268,31 +261,6 @@ foreach ($plugins as $result) {
             if ($username = 'admin') { echo 'document.getElementById("loguser").value = \'' . $logusername . '\';';}
 
             ?>
-            function confirmDelete(e){
-                e1 = String(e)
-                swal({
-                    title: '<?php echo _("Delete Database"); ?>:<br> ' + e1 +' ?',
-                    text: "<?php echo _("You won't be able to revert this!"); ?>",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
-                }).then(function () {
-                    swal({
-                        title: '<?php echo _("Processing"); ?>',
-                        text: '',
-                        timer: 5000,
-                        onOpen: function () {
-                            swal.showLoading()
-                        }
-                    }).then(
-                        function () {},
-                        function (dismiss) {}
-                    )
-                    window.location.replace("../../delete/db.php?db=" + e1);
-                })}
-
             <?php
             
             includeScript();

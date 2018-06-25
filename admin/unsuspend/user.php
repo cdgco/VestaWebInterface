@@ -13,7 +13,7 @@ $v_user = $_GET['user'];
 
 if ((!isset($_GET['user'])) || ($_GET['user'] == '')) { header('Location: ../list/users.php?error=1');}
 
-$postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-unsuspend-user','arg1' => $v_user);
+$postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-unsuspend-user','arg1' => $v_user);
 
 $curl0 = curl_init();
 curl_setopt($curl0, CURLOPT_URL, $vst_url);

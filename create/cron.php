@@ -22,7 +22,7 @@ elseif ((!isset($_POST['v_month'])) || ($_POST['v_month'] == '')) { header('Loca
 elseif ((!isset($_POST['v_wday'])) || ($_POST['v_wday'] == '')) { header('Location: ../add/cron.php?error=1');}
 elseif ((!isset($_POST['v_cmd'])) || ($_POST['v_cmd'] == '')) { header('Location: ../add/cron.php?error=1');}
 
-$postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-cron-job','arg1' => $username,'arg2' => $v_min, 'arg3' => $v_hour, 'arg4' => $v_day, 'arg5' => $v_month, 'arg6' => $v_wday, 'arg7' => $v_cmd);
+$postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-cron-job','arg1' => $username,'arg2' => $v_min, 'arg3' => $v_hour, 'arg4' => $v_day, 'arg5' => $v_month, 'arg6' => $v_wday, 'arg7' => $v_cmd);
 
 $curl0 = curl_init();
 curl_setopt($curl0, CURLOPT_URL, $vst_url);

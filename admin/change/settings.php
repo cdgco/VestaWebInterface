@@ -69,6 +69,20 @@ if(isset($_POST['VESTA_PORT']) && $config["VESTA_PORT"] != $_POST['VESTA_PORT'])
     if (mysqli_query($conn, $sql7)) {} else { $r1 = $r1 + 1; }
     mysqli_close($conn);
 } 
+if(isset($_POST['VESTA_METHOD']) && $config["VESTA_METHOD"] != $_POST['VESTA_METHOD']) { 
+    $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
+    $dm1 = mysqli_real_escape_string($conn, $_POST['VESTA_METHOD']);
+    $sqlm1 = "UPDATE ".$mysql_table."config SET `VALUE` = '".$dm1."' WHERE `VARIABLE` = 'VESTA_METHOD';";
+    if (mysqli_query($conn, $sqlm1)) {} else { $r1 = $r1 + 1; }
+    mysqli_close($conn);
+} 
+if(isset($_POST['VESTA_API_KEY']) && $vst_apikey != $_POST['VESTA_API_KEY']) { 
+    $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
+    $dm2 = mysqli_real_escape_string($conn, $_POST['VESTA_API_KEY']);
+    $sqlm2 = "UPDATE ".$mysql_table."config SET `VALUE` = '".$dm2."' WHERE `VARIABLE` = 'VESTA_API_KEY';";
+    if (mysqli_query($conn, $sqlm2)) {} else { $r1 = $r1 + 1; }
+    mysqli_close($conn);
+} 
 if(isset($_POST['VESTA_ADMIN_UNAME']) && $vst_username != $_POST['VESTA_ADMIN_UNAME']) { 
     $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
     $v6 = mysqli_real_escape_string($conn, $_POST['VESTA_ADMIN_UNAME']);

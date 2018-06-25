@@ -13,7 +13,7 @@ $v_package = $_GET['package'];
 
 if ((!isset($_GET['package'])) || ($_GET['package'] == '')) { header('Location: ../list/updates.php?error=1');}
 
-$postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-update-sys-vesta', 'arg1' => $v_package);
+$postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-update-sys-vesta', 'arg1' => $v_package);
 
 $curl0 = curl_init();
 curl_setopt($curl0, CURLOPT_URL, $vst_url);

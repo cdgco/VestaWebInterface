@@ -38,7 +38,7 @@ $v_aliases = str_replace(' ', "\n", $waliases);
 $result = array_diff($valiases, $aliases);
 foreach ($result as $alias) {
     if (!empty($alias)) {
-        $postvars0 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-mail-account-alias','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account'], 'arg4' => $alias);
+        $postvars0 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-mail-account-alias','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account'], 'arg4' => $alias);
 
         $curl0 = curl_init();
         curl_setopt($curl0, CURLOPT_URL, $vst_url);
@@ -53,7 +53,7 @@ foreach ($result as $alias) {
 $result = array_diff($aliases, $valiases);
 foreach ($result as $alias) {
     if (!empty($alias)) {
-        $postvars0 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-account-alias','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account'], 'arg4' => $alias);
+        $postvars0 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-account-alias','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account'], 'arg4' => $alias);
 
         $curl0 = curl_init();
         curl_setopt($curl0, CURLOPT_URL, $vst_url);
@@ -77,7 +77,7 @@ $v_fwd = str_replace(' ', "\n", $wfwd);
 $result = array_diff($vfwd, $fwd);
 foreach ($result as $forward) {
     if (!empty($forward)) {
-        $postvars1 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-mail-account-forward','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account'], 'arg4' => $forward);
+        $postvars1 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-mail-account-forward','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account'], 'arg4' => $forward);
 
         $curl1 = curl_init();
         curl_setopt($curl1, CURLOPT_URL, $vst_url);
@@ -92,7 +92,7 @@ foreach ($result as $forward) {
 $result = array_diff($fwd, $vfwd);
 foreach ($result as $forward) {
     if (!empty($forward)) {
-        $postvars1 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-account-forward','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account'], 'arg4' => $forward);
+        $postvars1 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-account-forward','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account'], 'arg4' => $forward);
 
         $curl1 = curl_init();
         curl_setopt($curl1, CURLOPT_URL, $vst_url);
@@ -107,7 +107,7 @@ foreach ($result as $forward) {
 
 if ($v_fwd_only_x != $v_fwd_only){
     if ($v_fwd_only == 'yes'){
-        $postvars2 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-account-fwd-only','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account'],);
+        $postvars2 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-account-fwd-only','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account'],);
 
         $curl2 = curl_init();
         curl_setopt($curl2, CURLOPT_URL, $vst_url);
@@ -119,7 +119,7 @@ if ($v_fwd_only_x != $v_fwd_only){
         $r2 = curl_exec($curl2);
     }
     if ($v_fwd_only == 'no'){
-        $postvars2 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-mail-account-domain-fwd-only','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account'],);
+        $postvars2 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-mail-account-domain-fwd-only','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account'],);
 
         $curl2 = curl_init();
         curl_setopt($curl2, CURLOPT_URL, $vst_url);
@@ -133,7 +133,7 @@ if ($v_fwd_only_x != $v_fwd_only){
 
 // Delete autoreply
 if ($_POST['v_autoreply'] != 'yes' && $_POST['v_autoreply'] != $_POST['v_autoreply-x'] ) {
-    $postvars3 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-mail-account-autoreply','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account']);
+    $postvars3 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-mail-account-autoreply','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account']);
 
     $curl3 = curl_init();
     curl_setopt($curl3, CURLOPT_URL, $vst_url);
@@ -149,7 +149,7 @@ if ($_POST['v_autoreply'] != 'yes' && $_POST['v_autoreply'] != $_POST['v_autorep
 else {
     if ( $_POST['v_message_x'] != $_POST['v_message']) {
         $v_autoreply_message = str_replace("\r\n", "\n", $_POST['v_message']);
-        $postvars3 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-account-autoreply','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account'], 'arg4' => $v_autoreply_message);
+        $postvars3 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-account-autoreply','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account'], 'arg4' => $v_autoreply_message);
 
         $curl3 = curl_init();
         curl_setopt($curl3, CURLOPT_URL, $vst_url);
@@ -162,7 +162,7 @@ else {
     }
 }
 if (isset($_POST['password'])){
-    $postvars4 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-mail-account-password','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account'], 'arg4' => $_POST['password']);
+    $postvars4 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-mail-account-password','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account'], 'arg4' => $_POST['password']);
 
     $curl4 = curl_init();
     curl_setopt($curl4, CURLOPT_URL, $vst_url);

@@ -36,7 +36,7 @@ if (CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != ''){
         curl_setopt($curl0, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($curl0, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($curl0, CURLOPT_POST, true);
-        curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query( array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-dns-records','arg1' => $username,'arg2' => $v_1, 'arg3' => 'json')));
+        curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query( array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-dns-records','arg1' => $username,'arg2' => $v_1, 'arg3' => 'json')));
 
         $dnsdata = array_values(json_decode(curl_exec($curl0), true));
         $keys = array_keys(array_column(json_decode(curl_exec($curl0), true), 'TYPE'), 'NS');
@@ -57,7 +57,7 @@ if (CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != ''){
             curl_setopt(${'del0' . $val}, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt(${'del0' . $val}, CURLOPT_SSL_VERIFYHOST, false);
             curl_setopt(${'del0' . $val}, CURLOPT_POST, true);
-            curl_setopt(${'del0' . $val}, CURLOPT_POSTFIELDS, http_build_query(array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-dns-record','arg1' => $username,'arg2' => $v_1, 'arg3' => $val['ID'])));
+            curl_setopt(${'del0' . $val}, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-dns-record','arg1' => $username,'arg2' => $v_1, 'arg3' => $val['ID'])));
 
             curl_exec( ${'del0' . $val});
             curl_close( ${'del0' . $val});
@@ -86,7 +86,7 @@ if (CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != ''){
             curl_setopt(${'add' . $val1}, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt(${'add' . $val1}, CURLOPT_SSL_VERIFYHOST, false);
             curl_setopt(${'add' . $val1}, CURLOPT_POST, true);
-            curl_setopt(${'add' . $val1}, CURLOPT_POSTFIELDS, http_build_query(array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-add-dns-record','arg1' => $username,'arg2' => $v_1, 'arg3' => $val1['name'], 'arg4' => $val1['type'], 'arg5' => $val1['content'])));
+            curl_setopt(${'add' . $val1}, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-add-dns-record','arg1' => $username,'arg2' => $v_1, 'arg3' => $val1['name'], 'arg4' => $val1['type'], 'arg5' => $val1['content'])));
 
             curl_exec( ${'add' . $val1});
             curl_close( ${'add' . $val1});
@@ -98,7 +98,7 @@ if (CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != ''){
         curl_setopt($del2, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($del2, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($del2, CURLOPT_POST, true);
-        curl_setopt($del2, CURLOPT_POSTFIELDS, http_build_query(array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-dns-record','arg1' => $username,'arg2' => $v_1, 'arg3' => $dnsdata[$requesta]['ID'])));
+        curl_setopt($del2, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-dns-record','arg1' => $username,'arg2' => $v_1, 'arg3' => $dnsdata[$requesta]['ID'])));
 
         curl_exec($del2);
         curl_close($del2);
@@ -110,7 +110,7 @@ if (CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != ''){
         curl_setopt($ns, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ns, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($ns, CURLOPT_POST, true);
-        curl_setopt($ns, CURLOPT_POSTFIELDS, http_build_query( array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user-ns','arg1' => $username,'arg2' => 'json')));
+        curl_setopt($ns, CURLOPT_POSTFIELDS, http_build_query( array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user-ns','arg1' => $username,'arg2' => 'json')));
 
         $nsdata = array_values(json_decode(curl_exec($ns), true));
 
@@ -121,7 +121,7 @@ if (CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != ''){
         curl_setopt($curl1, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($curl1, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($curl1, CURLOPT_POST, true);
-        curl_setopt($curl1, CURLOPT_POSTFIELDS, http_build_query(array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-dns-record','arg1' => $username,'arg2' => $v_1, 'arg3' => '@', 'arg4' => 'NS', 'arg5' => $nsdata[0])));
+        curl_setopt($curl1, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-dns-record','arg1' => $username,'arg2' => $v_1, 'arg3' => '@', 'arg4' => 'NS', 'arg5' => $nsdata[0])));
 
         curl_exec($curl1);
         curl_close($curl1);
@@ -133,7 +133,7 @@ if (CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != ''){
         curl_setopt($curl2, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($curl2, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($curl2, CURLOPT_POST, true);
-        curl_setopt($curl2, CURLOPT_POSTFIELDS, http_build_query(array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-dns-record','arg1' => $username,'arg2' => $v_1, 'arg3' => '@', 'arg4' => 'NS', 'arg5' => $nsdata[1])));
+        curl_setopt($curl2, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-dns-record','arg1' => $username,'arg2' => $v_1, 'arg3' => '@', 'arg4' => 'NS', 'arg5' => $nsdata[1])));
 
         curl_exec($curl2);
         curl_close($curl2);
@@ -147,7 +147,7 @@ if (CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != ''){
             curl_setopt(${'del1' . $val}, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt(${'del1' . $val}, CURLOPT_SSL_VERIFYHOST, false);
             curl_setopt(${'del1' . $val}, CURLOPT_POST, true);
-            curl_setopt(${'del1' . $val}, CURLOPT_POSTFIELDS, http_build_query(array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-dns-record','arg1' => $username,'arg2' => $v_1, 'arg3' => $val)));
+            curl_setopt(${'del1' . $val}, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-dns-record','arg1' => $username,'arg2' => $v_1, 'arg3' => $val)));
 
             curl_exec( ${'del1' . $val});
             curl_close( ${'del1' . $val});

@@ -21,7 +21,7 @@ elseif ((!isset($_POST['v_type'])) || ($_POST['v_type'] == '')) { header('Locati
 elseif ((!isset($_POST['v_ip'])) || ($_POST['v_ip'] == '')) { header('Location: ../edit/firewall.php?error=1&rule=' . $v_rule);}
 elseif ((!isset($_POST['v_port'])) || ($_POST['v_port'] == '')) { header('Location: ../edit/firewall.php?error=1&rule=' . $v_rule);}
 
-$postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-firewall-rule','arg1' => $v_rule,'arg2' => $v_type, 'arg3' => $v_ip, 'arg4' => $v_port, 'arg5' => $v_protocol, 'arg6' => $v_comment);
+$postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-firewall-rule','arg1' => $v_rule,'arg2' => $v_type, 'arg3' => $v_ip, 'arg4' => $v_port, 'arg5' => $v_protocol, 'arg6' => $v_comment);
 
 $curl0 = curl_init();
 curl_setopt($curl0, CURLOPT_URL, $vst_url);

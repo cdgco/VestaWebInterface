@@ -23,7 +23,7 @@ elseif (!isset($v_cmd)) { header('Location: ../edit/cron.php?error=1&job=' . $v_
 elseif (!isset($v_job)) { header('Location: ../list/cron.php?error=1');}
 
 $postvars = array(
-    'user' => $vst_username,
+    'hash' => $vst_apikey, 'user' => $vst_username,
     'password' => $vst_password,
     'returncode' => 'yes',
     'cmd' => 'v-change-cron-job',

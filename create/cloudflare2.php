@@ -45,7 +45,7 @@ curl_setopt($curl0, CURLOPT_RETURNTRANSFER,true);
 curl_setopt($curl0, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($curl0, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($curl0, CURLOPT_POST, true);
-curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query( array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-dns-records','arg1' => $username,'arg2' => $v_1, 'arg3' => 'json')));
+curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query( array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-dns-records','arg1' => $username,'arg2' => $v_1, 'arg3' => 'json')));
 
 $dnsdata = array_values(json_decode(curl_exec($curl0), true));
 $keys = array_keys(array_column(json_decode(curl_exec($curl0), true), 'TYPE'), 'NS');
@@ -65,7 +65,7 @@ foreach($keys as $val) {
     curl_setopt(${'curl' . $val}, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt(${'curl' . $val}, CURLOPT_SSL_VERIFYHOST, false);
     curl_setopt(${'curl' . $val}, CURLOPT_POST, true);
-    curl_setopt(${'curl' . $val}, CURLOPT_POSTFIELDS, http_build_query(array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-dns-record','arg1' => $username,'arg2' => $v_1, 'arg3' => $val)));
+    curl_setopt(${'curl' . $val}, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-dns-record','arg1' => $username,'arg2' => $v_1, 'arg3' => $val)));
 
     curl_exec( ${'curl' . $val});
     curl_close( ${'curl' . $val});
@@ -78,7 +78,7 @@ curl_setopt($curl1, CURLOPT_RETURNTRANSFER,true);
 curl_setopt($curl1, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($curl1, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($curl1, CURLOPT_POST, true);
-curl_setopt($curl1, CURLOPT_POSTFIELDS, http_build_query(array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-dns-record','arg1' => $username,'arg2' => $v_1, 'arg3' => '@', 'arg4' => 'NS', 'arg5' => $cfns1)));
+curl_setopt($curl1, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-dns-record','arg1' => $username,'arg2' => $v_1, 'arg3' => '@', 'arg4' => 'NS', 'arg5' => $cfns1)));
 
 curl_exec($curl1);
 curl_close($curl1);
@@ -90,7 +90,7 @@ curl_setopt($curl2, CURLOPT_RETURNTRANSFER,true);
 curl_setopt($curl2, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($curl2, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($curl2, CURLOPT_POST, true);
-curl_setopt($curl2, CURLOPT_POSTFIELDS, http_build_query(array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-dns-record','arg1' => $username,'arg2' => $v_1, 'arg3' => '@', 'arg4' => 'NS', 'arg5' => $cfns2)));
+curl_setopt($curl2, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-dns-record','arg1' => $username,'arg2' => $v_1, 'arg3' => '@', 'arg4' => 'NS', 'arg5' => $cfns2)));
 
 curl_exec($curl2);
 curl_close($curl2);
@@ -102,7 +102,7 @@ curl_setopt($curl3, CURLOPT_RETURNTRANSFER,true);
 curl_setopt($curl3, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($curl3, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($curl3, CURLOPT_POST, true);
-curl_setopt($curl3, CURLOPT_POSTFIELDS, http_build_query(array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-delete-dns-record','arg1' => $username,'arg2' => $v_1, 'arg3' => $dnsdata[$requestrecord]['ID'])));
+curl_setopt($curl3, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-delete-dns-record','arg1' => $username,'arg2' => $v_1, 'arg3' => $dnsdata[$requestrecord]['ID'])));
 
 curl_exec($curl3);
 curl_close($curl3);
@@ -113,7 +113,7 @@ curl_setopt($curl4, CURLOPT_RETURNTRANSFER,true);
 curl_setopt($curl4, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($curl4, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($curl4, CURLOPT_POST, true);
-curl_setopt($curl4, CURLOPT_POSTFIELDS, http_build_query(array('user' => $vst_username,'password' => $vst_password, 'cmd' => 'vwi-chmod-file-644','arg1' => $username,'arg2' => $v_1)));
+curl_setopt($curl4, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password, 'cmd' => 'vwi-chmod-file-644','arg1' => $username,'arg2' => $v_1)));
 curl_exec($curl4);
 
 ?>

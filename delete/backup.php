@@ -8,7 +8,7 @@ else { header('Location: ../login.php'); }
 
 if(isset($backupsenabled) && $backupsenabled != 'true'){ header("Location: ../error-pages/403.html"); }
 
-$postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes', 'cmd' => 'v-delete-user-backup','arg1' => $username,'arg2' => $_GET['backup']);
+$postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes', 'cmd' => 'v-delete-user-backup','arg1' => $username,'arg2' => $_GET['backup']);
 
 $curl0 = curl_init();
 

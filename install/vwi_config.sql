@@ -16,6 +16,8 @@ INSERT INTO `vwi_config` (`VARIABLE`, `VALUE`) VALUES
 ('VESTA_HOST_ADDRESS', ''),
 ('VESTA_SSL_ENABLED', 'true'),
 ('VESTA_PORT', '8083'),
+('VESTA_METHOD', 'credentials'),
+('VESTA_API_KEY', ''),
 ('VESTA_ADMIN_UNAME', 'admin'),
 ('VESTA_ADMIN_PW', ''),
 ('KEY1', 'INSERT-KEY-HERE'),

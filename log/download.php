@@ -13,7 +13,7 @@ if ($_POST['type'] == 'access') $type = 'access';
 if ($_POST['type'] == 'error') $type = 'error';
 
 $postvars = array(
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-domain-' . $type . 'log', 'arg1' => $username, 'arg2' => $v_domain, 'arg3' => '10000000000000000000'));
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-domain-' . $type . 'log', 'arg1' => $username, 'arg2' => $v_domain, 'arg3' => '10000000000000000000'));
 
 $curl0 = curl_init();
 $curlstart = 0; 

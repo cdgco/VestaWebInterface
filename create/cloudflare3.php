@@ -16,7 +16,7 @@ curl_setopt($curl4, CURLOPT_RETURNTRANSFER,true);
 curl_setopt($curl4, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($curl4, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($curl4, CURLOPT_POST, true);
-curl_setopt($curl4, CURLOPT_POSTFIELDS, http_build_query(array('user' => $vst_username,'password' => $vst_password, 'cmd' => 'vwi-chmod-file-640','arg1' => $username,'arg2' => $v_1)));
+curl_setopt($curl4, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password, 'cmd' => 'vwi-chmod-file-640','arg1' => $username,'arg2' => $v_1)));
 curl_exec($curl4);
 
 ?>

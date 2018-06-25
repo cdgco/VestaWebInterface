@@ -8,7 +8,7 @@ else { header('Location: ../login.php'); }
 
 if(isset($dnsenabled) && $dnsenabled != 'true'){ header("Location: ../error-pages/403.html"); }
 
-$postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-dns-domain','arg1' => $username,'arg2' => $_GET['domain']);
+$postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-dns-domain','arg1' => $username,'arg2' => $_GET['domain']);
 
 $curl0 = curl_init();
 

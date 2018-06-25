@@ -75,7 +75,7 @@ function ftp_file_put_contents($remote_file, $file_string) {
 if ((!isset($v_domain)) || ($v_domain == '')) { header('Location: ../list/web.php?error=1');}
 else {
     if ($_POST['v_ip-x'] != $_POST['v_ip']){
-        $postvars0 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-web-domain-ip','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_ip']);
+        $postvars0 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-web-domain-ip','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_ip']);
 
         $curl0 = curl_init();
         curl_setopt($curl0, CURLOPT_URL, $vst_url);
@@ -98,7 +98,7 @@ else {
     $r1 = '0';
     foreach ($result as $alias) {
         if (!empty($alias)) {
-            $postvars1 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-web-domain-alias','arg1' => $username,'arg2' => $v_domain, 'arg3' => $alias, 'arg4' => 'no');
+            $postvars1 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-web-domain-alias','arg1' => $username,'arg2' => $v_domain, 'arg3' => $alias, 'arg4' => 'no');
 
             $curl1 = curl_init();
             curl_setopt($curl1, CURLOPT_URL, $vst_url);
@@ -113,7 +113,7 @@ else {
     $result = array_diff($aliases, $valiases);
     foreach ($result as $alias) {
         if (!empty($alias)) {
-            $postvars1 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain-alias','arg1' => $username,'arg2' => $v_domain, 'arg3' => $alias, 'arg4' => 'no');
+            $postvars1 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain-alias','arg1' => $username,'arg2' => $v_domain, 'arg3' => $alias, 'arg4' => 'no');
 
             $curl1 = curl_init();
             curl_setopt($curl1, CURLOPT_URL, $vst_url);
@@ -126,7 +126,7 @@ else {
         }
     }
     if ($_POST['v_tpl-x'] != $_POST['v_tpl']){
-        $postvars2 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-web-domain-tpl','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_tpl']);
+        $postvars2 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-web-domain-tpl','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_tpl']);
 
         $curl2 = curl_init();
         curl_setopt($curl2, CURLOPT_URL, $vst_url);
@@ -139,7 +139,7 @@ else {
     }
     else { $r2 = '0'; }
     if ($v_prxx != $v_prxx_x && $v_prxx == 'yes' && $v_prxx_x == 'no'){
-        $postvars3 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain-proxy','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_prxtpl'], 'arg4' => $prxext, 'arg5' => 'no');
+        $postvars3 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain-proxy','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_prxtpl'], 'arg4' => $prxext, 'arg5' => 'no');
 
         $curl3 = curl_init();
         curl_setopt($curl3, CURLOPT_URL, $vst_url);
@@ -151,7 +151,7 @@ else {
         $r3 = curl_exec($curl3);
     } else { $r3 = '0'; }
     if ($v_prxx != $v_prxx_x && $v_prxx == 'no' && $v_prxx_x == 'yes'){
-        $postvars3 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-web-domain-proxy','arg1' => $username,'arg2' => $v_domain);
+        $postvars3 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-web-domain-proxy','arg1' => $username,'arg2' => $v_domain);
 
         $curl3 = curl_init();
         curl_setopt($curl3, CURLOPT_URL, $vst_url);
@@ -164,7 +164,7 @@ else {
         if ($r3 == '3') { $r3 = '0';}
     } else { $r3 = '0'; }
     if ($v_prxx == 'yes' && $_POST['v_prxtpl-x'] != $_POST['v_prxtpl'] || $_POST['v_prxext-x'] != $prxext ){
-        $postvars4 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-web-domain-proxy-tpl','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_prxtpl'], 'arg4' => $prxext, 'arg5' => 'no');
+        $postvars4 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-web-domain-proxy-tpl','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_prxtpl'], 'arg4' => $prxext, 'arg5' => 'no');
 
         $curl4 = curl_init();
         curl_setopt($curl4, CURLOPT_URL, $vst_url);
@@ -177,7 +177,7 @@ else {
         if ($r4 == '3') { $r4 = '0';}
     } else { $r4 = '0'; }
     if (($_POST['v_webstats'] != 'none')  && ($_POST['v_webstats-x'] == 'none')){
-        $postvars5 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain-stats','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_webstats']);
+        $postvars5 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain-stats','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_webstats']);
 
         $curl5 = curl_init();
         curl_setopt($curl5, CURLOPT_URL, $vst_url);
@@ -189,7 +189,7 @@ else {
         $r5 = curl_exec($curl5);
     }
     elseif (($_POST['v_webstats'] == 'none') && ($_POST['v_webstats'] != $_POST['v_webstats-x'])){
-        $postvars5 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-web-domain-stats','arg1' => $username,'arg2' => $v_domain);
+        $postvars5 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-web-domain-stats','arg1' => $username,'arg2' => $v_domain);
 
         $curl5 = curl_init();
         curl_setopt($curl5, CURLOPT_URL, $vst_url);
@@ -201,7 +201,7 @@ else {
         $r5 = curl_exec($curl5);
     }
     elseif (($_POST['v_webstats'] != 'none') && ($_POST['v_webstats-x'] != 'none')){
-        $postvars5 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-web-domain-stats','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_webstats']);
+        $postvars5 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-web-domain-stats','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_webstats']);
 
         $curl5 = curl_init();
         curl_setopt($curl5, CURLOPT_URL, $vst_url);
@@ -214,7 +214,7 @@ else {
     } else { $r5 = '0'; }
 
     if ($_POST['v_statsuserenabled'] != '' && $_POST['v_statsuserenabled'] != $_POST['v_statsuserenabled-x'] && !empty($_POST['v_statsuname']) && !empty($_POST['v_statspassword'])) {
-        $postvars6 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain-stats-user','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_statsuname'], 'arg4' => $_POST['v_statspassword']);
+        $postvars6 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain-stats-user','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_statsuname'], 'arg4' => $_POST['v_statspassword']);
 
         $curl6 = curl_init();
         curl_setopt($curl6, CURLOPT_URL, $vst_url);
@@ -226,7 +226,7 @@ else {
         $r6 = curl_exec($curl6);
     } 
     elseif ($_POST['v_statsuserenabled'] == '' && $_POST['v_statsuserenabled'] != $_POST['v_statsuserenabled-x'] || $_POST['v_statuname'] == '' && $_POST['v_statsuname'] != $_POST['v_statsuname-x'] || $_POST['v_webstats'] == 'none' && $_POST['v_webstats'] != $_POST['v_webstats-x']) {
-        $postvars6 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-web-domain-stats-user','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_statsuname'], 'arg4' => $_POST['v_statspassword']);
+        $postvars6 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-web-domain-stats-user','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_statsuname'], 'arg4' => $_POST['v_statspassword']);
 
         $curl6 = curl_init();
         curl_setopt($curl6, CURLOPT_URL, $vst_url);
@@ -238,7 +238,7 @@ else {
         $r6 = curl_exec($curl6);
     } else { $r6 = '0'; }
     if ($v_lex == 'yes' && $_POST['v_leenabled'] != $_POST['v_leenabled-x']) {
-        $postvars7 = array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-schedule-letsencrypt-domain','arg1' => $username,'arg2' => $v_domain);
+        $postvars7 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-schedule-letsencrypt-domain','arg1' => $username,'arg2' => $v_domain);
 
         $curl7 = curl_init();
         curl_setopt($curl7, CURLOPT_URL, $vst_url);
@@ -251,7 +251,7 @@ else {
         if ($r7 == 'OK') { $r4 = '0';}   
     } 
     elseif ($v_lex == 'no' && $_POST['v_leenabled'] != $_POST['v_leenabled-x']) {
-        $postvars7 = array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-delete-letsencrypt-domain','arg1' => $username,'arg2' => $v_domain, 'arg3' => 'no');
+        $postvars7 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-delete-letsencrypt-domain','arg1' => $username,'arg2' => $v_domain, 'arg3' => 'no');
 
         $curl7 = curl_init();
         curl_setopt($curl7, CURLOPT_URL, $vst_url);
@@ -264,7 +264,7 @@ else {
         if ($r7 == 'OK') { $r4 = '0';} 
     } else { $r7= '0'; }
     if ($v_sslx == 'no' && $_POST['v_sslenabled'] != $_POST['v_sslenabled-x']) {
-        $postvars8 = array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-delete-web-domain-ssl','arg1' => $username,'arg2' => $v_domain, 'arg3' => 'no');
+        $postvars8 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-delete-web-domain-ssl','arg1' => $username,'arg2' => $v_domain, 'arg3' => 'no');
 
         $curl8 = curl_init();
         curl_setopt($curl8, CURLOPT_URL, $vst_url);
@@ -275,7 +275,7 @@ else {
         curl_setopt($curl8, CURLOPT_POSTFIELDS, http_build_query($postvars8));
         $r8 = curl_exec($curl8); 
     } 
-    elseif ($v_sslx == 'yes' && $_POST['v_sslenabled'] == $_POST['v_sslenabled-x'] && ( $_POST['v_sslcrt'] != $_POST['v_sslcrt-x'] || $_POST['v_sslkey'] != $_POST['v_sslkey-x'] || $_POST['v_sslca'] != $_POST['v_sslca-x'])) {
+    elseif ($v_sslx == 'yes' && $_POST['v_sslenabled'] == $_POST['v_sslenabled-x'] && ( $_POST['v_sslcrt'] != $_POST['v_sslcrt-x'] || $_POST['v_sslkey'] != $_POST['v_sslkey-x'] || $_POST['v_sslca'] != $_POST['v_sslca-x']) && $apienabled != 'true') {
         
         $writestr1 = str_replace("\r\n", "\n",  $_POST['v_sslcrt']);
         $writestr2 = str_replace("\r\n", "\n",  $_POST['v_sslkey']);
@@ -287,7 +287,7 @@ else {
             ftp_file_put_contents($v_domain . '.ca', $writestr);
         }
         
-        $postvars8 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-web-domain-sslcert','arg1' => $username, 'arg2' => $v_domain, 'arg3'=> "/home/admin/");
+        $postvars8 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-web-domain-sslcert','arg1' => $username, 'arg2' => $v_domain, 'arg3'=> "/home/admin/");
         
         $curl8 = curl_init();
         curl_setopt($curl8, CURLOPT_URL, $vst_url);
@@ -314,7 +314,7 @@ else {
         
         if($_POST['v_ssldir'] != $_POST['v_ssldir-x']) {
             
-            $postvars9 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-web-domain-sslhome','arg1' => $username, 'arg2' => $v_domain, 'arg3'=> $_POST['v_ssldir']);
+            $postvars9 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-web-domain-sslhome','arg1' => $username, 'arg2' => $v_domain, 'arg3'=> $_POST['v_ssldir']);
         
             $curl9 = curl_init();
             curl_setopt($curl9, CURLOPT_URL, $vst_url);
@@ -327,7 +327,7 @@ else {
             
         }
     } 
-    elseif ($v_sslx == 'yes' && $_POST['v_sslenabled'] != $_POST['v_sslenabled-x']) {
+    elseif ($v_sslx == 'yes' && $_POST['v_sslenabled'] != $_POST['v_sslenabled-x'] && $apienabled != 'true') {
         
         $writestr1 = str_replace("\r\n", "\n",  $_POST['v_sslcrt']);
         $writestr2 = str_replace("\r\n", "\n",  $_POST['v_sslkey']);
@@ -339,7 +339,7 @@ else {
             ftp_file_put_contents($v_domain . '.ca', $writestr);
         }
         
-        $postvars8 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain-ssl','arg1' => $username, 'arg2' => $v_domain, 'arg3'=> "/home/admin/", 'arg4' => $_POST['v_ssldir']);
+        $postvars8 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain-ssl','arg1' => $username, 'arg2' => $v_domain, 'arg3'=> "/home/admin/", 'arg4' => $_POST['v_ssldir']);
         
         $curl8 = curl_init();
         curl_setopt($curl8, CURLOPT_URL, $vst_url);

@@ -12,7 +12,7 @@ $vst_command = 'v-' . $postaction;
 
 
 $postvars = array(
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => $vst_command,'arg1' => $username));
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => $vst_command,'arg1' => $username));
 
 $curl0 = curl_init();
 $curlstart = 0; 

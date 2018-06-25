@@ -13,7 +13,7 @@ $v_address = $_GET['ip'];
 
 if ((!isset($_GET['ip'])) || ($_GET['ip'] == '')) { header('Location: ../list/ip.php?error=1');}
 
-$postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-sys-ip','arg1' => $v_address);
+$postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-sys-ip','arg1' => $v_address);
 
 $curl0 = curl_init();
 curl_setopt($curl0, CURLOPT_URL, $vst_url);

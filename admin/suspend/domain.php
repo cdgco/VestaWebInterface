@@ -15,7 +15,7 @@ $v_user = $_GET['user'];
 if ((!isset($_GET['resource'])) || ($_GET['resource'] == '')) { header('Location: ../../list/web.php?error=1');}
 if ((!isset($_GET['user'])) || ($_GET['user'] == '')) { header('Location: ../../list/web.php?error=1');}
 
-$postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-suspend-web-domain','arg1' => $v_user, 'arg2' => $v_resource);
+$postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-suspend-web-domain','arg1' => $v_user, 'arg2' => $v_resource);
 
 $curl0 = curl_init();
 curl_setopt($curl0, CURLOPT_URL, $vst_url);

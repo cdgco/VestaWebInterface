@@ -8,7 +8,7 @@ else { header('Location: ../login.php'); }
 
 if(isset($mailenabled) && $mailenabled != 'true'){ header("Location: ../error-pages/403.html"); }
 
-$postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-mail-account','arg1' => $username,'arg2' => $_GET['domain'], 'arg3' => $_GET['account']);
+$postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-mail-account','arg1' => $username,'arg2' => $_GET['domain'], 'arg3' => $_GET['account']);
 
 $curl0 = curl_init();
 

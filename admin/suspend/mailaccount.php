@@ -17,7 +17,7 @@ if ((!isset($_GET['resource'])) || ($_GET['resource'] == '')) { header('Location
 if ((!isset($_GET['user'])) || ($_GET['user'] == '')) { header('Location: ../../list/maildomain.php?domain=' . $v_resource . 'error=1');}
 if ((!isset($_GET['account'])) || ($_GET['account'] == '')) { header('Location: ../../list/maildomain.php?domain=' . $v_resource . 'error=1');}
 
-$postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-suspend-mail-account','arg1' => $v_user, 'arg2' => $v_resource, 'arg3' => $v_account);
+$postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-suspend-mail-account','arg1' => $v_user, 'arg2' => $v_resource, 'arg3' => $v_account);
 
 $curl0 = curl_init();
 curl_setopt($curl0, CURLOPT_URL, $vst_url);

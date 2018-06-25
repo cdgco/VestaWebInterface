@@ -27,7 +27,7 @@ elseif ((!isset($_POST['v_type'])) || ($_POST['v_type'] == '')) { header('Locati
 elseif ((!isset($_POST['v_host'])) || ($_POST['v_host'] == '')) { header('Location: ../add/db.php?error=1');}
 elseif ((!isset($_POST['v_charset'])) || ($_POST['v_charset'] == '')) { header('Location: ../add/db.php?error=1');}
 
-$postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-database','arg1' => $username,'arg2' => $v_1, 'arg3' => $v_2, 'arg4' => $v_3, 'arg5' => $v_4, 'arg6' => $v_5, 'arg7' => $v_6);
+$postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-database','arg1' => $username,'arg2' => $v_1, 'arg3' => $v_2, 'arg4' => $v_3, 'arg5' => $v_4, 'arg6' => $v_5, 'arg7' => $v_6);
 
 $curl0 = curl_init();
 curl_setopt($curl0, CURLOPT_URL, $vst_url);

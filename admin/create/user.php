@@ -22,7 +22,7 @@ elseif ((!isset($_POST['password'])) || ($_POST['password'] == '')) { header('Lo
 elseif ((!isset($_POST['email'])) || ($_POST['email'] == '')) { header('Location: ../add/user.php?error=1');}
 elseif ((!isset($_POST['package'])) || ($_POST['package'] == '')) { header('Location: ../add/user.php?error=1');}
 
-$postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-user','arg1' => $v_uname,'arg2' => $v_pass, 'arg3' => $v_email, 'arg4' => $v_package, 'arg5' => $v_fname, 'arg6' => $v_lname);
+$postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-user','arg1' => $v_uname,'arg2' => $v_pass, 'arg3' => $v_email, 'arg4' => $v_package, 'arg5' => $v_fname, 'arg6' => $v_lname);
 
 $curl0 = curl_init();
 curl_setopt($curl0, CURLOPT_URL, $vst_url);

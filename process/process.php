@@ -14,7 +14,7 @@ $fullname = $firstname . ' ' . $name;
 $currenttime = time();
 
 $postvars = array(
-    'user' => $vst_username,
+    'hash' => $vst_apikey, 'user' => $vst_username,
     'password' => $vst_password,
     'returncode' => $vst_returncode,
     'cmd' => $vst_command,

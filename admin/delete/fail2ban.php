@@ -15,7 +15,7 @@ $v_chain = $_GET['chain'];
 if ((!isset($_GET['ip'])) || ($_GET['ip'] == '')) { header('Location: ../list/fail2ban.php?error=1');}
 elseif ((!isset($_GET['chain'])) || ($_GET['chain'] == '')) { header('Location: ../list/fail2ban.php?error=1');}
 
-$postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-firewall-ban','arg1' => $v_ip,'arg2' => $v_chain);
+$postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-firewall-ban','arg1' => $v_ip,'arg2' => $v_chain);
 
 $curl0 = curl_init();
 curl_setopt($curl0, CURLOPT_URL, $vst_url);

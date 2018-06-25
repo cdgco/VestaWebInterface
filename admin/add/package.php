@@ -11,10 +11,10 @@ if($username != 'admin') { header("Location: ../../"); }
 if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
 
 $postvars = array(
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-templates','arg1' => 'json'),
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-templates-proxy','arg1' => 'json'),
-    array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-dns-templates','arg1' => 'json'),
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-templates','arg1' => 'json'),
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-templates-proxy','arg1' => 'json'),
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-dns-templates','arg1' => 'json'),
 );
 
 $curl0 = curl_init();
@@ -103,14 +103,10 @@ foreach ($plugins as $result) {
             <nav class="navbar navbar-default navbar-static-top m-b-0">
                 <div class="navbar-header">
                     <div class="top-left-part">
-                        <!-- Logo -->
                         <a class="logo" href="../../index.php">
-                            <!-- Logo icon image, you can use font-icon also --><b>
-                            <!--This is dark logo icon--><img src="../../plugins/images/<?php echo $cpicon; ?>" alt="home" class="logo-1 dark-logo" /><!--This is light logo icon--><img src="../../plugins/images/admin-logo-dark.png" alt="home" class="logo-1 light-logo" />
-                            </b>
-                            <!-- Logo text image you can use text also --><span class="hidden-xs">
-                            <!--This is dark logo text--><img src="../../plugins/images/<?php echo $cplogo; ?>" alt="home" class="hidden-xs dark-logo" /><!--This is light logo text--><img src="../../plugins/images/admin-text-dark.png" alt="home" class="hidden-xs light-logo" />
-                            </span> </a>
+                            <img src="../../plugins/images/<?php echo $cpicon; ?>" alt="home" class="logo-1 dark-logo" />
+                            <img src="../../plugins/images/<?php echo $cplogo; ?>" alt="home" class="hidden-xs dark-logo" />
+                        </a>
                     </div>
                     <ul class="nav navbar-top-links navbar-left">
                         <li><a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs"><i class="ti-close ti-menu"></i></a></li>      
@@ -171,7 +167,7 @@ foreach ($plugins as $result) {
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Package Name"); ?></label>
                                         <div class="col-md-12">
-                                            <input type="text" value="<?php print_r($packname[0]); ?>" name="v_package-name" class="form-control  form-control-line"> 
+                                            <input type="text" value="<?php print_r($packname[0]); ?>" name="v_package-name" class="form-control  form-control-line" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -222,7 +218,7 @@ foreach ($plugins as $result) {
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Web Domains"); ?></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
-                                            <input type="text" class="form-control form-control-line" value="1" name="v_web-domains" id="ul1">
+                                            <input type="text" class="form-control form-control-line" value="1" name="v_web-domains" id="ul1" required>
                                             <span class="input-group-btn"> 
                                                 <button class="btn btn-outline-secondary" style="margin-right: 15px;" onclick="if(document.getElementById('ul1').value == 'unlimited') { document.getElementById('ul1').value = '1';} else { document.getElementById('ul1').value = 'unlimited';}" type="button">
                                                     <i class="ti-infinite"></i>
@@ -233,7 +229,7 @@ foreach ($plugins as $result) {
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Web Aliases"); ?></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
-                                            <input type="text" class="form-control form-control-line" value="1" name="v_web-aliases" id="ul2">
+                                            <input type="text" class="form-control form-control-line" value="1" name="v_web-aliases" id="ul2" required>
                                             <span class="input-group-btn"> 
                                                 <button class="btn btn-outline-secondary" style="margin-right: 15px;" onclick="if(document.getElementById('ul2').value == 'unlimited') { document.getElementById('ul2').value = '1';} else { document.getElementById('ul2').value = 'unlimited';}" type="button">
                                                     <i class="ti-infinite"></i>
@@ -245,7 +241,7 @@ foreach ($plugins as $result) {
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("DNS Domains"); ?></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
-                                            <input type="text" class="form-control form-control-line" value="1" name="v_dns-domains" id="ul3">
+                                            <input type="text" class="form-control form-control-line" value="1" name="v_dns-domains" id="ul3" required>
                                             <span class="input-group-btn"> 
                                                 <button class="btn btn-outline-secondary" style="margin-right: 15px;" onclick="if(document.getElementById('ul3').value == 'unlimited') { document.getElementById('ul3').value = '1';} else { document.getElementById('ul3').value = 'unlimited';}" type="button">
                                                     <i class="ti-infinite"></i>
@@ -256,7 +252,7 @@ foreach ($plugins as $result) {
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("DNS Records"); ?></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
-                                            <input type="text" class="form-control form-control-line" value="1" name="v_dns-records" id="ul4">
+                                            <input type="text" class="form-control form-control-line" value="1" name="v_dns-records" id="ul4" required>
                                             <span class="input-group-btn"> 
                                                 <button class="btn btn-outline-secondary" style="margin-right: 15px;" onclick="if(document.getElementById('ul4').value == 'unlimited') { document.getElementById('ul4').value = '1';} else { document.getElementById('ul4').value = 'unlimited';}" type="button">
                                                     <i class="ti-infinite"></i>
@@ -268,7 +264,7 @@ foreach ($plugins as $result) {
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Mail Domains"); ?></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
-                                            <input type="text" class="form-control form-control-line" value="1" name="v_mail-domains" id="ul5">
+                                            <input type="text" class="form-control form-control-line" value="1" name="v_mail-domains" id="ul5" required>
                                             <span class="input-group-btn"> 
                                                 <button class="btn btn-outline-secondary" style="margin-right: 15px;" onclick="if(document.getElementById('ul5').value == 'unlimited') { document.getElementById('ul5').value = '1';} else { document.getElementById('ul5').value = 'unlimited';}" type="button">
                                                     <i class="ti-infinite"></i>
@@ -279,7 +275,7 @@ foreach ($plugins as $result) {
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Mail Accounts"); ?></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
-                                            <input type="text" class="form-control form-control-line" value="1" name="v_mail-accounts" id="ul6">
+                                            <input type="text" class="form-control form-control-line" value="1" name="v_mail-accounts" id="ul6" required>
                                             <span class="input-group-btn"> 
                                                 <button class="btn btn-outline-secondary" style="margin-right: 15px;" onclick="if(document.getElementById('ul6').value == 'unlimited') { document.getElementById('ul6').value = '1';} else { document.getElementById('ul6').value = 'unlimited';}" type="button">
                                                     <i class="ti-infinite"></i>
@@ -291,7 +287,7 @@ foreach ($plugins as $result) {
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Databases"); ?></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
-                                            <input type="text" class="form-control form-control-line" value="1" name="v_databases" id="ul7">
+                                            <input type="text" class="form-control form-control-line" value="1" name="v_databases" id="ul7" required>
                                             <span class="input-group-btn"> 
                                                 <button class="btn btn-outline-secondary" style="margin-right: 15px;" onclick="if(document.getElementById('ul7').value == 'unlimited') { document.getElementById('ul7').value = '1';} else { document.getElementById('ul7').value = 'unlimited';}" type="button">
                                                     <i class="ti-infinite"></i>
@@ -302,7 +298,7 @@ foreach ($plugins as $result) {
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Cron Jobs"); ?></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
-                                            <input type="text" class="form-control form-control-line" value="1" name="v_cron-jobs" id="ul8">
+                                            <input type="text" class="form-control form-control-line" value="1" name="v_cron-jobs" id="ul8" required>
                                             <span class="input-group-btn"> 
                                                 <button class="btn btn-outline-secondary" style="margin-right: 15px;" onclick="if(document.getElementById('ul8').value == 'unlimited') { document.getElementById('ul8').value = '1';} else { document.getElementById('ul8').value = 'unlimited';}" type="button">
                                                     <i class="ti-infinite"></i>
@@ -313,13 +309,13 @@ foreach ($plugins as $result) {
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Backups"); ?></label>
                                         <div class="col-md-12">
-                                            <input type="text" class="form-control form-control-line" value="1" name="v_backups">
+                                            <input type="text" class="form-control form-control-line" value="1" name="v_backups" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Quota"); ?></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
-                                            <input type="text" class="form-control form-control-line" value="1000" name="v_quota" id="ul9">
+                                            <input type="text" class="form-control form-control-line" value="1000" name="v_quota" id="ul9" required>
                                             <span class="input-group-btn"> 
                                                 <button class="btn btn-outline-secondary" style="margin-right: 15px;" onclick="if(document.getElementById('ul9').value == 'unlimited') { document.getElementById('ul9').value = '1000';} else { document.getElementById('ul9').value = 'unlimited';}" type="button">
                                                     <i class="ti-infinite"></i>
@@ -331,7 +327,7 @@ foreach ($plugins as $result) {
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Bandwidth"); ?></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
-                                            <input type="text" class="form-control form-control-line" value="1000" name="v_bandwidth" id="ul10">
+                                            <input type="text" class="form-control form-control-line" value="1000" name="v_bandwidth" id="ul10" required>
                                             <span class="input-group-btn"> 
                                                 <button class="btn btn-outline-secondary" style="margin-right: 15px;" onclick="if(document.getElementById('ul10').value == 'unlimited') { document.getElementById('ul10').value = '1000';} else { document.getElementById('ul10').value = 'unlimited';}" type="button">
                                                     <i class="ti-infinite"></i>
@@ -358,8 +354,8 @@ foreach ($plugins as $result) {
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Default Nameservers"); ?></label>
                                         <div class="col-md-12">
-                                            <div><input type="text" value="ns1.example.ltd" class="form-control form-control-line" name="ns1" id="ns1x"><br></div>
-                                            <div><input type="text" value="ns2.example.ltd" class="form-control form-control-line" name="ns2" id="ns2x"><br><div id="ns2wrapper"><a style="cursor:pointer;" id="addmore" onclick="add1();"><?php echo _("Add One"); ?></a></div></div>
+                                            <div><input type="text" value="ns1.example.ltd" class="form-control form-control-line" name="ns1" id="ns1x" required><br></div>
+                                            <div><input type="text" value="ns2.example.ltd" class="form-control form-control-line" name="ns2" id="ns2x" required><br><div id="ns2wrapper"><a style="cursor:pointer;" id="addmore" onclick="add1();"><?php echo _("Add One"); ?></a></div></div>
                                             <div id="ns3" style="display:<?php if(explode(',', ($packdata[0]['NS']))[2] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" class="form-control form-control-line" name="ns3" id="ns3x"><br><div id="ns3wrapper"><a style="cursor:pointer;" id="addmore1" onclick="add2();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove1" onclick="rem2();"><?php echo _("Remove One"); ?></a></div></div>
                                             <div id="ns4" style="display:<?php if(explode(',', ($packdata[0]['NS']))[3] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" class="form-control form-control-line" name="ns4" id="ns4x"><br><div id="ns4wrapper"><a style="cursor:pointer;" id="addmore2" onclick="add3();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove2" onclick="rem3();"><?php echo _("Remove One"); ?></a></div></div>
                                             <div id="ns5" style="display:<?php if(explode(',', ($packdata[0]['NS']))[4] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" class="form-control form-control-line" name="ns5" id="ns5x"><br><div id="ns5wrapper"><a style="cursor:pointer;" id="addmore3" onclick="add4();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove3" onclick="rem4();"><?php echo _("Remove One"); ?></a></div></div>
@@ -370,8 +366,8 @@ foreach ($plugins as $result) {
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" onclick="processLoader();"><?php echo _("Add Package"); ?></button> &nbsp;
-                                            <a href="../list/packages.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
+                                            <button class="btn btn-success" type="submit" onclick="processLoader();"><?php echo _("Add Package"); ?></button> &nbsp;
+                                            <a href="../list/packages.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </form>
@@ -420,8 +416,7 @@ foreach ($plugins as $result) {
                     document.getElementById('select5').value = 'default';
                 }
             }
-        </script>
-        <script type="text/javascript">
+
             $('.datepicker').datepicker();
             (function () {
                 [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {
@@ -440,7 +435,14 @@ foreach ($plugins as $result) {
                 swal({
                     title: '<?php echo _("Processing"); ?>',
                     text: '',
-                    timer: 5000,
+                    onOpen: function () {
+                        swal.showLoading()
+                    }
+                })};
+            function loadLoader(){
+                swal({
+                    title: '<?php echo _("Loading"); ?>',
+                    text: '',
                     onOpen: function () {
                         swal.showLoading()
                     }

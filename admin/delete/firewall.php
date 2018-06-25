@@ -13,7 +13,7 @@ $v_rule = $_GET['rule'];
 
 if ((!isset($_GET['rule'])) || ($_GET['rule'] == '')) { header('Location: ../list/firewall.php?error=1');}
 
-$postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-firewall-rule','arg1' => $v_rule);
+$postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-firewall-rule','arg1' => $v_rule);
 
 $curl0 = curl_init();
 curl_setopt($curl0, CURLOPT_URL, $vst_url);

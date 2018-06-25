@@ -38,7 +38,7 @@ elseif ((!isset($_POST['v_antivirus'])) || ($_POST['v_antivirus'] == '')) { head
 elseif ((!isset($_POST['v_dkim'])) || ($_POST['v_dkim'] == '')) { header('Location: ../edit/mail.php?error=1&domain=' . $v_domain);}
 if ($_POST['v_antispam-x'] != $v_antispam){
     if ($v_antispam == 'yes'){
-        $postvars0 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-domain-antispam','arg1' => $username,'arg2' => $_POST['v_domain']);
+        $postvars0 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-domain-antispam','arg1' => $username,'arg2' => $_POST['v_domain']);
 
         $curl0 = curl_init();
         curl_setopt($curl0, CURLOPT_URL, $vst_url);
@@ -50,7 +50,7 @@ if ($_POST['v_antispam-x'] != $v_antispam){
         $r0 = curl_exec($curl0);
     }
     if ($v_antispam == 'no'){
-        $postvars0 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-mail-domain-antispam','arg1' => $username,'arg2' => $_POST['v_domain']);
+        $postvars0 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-mail-domain-antispam','arg1' => $username,'arg2' => $_POST['v_domain']);
 
         $curl0 = curl_init();
         curl_setopt($curl0, CURLOPT_URL, $vst_url);
@@ -63,7 +63,7 @@ if ($_POST['v_antispam-x'] != $v_antispam){
     }} else { $r0 = '0';}
 if ($_POST['v_antivirus-x'] != $v_antivirus){
     if ($v_antivirus == 'yes'){
-        $postvars1 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-domain-antivirus','arg1' => $username,'arg2' => $_POST['v_domain']);
+        $postvars1 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-domain-antivirus','arg1' => $username,'arg2' => $_POST['v_domain']);
 
         $curl1 = curl_init();
         curl_setopt($curl1, CURLOPT_URL, $vst_url);
@@ -75,7 +75,7 @@ if ($_POST['v_antivirus-x'] != $v_antivirus){
         $r1 = curl_exec($curl1);
     }
     if ($v_antivirus == 'no'){
-        $postvars1 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-mail-domain-antivirus','arg1' => $username,'arg2' => $_POST['v_domain']);
+        $postvars1 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-mail-domain-antivirus','arg1' => $username,'arg2' => $_POST['v_domain']);
 
         $curl1 = curl_init();
         curl_setopt($curl1, CURLOPT_URL, $vst_url);
@@ -88,7 +88,7 @@ if ($_POST['v_antivirus-x'] != $v_antivirus){
     }} else { $r1 = '0';}
 if ($_POST['v_dkim-x'] != $v_dkim){
     if ($v_dkim== 'yes'){
-        $postvars2 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-domain-dkim','arg1' => $username,'arg2' => $_POST['v_domain']);
+        $postvars2 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-domain-dkim','arg1' => $username,'arg2' => $_POST['v_domain']);
 
         $curl2 = curl_init();
         curl_setopt($curl2, CURLOPT_URL, $vst_url);
@@ -100,7 +100,7 @@ if ($_POST['v_dkim-x'] != $v_dkim){
         $r2 = curl_exec($curl2);
     }
     if ($v_dkim == 'no'){
-        $postvars2 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-mail-domain-dkim','arg1' => $username,'arg2' => $_POST['v_domain']);
+        $postvars2 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-mail-domain-dkim','arg1' => $username,'arg2' => $_POST['v_domain']);
 
         $curl2 = curl_init();
         curl_setopt($curl2, CURLOPT_URL, $vst_url);
@@ -113,7 +113,7 @@ if ($_POST['v_dkim-x'] != $v_dkim){
     }}
 else { $r2 = '0';}
 if (isset($_POST['v_catchall'])){
-    $postvars3 = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-mail-domain-catchall','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_catchall']);
+    $postvars3 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-mail-domain-catchall','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_catchall']);
 
     $curl3 = curl_init();
     curl_setopt($curl3, CURLOPT_URL, $vst_url);

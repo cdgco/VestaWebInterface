@@ -7,7 +7,7 @@ if(isset($_SESSION['loggedin'])) {
     if(base64_decode($_SESSION['loggedin']) == 'true') { header('Location: index.php'); }
 }
 
-$postvars0 = array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-info','arg1' => 'json');
+$postvars0 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-info','arg1' => 'json');
 
 $curl0 = curl_init();
 curl_setopt($curl0, CURLOPT_URL, $vst_url);
@@ -24,7 +24,7 @@ if(isset($_POST['username'])){
         $username2 = $_POST['username'];
         $password = $_POST['password'];
 
-        $postvars = array('user' => $vst_username,'password' => $vst_password,'cmd' => 'v-check-user-password','arg1' => $username2,'arg2' => $password);
+        $postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-check-user-password','arg1' => $username2,'arg2' => $password);
 
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $vst_url);
@@ -220,8 +220,8 @@ textdomain('messages');
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
-
-                                <a href="javascript:void(0)" id="to-login" class="text-dark pull-right"><i class="fa fa-sign-in m-r-5"></i> <?php echo _("Login"); ?></a> </div>
+                                <a href="javascript:void(0)" id="to-login" class="text-dark pull-right"><i class="fa fa-sign-in m-r-5"></i> <?php echo _("Login"); ?></a> 
+                            </div>
                         </div>
                         <div class="form-group text-center m-t-20">
                             <div class="col-xs-12">

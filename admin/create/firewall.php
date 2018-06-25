@@ -19,7 +19,7 @@ if ((!isset($_POST['v_type'])) || ($_POST['v_type'] == '')) { header('Location: 
 elseif ((!isset($_POST['v_ip'])) || ($_POST['v_ip'] == '')) { header('Location: ../add/firewall.php?error=1');}
 elseif ((!isset($_POST['v_port'])) || ($_POST['v_port'] == '')) { header('Location: ../add/firewall.php?error=1');}
 
-$postvars = array('user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-firewall-rule','arg1' => $v_type,'arg2' => $v_ip, 'arg3' => $v_port, 'arg4' => $v_protocol, 'arg5' => $v_comment);
+$postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-firewall-rule','arg1' => $v_type,'arg2' => $v_ip, 'arg3' => $v_port, 'arg4' => $v_protocol, 'arg5' => $v_comment);
 
 $curl0 = curl_init();
 curl_setopt($curl0, CURLOPT_URL, $vst_url);
