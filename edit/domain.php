@@ -232,7 +232,7 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box">
-                                <form class="form-horizontal form-material" autocomplete="off" autocomplete="off" method="post" action="../change/domain.php">
+                                <form class="form-horizontal form-material" autocomplete="off" id="form" method="post" action="../change/domain.php">
                                     <div class="form-group" style="overflow: visible;">
                                         <label class="col-md-12"><?php echo _("IP Address"); ?></label>
                                         <div class="col-md-12">
@@ -479,7 +479,7 @@ foreach ($plugins as $result) {
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" type="submit" type="submit" onclick="processLoader();"><?php echo _("Update Domain"); ?></button> &nbsp;
+                                            <button class="btn btn-success" type="submit" type="submit"><?php echo _("Update Domain"); ?></button> &nbsp;
                                             <a href="../list/web.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
                                         </div>
                                     </div>
@@ -516,7 +516,11 @@ foreach ($plugins as $result) {
                     new CBPFWTabs(el);
                 });
             })();
-
+            $('#form').submit(function(ev) {
+                ev.preventDefault();
+                processLoader();
+                this.submit();
+            });
             document.getElementById('select1').value = '<?php print_r($domaindata[0]['IP']); ?>'; 
             document.getElementById('select2').value = '<?php print_r($domaindata[0]['TPL']); ?>'; 
 

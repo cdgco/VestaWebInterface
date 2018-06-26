@@ -151,7 +151,7 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box">
-                                <form class="form-horizontal form-material" autocomplete="off" method="post" action="csr.php">
+                                <form class="form-horizontal form-material" id="form" autocomplete="off" method="post" action="csr.php">
                                     <div class="form-group">
                                         <label class="col-md-12">Domain</label>
                                         <div class="col-md-12">
@@ -203,7 +203,7 @@ foreach ($plugins as $result) {
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" onclick="processLoader();" type="submit">Process</button>
+                                            <button class="btn btn-success" type="submit">Process</button>
                                         </div>
                                     </div>
                                 </form>
@@ -231,6 +231,11 @@ foreach ($plugins as $result) {
         <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.all.js"></script>
 
         <script type="text/javascript">
+            $('#form').submit(function(ev) {
+                ev.preventDefault();
+                processLoader();
+                this.submit();
+            });
             function processLoader(){
                 swal({
                     title: '<?php echo _("Processing"); ?>',

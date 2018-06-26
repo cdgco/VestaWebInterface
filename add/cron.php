@@ -197,7 +197,7 @@ foreach ($plugins as $result) {
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" type="submit" onclick="processLoader();"><?php echo _("Add Cron"); ?></button> &nbsp;
+                                            <button class="btn btn-success" type="submit"><?php echo _("Add Cron"); ?></button> &nbsp;
                                             <a href="../list/cron.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
                                         </div>
                                     </div>
@@ -586,6 +586,11 @@ foreach ($plugins as $result) {
         <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.all.js"></script>
         <script src="../plugins/components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
         <script type="text/javascript">
+            $('#vstobjects').submit(function(ev) {
+                ev.preventDefault();
+                processLoader();
+                this.submit();
+            });
             <?php 
             
             includeScript();

@@ -276,7 +276,7 @@ foreach ($plugins as $result) {
 
                                 </div>
                                 <div class="tab-pane <?php if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo "active"; } ?>" id="settings">
-                                    <form class="form-horizontal form-material" autocomplete="off" action="process/updatesettings.php" method="post">
+                                    <form class="form-horizontal form-material" id="form" autocomplete="off" action="process/updatesettings.php" method="post">
                                         <input type="hidden" name="fname-x" value="<?php print_r($admindata['FNAME']); ?>"/>
                                         <input type="hidden" name="lname-x" value="<?php print_r($admindata['LNAME']); ?>"/>
                                         <input type="hidden" name="email-x" value="<?php print_r($admindata['CONTACT']); ?>"/>
@@ -382,7 +382,7 @@ foreach ($plugins as $result) {
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-12">
-                                                <button class="btn btn-success" type="submit" onclick="processLoader();"><?php echo _("Update Profile"); ?></button> &nbsp;
+                                                <button class="btn btn-success" type="submit"><?php echo _("Update Profile"); ?></button> &nbsp;
                                                 <a href="profile.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button" onclick="loadLoader();"><?php echo _("Back"); ?></button></a>
                                             </div>
                                         </div>
@@ -407,6 +407,11 @@ foreach ($plugins as $result) {
     <script src="bootstrap/dist/js/bootstrap-select.min.js"></script>
     <script src="plugins/components/custom-select/custom-select.min.js"></script>
     <script type="text/javascript">
+        $('#form').submit(function(ev) {
+                ev.preventDefault();
+                processLoader();
+                this.submit();
+            });
         function processLoader(){
                 swal({
                     title: '<?php echo _("Processing"); ?>',

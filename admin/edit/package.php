@@ -170,7 +170,7 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box">
-                                <form class="form-horizontal form-material" autocomplete="off" method="post" action="../change/package.php">
+                                <form class="form-horizontal form-material" autocomplete="off" method="post" id="form" action="../change/package.php">
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Package Name"); ?></label>
                                         <div class="col-md-12">
@@ -412,7 +412,7 @@ foreach ($plugins as $result) {
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" onclick="processLoader();" type="submit"><?php echo _("Update Package"); ?></button> &nbsp;
+                                            <button class="btn btn-success"  type="submit"><?php echo _("Update Package"); ?></button> &nbsp;
                                             <a href="../list/packages.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
                                         </div>
                                     </div>
@@ -449,6 +449,11 @@ foreach ($plugins as $result) {
             document.getElementById('select5').value = '<?php print_r($packdata[0]['DNS_TEMPLATE']); ?>';
             document.getElementById('sshselect').value = '<?php print_r($packdata[0]['SHELL']); ?>';
 
+            $('#form').submit(function(ev) {
+                ev.preventDefault();
+                processLoader();
+                this.submit();
+            });
             $('.datepicker').datepicker();
             (function () {
                 [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {

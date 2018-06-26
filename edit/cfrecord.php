@@ -181,7 +181,7 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box">
-                                <form class="form-horizontal form-material" autocomplete="off" method="get" action="../change/cfrecord.php">
+                                <form class="form-horizontal form-material" autocomplete="off" method="get" id="form" action="../change/cfrecord.php">
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Domain"); ?></label>
                                         <div class="col-md-12">
@@ -230,7 +230,7 @@ foreach ($plugins as $result) {
                                     </div>'; } ?>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" type="submit" onclick="processLoader();"><?php echo _("Update Record"); ?></button> &nbsp;
+                                            <button class="btn btn-success" type="submit"><?php echo _("Update Record"); ?></button> &nbsp;
                                             <a href="../list/cfdomain.php?domain=<?php echo $recorddata["zone_name"]; ?>" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
                                         </div>
                                     </div>
@@ -269,6 +269,11 @@ foreach ($plugins as $result) {
                     new CBPFWTabs(el);
                 });
             })();
+            $('#form').submit(function(ev) {
+                ev.preventDefault();
+                processLoader();
+                this.submit();
+            });
             jQuery(function($){
                 $('.footable').footable();
             });
