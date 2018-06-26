@@ -19,5 +19,5 @@ Development Instructions:
 Installation Instructions:
 
 1. Upload your plugin to the 'plugins' folder of your VWI installation.
-2. Edit the VWI config file (includes/config.php) and add the exact name (case-sensitive) to the plugins section below "Integrations".
+2. Edit the VWI settings from either the settings page in the admin panel or from your MySQL database and add the plugin name to the plugin list.
 3. Follow any further instructions as specified by the developer.
