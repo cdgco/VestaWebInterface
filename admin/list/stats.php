@@ -233,10 +233,7 @@ foreach ($plugins as $result) {
                                             do {
                                                 echo '<tr>
                                                     <td data-sort-value="' . date("F Y", strtotime($statsname[$x1])) . '">' . date("F Y", strtotime($statsname[$x1])) . '</td>
-                                                    <td>'; 
-                                                    if(empty($statsdata[$x1]['U_BANDWIDTH'])){echo "0";} else{ if($statsdata[$x1]['U_BANDWIDTH'] < 1024) { echo $statsdata['U_BANDWIDTH']; } else { echo round($statsdata[$x1]['U_BANDWIDTH'] / 1024, 2) ; }} echo ' '; 
-                                                    if(empty($statsdata[$x1]['U_BANDWIDTH'])){echo "mb";} else{ if($statsdata[$x1]['U_BANDWIDTH'] < 1024) { echo 'mb'; } else { echo 'gb'; }}
-                                                    echo '</td>
+                                                    <td>' . $statsdata[$x1]['U_BANDWIDTH'] . ' mb</td>
                                                     <td>' . $statsdata[$x1]['U_DISK'] . ' mb</td>
                                                     <td><br><b>Web:</b> ' . $statsdata[$x1]['U_DISK_WEB'] . ' mb<br><b>Mail:</b> ' . $statsdata[$x1]['U_DISK_MAIL'] . ' mb<br><b>Databases:</b> ' . $statsdata[$x1]['U_DISK_DB'] . ' mb<br><b>User Directories:</b> ' . $statsdata[$x1]['U_DISK_DIRS'] . ' mb</td>
                                                     <td><br><b>Domains:</b> ' . $statsdata[$x1]['U_WEB_DOMAINS'] . '<br><b>SSL Domains:</b> ' . $statsdata[$x1]['U_WEB_SSL'] . '<br><b>Aliases:</b> ' . $statsdata[$x1]['U_WEB_ALIASES'] . '</td>
