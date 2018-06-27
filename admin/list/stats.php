@@ -5,7 +5,7 @@ $configlocation = "../../includes/";
 if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' );};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../../login.php'); }
+else { header('Location: ../../login.php?to=admin/list/stats.php'); }
 if($username != 'admin') { header("Location: ../../"); }
 
 if (isset($_GET['user']) && $_GET['user'] != '' && $username == 'admin') { $logusername = $_GET['user'];}
@@ -89,6 +89,34 @@ foreach ($plugins as $result) {
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <style>
+            @media screen and (max-width: 1199px) {
+                .resone { display:none !important;}
+            }  
+            @media screen and (max-width: 991px) {
+                .resone { display:none !important;}
+                .restwo { display:none !important;}
+            }    
+            @media screen and (max-width: 767px) {
+                .resone { display:none !important;}
+                .restwo { display:none !important;}
+                .resthree { display:none !important;}
+            } 
+            @media screen and (max-width: 540px) {
+                .resone { display:none !important;}
+                .restwo { display:none !important;}
+                .resthree { display:none !important;}
+                .resfour { display:none !important;}
+                
+            } 
+            @media screen and (max-width: 410px) {
+                .resone { display:none !important;}
+                .restwo { display:none !important;}
+                .resthree { display:none !important;}
+                .resfour { display:none !important;}
+                .resfive { display:none !important;}
+            } 
+        </style>
     </head>
 
     <body class="fix-header">
@@ -205,7 +233,10 @@ foreach ($plugins as $result) {
                                             do {
                                                 echo '<tr>
                                                     <td data-sort-value="' . date("F Y", strtotime($statsname[$x1])) . '">' . date("F Y", strtotime($statsname[$x1])) . '</td>
-                                                    <td>' . $statsdata[$x1]['U_BANDWIDTH'] . ' mb</td>
+                                                    <td>'; 
+                                                    if(empty($statsdata[$x1]['U_BANDWIDTH'])){echo "0";} else{ if($statsdata[$x1]['U_BANDWIDTH'] < 1024) { echo $statsdata['U_BANDWIDTH']; } else { echo round($statsdata[$x1]['U_BANDWIDTH'] / 1024, 2) ; }} echo ' '; 
+                                                    if(empty($statsdata[$x1]['U_BANDWIDTH'])){echo "mb";} else{ if($statsdata[$x1]['U_BANDWIDTH'] < 1024) { echo 'mb'; } else { echo 'gb'; }}
+                                                    echo '</td>
                                                     <td>' . $statsdata[$x1]['U_DISK'] . ' mb</td>
                                                     <td><br><b>Web:</b> ' . $statsdata[$x1]['U_DISK_WEB'] . ' mb<br><b>Mail:</b> ' . $statsdata[$x1]['U_DISK_MAIL'] . ' mb<br><b>Databases:</b> ' . $statsdata[$x1]['U_DISK_DB'] . ' mb<br><b>User Directories:</b> ' . $statsdata[$x1]['U_DISK_DIRS'] . ' mb</td>
                                                     <td><br><b>Domains:</b> ' . $statsdata[$x1]['U_WEB_DOMAINS'] . '<br><b>SSL Domains:</b> ' . $statsdata[$x1]['U_WEB_SSL'] . '<br><b>Aliases:</b> ' . $statsdata[$x1]['U_WEB_ALIASES'] . '</td>

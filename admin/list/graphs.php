@@ -5,7 +5,7 @@ $configlocation = "../../includes/";
 if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' );};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../../login.php'); }
+else { header('Location: ../../login.php?to=admin/list/graphs.php'); }
 if($username != 'admin') { header("Location: ../../"); }
 
 if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
@@ -86,6 +86,43 @@ foreach ($plugins as $result) {
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <style>
+            @media screen and (max-width: 1199px) {
+                .resone { display:none !important;}
+                .graphs { width: 600px; }
+            }  
+            @media screen and (max-width: 991px) {
+                .resone { display:none !important;}
+                .restwo { display:none !important;}
+                .graphs { width: 500px; }
+                h2 { font-size: 20px !important;}
+            }    
+            @media screen and (max-width: 767px) {
+                .resone { display:none !important;}
+                .restwo { display:none !important;}
+                .resthree { display:none !important;}
+                .graphs { width: 400px; }
+                h2 { font-size: 16px !important;}
+            } 
+            @media screen and (max-width: 540px) {
+                .resone { display:none !important;}
+                .restwo { display:none !important;}
+                .resthree { display:none !important;}
+                .resfour { display:none !important;}
+                .graphs { width: 300px; }
+                h2 { font-size: 14px !important; line-height: 100% !important;}
+                
+            } 
+            @media screen and (max-width: 410px) {
+                .resone { display:none !important;}
+                .restwo { display:none !important;}
+                .resthree { display:none !important;}
+                .resfour { display:none !important;}
+                .resfive { display:none !important;}
+                .graphs { width: 200px; }
+                h2 { font-size: 12px !important; line-height: 100% !important;}
+            } 
+        </style>
     </head>
 
     <body class="fix-header">
@@ -177,9 +214,9 @@ foreach ($plugins as $result) {
                                 <table class="table footable m-b-0"  data-sorting="true">
                                     <thead>
                                         <tr>
-                                            <th> </th>
+                                            <th class="resfour"> </th>
                                             <th data-sortable="false"></th>
-                                            <th data-sortable="false"></th>
+                                            <th class="resone" data-sortable="false"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -189,9 +226,9 @@ foreach ($plugins as $result) {
 
                                             do {
                                                 echo '<tr>
-                                                <td><h2>' . $graphdata[$x1]['TITLE'] . '</h2></td>
-                                                <td><img src="' . $url8083 . '/list/rrd/vwi.php?/rrd/' . $graphdata[$x1]['TYPE'] . '/' . $period . '-' . $graphdata[$x1]['RRD'] . '.png"></td>
-                                                <td><a href="' . $url8083 . '/list/rrd/vwi.php?/rrd/' . $graphdata[$x1]['TYPE'] . '/' . $period . '-' . $graphdata[$x1]['RRD'] . '.png" download="' . $period . '-' . $graphdata[$x1]['RRD'] . '.png"><button type="button" onclick="" data-toggle="tooltip" data-original-title="' . _("Download") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-download"></i></button></a></td>
+                                                <td class="resfour"><h2>' . $graphdata[$x1]['TITLE'] . '</h2></td>
+                                                <td><img class="graphs" src="' . $url8083 . '/list/rrd/vwi.php?/rrd/' . $graphdata[$x1]['TYPE'] . '/' . $period . '-' . $graphdata[$x1]['RRD'] . '.png"></td>
+                                                <td class="resone"><a href="' . $url8083 . '/list/rrd/vwi.php?/rrd/' . $graphdata[$x1]['TYPE'] . '/' . $period . '-' . $graphdata[$x1]['RRD'] . '.png" download="' . $period . '-' . $graphdata[$x1]['RRD'] . '.png"><button type="button" onclick="" data-toggle="tooltip" data-original-title="' . _("Download") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-download"></i></button></a></td>
                                                 </tr>';
                                                 $x1++;
                                             } while ($graphname[$x1] != ''); }

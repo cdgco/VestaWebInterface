@@ -123,6 +123,9 @@ foreach ($plugins as $result) {
                 .resone { display:none !important;}
                 .restwo { display:none !important;}
                 .resthree { display:none !important;}
+                .pagination > li > a, .pagination > li > span {
+                    padding: 3px 9px !important;
+                }
             } 
         </style>
     </head>

@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 $configlocation = "includes/";
 if (file_exists( 'includes/config.php' )) { require( 'includes/includes.php'); }  else { header( 'Location: install' );};
@@ -148,7 +147,7 @@ textdomain('messages');
             </div>
             <div class="new-login-box">
                 <div class="white-box">
-                    <form class="form-horizontal new-lg-form" id="loginform" method="post" action="login.php">
+                    <form class="form-horizontal new-lg-form" id="loginform" method="post" action="login.php<?php if(isset($_GET['to']) && $_GET['to'] != '') { echo '?to=' . $_GET['to']; } ?>">
                         <h3 class="box-title m-b-0"><?php echo _("Sign In to") . ' ' . $sitetitle . ' ' . _("CP"); ?></h3>
                         <small><?php echo _("Enter your details below"); ?></small>
 
@@ -160,6 +159,9 @@ textdomain('messages');
                                     $_SESSION['username'] = base64_encode ( $username2 );
 
                                     if ($username2 == "admin" && DEFAULT_TO_ADMIN == "true") { $userredirect = 'admin/list/users.php'; }
+                                    elseif(isset($_GET['to']) && $_GET['to'] != ''){
+                                        $userredirect = $_GET['to'];
+                                    }
                                     else { $userredirect = 'index.php'; }
 
                                     echo '<br><br>

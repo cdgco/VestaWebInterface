@@ -5,7 +5,7 @@ $configlocation = "../../includes/";
 if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' );};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php'); }
+else { header('Location: ../login.php?to=admin/list/firewall.php'); }
 if($username != 'admin') { header("Location: ../../"); }
 
 if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
@@ -83,6 +83,38 @@ foreach ($plugins as $result) {
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <style>
+            @media screen and (min-width: 411px) {
+                .reslink { color:inherit !important; }
+            } 
+            @media screen and (max-width: 1199px) {
+                .resone { display:none !important;}
+            }  
+            @media screen and (max-width: 991px) {
+                .resone { display:none !important;}
+                .restwo { display:none !important;}
+            }    
+            @media screen and (max-width: 767px) {
+                .resone { display:none !important;}
+                .restwo { display:none !important;}
+                .resthree { display:none !important;}
+            } 
+            @media screen and (max-width: 540px) {
+                .resone { display:none !important;}
+                .restwo { display:none !important;}
+                .resthree { display:none !important;}
+                .resfour { display:none !important;}
+                
+            } 
+            @media screen and (max-width: 410px) {
+                .resone { display:none !important;}
+                .restwo { display:none !important;}
+                .resthree { display:none !important;}
+                .resfour { display:none !important;}
+                .resfive { display:none !important;}
+                .reslink { pointer-events: all !important; }
+            } 
+        </style>
     </head>
 
     <body class="fix-header">
@@ -155,8 +187,8 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box"> <ul class="side-icon-text pull-right">
-                                <li><a href="fail2ban.php"><span class="circle circle-sm bg-danger di"><i class="ti-list"></i></span><span><?php echo _("List Fail2Ban"); ?></span></a></li>
-                                <li><a href="../add/firewall.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Rule"); ?></span></a></li>
+                                <li><a href="fail2ban.php"><span class="circle circle-sm bg-danger di"><i class="ti-list"></i></span><wrapper class="resthree"><?php echo _("List "); ?></wrapper><?php echo _("Fail2Ban"); ?></a></li>
+                                <li class="resthree"><a href="../add/firewall.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Rule"); ?></span></a></li>
                                 </ul>
                                 <h3 class="box-title m-b-0"><?php echo _("Rules"); ?></h3><br>
 
@@ -165,11 +197,11 @@ foreach ($plugins as $result) {
                                         <tr>
                                             <th data-sortable="false"></th>
                                             <th> <?php echo _("Type"); ?> </th>
-                                            <th> <?php echo _("Protocol"); ?> </th>
-                                            <th> <?php echo _("Comment"); ?> </th>
+                                            <th class="resfour"> <?php echo _("Protocol"); ?> </th>
+                                            <th class="resone"> <?php echo _("Comment"); ?> </th>
                                             <th> <?php echo _("Port"); ?> </th>
-                                            <th> <?php echo _("IP Address"); ?> </th>
-                                            <th data-sortable="false"> <?php echo _("Action"); ?> </th>
+                                            <th class="restwo"> <?php echo _("IP Address"); ?> </th>
+                                            <th class="resfive" data-sortable="false"> <?php echo _("Action"); ?> </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -181,17 +213,17 @@ foreach ($plugins as $result) {
                                                 echo '<tr'; if($firedata[$x1]['SUSPENDED'] != 'no') { echo ' style="background: #efefef"'; } echo '>';
                                                     if($firedata[$x1]['SUSPENDED'] != 'no') { echo '<td><b>Suspended</b></td>'; }
                                                     else { echo '<td></td>'; }
-                                                    echo '<td>' . $firedata[$x1]['ACTION'] . '</td>
-                                                    <td>' . $firedata[$x1]['PROTOCOL'] . '</td>
-                                                    <td>' . $firedata[$x1]['COMMENT'] . '</td>
-                                                    <td>' . $firedata[$x1]['PORT'] . '</td>
-                                                    <td>' . $firedata[$x1]['IP'] . '</td><td>
-                                                        <button type="button" onclick="window.location=\'../edit/firewall.php?rule=' . $firename[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button>';
+                                                    echo '<td><a href="../edit/firewall.php?rule=' . $firename[$x1] . '" class="reslink" style="pointer-events:none">' . $firedata[$x1]['ACTION'] . '</a></td>
+                                                    <td class="resfour">' . $firedata[$x1]['PROTOCOL'] . '</td>
+                                                    <td class="resone">' . $firedata[$x1]['COMMENT'] . '</td>
+                                                    <td><a href="../edit/firewall.php?rule=' . $firename[$x1] . '" class="reslink" style="pointer-events:none">' . $firedata[$x1]['PORT'] . '</a></td>
+                                                    <td class="restwo">' . $firedata[$x1]['IP'] . '</td><td>
+                                                        <button type="button" onclick="window.location=\'../edit/firewall.php?rule=' . $firename[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="resfive btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button>';
 
-                                                        if ($firedata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $firename[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
-                                                        else { echo '<button type="button" onclick="confirmUnsuspend(\'' . $firename[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }
+                                                        if ($firedata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $firename[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="resthree btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
+                                                        else { echo '<button type="button" onclick="confirmUnsuspend(\'' . $firename[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class=" resthree btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }
 
-                                                        echo '<button onclick="confirmDelete(\'' . $firename[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
+                                                        echo '<button onclick="confirmDelete(\'' . $firename[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="resthree btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
                                                     </td>
                                                 </tr>';
                                                 $x1++;
@@ -224,7 +256,7 @@ foreach ($plugins as $result) {
         <script type="text/javascript">
             <?php 
             $pluginlocation = "../../plugins/"; if(isset($pluginnames[0]) && $pluginnames[0] != '') { $currentplugin = 0; do { if (strtolower($pluginhide[$currentplugin]) != 'y' && strtolower($pluginhide[$currentplugin]) != 'yes') { if (strtolower($pluginadminonly[$currentplugin]) != 'y' && strtolower($pluginadminonly[$currentplugin]) != 'yes') { if (strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; } else { $currentstring = "<li><a href='".$pluginlocation.$pluginlinks[$currentplugin]."/'><i class='fa ".$pluginicons[$currentplugin]." fa-fw'></i><span class='hide-menu'>"._($pluginnames[$currentplugin])."</span></a></li>"; }} else { if(strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";} } else { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; }}} echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');\n var plugindata" . $currentplugin . " = \"" . $currentstring . "\";\n plugincontainer" . $currentplugin . ".innerHTML += plugindata" . $currentplugin . ";\n"; } $currentplugin++; } while ($pluginnames[$currentplugin] != ''); } ?> 
-
+            
             (function () {
                 [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {
                     new CBPFWTabs(el);

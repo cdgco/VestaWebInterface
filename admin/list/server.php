@@ -6,7 +6,7 @@ $configlocation = "../../includes/";
 if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' );};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php'); }
+else { header('Location: ../login.php?to=admin/list/server.php'); }
 if($username != 'admin') { header("Location: ../../"); }
 
 if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
@@ -95,6 +95,34 @@ function secondsToTime($seconds) {
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <style>
+            @media screen and (max-width: 1199px) {
+                .resone { display:none !important;}
+            }  
+            @media screen and (max-width: 991px) {
+                .resone { display:none !important;}
+                .restwo { display:none !important;}
+            }    
+            @media screen and (max-width: 767px) {
+                .resone { display:none !important;}
+                .restwo { display:none !important;}
+                .resthree { display:none !important;}
+            } 
+            @media screen and (max-width: 540px) {
+                .resone { display:none !important;}
+                .restwo { display:none !important;}
+                .resthree { display:none !important;}
+                .resfour { display:none !important;}
+                
+            } 
+            @media screen and (max-width: 410px) {
+                .resone { display:none !important;}
+                .restwo { display:none !important;}
+                .resthree { display:none !important;}
+                .resfour { display:none !important;}
+                .resfive { display:none !important;}
+            } 
+        </style>
     </head>
 
     <body class="fix-header">
@@ -167,17 +195,17 @@ function secondsToTime($seconds) {
                         <div class="col-lg-12">
                             <div class="white-box">
                                 <ul class="side-icon-text pull-right">
-                                    <li><a href="../status/cpu.php"><span class="circle circle-sm bg-info di" style="padding-top: 11px;"><i class="ti-pulse"></i></span><span><?php echo _("Show Status"); ?></span></a></li>
+                                    <li><a href="../status/cpu.php"><span class="circle circle-sm bg-info di" style="padding-top: 11px;"><i class="ti-pulse"></i></span><span class="resfour"><wrapper class="resthree"><?php echo _("Show "); ?></wrapper><?php echo _("Status"); ?></span></a></li>
                                     <!-- <li><a href="#"><span class="circle circle-sm bg-info di" style="padding-top: 11px;"><i class="ti-settings"></i></span><span><?php echo _("Configure"); ?></span></a></li> -->
                                 </ul>
 
                                 <table class="table footable m-b-0" data-paging="false" data-sorting="true">
                                     <thead>
                                         <tr>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
+                                            <th data-sortable="false"></th>
+                                            <th data-sortable="false"></th>
+                                            <th class="resfour" data-sortable="false"></th>
+                                            <th class="restwo" data-sortable="false"></th>
                                             <!-- <th></th>  -->
                                         </tr>
                                     </thead>
@@ -185,8 +213,15 @@ function secondsToTime($seconds) {
                                         <tr>
                                             <td></td>
                                             <td><h1><b><?php print_r($sysdata[0]['HOSTNAME']); ?></b></h1><br><b><?php print_r($sysdata[0]['OS'] . ' ' . $sysdata[0]['VERSION']); ?></b> (<?php print_r($sysdata[0]['ARCH']); ?>)</td>
-                                            <td><h1>&nbsp;</h1><br>Load Average: <b><?php print_r($sysdata[0]['LOADAVERAGE']); ?></b></td>
-                                            <td><h1>&nbsp;</h1><br>Uptime: <b><?php print_r(secondsToTime($sysdata[0]['UPTIME'] * 60)); ?></b></td>
+                                            <td class="resfour"><h1>&nbsp;</h1><br>Load Average: <b><?php print_r($sysdata[0]['LOADAVERAGE']); ?></b></td>
+                                            <td class="restwo"><h1>&nbsp;</h1><br>Uptime: <b><?php 
+                                                if (strpos(secondsToTime($sysdata[0]['UPTIME'] * 60),'0 days') !== false) {
+                                                            echo str_replace('0 days, ', '', secondsToTime($sysdata[0]['UPTIME'] * 60));
+                                                    }
+                                                    else {
+                                                        echo secondsToTime($sysdata[0]['UPTIME'] * 60);
+                                                    }
+                                                ?></b></td>
                                             <!-- <td><h2>&nbsp;</h2>
                                                 <button type="button" data-toggle="tooltip" data-original-title="<?php echo _("Configure"); ?>" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-settings"></i></button>
                                                 <button type="button" data-toggle="tooltip" data-original-title="<?php echo _("Restart"); ?>" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button>
@@ -196,12 +231,12 @@ function secondsToTime($seconds) {
                                     <table class="table footable m-b-0" data-paging="false" data-sorting="true">
                                         <thead>
                                             <tr>
+                                                <th data-sortable="false"></th>
+                                                <th data-sortable="false"></th>
                                                 <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
+                                                <th class="resfour"></th>
+                                                <th class="resfour"></th>
+                                                <th class="restwo"></th>
                                                 <!-- <th></th> -->
                                             </tr>
                                         </thead>
@@ -215,9 +250,16 @@ function secondsToTime($seconds) {
                                                         echo '<td></td>
                                                         <td></td>
                                                         <td><h2>' . $servicename[$x1] . '</h2><br>' . $servicedata[$x1]['SYSTEM'] . '<br>&nbsp;</td>
-                                                        <td><h2>&nbsp;</h2><br>CPU: ' . $servicedata[$x1]['CPU'] . '</td>
-                                                        <td><h2>&nbsp;</h2><br>Memory: ' . $servicedata[$x1]['MEM'] . '</td>
-                                                        <td><h2>&nbsp;</h2><br>Uptime: ' . secondsToTime($servicedata[$x1]['RTIME'] * 60) . '</td>';
+                                                        <td class="resfour" data-sort-value="' . $servicedata[$x1]['CPU'] . '"><h2>&nbsp;</h2><br>CPU: ' . $servicedata[$x1]['CPU'] . '</td>
+                                                        <td class="resfour" data-sort-value="' . $servicedata[$x1]['MEM'] . '"><h2>&nbsp;</h2><br>Memory: ' . $servicedata[$x1]['MEM'] . '</td>
+                                                        <td class="restwo" data-sort-value="' . $servicedata[$x1]['RTIME'] . '"><h2>&nbsp;</h2><br>Uptime: ';
+                                                        if (strpos(secondsToTime($servicedata[$x1]['RTIME'] * 60),'0 days') !== false) {
+                                                                echo str_replace('0 days, ', '', secondsToTime($servicedata[$x1]['RTIME'] * 60));
+                                                        }
+                                                        else {
+                                                            echo secondsToTime($servicedata[$x1]['RTIME'] * 60);
+                                                        }
+                                                        echo '</td>';
                                                         /* <td><h4>&nbsp;</h4>
                                                         <button type="button" data-toggle="tooltip" data-original-title="' . _("Configure") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-settings"></i></button>';  
                                                         if ($servicedata[$x1]['STATE'] != 'running') { echo '<button type="button" data-toggle="tooltip" data-original-title="' . _("Start") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-control-play"></i></button>'; } else { echo '<button type="button" data-toggle="tooltip" data-original-title="' . _("Stop") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-control-stop"></i></button>'; }

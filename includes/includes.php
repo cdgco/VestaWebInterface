@@ -91,7 +91,8 @@ if($config["VESTA_PORT"] == ''){
 else{
     $vesta_port = $config["VESTA_PORT"];
 }
-
+$vst_url = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . ':' . $vesta_port . '/api/';
+$url8083 = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . ':' . $vesta_port;
 if ($config["VESTA_METHOD"] == "api"){
     DEFINE('VESTA_API_KEY', $config["VESTA_API_KEY"]);
     $vst_apikey = $config["VESTA_API_KEY"];
@@ -278,10 +279,6 @@ DEFINE('INTERAKT_API_KEY', $config["INTERAKT_API_KEY"]);
 DEFINE('CLOUDFLARE_API_KEY', $config["CLOUDFLARE_API_KEY"]);
 $cfapikey = $config["CLOUDFLARE_API_KEY"];
 DEFINE('CLOUDFLARE_EMAIL', $config["CLOUDFLARE_EMAIL"]);
-
-
-$vst_url = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . ':' . $vesta_port . '/api/';
-$url8083 = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . ':' . $vesta_port;
 
 ///////////////////
 // VWI Functions //

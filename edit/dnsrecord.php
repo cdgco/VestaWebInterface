@@ -7,7 +7,7 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/includes.ph
 
 // Check if cookie exists, decrypt, then redirect if not logged in
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php'); }
+else { header('Location: ../login.php?to=edit/dnsrecord.php'); }
 
 if(isset($dnsenabled) && $dnsenabled != 'true'){ header("Location: ../error-pages/403.html"); }
 
