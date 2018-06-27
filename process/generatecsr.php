@@ -203,7 +203,8 @@ foreach ($plugins as $result) {
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" type="submit">Process</button>
+                                            <button class="btn btn-success"  type="submit"><?php echo _("Process"); ?></button> &nbsp;
+                                            <a href="../edit/domain.php?domain=<?php echo $requestdomain; ?>"><button class="btn btn-muted" onclick="loadLoader();" type="button"><?php echo _("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </form>

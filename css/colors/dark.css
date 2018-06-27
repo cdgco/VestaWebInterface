@@ -15,10 +15,16 @@ Author : WrapPixel (http://www.wrappixel.com)
 }
 /*Just change your choise color here its theme Colors*/
 #page-wrapper {
-  background: #130010 !important;
+  background: #0c0c0c !important;
 }
 html {
-    background: #130010 !important;
+    background: #0c0c0c !important;
+}
+#wrapper {
+    background: #0c0c0c !important;
+}
+.new-login-box .white-box {
+    background: #0c0c0c !important;
 }
 /*Top Header Part*/
 .logo i {
@@ -189,7 +195,7 @@ ul.side-icon-text > li a {
 .form-control {
     background-color: #597480;
     border: 1px solid #597480;
-    color: #130010;
+    color: #000;
 }
 .manage-table {
     border-top: 1px solid rgba(120, 130, 140, 0.13);
@@ -230,7 +236,7 @@ ul.side-icon-text > li a {
 .color-button,
 .color-button.disabled {
     background: #597480;
-    color: #130010 !important;
+    color: #000 !important;
     border: 1px solid #597480;
 }
 .color-button:hover,

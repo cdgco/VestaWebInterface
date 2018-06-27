@@ -85,6 +85,18 @@ foreach ($plugins as $result) {
         <style>
             table {border-collapse: separate;
                 border-spacing: 10px;}
+            @media screen and (max-width: 1199px) {
+                .resone { display:none !important;}
+            }  
+            @media screen and (max-width: 767px) {
+                .resone { display:none !important;}
+                .restwo { display:none !important;}
+            }    
+            @media screen and (max-width: 540px) {
+                .resone { display:none !important;}
+                .restwo { display:none !important;}
+                .resthree { display:none !important;}
+            } 
         </style>
     </head>
 
@@ -176,8 +188,8 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div>
                             <div class="white-box">
-                                <h3 class="box-title m-b-0"><?php echo _("Memory"); ?></h3>
-                                <br><br><div class="l-center">
+                                <h3 class="box-title m-b-0 restwo"><?php echo _("Memory"); ?></h3>
+                                <br class="restwo"><br class="restwo"><div class="l-center">
                                 <pre style="color: #555"><?php print_r($data); ?> 
                             </pre></div>     
                             </div>

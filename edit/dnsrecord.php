@@ -99,6 +99,20 @@ foreach ($plugins as $result) {
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <style>
+            @media screen and (max-width: 1199px) {
+                .resone { display:none !important;}
+            }  
+            @media screen and (max-width: 991px) {
+                .resone { display:none !important;}
+                .restwo { display:none !important;}
+            }    
+            @media screen and (max-width: 540px) {
+                .resone { display:none !important;}
+                .restwo { display:none !important;}
+                .resthree { display:none !important;}
+            } 
+        </style>
     </head>
 
     <body class="fix-header">
@@ -174,7 +188,7 @@ foreach ($plugins as $result) {
                             </li>
                         </ul>
                     </div>
-                    <div class="row">
+                    <div class="row restwo">
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="panel"> 
                                 <div class="sk-chat-widgets">
@@ -189,7 +203,7 @@ foreach ($plugins as $result) {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="col-lg-4 col-md-6 col-sm-12 resone">
                             <div class="panel">
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">

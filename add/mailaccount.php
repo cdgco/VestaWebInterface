@@ -87,6 +87,20 @@ foreach ($plugins as $result) {
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <style>
+            @media screen and (max-width: 1199px) {
+                .resone { display:none !important;}
+            }  
+            @media screen and (max-width: 767px) {
+                .resone { display:none !important;}
+                .restwo { display:none !important;}
+            }    
+            @media screen and (max-width: 540px) {
+                .resone { display:none !important;}
+                .restwo { display:none !important;}
+                .resthree { display:none !important;}
+            } 
+        </style>
     </head>
 
     <body class="fix-header" onload="checkDiv();">
@@ -252,7 +266,7 @@ foreach ($plugins as $result) {
                                 </form>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-xs-12">
+                        <div class="col-lg-4 col-xs-12 restwo">
                             <div class="white-box">
                                 <div> 
                                     <center> <h3>

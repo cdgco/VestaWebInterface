@@ -122,28 +122,7 @@ foreach ($plugins as $result) {
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
         <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?>
         <style>
-            @font-face {
-                font-family: 'fontello';
-                src: url('../css/font/fontello.eot?3757582');
-                src: url('../css/font/fontello.eot?3757582#iefix') format('embedded-opentype'),
-                    url('../css/font/fontello.woff?3757582') format('woff'),
-                    url('../css/font/fontello.ttf?3757582') format('truetype'),
-                    url('../css/font/fontello.svg?3757582#fontello') format('svg');
-                font-weight: normal;
-                font-style: normal;
-            }
-
-
-            .icon-cloudflare
-            {
-                font-family: "fontello";
-                font-style: normal;
-                font-weight: normal;
-                speak: none;
-                font-size: 150%;
-                top: -6.2px;
-                position: relative;
-
+            .icon-cloudflare { top: -6.2px; }
         </style>
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>

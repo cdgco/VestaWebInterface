@@ -111,6 +111,20 @@ foreach ($plugins as $result) {
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <style>
+            @media screen and (max-width: 1199px) {
+                .resone { display:none !important;}
+            }  
+            @media screen and (max-width: 767px) {
+                .resone { display:none !important;}
+                .restwo { display:none !important;}
+            }    
+            @media screen and (max-width: 540px) {
+                .resone { display:none !important;}
+                .restwo { display:none !important;}
+                .resthree { display:none !important;}
+            } 
+        </style>
     </head>
 
     <body class="fix-header">
@@ -206,7 +220,7 @@ foreach ($plugins as $result) {
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                             <h4 class="page-title"><?php echo _("Host Dashboard"); ?></h4>
                         </div>
-                        <div class="col-lg-2 col-sm-8 col-md-8 col-xs-12 pull-right">
+                        <div class="col-lg-2 col-sm-8 col-md-8 col-xs-12 pull-right restwo">
                             <div style="margin-right:257px;" class="btn-group bootstrap-select input-group-btn">
                                 <form id="rebuildform" action="process/rebuild.php" method="post">
                                     <select class="selectpicker pull-right m-l-20" name="action" data-style="form-control">
@@ -328,7 +342,7 @@ foreach ($plugins as $result) {
                                                 <div class="col-sm-6">
                                                     <h3 class="m-t-0"><?php echo _("Manage Web Domains"); ?></h3>
                                                 </div>
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-6 resone">
                                                     <ul class="side-icon-text pull-right">
                                                         <li><a href="add/domain.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Domain"); ?></span></a></li>
                                                         <li><a href="list/web.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span><?php echo _("Manage"); ?></span></a></li>
@@ -340,10 +354,10 @@ foreach ($plugins as $result) {
                                                     <thead>
                                                         <tr>
                                                             <th data-toggle="true"><?php echo _("DOMAIN"); ?></th>
-                                                            <th data-type="numeric"><?php echo _("DISK"); ?></th>
-                                                            <th data-type="numeric"><?php echo _("BANDWIDTH"); ?></th>
-                                                            <th><?php echo _("SSL"); ?></th>
-                                                            <th><?php echo _("STATUS"); ?></th>
+                                                            <th class="resthree" data-type="numeric"><?php echo _("DISK"); ?></th>
+                                                            <th class="resthree" data-type="numeric"><?php echo _("BANDWIDTH"); ?></th>
+                                                            <th class="resone"><?php echo _("SSL"); ?></th>
+                                                            <th class="resone"><?php echo _("STATUS"); ?></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody><?php
@@ -353,14 +367,14 @@ foreach ($plugins as $result) {
                                                             do {
                                                                 echo '<tr class="advance-table-row clickable-row" data-href="edit/domain.php?domain='.$domainname[$x1].'">
                                                                         <td>' . $domainname[$x1] . '</td>
-                                                                        <td data-sort-value="' . $domaindata[$x1]['U_DISK'] . '">' . $domaindata[$x1]['U_DISK'] . ' mb</td>
-                                                                        <td data-sort-value="' . $domaindata[$x1]['U_BANDWIDTH'] . '">' . $domaindata[$x1]['U_BANDWIDTH'] . ' mb</td>
-                                                                        <td>';                                                                   
+                                                                        <td class="resthree" data-sort-value="' . $domaindata[$x1]['U_DISK'] . '">' . $domaindata[$x1]['U_DISK'] . ' mb</td>
+                                                                        <td class="resthree" data-sort-value="' . $domaindata[$x1]['U_BANDWIDTH'] . '">' . $domaindata[$x1]['U_BANDWIDTH'] . ' mb</td>
+                                                                        <td class="resone">';                                                                   
                                                                 if($domaindata[$x1]['SSL'] == "yes"){ 
                                                                     echo '<span class="label label-table label-success">' . _("Enabled") . '</span>';} 
                                                                 else{ 
                                                                     echo '<span class="label label-table label-danger">' . _("Disabled") . '</span>';} 
-                                                                echo '</td><td>';                                                                   
+                                                                echo '</td><td class="resone">';                                                                   
                                                                 if($domaindata[$x1]['SUSPENDED'] == "no"){ 
                                                                     echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
                                                                 else{ 
@@ -381,7 +395,7 @@ foreach ($plugins as $result) {
                                                 <div class="col-sm-6">
                                                     <h3 class="m-t-0"><?php echo _("Manage DNS Domains"); ?></h3>
                                                 </div>
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-6 resone">
                                                     <ul class="side-icon-text pull-right">
                                                         <li><a href="add/dns.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add DNS"); ?></span></a></li>
                                                         <li><a href="list/dns.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span><?php echo _("Manage"); ?></span></a></li>
@@ -393,8 +407,8 @@ foreach ($plugins as $result) {
                                                     <thead>
                                                         <tr>
                                                             <th data-toggle="true"><?php echo _("DOMAIN"); ?></th>
-                                                            <th data-type="numeric"><?php echo _("RECORDS"); ?></th>
-                                                            <th><?php echo _("STATUS"); ?></th>
+                                                            <th class="resthree" data-type="numeric"><?php echo _("RECORDS"); ?></th>
+                                                            <th class="resone"><?php echo _("STATUS"); ?></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody><?php
@@ -456,25 +470,25 @@ foreach ($plugins as $result) {
                                                                                 $cfcount = $cfdata2[1]['count'];
 
                                                                                 echo '<tr class="advance-table-row clickable-row" data-href="list/cfdomain.php?domain='.$dnsname[$x2].'">
-                                                                                        <td>' . $dnsname[$x2] . '</td><td data-sort-value="' . $cfcount . '">' . $cfcount . '</td>';
+                                                                                        <td>' . $dnsname[$x2] . '</td><td class="resthree" data-sort-value="' . $cfcount . '">' . $cfcount . '</td>';
                                                                                 $recordcount = $recordcount + $cfcount;
                                                                             }
                                                                             else { echo '<tr class="advance-table-row clickable-row" data-href="list/dnsdomain.php?domain='.$dnsname[$x2].'">
-                                                                                        <td>' . $dnsname[$x2] . '</td><td data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>'; 
+                                                                                        <td>' . $dnsname[$x2] . '</td><td class="resthree" data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>'; 
                                                                                   $recordcount = $recordcount + $dnsdata[$x2]['RECORDS'];}
                                                                         }
                                                                         else { echo '<tr class="advance-table-row clickable-row" data-href="list/dnsdomain.php?domain='.$dnsname[$x2].'">
-                                                                                        <td>' . $dnsname[$x2] . '</td><td data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>'; 
+                                                                                        <td>' . $dnsname[$x2] . '</td><td class="resthree" data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>'; 
                                                                               $recordcount = $recordcount + $dnsdata[$x2]['RECORDS'];}
                                                                     }
                                                                     else { echo '<tr class="advance-table-row clickable-row" data-href="list/dnsdomain.php?domain='.$dnsname[$x2].'">
-                                                                                        <td>' . $dnsname[$x2] . '</td><td data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>'; 
+                                                                                        <td>' . $dnsname[$x2] . '</td><td class="resthree" data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>'; 
                                                                           $recordcount = $recordcount + $dnsdata[$x2]['RECORDS'];}
                                                                 }
                                                                 else { echo '<tr class="advance-table-row clickable-row" data-href="list/dnsdomain.php?domain='.$dnsname[$x2].'">
-                                                                                        <td>' . $dnsname[$x2] . '</td><td data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>'; 
+                                                                                        <td>' . $dnsname[$x2] . '</td><td class="resthree" data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>'; 
                                                                       $recordcount = $recordcount + $dnsdata[$x2]['RECORDS']; }
-                                                                echo '<td>';                                                                   
+                                                                echo '<td class="resone">';                                                                   
                                                                 if($dnsdata[$x2]['SUSPENDED'] == "no"){ 
                                                                     echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
                                                                 else{ 
@@ -494,7 +508,7 @@ foreach ($plugins as $result) {
                                                 <div class="col-sm-6">
                                                     <h3 class="m-t-0"><?php echo _("Manage Mail Domains"); ?></h3>
                                                 </div>
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-6 resone">
                                                     <ul class="side-icon-text pull-right">
                                                         <li><a href="add/mail.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Mail"); ?></span></a></li>
                                                         <li><a href="list/mail.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span><?php echo _("Manage"); ?></span></a></li>
@@ -506,8 +520,8 @@ foreach ($plugins as $result) {
                                                     <thead>
                                                         <tr>
                                                             <th data-toggle="true"><?php echo _("DOMAIN"); ?></th>
-                                                            <th data-type="numeric"><?php echo _("ACCOUNTS"); ?></th>
-                                                            <th><?php echo _("STATUS"); ?></th>
+                                                            <th class="resthree" data-type="numeric"><?php echo _("ACCOUNTS"); ?></th>
+                                                            <th class="resone"><?php echo _("STATUS"); ?></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody><?php
@@ -517,8 +531,8 @@ foreach ($plugins as $result) {
                                                             do {
                                                                 echo '<tr class="advance-table-row clickable-row" data-href="list/maildomain.php?domain='.$mailname[$x3].'">
                                                                     <td>' . $mailname[$x3] . '</td>
-                                                                    <td data-sort-value="' . $maildata[$x3]['ACCOUNTS'] . '">' . $maildata[$x3]['ACCOUNTS'] . '</td>
-                                                                    <td>';                                                                   
+                                                                    <td class="resthree" data-sort-value="' . $maildata[$x3]['ACCOUNTS'] . '">' . $maildata[$x3]['ACCOUNTS'] . '</td>
+                                                                    <td class="resone">';                                                                   
                                                                     if($maildata[$x3]['SUSPENDED'] == "no"){ 
                                                                         echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
                                                                     else{ 
@@ -538,7 +552,7 @@ foreach ($plugins as $result) {
                                                 <div class="col-sm-6">
                                                     <h3 class="m-t-0"><?php echo _("Manage Databases"); ?></h3>
                                                 </div>
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-6 resone">
                                                     <ul class="side-icon-text pull-right">
                                                         <li><a href="add/db.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Database"); ?></span></a></li>
                                                         <li><a href="list/db.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span><?php echo _("Manage"); ?></span></a></li>
@@ -550,8 +564,8 @@ foreach ($plugins as $result) {
                                                     <thead>
                                                         <tr>
                                                             <th data-toggle="true"><?php echo _("DATABASE"); ?></th>
-                                                            <th><?php echo _("USER"); ?></th>
-                                                            <th><?php echo _("STATUS"); ?></th>
+                                                            <th class="resthree"><?php echo _("USER"); ?></th>
+                                                            <th class="resone"><?php echo _("STATUS"); ?></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody><?php
@@ -561,8 +575,8 @@ foreach ($plugins as $result) {
                                                             do {
                                                                 echo '<tr class="advance-table-row clickable-row" data-href="edit/db.php?db='.$dbdata[$x4]['DATABASE'].'">
                                                                     <td>' . $dbdata[$x4]['DATABASE'] . '</td>
-                                                                    <td>' . $dbdata[$x4]['DBUSER'] . '</td>
-                                                                    <td>';                                                                   
+                                                                    <td class="resthree">' . $dbdata[$x4]['DBUSER'] . '</td>
+                                                                    <td class="resone">';                                                                   
                                                                     if($dbdata[$x4]['SUSPENDED'] == "no"){ 
                                                                         echo '<span class="label label-table label-success">Active</span>';} 
                                                                     else{ 
@@ -713,7 +727,7 @@ foreach ($plugins as $result) {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-sm-12 col-xs-12">
+                            <div class="col-lg-6 col-sm-12 col-xs-12 restwo">
                                 <div class="news-slide m-b-30 dashboard-slide">
                                     <div class="vcarousel slide" style="margin:14px;">
                                         <div class="carousel-inner" style="height:415px;">
