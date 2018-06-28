@@ -217,7 +217,7 @@ foreach ($plugins as $result) {
                                                 echo '<tr>
                                                 <td class="resfour"><h2>' . $graphdata[$x1]['TITLE'] . '</h2></td>
                                                 <td><img class="graphs" src="' . $url8083 . '/list/rrd/vwi.php?/rrd/' . $graphdata[$x1]['TYPE'] . '/' . $period . '-' . $graphdata[$x1]['RRD'] . '.png"></td>
-                                                <td class="resone"><a href="' . $url8083 . '/list/rrd/vwi.php?/rrd/' . $graphdata[$x1]['TYPE'] . '/' . $period . '-' . $graphdata[$x1]['RRD'] . '.png" download="' . $period . '-' . $graphdata[$x1]['RRD'] . '.png"><button type="button" onclick="" data-toggle="tooltip" data-original-title="' . _("Download") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-download"></i></button></a></td>
+                                                <td class="resone"><a href="' . $url8083 . '/list/rrd/vwi.php?/rrd/' . $graphdata[$x1]['TYPE'] . '/' . $period . '-' . $graphdata[$x1]['RRD'] . '.png" download="' . $period . '-' . $graphdata[$x1]['RRD'] . '.png"><button type="button" data-toggle="tooltip" data-original-title="' . _("Download") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-download"></i></button></a></td>
                                                 </tr>';
                                                 $x1++;
                                             } while ($graphname[$x1] != ''); }

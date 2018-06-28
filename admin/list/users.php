@@ -299,12 +299,12 @@ foreach ($plugins as $result) {
                                                         </td>
                                                          <td class="resfive" style="padding-top:110px;line-height: 30px;">
                                                             <span class="resfour">
-                                                                <button type="button" onclick="window.location=\'../process/loginas.php?user=' . $uxname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Login as") . ' ' . $uxname[$x1] . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-key"></i></button>
+                                                                <a href="../process/loginas.php?user=' . $uxname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Login as") . ' ' . $uxname[$x1] . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-key"></i></button></a>
                                                             </span>
                                                             <span class="reseight" style="display:none">
                                                                 <p>&nbsp</p>
                                                             </span>
-                                                            <button type="button" onclick="window.location=\'../edit/user.php?user=' . $uxname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button>
+                                                            <a href="../edit/user.php?user=' . $uxname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button></a>
                                                             <span class="reseight" style="display:none">
                                                                 <p>&nbsp</p>
                                                             </span>

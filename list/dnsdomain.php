@@ -285,7 +285,7 @@ foreach ($plugins as $result) {
                                                             <td>' . $dnsdata[$x1]['TYPE'] . '</td>
                                                             <td>' . $dnsdata[$x1]['VALUE'] . '</td>
                                                             <td>
-                                                                <button type="button" onclick="window.location=\'../edit/dnsrecord.php?domain=' . $requestdns . '&record=' . $dnsname[$x1] . '\';" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button>
+                                                                <a href="../edit/dnsrecord.php?domain=' . $requestdns . '&record=' . $dnsname[$x1] . '"><button type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button></a>
                                                                 
                                                                 <button type="button" onclick="confirmDelete(\'' . $dnsname[$x1] . '\');" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="icon-trash" ></i></button>
                                                             </td><td>';                                                                   

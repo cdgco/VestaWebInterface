@@ -207,7 +207,7 @@ foreach ($plugins as $result) {
                                                     <td class="resfive"><br>Version: <b>' . $updatedata[$x1]['VERSION'] . '</b><wrapper class="restwo"> (' . $updatedata[$x1]['ARCH'] . ')</wrapper><br></td>
                                                     <td class="resthree"><br>Release: ' . $updatedata[$x1]['RELEASE'] . '<br></td><td><p style="line-height: 1.7;">&nbsp;</p>';
 
-                                                    if ($updatedata[$x1]['UPDATED'] != 'yes') { echo '<button type="button" onclick="window.location=\'../process/update.php?package=' . $updatename[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Update") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button>'; }
+                                                    if ($updatedata[$x1]['UPDATED'] != 'yes') { echo '<a href="../process/update.php?package=' . $updatename[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Update") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a>'; }
 
                                                     echo '</td>
                                                 </tr>';

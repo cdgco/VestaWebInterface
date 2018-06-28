@@ -252,7 +252,7 @@ foreach ($plugins as $result) {
                                                         <td class="resone" data-sort-value="' . $backupdata[$x1]['DATE'] . '">' . $backupdata[$x1]['DATE'] . '</td>
                                                         <td>
                                                             <button onclick="document.getElementById(\'formurl\').value = \'' . $url8083 . '/download/backup/vwi.php?backup=' . $backupname[$x1] . '\';getPassword();" type="button" data-toggle="tooltip" data-original-title="' . _("Download") .'" class="resthree btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-download"></i></button>
-                                                            <button onclick="window.location=\'../list/backup.php?backup=' . $backupname[$x1] . '\';" type="button" data-toggle="tooltip" data-original-title="' . _("Configure Restore") .'" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-cog"></i></button>
+                                                            <a href="../list/backup.php?backup=' . $backupname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Configure Restore") .'" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-cog"></i></button></a>
                                                             <span class="reseight" style="display:none">
                                                                 <p>&nbsp</p>
                                                             </span>
