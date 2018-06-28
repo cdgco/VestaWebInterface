@@ -321,7 +321,7 @@ if (CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != ''){
                 </div>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.4.0-Beta/plugins/components/jquery/dist/jquery.min.js"></script>
+        <script src="../plugins/components/jquery/dist/jquery.min.js"></script>
         <script>
             setTimeout( function(){ 
                 $('.loader').addClass("special"); 
@@ -338,4 +338,4 @@ if (CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != ''){
         </script>
     </body>
 </html>
-<?php header("Location: ../list/dns.php?delcf=0"); ?>
+<?php echo '<meta http-equiv="refresh" content="0; url=../list/dns.php?delcf=0">'; ?>

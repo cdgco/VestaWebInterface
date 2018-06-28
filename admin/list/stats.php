@@ -5,7 +5,7 @@ $configlocation = "../../includes/";
 if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' );};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../../login.php?to=admin/list/stats.php'); }
+else { header('Location: ../../login.php?to=admin/list/stats.php'.$urlquery.$_SERVER['QUERY_STRING']); }
 if($username != 'admin') { header("Location: ../../"); }
 
 if (isset($_GET['user']) && $_GET['user'] != '' && $username == 'admin') { $logusername = $_GET['user'];}
@@ -94,30 +94,17 @@ foreach ($plugins as $result) {
                 .resone { display:none !important;}
             }  
             @media screen and (max-width: 991px) {
-                .resone { display:none !important;}
                 .restwo { display:none !important;}
             }    
             @media screen and (max-width: 767px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
                 .resthree { display:none !important;}
             } 
             @media screen and (max-width: 540px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
-                .resthree { display:none !important;}
                 .resfour { display:none !important;}
                 .resfourshow { display:inline-block !important;}
-                
-                
             } 
             @media screen and (max-width: 410px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
-                .resthree { display:none !important;}
-                .resfour { display:none !important;}
                 .resfive { display:none !important;}
-                .resfourshow { display:inline-block !important;}
                 .resfiveshow { display:inline-block !important; width:65px !important;}
             } 
         </style>

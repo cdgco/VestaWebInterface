@@ -3,9 +3,8 @@
 session_start();
 $configlocation = "../includes/";
 if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
-
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php?to=list/backup.php'); }
+else { header('Location: ../login.php?to=list/backup.php' . $urlquery . $_SERVER['QUERY_STRING']); }
 
 if(isset($backupsenabled) && $backupsenabled != 'true'){ header("Location: ../error-pages/403.html"); }
 
@@ -89,31 +88,28 @@ foreach ($plugins as $result) {
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
         <style>
+            body{
+               min-width:410px; 
+               width: auto !important;
+               width:410px; 
+            }
             @media screen and (max-width: 1199px) {
                 .resone { display:none !important;}
             }  
             @media screen and (max-width: 991px) {
-                .resone { display:none !important;}
                 .restwo { display:none !important;}
             }    
             @media screen and (max-width: 767px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
                 .resthree { display:none !important;}
                 h2{ font-size: 4vw !important;}
             } 
             @media screen and (max-width: 540px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
-                .resthree { display:none !important;}
                 .resfour { display:none !important;}
+                .resfourshow { display:block !important;}
+                td { font-size: 12px; }
                 
             } 
             @media screen and (max-width: 410px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
-                .resthree { display:none !important;}
-                .resfour { display:none !important;}
                 .resfive { display:none !important;}
             } 
         </style>
@@ -211,19 +207,17 @@ foreach ($plugins as $result) {
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="white-box"> <ul class="side-icon-text pull-right resfour">
-                                <li><a href="../process/restore.php?backup=<?php echo $requestbackup; ?>"><span class="circle circle-sm bg-inverse di"><i class="ti-reload"></i></span><span><?php echo _("Restore All"); ?></span></a></li>
+                            <div class="white-box"> <ul class="side-icon-text pull-right">
+                                <li><a href="../process/restore.php?backup=<?php echo $requestbackup; ?>"><span class="circle circle-sm bg-inverse di"><i class="ti-reload"></i></span><span class="resfour"><?php echo _("Restore All"); ?></span></a></li>
                                 </ul>
                                 <h3 class="box-title m-b-0"><?php echo _("Backed Up Data"); ?></h3><br>
 
-                                <table class="table footable m-b-0" id="table" data-paging="false">
+                                <table class="table footable m-b-0" data-paging="false">
                                     <thead>
                                         <tr>
-                                            <th> <?php echo _("Type"); ?></th>
-                                            <th></th>
-                                            <th> <?php echo _("Data"); ?> </th>
-                                            <th></th>
-                                            <th> <?php echo _("Action"); ?> </th>
+                                            <th><?php echo _("Type"); ?></th>
+                                            <th><?php echo _("Data"); ?></th>
+                                            <th><?php echo _("Action"); ?></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -231,43 +225,43 @@ foreach ($plugins as $result) {
                                         $bkArray = explode(',', ($backupdata[0]['WEB'])); 
                                         if ($bkArray[0]){
                                             foreach($bkArray as $bkey) { 
-                                                echo '<tr><td>' . _("Web") . '<td/>';
-                                                echo '<td>' . $bkey . '<td/>'; 
+                                                echo '<tr><td>' . _("Web") . '</td>';
+                                                echo '<td>' . $bkey . '</td>'; 
                                                 echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=web&object=' . $bkey . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Restore") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
                                             }}
                                         $bkArray = explode(',', ($backupdata[0]['DNS'])); 
                                         if ($bkArray[0]){
                                             foreach($bkArray as $bkey) { 
-                                                echo '<tr><td>' . _("DNS") . '<td/>';
-                                                echo '<td>' . $bkey . '<td/>'; 
+                                                echo '<tr><td>' . _("DNS") . '</td>';
+                                                echo '<td>' . $bkey . '</td>'; 
                                                 echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=dns&object=' . $bkey . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Restore") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
                                             }}
                                         $bkArray = explode(',', ($backupdata[0]['MAIL'])); 
                                         if ($bkArray[0]){
                                             foreach($bkArray as $bkey) { 
-                                                echo '<tr><td>' . _("Mail") . '<td/>';
-                                                echo '<td>' . $bkey . '<td/>'; 
+                                                echo '<tr><td>' . _("Mail") . '</td>';
+                                                echo '<td>' . $bkey . '</td>'; 
                                                 echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=mail&object=' . $bkey . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Restore") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
                                             }}
                                         $bkArray = explode(',', ($backupdata[0]['DB'])); 
                                         if ($bkArray[0]){
                                             foreach($bkArray as $bkey) { 
-                                                echo '<tr><td>' . _("Database") . '<td/>';
-                                                echo '<td>' . $bkey . '<td/>'; 
+                                                echo '<tr><td>' . _("Database") . '</td>';
+                                                echo '<td>' . $bkey . '</td>'; 
                                                 echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=db&object=' . $bkey . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Restore") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
                                             }}
                                         $bkArray = explode(',', ($backupdata[0]['CRON'])); 
                                         if ($bkArray[0]){
                                             foreach($bkArray as $bkey) { 
-                                                echo '<tr><td>' . _("Cron Job") . '<td/>';
-                                                echo '<td>' . $bkey . '<td/>'; 
+                                                echo '<tr><td>' . _("Cron Job") . '</td>';
+                                                echo '<td>' . $bkey . '</td>'; 
                                                 echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=cron"><button type="button" data-toggle="tooltip" data-original-title="' . _("Restore") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
                                             }}
                                         $bkArray = explode(',', ($backupdata[0]['USER'])); 
                                         if ($bkArray[0]){
                                             foreach($bkArray as $bkey) { 
-                                                echo '<tr><td>' . _("User Dir") . '<td/>';
-                                                echo '<td>' . $bkey . '<td/>'; 
+                                                echo '<tr><td>' . _("User Dir") . '</td>';
+                                                echo '<td>' . $bkey . '</td>'; 
                                                 echo '<td><a href="../process/restore.php?backup=' . $backupname[0] . '&type=udir&object=' . $bkey . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Restore") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a></td></tr>';
                                             }}
                                         ?>

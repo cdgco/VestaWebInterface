@@ -89,14 +89,11 @@ foreach ($plugins as $result) {
                 .resone { display:none !important;}
             }  
             @media screen and (max-width: 767px) {
-                .resone { display:none !important;}
                 .restwo { display:none !important;}
             }    
             @media screen and (max-width: 540px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
                 .resthree { display:none !important;}
-            } 
+            }
         </style>
     </head>
 

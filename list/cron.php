@@ -6,7 +6,7 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/includes.ph
 require_once '../includes/cronparser.php';
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php?to=list/cron.php'); }
+else { header('Location: ../login.php?to=list/cron.php' . $urlquery . $_SERVER['QUERY_STRING']); }
 
 if(isset($cronenabled) && $cronenabled != 'true'){ header("Location: ../error-pages/403.html"); }
 
@@ -88,26 +88,21 @@ foreach ($plugins as $result) {
                 .resone { display:none !important;}
             }  
             @media screen and (max-width: 991px) {
-                .resone { display:none !important;}
                 .restwo { display:none !important;}
             }    
             @media screen and (max-width: 767px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
                 .resthree { display:none !important;}
+                .reseight { display:block !important; 
+                }
+                .reseight p {
+                    line-height: 5% !important;
+                }
             } 
             @media screen and (max-width: 540px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
-                .resthree { display:none !important;}
                 .resfour { display:none !important;}
-                
+                td { font-size: 12px; }
             } 
             @media screen and (max-width: 410px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
-                .resthree { display:none !important;}
-                .resfour { display:none !important;}
                 .resfive { display:none !important;}
             } 
         </style>
@@ -181,7 +176,7 @@ foreach ($plugins as $result) {
                             <h4 class="page-title"><?php echo _("Manage Cron Jobs"); ?></h4>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row restwo">
                         <div class="col-lg-6 col-md-6 col-sm-12">
                             <div class="panel">
                                 <div class="sk-chat-widgets">
@@ -215,17 +210,17 @@ foreach ($plugins as $result) {
                         <div class="col-lg-12">
                             <div class="white-box">
                                 <ul class="side-icon-text pull-right">
-                                    <li><a href="../add/cron.php"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="fa fa-calendar-check-o"></i></span><span><?php echo _("Add Cron Job"); ?></span></a></li>
-                                    <?php if($admindata['CRON_REPORTS'] == "yes"){ echo '<li><a href="#" onclick="notifyOff()"><span class="circle circle-sm bg-danger di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><span>' . _("Disable Cron Notifications") . '</span></a></li>';} if($admindata['CRON_REPORTS'] == "no"){ echo '<li><a href="#" onclick="notifyOn()"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><span>' . _("Enable Cron Notifications") . '</span></a></li>';} ?>
+                                    <li><a href="../add/cron.php"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="fa fa-plus"></i></span><span class="resthree"><wrapper class="restwo"><?php echo _("Add "); ?></wrapper><?php echo _("Cron Job"); ?></span></a></li>
+                                    <?php if($admindata['CRON_REPORTS'] == "yes"){ echo '<li class="resthree"><a href="#" onclick="notifyOff()"><span class="circle circle-sm bg-danger di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><span><wrapper class="restwo">' . _("Disable Cron ") . '</wrapper>' . _("Notifications") . '</span></a></li>';} if($admindata['CRON_REPORTS'] == "no"){ echo '<li class="resthree"><a href="#" onclick="notifyOn()"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><span><wrapper class="restwo">' . _("Enable Cron ") . '</wrapper>' . _("Enable Cron Notifications") . '</span></a></li>';} ?>
                                 </ul>
                                 <h3 class="box-title m-b-0"><?php echo _("Cron Jobs"); ?></h3><br>
                                 <table class="table footable m-b-0" data-sorting="true">
                                     <thead>
                                         <tr>
-                                            <th data-toggle="true" data-type="numeric"> <?php echo _("Job"); ?></th>
+                                            <th class="restwo" data-toggle="true" data-type="numeric"> <?php echo _("Job"); ?></th>
                                             <th> <?php echo _("Command"); ?> </th>
-                                            <th> <?php echo _("Status"); ?> </th>
-                                            <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo _("Created"); ?> </th>
+                                            <th class="resone"> <?php echo _("Status"); ?> </th>
+                                            <th class="resone" data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo _("Created"); ?> </th>
                                             <th data-sortable="false"> <?php echo _("Action"); ?> </th>
                                             <th data-breakpoints="all"> <?php echo _("Frequency"); ?> </th>
                                         </tr>
@@ -244,19 +239,21 @@ foreach ($plugins as $result) {
                                                 $crontime = $c1 .' '.$c2 .' '.$c3 .' '.$c4 .' '.$c5;
                                                 $schedule = CronSchedule::fromCronString($crontime);
                                                 echo '<tr'; if($crondata[$x1]['SUSPENDED'] != 'no') { echo ' style="background: #efefef"'; } echo '>
-                                                    <td data-sort-value="' . $cronname[$x1] . '">' . $cronname[$x1] . '</td>
+                                                    <td class="restwo" data-sort-value="' . $cronname[$x1] . '">' . $cronname[$x1] . '</td>
                                                     <td>' . $crondata[$x1]['CMD'] . '</td>
-                                                    <td>';                                                                   
+                                                    <td class="resone">';                                                                   
                                                 if($crondata[$x1]['SUSPENDED'] == "no"){ 
                                                     echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
                                                 else{ 
                                                     echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
                                                 echo '</td>
-                                                      <td data-sort-value="' . $crondata[$x1]['DATE'] . '">' . $crondata[$x1]['DATE'] . '</td><td>
+                                                      <td class="resone" data-sort-value="' . $crondata[$x1]['DATE'] . '">' . $crondata[$x1]['DATE'] . '</td><td>
                                                           <button onclick="window.location=\'../edit/cron.php?job=' . $cronname[$x1] . '\';" type="button" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-cog"></i></button>';
-                                                          if ($initialusername == "admin" && $crondata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $cronname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
+                                                          if ($initialusername == "admin" && $crondata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $cronname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="restwo btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
                                                           elseif ($initialusername == "admin" && $crondata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="confirmUnsuspend(\'' . $cronname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }   
-                                                          echo '<button onclick="confirmDelete(\'' . $cronname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
+                                                          echo '<span class="reseight" style="display:none">
+                                                                <p>&nbsp</p>
+                                                            </span><button onclick="confirmDelete(\'' . $cronname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
                                                       </td>
                                                       <td>'; echo $schedule->asNaturalLanguage() . ' ( ' . $crontime . ' )</td>                        
                                                     </tr>';

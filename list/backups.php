@@ -5,7 +5,7 @@ $configlocation = "../includes/";
 if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php?to=list/backups.php'); }
+else { header('Location: ../login.php?to=list/backups.php' . $urlquery . $_SERVER['QUERY_STRING']); }
 
 if(isset($backupsenabled) && $backupsenabled != 'true'){ header("Location: ../error-pages/403.html"); }
 
@@ -87,27 +87,23 @@ foreach ($plugins as $result) {
                 .resone { display:none !important;}
             }  
             @media screen and (max-width: 991px) {
-                .resone { display:none !important;}
                 .restwo { display:none !important;}
             }    
             @media screen and (max-width: 767px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
                 .resthree { display:none !important;}
             } 
             @media screen and (max-width: 540px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
-                .resthree { display:none !important;}
                 .resfour { display:none !important;}
-                
+                .reseight { display:block !important; 
+                }
+                .reseight p {
+                    line-height: 5% !important;
+                }
+                td { font-size: 11px; }
             } 
             @media screen and (max-width: 410px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
-                .resthree { display:none !important;}
-                .resfour { display:none !important;}
                 .resfive { display:none !important;}
+                td { font-size: 10px; }
             } 
         </style>
     </head>
@@ -126,7 +122,7 @@ foreach ($plugins as $result) {
                         title: '<?php echo _("Confirm Password"); ?>',
                         html:
                         '<input type="hidden" form="download" name="user" value="<?php echo $username; ?>"/>' +
-                        '<br><div class="form-group"><input form="download" type="password" class="form-control" name="password" id="pwinput" placeholder="<?php echo _("Password"); ?>"></div><button type="submit" class="btn btn-primary"><?php echo _("Submit"); ?></button>',
+                        '<br><div class="form-group"><input form="download" type="password" class="form-control" name="password" id="pwinput" placeholder="<?php echo _("Password"); ?>"></div><button type="submit" form="download" class="btn btn-primary"><?php echo _("Submit"); ?></button>',
                         showCloseButton: true,
                         showCancelButton: false,
                         showConfirmButton: false
@@ -220,8 +216,8 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box"> <ul class="side-icon-text pull-right">
-                                <li><a href="../add/backup.php?verified=yes"><span class="circle circle-sm bg-inverse di"><i class="fa fa-calendar-check-o"></i></span><span><?php echo _("Schedule Backup"); ?></span></a></li>
-                                <li><a href="../edit/backupexclusions.php"><span class="circle circle-sm bg-inverse di"><i class="fa fa-ban"></i></span><span><?php echo _("Backup Exclusions"); ?></span></a></li>
+                                <li><a href="../add/backup.php?verified=yes"><span class="circle circle-sm bg-inverse di"><i class="fa fa-calendar-check-o"></i></span><span class="resthree"><wrapper class="restwo"><?php echo _("Schedule "); ?></wrapper><?php echo _("Backup"); ?></span></a></li>
+                                <li class="resfive"><a href="../edit/backupexclusions.php"><span class="circle circle-sm bg-inverse di"><i class="fa fa-ban"></i></span><span class="resthree"><wrapper class="restwo"><?php echo _("Backup "); ?></wrapper><?php echo _("Exclusions"); ?></span></a></li>
                                 </ul>
                                 <h3 class="box-title m-b-0"><?php echo _("Backups"); ?></h3><br>
 
@@ -229,10 +225,10 @@ foreach ($plugins as $result) {
                                     <thead>
                                         <tr>
                                             <th data-toggle="true"> <?php echo _("Backup Name"); ?></th>
-                                            <th> Type </th>
-                                            <th data-type="numeric"> <?php echo _("Size"); ?> </th>
-                                            <th data-type="numeric"> <?php echo _("Runtime"); ?> </th>
-                                            <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo _("Created"); ?> </th>
+                                            <th class="restwo"> Type </th>
+                                            <th class="resthree" data-type="numeric"> <?php echo _("Size"); ?> </th>
+                                            <th class="restwo" data-type="numeric"> <?php echo _("Runtime"); ?> </th>
+                                            <th class="resone" data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo _("Created"); ?> </th>
                                             <th data-sortable="false"> <?php echo _("Action"); ?> </th>
                                             <th data-breakpoints="all"> <?php echo _("Web"); ?> </th>
                                             <th data-breakpoints="all"> <?php echo _("DNS"); ?> </th>
@@ -250,13 +246,16 @@ foreach ($plugins as $result) {
                                             do {
                                                 echo '<tr>
                                                         <td>' . $backupname[$x1] . '</td>
-                                                        <td>' . $backupdata[$x1]['TYPE'] . '</td>
-                                                        <td data-sort-value="' . $backupdata[$x1]['SIZE'] . '">' . $backupdata[$x1]['SIZE'] . ' mb</td>
-                                                        <td data-sort-value="' . $backupdata[$x1]['RUNTIME'] . '">' . $backupdata[$x1]['RUNTIME'] . ' min</td>
-                                                        <td data-sort-value="' . $backupdata[$x1]['DATE'] . '">' . $backupdata[$x1]['DATE'] . '</td>
+                                                        <td class="restwo">' . $backupdata[$x1]['TYPE'] . '</td>
+                                                        <td class="resthree" data-sort-value="' . $backupdata[$x1]['SIZE'] . '">' . $backupdata[$x1]['SIZE'] . ' mb</td>
+                                                        <td class="restwo" data-sort-value="' . $backupdata[$x1]['RUNTIME'] . '">' . $backupdata[$x1]['RUNTIME'] . ' min</td>
+                                                        <td class="resone" data-sort-value="' . $backupdata[$x1]['DATE'] . '">' . $backupdata[$x1]['DATE'] . '</td>
                                                         <td>
-                                                            <button onclick="document.getElementById(\'formurl\').value = \'' . $url8083 . '/login/backup.php?backup=' . $backupname[$x1] . '\';getPassword();" type="button" data-toggle="tooltip" data-original-title="' . _("Download") .'" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-download"></i></button>
+                                                            <button onclick="document.getElementById(\'formurl\').value = \'' . $url8083 . '/download/backup/vwi.php?backup=' . $backupname[$x1] . '\';getPassword();" type="button" data-toggle="tooltip" data-original-title="' . _("Download") .'" class="resthree btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-download"></i></button>
                                                             <button onclick="window.location=\'../list/backup.php?backup=' . $backupname[$x1] . '\';" type="button" data-toggle="tooltip" data-original-title="' . _("Configure Restore") .'" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-cog"></i></button>
+                                                            <span class="reseight" style="display:none">
+                                                                <p>&nbsp</p>
+                                                            </span>
                                                             <button onclick="confirmDelete(\'' . $backupname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") .'" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
                                                         </td>
                                                         <td>'; if(implode(', ', explode(",", $backupdata[$x1]['WEB'])) == "") { echo _("Not Backed Up");} else{ print_r(implode(', ', explode(",", $backupdata[$x1]['WEB']))); } echo '<br><br></td>

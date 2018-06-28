@@ -7,7 +7,7 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/includes.ph
 
 // Check if cookie exists, decrypt, then redirect if not logged in
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php?to=edit/dnsrecord.php'); }
+else { header('Location: ../login.php?to=edit/dnsrecord.php'.$urlquery.$_SERVER['QUERY_STRING']); }
 
 if(isset($dnsenabled) && $dnsenabled != 'true'){ header("Location: ../error-pages/403.html"); }
 
@@ -104,12 +104,9 @@ foreach ($plugins as $result) {
                 .resone { display:none !important;}
             }  
             @media screen and (max-width: 991px) {
-                .resone { display:none !important;}
                 .restwo { display:none !important;}
             }    
             @media screen and (max-width: 540px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
                 .resthree { display:none !important;}
             } 
         </style>

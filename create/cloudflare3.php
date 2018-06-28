@@ -160,4 +160,4 @@ curl_exec($curl4);
         <script src="../plugins/components/jquery/dist/jquery.min.js"></script>
     </body>
 </html>
-<?php header("Location: ../list/dns.php"); ?>
+<?php echo '<meta http-equiv="refresh" content="0; url=../list/dns.php?cf=0">'; ?>

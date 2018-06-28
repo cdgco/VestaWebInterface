@@ -5,7 +5,7 @@ $configlocation = "../../includes/";
 if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' );};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../../login.php?to=admin/list/graphs.php'); }
+else { header('Location: ../../login.php?to=admin/list/graphs.php'.$urlquery.$_SERVER['QUERY_STRING']); }
 if($username != 'admin') { header("Location: ../../"); }
 
 if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
@@ -92,32 +92,21 @@ foreach ($plugins as $result) {
                 .graphs { width: 600px; }
             }  
             @media screen and (max-width: 991px) {
-                .resone { display:none !important;}
                 .restwo { display:none !important;}
                 .graphs { width: 500px; }
                 h2 { font-size: 20px !important;}
             }    
             @media screen and (max-width: 767px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
                 .resthree { display:none !important;}
                 .graphs { width: 400px; }
-                h2 { font-size: 16px !important;}
             } 
             @media screen and (max-width: 540px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
-                .resthree { display:none !important;}
                 .resfour { display:none !important;}
                 .graphs { width: 300px; }
                 h2 { font-size: 14px !important; line-height: 100% !important;}
                 
             } 
             @media screen and (max-width: 410px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
-                .resthree { display:none !important;}
-                .resfour { display:none !important;}
                 .resfive { display:none !important;}
                 .graphs { width: 200px; }
                 h2 { font-size: 12px !important; line-height: 100% !important;}

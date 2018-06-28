@@ -5,7 +5,7 @@ $configlocation = "../includes/";
 if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php?to=list/dnsdomain.php'); }
+else { header('Location: ../login.php?to=list/dnsdomain.php' . $urlquery . $_SERVER['QUERY_STRING']); }
 
 if(isset($dnsenabled) && $dnsenabled != 'true'){ header("Location: ../error-pages/403.html"); }
 
@@ -357,7 +357,7 @@ foreach ($plugins as $result) {
                     }
                     else { 
                         document.getElementById("cloudflare1").style.display = "block";
-                        document.getElementById("cloudflare").style.display = "none"; }
+                        document.getElementById("cloudflare").style.display = "none";
                     }
                     subDomain();'; } ?>
                 function confirmDelete(e){
