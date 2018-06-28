@@ -111,9 +111,7 @@ foreach ($plugins as $result) {
                 .restwo { display:none !important;}
                 .resthree { display:none !important;}
                 .resfour { display:block !important;}
-                .resfive { display:block !important;
-                    padding-left: 0px;
-                    padding-right: 0px;}
+                .resfive { display:block !important; }
                 .ressix { display:none !important; }
                 .reseight { display:block !important; 
                 }
@@ -126,14 +124,15 @@ foreach ($plugins as $result) {
                 .restwo { display:none !important;}
                 .resthree { display:none !important;}
                 .resfour { display:block !important;}
-                .resfive { display:block !important;
-                    padding-left: 0px;
-                    padding-right: 0px;}
+                .resfive { display:block !important; }
                 .ressix { display:none !important; }
                 .reseight { display:block !important; 
                 }
                 .reseight p {
                     line-height: 5% !important;
+                }
+                .pagination > li > a, .pagination > li > span {
+                    padding: 3px 9px !important;
                 }
             }
             @media screen and (max-width: 450px) {
@@ -142,45 +141,26 @@ foreach ($plugins as $result) {
                 .resthree { display:none !important;}
                 .resfour { display:block !important;}
                 .resfive { display:block !important;
-                    padding-left: 0px;
-                    padding-right: 0px;}
+                    position: relative !important;
+                    right: 10px !important;
+                }
                 .ressix { display:none !important; }
                 .reseight { display:block !important; 
                 }
                 .reseight p {
                     line-height: 5% !important;
                 }
+                .resseven {
+                    font-size: 12px !important;
+                    position: relative !important;
+                    right: 10px !important;
+                }
+                .pagination > li > a, .pagination > li > span {
+                    padding: 3px 9px !important;
+                }
             }       
 
         </style>
-        <!-- <style>
-            @media screen and (max-width: 1199px) {
-                .resone { display:none !important;}
-            }  
-            @media screen and (max-width: 991px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
-            }    
-            @media screen and (max-width: 767px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
-                .resthree { display:none !important;}
-            } 
-            @media screen and (max-width: 540px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
-                .resthree { display:none !important;}
-                .resfour { display:none !important;}
-                
-            } 
-            @media screen and (max-width: 410px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
-                .resthree { display:none !important;}
-                .resfour { display:none !important;}
-                .resfive { display:none !important;}
-            } 
-        </style> -->
     </head>
 
     <body class="fix-header">
@@ -253,7 +233,7 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box"> <ul class="side-icon-text pull-right">
-                                <li><a href="../add/user.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add User"); ?></span></a></li>
+                                <li><a href="../add/user.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span class="ressix"><?php echo _("Add User"); ?></span></a></li>
                                 </ul>
                                 <h3 class="box-title m-b-0"><?php echo _("Users"); ?></h3><br>
 
@@ -285,7 +265,7 @@ foreach ($plugins as $result) {
                                                 echo '<tr'; if($uxdata[$x1]['SUSPENDED'] != 'no') { echo ' style="background: #efefef"'; } echo '>
                                                     <td class="resone" style="padding-top: 32px;" data-sort-value="' . strtotime($uxdata[$x1]['DATE'] . ' ' . $uxdata[$x1]['TIME']) . '">' . $uxdata[$x1]['DATE'];  
                                                     if($uxdata[$x1]['SUSPENDED'] != 'no') { echo '<br><br><b>Suspended</b>'; } echo '</td>
-                                                    <td>
+                                                    <td class="resseven">
                                                         <h2>' . $uxname[$x1] . '</h2>
                                                         <h5>' . $uxdata[$x1]['FNAME'] . ' ' . $uxdata[$x1]['LNAME'] . '</h5><br>
                                                         <div class="tworow" style="line-height: 30px;">
@@ -316,7 +296,7 @@ foreach ($plugins as $result) {
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td>
+                                                    <td class="resthree">
                                                         <div class="resthree tworow" style="padding-top:110px; line-height: 30px;">
                                                               <div class="column">Web Domains:<br>DNS Domains:<br>Mail Domains:<br>Databases:<br>Cron Jobs:<br>Backups:</div>
                                                               <div class="column">' . $uxdata[$x1]['U_WEB_DOMAINS'] . ' / ';
@@ -334,7 +314,7 @@ foreach ($plugins as $result) {
                                                                 echo '</div>
                                                             </div>
                                                       </td>
-                                                      <td>
+                                                      <td class="restwo">
                                                             <div class="restwo tworow" style="padding-top:110px;line-height: 30px;">
                                                                   <div class="column">Email:<br>Package:<br>SSH Access:<br>IP Addresses:<br>Name Servers:</div>
                                                                   <div class="column">' . $uxdata[$x1]['CONTACT'] . '<br>' . $uxdata[$x1]['PACKAGE'] . '<br>' . $uxdata[$x1]['SHELL'] . '<br>' . $uxdata[$x1]['IP_OWNED'] . '<br>

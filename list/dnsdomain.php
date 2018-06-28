@@ -263,7 +263,7 @@ foreach ($plugins as $result) {
                                 </ul>
                                 <h3 class="box-title m-b-0"><?php echo _("DNS Records"); ?></h3><br>
                                 <div class="table-responsive">
-                                    <table class="table footable m-b-0" data-paging-size="10" data-paging="true" data-sorting="true">
+                                    <table class="table footable m-b-0" data-sorting="true">
                                         <thead>
                                             <tr>
                                                 <th data-toggle="true"> <?php echo _("Record"); ?> </th>

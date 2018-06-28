@@ -107,6 +107,8 @@ foreach ($plugins as $result) {
                 .restwo { display:none !important;}
                 .resthree { display:none !important;}
                 .resfour { display:none !important;}
+                .resfourshow { display:inline-block !important;}
+                
                 
             } 
             @media screen and (max-width: 410px) {
@@ -115,6 +117,8 @@ foreach ($plugins as $result) {
                 .resthree { display:none !important;}
                 .resfour { display:none !important;}
                 .resfive { display:none !important;}
+                .resfourshow { display:inline-block !important;}
+                .resfiveshow { display:inline-block !important; width:65px !important;}
             } 
         </style>
     </head>
@@ -213,16 +217,16 @@ foreach ($plugins as $result) {
                                     <thead>
                                         <tr>
                                             <th data-type="date" data-format-string="MMMM YYYY" data-sorted="true" data-direction="DESC"> <?php echo _("Date"); ?> </th>
-                                            <th data-sortable="false"> <?php echo _("Bandwidth"); ?> </th>
-                                            <th data-sortable="false"> <?php echo _("Disk"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("Disk"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("Web"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("DNS"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("Mail"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("Databases"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("Cron Jobs"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("IP Addresses"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("Backups"); ?> </th>
+                                            <th class="resfour" data-sortable="false"> <?php echo _("Bandwidth"); ?> </th>
+                                            <th class="resfive" data-sortable="false"> <?php echo _("Disk"); ?> </th>
+                                            <th data-breakpoints="all"><?php echo _("Disk"); ?></th>
+                                            <th data-breakpoints="all"><?php echo _("Web"); ?> <span class="resfiveshow" style="display:none;"><?php echo _("Domains"); ?></span></th>
+                                            <th data-breakpoints="all"><?php echo _("DNS"); ?> <span class="resfiveshow" style="display:none;"><?php echo _("Domains"); ?></span></th>
+                                            <th data-breakpoints="all"><?php echo _("Mail"); ?> <span class="resfiveshow" style="display:none;"><?php echo _("Domains"); ?></span></th>
+                                            <th data-breakpoints="all"><?php echo _("Databases"); ?></th>
+                                            <th data-breakpoints="all"><?php echo _("Cron Jobs"); ?></th>
+                                            <th data-breakpoints="all"><?php echo _("IP Addresses"); ?></th>
+                                            <th data-breakpoints="all"><?php echo _("Backups"); ?></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -233,12 +237,12 @@ foreach ($plugins as $result) {
                                             do {
                                                 echo '<tr>
                                                     <td data-sort-value="' . date("F Y", strtotime($statsname[$x1])) . '">' . date("F Y", strtotime($statsname[$x1])) . '</td>
-                                                    <td>' . $statsdata[$x1]['U_BANDWIDTH'] . ' mb</td>
-                                                    <td>' . $statsdata[$x1]['U_DISK'] . ' mb</td>
-                                                    <td><br><b>Web:</b> ' . $statsdata[$x1]['U_DISK_WEB'] . ' mb<br><b>Mail:</b> ' . $statsdata[$x1]['U_DISK_MAIL'] . ' mb<br><b>Databases:</b> ' . $statsdata[$x1]['U_DISK_DB'] . ' mb<br><b>User Directories:</b> ' . $statsdata[$x1]['U_DISK_DIRS'] . ' mb</td>
-                                                    <td><br><b>Domains:</b> ' . $statsdata[$x1]['U_WEB_DOMAINS'] . '<br><b>SSL Domains:</b> ' . $statsdata[$x1]['U_WEB_SSL'] . '<br><b>Aliases:</b> ' . $statsdata[$x1]['U_WEB_ALIASES'] . '</td>
-                                                    <td><br><b>Domains:</b> ' . $statsdata[$x1]['U_DNS_DOMAINS'] . '<br><b>Records:</b> ' . $statsdata[$x1]['U_DNS_RECORDS'] . '</td>
-                                                    <td><br><b>Domains:</b> ' . $statsdata[$x1]['U_MAIL_DOMAINS'] . '<br><b>Accounts:</b> ' . $statsdata[$x1]['U_MAIL_ACCOUNTS'] . '</td>
+                                                    <td class="resfour">' . $statsdata[$x1]['U_BANDWIDTH'] . ' mb</td>
+                                                    <td class="resfive">' . $statsdata[$x1]['U_DISK'] . ' mb</td>
+                                                    <td><wrapper class="resfive"><br><b>Web:</b> ' . $statsdata[$x1]['U_DISK_WEB'] . ' mb<br><b>Mail:</b> ' . $statsdata[$x1]['U_DISK_MAIL'] . ' mb<br><b class="resfour">Databases:</b><b class="resfourshow" style="display:none">DB:</b> ' . $statsdata[$x1]['U_DISK_DB'] . ' mb<br><b class="resfour">User Directories:</b><b class="resfourshow" style="display:none">User:</b> ' . $statsdata[$x1]['U_DISK_DIRS'] . ' mb</wrapper><wrapper style="display:none" class="resfiveshow">' . $statsdata[$x1]['U_DISK'] . ' mb</wrapper></td>
+                                                    <td><wrapper class="resfive"><br><b>Domains:</b> ' . $statsdata[$x1]['U_WEB_DOMAINS'] . '<br><b>SSL<b class="resfour"> Domains</b>:</b> ' . $statsdata[$x1]['U_WEB_SSL'] . '<br><b>Aliases:</b> ' . $statsdata[$x1]['U_WEB_ALIASES'] . '</wrapper><wrapper style="display:none" class="resfiveshow">' . $statsdata[$x1]['U_WEB_DOMAINS'] . '</wrapper></td>
+                                                    <td><wrapper class="resfive"><br><b>Domains:</b> ' . $statsdata[$x1]['U_DNS_DOMAINS'] . '<br><b>Records:</b> ' . $statsdata[$x1]['U_DNS_RECORDS'] . '</wrapper><wrapper style="display:none" class="resfiveshow">' . $statsdata[$x1]['U_DNS_DOMAINS'] . '</wrapper></td>
+                                                    <td><wrapper class="resfive"><br><b>Domains:</b> ' . $statsdata[$x1]['U_MAIL_DOMAINS'] . '<br><b>Accounts:</b> ' . $statsdata[$x1]['U_MAIL_ACCOUNTS'] . '</wrapper><wrapper style="display:none" class="resfiveshow">' . $statsdata[$x1]['U_MAIL_DOMAINS'] . '</wrapper></td>
                                                     <td>' . $statsdata[$x1]['U_DATABASES'] . '</td>
                                                     <td>' . $statsdata[$x1]['U_CRON_JOBS'] . '</td>
                                                     <td>' . $statsdata[$x1]['IP_OWNED'] . '</td>

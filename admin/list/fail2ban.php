@@ -95,6 +95,7 @@ foreach ($plugins as $result) {
                 .resone { display:none !important;}
                 .restwo { display:none !important;}
                 .resthree { display:none !important;}
+                
             } 
         </style>
     </head>

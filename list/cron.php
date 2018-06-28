@@ -219,7 +219,7 @@ foreach ($plugins as $result) {
                                     <?php if($admindata['CRON_REPORTS'] == "yes"){ echo '<li><a href="#" onclick="notifyOff()"><span class="circle circle-sm bg-danger di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><span>' . _("Disable Cron Notifications") . '</span></a></li>';} if($admindata['CRON_REPORTS'] == "no"){ echo '<li><a href="#" onclick="notifyOn()"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><span>' . _("Enable Cron Notifications") . '</span></a></li>';} ?>
                                 </ul>
                                 <h3 class="box-title m-b-0"><?php echo _("Cron Jobs"); ?></h3><br>
-                                <table class="table footable m-b-0" data-paging-size="10" data-paging="true" data-sorting="true">
+                                <table class="table footable m-b-0" data-sorting="true">
                                     <thead>
                                         <tr>
                                             <th data-toggle="true" data-type="numeric"> <?php echo _("Job"); ?></th>

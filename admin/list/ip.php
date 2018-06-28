@@ -187,7 +187,7 @@ foreach ($plugins as $result) {
                                 </ul>
                                 <h3 class="box-title m-b-0"><?php echo _("IPs"); ?></h3><br>
 
-                                <table class="table footable m-b-0" data-paging-size="10" data-paging="true" data-sorting="true">
+                                <table class="table footable m-b-0" data-paging-size="10" data-paging="false" data-sorting="true">
                                     <thead>
                                         <tr>
                                             <th data-sortable="false"> <?php echo _("Address"); ?> </th>

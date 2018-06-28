@@ -192,17 +192,17 @@ foreach ($plugins as $result) {
                             <div class="white-box"> <ul class="side-icon-text pull-right">
                                 <?php if(isset($updatetest) || $updatetest != ''){ echo '<li><a href="../procss/updateall.php"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="ti-reload"></i></span><span>' . _("Update All") . '</span></a></li>';} 
 
-                                if($autoupdatename[0] == "Enabled"){ echo '<li><a href="../delete/autoupdate.php"><span class="circle circle-sm bg-danger di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><span>' . _("Disable Autoupdate") . '</span></a></li>';} if($autoupdatename[0] != "Enabled"){ echo '<li><a href="../create/autoupdate.php"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><span>' . _("Enable Autoupdate") . '</span></a></li>';} ?>
+                                if($autoupdatename[0] == "Enabled"){ echo '<li><a href="../delete/autoupdate.php"><span class="circle circle-sm bg-danger di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><wrapper class="resfour">' . _("Disable ") . '</wrapper><span>' . _("Autoupdate") . '</span></a></li>';} if($autoupdatename[0] != "Enabled"){ echo '<li><a href="../create/autoupdate.php"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><wrapper class="resfour">' . _("Enable ") . '</wrapper><span>' . _("Autoupdate") . '</span></a></li>';} ?>
                                 </ul>
 
                                 <table class="table footable m-b-0" data-paging="false" data-sorting="true">
                                     <thead>
                                         <tr>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
+                                            <th data-sortable="false" class="resthree"></th>
+                                            <th data-sortable="false"></th>
+                                            <th data-sortable="false" class="resfive"></th>
+                                            <th data-sortable="false" class="resthree"></th>
+                                            <th data-sortable="false"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -211,12 +211,12 @@ foreach ($plugins as $result) {
                                             $x1 = 0; 
 
                                             do {
-                                                echo '<tr'; if($updatedata[$x1]['UPDATED'] != 'yes') { echo ' style="background: rgba(251, 255, 0, 0.27)"'; } echo '>';
-                                                    if($updatedata[$x1]['UPDATED'] != 'yes') { echo '<td><b>out of date</b></td>'; }
+                                                echo '<tr'; if($updatedata[$x1]['UPDATED'] != 'yes') { echo ' style="background: rgba(255, 192, 188, 0.8)"'; } echo '>';
+                                                    if($updatedata[$x1]['UPDATED'] != 'yes') { echo '<td class="resthree"><b>OUTDATED</b></td>'; }
                                                     else { echo '<td><br>updated</td>'; }
                                                     echo '<td><h2>' . $updatename[$x1] . '</h2><br>' . $updatedata[$x1]['DESCR'] . '<br></td>
-                                                    <td><br>Version: <b>' . $updatedata[$x1]['VERSION'] . '</b> (' . $updatedata[$x1]['ARCH'] . ')<br></td>
-                                                    <td><br>Release: ' . $updatedata[$x1]['RELEASE'] . '<br></td><td>';
+                                                    <td class="resfive"><br>Version: <b>' . $updatedata[$x1]['VERSION'] . '</b><wrapper class="restwo"> (' . $updatedata[$x1]['ARCH'] . ')</wrapper><br></td>
+                                                    <td class="resthree"><br>Release: ' . $updatedata[$x1]['RELEASE'] . '<br></td><td><p style="line-height: 1.7;">&nbsp;</p>';
 
                                                     if ($updatedata[$x1]['UPDATED'] != 'yes') { echo '<button type="button" onclick="window.location=\'../process/update.php?package=' . $updatename[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Update") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button>'; }
 

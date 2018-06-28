@@ -165,7 +165,7 @@ foreach ($plugins as $result) {
                         <div class="col-lg-12">
                             <div class="white-box">
 
-                                <table class="table footable m-b-0" data-paging-size="10" data-paging="true" data-sorting="true">
+                                <table class="table footable m-b-0" data-sorting="true">
                                     <thead>
                                         <tr>
                                             <th> <?php echo _("Name"); ?> </th>

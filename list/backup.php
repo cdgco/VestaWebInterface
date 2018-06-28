@@ -100,6 +100,7 @@ foreach ($plugins as $result) {
                 .resone { display:none !important;}
                 .restwo { display:none !important;}
                 .resthree { display:none !important;}
+                h2{ font-size: 4vw !important;}
             } 
             @media screen and (max-width: 540px) {
                 .resone { display:none !important;}
@@ -184,7 +185,7 @@ foreach ($plugins as $result) {
 
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                             <h4 class="page-title"><?php echo _("Configure Backup Restore"); ?></h4> </div>
-                        <ul class="side-icon-text pull-right">
+                        <ul class="side-icon-text pull-right resfour">
                             <li style="position: relative;top: -3px;">
                                 <a onclick="confirmDelete();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span><?php echo _("Delete Backup"); ?></span>
                                 </a>
@@ -210,12 +211,12 @@ foreach ($plugins as $result) {
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="white-box"> <ul class="side-icon-text pull-right">
+                            <div class="white-box"> <ul class="side-icon-text pull-right resfour">
                                 <li><a href="../process/restore.php?backup=<?php echo $requestbackup; ?>"><span class="circle circle-sm bg-inverse di"><i class="ti-reload"></i></span><span><?php echo _("Restore All"); ?></span></a></li>
                                 </ul>
                                 <h3 class="box-title m-b-0"><?php echo _("Backed Up Data"); ?></h3><br>
 
-                                <table class="table footable m-b-0" data-paging-size="10" data-paging="true">
+                                <table class="table footable m-b-0" id="table" data-paging="false">
                                     <thead>
                                         <tr>
                                             <th> <?php echo _("Type"); ?></th>
@@ -304,7 +305,6 @@ foreach ($plugins as $result) {
                     new CBPFWTabs(el);
                 });
             })();
-
             jQuery(function($){
                 $('.footable').footable();
             });
