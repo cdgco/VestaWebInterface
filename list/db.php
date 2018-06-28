@@ -236,7 +236,7 @@ foreach ($plugins as $result) {
                                                 echo '<tr'; if($dbdata[$x1]['SUSPENDED'] != 'no') { echo ' style="background: #efefef"'; } echo '>
                                                         <td>' . $dbname[$x1] . '</td>
                                                         <td class="resfour">' . $dbdata[$x1]['DBUSER'] . '</td>
-                                                        <td class="resthree" data-sort-value="' . $dbdata[$x1]['U_DISK'] . '">' . $dbdata[$x1]['U_DISK'] . ' mb</td>
+                                                        <td class="resthree" data-sort-value="' . $dbdata[$x1]['U_DISK'] . '">' . formatMB($dbdata[$x1]['U_DISK']) . '</td>
                                                         <td class="restwo">';                                                                   
                                                 if($dbdata[$x1]['SUSPENDED'] == "no"){ 
                                                     echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 

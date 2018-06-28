@@ -260,8 +260,8 @@ foreach ($plugins as $result) {
                                             do {
                                                 echo '<tr'; if($domaindata[$x1]['SUSPENDED'] != 'no') { echo ' style="background: #efefef"'; } echo '>
                                                         <td>' . $domainname[$x1] . '</td>
-                                                        <td data-sort-value="' . $domaindata[$x1]['U_DISK'] . '">' . $domaindata[$x1]['U_DISK'] . ' mb</td>
-                                                        <td data-sort-value="' . $domaindata[$x1]['U_BANDWIDTH'] . '">' . $domaindata[$x1]['U_BANDWIDTH'] . ' mb</td><td>';                                                                   
+                                                        <td data-sort-value="' . $domaindata[$x1]['U_DISK'] . '">' . formatMB($domaindata[$x1]['U_DISK']) . '</td>
+                                                        <td data-sort-value="' . $domaindata[$x1]['U_BANDWIDTH'] . '">' . formatMB($domaindata[$x1]['U_BANDWIDTH']) . '</td><td>';                                                                   
                                                         if($domaindata[$x1]['SUSPENDED'] == "no"){ 
                                                             echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
                                                         else{ 

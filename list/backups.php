@@ -247,7 +247,7 @@ foreach ($plugins as $result) {
                                                 echo '<tr>
                                                         <td>' . $backupname[$x1] . '</td>
                                                         <td class="restwo">' . $backupdata[$x1]['TYPE'] . '</td>
-                                                        <td class="resthree" data-sort-value="' . $backupdata[$x1]['SIZE'] . '">' . $backupdata[$x1]['SIZE'] . ' mb</td>
+                                                        <td class="resthree" data-sort-value="' . $backupdata[$x1]['SIZE'] . '">' . formatMB($backupdata[$x1]['SIZE']) . '</td>
                                                         <td class="restwo" data-sort-value="' . $backupdata[$x1]['RUNTIME'] . '">' . $backupdata[$x1]['RUNTIME'] . ' min</td>
                                                         <td class="resone" data-sort-value="' . $backupdata[$x1]['DATE'] . '">' . $backupdata[$x1]['DATE'] . '</td>
                                                         <td>

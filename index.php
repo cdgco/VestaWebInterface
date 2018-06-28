@@ -124,6 +124,11 @@ foreach ($plugins as $result) {
                     padding: 3px 9px !important;
                 }
             } 
+            .two-part li i {
+                font-size: 36px;
+                position: relative;
+                top: 5px;
+            }
         </style>
     </head>
 
@@ -250,11 +255,11 @@ foreach ($plugins as $result) {
                                                 <span class="circle circle-md bg-danger"><i class="fa fa-cloud"></i></span>
                                             <li class="col-last">
                                                 <h3 style="font-size:36px;" class="counter text-right m-t-15">
-                                                    <?php if(empty($admindata['U_BANDWIDTH'])){echo "0";} else{ if($admindata['U_BANDWIDTH'] < 1024) { echo $admindata['U_BANDWIDTH']; } else { echo round($admindata['U_BANDWIDTH'] / 1024, 2) ; }} ?>
+                                                    <?php echo formatMBNumOnly($admindata['U_BANDWIDTH']); ?>
                                                 </h3>
                                                 <center>
                                                     <h6>
-                                                        <?php if(empty($admindata['U_BANDWIDTH'])){echo "mb";} else{ if($admindata['U_BANDWIDTH'] < 1024) { echo 'mb'; } else { echo 'gb'; }} ?>
+                                                        <?php echo formatMBUnitOnly($admindata['U_BANDWIDTH']); ?>
                                                     </h6>
                                                 </center>
                                             </li>
@@ -271,11 +276,11 @@ foreach ($plugins as $result) {
                                         </li>
                                         <li class="col-last">
                                             <h3 style="font-size:36px;" class="counter text-right m-t-15">
-                                                <?php if(empty($admindata['U_DISK'])){echo "0";} else{ if($admindata['U_DISK'] < 1024) { echo $admindata['U_DISK']; } else { echo round($admindata['U_DISK'] / 1024, 2) ; }} ?>
+                                                <?php echo formatMBNumOnly($admindata['U_DISK']); ?>
                                             </h3>
                                             <center>
                                                 <h6>
-                                                    <?php if(empty($admindata['U_DISK'])){echo "mb";} else{ if($admindata['U_DISK'] < 1024) { echo 'mb'; } else { echo 'gb'; }} ?>
+                                                    <?php echo formatMBUnitOnly($admindata['U_DISK']); ?>
                                                 </h6>
                                             </center>
                                         </li>
@@ -293,7 +298,7 @@ foreach ($plugins as $result) {
                                         <li class="col-last">
                                             <h3 style="font-size:36px;" class="text-right m-t-15">
                                                 <?php print_r($admindata['U_WEB_DOMAINS']); ?> /
-                                                <?php if($admindata['WEB_DOMAINS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['WEB_DOMAINS']); } ?>
+                                                <?php if($admindata['WEB_DOMAINS'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($admindata['WEB_DOMAINS']); } ?>
                                             </h3>
                                         </li><br><br>
                                         <li class="col-middle">
@@ -309,7 +314,7 @@ foreach ($plugins as $result) {
                                         <li class="col-last">
                                             <h3 style="font-size:36px;" class="text-right m-t-15">
                                                 <?php print_r($admindata['U_MAIL_ACCOUNTS']); ?> /
-                                                <?php if($admindata['MAIL_ACCOUNTS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['MAIL_ACCOUNTS'] * $admindata['MAIL_DOMAINS']); } ?>
+                                                <?php if($admindata['MAIL_ACCOUNTS'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($admindata['MAIL_ACCOUNTS'] * $admindata['MAIL_DOMAINS']); } ?>
                                             </h3>
                                         </li><br><br>
                                         <li class="col-middle">
@@ -367,8 +372,8 @@ foreach ($plugins as $result) {
                                                             do {
                                                                 echo '<tr class="advance-table-row clickable-row" data-href="edit/domain.php?domain='.$domainname[$x1].'">
                                                                         <td>' . $domainname[$x1] . '</td>
-                                                                        <td class="resthree" data-sort-value="' . $domaindata[$x1]['U_DISK'] . '">' . $domaindata[$x1]['U_DISK'] . ' mb</td>
-                                                                        <td class="resthree" data-sort-value="' . $domaindata[$x1]['U_BANDWIDTH'] . '">' . $domaindata[$x1]['U_BANDWIDTH'] . ' mb</td>
+                                                                        <td class="resthree" data-sort-value="' . $domaindata[$x1]['U_DISK'] . '">' . formatMB($domaindata[$x1]['U_DISK']) . '</td>
+                                                                        <td class="resthree" data-sort-value="' . $domaindata[$x1]['U_BANDWIDTH'] . '">' . formatMB($domaindata[$x1]['U_BANDWIDTH']) . '</td>
                                                                         <td class="resone">';                                                                   
                                                                 if($domaindata[$x1]['SSL'] == "yes"){ 
                                                                     echo '<span class="label label-table label-success">' . _("Enabled") . '</span>';} 
@@ -601,7 +606,7 @@ foreach ($plugins as $result) {
 
                                     <li>
                                         <h2>
-                                            <?php print_r($admindata['U_DISK']); ?> mb</h2> <small><?php echo _("Total Disk Space"); ?></small>
+                                            <?php echo formatMB($admindata['U_DISK']); ?></h2> <small><?php echo _("Total Disk Space"); ?></small>
                                         <div class="pull-right"><?php 
                                             if ($admindata['DISK_QUOTA'] != 0) {
                                                 $diskpercent = (($admindata['U_DISK'] / $admindata['DISK_QUOTA']) * 100);
@@ -619,8 +624,8 @@ foreach ($plugins as $result) {
                                             <?php  
                                                 if ($admindata['U_DISK'] != 0) { $diskpercent1 = (($admindata['U_DISK_WEB'] / $admindata['U_DISK']) * 100); } 
                                                 else { $diskpercent1 = '0'; } 
-                                                echo $admindata['U_DISK_WEB']; 
-                                            ?> mb</h2> <small><?php echo _("Web Data"); ?></small>
+                                                echo formatMB($admindata['U_DISK_WEB']); 
+                                            ?></h2> <small><?php echo _("Web Data"); ?></small>
                                         <div class="pull-right">
                                             <?php if($diskpercent1 == "INF"){ echo "0";}else{echo round($diskpercent1);} ?>%</div>
                                         <div class="progress">
@@ -631,8 +636,8 @@ foreach ($plugins as $result) {
                                         <h2><?php 
                                                 if ($admindata['U_DISK'] != '0') { $diskpercent2 = (($admindata['U_DISK_MAIL'] / $admindata['U_DISK']) * 100); } 
                                                 else { $diskpercent2 = '0'; } 
-                                                echo $admindata['U_DISK_MAIL']; 
-                                            ?> mb</h2> <small><?php echo _("Mail Data"); ?></small>
+                                                echo formatMB($admindata['U_DISK_MAIL']); 
+                                            ?></h2> <small><?php echo _("Mail Data"); ?></small>
                                         <div class="pull-right">
                                             <?php if($diskpercent2 == "INF"){ echo "0";}else{echo round($diskpercent2);} ?>%</div>
                                         <div class="progress">
@@ -644,8 +649,8 @@ foreach ($plugins as $result) {
                                             <?php 
                                                 if ($admindata['U_DISK'] != '0') { $diskpercent3 = (($admindata['U_DISK_DB'] / $admindata['U_DISK']) * 100); } 
                                                 else {  $diskpercent3 = '0'; } 
-                                                echo $admindata['U_DISK_DB']; 
-                                            ?> mb</h2> <small><?php echo _("Databases"); ?></small>
+                                                echo formatMB($admindata['U_DISK_DB']); 
+                                            ?></h2> <small><?php echo _("Databases"); ?></small>
                                         <div class="pull-right">
                                             <?php if($diskpercent3 == "INF"){ echo "0";}else{echo round($diskpercent3);} ?>%</div>
                                         <div class="progress">
@@ -657,8 +662,8 @@ foreach ($plugins as $result) {
                                             <?php 
                                                 if ($admindata['U_DISK'] != '0') { $diskpercent4 = (($admindata['U_DISK_DIRS'] / $admindata['U_DISK']) * 100); } 
                                                 else { $diskpercent4 = '0'; } 
-                                                echo $admindata['U_DISK_DIRS']; 
-                                            ?> mb</h2> <small><?php echo _("User Directories"); ?></small>
+                                                echo formatMB($admindata['U_DISK_DIRS']); 
+                                            ?></h2> <small><?php echo _("User Directories"); ?></small>
                                         <div class="pull-right">
                                             <?php if($diskpercent4 == "INF"){ echo "0";}else{echo round($diskpercent4);} ?>%</div>
                                         <div class="progress">
@@ -679,7 +684,7 @@ foreach ($plugins as $result) {
                                                 <li class="text-right">
                                                     <h1>
                                                         <?php echo $admindata['U_DNS_DOMAINS']; ?> /
-                                                        <?php if($admindata['DNS_DOMAINS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['DNS_DOMAINS']); } ?>
+                                                        <?php if($admindata['DNS_DOMAINS'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($admindata['DNS_DOMAINS']); } ?>
                                                     </h1>
                                                 </li><br><br>
                                             </ul>
@@ -705,7 +710,7 @@ foreach ($plugins as $result) {
                                                 <li class="text-right">
                                                     <h1>
                                                         <?php echo $admindata['U_MAIL_DOMAINS']; ?> /
-                                                        <?php if($admindata['MAIL_DOMAINS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['MAIL_DOMAINS']); } ?>
+                                                        <?php if($admindata['MAIL_DOMAINS'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($admindata['MAIL_DOMAINS']); } ?>
                                                     </h1>
                                                 </li><br><br>
                                             </ul>
@@ -719,7 +724,7 @@ foreach ($plugins as $result) {
                                                 <li class="text-right">
                                                     <h1>
                                                         <?php echo $admindata['U_BACKUPS']; ?> /
-                                                        <?php if($admindata['BACKUPS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['BACKUPS']); } ?>
+                                                        <?php if($admindata['BACKUPS'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($admindata['BACKUPS']); } ?>
                                                     </h1>
                                                 </li><br><br>
                                             </ul>
@@ -779,7 +784,7 @@ foreach ($plugins as $result) {
                                         <li class="text-right">
                                             <h1>
                                                 <?php echo $admindata['U_DATABASES']; ?> /
-                                                <?php if($admindata['DATABASES'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['DATABASES']); } ?>
+                                                <?php if($admindata['DATABASES'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($admindata['DATABASES']); } ?>
                                             </h1>
                                         </li>
                                     </ul>
@@ -793,7 +798,7 @@ foreach ($plugins as $result) {
                                         <li class="text-right">
                                             <h1>
                                                 <?php echo $admindata['U_CRON_JOBS']; ?> /
-                                                <?php if($admindata['CRON_JOBS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['CRON_JOBS']); } ?>
+                                                <?php if($admindata['CRON_JOBS'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($admindata['CRON_JOBS']); } ?>
                                             </h1>
                                         </li>
                                     </ul>
@@ -807,7 +812,7 @@ foreach ($plugins as $result) {
                                         <li class="text-right">
                                             <h1>
                                                 <?php echo $admindata['U_WEB_ALIASES']; ?> /
-                                                <?php if($admindata['WEB_ALIASES'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['WEB_ALIASES'] * $admindata['WEB_DOMAINS']); } ?>
+                                                <?php if($admindata['WEB_ALIASES'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($admindata['WEB_ALIASES'] * $admindata['WEB_DOMAINS']); } ?>
                                             </h1>
                                         </li>
                                     </ul>
@@ -841,7 +846,7 @@ foreach ($plugins as $result) {
             includeScript(); 
             ?>
             
-            document.getElementById("recordcount").innerHTML = "<?php if ($recordcount == "") { echo "0";} else { echo $recordcount; } ?>  / <?php if($admindata['DNS_RECORDS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['DNS_DOMAINS'] * $admindata['DNS_RECORDS']); } ?>";
+            document.getElementById("recordcount").innerHTML = "<?php if ($recordcount == "") { echo "0";} else { echo $recordcount; } ?>  / <?php if($admindata['DNS_RECORDS'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($admindata['DNS_DOMAINS'] * $admindata['DNS_RECORDS']); } ?>";
             (function() {
                 [].slice.call(document.querySelectorAll('.sttabs')).forEach(function(el) {
                     new CBPFWTabs(el);

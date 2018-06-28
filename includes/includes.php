@@ -417,6 +417,32 @@ function includeScript() {
         } 
     }
 }
+function formatMB($number, $precision = 2) { 
+    $units = array('B', 'KB', 'MB', 'GB', 'TB', 'PB'); 
+    $number = max($number, 0)*pow(1024,2);
+    $pow = floor(($number ? log($number) : 0) / log(1024)); 
+    $pow = min($pow, count($units) - 1); 
+    $number /= pow(1024, $pow);
 
+    return round($number, $precision) . ' ' . $units[$pow]; 
+} 
+function formatMBNumOnly($number, $precision = 2) { 
+    $units = array('B', 'KB', 'MB', 'GB', 'TB', 'PB'); 
+    $number = max($number, 0)*pow(1024,2);
+    $pow = floor(($number ? log($number) : 0) / log(1024)); 
+    $pow = min($pow, count($units) - 1); 
+    $number /= pow(1024, $pow);
+
+    return round($number, $precision); 
+} 
+function formatMBUnitOnly($number, $precision = 2) { 
+    $units = array('B', 'KB', 'MB', 'GB', 'TB', 'PB'); 
+    $number = max($number, 0)*pow(1024,2);
+    $pow = floor(($number ? log($number) : 0) / log(1024)); 
+    $pow = min($pow, count($units) - 1); 
+    $number /= pow(1024, $pow);
+
+    return $units[$pow];
+} 
 if(isset($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING'] != '') { $urlquery = '?'; } else { $urlquery = ''; }
 ?>

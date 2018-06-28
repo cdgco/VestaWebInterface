@@ -236,7 +236,7 @@ foreach ($plugins as $result) {
                                             do {
                                                 echo '<tr'; if($maildata[$x1]['SUSPENDED'] != 'no') { echo ' style="background: #efefef"'; } echo '>
                                                         <td>' . $mailname[$x1] . '@' . $requestmail . '</td>
-                                                        <td data-sort-value="' . $maildata[$x1]['U_DISK'] . '">' . $maildata[$x1]['U_DISK'] . ' mb</td>
+                                                        <td data-sort-value="' . $maildata[$x1]['U_DISK'] . '">' . formatMB($maildata[$x1]['U_DISK']) . '</td>
                                                         <td>';                                                                   
                                                         if($maildata[$x1]['SUSPENDED'] == "no"){ 
                                                             echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
@@ -251,7 +251,7 @@ foreach ($plugins as $result) {
 
                                                             echo '<button type="button" onclick="confirmDelete(\'' . $mailname[$x1] . '\')" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="icon-trash" ></i></button>
                                                         </td>
-                                                        <td>' . $maildata[$x1]['QUOTA'] . ' mb</td>
+                                                        <td>' . formatMB($maildata[$x1]['QUOTA']) . '</td>
                                                         <td>'; if(implode(', ', explode(",", $maildata[$x1]['ALIAS'])) == "") { echo _("None"); } else{ echo implode(', ', explode(",", $maildata[$x1]['ALIAS']));} echo '</td>
                                                         <td>'; if($maildata[$x1]['FWD'] == ""){ echo '<span class="label label-table label-danger">' . _("Disabled") . '</span>';} 
                                                         else {  echo implode(', ', explode(",", $maildata[$x1]['FWD']));} 
