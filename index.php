@@ -221,7 +221,7 @@ foreach ($plugins as $result) {
             </div>
             <div id="page-wrapper">
                 <div class="container-fluid">
-                    <div class="row bg-title" style="overflow: visible;">
+                    <div class="row bg-title" style="overflow-y: visible;">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                             <h4 class="page-title"><?php echo _("Host Dashboard"); ?></h4>
                         </div>
@@ -265,7 +265,7 @@ foreach ($plugins as $result) {
                                             </li>
                                         </li><br><br>
                                         <li class="col-middle">
-                                            <h4 style="width:200%"><?php echo _("Bandwidth"); ?></h4>
+                                            <h4><?php echo _("Bandwidth"); ?></h4>
                                         </li>
                                     </ul>
                                 </div>
@@ -286,7 +286,7 @@ foreach ($plugins as $result) {
                                         </li>
                                         <br><br>
                                         <li class="col-middle">
-                                            <h4 style="width:200%"><?php echo _("Disk Space"); ?></h4>
+                                            <h4><?php echo _("Disk Space"); ?></h4>
                                         </li>
                                     </ul>
                                 </div>
@@ -302,7 +302,7 @@ foreach ($plugins as $result) {
                                             </h3>
                                         </li><br><br>
                                         <li class="col-middle">
-                                            <h4 style="width:200%"><?php echo _("Web Domains"); ?></h4>
+                                            <h4><?php echo _("Web Domains"); ?></h4>
                                         </li>
                                     </ul>
                                 </div>
@@ -318,7 +318,7 @@ foreach ($plugins as $result) {
                                             </h3>
                                         </li><br><br>
                                         <li class="col-middle">
-                                            <h4 style="width:200%"><?php echo _("Email Addresses"); ?></h4>
+                                            <h4><?php echo _("Email Addresses"); ?></h4>
 
                                         </li>
 
