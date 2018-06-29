@@ -220,7 +220,7 @@ foreach ($plugins as $result) {
                                 <li class="resfive"><a href="../edit/backupexclusions.php"><span class="circle circle-sm bg-inverse di"><i class="fa fa-ban"></i></span><span class="resthree"><wrapper class="restwo"><?php echo _("Backup "); ?></wrapper><?php echo _("Exclusions"); ?></span></a></li>
                                 </ul>
                                 <h3 class="box-title m-b-0"><?php echo _("Backups"); ?></h3><br>
-
+                                <div class="table-responsive">
                                 <table class="table footable m-b-0" data-sorting="true">
                                     <thead>
                                         <tr>
@@ -270,11 +270,12 @@ foreach ($plugins as $result) {
                                         ?>
                                     </tbody>
                                 </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
         <?php if(isset($_POST['download']) && $_POST['download'] == "yes") { echo '

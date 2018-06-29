@@ -91,26 +91,26 @@ foreach ($plugins as $result) {
                 .resone { display:none !important;}
             }  
             @media screen and (max-width: 991px) {
-                .resone { display:none !important;}
                 .restwo { display:none !important;}
             }    
             @media screen and (max-width: 767px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
                 .resthree { display:none !important;}
+                h2 { font-size: 4vw; }
+                .bg-title ul.side-icon-text {
+                    position: relative;
+                    top: -20px;
+                }
+                h4.page-title {
+                    position: relative;
+                    top: 20px;
+                }
+                .reseight { display:block !important; }
+                .reseight p { line-height: 5% !important; }
             } 
             @media screen and (max-width: 540px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
-                .resthree { display:none !important;}
-                .resfour { display:none !important;}
-                
+                .resfour { display:none !important;}        
             } 
             @media screen and (max-width: 410px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
-                .resthree { display:none !important;}
-                .resfour { display:none !important;}
                 .resfive { display:none !important;}
             } 
         </style>
@@ -185,13 +185,13 @@ foreach ($plugins as $result) {
                         </div>
                         <ul class="side-icon-text pull-right">
                             <li style="position: relative;top: -3px;">
-                                <a onclick="confirmDelete2();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span><?php echo _("Delete Mail Domain"); ?></span>
+                                <a onclick="confirmDelete2();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span class="resthree"><wrapper class="restwo"><?php echo _("Delete Mail"); ?> </wrapper><?php echo _("Domain"); ?></span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div class="row">
-                        <div class="col-lg-12 col-md-6 col-sm-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="panel">
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">
@@ -210,17 +210,17 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box"> <ul class="side-icon-text pull-right">
-                                <li><a href="../add/mailaccount.php?domain=<?php echo $requestmail; ?>"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Account"); ?></span></a></li>
+                                <li><a href="../add/mailaccount.php?domain=<?php echo $requestmail; ?>"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span class="resthree"><wrapper class="restwo"><?php echo _("Add"); ?> </wrapper><?php echo _("Account"); ?></span></a></li>
                                 </ul>
-                                <h3 class="box-title m-b-0"><?php echo _("Mail Accounts"); ?></h3><br>
-
+                                <h3 class="box-title m-b-0"><wrapper class="restwo"><?php echo _("Mail"); ?> </wrapper><?php echo _("Accounts"); ?></h3><br>
+                                <div class="table-responsive">
                                 <table class="table footable m-b-0" data-sorting="true">
                                     <thead>
                                         <tr>
-                                            <th data-toggle="true"> <?php echo _("Email Address"); ?> </th>
-                                            <th data-type="numeric"> <?php echo _("Disk Usage"); ?> </th>
-                                            <th> <?php echo _("Status"); ?> </th>
-                                            <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo _("Created"); ?> </th>
+                                            <th data-toggle="true"><span class="resfive"><?php echo _("Email"); ?></span> <?php echo _("Address"); ?></th>
+                                            <th class="restwo" data-type="numeric"> <?php echo _("Disk Usage"); ?> </th>
+                                            <th class="resone"> <?php echo _("Status"); ?> </th>
+                                            <th class="resone" data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo _("Created"); ?> </th>
                                             <th data-sortable="false"> <?php echo _("Action"); ?> </th>
                                             <th data-breakpoints="all"> <?php echo _("Quota"); ?> </th>
                                             <th data-breakpoints="all"> <?php echo _("Aliases"); ?> </th>
@@ -236,20 +236,20 @@ foreach ($plugins as $result) {
                                             do {
                                                 echo '<tr'; if($maildata[$x1]['SUSPENDED'] != 'no') { echo ' style="background: #efefef"'; } echo '>
                                                         <td>' . $mailname[$x1] . '@' . $requestmail . '</td>
-                                                        <td data-sort-value="' . $maildata[$x1]['U_DISK'] . '">' . formatMB($maildata[$x1]['U_DISK']) . '</td>
-                                                        <td>';                                                                   
+                                                        <td class="restwo" data-sort-value="' . $maildata[$x1]['U_DISK'] . '">' . formatMB($maildata[$x1]['U_DISK']) . '</td>
+                                                        <td class="resone">';                                                                   
                                                         if($maildata[$x1]['SUSPENDED'] == "no"){ 
                                                             echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
                                                         else{ 
                                                             echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
                                                         echo '</td>
-                                                        <td data-sort-value="' . $maildata[$x1]['DATE'] . '">' . $maildata[$x1]['DATE'] . '</td><td>
+                                                        <td class="resone" data-sort-value="' . $maildata[$x1]['DATE'] . '">' . $maildata[$x1]['DATE'] . '</td><td>
                                                             <a href="../edit/mailaccount.php?domain=' . $requestmail . '&account=' . $mailname[$x1] . '"><button type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button></a>';
 
-                                                            if ($initialusername == "admin" && $maildata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $mailname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
-                                                            elseif ($initialusername == "admin" && $maildata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="confirmUnsuspend(\'' . $mailname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }   
+                                                            if ($initialusername == "admin" && $maildata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $mailname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="resthree btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
+                                                            elseif ($initialusername == "admin" && $maildata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="confirmUnsuspend(\'' . $mailname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="resthree btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }   
 
-                                                            echo '<button type="button" onclick="confirmDelete(\'' . $mailname[$x1] . '\')" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="icon-trash" ></i></button>
+                                                            echo '<span class="reseight" style="display:none"><p>&nbsp</p></span><button type="button" onclick="confirmDelete(\'' . $mailname[$x1] . '\')" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="icon-trash" ></i></button>
                                                         </td>
                                                         <td>' . formatMB($maildata[$x1]['QUOTA']) . '</td>
                                                         <td>'; if(implode(', ', explode(",", $maildata[$x1]['ALIAS'])) == "") { echo _("None"); } else{ echo implode(', ', explode(",", $maildata[$x1]['ALIAS']));} echo '</td>
@@ -267,11 +267,12 @@ foreach ($plugins as $result) {
                                         ?>
                                     </tbody>
                                 </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
         <script src="../plugins/components/jquery/dist/jquery.min.js"></script>

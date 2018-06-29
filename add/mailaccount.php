@@ -263,7 +263,7 @@ foreach ($plugins as $result) {
                                 </form>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-xs-12 restwo">
+                        <div class="col-lg-4 col-xs-12 resone">
                             <div class="white-box">
                                 <div> 
                                     <center> <h3>
@@ -515,7 +515,7 @@ foreach ($plugins as $result) {
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
         <script src="../plugins/components/jquery/dist/jquery.min.js"></script>

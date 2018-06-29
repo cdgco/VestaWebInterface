@@ -214,6 +214,7 @@ foreach ($plugins as $result) {
                                     <?php if($admindata['CRON_REPORTS'] == "yes"){ echo '<li class="resthree"><a href="#" onclick="notifyOff()"><span class="circle circle-sm bg-danger di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><span><wrapper class="restwo">' . _("Disable Cron ") . '</wrapper>' . _("Notifications") . '</span></a></li>';} if($admindata['CRON_REPORTS'] == "no"){ echo '<li class="resthree"><a href="#" onclick="notifyOn()"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><span><wrapper class="restwo">' . _("Enable Cron ") . '</wrapper>' . _("Enable Cron Notifications") . '</span></a></li>';} ?>
                                 </ul>
                                 <h3 class="box-title m-b-0"><?php echo _("Cron Jobs"); ?></h3><br>
+                                <div class="table-responsive">
                                 <table class="table footable m-b-0" data-sorting="true">
                                     <thead>
                                         <tr>
@@ -262,11 +263,12 @@ foreach ($plugins as $result) {
                                         ?>
                                     </tbody>
                                 </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
         <script src="../plugins/components/jquery/dist/jquery.min.js"></script>

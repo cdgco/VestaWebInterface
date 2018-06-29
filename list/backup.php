@@ -88,11 +88,6 @@ foreach ($plugins as $result) {
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
         <style>
-            body{
-               min-width:410px; 
-               width: auto !important;
-               width:410px; 
-            }
             @media screen and (max-width: 1199px) {
                 .resone { display:none !important;}
             }  
@@ -102,6 +97,14 @@ foreach ($plugins as $result) {
             @media screen and (max-width: 767px) {
                 .resthree { display:none !important;}
                 h2{ font-size: 4vw !important;}
+                .bg-title ul.side-icon-text {
+                    position: relative;
+                    top: -20px;
+                }
+                h4.page-title {
+                    position: relative;
+                    top: 20px;
+                }
             } 
             @media screen and (max-width: 540px) {
                 .resfour { display:none !important;}
@@ -180,10 +183,10 @@ foreach ($plugins as $result) {
                     <div class="row bg-title">
 
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title"><?php echo _("Configure Backup Restore"); ?></h4> </div>
-                        <ul class="side-icon-text pull-right resfour">
+                            <h4 class="page-title"><?php echo _("Configure Backup"); ?><wrapper class="restwo"> <?php echo _("Restore"); ?></wrapper></h4> </div>
+                        <ul class="side-icon-text pull-right">
                             <li style="position: relative;top: -3px;">
-                                <a onclick="confirmDelete();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span><?php echo _("Delete Backup"); ?></span>
+                                <a onclick="confirmDelete();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span class="resthree"><wrapper class="restwo"><?php echo _("Delete"); ?> </wrapper><?php echo _("Backup"); ?></span>
                                 </a>
                             </li>
                         </ul>
@@ -210,8 +213,8 @@ foreach ($plugins as $result) {
                             <div class="white-box"> <ul class="side-icon-text pull-right">
                                 <li><a href="../process/restore.php?backup=<?php echo $requestbackup; ?>"><span class="circle circle-sm bg-inverse di"><i class="ti-reload"></i></span><span class="resfour"><?php echo _("Restore All"); ?></span></a></li>
                                 </ul>
-                                <h3 class="box-title m-b-0"><?php echo _("Backed Up Data"); ?></h3><br>
-
+                                <h3 class="box-title m-b-0"><wrapper class="restwo"><?php echo _("Backed Up"); ?> </wrapper><?php echo _("Data"); ?></h3><br>
+                                <div class="table-responsive">
                                 <table class="table footable m-b-0" data-paging="false">
                                     <thead>
                                         <tr>
@@ -268,11 +271,12 @@ foreach ($plugins as $result) {
 
                                     </tbody>
                                 </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
         <script src="../plugins/components/jquery/dist/jquery.min.js"></script>

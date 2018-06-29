@@ -95,6 +95,17 @@ foreach ($plugins as $result) {
             @media screen and (max-width: 991px) {
                 .restwo { display:none !important;}
             }    
+            @media screen and (max-width: 767px) {
+                .resfour { display:none !important; }
+                .bg-title ul.side-icon-text {
+                    position: relative;
+                    top: -20px;
+                }
+                h4.page-title {
+                    position: relative;
+                    top: 20px;
+                }
+            }
             @media screen and (max-width: 540px) {
                 .resthree { display:none !important;}
             } 
@@ -114,7 +125,7 @@ foreach ($plugins as $result) {
                         <a class="logo" href="../index.php">
                             <img src="../plugins/images/<?php echo $cpicon; ?>" alt="home" class="logo-1 dark-logo" />
                             <img src="../plugins/images/<?php echo $cplogo; ?>" alt="home" class="hidden-xs dark-logo" />
-                        </a>c
+                        </a>
                     </div>
                     <ul class="nav navbar-top-links navbar-left">
                         <li><a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs"><i class="ti-close ti-menu"></i></a></li>      
@@ -169,7 +180,7 @@ foreach ($plugins as $result) {
                         </div>
                         <ul class="side-icon-text pull-right">
                             <li style="position: relative;top: -3px;">
-                                <a onclick="confirmDelete();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span><?php echo _("Delete Cron Job"); ?></span>
+                                <a onclick="confirmDelete();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span class="resfour"><wrapper class="restwo"><?php echo _("Delete"); ?> </wrapper><?php echo _("Cron Job"); ?></span>
                                 </a>
                             </li>
                         </ul>
@@ -269,7 +280,7 @@ foreach ($plugins as $result) {
                                     </div>
                                 </div>
                             </div> </form>
-                        <div class="col-lg-4 col-xs-12">
+                        <div class="col-lg-4 col-xs-12 resone">
                             <div class="white-box">
                                 <div> 
                                     <center>
@@ -631,7 +642,7 @@ foreach ($plugins as $result) {
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
         <script src="../plugins/components/jquery/dist/jquery.min.js"></script>

@@ -198,10 +198,10 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box"> <ul class="side-icon-text pull-right">
-                                <li><a href="../add/user.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span class="ressix"><?php echo _("Add User"); ?></span></a></li>
+                                <li><a href="../add/user.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span class="ressix"><wrapper class="resthree"><?php echo _("Add") ?> </wrapper><?php echo _("User"); ?></span></a></li>
                                 </ul>
                                 <h3 class="box-title m-b-0"><?php echo _("Users"); ?></h3><br>
-
+                                <div class="table-responsive">
                                 <table class="table footable m-b-0" data-paging="false" data-sorting="true">
                                     <thead>
                                         <tr>
@@ -324,11 +324,12 @@ foreach ($plugins as $result) {
                                         ?>
                                     </tbody>
                                 </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
         <script src="../../plugins/components/jquery/dist/jquery.min.js"></script>

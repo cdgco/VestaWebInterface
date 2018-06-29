@@ -84,14 +84,21 @@ foreach ($plugins as $result) {
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
         <style>
-            @media screen and (max-width: 991px) {
+           @media screen and (max-width: 1199px) {
                 .resone { display:none !important;}
             }  
-            @media screen and (max-width: 767px) {
+            @media screen and (max-width: 991px) {
                 .restwo { display:none !important;}
             }    
+            @media screen and (max-width: 767px) {
+                .resthree { display:none !important;}
+            } 
             @media screen and (max-width: 540px) {
-                .resthree { display:none !important;}  
+                .resfour { display:none !important;}
+            } 
+            @media screen and (max-width: 410px) {
+                .resfive { display:none !important;}
+                .reslink { pointer-events: all !important; }
             } 
         </style>
     </head>
@@ -165,11 +172,11 @@ foreach ($plugins as $result) {
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="white-box"> <ul class="side-icon-text pull-right resthree">
-                                <li><a href="../add/fail2ban.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Ban"); ?></span></a></li>
+                            <div class="white-box"> <ul class="side-icon-text pull-right">
+                                <li><a href="../add/fail2ban.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span class="resfour"><wrapper class="resthree"><?php echo _("Add") ?> </wrapper><?php echo _("Ban"); ?></span></a></li>
                                 </ul>
                                 <h3 class="box-title m-b-0"><?php echo _("Banned IPs"); ?></h3><br>
-
+                                <div class="table-responsive">
                                 <table class="table footable m-b-0" data-paging="false" data-sorting="true">
                                     <thead>
                                         <tr>
@@ -197,11 +204,12 @@ foreach ($plugins as $result) {
                                         ?>
                                     </tbody>
                                 </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
         <script src="../../plugins/components/jquery/dist/jquery.min.js"></script>

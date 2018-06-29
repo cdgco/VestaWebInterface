@@ -166,26 +166,24 @@ foreach ($plugins as $result) {
                 .resone { display:none !important;}
             }  
             @media screen and (max-width: 991px) {
-                .resone { display:none !important;}
                 .restwo { display:none !important;}
             }    
             @media screen and (max-width: 767px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
                 .resthree { display:none !important;}
+                h2 { font-size: 4vw; }
+                .bg-title ul.side-icon-text {
+                    position: relative;
+                    top: -20px;
+                }
+                h4.page-title {
+                    position: relative;
+                    top: 20px;
+                }
             } 
             @media screen and (max-width: 540px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
-                .resthree { display:none !important;}
                 .resfour { display:none !important;}
-                
             } 
             @media screen and (max-width: 410px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
-                .resthree { display:none !important;}
-                .resfour { display:none !important;}
                 .resfive { display:none !important;}
             } 
         </style>
@@ -255,21 +253,21 @@ foreach ($plugins as $result) {
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title"><?php echo _("Manage DNS Domain"); ?></h4>
+                            <h4 class="page-title"><?php echo _("Manage DNS"); ?><wrapper class="restwo"> <?php echo _("Domain"); ?></wrapper></h4>
                         </div>
                         <ul class="side-icon-text pull-right">
                             <li style="position: relative;top: -8px;">
-                                <a onclick="confirmDelete2();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span><?php echo _("Delete DNS Domain"); ?></span>
+                                <a onclick="confirmDelete2();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span class="resthree"><wrapper class="restwo"><?php echo _("Delete DNS"); ?> </wrapper><?php echo _("Domain"); ?></span>
                                 </a>
                             </li>
                             <li style="position: relative;top: -8px;">
-                                <a href="../delete/cloudflare.php?domain=<?php echo $requestdns; ?>"><span style="top: 8px;position: relative;"class="circle circle-sm bg-warning di"><i class="icon-cloudflare">&#xe801;</i></span><span><?php echo _("Disable Cloudflare"); ?></span>
+                                <a href="../delete/cloudflare.php?domain=<?php echo $requestdns; ?>"><span style="top: 8px;position: relative;"class="circle circle-sm bg-danger di"><i class="icon-cloudflare">&#xe800;</i></span><span class="resthree"><wrapper class="restwo"><?php echo _("Disable"); ?> </wrapper><?php echo _("Cloudflare"); ?></span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div class="row">
-                        <div class="col-lg-12 col-md-6 col-sm-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="panel">
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">
@@ -288,9 +286,9 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box"> <ul class="side-icon-text pull-right">
-                                <li><a href="../add/cfrecord.php?domain=<?php echo $requestdns; ?>"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Record"); ?></span></a></li>
+                                <li><a href="../add/cfrecord.php?domain=<?php echo $requestdns; ?>"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span class="resthree"><wrapper class="restwo"><?php echo _("Add"); ?> </wrapper><?php echo _("Record"); ?></span></a></li>
                                 </ul>
-                                <h3 class="box-title m-b-0"><?php echo _("DNS Records"); ?></h3><br>
+                                <h3 class="box-title m-b-0"><wrapper class="restwo"><?php echo _("DNS"); ?> </wrapper><?php echo _("Records"); ?></h3><br>
                                 <div class="table-responsive">
                                     <table class="table footable m-b-0" data-sorting="true">
                                         <thead>
@@ -334,7 +332,7 @@ foreach ($plugins as $result) {
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
         <script src="../plugins/components/jquery/dist/jquery.min.js"></script>

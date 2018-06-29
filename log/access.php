@@ -190,8 +190,8 @@ foreach ($plugins as $result) {
                         <div>
                             <div class="white-box">
                                 <ul class="side-icon-text pull-right resthree">
-                                    <li><a style="cursor: pointer;" onclick="document.getElementById('accessform').submit();"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="ti-download"></i></span><span><?php echo _("Download Accesslog"); ?></span></a></li>
-                                    <li><a style="cursor: pointer;" onclick="document.getElementById('errorform').submit();"><span class="circle circle-sm bg-danger di" style="padding-top: 11px;"><i class="ti-download"></i></span><span><?php echo _("Download Errorlog"); ?></span></a></li>
+                                    <li><a style="cursor: pointer;" onclick="document.getElementById('accessform').submit();"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="ti-download"></i></span><span><wrapper class="restwo"><?php echo _("Download"); ?> </wrapper><?php echo _("AccessLog"); ?></span></a></li>
+                                    <li><a style="cursor: pointer;" onclick="document.getElementById('errorform').submit();"><span class="circle circle-sm bg-danger di" style="padding-top: 11px;"><i class="ti-download"></i></span><span><wrapper class="restwo"><?php echo _("Download"); ?> </wrapper><?php echo _("ErrorLog"); ?></span></a></li>
                                 </ul>
                                 <br class="resthree"><br class="resthree"><br class="resthree"><div class="l-center">
                                 <pre style="color: #555"><?php print_r($accesslog); ?> 
@@ -200,7 +200,7 @@ foreach ($plugins as $result) {
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
         <script src="../plugins/components/jquery/dist/jquery.min.js"></script>

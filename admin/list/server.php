@@ -187,7 +187,7 @@ function secondsToTime($seconds) {
                                     <li><a href="../status/cpu.php"><span class="circle circle-sm bg-info di" style="padding-top: 11px;"><i class="ti-pulse"></i></span><span class="resfour"><wrapper class="resthree"><?php echo _("Show "); ?></wrapper><?php echo _("Status"); ?></span></a></li>
                                     <!-- <li><a href="#"><span class="circle circle-sm bg-info di" style="padding-top: 11px;"><i class="ti-settings"></i></span><span><?php echo _("Configure"); ?></span></a></li> -->
                                 </ul>
-
+                                <div class="table-responsive">
                                 <table class="table footable m-b-0" data-paging="false" data-sorting="true">
                                     <thead>
                                         <tr>
@@ -217,6 +217,9 @@ function secondsToTime($seconds) {
                                             </td> -->
                                         </tr>
                                     </tbody>
+                                    </table>
+                                </div>
+                                                                <div class="table-responsive">
                                     <table class="table footable m-b-0" data-paging="false" data-sorting="true">
                                         <thead>
                                             <tr>
@@ -260,10 +263,11 @@ function secondsToTime($seconds) {
 
                                         </tbody>
                                     </table>
+                                </div>
                                     </div>
                             </div>
                         </div>
-                        <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                        <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
                     </div>
                 </div>
                 <script src="../../plugins/components/jquery/dist/jquery.min.js"></script>

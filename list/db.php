@@ -212,7 +212,7 @@ foreach ($plugins as $result) {
                                 <?php if($phpmyadmin != '') { echo '<li class="restwo"><a href="' . $phpmyadmin .'" target="_blank"><span class="circle circle-sm bg-warning di"><i class="fa fa-database"></i></span><span>' . _("phpMyAdmin") . '</span></a></li>';} if($phppgadmin != '') { echo '<li class="restwo"><a href="' . $phppgadmin .'" target="_blank"><span class="circle circle-sm bg-purple di"><i class="fa fa-database"></i></span><span>' . _("phpPgAdmin") . '</span></a></li>';} ?>
                                 </ul>
                                 <h3 class="box-title m-b-0"><?php echo _("Databases"); ?></h3><br>
-
+                                <div class="table-responsive">
                                 <table class="table footable m-b-0" data-sorting="true">
                                     <thead>
                                         <tr>
@@ -260,11 +260,12 @@ foreach ($plugins as $result) {
                                         ?>
                                     </tbody>
                                 </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
         <script src="../plugins/components/jquery/dist/jquery.min.js"></script>

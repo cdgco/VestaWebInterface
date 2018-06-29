@@ -358,7 +358,7 @@ require '../includes/arrays.php';
                             </div>
                             <div class="checkbox">
                                 <label for="ENABLE_SECTIONS-8">
-                                    <input type="checkbox" name="ENABLE_REG" id="ENABLE_SECTIONS-8" checked>
+                                    <input type="checkbox" name="ENABLE_REG" id="ENABLE_SECTIONS-8">
                                     Registrations Enabled
                                 </label>
                             </div>
@@ -501,18 +501,5 @@ require '../includes/arrays.php';
         <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
         <script src="js/index.js"></script>
-        <script type="text/javascript">
-            var _paq = _paq || [];
-            _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-            _paq.push(['trackPageView']);
-            _paq.push(['enableLinkTracking']);
-            (function() {
-                var u="//tracking.cdgtech.one/";
-                _paq.push(['setTrackerUrl', u+'piwik.php']);
-                _paq.push(['setSiteId', '1']);
-                var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-                g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-            })();
-        </script>
     </body>
 </html>

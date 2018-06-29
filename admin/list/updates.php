@@ -183,7 +183,7 @@ foreach ($plugins as $result) {
 
                                 if($autoupdatename[0] == "Enabled"){ echo '<li><a href="../delete/autoupdate.php"><span class="circle circle-sm bg-danger di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><wrapper class="resfour">' . _("Disable ") . '</wrapper><span>' . _("Autoupdate") . '</span></a></li>';} if($autoupdatename[0] != "Enabled"){ echo '<li><a href="../create/autoupdate.php"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><wrapper class="resfour">' . _("Enable ") . '</wrapper><span>' . _("Autoupdate") . '</span></a></li>';} ?>
                                 </ul>
-
+                                <div class="table-responsive">
                                 <table class="table footable m-b-0" data-paging="false" data-sorting="true">
                                     <thead>
                                         <tr>
@@ -216,11 +216,12 @@ foreach ($plugins as $result) {
                                         ?>
                                     </tbody>
                                 </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
         <script src="../../plugins/components/jquery/dist/jquery.min.js"></script>

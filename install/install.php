@@ -1,7 +1,7 @@
 <?php
 if (!file_exists( '../includes/config.php' )) { header('step2.php'); } 
 $configlocation = "../includes/";
-require("../includes/config.php");
+require("../includes/config.php"); include("../includes/version.php");
 function randomPassword() { $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'; $pass = array(); $alphaLength = strlen($alphabet) - 1; for ($i = 0; $i < 8; $i++) { $n = rand(0, $alphaLength); $pass[] = $alphabet[$n]; } return implode($pass); }
 
 $a = randomPassword();
@@ -165,6 +165,8 @@ mysqli_close($con);
             echo '<input type="hidden" name="iae" value="'.$IAE.'">';
             echo '<input type="hidden" name="cfe" value="'.$CFE.'">';
             echo '<input type="hidden" name="version" value="'.$currentversion.'">';
+            echo '<input type="hidden" name="software" value="'.$_SERVER[SERVER_SOFTWARE].'">';
+            echo '<input type="hidden" name="agent" value="'.$_SERVER[HTTP_USER_AGENT].'">';
 
 
             ?>

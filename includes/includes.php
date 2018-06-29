@@ -274,6 +274,7 @@ $pluginnewtab = array();
 $pluginhide = array();
 
 DEFINE('GOOGLE_ANALYTICS_ID', $config["GOOGLE_ANALYTICS_ID"]);
+
 DEFINE('INTERAKT_APP_ID', $config["INTERAKT_APP_ID"]);
 DEFINE('INTERAKT_API_KEY', $config["INTERAKT_API_KEY"]);
 DEFINE('CLOUDFLARE_API_KEY', $config["CLOUDFLARE_API_KEY"]);

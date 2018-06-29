@@ -87,27 +87,24 @@ foreach ($plugins as $result) {
                 .resone { display:none !important;}
             }  
             @media screen and (max-width: 991px) {
-                .resone { display:none !important;}
                 .restwo { display:none !important;}
             }    
             @media screen and (max-width: 767px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
                 .resthree { display:none !important;}
+                td { font-size: 12px; }
             } 
             @media screen and (max-width: 540px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
-                .resthree { display:none !important;}
                 .resfour { display:none !important;}
-                
+                .resfourshow { display:block !important;}
+                td { font-size: 11px; }
             } 
             @media screen and (max-width: 410px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
-                .resthree { display:none !important;}
-                .resfour { display:none !important;}
                 .resfive { display:none !important;}
+                .reseight { display:block !important; 
+                }
+                .reseight p {
+                    line-height: 5% !important;
+                }
             } 
         </style>
     </head>
@@ -180,7 +177,7 @@ foreach ($plugins as $result) {
                             <h4 class="page-title"><?php echo _("Manage Web Domains"); ?></h4>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row resone">
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="panel">
                                 <div class="sk-chat-widgets">
@@ -230,26 +227,26 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box"> <ul class="side-icon-text pull-right">
-                                <li><a href="../add/domain.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Domain"); ?></span></a></li>
+                                <li><a href="../add/domain.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span class="resthree"><wrapper class="restwo"><?php echo _("Add "); ?></wrapper><?php echo _("Domain"); ?></span></a></li>
                                 </ul>
                                 <h3 class="box-title m-b-0"><?php echo _("Web Domains"); ?></h3><br>
-
+                                <div class="table-responsive">
                                 <table class="table footable m-b-0" data-sorting="true">
                                     <thead>
                                         <tr>
-                                            <th data-toggle="true"> <?php echo _("Domain Name"); ?> </th>
-                                            <th data-type="numeric"> <?php echo _("Disk Usage"); ?> </th>
-                                            <th data-type="numeric"> <?php echo _("Bandwidth"); ?> </th>
-                                            <th> <?php echo _("Status"); ?> </th>
-                                            <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo _("Created"); ?> </th>
-                                            <th data-sortable="false"> <?php echo _("Action"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("Aliases"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("Web Template"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("Proxy Template"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("Additional FTP"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("Web Statistics"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("IP"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("SSL"); ?> </th>
+                                            <th data-toggle="true"><span class="resfive"><?php echo _("Domain"); ?></span> <?php echo _("Name"); ?></th>
+                                            <th class="restwo" data-type="numeric"> <?php echo _("Disk Usage"); ?> </th>
+                                            <th class="restwo" data-type="numeric"> <?php echo _("Bandwidth"); ?> </th>
+                                            <th class="resone"> <?php echo _("Status"); ?> </th>
+                                            <th class="resone" data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo _("Created"); ?> </th>
+                                            <th data-sortable="false"><?php echo _("Action"); ?></th>
+                                            <th data-breakpoints="all"><?php echo _("Aliases"); ?></th>
+                                            <th data-breakpoints="all"><span class="resfour"><?php echo _("Web "); ?></span><?php echo _("Template"); ?></th>
+                                            <th data-breakpoints="all"><span class="resfour"><?php echo _("Proxy Template"); ?></span><span class="resfourshow"><?php echo _("Proxy"); ?></span></th>
+                                            <th data-breakpoints="all"><span class="resfour"><?php echo _("Additional FTP"); ?></span><span class="resfourshow"><?php echo _("FTP"); ?></span></th>
+                                            <th data-breakpoints="all"><span class="resfour"><?php echo _("Web Statistics"); ?></span><span class="resfourshow"><?php echo _("Stats"); ?></span></th>
+                                            <th data-breakpoints="all"><?php echo _("IP"); ?> </th>
+                                            <th data-breakpoints="all"><?php echo _("SSL"); ?> </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -260,22 +257,25 @@ foreach ($plugins as $result) {
                                             do {
                                                 echo '<tr'; if($domaindata[$x1]['SUSPENDED'] != 'no') { echo ' style="background: #efefef"'; } echo '>
                                                         <td>' . $domainname[$x1] . '</td>
-                                                        <td data-sort-value="' . $domaindata[$x1]['U_DISK'] . '">' . formatMB($domaindata[$x1]['U_DISK']) . '</td>
-                                                        <td data-sort-value="' . $domaindata[$x1]['U_BANDWIDTH'] . '">' . formatMB($domaindata[$x1]['U_BANDWIDTH']) . '</td><td>';                                                                   
+                                                        <td class="restwo" data-sort-value="' . $domaindata[$x1]['U_DISK'] . '">' . formatMB($domaindata[$x1]['U_DISK']) . '</td>
+                                                        <td class="restwo" data-sort-value="' . $domaindata[$x1]['U_BANDWIDTH'] . '">' . formatMB($domaindata[$x1]['U_BANDWIDTH']) . '</td>
+                                                        <td class="resone">';                                                                   
                                                         if($domaindata[$x1]['SUSPENDED'] == "no"){ 
                                                             echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
                                                         else{ 
                                                             echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
                                                         echo '</td>
-                                                        <td data-sort-value="' . $domaindata[$x1]['DATE'] . '">' . $domaindata[$x1]['DATE'] . '</td><td>
+                                                        <td class="resone" data-sort-value="' . $domaindata[$x1]['DATE'] . '">' . $domaindata[$x1]['DATE'] . '</td><td>
                                                             <a href="../edit/domain.php?domain=' . $domainname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button></a>
 
-                                                            <a href="../log/access.php?domain=' . $domainname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("View Logs") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-menu-alt"></i></button></a>';
+                                                            <a href="../log/access.php?domain=' . $domainname[$x1] . '" class="resfive"><button type="button" data-toggle="tooltip" data-original-title="' . _("View Logs") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-menu-alt"></i></button></a>';
 
-                                                            if ($initialusername == "admin" && $domaindata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $domainname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
-                                                            elseif ($initialusername == "admin" && $domaindata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="confirmUnsuspend(\'' . $domainname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }                        
+                                                            if ($initialusername == "admin" && $domaindata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $domainname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="resthree btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
+                                                            elseif ($initialusername == "admin" && $domaindata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="confirmUnsuspend(\'' . $domainname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="resthree btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }                        
 
-                                                            echo '<button onclick="confirmDelete(\'' . $domainname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>'; if($domaindata[$x1]['STATS'] != ""){  echo '<button type="button" onclick="window.location=\'http://' . $domainname[$x1] . '/vstats/\';" data-toggle="tooltip" data-original-title="' . _("View Stats") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-stats-up"></i></button>';} echo '
+                                                            echo '<span class="reseight" style="display:none">
+                                                                <p>&nbsp</p>
+                                                            </span><button onclick="confirmDelete(\'' . $domainname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>'; if($domaindata[$x1]['STATS'] != ""){  echo '<button type="button" onclick="window.location=\'http://' . $domainname[$x1] . '/vstats/\';" data-toggle="tooltip" data-original-title="' . _("View Stats") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-stats-up"></i></button>';} echo '
                                                         </td>
                                                         <td>'; if(implode(', ', explode(",", $domaindata[$x1]['ALIAS'])) == "") { echo _("None");} else{ echo implode(', ', explode(",", $domaindata[$x1]['ALIAS']));} echo '</td>
                                                         <td>' . ucfirst($domaindata[$x1]['TPL']) . '</td>
@@ -301,11 +301,12 @@ foreach ($plugins as $result) {
                                         ?>
                                     </tbody>
                                 </table>
+                                </div>  
                             </div>
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
         <script src="../plugins/components/jquery/dist/jquery.min.js"></script>

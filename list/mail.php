@@ -100,6 +100,9 @@ foreach ($plugins as $result) {
                 .restwo { display:none !important;}
                 .resthree { display:none !important;}
                 .resfour { display:none !important;}
+                .reseight { display:block !important; }
+                td { font-size: 12px; }
+                .reseight p { line-height: 5% !important; } 
                 
             } 
             @media screen and (max-width: 410px) {
@@ -179,7 +182,7 @@ foreach ($plugins as $result) {
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                             <h4 class="page-title"><?php echo _("Manage Mail Domains"); ?></h4> </div>
                     </div>
-                    <div class="row">
+                    <div class="row resone">
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="panel">
                                 <div class="sk-chat-widgets">
@@ -229,23 +232,23 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box"> <ul class="side-icon-text pull-right">
-                                <li><a href="../add/mail.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Domain"); ?></span></a></li>
+                                <li><a href="../add/mail.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span class="resthree"><wrapper class="restwo"><?php echo _("Add"); ?></wrapper> <?php echo _("Domain"); ?></span></a></li>
                                 </ul>
                                 <h3 class="box-title m-b-0"><?php echo _("Mail Domains"); ?></h3><br>
-
+                                <div class="table-responsive">
                                 <table class="table footable m-b-0" data-sorting="true">
                                     <thead>
                                         <tr>
-                                            <th data-toggle="true"> <?php echo _("Domain Name"); ?> </th>
-                                            <th data-type="numeric"> <?php echo _("Accounts"); ?> </th>
-                                            <th data-type="numeric"> <?php echo _("Disk Usage"); ?> </th>
-                                            <th> <?php echo _("Status"); ?> </th>
-                                            <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo _("Created"); ?> </th>
-                                            <th data-sortable="false"> <?php echo _("Action"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("CatchAll"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("Antivirus"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("Antispam"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("DKIM"); ?> </th>
+                                            <th data-toggle="true"><span class="resfive"><?php echo _("Domain"); ?></span> <?php echo _("Name"); ?></th>
+                                            <th class="restwo" data-type="numeric"><?php echo _("Accounts"); ?></th>
+                                            <th class="restwo" data-type="numeric"><?php echo _("Disk Usage"); ?></th>
+                                            <th class="resone"><?php echo _("Status"); ?></th>
+                                            <th class="resone" data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"><?php echo _("Created"); ?></th>
+                                            <th data-sortable="false"><?php echo _("Action"); ?></th>
+                                            <th data-breakpoints="all"><?php echo _("CatchAll"); ?></th>
+                                            <th data-breakpoints="all"><?php echo _("Antivirus"); ?></th>
+                                            <th data-breakpoints="all"><?php echo _("Antispam"); ?></th>
+                                            <th data-breakpoints="all"><?php echo _("DKIM"); ?></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -256,24 +259,24 @@ foreach ($plugins as $result) {
                                             do {
                                                 echo '<tr'; if($maildata[$x1]['SUSPENDED'] != 'no') { echo ' style="background: #efefef"'; } echo '>
                                                         <td>' . $mailname[$x1] . '</td>
-                                                        <td data-sort-value="' . $maildata[$x1]['ACCOUNTS'] . '">' . $maildata[$x1]['ACCOUNTS'] . '</td>
-                                                        <td data-sort-value="' . $maildata[$x1]['U_DISK'] . '">' . formatMB($maildata[$x1]['U_DISK']) . '</td>
-                                                        <td>';                                                                   
+                                                        <td class="restwo" data-sort-value="' . $maildata[$x1]['ACCOUNTS'] . '">' . $maildata[$x1]['ACCOUNTS'] . '</td>
+                                                        <td class="restwo" data-sort-value="' . $maildata[$x1]['U_DISK'] . '">' . formatMB($maildata[$x1]['U_DISK']) . '</td>
+                                                        <td class="resone">';                                                                   
                                                 if($maildata[$x1]['SUSPENDED'] == "no"){ 
                                                     echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
                                                 else{ 
                                                     echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
                                                 echo '</td>
-                                                        <td data-sort-value="' . $maildata[$x1]['DATE'] . '">' . $maildata[$x1]['DATE'] . '</td>
+                                                        <td class="resone" data-sort-value="' . $maildata[$x1]['DATE'] . '">' . $maildata[$x1]['DATE'] . '</td>
                                                         <td>
-                                                            <a href="../add/mailaccount.php?domain=' . $mailname[$x1] . '"><button type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Add Accounts") . '"><i class="fa fa-plus"></i></button></a>
+                                                            <a class="resthree" href="../add/mailaccount.php?domain=' . $mailname[$x1] . '"><button type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Add Accounts") . '"><i class="fa fa-plus"></i></button></a>
                                                             <a href="../list/maildomain.php?domain=' . $mailname[$x1] . '"><button type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("List Accounts") . '"><i class="ti-menu-alt"></i></button></a>
-                                                            <a href="../edit/mail.php?domain=' . $mailname[$x1] . '"><button type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button></a>';
+                                                            <span class="reseight" style="display:none"><p>&nbsp</p></span><a href="../edit/mail.php?domain=' . $mailname[$x1] . '"><button type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button></a>';
 
-                                                            if ($initialusername == "admin" && $maildata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $mailname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
-                                                            elseif ($initialusername == "admin" && $maildata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="confirmUnsuspend(\'' . $mailname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }    
+                                                            if ($initialusername == "admin" && $maildata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $mailname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="resthree btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
+                                                            elseif ($initialusername == "admin" && $maildata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="confirmUnsuspend(\'' . $mailname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="resthree btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }    
 
-                                                            echo '<button onclick="confirmDelete(\'' . $mailname[$x1] . '\')" type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="icon-trash" ></i></button>
+                                                            echo '<span class="reseight" style="display:none"><p>&nbsp</p></span><button onclick="confirmDelete(\'' . $mailname[$x1] . '\')" type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="icon-trash" ></i></button>
                                                         </td>
                                                         <td>'; if($maildata[$x1]['CATCHALL'] != ''){ echo $maildata[$x1]['CATCHALL'];} else { echo _("None");} echo '</td>
                                                         <td>';                                                                   
@@ -300,11 +303,12 @@ foreach ($plugins as $result) {
                                         ?>
                                     </tbody>
                                 </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
         <script src="../plugins/components/jquery/dist/jquery.min.js"></script>
