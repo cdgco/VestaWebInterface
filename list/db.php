@@ -94,14 +94,6 @@ foreach ($plugins as $result) {
             } 
             @media screen and (max-width: 540px) {
                 .resfour { display:none !important;}
-                .reseight { display:block !important; 
-                }
-                .reseight p {
-                    line-height: 5% !important;
-                }
-            } 
-            @media screen and (max-width: 410px) {
-                .resfive { display:none !important;}
             } 
         </style>
     </head>
@@ -217,8 +209,8 @@ foreach ($plugins as $result) {
                                     <thead>
                                         <tr>
                                             <th data-toggle="true"> <?php echo _("Database"); ?> </th>
-                                            <th class="resfour"> <?php echo _("Username"); ?> </th>
-                                            <th class="resthree" data-type="numeric"> <?php echo _("Disk Usage"); ?> </th>
+                                            <th> <?php echo _("Username"); ?> </th>
+                                            <th class="restwo" data-type="numeric"> <?php echo _("Disk Usage"); ?> </th>
                                             <th class="restwo"> <?php echo _("Status"); ?> </th>
                                             <th class="restwo" data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo _("Created"); ?> </th>
                                             <th data-sortable="false"> <?php echo _("Action"); ?> </th>
@@ -235,8 +227,8 @@ foreach ($plugins as $result) {
                                             do {
                                                 echo '<tr'; if($dbdata[$x1]['SUSPENDED'] != 'no') { echo ' style="background: #efefef"'; } echo '>
                                                         <td>' . $dbname[$x1] . '</td>
-                                                        <td class="resfour">' . $dbdata[$x1]['DBUSER'] . '</td>
-                                                        <td class="resthree" data-sort-value="' . $dbdata[$x1]['U_DISK'] . '">' . formatMB($dbdata[$x1]['U_DISK']) . '</td>
+                                                        <td>' . $dbdata[$x1]['DBUSER'] . '</td>
+                                                        <td class="restwo" data-sort-value="' . $dbdata[$x1]['U_DISK'] . '">' . formatMB($dbdata[$x1]['U_DISK']) . '</td>
                                                         <td class="restwo">';                                                                   
                                                 if($dbdata[$x1]['SUSPENDED'] == "no"){ 
                                                     echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
@@ -245,11 +237,9 @@ foreach ($plugins as $result) {
                                                 echo '</td>
                                                         <td class="restwo" data-sort-value="' . $dbdata[$x1]['DATE'] . '">' . $dbdata[$x1]['DATE'] . '</td><td>
                                                         <a href="../edit/db.php?db=' . $dbname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button></a>';
-                                                        if ($initialusername == "admin" && $dbdata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $dbname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="resthree btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
+                                                        if ($initialusername == "admin" && $dbdata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $dbname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
                                                         elseif ($initialusername == "admin" && $dbdata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="confirmUnsuspend(\'' . $dbname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }   
-                                                        echo '<span class="reseight" style="display:none">
-                                                                <p>&nbsp</p>
-                                                            </span><button onclick="confirmDelete(\'' . $dbname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
+                                                        echo '<button onclick="confirmDelete(\'' . $dbname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
                                                       </td>
                                                       <td>' . $dbdata[$x1]['HOST'] . '</td>
                                                       <td>' . $dbdata[$x1]['TYPE'] . '</td>

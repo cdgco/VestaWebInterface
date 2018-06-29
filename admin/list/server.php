@@ -184,25 +184,16 @@ function secondsToTime($seconds) {
                         <div class="col-lg-12">
                             <div class="white-box">
                                 <ul class="side-icon-text pull-right">
-                                    <li><a href="../status/cpu.php"><span class="circle circle-sm bg-info di" style="padding-top: 11px;"><i class="ti-pulse"></i></span><span class="resfour"><wrapper class="resthree"><?php echo _("Show "); ?></wrapper><?php echo _("Status"); ?></span></a></li>
+                                    <li><a href="../status/cpu.php"><span class="circle circle-sm bg-info di" style="padding-top: 11px;"><i class="ti-pulse"></i></span><span><wrapper class="resthree"><?php echo _("Show "); ?></wrapper><?php echo _("Status"); ?></span></a></li>
                                     <!-- <li><a href="#"><span class="circle circle-sm bg-info di" style="padding-top: 11px;"><i class="ti-settings"></i></span><span><?php echo _("Configure"); ?></span></a></li> -->
-                                </ul>
+                                </ul><br><br><br>
                                 <div class="table-responsive">
-                                <table class="table footable m-b-0" data-paging="false" data-sorting="true">
-                                    <thead>
-                                        <tr>
-                                            <th data-sortable="false"></th>
-                                            <th data-sortable="false"></th>
-                                            <th class="resfour" data-sortable="false"></th>
-                                            <th class="restwo" data-sortable="false"></th>
-                                            <!-- <th></th>  -->
-                                        </tr>
-                                    </thead>
+                                <table class="table footable m-b-0" data-sorting="true">
                                     <tbody>
                                         <tr>
                                             <td></td>
                                             <td><h1><b><?php print_r($sysdata[0]['HOSTNAME']); ?></b></h1><br><b><?php print_r($sysdata[0]['OS'] . ' ' . $sysdata[0]['VERSION']); ?></b> (<?php print_r($sysdata[0]['ARCH']); ?>)</td>
-                                            <td class="resfour"><h1>&nbsp;</h1><br>Load Average: <b><?php print_r($sysdata[0]['LOADAVERAGE']); ?></b></td>
+                                            <td><h1>&nbsp;</h1><br>Load Average: <b><?php print_r($sysdata[0]['LOADAVERAGE']); ?></b></td>
                                             <td class="restwo"><h1>&nbsp;</h1><br>Uptime: <b><?php 
                                                 if (strpos(secondsToTime($sysdata[0]['UPTIME'] * 60),'0 days') !== false) {
                                                             echo str_replace('0 days, ', '', secondsToTime($sysdata[0]['UPTIME'] * 60));
@@ -219,19 +210,8 @@ function secondsToTime($seconds) {
                                     </tbody>
                                     </table>
                                 </div>
-                                                                <div class="table-responsive">
+                                    <div class="table-responsive">
                                     <table class="table footable m-b-0" data-paging="false" data-sorting="true">
-                                        <thead>
-                                            <tr>
-                                                <th data-sortable="false"></th>
-                                                <th data-sortable="false"></th>
-                                                <th></th>
-                                                <th class="resfour"></th>
-                                                <th class="resfour"></th>
-                                                <th class="restwo"></th>
-                                                <!-- <th></th> -->
-                                            </tr>
-                                        </thead>
                                         <tbody>
                                             <?php
                                             if($servicename[0] != '') { 
@@ -242,8 +222,8 @@ function secondsToTime($seconds) {
                                                         echo '<td></td>
                                                         <td></td>
                                                         <td><h2>' . $servicename[$x1] . '</h2><br>' . $servicedata[$x1]['SYSTEM'] . '<br>&nbsp;</td>
-                                                        <td class="resfour" data-sort-value="' . $servicedata[$x1]['CPU'] . '"><h2>&nbsp;</h2><br>CPU: ' . $servicedata[$x1]['CPU'] . '</td>
-                                                        <td class="resfour" data-sort-value="' . $servicedata[$x1]['MEM'] . '"><h2>&nbsp;</h2><br>Memory: ' . $servicedata[$x1]['MEM'] . '</td>
+                                                        <td data-sort-value="' . $servicedata[$x1]['CPU'] . '"><h2>&nbsp;</h2><br>CPU: ' . $servicedata[$x1]['CPU'] . '</td>
+                                                        <td data-sort-value="' . $servicedata[$x1]['MEM'] . '"><h2>&nbsp;</h2><br>Memory: ' . $servicedata[$x1]['MEM'] . '</td>
                                                         <td class="restwo" data-sort-value="' . $servicedata[$x1]['RTIME'] . '"><h2>&nbsp;</h2><br>Uptime: ';
                                                         if (strpos(secondsToTime($servicedata[$x1]['RTIME'] * 60),'0 days') !== false) {
                                                                 echo str_replace('0 days, ', '', secondsToTime($servicedata[$x1]['RTIME'] * 60));

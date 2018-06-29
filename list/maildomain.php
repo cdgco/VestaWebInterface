@@ -104,14 +104,6 @@ foreach ($plugins as $result) {
                     position: relative;
                     top: 20px;
                 }
-                .reseight { display:block !important; }
-                .reseight p { line-height: 5% !important; }
-            } 
-            @media screen and (max-width: 540px) {
-                .resfour { display:none !important;}        
-            } 
-            @media screen and (max-width: 410px) {
-                .resfive { display:none !important;}
             } 
         </style>
     </head>
@@ -246,10 +238,10 @@ foreach ($plugins as $result) {
                                                         <td class="resone" data-sort-value="' . $maildata[$x1]['DATE'] . '">' . $maildata[$x1]['DATE'] . '</td><td>
                                                             <a href="../edit/mailaccount.php?domain=' . $requestmail . '&account=' . $mailname[$x1] . '"><button type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button></a>';
 
-                                                            if ($initialusername == "admin" && $maildata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $mailname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="resthree btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
-                                                            elseif ($initialusername == "admin" && $maildata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="confirmUnsuspend(\'' . $mailname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="resthree btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }   
+                                                            if ($initialusername == "admin" && $maildata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $mailname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
+                                                            elseif ($initialusername == "admin" && $maildata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="confirmUnsuspend(\'' . $mailname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }   
 
-                                                            echo '<span class="reseight" style="display:none"><p>&nbsp</p></span><button type="button" onclick="confirmDelete(\'' . $mailname[$x1] . '\')" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="icon-trash" ></i></button>
+                                                            echo '<button type="button" onclick="confirmDelete(\'' . $mailname[$x1] . '\')" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="icon-trash" ></i></button>
                                                         </td>
                                                         <td>' . formatMB($maildata[$x1]['QUOTA']) . '</td>
                                                         <td>'; if(implode(', ', explode(",", $maildata[$x1]['ALIAS'])) == "") { echo _("None"); } else{ echo implode(', ', explode(",", $maildata[$x1]['ALIAS']));} echo '</td>

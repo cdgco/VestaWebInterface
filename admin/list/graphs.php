@@ -100,17 +100,6 @@ foreach ($plugins as $result) {
                 .resthree { display:none !important;}
                 .graphs { width: 400px; }
             } 
-            @media screen and (max-width: 540px) {
-                .resfour { display:none !important;}
-                .graphs { width: 300px; }
-                h2 { font-size: 14px !important; line-height: 100% !important;}
-                
-            } 
-            @media screen and (max-width: 410px) {
-                .resfive { display:none !important;}
-                .graphs { width: 200px; }
-                h2 { font-size: 12px !important; line-height: 100% !important;}
-            } 
         </style>
     </head>
 
@@ -201,13 +190,6 @@ foreach ($plugins as $result) {
                             <div class="white-box">
                                 <div class="table-responsive">
                                 <table class="table footable m-b-0"  data-sorting="true">
-                                    <thead>
-                                        <tr>
-                                            <th class="resfour"> </th>
-                                            <th data-sortable="false"></th>
-                                            <th class="resone" data-sortable="false"></th>
-                                        </tr>
-                                    </thead>
                                     <tbody>
                                         <?php 
                                         if($graphname[0] != '') {
@@ -215,7 +197,7 @@ foreach ($plugins as $result) {
 
                                             do {
                                                 echo '<tr>
-                                                <td class="resfour"><h2>' . $graphdata[$x1]['TITLE'] . '</h2></td>
+                                                <td><h2>' . $graphdata[$x1]['TITLE'] . '</h2></td>
                                                 <td><img class="graphs" src="' . $url8083 . '/list/rrd/vwi.php?/rrd/' . $graphdata[$x1]['TYPE'] . '/' . $period . '-' . $graphdata[$x1]['RRD'] . '.png"></td>
                                                 <td class="resone"><a href="' . $url8083 . '/list/rrd/vwi.php?/rrd/' . $graphdata[$x1]['TYPE'] . '/' . $period . '-' . $graphdata[$x1]['RRD'] . '.png" download="' . $period . '-' . $graphdata[$x1]['RRD'] . '.png"><button type="button" data-toggle="tooltip" data-original-title="' . _("Download") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-download"></i></button></a></td>
                                                 </tr>';

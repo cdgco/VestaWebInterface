@@ -92,18 +92,6 @@ foreach ($plugins as $result) {
             }    
             @media screen and (max-width: 767px) {
                 .resthree { display:none !important;}
-                .reseight { display:block !important; 
-                }
-                .reseight p {
-                    line-height: 5% !important;
-                }
-            } 
-            @media screen and (max-width: 540px) {
-                .resfour { display:none !important;}
-                td { font-size: 12px; }
-            } 
-            @media screen and (max-width: 410px) {
-                .resfive { display:none !important;}
             } 
         </style>
     </head>
@@ -252,9 +240,7 @@ foreach ($plugins as $result) {
                                                           <a href="../edit/cron.php?job=' . $cronname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-cog"></i></button></a>';
                                                           if ($initialusername == "admin" && $crondata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $cronname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="restwo btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
                                                           elseif ($initialusername == "admin" && $crondata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="confirmUnsuspend(\'' . $cronname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }   
-                                                          echo '<span class="reseight" style="display:none">
-                                                                <p>&nbsp</p>
-                                                            </span><button onclick="confirmDelete(\'' . $cronname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
+                                                          echo '<button onclick="confirmDelete(\'' . $cronname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
                                                       </td>
                                                       <td>'; echo $schedule->asNaturalLanguage() . ' ( ' . $crontime . ' )</td>                        
                                                     </tr>';

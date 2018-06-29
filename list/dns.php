@@ -95,14 +95,6 @@ foreach ($plugins as $result) {
             } 
             @media screen and (max-width: 540px) {
                 .resfour { display:none !important;}
-                .reseight { display:block !important; 
-                }
-                .reseight p {
-                    line-height: 5% !important;
-                }
-            } 
-            @media screen and (max-width: 410px) {
-                .resfive { display:none !important;}
             } 
         </style>
     </head>
@@ -233,9 +225,9 @@ foreach ($plugins as $result) {
                                     <thead>
                                         <tr>
                                             <th data-toggle="true"> <?php echo _("Domain Name"); ?> </th>
-                                            <th class="resthree" data-type="number"> <?php echo _("Records"); ?> </th>
-                                            <th class="restwo"> <?php echo _("Status"); ?> </th>
-                                            <th class="resone" data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo _("Created"); ?> </th>
+                                            <th data-type="number"> <?php echo _("Records"); ?> </th>
+                                            <th> <?php echo _("Status"); ?> </th>
+                                            <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo _("Created"); ?> </th>
                                             <th data-sortable="false"> <?php echo _("Action"); ?> </th>
                                             <th data-breakpoints="all"> <?php echo _("IP"); ?> </th>
                                             <th data-breakpoints="all"> <?php echo _("SOA (Start of Authority)"); ?> </th>
@@ -331,37 +323,33 @@ foreach ($plugins as $result) {
                                                 echo '<tr'; if($dnsdata[$x1]['SUSPENDED'] != 'no') { echo ' style="background: #efefef"'; } echo '>
                                                                         <td>' . $dnsname[$x1] . '</td>';
 
-                                                if (${'cfenabled' . $dnsname[$x1]} == 'true') { echo '<td class="resthree" data-sort-value="' . $cfcount . '">' . $cfcount . '</td>'; } 
-                                                else { echo '<td class="resthree" data-sort-value="' . $dnsdata[$x1]['RECORDS'] . '">' . $dnsdata[$x1]['RECORDS'] . '</td>'; }
+                                                if (${'cfenabled' . $dnsname[$x1]} == 'true') { echo '<td data-sort-value="' . $cfcount . '">' . $cfcount . '</td>'; } 
+                                                else { echo '<td data-sort-value="' . $dnsdata[$x1]['RECORDS'] . '">' . $dnsdata[$x1]['RECORDS'] . '</td>'; }
                                                 if (${'cfenabled' . $dnsname[$x1]} == 'true') { $recordcount = $recordcount + $cfcount; } 
                                                 else { $recordcount = $recordcount + $dnsdata[$x1]['RECORDS']; }
-                                                echo '<td class="restwo">';                                                                   
+                                                echo '<td>';                                                                   
                                                 if($dnsdata[$x1]['SUSPENDED'] == "no"){ 
                                                     echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
                                                 else{ 
                                                     echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
                                                 echo '</td>
-                                                      <td class="resone" data-sort-value="' . $dnsdata[$x1]['DATE'] . '">' . $dnsdata[$x1]['DATE'] . '</td><td>';
-                                                            if (${'cfenabled' . $dnsname[$x1]} == 'true' && CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != '') { echo '<a class="resfour" href="../add/cfrecord.php?domain=' . $dnsname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Add Record") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-plus"></i></button></a>'; } 
+                                                      <td data-sort-value="' . $dnsdata[$x1]['DATE'] . '">' . $dnsdata[$x1]['DATE'] . '</td><td>';
+                                                            if (${'cfenabled' . $dnsname[$x1]} == 'true' && CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != '') { echo '<a href="../add/cfrecord.php?domain=' . $dnsname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Add Record") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-plus"></i></button></a>'; } 
 
 
-                                                            if (${'cfenabled' . $dnsname[$x1]} != 'true' || CLOUDFLARE_EMAIL == '' || CLOUDFLARE_API_KEY == '') { echo '<a class="resfour" href="../add/dnsrecord.php?domain=' . $dnsname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Add Record") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-plus"></i></button></a>'; }
+                                                            if (${'cfenabled' . $dnsname[$x1]} != 'true' || CLOUDFLARE_EMAIL == '' || CLOUDFLARE_API_KEY == '') { echo '<a href="../add/dnsrecord.php?domain=' . $dnsname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Add Record") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-plus"></i></button></a>'; }
 
 
                                                             if (${'cfenabled' . $dnsname[$x1]} == 'true' && CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != '') { echo '<a href="cfdomain.php?domain=' . $dnsname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("List Records") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-menu-alt"></i></button></a>'; } 
                                                             else { echo '<a href="dnsdomain.php?domain=' . $dnsname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("List Records") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-menu-alt"></i></button></a>'; }
 
-                                                            if ($initialusername == "admin" && $dnsdata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $dnsname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="resthree btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
-                                                            elseif ($initialusername == "admin" && $dnsdata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="confirmUnsuspend(\'' . $dnsname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="resthree btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }                 
+                                                            if ($initialusername == "admin" && $dnsdata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $dnsname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
+                                                            elseif ($initialusername == "admin" && $dnsdata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="confirmUnsuspend(\'' . $dnsname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }                 
 
-                                                            echo '<span class="reseight" style="display:none">
-                                                                <p>&nbsp</p>
-                                                            </span><a href="../edit/dns.php?domain=' . $dnsname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button></a><span class="reseight resfive" style="display:none">
-                                                                <p>&nbsp</p>
-                                                            </span><button onclick="confirmDelete(\'' . $dnsname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="resfive btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>'; 
+                                                            echo '<a href="../edit/dns.php?domain=' . $dnsname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button></a><button onclick="confirmDelete(\'' . $dnsname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>'; 
                                                             if (${'sub' . $dnsname[$x1]} == 'yes') {                                                                   
-                                                                if (${'cfenabled' . $dnsname[$x1]} == 'true' && CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != '') { echo '<button type="button" onclick="processLoader();window.location=\'../delete/cloudflare.php?domain=' . $dnsname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Disable Cloudflare") . '" class="resfour btn btn-outline btn-circle btn-md m-r-5 color-button"><i class="icon-cloudflare">&#xe800;</i></button>'; } 
-                                                                if (${'cfenabled' . $dnsname[$x1]} == 'false' && CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != '') { echo '<button type="button" onclick="processLoader();window.location=\'../create/cloudflare.php?domain=' . $dnsname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Enable Cloudflare") . '" class="resfour btn btn-outline btn-circle btn-md m-r-5 color-button"><i class="icon-cloudflare">&#xe800;</i></button>'; } }
+                                                                if (${'cfenabled' . $dnsname[$x1]} == 'true' && CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != '') { echo '<button type="button" onclick="processLoader();window.location=\'../delete/cloudflare.php?domain=' . $dnsname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Disable Cloudflare") . '" class="btn btn-outline btn-circle btn-md m-r-5 color-button"><i class="icon-cloudflare">&#xe800;</i></button>'; } 
+                                                                if (${'cfenabled' . $dnsname[$x1]} == 'false' && CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != '') { echo '<button type="button" onclick="processLoader();window.location=\'../create/cloudflare.php?domain=' . $dnsname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Enable Cloudflare") . '" class="btn btn-outline btn-circle btn-md m-r-5 color-button"><i class="icon-cloudflare">&#xe800;</i></button>'; } }
 
 
                                                 echo '</td>

@@ -99,10 +99,6 @@ foreach ($plugins as $result) {
             @media screen and (max-width: 540px) {
                 .resfour { display:none !important;}
             } 
-            @media screen and (max-width: 410px) {
-                .resfive { display:none !important;}
-                .reslink { pointer-events: all !important; }
-            } 
         </style>
     </head>
 
@@ -186,11 +182,11 @@ foreach ($plugins as $result) {
                                         <tr>
                                             <th data-sortable="false"></th>
                                             <th> <?php echo _("Type"); ?> </th>
-                                            <th class="resfour"> <?php echo _("Protocol"); ?> </th>
+                                            <th> <?php echo _("Protocol"); ?> </th>
                                             <th class="resone"> <?php echo _("Comment"); ?> </th>
                                             <th> <?php echo _("Port"); ?> </th>
                                             <th class="restwo"> <?php echo _("IP Address"); ?> </th>
-                                            <th class="resfive" data-sortable="false"> <?php echo _("Action"); ?> </th>
+                                            <th data-sortable="false"> <?php echo _("Action"); ?> </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -202,17 +198,17 @@ foreach ($plugins as $result) {
                                                 echo '<tr'; if($firedata[$x1]['SUSPENDED'] != 'no') { echo ' style="background: #efefef"'; } echo '>';
                                                     if($firedata[$x1]['SUSPENDED'] != 'no') { echo '<td><b>Suspended</b></td>'; }
                                                     else { echo '<td></td>'; }
-                                                    echo '<td><a href="../edit/firewall.php?rule=' . $firename[$x1] . '" class="reslink" style="pointer-events:none">' . $firedata[$x1]['ACTION'] . '</a></td>
-                                                    <td class="resfour">' . $firedata[$x1]['PROTOCOL'] . '</td>
+                                                    echo '<td>' . $firedata[$x1]['ACTION'] . '</td>
+                                                    <td>' . $firedata[$x1]['PROTOCOL'] . '</td>
                                                     <td class="resone">' . $firedata[$x1]['COMMENT'] . '</td>
-                                                    <td><a href="../edit/firewall.php?rule=' . $firename[$x1] . '" class="reslink" style="pointer-events:none">' . $firedata[$x1]['PORT'] . '</a></td>
+                                                    <td>' . $firedata[$x1]['PORT'] . '</td>
                                                     <td class="restwo">' . $firedata[$x1]['IP'] . '</td><td>
-                                                        <a class="resfive" href="../edit/firewall.php?rule=' . $firename[$x1] . '"><button type="button"  data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button></a>';
+                                                        <a href="../edit/firewall.php?rule=' . $firename[$x1] . '"><button type="button"  data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button></a>';
 
-                                                        if ($firedata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $firename[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="resthree btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
-                                                        else { echo '<button type="button" onclick="confirmUnsuspend(\'' . $firename[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class=" resthree btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }
+                                                        if ($firedata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $firename[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
+                                                        else { echo '<button type="button" onclick="confirmUnsuspend(\'' . $firename[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }
 
-                                                        echo '<button onclick="confirmDelete(\'' . $firename[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="resthree btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
+                                                        echo '<button onclick="confirmDelete(\'' . $firename[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
                                                     </td>
                                                 </tr>';
                                                 $x1++;

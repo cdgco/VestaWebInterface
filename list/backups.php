@@ -94,11 +94,6 @@ foreach ($plugins as $result) {
             } 
             @media screen and (max-width: 540px) {
                 .resfour { display:none !important;}
-                .reseight { display:block !important; 
-                }
-                .reseight p {
-                    line-height: 5% !important;
-                }
                 td { font-size: 11px; }
             } 
             @media screen and (max-width: 410px) {
@@ -196,7 +191,7 @@ foreach ($plugins as $result) {
                             <h4 class="page-title"><?php echo _("Manage Backups"); ?></h4>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row restwo">
                         <div class="col-lg-12 col-lg-12 col-lg-12">
                             <div class="panel">
                                 <div class="sk-chat-widgets">
@@ -225,10 +220,7 @@ foreach ($plugins as $result) {
                                     <thead>
                                         <tr>
                                             <th data-toggle="true"> <?php echo _("Backup Name"); ?></th>
-                                            <th class="restwo"> Type </th>
-                                            <th class="resthree" data-type="numeric"> <?php echo _("Size"); ?> </th>
-                                            <th class="restwo" data-type="numeric"> <?php echo _("Runtime"); ?> </th>
-                                            <th class="resone" data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo _("Created"); ?> </th>
+                                            <th data-type="numeric"> <?php echo _("Size"); ?> </th>
                                             <th data-sortable="false"> <?php echo _("Action"); ?> </th>
                                             <th data-breakpoints="all"> <?php echo _("Web"); ?> </th>
                                             <th data-breakpoints="all"> <?php echo _("DNS"); ?> </th>
@@ -236,6 +228,8 @@ foreach ($plugins as $result) {
                                             <th data-breakpoints="all"> <?php echo _("Databases"); ?> </th>
                                             <th data-breakpoints="all"> <?php echo _("Cron"); ?> </th>
                                             <th data-breakpoints="all"> <?php echo _("User Directories"); ?> </th>
+                                            <th data-breakpoints="all"> Type </th>
+                                            <th data-breakpoints="all" data-type="numeric"> <?php echo _("Runtime"); ?> </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -246,16 +240,10 @@ foreach ($plugins as $result) {
                                             do {
                                                 echo '<tr>
                                                         <td>' . $backupname[$x1] . '</td>
-                                                        <td class="restwo">' . $backupdata[$x1]['TYPE'] . '</td>
-                                                        <td class="resthree" data-sort-value="' . $backupdata[$x1]['SIZE'] . '">' . formatMB($backupdata[$x1]['SIZE']) . '</td>
-                                                        <td class="restwo" data-sort-value="' . $backupdata[$x1]['RUNTIME'] . '">' . $backupdata[$x1]['RUNTIME'] . ' min</td>
-                                                        <td class="resone" data-sort-value="' . $backupdata[$x1]['DATE'] . '">' . $backupdata[$x1]['DATE'] . '</td>
+                                                        <td data-sort-value="' . $backupdata[$x1]['SIZE'] . '">' . formatMB($backupdata[$x1]['SIZE']) . '</td>
                                                         <td>
-                                                            <button onclick="document.getElementById(\'formurl\').value = \'' . $url8083 . '/download/backup/vwi.php?backup=' . $backupname[$x1] . '\';getPassword();" type="button" data-toggle="tooltip" data-original-title="' . _("Download") .'" class="resthree btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-download"></i></button>
+                                                            <button onclick="document.getElementById(\'formurl\').value = \'' . $url8083 . '/download/backup/vwi.php?backup=' . $backupname[$x1] . '\';getPassword();" type="button" data-toggle="tooltip" data-original-title="' . _("Download") .'" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-download"></i></button>
                                                             <a href="../list/backup.php?backup=' . $backupname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Configure Restore") .'" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-cog"></i></button></a>
-                                                            <span class="reseight" style="display:none">
-                                                                <p>&nbsp</p>
-                                                            </span>
                                                             <button onclick="confirmDelete(\'' . $backupname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") .'" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
                                                         </td>
                                                         <td>'; if(implode(', ', explode(",", $backupdata[$x1]['WEB'])) == "") { echo _("Not Backed Up");} else{ print_r(implode(', ', explode(",", $backupdata[$x1]['WEB']))); } echo '<br><br></td>
@@ -264,6 +252,8 @@ foreach ($plugins as $result) {
                                                         <td>'; if(implode(', ', explode(",", $backupdata[$x1]['DB'])) == "") { echo _("Not Backed Up");} else{ print_r(implode(', ', explode(",", $backupdata[$x1]['DB']))); } echo '<br><br></td>
                                                         <td>'; if(implode(', ', explode(",", $backupdata[$x1]['CRON'])) == "") { echo _("Not Backed Up");} else{ print_r(implode(', ', explode(",", $backupdata[$x1]['CRON']))); } echo '<br><br></td>
                                                         <td>'; if(implode(', ', explode(",", $backupdata[$x1]['UDIR'])) == "") { echo _("Not Backed Up");} else{ print_r(implode(', ', explode(",", $backupdata[$x1]['UDIR']))); } echo '</td>
+                                                        <td>' . $backupdata[$x1]['TYPE'] . '</td>
+                                                        <td data-sort-value="' . $backupdata[$x1]['RUNTIME'] . '">' . $backupdata[$x1]['RUNTIME'] . ' min</td>
                                                     </tr>';
                                                 $x1++;
                                             } while ($backupname[$x1] != ''); }

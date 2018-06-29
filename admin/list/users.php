@@ -107,11 +107,6 @@ foreach ($plugins as $result) {
                 .resfour { display:block !important;}
                 .resfive { display:block !important; }
                 .ressix { display:none !important; }
-                .reseight { display:block !important; 
-                }
-                .reseight p {
-                    line-height: 5% !important;
-                }
             }
             @media screen and (max-width: 450px) {
                 .resfive { display:block !important;
@@ -203,7 +198,7 @@ foreach ($plugins as $result) {
                                 <h3 class="box-title m-b-0"><?php echo _("Users"); ?></h3><br>
                                 <div class="table-responsive">
                                 <table class="table footable m-b-0" data-paging="false" data-sorting="true">
-                                    <thead>
+                                    <thead style="display:none;">
                                         <tr>
                                             <th class="resone" data-type="numeric" data-sorted="true" data-direction="DESC"></th>
                                             <th data-sortable="false"></th>
@@ -230,7 +225,7 @@ foreach ($plugins as $result) {
                                                 echo '<tr'; if($uxdata[$x1]['SUSPENDED'] != 'no') { echo ' style="background: #efefef"'; } echo '>
                                                     <td class="resone" style="padding-top: 32px;" data-sort-value="' . strtotime($uxdata[$x1]['DATE'] . ' ' . $uxdata[$x1]['TIME']) . '">' . $uxdata[$x1]['DATE'];  
                                                     if($uxdata[$x1]['SUSPENDED'] != 'no') { echo '<br><br><b>Suspended</b>'; } echo '</td>
-                                                    <td class="resseven">
+                                                    <td>
                                                         <h2>' . $uxname[$x1] . '</h2>
                                                         <h5>' . $uxdata[$x1]['FNAME'] . ' ' . $uxdata[$x1]['LNAME'] . '</h5><br>
                                                         <div class="tworow" style="line-height: 30px;">
@@ -254,10 +249,8 @@ foreach ($plugins as $result) {
                                                         <div class="tworow" style="line-height: 30px;">
                                                               <div class="column">Web: ' . formatMB($uxdata[$x1]['U_DISK_WEB']) . '<br>Mail: ' . formatMB($uxdata[$x1]['U_DISK_MAIL']) . '</div>
                                                               <div class="column">
-                                                                <span class="ressix">Databases: ' . formatMB($uxdata[$x1]['U_DISK_DB']) . '<br></span>
-                                                                <span class="reseight" style="display:none">DB: ' . formatMB($uxdata[$x1]['U_DISK_DB']) . '</span>
-                                                                <span class="ressix">Directories: ' . formatMB($uxdata[$x1]['U_DISK_DIRS']) . '</span>
-                                                                <span class="reseight" style="display:none">Dirs: ' . formatMB($uxdata[$x1]['U_DISK_DIRS']) . '</span>
+                                                                Databases: ' . formatMB($uxdata[$x1]['U_DISK_DB']) . '<br>
+                                                                Directories: ' . formatMB($uxdata[$x1]['U_DISK_DIRS']) . '
                                                             </div>
                                                         </div>
                                                     </td>
@@ -297,26 +290,13 @@ foreach ($plugins as $result) {
                                                                 </div>
                                                             </div>
                                                         </td>
-                                                         <td class="resfive" style="padding-top:110px;line-height: 30px;">
-                                                            <span class="resfour">
+                                                         <td style="padding-top:110px;line-height: 30px;">
                                                                 <a href="../process/loginas.php?user=' . $uxname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Login as") . ' ' . $uxname[$x1] . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-key"></i></button></a>
-                                                            </span>
-                                                            <span class="reseight" style="display:none">
-                                                                <p>&nbsp</p>
-                                                            </span>
-                                                            <a href="../edit/user.php?user=' . $uxname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button></a>
-                                                            <span class="reseight" style="display:none">
-                                                                <p>&nbsp</p>
-                                                            </span>
-                                                            <span class="resfour">';
+                                                            <a href="../edit/user.php?user=' . $uxname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button></a>';
                                                                 if ($uxdata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $uxname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
                                                                 else { echo '<button type="button" onclick="confirmUnsuspend(\'' . $uxname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }
 
-                                                            echo '</span>
-                                                            <span class="reseight" style="display:none">
-                                                                <p>&nbsp</p>
-                                                            </span>
-                                                            <button onclick="confirmDelete(\'' . $uxname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
+                                                            echo '<button onclick="confirmDelete(\'' . $uxname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
                                                         </td>
                                                     </tr>';
                                                 $x1++;

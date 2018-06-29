@@ -96,9 +96,6 @@ foreach ($plugins as $result) {
             @media screen and (max-width: 540px) {
                 .resfour { display:none !important;}
             } 
-            @media screen and (max-width: 410px) {
-                .resfive { display:none !important;}
-            } 
         </style>
     </head>
 
@@ -180,9 +177,9 @@ foreach ($plugins as $result) {
                                     <thead>
                                         <tr>
                                             <th data-sortable="false"> <?php echo _("Address"); ?> </th>
-                                            <th class="resthree" data-toggle="true" data-type="numeric"> <?php echo _("Domains"); ?> </th>
-                                            <th class="resfour"> <?php echo _("Owner"); ?> </th>
-                                            <th class="resfour"> <?php echo _("Status"); ?> </th>
+                                            <th data-toggle="true" data-type="numeric"> <?php echo _("Domains"); ?> </th>
+                                            <th> <?php echo _("Owner"); ?> </th>
+                                            <th class="restwo"> <?php echo _("Status"); ?> </th>
                                             <th class="resone" data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo _("Created"); ?> </th>
                                             <th data-sortable="false"> <?php echo _("Action"); ?> </th>
                                             <th data-breakpoints="all"> <?php echo _("Netmask"); ?> </th>
@@ -198,11 +195,11 @@ foreach ($plugins as $result) {
                                             do {
                                                 echo '<tr>
                                                     <td>' . $ipname[$x1] . '</td>
-                                                    <td class="resthree" data-sort-value="' . $ipdata[$x1]['U_WEB_DOMAINS'] . '">' . $ipdata[$x1]['U_WEB_DOMAINS'] . '</td>
-                                                    <td class="resfour">' . $ipdata[$x1]['OWNER'] . '</td>                                                                  
-                                                    <td class="resfour">' . ucfirst($ipdata[$x1]['STATUS']) . '</td>
+                                                    <td data-sort-value="' . $ipdata[$x1]['U_WEB_DOMAINS'] . '">' . $ipdata[$x1]['U_WEB_DOMAINS'] . '</td>
+                                                    <td>' . $ipdata[$x1]['OWNER'] . '</td>                                                                  
+                                                    <td class="restwo">' . ucfirst($ipdata[$x1]['STATUS']) . '</td>
                                                     <td class="resone" data-sort-value="' . $ipdata[$x1]['DATE'] . '">' . $ipdata[$x1]['DATE'] . '</td><td>
-                                                        <a href="../edit/ip.php?ip=' . $ipname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button></a><button onclick="confirmDelete(\'' . $ipname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="resthree btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
+                                                        <a href="../edit/ip.php?ip=' . $ipname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button></a><button onclick="confirmDelete(\'' . $ipname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
                                                     </td>
                                                     <td>' . $ipdata[$x1]['NETMASK'] . '</td>
                                                     <td>' . $ipdata[$x1]['INTERFACE'] . '</td>

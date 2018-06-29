@@ -166,7 +166,7 @@ foreach ($plugins as $result) {
                                     <thead>
                                         <tr>
                                             <th> <?php echo _("Name"); ?> </th>
-                                            <th class="resthree" data-sortable="false"> <?php echo _("Version"); ?> </th>
+                                            <th data-sortable="false"> <?php echo _("Version"); ?> </th>
                                             <th class="restwo"> <?php echo _("Developer"); ?> </th>
                                         </tr>
                                     </thead>
@@ -184,7 +184,7 @@ foreach ($plugins as $result) {
                                                         array_push($pluginnames,$arr['name']);
                                                         echo $arr['name'];
                                                     }
-                                                    echo '</td><td class="resthree">';
+                                                    echo '</td><td>';
                                                     if (isset($arr['version']) && !empty($arr['version'])) {
                                                         echo $arr['version'];
                                                     }

@@ -239,7 +239,7 @@ foreach ($plugins as $result) {
                                                         </td>
                                                         <td style="padding-top:110px;line-height: 30px;" class="resbutton">
                                                             <a href="../edit/package.php?package=' . $packname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button></a><span>';
-                                                            echo '</span><button onclick="confirmDelete(\'' . $packname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="resfive btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
+                                                            echo '</span><button onclick="confirmDelete(\'' . $packname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
                                                         </td>
                                                     </tr>';
                                                 $x1++;

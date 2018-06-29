@@ -96,10 +96,6 @@ foreach ($plugins as $result) {
             @media screen and (max-width: 540px) {
                 .resfour { display:none !important;}
             } 
-            @media screen and (max-width: 410px) {
-                .resfive { display:none !important;}
-                .reslink { pointer-events: all !important; }
-            } 
         </style>
     </head>
 

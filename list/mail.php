@@ -87,30 +87,10 @@ foreach ($plugins as $result) {
                 .resone { display:none !important;}
             }  
             @media screen and (max-width: 991px) {
-                .resone { display:none !important;}
                 .restwo { display:none !important;}
             }    
             @media screen and (max-width: 767px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
                 .resthree { display:none !important;}
-            } 
-            @media screen and (max-width: 540px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
-                .resthree { display:none !important;}
-                .resfour { display:none !important;}
-                .reseight { display:block !important; }
-                td { font-size: 12px; }
-                .reseight p { line-height: 5% !important; } 
-                
-            } 
-            @media screen and (max-width: 410px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
-                .resthree { display:none !important;}
-                .resfour { display:none !important;}
-                .resfive { display:none !important;}
             } 
         </style>
     </head>
@@ -269,14 +249,14 @@ foreach ($plugins as $result) {
                                                 echo '</td>
                                                         <td class="resone" data-sort-value="' . $maildata[$x1]['DATE'] . '">' . $maildata[$x1]['DATE'] . '</td>
                                                         <td>
-                                                            <a class="resthree" href="../add/mailaccount.php?domain=' . $mailname[$x1] . '"><button type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Add Accounts") . '"><i class="fa fa-plus"></i></button></a>
+                                                            <a href="../add/mailaccount.php?domain=' . $mailname[$x1] . '"><button type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Add Accounts") . '"><i class="fa fa-plus"></i></button></a>
                                                             <a href="../list/maildomain.php?domain=' . $mailname[$x1] . '"><button type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("List Accounts") . '"><i class="ti-menu-alt"></i></button></a>
-                                                            <span class="reseight" style="display:none"><p>&nbsp</p></span><a href="../edit/mail.php?domain=' . $mailname[$x1] . '"><button type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button></a>';
+                                                            <a href="../edit/mail.php?domain=' . $mailname[$x1] . '"><button type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button></a>';
 
-                                                            if ($initialusername == "admin" && $maildata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $mailname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="resthree btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
-                                                            elseif ($initialusername == "admin" && $maildata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="confirmUnsuspend(\'' . $mailname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="resthree btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }    
+                                                            if ($initialusername == "admin" && $maildata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $mailname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
+                                                            elseif ($initialusername == "admin" && $maildata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="confirmUnsuspend(\'' . $mailname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }    
 
-                                                            echo '<span class="reseight" style="display:none"><p>&nbsp</p></span><button onclick="confirmDelete(\'' . $mailname[$x1] . '\')" type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="icon-trash" ></i></button>
+                                                            echo '<button onclick="confirmDelete(\'' . $mailname[$x1] . '\')" type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="icon-trash" ></i></button>
                                                         </td>
                                                         <td>'; if($maildata[$x1]['CATCHALL'] != ''){ echo $maildata[$x1]['CATCHALL'];} else { echo _("None");} echo '</td>
                                                         <td>';                                                                   

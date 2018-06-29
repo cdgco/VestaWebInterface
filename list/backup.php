@@ -108,12 +108,8 @@ foreach ($plugins as $result) {
             } 
             @media screen and (max-width: 540px) {
                 .resfour { display:none !important;}
-                .resfourshow { display:block !important;}
                 td { font-size: 12px; }
                 
-            } 
-            @media screen and (max-width: 410px) {
-                .resfive { display:none !important;}
             } 
         </style>
     </head>

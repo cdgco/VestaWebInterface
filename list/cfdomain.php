@@ -180,12 +180,6 @@ foreach ($plugins as $result) {
                     top: 20px;
                 }
             } 
-            @media screen and (max-width: 540px) {
-                .resfour { display:none !important;}
-            } 
-            @media screen and (max-width: 410px) {
-                .resfive { display:none !important;}
-            } 
         </style>
     </head>
 
