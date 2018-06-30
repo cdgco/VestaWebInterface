@@ -14,7 +14,7 @@ API Key Support
 Cached MySQL Support  
 Plugin System  
 FTP Plugin (MonstaFTP)  
-Webmail Plugin (Rainloop)
+Webmail Plugin (Rainloop)  
 Block Access to all pages  
 Dark Theme  
 UI Upgrades  
