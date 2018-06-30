@@ -3,7 +3,7 @@ To selectively install VWI or to install the web interface on a non-VestaCP serv
 
 
 #### Step 1:
-[Download the latest release](https://github.com/cdgco/VestaWebInterface/archive/v0.4.0-Beta.zip) of VWI from GitHub.
+[Download the latest release](https://github.com/cdgco/VestaWebInterface/archive/v0.5.0-Beta.zip) of VWI from GitHub.
 
 #### Step 2:
 Extract Vesta Web Interface to a blank domain directory.
