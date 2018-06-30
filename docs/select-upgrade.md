@@ -15,7 +15,7 @@ Extract Vesta Web Interface to the blank domain directory.
 
 #### Step 4:
 Update the Vesta Web Interface backend on your VestaCP server.
-```
+```shell
 bash <(curl -s https://cdgco.github.io/backend)
 ```
 

@@ -6,7 +6,7 @@ Within the register.php file on line 118, list the allowed plans within HTML 'op
 
 Example:
 
-```
+```html
 <option value="default"><?php echo _('Default'); ?></option>
 ```
 

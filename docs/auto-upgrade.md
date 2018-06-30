@@ -6,12 +6,12 @@ NOTE: v0.5.0 requires a clean install and cannot be installed through upgrade.
 Enter the web directory of your VWI Installation.
 
 Example:
-```
+```shell
 cd /home/admin/web/mydomain.com/public_html/
 ```
 #### Step 2:
 Run the automatic upgrader.
-```
+```shell
 bash <(curl -s https://cdgco.github.io/upfull)
 ```
 Upgrade Complete

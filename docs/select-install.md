@@ -10,12 +10,12 @@ Extract Vesta Web Interface to a blank domain directory.
 
 #### Step 3:
 Install the Vesta Web Interface backend on your VestaCP server.
-```
+```shell
 bash <(curl -s https://cdgco.github.io/backend)
 ```
 #### Step 4:
 Install the optional language packs on your frontend server (required for translation support).
-```
+```shell
 bash <(curl -s https://cdgco.github.io/lang)
 ```
 #### Step 5:
@@ -24,12 +24,12 @@ Configure Vesta Web Interface through the web based configurator or manual confi
 * Web Based Configuration:
     
  - chmod 'includes' folder, 'tmp' foler and 'plugins/images/uploads' folder to 777.
-```
+```shell
 chmod 777 includes tmp plugins/images/uploads
 ```
 Visit the URL of your installation in your browser and enter the desired settings in the web based configurator.
 chmod 'includes' folder to 755.
-```
+```shell
 chmod 755 includes
 ```
 * Manual Configuration

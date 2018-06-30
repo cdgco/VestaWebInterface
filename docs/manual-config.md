@@ -18,7 +18,7 @@ To initialize the MySQL Database, use the included vwi_config.sql file in the in
 Create a table within your specified MySQL Database either by importing the vwi_config.sql in phpmyadmin or by pasting the following commands into MySQL:
 
 Create Table (Change Prefix If Necessary):
-```
+```SQL
 CREATE TABLE `vwi_config` (
   `VARIABLE` varchar(64) NOT NULL,
   `VALUE` varchar(1024) NOT NULL
@@ -26,7 +26,7 @@ CREATE TABLE `vwi_config` (
 ```
 
 Initialize Table (Change Prefix If Necessary):
-```
+```SQL
 INSERT INTO `vwi_config` (`VARIABLE`, `VALUE`) VALUES
 ('TIMEZONE', 'America/Los_Angeles'),
 ('SITE_NAME', ''),
