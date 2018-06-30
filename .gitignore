@@ -5,3 +5,5 @@ bfg.jar
 includes/config.json
 config.json
 tmp/config.json
+notes.md
+test.php
