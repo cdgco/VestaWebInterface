@@ -762,7 +762,7 @@ foreach ($plugins as $result) {
                                     <div class="form-group">
                                         <div class="col-sm-12">
                                             <?php if(isset($mysqldown) && $mysqldown = 'yes') { echo '<span class="d-inline-block" data-container="body" data-toggle="tooltip" title="MySQL Offline">'; } ?>
-                                            <button type="submit" class="btn btn-success" <?php if(isset($mysqldown) && $mysqldown = 'yes') { echo 'disabled'; } ?>><?php echo _("Update Settings"); ?></button><?php if(isset($mysqldown) && $mysqldown = 'yes') { echo '</span>'; } ?> &nbsp;
+                                            <button type="submit" class="btn btn-success" <?php if(isset($mysqldown) && $mysqldown == 'yes') { echo 'disabled'; } ?>><?php echo _("Update Settings"); ?></button><?php if(isset($mysqldown) && $mysqldown == 'yes') { echo '</span>'; } ?> &nbsp;
                                             <a href="../list/users.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button" onclick="loadLoader();"><?php echo _("Back"); ?></button></a>
                                         </div>
                                     </div>

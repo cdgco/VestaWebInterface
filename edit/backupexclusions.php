@@ -259,6 +259,9 @@ foreach ($plugins as $result) {
                     new CBPFWTabs(el);
                 });
             })();
+             $(function () {
+                $('[data-toggle="tooltip"]').tooltip()
+            })
             $('#form').submit(function(ev) {
                 ev.preventDefault();
                 processLoader();

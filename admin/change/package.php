@@ -55,7 +55,7 @@ DATE='".date('Y-m-d')."'\n";
 $writestr = str_replace("\r\n", "\n",  $writestr);
 ftp_file_put_contents($_POST['v_package-name'] . '.pkg', $writestr);
 
-$postvars1 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-user-package','arg1' => "/home/admin/",'arg2' => $_POST['v_package-name']);
+$postvars1 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-user-package','arg1' => "/home/admin/",'arg2' => $_POST['v_package-name'], 'arg3' => 'yes');
 
 $curl1 = curl_init();
 curl_setopt($curl1, CURLOPT_URL, $vst_url);
@@ -65,6 +65,17 @@ curl_setopt($curl1, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($curl1, CURLOPT_POST, true);
 curl_setopt($curl1, CURLOPT_POSTFIELDS, http_build_query($postvars1));
 $r1 = curl_exec($curl1);
+
+$postvars2 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-update-user-package','arg1' => $_POST['v_package-name']);
+
+$curl2 = curl_init();
+curl_setopt($curl2, CURLOPT_URL, $vst_url);
+curl_setopt($curl2, CURLOPT_RETURNTRANSFER,true);
+curl_setopt($curl2, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($curl2, CURLOPT_SSL_VERIFYHOST, false);
+curl_setopt($curl2, CURLOPT_POST, true);
+curl_setopt($curl2, CURLOPT_POSTFIELDS, http_build_query($postvars2));
+$r2 = curl_exec($curl2);
 
 sleep(3); // Give Vesta some time to process files before deleting.
 
@@ -89,9 +100,10 @@ ftp_delete($ftp_conn, $_POST['v_package-name'] . '.pkg');
             </svg>
         </div>
 
-        <form id="form" action="../list/packages.php" method="post">
+        <form id="form" action="../edit/package.php?package=<?php echo $_POST['v_package-name']; ?>" method="post">
             <?php 
-    echo '<input type="hidden" name="addcode" value="'.$r1.'">';
+                echo '<input type="hidden" name="r1" value="'.$r1.'">';
+                echo '<input type="hidden" name="r2" value="'.$r2.'">';
             ?>
         </form>
         <script type="text/javascript">

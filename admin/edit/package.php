@@ -176,13 +176,12 @@ foreach ($plugins as $result) {
                                         <div class="col-md-12">
 
                                             <input type="text" disabled value="<?php print_r($packname[0]); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;" class="form-control uneditable-input form-control-static"> 
-                                            <input type="hidden" name="v_address" value="<?php print_r($packname[0]); ?>"> 
+                                            <input type="hidden" name="v_package-name" value="<?php print_r($packname[0]); ?>"> 
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Web Template"); ?></label>
                                         <div class="col-md-12">
-                                            <input type="hidden" name="v_webtpl-x" value="<?php print_r($packdata[0]['WEB_TEMPLATE']); ?>">
                                             <select class="form-control select3" name="v_webtpl" id="select3">
                                                 <?php
                                                 if($webtemplates[0] != '') {
@@ -200,7 +199,6 @@ foreach ($plugins as $result) {
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Proxy Template"); ?></label>
                                         <div class="col-md-12">
-                                            <input type="hidden" name="v_prxtpl-x" value="<?php print_r($packdata[0]['PROXY_TEMPLATE']); ?>">
                                             <select class="form-control select4" name="v_prxtpl" id="select4">
                                                 <?php
                                                 if($proxytemplates[0] != '') {
@@ -218,7 +216,6 @@ foreach ($plugins as $result) {
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("DNS Template"); ?></label>
                                         <div class="col-md-12">
-                                            <input type="hidden" name="v_dnstpl-x" value="<?php print_r($packdata[0]['DNS_TEMPLATE']); ?>">
                                             <select class="form-control select5" name="v_dnstpl" id="select5">
                                                 <?php
                                                 if($dnstemplates[0] != '') {
@@ -244,7 +241,6 @@ foreach ($plugins as $result) {
                                             </span>
                                         </div>
                                     </div>
-                                    <input type="hidden" value="<?php print_r($packdata[0]['WEB_DOMAINS']); ?>" name="v_web-domains-x">
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Web Aliases"); ?></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
@@ -257,7 +253,6 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>
                                     <small class="form-text text-muted" style="top: -20px;position: relative;">Per Domain</small>
-                                    <input type="hidden" value="<?php print_r($packdata[0]['WEB_ALIASES']); ?>" name="v_web-aliases-x">
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("DNS Domains"); ?></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
@@ -269,7 +264,6 @@ foreach ($plugins as $result) {
                                             </span>
                                         </div>
                                     </div>
-                                    <input type="hidden" value="<?php print_r($packdata[0]['DNS_DOMAINS']); ?>" name="v_dns-domains-x">
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("DNS Records"); ?></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
@@ -282,7 +276,6 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>
                                     <small class="form-text text-muted" style="top: -20px;position: relative;">Per Domain</small>
-                                    <input type="hidden" value="<?php print_r($packdata[0]['DNS_RECORDS']); ?>" name="v_dns-records-x">
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Mail Domains"); ?></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
@@ -294,7 +287,6 @@ foreach ($plugins as $result) {
                                             </span>
                                         </div>
                                     </div>
-                                    <input type="hidden" value="<?php print_r($packdata[0]['MAIL_DOMAINS']); ?>" name="v_mail-domains-x">
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Mail Accounts"); ?></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
@@ -307,7 +299,6 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>
                                     <small class="form-text text-muted" style="top: -20px;position: relative;">Per Domain</small>
-                                    <input type="hidden" value="<?php print_r($packdata[0]['MAIL_ACCOUNTS']); ?>" name="v_mail-accounts-x">
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Databases"); ?></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
@@ -319,7 +310,6 @@ foreach ($plugins as $result) {
                                             </span>
                                         </div>
                                     </div>
-                                    <input type="hidden" value="<?php print_r($packdata[0]['DATABASES']); ?>" name="v_databases-x">
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Cron Jobs"); ?></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
@@ -331,14 +321,12 @@ foreach ($plugins as $result) {
                                             </span>
                                         </div>
                                     </div>
-                                    <input type="hidden" value="<?php print_r($packdata[0]['CRON_JOBS']); ?>" name="v_cron-jobs-x">
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Backups"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" class="form-control form-control-line" value="<?php print_r($packdata[0]['BACKUPS']); ?>" name="v_backups" required>
                                         </div>
                                     </div>
-                                    <input type="hidden" value="<?php print_r($packdata[0]['BACKUPS']); ?>" name="v_backups-x">
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Quota"); ?></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
@@ -351,7 +339,6 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>
                                     <small class="form-text text-muted" style="top: -20px;position: relative;">In Megabytes</small>
-                                    <input type="hidden" value="<?php print_r($packdata[0]['DISK_QUOTA']); ?>" name="v_quota-x">
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Bandwidth"); ?></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
@@ -364,7 +351,6 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>
                                     <small class="form-text text-muted" style="top: -20px;position: relative;">In Megabytes</small>
-                                    <input type="hidden" value="<?php print_r($packdata[0]['BANDWIDTH']); ?>" name="v_bandwidth-x">
                                     <div class="form-group" style="overflow: visible;">
                                         <label class="col-md-12"><?php echo _("SSH Access"); ?></label>
                                         <div class="col-md-12">
@@ -378,7 +364,6 @@ foreach ($plugins as $result) {
                                                 <option value="sh">sh</option>
                                                 <option value="tcsh">tcsh</option>
                                             </select>
-                                            <input type="hidden" name="ssh-x" value='<?php echo $packdata[0]["SHELL"]; ?>'>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -401,18 +386,10 @@ foreach ($plugins as $result) {
 
                                             <div id="ns8" style="display:<?php if(explode(',', ($packdata[0]['NS']))[7] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($packdata[0]['NS']))[7]); ?>" class="form-control form-control-line" name="ns8" id="ns8x"><br><div id="ns8wrapper"><a style="cursor:pointer;" id="remove6" onclick="rem7();"><?php echo _("Remove One"); ?></a></div></div>
                                         </div>
-                                        <input type="hidden" name="ns1-x" value='<?php echo explode(',', ($packdata[0]['NS']))[0]; ?>'>
-                                        <input type="hidden" name="ns2-x" value='<?php echo explode(',', ($packdata[0]['NS']))[1]; ?>'>
-                                        <input type="hidden" name="ns3-x" value='<?php echo explode(',', ($packdata[0]['NS']))[2]; ?>'>
-                                        <input type="hidden" name="ns4-x" value='<?php echo explode(',', ($packdata[0]['NS']))[3]; ?>'>
-                                        <input type="hidden" name="ns5-x" value='<?php echo explode(',', ($packdata[0]['NS']))[4]; ?>'>
-                                        <input type="hidden" name="ns6-x" value='<?php echo explode(',', ($packdata[0]['NS']))[5]; ?>'>
-                                        <input type="hidden" name="ns7-x" value='<?php echo explode(',', ($packdata[0]['NS']))[6]; ?>'>
-                                        <input type="hidden" name="ns8-x" value='<?php echo explode(',', ($packdata[0]['NS']))[7]; ?>'>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success"  type="submit"><?php echo _("Update Package"); ?></button> &nbsp;
+                                            <button class="btn btn-success" <?php if($apienabled == "true") { echo 'disabled'; } ?> type="submit"><?php echo _("Update Package"); ?></button> &nbsp;
                                             <a href="../list/packages.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
                                         </div>
                                     </div>
@@ -444,8 +421,8 @@ foreach ($plugins as $result) {
         <script type="text/javascript">
             <?php 
             $pluginlocation = "../../plugins/"; if(isset($pluginnames[0]) && $pluginnames[0] != '') { $currentplugin = 0; do { if (strtolower($pluginhide[$currentplugin]) != 'y' && strtolower($pluginhide[$currentplugin]) != 'yes') { if (strtolower($pluginadminonly[$currentplugin]) != 'y' && strtolower($pluginadminonly[$currentplugin]) != 'yes') { if (strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; } else { $currentstring = "<li><a href='".$pluginlocation.$pluginlinks[$currentplugin]."/'><i class='fa ".$pluginicons[$currentplugin]." fa-fw'></i><span class='hide-menu'>"._($pluginnames[$currentplugin])."</span></a></li>"; }} else { if(strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";} } else { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; }}} echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');\n var plugindata" . $currentplugin . " = \"" . $currentstring . "\";\n plugincontainer" . $currentplugin . ".innerHTML += plugindata" . $currentplugin . ";\n"; } $currentplugin++; } while ($pluginnames[$currentplugin] != ''); } ?> 
-            document.getElementById('select3').value = '<?php print_r($packdata[0]['PROXY_TEMPLATE']); ?>';
-            document.getElementById('select4').value = '<?php print_r($packdata[0]['WEB_TEMPLATE']); ?>';
+            document.getElementById('select3').value = '<?php print_r($packdata[0]['WEB_TEMPLATE']); ?>';
+            document.getElementById('select4').value = '<?php print_r($packdata[0]['PROXY_TEMPLATE']); ?>';
             document.getElementById('select5').value = '<?php print_r($packdata[0]['DNS_TEMPLATE']); ?>';
             document.getElementById('sshselect').value = '<?php print_r($packdata[0]['SHELL']); ?>';
 
@@ -460,8 +437,6 @@ foreach ($plugins as $result) {
                     new CBPFWTabs(el);
                 });
             })(); 
-            <?php echo 'document.getElementById("typeselect").value = \'' . $firedata[0]['ACTION'] . '\';'; ?>
-            <?php echo 'document.getElementById("protocolselect").value = \'' . $firedata[0]['PROTOCOL'] . '\';'; ?>
             jQuery(function($){
                 $('.footable').footable();
             });
@@ -535,12 +510,39 @@ foreach ($plugins as $result) {
             if(isset($_GET['error']) && $_GET['error'] == "1") {
                 echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
             } 
-            if(isset($_POST['r1']) && $_POST['r1'] == "0") {
+            $returntotal = $_POST['r1'] + $_POST['r2'];
+            if(isset($_POST['r1']) && $returntotal == 0) {
                 echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
             } 
-            if(isset($_POST['r1']) && $_POST['r1'] > "0") { echo "swal({title:'" . $errorcode[$_POST['r1']] . "<br><br>" . _("Please try again later or contact support.") . "', type:'error'});";
-                                                          }
-            ?>
+            if(isset($_POST['r1']) && $returntotal != 0) {
+                echo "swal({title:'" . _("Error Updating Package") . "<br>" . "(E: " . $_POST['r1'] . "." . $_POST['r2'] . ")<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+            }
+           if($warningson == "all"){
+                if(isset($apienabled) && $apienabled == 'true') {
+                    echo "$.toast({
+                            heading: '" . _("Feature Disabled") . "',
+                            text: '" . _("Packages are incompatible with API Key Authentication.") . "',
+                            icon: 'warning',
+                            position: 'top-right',
+                            bgColor: '#ff8000',
+                            hideAfter: false
+                        });";
+                } 
+            }
+            elseif($warningson == "admin" && $initialusername == "admin"){
+                if(isset($apienabled) && $apienabled == 'true') {
+                    echo "$.toast({
+                            heading: '" . _("Feature Disabled") . "',
+                            text: '" . _("Packages are incompatible with API Key Authentication.") . "',
+                            icon: 'warning',
+                            position: 'top-right',
+                            bgColor: '#ff8000',
+                            hideAfter: false
+                        });";
+
+                } 
+            }
+                ?>
         </script>
     </body>
 </html>
