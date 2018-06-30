@@ -79,7 +79,7 @@ require '../includes/arrays.php';
                             </tr>
                             <tr>
                                 <td style="font-size:16px;">'plugins/images/uploads' Is Writable (777):</td>
-                                <td style="font-size:16px;"><span style="color:<?php if (substr(sprintf("%o",fileperms("../tmp")),-3) == "777") {echo "limegreen";  $a12 = 0; } else { echo "red";  $a12 = 1; } ?>"><?php if (substr(sprintf("%o",fileperms("../tmp")),-3) == "777") {echo "Writable";} else { echo "Not Writable";} ?></span></td> 
+                                <td style="font-size:16px;"><span style="color:<?php if (substr(sprintf("%o",fileperms("../plugins/images/uploads")),-3) == "777") {echo "limegreen";  $a12 = 0; } else { echo "red";  $a12 = 1; } ?>"><?php if (substr(sprintf("%o",fileperms("../plugins/images/uploads")),-3) == "777") {echo "Writable";} else { echo "Not Writable";} ?></span></td> 
                             </tr>           
                         </table>
                         <br><br><br>

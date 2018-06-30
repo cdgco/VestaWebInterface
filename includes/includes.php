@@ -9,7 +9,7 @@
 // Require MySQL Credentials & Arrays of Countries, Languages and Error Codes in all pages
 require("config.php"); require("arrays.php");
 
-$configstyle = '2';
+$configstyle = '1';
 
 $con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
 
