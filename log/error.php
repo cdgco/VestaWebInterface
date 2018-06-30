@@ -5,7 +5,7 @@ $configlocation = "../includes/";
 if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php'); }
+else { header('Location: ../login.php?to=log/error.php' . $urlquery . $_SERVER['QUERY_STRING']); }
 
 if(isset($webenabled) && $webenabled != 'true'){ header("Location: ../error-pages/403.html"); }
 
@@ -85,6 +85,17 @@ foreach ($plugins as $result) {
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <style>
+            @media screen and (max-width: 1199px) {
+                .resone { display:none !important;}
+            }  
+            @media screen and (max-width: 767px) {
+                .restwo { display:none !important;}
+            }    
+            @media screen and (max-width: 540px) {}
+                .resthree { display:none !important;}
+            } 
+        </style>
     </head>
 
     <body class="fix-header">
@@ -158,7 +169,7 @@ foreach ($plugins as $result) {
             <div id="page-wrapper">
                 <div class="container-fluid">
                     <div class="row bg-title" style="overflow:visible;">
-                        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 restwo">
                             <h4 class="page-title"><?php echo _("Error Log"); ?></h4> </div>
                         <div class="col-lg-2 col-sm-8 col-md-8 col-xs-12 pull-right">
                             <div style="margin-right:257px;width:220px;" class="btn-group bootstrap-select input-group-btn" onclick="changeAction();">
@@ -177,18 +188,18 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div>
                             <div class="white-box">
-                                <ul class="side-icon-text pull-right">
+                                <ul class="side-icon-text pull-right resthree">
                                     <li><a style="cursor: pointer;" onclick="document.getElementById('accessform').submit();"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="ti-download"></i></span><span><?php echo _("Download Accesslog"); ?></span></a></li>
                                     <li><a style="cursor: pointer;" onclick="document.getElementById('errorform').submit();"><span class="circle circle-sm bg-danger di" style="padding-top: 11px;"><i class="ti-download"></i></span><span><?php echo _("Download Errorlog"); ?></span></a></li>
                                 </ul>
-                                <div style="color: #ff6701; padding: 10px 0 20px 20px; background: #fff; ">.</div><div class="l-center">
+                                <br class="resthree"><br class="resthree"><br class="resthree"><div class="l-center">
                                 <pre style="color: #555"><?php print_r($errorlog); ?> 
                             </pre></div>     
                             </div>
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
         <script src="../plugins/components/jquery/dist/jquery.min.js"></script>

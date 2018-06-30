@@ -5,7 +5,7 @@ $configlocation = "../../includes/";
 if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' );};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../../login.php'); }
+else { header('Location: ../../login.php?to=admin/list/settings.php'.$urlquery.$_SERVER['QUERY_STRING']); }
 if($username != 'admin') { header("Location: ../../"); }
 
 if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
@@ -82,6 +82,24 @@ foreach ($plugins as $result) {
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <style>
+            @media screen and (max-width: 1199px) {
+                .resone { display:none !important;}
+            }  
+            @media screen and (max-width: 991px) {
+                .resone { display:none !important;}
+                .restwo { display:none !important;}
+                .logosize { height: 40px !important;}
+                .logobr { display:block !important; }
+            }    
+            @media screen and (max-width: 540px) {
+                .resone { display:none !important;}
+                .restwo { display:none !important;}
+                .resthree { display:none !important;}
+                .logosize { height: 30px !important;}
+                .logobr { display:block !important; }
+            } 
+        </style>
     </head>
 
     <body class="fix-header" onload="checkDiv();checkDiv1();checkDiv2();checkDiv3();">
@@ -472,7 +490,7 @@ foreach ($plugins as $result) {
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Current Logo:</label><br>
-                                        <img src="../../plugins/images/<?php echo $cplogo; ?>" style="border:1px solid black;height:60px;right: -20px;position: relative;"/>&nbsp;&nbsp;<img src="../../plugins/images/<?php echo $cplogo; ?>" style="background-color:black;height: 60px;right: -20px;position: relative;"/><br><br>
+                                        <img class="logosize" src="../../plugins/images/<?php echo $cplogo; ?>" style="border:1px solid black;height:60px;right: -20px;position: relative;"/>&nbsp;&nbsp;<p style="display:none;line-height:40%" class="logobr">&nbsp;</p><img class="logosize" src="../../plugins/images/<?php echo $cplogo; ?>" style="background-color:black;height: 60px;right: -20px;position: relative;"/><br><br>
                                         <label class="col-md-12">New Logo:</label>
                                         <div class="col-md-12">
                                             <input name="LOGO" id="file2" accept=".png,.gif,.jpg,.jpeg" type="file" class="form-control input-md">
@@ -743,7 +761,8 @@ foreach ($plugins as $result) {
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button type="submit" class="btn btn-success" <?php if(isset($mysqldown) && $mysqldown = 'yes') { echo 'disabled'; } ?>><?php echo _("Update Settings"); ?></button> &nbsp;
+                                            <?php if(isset($mysqldown) && $mysqldown = 'yes') { echo '<span class="d-inline-block" data-container="body" data-toggle="tooltip" title="MySQL Offline">'; } ?>
+                                            <button type="submit" class="btn btn-success" <?php if(isset($mysqldown) && $mysqldown == 'yes') { echo 'disabled'; } ?>><?php echo _("Update Settings"); ?></button><?php if(isset($mysqldown) && $mysqldown == 'yes') { echo '</span>'; } ?> &nbsp;
                                             <a href="../list/users.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button" onclick="loadLoader();"><?php echo _("Back"); ?></button></a>
                                         </div>
                                     </div>
@@ -752,9 +771,10 @@ foreach ($plugins as $result) {
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
+        <script src="../../install/js/popper.min.js"></script>
         <script src="../../plugins/components/jquery/dist/jquery.min.js"></script>
         <script src="../../plugins/components/toast-master/js/jquery.toast.js"></script>
         <script src="../../bootstrap/dist/js/bootstrap.min.js"></script>
@@ -780,7 +800,9 @@ foreach ($plugins as $result) {
                 processLoader();
                 this.submit();
             });
-        
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip()
+            })
             function checkDiv(){
                 if(document.getElementById("phpmailenabled").checked) {
                     document.getElementById('div1').style.display = 'block';

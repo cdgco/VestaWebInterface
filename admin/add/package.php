@@ -5,7 +5,7 @@ $configlocation = "../../includes/";
 if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' );};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../../login.php'); }
+else { header('Location: ../../login.php?to=admin/add/package.php'); }
 if($username != 'admin') { header("Location: ../../"); }
 
 if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
@@ -366,7 +366,7 @@ foreach ($plugins as $result) {
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" type="submit"><?php echo _("Add Package"); ?></button> &nbsp;
+                                            <button class="btn btn-success" <?php if($apienabled == "true") { echo 'disabled'; } ?> type="submit"><?php echo _("Add Package"); ?></button> &nbsp;
                                             <a href="../list/packages.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
                                         </div>
                                     </div>
@@ -375,7 +375,7 @@ foreach ($plugins as $result) {
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
         <script src="../../plugins/components/jquery/dist/jquery.min.js"></script>
@@ -428,8 +428,6 @@ foreach ($plugins as $result) {
                     new CBPFWTabs(el);
                 });
             })(); 
-            <?php echo 'document.getElementById("typeselect").value = \'' . $firedata[0]['ACTION'] . '\';'; ?>
-            <?php echo 'document.getElementById("protocolselect").value = \'' . $firedata[0]['PROTOCOL'] . '\';'; ?>
             jQuery(function($){
                 $('.footable').footable();
             });
@@ -508,8 +506,33 @@ foreach ($plugins as $result) {
                 echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
             } 
             if(isset($_POST['r1']) && $_POST['r1'] > "0") { echo "swal({title:'" . $errorcode[$_POST['r1']] . "<br><br>" . _("Please try again later or contact support.") . "', type:'error'});";
-                                                          }
-            ?>
+                                                          } 
+            if($warningson == "all"){
+                if(isset($apienabled) && $apienabled == 'true') {
+                    echo "$.toast({
+                            heading: '" . _("Feature Disabled") . "',
+                            text: '" . _("Packages are incompatible with API Key Authentication.") . "',
+                            icon: 'warning',
+                            position: 'top-right',
+                            bgColor: '#ff8000',
+                            hideAfter: false
+                        });";
+                } 
+            }
+            elseif($warningson == "admin" && $initialusername == "admin"){
+                if(isset($apienabled) && $apienabled == 'true') {
+                    echo "$.toast({
+                            heading: '" . _("Feature Disabled") . "',
+                            text: '" . _("Packages are incompatible with API Key Authentication.") . "',
+                            icon: 'warning',
+                            position: 'top-right',
+                            bgColor: '#ff8000',
+                            hideAfter: false
+                        });";
+
+                } 
+            }
+                ?>
         </script>
     </body>
 </html>

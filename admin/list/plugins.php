@@ -5,7 +5,7 @@ $configlocation = "../../includes/";
 if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' );};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php'); }
+else { header('Location: ../login.php?to=admin/list/plugins.php'.$urlquery.$_SERVER['QUERY_STRING']); }
 if($username != 'admin') { header("Location: ../../"); }
 
 if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
@@ -78,6 +78,17 @@ foreach ($plugins as $result) {
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <style>
+            @media screen and (max-width: 1199px) {
+                .resone { display:none !important;}
+            }  
+            @media screen and (max-width: 767px) {
+                .restwo { display:none !important;}
+            }    
+            @media screen and (max-width: 480px) {
+                .resthree { display:none !important;}
+            } 
+        </style>
     </head>
 
     <body class="fix-header">
@@ -150,13 +161,13 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box">
-
-                                <table class="table footable m-b-0" data-paging-size="10" data-paging="true" data-sorting="true">
+                                <div class="table-responsive">
+                                <table class="table footable m-b-0" data-sorting="true">
                                     <thead>
                                         <tr>
                                             <th> <?php echo _("Name"); ?> </th>
-                                            <th> <?php echo _("Developer"); ?> </th>
                                             <th data-sortable="false"> <?php echo _("Version"); ?> </th>
+                                            <th class="restwo"> <?php echo _("Developer"); ?> </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -178,7 +189,7 @@ foreach ($plugins as $result) {
                                                         echo $arr['version'];
                                                     }
                                                     else { echo 'Not Provided'; }
-                                                    echo '</td><td>';
+                                                    echo '</td><td class="restwo">';
                                                     if (isset($arr['developer']) && !empty($arr['developer'])) {
                                                         echo $arr['developer'];
                                                     }
@@ -190,11 +201,12 @@ foreach ($plugins as $result) {
                                         ?>
                                     </tbody>
                                 </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
         <script src="../../plugins/components/jquery/dist/jquery.min.js"></script>

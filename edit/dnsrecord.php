@@ -7,7 +7,7 @@ if (file_exists( '../includes/config.php' )) { require( '../includes/includes.ph
 
 // Check if cookie exists, decrypt, then redirect if not logged in
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php'); }
+else { header('Location: ../login.php?to=edit/dnsrecord.php'.$urlquery.$_SERVER['QUERY_STRING']); }
 
 if(isset($dnsenabled) && $dnsenabled != 'true'){ header("Location: ../error-pages/403.html"); }
 
@@ -99,6 +99,28 @@ foreach ($plugins as $result) {
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <style>
+            @media screen and (max-width: 1199px) {
+                .resone { display:none !important;}
+            }  
+            @media screen and (max-width: 991px) {
+                .restwo { display:none !important;}
+            }    
+            @media screen and (max-width: 767px) {
+                .resfour { display:none !important; }
+                .bg-title ul.side-icon-text {
+                    position: relative;
+                    top: -20px;
+                }
+                h4.page-title {
+                    position: relative;
+                    top: 20px;
+                }
+            }
+            @media screen and (max-width: 540px) {
+                .resthree { display:none !important;}
+            } 
+        </style>
     </head>
 
     <body class="fix-header">
@@ -169,12 +191,12 @@ foreach ($plugins as $result) {
                         </div>
                         <ul class="side-icon-text pull-right">
                             <li style="position: relative;top: -3px;">
-                                <a onclick="confirmDelete();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span><?php echo _("Delete DNS Record"); ?></span>
+                                <a onclick="confirmDelete();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span class="resfour"><wrapper class="restwo"><?php echo _("Delete DNS"); ?> </wrapper><?php echo _("Record"); ?></span>
                                 </a>
                             </li>
                         </ul>
                     </div>
-                    <div class="row">
+                    <div class="row restwo">
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="panel"> 
                                 <div class="sk-chat-widgets">
@@ -189,7 +211,7 @@ foreach ($plugins as $result) {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="col-lg-4 col-md-6 col-sm-12 resone">
                             <div class="panel">
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">
@@ -282,7 +304,7 @@ foreach ($plugins as $result) {
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
         <script src="../plugins/components/jquery/dist/jquery.min.js"></script>

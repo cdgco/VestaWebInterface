@@ -5,7 +5,7 @@ $configlocation = "../includes/";
 if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php'); }
+else { header('Location: ../login.php?to=list/db.php' . $urlquery . $_SERVER['QUERY_STRING']); }
 
 if(isset($dbenabled) && $dbenabled != 'true'){ header("Location: ../error-pages/403.html"); }
 
@@ -82,6 +82,20 @@ foreach ($plugins as $result) {
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <style>
+            @media screen and (max-width: 1199px) {
+                .resone { display:none !important;}
+            }  
+            @media screen and (max-width: 991px) {
+                .restwo { display:none !important;}
+            }    
+            @media screen and (max-width: 767px) {
+                .resthree { display:none !important;}
+            } 
+            @media screen and (max-width: 540px) {
+                .resfour { display:none !important;}
+            } 
+        </style>
     </head>
 
     <body class="fix-header">
@@ -151,7 +165,7 @@ foreach ($plugins as $result) {
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                             <h4 class="page-title"><?php echo _("Manage Databases"); ?></h4> </div>
                     </div>
-                    <div class="row">
+                    <div class="row restwo">
                         <div class="col-lg-6 col-md-6 col-sm-12">
                             <div class="panel">
                                 <div class="sk-chat-widgets">
@@ -186,19 +200,19 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box"> <ul class="side-icon-text pull-right">
-                                <li><a href="../add/db.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Database"); ?></span></a></li>
-                                <?php if($phpmyadmin != '') { echo '<li><a href="' . $phpmyadmin .'" target="_blank"><span class="circle circle-sm bg-warning di"><i class="fa fa-database"></i></span><span>' . _("phpMyAdmin") . '</span></a></li>';} if($phppgadmin != '') { echo '<li><a href="' . $phppgadmin .'" target="_blank"><span class="circle circle-sm bg-purple di"><i class="fa fa-database"></i></span><span>' . _("phpPgAdmin") . '</span></a></li>';} ?>
+                                <li><a href="../add/db.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span class="resfour"><wrapper class="restwo"><?php echo _("Add "); ?></wrapper><?php echo _("Database"); ?></span></a></li>
+                                <?php if($phpmyadmin != '') { echo '<li class="restwo"><a href="' . $phpmyadmin .'" target="_blank"><span class="circle circle-sm bg-warning di"><i class="fa fa-database"></i></span><span>' . _("phpMyAdmin") . '</span></a></li>';} if($phppgadmin != '') { echo '<li class="restwo"><a href="' . $phppgadmin .'" target="_blank"><span class="circle circle-sm bg-purple di"><i class="fa fa-database"></i></span><span>' . _("phpPgAdmin") . '</span></a></li>';} ?>
                                 </ul>
                                 <h3 class="box-title m-b-0"><?php echo _("Databases"); ?></h3><br>
-
-                                <table class="table footable m-b-0" data-paging-size="10" data-paging="true" data-sorting="true">
+                                <div class="table-responsive">
+                                <table class="table footable m-b-0" data-sorting="true">
                                     <thead>
                                         <tr>
                                             <th data-toggle="true"> <?php echo _("Database"); ?> </th>
                                             <th> <?php echo _("Username"); ?> </th>
-                                            <th data-type="numeric"> <?php echo _("Disk Usage"); ?> </th>
-                                            <th> <?php echo _("Status"); ?> </th>
-                                            <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo _("Created"); ?> </th>
+                                            <th class="restwo" data-type="numeric"> <?php echo _("Disk Usage"); ?> </th>
+                                            <th class="restwo"> <?php echo _("Status"); ?> </th>
+                                            <th class="restwo" data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo _("Created"); ?> </th>
                                             <th data-sortable="false"> <?php echo _("Action"); ?> </th>
                                             <th data-breakpoints="all"> <?php echo _("Host"); ?> </th>
                                             <th data-breakpoints="all"> <?php echo _("Type"); ?> </th>
@@ -214,15 +228,15 @@ foreach ($plugins as $result) {
                                                 echo '<tr'; if($dbdata[$x1]['SUSPENDED'] != 'no') { echo ' style="background: #efefef"'; } echo '>
                                                         <td>' . $dbname[$x1] . '</td>
                                                         <td>' . $dbdata[$x1]['DBUSER'] . '</td>
-                                                        <td data-sort-value="' . $dbdata[$x1]['U_DISK'] . '">' . $dbdata[$x1]['U_DISK'] . ' mb</td>
-                                                        <td>';                                                                   
+                                                        <td class="restwo" data-sort-value="' . $dbdata[$x1]['U_DISK'] . '">' . formatMB($dbdata[$x1]['U_DISK']) . '</td>
+                                                        <td class="restwo">';                                                                   
                                                 if($dbdata[$x1]['SUSPENDED'] == "no"){ 
                                                     echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
                                                 else{ 
                                                     echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
                                                 echo '</td>
-                                                        <td data-sort-value="' . $dbdata[$x1]['DATE'] . '">' . $dbdata[$x1]['DATE'] . '</td><td>
-                                                        <button type="button" onclick="window.location=\'../edit/db.php?db=' . $dbname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button>';
+                                                        <td class="restwo" data-sort-value="' . $dbdata[$x1]['DATE'] . '">' . $dbdata[$x1]['DATE'] . '</td><td>
+                                                        <a href="../edit/db.php?db=' . $dbname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button></a>';
                                                         if ($initialusername == "admin" && $dbdata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $dbname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
                                                         elseif ($initialusername == "admin" && $dbdata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="confirmUnsuspend(\'' . $dbname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }   
                                                         echo '<button onclick="confirmDelete(\'' . $dbname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
@@ -236,11 +250,12 @@ foreach ($plugins as $result) {
                                         ?>
                                     </tbody>
                                 </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
         <script src="../plugins/components/jquery/dist/jquery.min.js"></script>
@@ -359,7 +374,7 @@ foreach ($plugins as $result) {
                 echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
             } 
             if(isset($_POST['u1']) && $_POST['u1'] != 0) {
-                echo "swal({title:'" . _("Error Updating Mail Domain") . "<br>" . "(E: " . $_POST['u1'] . ")" . _("Please try again or contact support.") . "<br><br>', type:'error'});";
+                echo "swal({title:'" . $errorcode[$_POST['u1']] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
             }
             ?>
         </script>

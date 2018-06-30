@@ -5,7 +5,7 @@ $configlocation = "includes/";
 if (file_exists( 'includes/config.php' )) { require( 'includes/includes.php'); }  else { header( 'Location: install' );};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: login.php'); }
+else { header('Location: login.php?to=profile.php'); }
 
 if(isset($profileenabled) && $profileenabled != 'true'){ header("Location: error-pages/403.html"); }
 
@@ -305,11 +305,14 @@ foreach ($plugins as $result) {
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-6 pull-left"><?php echo _("First Name"); ?></label><label class="col-sm-6 pull-right"><?php echo _("Last Name"); ?></label>
-                                            <div class="col-sm-6 pull-left">
+                                            <label class="col-sm-12"><?php echo _("First Name"); ?></label>
+                                            <div class="col-sm-12">
                                                 <input type="text" name="fname" value="<?php print_r($admindata['FNAME']); ?>" class="form-control form-control-line"> 
                                             </div>
-                                            <div class="col-sm-6 pull-right">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-12"><?php echo _("Last Name"); ?></label>
+                                            <div class="col-sm-12">
                                                 <input type="text" name="lname" value="<?php print_r($admindata['LNAME']); ?>" class="form-control form-control-line"> 
                                             </div>
                                         </div>
@@ -393,11 +396,11 @@ foreach ($plugins as $result) {
                     </div>
                 </div>
             </div>
-            <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require 'includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+            <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require 'includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
         </div>
     </div>
     <script src="plugins/components/jquery/dist/jquery.min.js"></script>
-    <script src="../plugins/components/toast-master/js/jquery.toast.js"></script>
+    <script src="plugins/components/toast-master/js/jquery.toast.js"></script>
     <script src="bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="plugins/components/sidebar-nav/dist/sidebar-nav.min.js"></script>
     <script src="js/jquery.slimscroll.js"></script>

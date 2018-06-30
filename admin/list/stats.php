@@ -5,7 +5,7 @@ $configlocation = "../../includes/";
 if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' );};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../../login.php'); }
+else { header('Location: ../../login.php?to=admin/list/stats.php'.$urlquery.$_SERVER['QUERY_STRING']); }
 if($username != 'admin') { header("Location: ../../"); }
 
 if (isset($_GET['user']) && $_GET['user'] != '' && $username == 'admin') { $logusername = $_GET['user'];}
@@ -89,6 +89,25 @@ foreach ($plugins as $result) {
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <style>
+            @media screen and (max-width: 1199px) {
+                .resone { display:none !important;}
+            }  
+            @media screen and (max-width: 991px) {
+                .restwo { display:none !important;}
+            }    
+            @media screen and (max-width: 767px) {
+                .resthree { display:none !important;}
+            } 
+            @media screen and (max-width: 540px) {
+                .resfour { display:none !important;}
+                .resfourshow { display:inline-block !important;}
+            } 
+            @media screen and (max-width: 410px) {
+                .resfive { display:none !important;}
+                .resfiveshow { display:inline-block !important; width:65px !important;}
+            } 
+        </style>
     </head>
 
     <body class="fix-header">
@@ -180,21 +199,21 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box">
-
+                                <div class="table-responsive">
                                 <table class="table footable m-b-0"  data-sorting="true">
                                     <thead>
                                         <tr>
                                             <th data-type="date" data-format-string="MMMM YYYY" data-sorted="true" data-direction="DESC"> <?php echo _("Date"); ?> </th>
                                             <th data-sortable="false"> <?php echo _("Bandwidth"); ?> </th>
                                             <th data-sortable="false"> <?php echo _("Disk"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("Disk"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("Web"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("DNS"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("Mail"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("Databases"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("Cron Jobs"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("IP Addresses"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("Backups"); ?> </th>
+                                            <th data-breakpoints="all"><?php echo _("Disk"); ?></th>
+                                            <th data-breakpoints="all"><?php echo _("Web"); ?></th>
+                                            <th data-breakpoints="all"><?php echo _("DNS"); ?></th>
+                                            <th data-breakpoints="all"><?php echo _("Mail"); ?></th>
+                                            <th data-breakpoints="all"><?php echo _("Databases"); ?></th>
+                                            <th data-breakpoints="all"><?php echo _("Cron Jobs"); ?></th>
+                                            <th data-breakpoints="all"><?php echo _("IP Addresses"); ?></th>
+                                            <th data-breakpoints="all"><?php echo _("Backups"); ?></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -205,12 +224,16 @@ foreach ($plugins as $result) {
                                             do {
                                                 echo '<tr>
                                                     <td data-sort-value="' . date("F Y", strtotime($statsname[$x1])) . '">' . date("F Y", strtotime($statsname[$x1])) . '</td>
-                                                    <td>' . $statsdata[$x1]['U_BANDWIDTH'] . ' mb</td>
-                                                    <td>' . $statsdata[$x1]['U_DISK'] . ' mb</td>
-                                                    <td><br><b>Web:</b> ' . $statsdata[$x1]['U_DISK_WEB'] . ' mb<br><b>Mail:</b> ' . $statsdata[$x1]['U_DISK_MAIL'] . ' mb<br><b>Databases:</b> ' . $statsdata[$x1]['U_DISK_DB'] . ' mb<br><b>User Directories:</b> ' . $statsdata[$x1]['U_DISK_DIRS'] . ' mb</td>
+                                                    <td>' . formatMB($statsdata[$x1]['U_BANDWIDTH']) . '</td>
+                                                    <td>' . formatMB($statsdata[$x1]['U_DISK']) . '</td>
+                                                    
+                                                    
+                                                    <td><br><b>Web:</b> ' . formatMB($statsdata[$x1]['U_DISK_WEB']) . '<br><b>Mail:</b> ' . formatMB($statsdata[$x1]['U_DISK_MAIL']) . '<br><b>Databases:</b> ' . formatMB($statsdata[$x1]['U_DISK_DB']) . '<br><b>User Directories:</b> ' . formatMB($statsdata[$x1]['U_DISK_DIRS']) . '</td>
                                                     <td><br><b>Domains:</b> ' . $statsdata[$x1]['U_WEB_DOMAINS'] . '<br><b>SSL Domains:</b> ' . $statsdata[$x1]['U_WEB_SSL'] . '<br><b>Aliases:</b> ' . $statsdata[$x1]['U_WEB_ALIASES'] . '</td>
                                                     <td><br><b>Domains:</b> ' . $statsdata[$x1]['U_DNS_DOMAINS'] . '<br><b>Records:</b> ' . $statsdata[$x1]['U_DNS_RECORDS'] . '</td>
                                                     <td><br><b>Domains:</b> ' . $statsdata[$x1]['U_MAIL_DOMAINS'] . '<br><b>Accounts:</b> ' . $statsdata[$x1]['U_MAIL_ACCOUNTS'] . '</td>
+                                                    
+                                                    
                                                     <td>' . $statsdata[$x1]['U_DATABASES'] . '</td>
                                                     <td>' . $statsdata[$x1]['U_CRON_JOBS'] . '</td>
                                                     <td>' . $statsdata[$x1]['IP_OWNED'] . '</td>
@@ -221,11 +244,12 @@ foreach ($plugins as $result) {
                                         ?>
                                     </tbody>
                                 </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
         <script src="../../plugins/components/jquery/dist/jquery.min.js"></script>

@@ -5,7 +5,7 @@ $configlocation = "../../includes/";
 if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' );};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php'); }
+else { header('Location: ../login.php?to=admin/status/cpu.php'); }
 if($username != 'admin') { header("Location: ../../"); }
 
 if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
@@ -85,6 +85,15 @@ foreach ($plugins as $result) {
         <style>
             table {border-collapse: separate;
                 border-spacing: 10px;}
+            @media screen and (max-width: 1199px) {
+                .resone { display:none !important;}
+            }  
+            @media screen and (max-width: 767px) {
+                .restwo { display:none !important;}
+            }    
+            @media screen and (max-width: 540px) {
+                .resthree { display:none !important;}
+            } 
         </style>
     </head>
 
@@ -176,15 +185,15 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div>
                             <div class="white-box">
-                                <h3 class="box-title m-b-0"><?php echo _("CPU"); ?></h3>
-                                <br><br><div class="l-center">
+                                <h3 class="box-title m-b-0 restwo"><?php echo _("CPU"); ?></h3>
+                                <br class="restwo"><br class="restwo"><div class="l-center">
                                 <pre style="color: #555"><?php print_r($cpudata); ?> 
                             </pre></div>     
                             </div>
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
         <script src="../../plugins/components/jquery/dist/jquery.min.js"></script>

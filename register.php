@@ -70,6 +70,11 @@ textdomain('messages');
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <style>
+        .color-button {
+                color: #fff !important;
+            }
+        </style>
     </head>
 
     <body>
@@ -83,7 +88,7 @@ textdomain('messages');
                 </div>
             </div>
 
-            <div class="new-login-box" style="position:relative;top:-10%">
+            <div class="new-login-box">
                 <div class="white-box">
                     <h3 class="box-title m-b-0"><?php echo _('Sign up for'); ?> <?php echo $sitetitle; ?></h3> <small><?php echo _('Enter your details below'); ?></small>
                     <form class="form-horizontal new-lg-form" method="post" id="loginform" action="process/process.php">
@@ -109,7 +114,7 @@ textdomain('messages');
                         <div class="form-group ">
                             <div class="col-xs-12">
                                 <select class="selectpicker m-b-20 m-r-10" name="plan" data-style="btn color-button bg-theme" style="border:none;">
-                                    <option value="default" data-tokens="default"><?php echo _('Default'); ?></option>
+                                    <option value="default"><?php echo _('Default'); ?></option>
                                 </select>
                             </div></div>
                         <div class="form-group text-center m-t-20">

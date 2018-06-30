@@ -111,6 +111,25 @@ foreach ($plugins as $result) {
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <style>
+            @media screen and (max-width: 1199px) {
+                .resone { display:none !important;}
+            }  
+            @media screen and (max-width: 767px) {
+                .restwo { display:none !important;}
+            }    
+            @media screen and (max-width: 540px) {
+                .resthree { display:none !important;}
+                .pagination > li > a, .pagination > li > span {
+                    padding: 3px 9px !important;
+                }
+            } 
+            .two-part li i {
+                font-size: 36px;
+                position: relative;
+                top: 5px;
+            }
+        </style>
     </head>
 
     <body class="fix-header">
@@ -202,11 +221,11 @@ foreach ($plugins as $result) {
             </div>
             <div id="page-wrapper">
                 <div class="container-fluid">
-                    <div class="row bg-title" style="overflow: visible;">
+                    <div class="row bg-title" style="overflow-y: visible;">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                             <h4 class="page-title"><?php echo _("Host Dashboard"); ?></h4>
                         </div>
-                        <div class="col-lg-2 col-sm-8 col-md-8 col-xs-12 pull-right">
+                        <div class="col-lg-2 col-sm-8 col-md-8 col-xs-12 pull-right restwo">
                             <div style="margin-right:257px;" class="btn-group bootstrap-select input-group-btn">
                                 <form id="rebuildform" action="process/rebuild.php" method="post">
                                     <select class="selectpicker pull-right m-l-20" name="action" data-style="form-control">
@@ -236,17 +255,17 @@ foreach ($plugins as $result) {
                                                 <span class="circle circle-md bg-danger"><i class="fa fa-cloud"></i></span>
                                             <li class="col-last">
                                                 <h3 style="font-size:36px;" class="counter text-right m-t-15">
-                                                    <?php if(empty($admindata['U_BANDWIDTH'])){echo "0";} else{ if($admindata['U_BANDWIDTH'] < 1024) { echo $admindata['U_BANDWIDTH']; } else { echo round($admindata['U_BANDWIDTH'] / 1024, 2) ; }} ?>
+                                                    <?php echo formatMBNumOnly($admindata['U_BANDWIDTH']); ?>
                                                 </h3>
                                                 <center>
                                                     <h6>
-                                                        <?php if(empty($admindata['U_BANDWIDTH'])){echo "mb";} else{ if($admindata['U_BANDWIDTH'] < 1024) { echo 'mb'; } else { echo 'gb'; }} ?>
+                                                        <?php echo formatMBUnitOnly($admindata['U_BANDWIDTH']); ?>
                                                     </h6>
                                                 </center>
                                             </li>
                                         </li><br><br>
                                         <li class="col-middle">
-                                            <h4 style="width:200%"><?php echo _("Bandwidth"); ?></h4>
+                                            <h4><?php echo _("Bandwidth"); ?></h4>
                                         </li>
                                     </ul>
                                 </div>
@@ -257,17 +276,17 @@ foreach ($plugins as $result) {
                                         </li>
                                         <li class="col-last">
                                             <h3 style="font-size:36px;" class="counter text-right m-t-15">
-                                                <?php if(empty($admindata['U_DISK'])){echo "0";} else{ if($admindata['U_DISK'] < 1024) { echo $admindata['U_DISK']; } else { echo round($admindata['U_DISK'] / 1024, 2) ; }} ?>
+                                                <?php echo formatMBNumOnly($admindata['U_DISK']); ?>
                                             </h3>
                                             <center>
                                                 <h6>
-                                                    <?php if(empty($admindata['U_DISK'])){echo "mb";} else{ if($admindata['U_DISK'] < 1024) { echo 'mb'; } else { echo 'gb'; }} ?>
+                                                    <?php echo formatMBUnitOnly($admindata['U_DISK']); ?>
                                                 </h6>
                                             </center>
                                         </li>
                                         <br><br>
                                         <li class="col-middle">
-                                            <h4 style="width:200%"><?php echo _("Disk Space"); ?></h4>
+                                            <h4><?php echo _("Disk Space"); ?></h4>
                                         </li>
                                     </ul>
                                 </div>
@@ -279,11 +298,11 @@ foreach ($plugins as $result) {
                                         <li class="col-last">
                                             <h3 style="font-size:36px;" class="text-right m-t-15">
                                                 <?php print_r($admindata['U_WEB_DOMAINS']); ?> /
-                                                <?php if($admindata['WEB_DOMAINS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['WEB_DOMAINS']); } ?>
+                                                <?php if($admindata['WEB_DOMAINS'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($admindata['WEB_DOMAINS']); } ?>
                                             </h3>
                                         </li><br><br>
                                         <li class="col-middle">
-                                            <h4 style="width:200%"><?php echo _("Web Domains"); ?></h4>
+                                            <h4><?php echo _("Web Domains"); ?></h4>
                                         </li>
                                     </ul>
                                 </div>
@@ -295,11 +314,11 @@ foreach ($plugins as $result) {
                                         <li class="col-last">
                                             <h3 style="font-size:36px;" class="text-right m-t-15">
                                                 <?php print_r($admindata['U_MAIL_ACCOUNTS']); ?> /
-                                                <?php if($admindata['MAIL_ACCOUNTS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['MAIL_ACCOUNTS'] * $admindata['MAIL_DOMAINS']); } ?>
+                                                <?php if($admindata['MAIL_ACCOUNTS'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($admindata['MAIL_ACCOUNTS'] * $admindata['MAIL_DOMAINS']); } ?>
                                             </h3>
                                         </li><br><br>
                                         <li class="col-middle">
-                                            <h4 style="width:200%"><?php echo _("Email Addresses"); ?></h4>
+                                            <h4><?php echo _("Email Addresses"); ?></h4>
 
                                         </li>
 
@@ -328,7 +347,7 @@ foreach ($plugins as $result) {
                                                 <div class="col-sm-6">
                                                     <h3 class="m-t-0"><?php echo _("Manage Web Domains"); ?></h3>
                                                 </div>
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-6 resone">
                                                     <ul class="side-icon-text pull-right">
                                                         <li><a href="add/domain.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Domain"); ?></span></a></li>
                                                         <li><a href="list/web.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span><?php echo _("Manage"); ?></span></a></li>
@@ -340,10 +359,10 @@ foreach ($plugins as $result) {
                                                     <thead>
                                                         <tr>
                                                             <th data-toggle="true"><?php echo _("DOMAIN"); ?></th>
-                                                            <th data-type="numeric"><?php echo _("DISK"); ?></th>
-                                                            <th data-type="numeric"><?php echo _("BANDWIDTH"); ?></th>
-                                                            <th><?php echo _("SSL"); ?></th>
-                                                            <th><?php echo _("STATUS"); ?></th>
+                                                            <th class="resthree" data-type="numeric"><?php echo _("DISK"); ?></th>
+                                                            <th class="resthree" data-type="numeric"><?php echo _("BANDWIDTH"); ?></th>
+                                                            <th class="resone"><?php echo _("SSL"); ?></th>
+                                                            <th class="resone"><?php echo _("STATUS"); ?></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody><?php
@@ -353,14 +372,14 @@ foreach ($plugins as $result) {
                                                             do {
                                                                 echo '<tr class="advance-table-row clickable-row" data-href="edit/domain.php?domain='.$domainname[$x1].'">
                                                                         <td>' . $domainname[$x1] . '</td>
-                                                                        <td data-sort-value="' . $domaindata[$x1]['U_DISK'] . '">' . $domaindata[$x1]['U_DISK'] . ' mb</td>
-                                                                        <td data-sort-value="' . $domaindata[$x1]['U_BANDWIDTH'] . '">' . $domaindata[$x1]['U_BANDWIDTH'] . ' mb</td>
-                                                                        <td>';                                                                   
+                                                                        <td class="resthree" data-sort-value="' . $domaindata[$x1]['U_DISK'] . '">' . formatMB($domaindata[$x1]['U_DISK']) . '</td>
+                                                                        <td class="resthree" data-sort-value="' . $domaindata[$x1]['U_BANDWIDTH'] . '">' . formatMB($domaindata[$x1]['U_BANDWIDTH']) . '</td>
+                                                                        <td class="resone">';                                                                   
                                                                 if($domaindata[$x1]['SSL'] == "yes"){ 
                                                                     echo '<span class="label label-table label-success">' . _("Enabled") . '</span>';} 
                                                                 else{ 
                                                                     echo '<span class="label label-table label-danger">' . _("Disabled") . '</span>';} 
-                                                                echo '</td><td>';                                                                   
+                                                                echo '</td><td class="resone">';                                                                   
                                                                 if($domaindata[$x1]['SUSPENDED'] == "no"){ 
                                                                     echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
                                                                 else{ 
@@ -381,7 +400,7 @@ foreach ($plugins as $result) {
                                                 <div class="col-sm-6">
                                                     <h3 class="m-t-0"><?php echo _("Manage DNS Domains"); ?></h3>
                                                 </div>
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-6 resone">
                                                     <ul class="side-icon-text pull-right">
                                                         <li><a href="add/dns.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add DNS"); ?></span></a></li>
                                                         <li><a href="list/dns.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span><?php echo _("Manage"); ?></span></a></li>
@@ -393,8 +412,8 @@ foreach ($plugins as $result) {
                                                     <thead>
                                                         <tr>
                                                             <th data-toggle="true"><?php echo _("DOMAIN"); ?></th>
-                                                            <th data-type="numeric"><?php echo _("RECORDS"); ?></th>
-                                                            <th><?php echo _("STATUS"); ?></th>
+                                                            <th class="resthree" data-type="numeric"><?php echo _("RECORDS"); ?></th>
+                                                            <th class="resone"><?php echo _("STATUS"); ?></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody><?php
@@ -456,25 +475,25 @@ foreach ($plugins as $result) {
                                                                                 $cfcount = $cfdata2[1]['count'];
 
                                                                                 echo '<tr class="advance-table-row clickable-row" data-href="list/cfdomain.php?domain='.$dnsname[$x2].'">
-                                                                                        <td>' . $dnsname[$x2] . '</td><td data-sort-value="' . $cfcount . '">' . $cfcount . '</td>';
+                                                                                        <td>' . $dnsname[$x2] . '</td><td class="resthree" data-sort-value="' . $cfcount . '">' . $cfcount . '</td>';
                                                                                 $recordcount = $recordcount + $cfcount;
                                                                             }
                                                                             else { echo '<tr class="advance-table-row clickable-row" data-href="list/dnsdomain.php?domain='.$dnsname[$x2].'">
-                                                                                        <td>' . $dnsname[$x2] . '</td><td data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>'; 
+                                                                                        <td>' . $dnsname[$x2] . '</td><td class="resthree" data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>'; 
                                                                                   $recordcount = $recordcount + $dnsdata[$x2]['RECORDS'];}
                                                                         }
                                                                         else { echo '<tr class="advance-table-row clickable-row" data-href="list/dnsdomain.php?domain='.$dnsname[$x2].'">
-                                                                                        <td>' . $dnsname[$x2] . '</td><td data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>'; 
+                                                                                        <td>' . $dnsname[$x2] . '</td><td class="resthree" data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>'; 
                                                                               $recordcount = $recordcount + $dnsdata[$x2]['RECORDS'];}
                                                                     }
                                                                     else { echo '<tr class="advance-table-row clickable-row" data-href="list/dnsdomain.php?domain='.$dnsname[$x2].'">
-                                                                                        <td>' . $dnsname[$x2] . '</td><td data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>'; 
+                                                                                        <td>' . $dnsname[$x2] . '</td><td class="resthree" data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>'; 
                                                                           $recordcount = $recordcount + $dnsdata[$x2]['RECORDS'];}
                                                                 }
                                                                 else { echo '<tr class="advance-table-row clickable-row" data-href="list/dnsdomain.php?domain='.$dnsname[$x2].'">
-                                                                                        <td>' . $dnsname[$x2] . '</td><td data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>'; 
+                                                                                        <td>' . $dnsname[$x2] . '</td><td class="resthree" data-sort-value="' . $dnsdata[$x2]['RECORDS'] . '">' . $dnsdata[$x2]['RECORDS'] . '</td>'; 
                                                                       $recordcount = $recordcount + $dnsdata[$x2]['RECORDS']; }
-                                                                echo '<td>';                                                                   
+                                                                echo '<td class="resone">';                                                                   
                                                                 if($dnsdata[$x2]['SUSPENDED'] == "no"){ 
                                                                     echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
                                                                 else{ 
@@ -494,7 +513,7 @@ foreach ($plugins as $result) {
                                                 <div class="col-sm-6">
                                                     <h3 class="m-t-0"><?php echo _("Manage Mail Domains"); ?></h3>
                                                 </div>
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-6 resone">
                                                     <ul class="side-icon-text pull-right">
                                                         <li><a href="add/mail.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Mail"); ?></span></a></li>
                                                         <li><a href="list/mail.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span><?php echo _("Manage"); ?></span></a></li>
@@ -506,8 +525,8 @@ foreach ($plugins as $result) {
                                                     <thead>
                                                         <tr>
                                                             <th data-toggle="true"><?php echo _("DOMAIN"); ?></th>
-                                                            <th data-type="numeric"><?php echo _("ACCOUNTS"); ?></th>
-                                                            <th><?php echo _("STATUS"); ?></th>
+                                                            <th class="resthree" data-type="numeric"><?php echo _("ACCOUNTS"); ?></th>
+                                                            <th class="resone"><?php echo _("STATUS"); ?></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody><?php
@@ -517,8 +536,8 @@ foreach ($plugins as $result) {
                                                             do {
                                                                 echo '<tr class="advance-table-row clickable-row" data-href="list/maildomain.php?domain='.$mailname[$x3].'">
                                                                     <td>' . $mailname[$x3] . '</td>
-                                                                    <td data-sort-value="' . $maildata[$x3]['ACCOUNTS'] . '">' . $maildata[$x3]['ACCOUNTS'] . '</td>
-                                                                    <td>';                                                                   
+                                                                    <td class="resthree" data-sort-value="' . $maildata[$x3]['ACCOUNTS'] . '">' . $maildata[$x3]['ACCOUNTS'] . '</td>
+                                                                    <td class="resone">';                                                                   
                                                                     if($maildata[$x3]['SUSPENDED'] == "no"){ 
                                                                         echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
                                                                     else{ 
@@ -538,7 +557,7 @@ foreach ($plugins as $result) {
                                                 <div class="col-sm-6">
                                                     <h3 class="m-t-0"><?php echo _("Manage Databases"); ?></h3>
                                                 </div>
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-6 resone">
                                                     <ul class="side-icon-text pull-right">
                                                         <li><a href="add/db.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Database"); ?></span></a></li>
                                                         <li><a href="list/db.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span><?php echo _("Manage"); ?></span></a></li>
@@ -550,8 +569,8 @@ foreach ($plugins as $result) {
                                                     <thead>
                                                         <tr>
                                                             <th data-toggle="true"><?php echo _("DATABASE"); ?></th>
-                                                            <th><?php echo _("USER"); ?></th>
-                                                            <th><?php echo _("STATUS"); ?></th>
+                                                            <th class="resthree"><?php echo _("USER"); ?></th>
+                                                            <th class="resone"><?php echo _("STATUS"); ?></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody><?php
@@ -561,8 +580,8 @@ foreach ($plugins as $result) {
                                                             do {
                                                                 echo '<tr class="advance-table-row clickable-row" data-href="edit/db.php?db='.$dbdata[$x4]['DATABASE'].'">
                                                                     <td>' . $dbdata[$x4]['DATABASE'] . '</td>
-                                                                    <td>' . $dbdata[$x4]['DBUSER'] . '</td>
-                                                                    <td>';                                                                   
+                                                                    <td class="resthree">' . $dbdata[$x4]['DBUSER'] . '</td>
+                                                                    <td class="resone">';                                                                   
                                                                     if($dbdata[$x4]['SUSPENDED'] == "no"){ 
                                                                         echo '<span class="label label-table label-success">Active</span>';} 
                                                                     else{ 
@@ -587,7 +606,7 @@ foreach ($plugins as $result) {
 
                                     <li>
                                         <h2>
-                                            <?php print_r($admindata['U_DISK']); ?> mb</h2> <small><?php echo _("Total Disk Space"); ?></small>
+                                            <?php echo formatMB($admindata['U_DISK']); ?></h2> <small><?php echo _("Total Disk Space"); ?></small>
                                         <div class="pull-right"><?php 
                                             if ($admindata['DISK_QUOTA'] != 0) {
                                                 $diskpercent = (($admindata['U_DISK'] / $admindata['DISK_QUOTA']) * 100);
@@ -605,8 +624,8 @@ foreach ($plugins as $result) {
                                             <?php  
                                                 if ($admindata['U_DISK'] != 0) { $diskpercent1 = (($admindata['U_DISK_WEB'] / $admindata['U_DISK']) * 100); } 
                                                 else { $diskpercent1 = '0'; } 
-                                                echo $admindata['U_DISK_WEB']; 
-                                            ?> mb</h2> <small><?php echo _("Web Data"); ?></small>
+                                                echo formatMB($admindata['U_DISK_WEB']); 
+                                            ?></h2> <small><?php echo _("Web Data"); ?></small>
                                         <div class="pull-right">
                                             <?php if($diskpercent1 == "INF"){ echo "0";}else{echo round($diskpercent1);} ?>%</div>
                                         <div class="progress">
@@ -617,8 +636,8 @@ foreach ($plugins as $result) {
                                         <h2><?php 
                                                 if ($admindata['U_DISK'] != '0') { $diskpercent2 = (($admindata['U_DISK_MAIL'] / $admindata['U_DISK']) * 100); } 
                                                 else { $diskpercent2 = '0'; } 
-                                                echo $admindata['U_DISK_MAIL']; 
-                                            ?> mb</h2> <small><?php echo _("Mail Data"); ?></small>
+                                                echo formatMB($admindata['U_DISK_MAIL']); 
+                                            ?></h2> <small><?php echo _("Mail Data"); ?></small>
                                         <div class="pull-right">
                                             <?php if($diskpercent2 == "INF"){ echo "0";}else{echo round($diskpercent2);} ?>%</div>
                                         <div class="progress">
@@ -630,8 +649,8 @@ foreach ($plugins as $result) {
                                             <?php 
                                                 if ($admindata['U_DISK'] != '0') { $diskpercent3 = (($admindata['U_DISK_DB'] / $admindata['U_DISK']) * 100); } 
                                                 else {  $diskpercent3 = '0'; } 
-                                                echo $admindata['U_DISK_DB']; 
-                                            ?> mb</h2> <small><?php echo _("Databases"); ?></small>
+                                                echo formatMB($admindata['U_DISK_DB']); 
+                                            ?></h2> <small><?php echo _("Databases"); ?></small>
                                         <div class="pull-right">
                                             <?php if($diskpercent3 == "INF"){ echo "0";}else{echo round($diskpercent3);} ?>%</div>
                                         <div class="progress">
@@ -643,8 +662,8 @@ foreach ($plugins as $result) {
                                             <?php 
                                                 if ($admindata['U_DISK'] != '0') { $diskpercent4 = (($admindata['U_DISK_DIRS'] / $admindata['U_DISK']) * 100); } 
                                                 else { $diskpercent4 = '0'; } 
-                                                echo $admindata['U_DISK_DIRS']; 
-                                            ?> mb</h2> <small><?php echo _("User Directories"); ?></small>
+                                                echo formatMB($admindata['U_DISK_DIRS']); 
+                                            ?></h2> <small><?php echo _("User Directories"); ?></small>
                                         <div class="pull-right">
                                             <?php if($diskpercent4 == "INF"){ echo "0";}else{echo round($diskpercent4);} ?>%</div>
                                         <div class="progress">
@@ -665,7 +684,7 @@ foreach ($plugins as $result) {
                                                 <li class="text-right">
                                                     <h1>
                                                         <?php echo $admindata['U_DNS_DOMAINS']; ?> /
-                                                        <?php if($admindata['DNS_DOMAINS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['DNS_DOMAINS']); } ?>
+                                                        <?php if($admindata['DNS_DOMAINS'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($admindata['DNS_DOMAINS']); } ?>
                                                     </h1>
                                                 </li><br><br>
                                             </ul>
@@ -691,7 +710,7 @@ foreach ($plugins as $result) {
                                                 <li class="text-right">
                                                     <h1>
                                                         <?php echo $admindata['U_MAIL_DOMAINS']; ?> /
-                                                        <?php if($admindata['MAIL_DOMAINS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['MAIL_DOMAINS']); } ?>
+                                                        <?php if($admindata['MAIL_DOMAINS'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($admindata['MAIL_DOMAINS']); } ?>
                                                     </h1>
                                                 </li><br><br>
                                             </ul>
@@ -705,7 +724,7 @@ foreach ($plugins as $result) {
                                                 <li class="text-right">
                                                     <h1>
                                                         <?php echo $admindata['U_BACKUPS']; ?> /
-                                                        <?php if($admindata['BACKUPS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['BACKUPS']); } ?>
+                                                        <?php if($admindata['BACKUPS'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($admindata['BACKUPS']); } ?>
                                                     </h1>
                                                 </li><br><br>
                                             </ul>
@@ -713,7 +732,7 @@ foreach ($plugins as $result) {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-sm-12 col-xs-12">
+                            <div class="col-lg-6 col-sm-12 col-xs-12 restwo">
                                 <div class="news-slide m-b-30 dashboard-slide">
                                     <div class="vcarousel slide" style="margin:14px;">
                                         <div class="carousel-inner" style="height:415px;">
@@ -765,7 +784,7 @@ foreach ($plugins as $result) {
                                         <li class="text-right">
                                             <h1>
                                                 <?php echo $admindata['U_DATABASES']; ?> /
-                                                <?php if($admindata['DATABASES'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['DATABASES']); } ?>
+                                                <?php if($admindata['DATABASES'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($admindata['DATABASES']); } ?>
                                             </h1>
                                         </li>
                                     </ul>
@@ -779,7 +798,7 @@ foreach ($plugins as $result) {
                                         <li class="text-right">
                                             <h1>
                                                 <?php echo $admindata['U_CRON_JOBS']; ?> /
-                                                <?php if($admindata['CRON_JOBS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['CRON_JOBS']); } ?>
+                                                <?php if($admindata['CRON_JOBS'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($admindata['CRON_JOBS']); } ?>
                                             </h1>
                                         </li>
                                     </ul>
@@ -793,7 +812,7 @@ foreach ($plugins as $result) {
                                         <li class="text-right">
                                             <h1>
                                                 <?php echo $admindata['U_WEB_ALIASES']; ?> /
-                                                <?php if($admindata['WEB_ALIASES'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['WEB_ALIASES'] * $admindata['WEB_DOMAINS']); } ?>
+                                                <?php if($admindata['WEB_ALIASES'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($admindata['WEB_ALIASES'] * $admindata['WEB_DOMAINS']); } ?>
                                             </h1>
                                         </li>
                                     </ul>
@@ -801,7 +820,7 @@ foreach ($plugins as $result) {
                             </div>
                         </div>
                     </div>
-                    <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require 'includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                    <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require 'includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
                 </div>
             </div>
         </div>
@@ -827,7 +846,7 @@ foreach ($plugins as $result) {
             includeScript(); 
             ?>
             
-            document.getElementById("recordcount").innerHTML = "<?php if ($recordcount == "") { echo "0";} else { echo $recordcount; } ?>  / <?php if($admindata['DNS_RECORDS'] == "unlimited"){echo "&#8734;";} else{ print_r($admindata['DNS_DOMAINS'] * $admindata['DNS_RECORDS']); } ?>";
+            document.getElementById("recordcount").innerHTML = "<?php if ($recordcount == "") { echo "0";} else { echo $recordcount; } ?>  / <?php if($admindata['DNS_RECORDS'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($admindata['DNS_DOMAINS'] * $admindata['DNS_RECORDS']); } ?>";
             (function() {
                 [].slice.call(document.querySelectorAll('.sttabs')).forEach(function(el) {
                     new CBPFWTabs(el);

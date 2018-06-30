@@ -36,26 +36,26 @@ $ulang = array
 
 $errorcode = array
     (
-    "1" => "Not enough arguments provided. (1.E_ARGS)",
-    "2" => "Invalid object or argument. (2.E_INVALID)",
-    "3" => "Object does not exist. (3.E_NOTEXIST)",
-    "4" => "Object already exists. (4.E_EXISTS)", 
-    "5" => "Object is suspended. (5.E_SUSPENDED)",
-    "6" => "Object is already unsuspended. (6.E_UNSUSPENDED)",
-    "7" => "Object is in use by another object. (7.E_INUSE)",
-    "8" => "Object cannot be created because of hosting package limits. (8.E_LIMIT)",
-    "9" => "Wrong password. (9.E_PASSWORD)",
-    "10" => "Object cannot be accessed. (10.E_FORBIDDEN)",
-    "11" => "Subsystem is disabled. (11.E_DISABLED)",
-    "12" => "Configuration is broken. (12.E_PARSING)",
-    "13" => "Not enough disk space. (13.E_DISK)",
-    "14" => "Server is busy. (14.E_LA)",
-    "15" => "Connection failed. (15.E_CONNECT)",
-    "16" => "Server is not responding. (16.E_FTP)",
-    "17" => "Server is not responding. (17.E_DB)",
-    "18" => "Update operation failed. (18.E_RRD)",
-    "19" => "Update operation failed. (19.E_UPDATE)",
-    "20" => "Service restart failed. (20.E_RESTART)"
+    "1" => "Not enough arguments provided.",
+    "2" => "Invalid object or argument.",
+    "3" => "Object does not exist.",
+    "4" => "Object already exists.", 
+    "5" => "Object is suspended.",
+    "6" => "Object is already unsuspended.",
+    "7" => "Object is in use by another object.",
+    "8" => "Object cannot be created because of hosting package limits.",
+    "9" => "Wrong password.",
+    "10" => "Object cannot be accessed.",
+    "11" => "Subsystem is disabled.",
+    "12" => "Configuration is broken.",
+    "13" => "Not enough disk space.",
+    "14" => "Server is busy.",
+    "15" => "Connection failed.",
+    "16" => "Server is not responding.",
+    "17" => "Server is not responding.",
+    "18" => "Update operation failed.",
+    "19" => "Update operation failed.",
+    "20" => "Service restart failed."
 );
 
 $countries = array

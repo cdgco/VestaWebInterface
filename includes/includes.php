@@ -9,7 +9,7 @@
 // Require MySQL Credentials & Arrays of Countries, Languages and Error Codes in all pages
 require("config.php"); require("arrays.php");
 
-$configstyle = '2';
+$configstyle = '1';
 
 $con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
 
@@ -91,7 +91,8 @@ if($config["VESTA_PORT"] == ''){
 else{
     $vesta_port = $config["VESTA_PORT"];
 }
-
+$vst_url = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . ':' . $vesta_port . '/api/';
+$url8083 = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . ':' . $vesta_port;
 if ($config["VESTA_METHOD"] == "api"){
     DEFINE('VESTA_API_KEY', $config["VESTA_API_KEY"]);
     $vst_apikey = $config["VESTA_API_KEY"];
@@ -273,15 +274,12 @@ $pluginnewtab = array();
 $pluginhide = array();
 
 DEFINE('GOOGLE_ANALYTICS_ID', $config["GOOGLE_ANALYTICS_ID"]);
+
 DEFINE('INTERAKT_APP_ID', $config["INTERAKT_APP_ID"]);
 DEFINE('INTERAKT_API_KEY', $config["INTERAKT_API_KEY"]);
 DEFINE('CLOUDFLARE_API_KEY', $config["CLOUDFLARE_API_KEY"]);
 $cfapikey = $config["CLOUDFLARE_API_KEY"];
 DEFINE('CLOUDFLARE_EMAIL', $config["CLOUDFLARE_EMAIL"]);
-
-
-$vst_url = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . ':' . $vesta_port . '/api/';
-$url8083 = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . ':' . $vesta_port;
 
 ///////////////////
 // VWI Functions //
@@ -420,4 +418,32 @@ function includeScript() {
         } 
     }
 }
+function formatMB($number, $precision = 2) { 
+    $units = array('B', 'KB', 'MB', 'GB', 'TB', 'PB'); 
+    $number = max($number, 0)*pow(1024,2);
+    $pow = floor(($number ? log($number) : 0) / log(1024)); 
+    $pow = min($pow, count($units) - 1); 
+    $number /= pow(1024, $pow);
+
+    return round($number, $precision) . ' ' . $units[$pow]; 
+} 
+function formatMBNumOnly($number, $precision = 2) { 
+    $units = array('B', 'KB', 'MB', 'GB', 'TB', 'PB'); 
+    $number = max($number, 0)*pow(1024,2);
+    $pow = floor(($number ? log($number) : 0) / log(1024)); 
+    $pow = min($pow, count($units) - 1); 
+    $number /= pow(1024, $pow);
+
+    return round($number, $precision); 
+} 
+function formatMBUnitOnly($number, $precision = 2) { 
+    $units = array('B', 'KB', 'MB', 'GB', 'TB', 'PB'); 
+    $number = max($number, 0)*pow(1024,2);
+    $pow = floor(($number ? log($number) : 0) / log(1024)); 
+    $pow = min($pow, count($units) - 1); 
+    $number /= pow(1024, $pow);
+
+    return $units[$pow];
+} 
+if(isset($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING'] != '') { $urlquery = '?'; } else { $urlquery = ''; }
 ?>

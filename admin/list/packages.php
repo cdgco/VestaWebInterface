@@ -5,7 +5,7 @@ $configlocation = "../../includes/";
 if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' );};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php'); }
+else { header('Location: ../login.php?to=admin/list/packages.php'.$urlquery.$_SERVER['QUERY_STRING']); }
 if($username != 'admin') { header("Location: ../../"); }
 
 if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
@@ -93,64 +93,22 @@ foreach ($plugins as $result) {
                 display: table;
                 clear: both;
             }
-
             @media screen and (max-width: 1400px) {
                 .resone { display:none !important;}
             }      
             @media screen and (max-width: 1275px) {
-                .resone { display:none !important;}
                 .restwo { display:none !important;}
             }
             @media screen and (max-width: 875px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
                 .resthree { display:none !important;}
             }
-            @media screen and (max-width: 600px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
-                .resthree { display:none !important;}
-                .resfour { display:block !important;}
-                .resfive { display:block !important;
-                    padding-left: 0px;
-                    padding-right: 0px;}
-                .ressix { display:none !important; }
-                .reseight { display:block !important; 
-                }
-                .reseight p {
-                    line-height: 5% !important;
-                }
-            }
-            @media screen and (max-width: 460px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
-                .resthree { display:none !important;}
-                .resfour { display:block !important;}
-                .resfive { display:block !important;
-                    padding-left: 0px;
-                    padding-right: 0px;}
-                .ressix { display:none !important; }
-                .reseight { display:block !important; 
-                }
-                .reseight p {
-                    line-height: 5% !important;
-                }
-            }
-            @media screen and (max-width: 450px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
-                .resthree { display:none !important;}
-                .resfour { display:block !important;}
-                .resfive { display:block !important;
-                    padding-left: 0px;
-                    padding-right: 0px;}
-                .ressix { display:none !important; }
-                .reseight { display:block !important; 
-                }
-                .reseight p {
-                    line-height: 5% !important;
-                }
-            }       
+            @media screen and (max-width: 767px) {
+                .resfour { display:none !important;}
+                .resbutton { padding-top:35px !important; line-height: inherit !important;}
+            }  
+            @media screen and (max-width: 540px) {
+                .resfive { display:none !important; }
+            }  
 
         </style>
     </head>
@@ -224,18 +182,18 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box"> <ul class="side-icon-text pull-right">
-                                <li><a href="../add/package.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Package"); ?></span></a></li>
+                                <li><a href="../add/package.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span class="resfour"><wrapper class="resthree"><?php echo _("Add") ?> </wrapper><?php echo _("Package"); ?></span></a></li>
                                 </ul>
                                 <h3 class="box-title m-b-0"><?php echo _("Packages"); ?></h3><br>
-
+                                <div class="table-responsive">
                                 <table class="table footable m-b-0" data-paging="false" data-sorting="true">
                                     <thead>
                                         <tr>
                                             <th class="resone" data-type="numeric" data-sorted="true" data-direction="DESC"></th>
-                                            <th data-sortable="false"></th>
+                                            <th class="resfour" data-sortable="false"></th>
                                             <th class="resthree" data-sortable="false"></th>
                                             <th class="restwo" data-sortable="false"></th>
-                                            <th class="resfive" data-sortable="false"></th>
+                                            <th data-sortable="false"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -251,7 +209,7 @@ foreach ($plugins as $result) {
                                                         <td class="resone" style="padding-top: 32px;" data-sort-value="' . strtotime($packdata[$x1]['DATE'] . ' ' . $packdata[$x1]['TIME']) . '">' . $packdata[$x1]['DATE'];  echo '</td>
                                                         <td>
                                                             <h2>' . $packname[$x1] . '</h2><br>
-                                                            <div class="tworow" style="line-height: 30px;">
+                                                            <div class="resfour tworow" style="line-height: 30px;">
                                                                 <div class="column">Web Template:<br>Proxy Template:<br>DNS Template:<br>SSH Access:<br>Web Domains:<br>Web Aliases</div>
                                                                 <div class="column">' . $packdata[$x1]['WEB_TEMPLATE'] . '<br>' . $packdata[$x1]['PROXY_TEMPLATE'] . '<br>' . $packdata[$x1]['DNS_TEMPLATE'] . '<br>' . $packdata[$x1]['SHELL'] . '<br>' . $packdata[$x1]['WEB_DOMAINS'] . '<br>' . $packdata[$x1]['WEB_ALIASES'] . '</div>
                                                             </div>
@@ -279,11 +237,9 @@ foreach ($plugins as $result) {
                                                                 </div>
                                                             </div>
                                                         </td>
-                                                        <td class="resfive" style="padding-top:110px;line-height: 30px;">
-                                                            <span class="reseight" style="display:none"><p>&nbsp</p></span><button type="button" onclick="window.location=\'../edit/package.php?package=' . $packname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button><span class="reseight" style="display:none"><p>&nbsp</p></span><span class="resfour">';
-
-
-                                                            echo '</span><span class="reseight" style="display:none"><p>&nbsp</p></span><button onclick="confirmDelete(\'' . $packname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
+                                                        <td style="padding-top:110px;line-height: 30px;" class="resbutton">
+                                                            <a href="../edit/package.php?package=' . $packname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button></a><span>';
+                                                            echo '</span><button onclick="confirmDelete(\'' . $packname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
                                                         </td>
                                                     </tr>';
                                                 $x1++;
@@ -291,11 +247,12 @@ foreach ($plugins as $result) {
                                         ?>
                                     </tbody>
                                 </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
         <script src="../../plugins/components/jquery/dist/jquery.min.js"></script>

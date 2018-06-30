@@ -52,7 +52,7 @@ function ftp_file_put_contents($remote_file, $file_string) {
     fclose($local_file); }
 
 $writestr = $v_web_tmp . "\n" . $v_mail_tmp . "\n" .  $v_db_tmp . "\n" . $v_userdir_tmp . "\n";
-
+$writestr = str_replace("\r\n", "\n",  $writestr);
 ftp_file_put_contents('backup-exclusions-' . $username . '-' . $a. '.txt', $writestr);
 
 $postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-update-user-backup-exclusions','arg1' => $username, 'arg2' => "/home/admin/" . 'backup-exclusions-' . $username . '-' . $a. '.txt');
@@ -65,6 +65,8 @@ curl_setopt($curl0, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($curl0, CURLOPT_POST, true);
 curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query($postvars));
 $r1 = curl_exec($curl0);
+
+sleep(3); // Give Vesta some time to process files before deleting.
 
 $ftp_server=VESTA_HOST_ADDRESS; 
 $ftp_user_name=VESTA_ADMIN_UNAME; 

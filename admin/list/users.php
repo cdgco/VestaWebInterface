@@ -5,7 +5,7 @@ $configlocation = "../../includes/";
 if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' );};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php'); }
+else { header('Location: ../login.php?to=admin/list/users.php'.$urlquery.$_SERVER['QUERY_STRING']); }
 if($username != 'admin') { header("Location: ../../"); }
 
 if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
@@ -98,57 +98,25 @@ foreach ($plugins as $result) {
                 .resone { display:none !important;}
             }      
             @media screen and (max-width: 1275px) {
-                .resone { display:none !important;}
                 .restwo { display:none !important;}
             }
             @media screen and (max-width: 875px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
                 .resthree { display:none !important;}
             }
             @media screen and (max-width: 600px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
-                .resthree { display:none !important;}
                 .resfour { display:block !important;}
-                .resfive { display:block !important;
-                    padding-left: 0px;
-                    padding-right: 0px;}
+                .resfive { display:block !important; }
                 .ressix { display:none !important; }
-                .reseight { display:block !important; 
-                }
-                .reseight p {
-                    line-height: 5% !important;
-                }
-            }
-            @media screen and (max-width: 460px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
-                .resthree { display:none !important;}
-                .resfour { display:block !important;}
-                .resfive { display:block !important;
-                    padding-left: 0px;
-                    padding-right: 0px;}
-                .ressix { display:none !important; }
-                .reseight { display:block !important; 
-                }
-                .reseight p {
-                    line-height: 5% !important;
-                }
             }
             @media screen and (max-width: 450px) {
-                .resone { display:none !important;}
-                .restwo { display:none !important;}
-                .resthree { display:none !important;}
-                .resfour { display:block !important;}
                 .resfive { display:block !important;
-                    padding-left: 0px;
-                    padding-right: 0px;}
-                .ressix { display:none !important; }
-                .reseight { display:block !important; 
+                    position: relative !important;
+                    right: 10px !important;
                 }
-                .reseight p {
-                    line-height: 5% !important;
+                .resseven {
+                    font-size: 12px !important;
+                    position: relative !important;
+                    right: 10px !important;
                 }
             }       
 
@@ -225,12 +193,12 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box"> <ul class="side-icon-text pull-right">
-                                <li><a href="../add/user.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add User"); ?></span></a></li>
+                                <li><a href="../add/user.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span class="ressix"><wrapper class="resthree"><?php echo _("Add") ?> </wrapper><?php echo _("User"); ?></span></a></li>
                                 </ul>
                                 <h3 class="box-title m-b-0"><?php echo _("Users"); ?></h3><br>
-
+                                <div class="table-responsive">
                                 <table class="table footable m-b-0" data-paging="false" data-sorting="true">
-                                    <thead>
+                                    <thead style="display:none;">
                                         <tr>
                                             <th class="resone" data-type="numeric" data-sorted="true" data-direction="DESC"></th>
                                             <th data-sortable="false"></th>
@@ -262,7 +230,7 @@ foreach ($plugins as $result) {
                                                         <h5>' . $uxdata[$x1]['FNAME'] . ' ' . $uxdata[$x1]['LNAME'] . '</h5><br>
                                                         <div class="tworow" style="line-height: 30px;">
                                                             <div class="column">Bandwidth:</div>
-                                                            <div class="column">' . $uxdata[$x1]['U_BANDWIDTH'] . ' mb</div>
+                                                            <div class="column">' . formatMB($uxdata[$x1]['U_BANDWIDTH']) . '</div>
                                                         </div>
                                                         <div class="progress">
                                                             <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:'; if($diskpercent == " INF "){ echo "0 ";}else{echo $bwpercent;} echo '%;"> 
@@ -271,7 +239,7 @@ foreach ($plugins as $result) {
                                                         </div>
                                                         <div class="tworow" style="line-height: 30px;">
                                                             <div class="column">Disk:</div>
-                                                            <div class="column">' . $uxdata[$x1]['U_DISK'] . ' mb</div>
+                                                            <div class="column">' . formatMB($uxdata[$x1]['U_DISK']) . '</div>
                                                         </div>
                                                         <div class="progress">
                                                             <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:'; if($diskpercent == " INF "){ echo "0 ";}else{echo $diskpercent;} echo '%;">
@@ -279,34 +247,32 @@ foreach ($plugins as $result) {
                                                             </div>
                                                         </div>
                                                         <div class="tworow" style="line-height: 30px;">
-                                                              <div class="column">Web: ' . $uxdata[$x1]['U_DISK_WEB'] . ' mb<br>Mail: ' . $uxdata[$x1]['U_DISK_MAIL'] . ' mb</div>
+                                                              <div class="column">Web: ' . formatMB($uxdata[$x1]['U_DISK_WEB']) . '<br>Mail: ' . formatMB($uxdata[$x1]['U_DISK_MAIL']) . '</div>
                                                               <div class="column">
-                                                                <span class="ressix">Databases: ' . $uxdata[$x1]['U_DISK_DB'] . ' mb<br></span>
-                                                                <span class="reseight" style="display:none">DB: ' . $uxdata[$x1]['U_DISK_DB'] . ' mb</span>
-                                                                <span class="ressix">Directories: ' . $uxdata[$x1]['U_DISK_DIRS'] . ' mb</span>
-                                                                <span class="reseight" style="display:none">Dirs: ' . $uxdata[$x1]['U_DISK_DIRS'] . ' mb</span>
+                                                                Databases: ' . formatMB($uxdata[$x1]['U_DISK_DB']) . '<br>
+                                                                Directories: ' . formatMB($uxdata[$x1]['U_DISK_DIRS']) . '
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td>
+                                                    <td class="resthree">
                                                         <div class="resthree tworow" style="padding-top:110px; line-height: 30px;">
                                                               <div class="column">Web Domains:<br>DNS Domains:<br>Mail Domains:<br>Databases:<br>Cron Jobs:<br>Backups:</div>
                                                               <div class="column">' . $uxdata[$x1]['U_WEB_DOMAINS'] . ' / ';
-                                                                    if($uxdata[$x1]['WEB_DOMAINS'] == "unlimited"){echo "&#8734;";} else{ print_r($uxdata[$x1]['WEB_DOMAINS']); } 
+                                                                    if($uxdata[$x1]['WEB_DOMAINS'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($uxdata[$x1]['WEB_DOMAINS']); } 
                                                                     echo '<br>' . $uxdata[$x1]['U_DNS_DOMAINS'] . ' / ';
-                                                                    if($uxdata[$x1]['DNS_DOMAINS'] == "unlimited"){echo "&#8734;";} else{ print_r($uxdata[$x1]['DNS_DOMAINS']); } 
+                                                                    if($uxdata[$x1]['DNS_DOMAINS'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($uxdata[$x1]['DNS_DOMAINS']); } 
                                                                     echo '<br>' . $uxdata[$x1]['U_MAIL_DOMAINS'] . ' / ';
-                                                                    if($uxdata[$x1]['MAIL_DOMAINS'] == "unlimited"){echo "&#8734;";} else{ print_r($uxdata[$x1]['MAIL_DOMAINS']); } 
+                                                                    if($uxdata[$x1]['MAIL_DOMAINS'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($uxdata[$x1]['MAIL_DOMAINS']); } 
                                                                     echo '<br>' . $uxdata[$x1]['U_DATABASES'] . ' / ';
-                                                                    if($uxdata[$x1]['DATABASES'] == "unlimited"){echo "&#8734;";} else{ print_r($uxdata[$x1]['DATABASES']); } 
+                                                                    if($uxdata[$x1]['DATABASES'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($uxdata[$x1]['DATABASES']); } 
                                                                     echo '<br>' . $uxdata[$x1]['U_CRON_JOBS'] . ' / ';
-                                                                    if($uxdata[$x1]['CRON_JOBS'] == "unlimited"){echo "&#8734;";} else{ print_r($uxdata[$x1]['CRON_JOBS']); } 
+                                                                    if($uxdata[$x1]['CRON_JOBS'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($uxdata[$x1]['CRON_JOBS']); } 
                                                                     echo '<br>' . $uxdata[$x1]['U_BACKUPS'] . ' / ';
-                                                                    if($uxdata[$x1]['BACKUPS'] == "unlimited"){echo "&#8734;";} else{ print_r($uxdata[$x1]['BACKUPS']); } 
+                                                                    if($uxdata[$x1]['BACKUPS'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($uxdata[$x1]['BACKUPS']); } 
                                                                 echo '</div>
                                                             </div>
                                                       </td>
-                                                      <td>
+                                                      <td class="restwo">
                                                             <div class="restwo tworow" style="padding-top:110px;line-height: 30px;">
                                                                   <div class="column">Email:<br>Package:<br>SSH Access:<br>IP Addresses:<br>Name Servers:</div>
                                                                   <div class="column">' . $uxdata[$x1]['CONTACT'] . '<br>' . $uxdata[$x1]['PACKAGE'] . '<br>' . $uxdata[$x1]['SHELL'] . '<br>' . $uxdata[$x1]['IP_OWNED'] . '<br>
@@ -324,26 +290,13 @@ foreach ($plugins as $result) {
                                                                 </div>
                                                             </div>
                                                         </td>
-                                                         <td class="resfive" style="padding-top:110px;line-height: 30px;">
-                                                            <span class="resfour">
-                                                                <button type="button" onclick="window.location=\'../process/loginas.php?user=' . $uxname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Login as") . ' ' . $uxname[$x1] . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-key"></i></button>
-                                                            </span>
-                                                            <span class="reseight" style="display:none">
-                                                                <p>&nbsp</p>
-                                                            </span>
-                                                            <button type="button" onclick="window.location=\'../edit/user.php?user=' . $uxname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button>
-                                                            <span class="reseight" style="display:none">
-                                                                <p>&nbsp</p>
-                                                            </span>
-                                                            <span class="resfour">';
+                                                         <td style="padding-top:110px;line-height: 30px;">
+                                                                <a href="../process/loginas.php?user=' . $uxname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Login as") . ' ' . $uxname[$x1] . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-key"></i></button></a>
+                                                            <a href="../edit/user.php?user=' . $uxname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button></a>';
                                                                 if ($uxdata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $uxname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
                                                                 else { echo '<button type="button" onclick="confirmUnsuspend(\'' . $uxname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }
 
-                                                            echo '</span>
-                                                            <span class="reseight" style="display:none">
-                                                                <p>&nbsp</p>
-                                                            </span>
-                                                            <button onclick="confirmDelete(\'' . $uxname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
+                                                            echo '<button onclick="confirmDelete(\'' . $uxname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
                                                         </td>
                                                     </tr>';
                                                 $x1++;
@@ -351,11 +304,12 @@ foreach ($plugins as $result) {
                                         ?>
                                     </tbody>
                                 </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
         <script src="../../plugins/components/jquery/dist/jquery.min.js"></script>

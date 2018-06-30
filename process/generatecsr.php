@@ -5,7 +5,7 @@ $configlocation = "../includes/";
 if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php'); }
+else { header('Location: ../login.php?to=process/generatecsr.php' . $urlquery . $_SERVER['QUERY_STRING']); }
 
 if(isset($webenabled) && $webenabled != 'true'){ header("Location: ../error-pages/403.html"); }
 
@@ -203,7 +203,8 @@ foreach ($plugins as $result) {
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" type="submit">Process</button>
+                                            <button class="btn btn-success"  type="submit"><?php echo _("Process"); ?></button> &nbsp;
+                                            <a href="../edit/domain.php?domain=<?php echo $requestdomain; ?>"><button class="btn btn-muted" onclick="loadLoader();" type="button"><?php echo _("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </form>
@@ -211,7 +212,7 @@ foreach ($plugins as $result) {
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; Copyright <?php echo date("Y") . ' ' . $sitetitle; ?>. All Rights Reserved. Vesta Web Interface <?php require '../includes/versioncheck.php'; ?> by CDG Web Services.</footer>
+                <footer class="footer text-center">&copy; Copyright <?php echo date("Y") . ' ' . $sitetitle; ?>. All Rights Reserved. Vesta Web Interface <?php require '../includes/versioncheck.php'; ?> by Carter Roeser.</footer>
             </div>
         </div>
         <script src="../plugins/components/jquery/dist/jquery.min.js"></script>

@@ -5,7 +5,7 @@ $configlocation = "../includes/";
 if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php'); }
+else { header('Location: ../login.php?to=add/cron.php'); }
 
 if(isset($cronenabled) && $cronenabled != 'true'){ header("Location: ../error-pages/403.html"); }
 
@@ -78,6 +78,11 @@ foreach ($plugins as $result) {
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <style>
+        @media screen and (max-width: 1199px) {
+                .resone { display:none !important;}
+            }  
+        </style>
     </head>
 
     <body class="fix-header">
@@ -203,7 +208,7 @@ foreach ($plugins as $result) {
                                     </div>
                                 </div>
                             </div> </form>
-                        <div class="col-lg-4 col-xs-12">
+                        <div class="col-lg-4 col-xs-12 resone">
                             <div class="white-box">
                                 <div> 
                                     <center>
@@ -565,7 +570,7 @@ foreach ($plugins as $result) {
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
         <script src="../plugins/components/jquery/dist/jquery.min.js"></script>

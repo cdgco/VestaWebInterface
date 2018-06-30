@@ -377,8 +377,8 @@ msgstr "Todos os direitos reservados. Vesta Web Interface"
 #: list/backup.php:298 list/backups.php:303 list/cfdomain.php:353
 #: list/cron.php:293 list/db.php:289 list/dns.php:435 list/dnsdomain.php:345
 #: list/mail.php:328 list/maildomain.php:285 list/web.php:323 profile.php:411
-msgid "by CDG Web Services"
-msgstr "by CDG Web Services"
+msgid "by Carter Roeser"
+msgstr "by Carter Roeser"
 
 #: add/cfrecord.php:326 add/cron.php:625 add/db.php:351 add/dns.php:386
 #: add/dnsrecord.php:309 add/domain.php:529 add/mail.php:251

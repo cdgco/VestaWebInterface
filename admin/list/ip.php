@@ -5,7 +5,7 @@ $configlocation = "../../includes/";
 if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' );};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php'); }
+else { header('Location: ../login.php?to=admin/list/ip.php'.$urlquery.$_SERVER['QUERY_STRING']); }
 if($username != 'admin') { header("Location: ../../"); }
 
 if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
@@ -83,6 +83,20 @@ foreach ($plugins as $result) {
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <style>
+            @media screen and (max-width: 1199px) {
+                .resone { display:none !important;}
+            }  
+            @media screen and (max-width: 991px) {
+                .restwo { display:none !important;}
+            }    
+            @media screen and (max-width: 767px) {
+                .resthree { display:none !important;}
+            } 
+            @media screen and (max-width: 540px) {
+                .resfour { display:none !important;}
+            } 
+        </style>
     </head>
 
     <body class="fix-header">
@@ -155,18 +169,18 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box"> <ul class="side-icon-text pull-right">
-                                <li><a href="../add/ip.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add IP Address"); ?></span></a></li>
+                                <li><a href="../add/ip.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span class="resfour"><wrapper class="resthree"><?php echo _("Add IP") ?> </wrapper><?php echo _("Address"); ?></span></a></li>
                                 </ul>
                                 <h3 class="box-title m-b-0"><?php echo _("IPs"); ?></h3><br>
-
-                                <table class="table footable m-b-0" data-paging-size="10" data-paging="true" data-sorting="true">
+                                <div class="table-responsive">
+                                <table class="table footable m-b-0" data-paging-size="10" data-paging="false" data-sorting="true">
                                     <thead>
                                         <tr>
                                             <th data-sortable="false"> <?php echo _("Address"); ?> </th>
                                             <th data-toggle="true" data-type="numeric"> <?php echo _("Domains"); ?> </th>
                                             <th> <?php echo _("Owner"); ?> </th>
-                                            <th> <?php echo _("Status"); ?> </th>
-                                            <th data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo _("Created"); ?> </th>
+                                            <th class="restwo"> <?php echo _("Status"); ?> </th>
+                                            <th class="resone" data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo _("Created"); ?> </th>
                                             <th data-sortable="false"> <?php echo _("Action"); ?> </th>
                                             <th data-breakpoints="all"> <?php echo _("Netmask"); ?> </th>
                                             <th data-breakpoints="all"> <?php echo _("Interface"); ?> </th>
@@ -183,9 +197,9 @@ foreach ($plugins as $result) {
                                                     <td>' . $ipname[$x1] . '</td>
                                                     <td data-sort-value="' . $ipdata[$x1]['U_WEB_DOMAINS'] . '">' . $ipdata[$x1]['U_WEB_DOMAINS'] . '</td>
                                                     <td>' . $ipdata[$x1]['OWNER'] . '</td>                                                                  
-                                                    <td>' . ucfirst($ipdata[$x1]['STATUS']) . '</td>
-                                                    <td data-sort-value="' . $ipdata[$x1]['DATE'] . '">' . $ipdata[$x1]['DATE'] . '</td><td>
-                                                        <button type="button" onclick="window.location=\'../edit/ip.php?ip=' . $ipname[$x1] . '\';" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button><button onclick="confirmDelete(\'' . $ipname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
+                                                    <td class="restwo">' . ucfirst($ipdata[$x1]['STATUS']) . '</td>
+                                                    <td class="resone" data-sort-value="' . $ipdata[$x1]['DATE'] . '">' . $ipdata[$x1]['DATE'] . '</td><td>
+                                                        <a href="../edit/ip.php?ip=' . $ipname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button></a><button onclick="confirmDelete(\'' . $ipname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
                                                     </td>
                                                     <td>' . $ipdata[$x1]['NETMASK'] . '</td>
                                                     <td>' . $ipdata[$x1]['INTERFACE'] . '</td>
@@ -196,11 +210,12 @@ foreach ($plugins as $result) {
                                         ?>
                                     </tbody>
                                 </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by CDG Web Services"); ?>.</footer>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
         <script src="../../plugins/components/jquery/dist/jquery.min.js"></script>
