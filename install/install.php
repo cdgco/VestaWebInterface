@@ -149,7 +149,8 @@ mysqli_close($con);
             if ($_POST['GOOGLE_ANALYTICS_ID'] != '') {$GAE="Enabled";} else {$GAE="Disabled";}
             if ($_POST['INTERAKT_APP_ID'] != '') {$IAE="Enabled";} else {$IAE="Disabled";}
             if ($_POST['CLOUDFLARE_API_KEY'] != '') {$CFE="Enabled";} else {$CFE="Disabled";}
-
+            if(phpversion()){ $phpversion = phpversion(); }
+            if(php_uname()){ $operatingsystem = php_uname(); }
             echo '<input type="hidden" name="url" value="'.$_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI].'">';
             echo '<input type="hidden" name="name" value="'.$_POST['SITENAME'].'">';
             echo '<input type="hidden" name="theme" value="'.$_POST['THEME'].'">';
@@ -167,7 +168,8 @@ mysqli_close($con);
             echo '<input type="hidden" name="version" value="'.$currentversion.'">';
             echo '<input type="hidden" name="software" value="'.$_SERVER[SERVER_SOFTWARE].'">';
             echo '<input type="hidden" name="agent" value="'.$_SERVER[HTTP_USER_AGENT].'">';
-
+            echo '<input type="hidden" name="php" value="'.$phpversion.'">';
+            echo '<input type="hidden" name="os" value="'.$operatingsystem.'">';
 
             ?>
 
