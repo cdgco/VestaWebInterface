@@ -308,7 +308,7 @@ function adminMenu($l2, $a1) {
     if($initialusername == "admin" && isset($adminenabled) && $adminenabled != ''){
     echo '<li class="devider"></li>
             <li> <a href="#" class="waves-effect"><i class="mdi mdi-wrench fa-fw" data-icon="v"></i> <span class="hide-menu">' . _("Administration") . '<span class="fa arrow"></span> </span></a>
-                <ul class="nav nav-second-level'; if(isset($a1) && $a1 != '') { echo ' in'; } echo '">
+                <ul class="nav nav-second-level'; if(isset($a1) && $a1 != '') { echo ' in'; } echo '" id="appendadministration">
                     <li> <a href="' . $l2 . 'users.php"'; if($a1 == 'users') { echo ' class="active"'; } echo '><i class="ti-user fa-fw"></i><span class="hide-menu">' . _("Users") . '</span></a> </li>
                     <li> <a href="' . $l2 . 'packages.php"'; if($a1 == 'packages') { echo ' class="active"'; } echo '><i class="ti-package fa-fw"></i><span class="hide-menu">' . _("Packages") . '</span></a> </li>
                     <li> <a href="' . $l2 . 'ip.php"'; if($a1 == 'ip') { echo ' class="active"'; } echo '><i class="fa fa-sliders fa-fw"></i><span class="hide-menu">' . _("IP") . '</span></a> </li>
@@ -341,21 +341,25 @@ function profileMenu($l3) {
 }
 function primaryMenu($l4, $l5, $a2) {
         global $webenabled; global $dnsenabled; global $mailenabled; global $dbenabled; global $ftpurl; global $webmailurl; global $phpmyadmin; global $phppgadmin; global $oldcpurl; global $supporturl; global $cronenabled; global $backupsenabled; global $softaculousurl;
-        if ($webenabled != 'true' && $dnsenabled != 'true' && $mailenabled != 'true' && $dbenabled != 'true') {} else { echo '<li class="devider"></li>
-            <li'; if($a2 == 'web' || $a2 == 'dns' || $a2 == 'mail' || $a2 == 'db') { echo ' class="active"'; } echo '> <a href="#" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu">' . _("Management") . '<span class="fa arrow"></span> </span></a>
-                <ul class="nav nav-second-level" id="appendmanagement">'; }
-        if ($webenabled == 'true') { echo '<li> <a href="' . $l4 . 'web.php"'; if($a2 == 'web') { echo ' class="active"'; } echo '><i class="ti-world fa-fw"></i><span class="hide-menu">' . _("Web") . '</span></a> </li>'; }
-        if ($dnsenabled == 'true') { echo '<li> <a href="' . $l4 . 'dns.php"'; if($a2 == 'dns') { echo ' class="active"'; } echo '><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">' . _("DNS") . '</span></a> </li>'; }
-        if ($mailenabled == 'true') { echo '<li> <a href="' . $l4 . 'mail.php"'; if($a2 == 'mail') { echo ' class="active"'; } echo '><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">' . _("Mail") . '</span></a> </li>'; }
-        if ($dbenabled == 'true') { echo '<li> <a href="' . $l4 . 'db.php"'; if($a2 == 'db') { echo ' class="active"'; } echo '><i class="fa fa-database fa-fw"></i><span class="hide-menu">' . _("Database") . '</span></a> </li>'; }
-        if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '</ul>
-            </li>'; }
+    
+    
+        if ($webenabled != 'true' && $dnsenabled != 'true' && $mailenabled != 'true' && $dbenabled != 'true') {} else { echo '<li class="devider"></li>'; }
+    
+    
+        if ($webenabled == 'true') { echo '<li> <a href="' . $l4 . 'web.php" class="waves-effect'; if($a2 == 'web') { echo ' active'; } echo '"><i class="ti-world fa-fw"></i><span class="hide-menu">' . _("Web") . '</span></a> </li>'; }
+        if ($dnsenabled == 'true') { echo '<li> <a href="' . $l4 . 'dns.php" class="waves-effect'; if($a2 == 'dns') { echo ' active'; } echo '"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">' . _("DNS") . '</span></a> </li>'; }
+        if ($mailenabled == 'true') { echo '<li> <a href="' . $l4 . 'mail.php" class="waves-effect'; if($a2 == 'mail') { echo ' active'; } echo '"><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">' . _("Mail") . '</span></a> </li>'; }
+        if ($dbenabled == 'true') { echo '<li> <a href="' . $l4 . 'db.php" class="waves-effect'; if($a2 == 'db') { echo ' active'; } echo '"><i class="fa fa-database fa-fw"></i><span class="hide-menu">' . _("Database") . '</span></a> </li>'; }
+    
+    
         if(isset($cronenabled) && $cronenabled != ''){
         echo '<li> <a href="' . $l4 . 'cron.php" class="waves-effect'; if($a2 == 'cron') { echo ' active'; } echo '"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">' . _("Cron Jobs") . '</span></a> </li>'; }
         if(isset($backupsenabled) && $backupsenabled != ''){
         echo '<li> <a href="' . $l4 . 'backups.php" class="waves-effect'; if($a2 == 'backups') { echo ' active'; } echo '"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu">' . _("Backups") . '</span></a> </li>'; }
-        if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '' && $softaculousurl == '') {} else { echo '<li class="devider"></li>
-            <li><a href="#" class="waves-effect"><i class="mdi mdi-apps fa-fw"></i> <span class="hide-menu">' . _("Apps") . '<span class="fa arrow"></span></span></a>
+        
+    
+        if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '' && $softaculousurl == '') {} else { echo '<li class="devider"></li>    
+        <li><a href="#" class="waves-effect"><i class="mdi mdi-apps fa-fw"></i> <span class="hide-menu">' . _("Apps") . '<span class="fa arrow"></span></span></a>
                 <ul class="nav nav-second-level" id="appendapps">'; }
         if ($ftpurl != '') { echo '<li><a href="' . $ftpurl . '" target="_blank"><i class="fa fa-file-code-o fa-fw"></i><span class="hide-menu">' . _("FTP") . '</span></a></li>';}
         if ($webmailurl != '') { echo '<li><a href="' . $webmailurl . '" target="_blank"><i class="fa fa-envelope-o fa-fw"></i><span class="hide-menu">' . _("Webmail") . '</span></a></li>';}

@@ -1,5 +1,3 @@
-ReflectSDR/*
-ReflectSDR
 includes/config.php
 bfg.jar
 includes/config.json
@@ -7,3 +5,4 @@ config.json
 tmp/config.json
 notes.md
 test.php
+plugins/vwi-billing/*

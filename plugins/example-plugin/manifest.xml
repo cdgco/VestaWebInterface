@@ -3,8 +3,8 @@
     <name>Example Plugin Name</name>
     <!-- Font-Awesome Icon Code. Ex: fa-phone . -->
     <fa-icon>fa-phone</fa-icon>
-    <!-- Section to list app under in menu. "account", "management", "apps" or "administration". Administration is show to admin only. -->
-    <section>management</section> 
+    <!-- Section to list app under in menu. "account", "apps" or "administration". Administration is shown to admin only. -->
+    <section>apps</section> 
     <!-- Developer name to be displayed in plugins list. -->
     <developer>Developer Company</developer>
     <!-- Plugin version to be displayed in plugins list. -->

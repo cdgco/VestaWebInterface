@@ -16,7 +16,7 @@ $postvars = array(
 $curl0 = curl_init();
 $curlstart = 0; 
 
-while($curlstart <= 1) {
+while($curlstart <= 0) {
     curl_setopt(${'curl' . $curlstart}, CURLOPT_URL, $vst_url);
     curl_setopt(${'curl' . $curlstart}, CURLOPT_RETURNTRANSFER,true);
     curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYPEER, false);

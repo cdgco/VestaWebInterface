@@ -8,16 +8,13 @@ if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: ../../login.php'); }
 
 $postvars = array(
-    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
-    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user-packages','arg1' => 'json')
-);
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'));
 
 $curl0 = curl_init();
-$curl1 = curl_init();
 $curlstart = 0; 
 
 
-while($curlstart <= 1) {
+while($curlstart <= 0) {
     curl_setopt(${'curl' . $curlstart}, CURLOPT_URL, $vst_url);
     curl_setopt(${'curl' . $curlstart}, CURLOPT_RETURNTRANSFER,true);
     curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYPEER, false);
@@ -28,7 +25,6 @@ while($curlstart <= 1) {
 } 
 
 $admindata = json_decode(curl_exec($curl0), true)[$username];
-$packname = array_keys(json_decode(curl_exec($curl1), true));
 $useremail = $admindata['CONTACT'];
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
 setlocale("LC_CTYPE", $locale); setlocale("LC_MESSAGES", $locale);
