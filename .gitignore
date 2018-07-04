@@ -6,3 +6,4 @@ tmp/config.json
 notes.md
 test.php
 plugins/vwi-billing/*
+plugins/vwi-billing/

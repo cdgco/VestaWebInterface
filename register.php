@@ -206,7 +206,7 @@ textdomain('messages');
             if(!isset($serverconnection)){
             echo "$.toast({
                 heading: '" . _("Error") . "'
-                , text: '" . _("Failed to connect to server.") . "<br>" . _("Please check config.php") . "'
+                , text: '" . _("Failed to connect to server.") . "<br>" . _("Please check config.") . "'
                 , icon: 'error'
                 , position: 'top-right'
                 , hideAfter: false

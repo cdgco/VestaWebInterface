@@ -22,7 +22,7 @@ function ftp_file_put_contents($remote_file, $file_string) {
     rewind($local_file);       
     $ftp_conn=ftp_connect($ftp_server); 
     @$login_result=ftp_login($ftp_conn, $ftp_user_name, $ftp_user_pass); 
-    if($login_result) $upload_result=ftp_fput($ftp_conn, $remote_file, $local_file, FTP_ASCII);
+    if($login_result) ftp_fput($ftp_conn, $remote_file, $local_file, FTP_ASCII);
     ftp_close($ftp_conn);
     fclose($local_file); }
 

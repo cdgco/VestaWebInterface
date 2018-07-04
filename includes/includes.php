@@ -343,7 +343,7 @@ function primaryMenu($l4, $l5, $a2) {
         global $webenabled; global $dnsenabled; global $mailenabled; global $dbenabled; global $ftpurl; global $webmailurl; global $phpmyadmin; global $phppgadmin; global $oldcpurl; global $supporturl; global $cronenabled; global $backupsenabled; global $softaculousurl;
     
     
-        if ($webenabled != 'true' && $dnsenabled != 'true' && $mailenabled != 'true' && $dbenabled != 'true') {} else { echo '<li class="devider"></li>'; }
+        if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '<li class="devider"></li>'; }
     
     
         if ($webenabled == 'true') { echo '<li> <a href="' . $l4 . 'web.php" class="waves-effect'; if($a2 == 'web') { echo ' active'; } echo '"><i class="ti-world fa-fw"></i><span class="hide-menu">' . _("Web") . '</span></a> </li>'; }
@@ -358,7 +358,7 @@ function primaryMenu($l4, $l5, $a2) {
         echo '<li> <a href="' . $l4 . 'backups.php" class="waves-effect'; if($a2 == 'backups') { echo ' active'; } echo '"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu">' . _("Backups") . '</span></a> </li>'; }
         
     
-        if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '' && $softaculousurl == '') {} else { echo '<li class="devider"></li>    
+        if ($ftpurl != '' || $webmailurl != '' || $phpmyadmin != '' || $phppgadmin != '' || $softaculousurl != '') { echo '<li class="devider"></li>    
         <li><a href="#" class="waves-effect"><i class="mdi mdi-apps fa-fw"></i> <span class="hide-menu">' . _("Apps") . '<span class="fa arrow"></span></span></a>
                 <ul class="nav nav-second-level" id="appendapps">'; }
         if ($ftpurl != '') { echo '<li><a href="' . $ftpurl . '" target="_blank"><i class="fa fa-file-code-o fa-fw"></i><span class="hide-menu">' . _("FTP") . '</span></a></li>';}
@@ -366,10 +366,10 @@ function primaryMenu($l4, $l5, $a2) {
         if ($phpmyadmin != '') { echo '<li><a href="' . $phpmyadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . _("phpMyAdmin") . '</span></a></li>';}
         if ($phppgadmin != '') { echo '<li><a href="' . $phppgadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . _("phpPgAdmin") . '</span></a></li>';}
         if ($softaculousurl != '') { echo '<li><a href="' . $softaculousurl . '" target="_blank"><i class="icon-softaculous">&#xe801;</i><span class="hide-menu">' . _("Softaculous") . '</span></a></li>';}
-        if ($ftpurl == '' && $webmailurl == '' && $phpmyadmin == '' && $phppgadmin == '' && $softaculousurl == '') {} else { echo '</ul></li>';}
+        if ($ftpurl != '' || $webmailurl != '' || $phpmyadmin != '' || $phppgadmin != '' || $softaculousurl != '') { echo '</ul></li>';}
         echo '<li class="devider"></li>
         <li><a href="' . $l5 . 'logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu">' . _("Log out") . '</span></a></li>';
-        if ($oldcpurl == '' || $supporturl == '') {} else { echo '<li class="devider"></li>'; }
+        if ($oldcpurl != '' || $supporturl != '') { echo '<li class="devider"></li>'; }
         if ($oldcpurl != '') { echo '<li><a href="' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> ' . _("Control Panel v1") . '</span></a></li>'; }
         if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">' . _("Support") . '</span></a></li>'; }
 }
