@@ -34,6 +34,11 @@
     right: 3px;
     position: relative;
 }
+#index-account-action {
+    margin-right:257px;
+    position: fixed;
+    z-index: 100;
+}
 ul.dashed {
     list-style-type: none;
 }

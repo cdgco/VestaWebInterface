@@ -226,7 +226,7 @@ foreach ($plugins as $result) {
                             <h4 class="page-title"><?php echo _("Host Dashboard"); ?></h4>
                         </div>
                         <div class="col-lg-2 col-sm-8 col-md-8 col-xs-12 pull-right restwo">
-                            <div style="margin-right:257px;" class="btn-group bootstrap-select input-group-btn">
+                            <div class="btn-group bootstrap-select input-group-btn" id="index-account-action">
                                 <form id="rebuildform" action="process/rebuild.php" method="post">
                                     <select class="selectpicker pull-right m-l-20" name="action" data-style="form-control">
                                         <option value="rebuild-user"><?php echo _("Rebuild Account"); ?></option>

@@ -264,7 +264,7 @@ else{
 //////////////////////////
 // Optional Integration //
 //////////////////////////
-$plugins = explode(",", $config["PLUGINS"]);
+$plugins = explode(",", str_replace(' ', '', $config["PLUGINS"]));
 $pluginlinks = array();
 $pluginnames = array();
 $pluginicons = array();
