@@ -35,9 +35,9 @@
     position: relative;
 }
 #index-account-action {
-    margin-right:257px;
     position: fixed;
-    z-index: 100;
+    z-index: 2;
+    right: 0px;
 }
 ul.dashed {
     list-style-type: none;
