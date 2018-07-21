@@ -4,6 +4,14 @@
 
 To start manual configuration, edit the 'includes/config-example.php' file.
 
+VWI requires a MySQL database to store and serve the control panel configuration.
+
+You may use either a MySQL or MariaDB database and user with read and write access to the corresponding database. This database may either be empty or populated, as long as there is no table by the name of 'vwi\_config' (or a table with your specified prefix).
+
+'root' users and users without passwords are accepted but are not recommended for added security. 
+
+localhost / 127.0.0.1, web addresses and IP addresses are acceptable hosts. 
+
 * mysql\_server: Address to MySQL Server. URL, IP Address or localhost.  
 * mysql\_uname: Username to MySQL user with access to database.  
 * mysql\_pw: Password to MySQL user.  

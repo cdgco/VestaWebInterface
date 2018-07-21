@@ -4,6 +4,14 @@ Web based config can be done either upon initial installation from the '/install
 
 #### MySQL Configuration (config.php)
 
+VWI requires a MySQL database to store and serve the control panel configuration.
+
+You may use either a MySQL or MariaDB database and user with read and write access to the corresponding database. This database may either be empty or populated, as long as there is no table by the name of 'vwi\_config' (or a table with your specified prefix).
+
+'root' users and users without passwords are accepted but are not recommended for added security. 
+
+localhost / 127.0.0.1, web addresses and IP addresses are acceptable hosts. 
+
 * MySQL Host: Address to MySQL Server. URL, IP Address or localhost.  
 * MySQL Username: Username to MySQL user with access to database.  
 * MySQL Password: Password to MySQL user.  
