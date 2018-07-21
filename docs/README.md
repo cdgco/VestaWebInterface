@@ -1,6 +1,7 @@
 # Vesta Web Interface
 <hr>
-<div class="note"></div>
+
+!> Beta Pre Release: Vesta Web Interface is still in beta and is available as a pre-release. Therefore there may still be missing features and bugs. If you encounter an error or have suggestions, please tell us either through GitHub Issues or the support section
 
 ## About
 
@@ -22,3 +23,7 @@ Check out the [Demo](https://cdgtech.one/vwi/demo.php) to test out VWI before yo
 ## Donate
 
 If you like VWI, please consider [donating](http://paypal.me/CJREvents) to show your support and help me focus more time on it.
+
+## License
+
+GNU General Public License v3.0

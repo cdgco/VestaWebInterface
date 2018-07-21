@@ -8,21 +8,7 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
-    
-    <style>
-    .note+p {
-        padding: 8px 35px 8px 14px;
-        margin-bottom: 20px;
-        border-radius: 4px;
-        color: #ffffff;
-        background-color: #F88C30;
-    }
-
-    .note+p:before {
-        content: "Beta Pre Release: Vesta Web Interface is still in beta and is available as a pre-release. Therefore there may still be missing features and bugs. If you encounter an error or have suggestions, please tell us either through GitHub Issues or the support section";
-        display: block;
-    } 
-</style>
+  <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
 </head>
 <body>
   <div data-app id="app">Loading ...</div>
@@ -31,7 +17,24 @@
       name: 'Vesta Web Interface',
       loadSidebar: true,
       coverpage: true,
-      search: 'auto'
+      search: 'auto',
+        plugins: [
+        function (hook, vm) {
+          hook.beforeEach(function (html) {
+            if (/githubusercontent\.com/.test(vm.route.file)) {
+              url = vm.route.file
+                .replace('raw.githubusercontent.com', 'github.com')
+                .replace(/\/master/, '/blob/master')
+            } else {
+              url = 'https://github.com/cdgco/VestaWebInterface/blob/master/docs/' + vm.route.file
+            }
+            var editHtml = '[:memo: Edit Document](' + url + ')\n'
+
+            return editHtml
+              + html
+          })
+        }
+      ]
   }
   if (typeof navigator.serviceWorker !== 'undefined') {
     navigator.serviceWorker.register('sw.js')
@@ -43,5 +46,18 @@
   <script src="//unpkg.com/prismjs/components/prism-php.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-sql.min.js"></script>
+
+  <script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
+  <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script>
+    const gitalk = new Gitalk({
+      clientID: 'd265747388e211c4fb55',
+      clientSecret: '3bb30b0e66fac317fdd28ea7c718fd3896d49362',
+      repo: 'VestaWebInterface',
+      owner: 'cdgco',
+      admin: ['cdgco'],
+      distractionFreeMode: true
+    })
+  </script>
 </body>
 </html>
