@@ -25,7 +25,7 @@ RewriteEngine On
 RewriteRule (^|/)tmp(/|$) - [F]
 RewriteRule (^|/)includes(/|$) - [F]
 
-# PHP Debugging - Default: Off
+# PHP Debugging
 
 php_flag display_errors Off
 
