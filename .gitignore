@@ -7,3 +7,5 @@ notes.md
 test.php
 plugins/vwi-billing/*
 plugins/vwi-billing/
+.vscode/settings.json
+.vscode/launch.json

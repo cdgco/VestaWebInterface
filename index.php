@@ -226,7 +226,7 @@ foreach ($plugins as $result) {
                             <h4 class="page-title"><?php echo _("Host Dashboard"); ?></h4>
                         </div>
                         <div id="index-account-action" class="col-lg-2 col-sm-8 col-md-8 col-xs-12 pull-right restwo">
-                            <div class="btn-group bootstrap-select input-group-btn">
+                            <div class="btn-group bootstrap-select input-group-btn" style="position:absolute;right:64px;">
                                 <form id="rebuildform" action="process/rebuild.php" method="post">
                                     <select class="selectpicker pull-right m-l-20" name="action" data-style="form-control">
                                         <option value="rebuild-user"><?php echo _("Rebuild Account"); ?></option>
@@ -820,6 +820,7 @@ foreach ($plugins as $result) {
                             </div>
                         </div>
                     </div>
+                    <?php hotkeys($configlocation); ?>
                     <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require 'includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
                 </div>
             </div>

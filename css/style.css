@@ -34,8 +34,168 @@
     right: 3px;
     position: relative;
 }
+.shortcuts {
+  background: rgba(50, 50, 50, 0.9);
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  color: #eee;
+  width: 730px;
+  border: 1px solid #333;
+  font-size: 13px;
+  z-index: 120;
+  transform: translate(-50%, 0);
+}
+.shortcuts .header {
+  border-bottom: 1px solid #333;
+  height: 43px;
+}
+.shortcuts .title {
+  text-transform: uppercase;
+  color: #ffcc00;
+  padding: 13px 0 7px 14px;
+  display: inline-block;
+  float: left;
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+.shortcuts .close-s {
+cursor: pointer;
+    display: inline-block;
+    float: right;
+    height: 30px;
+    padding-top: 6px;
+    font-size: 19px;
+    width: 25px;
+}
+.shortcuts ul {
+  list-style-type: none;
+  padding: 30px 20px;
+  display: inline-block;
+  float: left;
+  width: 360px;
+}
+.shortcuts ul li {
+  padding: 5px 20px;
+}
+.shortcuts ul li.step-top {
+  padding-top: 30px;
+}
+.shortcuts ul li span {
+  color: #48F4EF;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0 20px 0 0;
+  text-align: right;
+/*  width: 140px;*/
+}
+.shortcuts ul li span.bigger {
+  font-size: 18px;
+}
+button.back-to-top{
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #fff;
+	height: 0px;
+  width: 0px;
+  overflow: hidden;
+	border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	clear: both;
+  visibility: hidden;
+  position: fixed;
+  cursor: pointer;
+  display: block;
+  border: none;
+  right: 85px;
+	bottom: 75px;
+  font-size: 0px;
+  outline: 0 !important;
+  z-index: 99;
+  transition: all .3s ease-in-out;
+}
+button.back-to-top:hover,
+button.back-to-top:active,
+button.back-to-top:focus,{
+  outline: 0 !important;
+}
+button.back-to-top::before {
+  content: "\f077";
+  font-family: "FontAwesome";
+  display: block;
+  vertical-align: middle;
+  margin: -5px 0 auto;
+}
+button.back-to-top.show {
+  display: block;
+  background: #ffffffa3;
+  font-size: 25px;
+  right: 85px;
+	bottom: 50px;
+  height: 50px;
+  width: 50px;
+  visibility: visible;
+	box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
+}
+button.back-to-top.show:hover {
+  box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.20);
+  -webkit-box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.20);
+  -moz-box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.20);
+}
+button.back-to-top.show:active {
+  box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.25);
+}
+button.keyboard-shortcuts{
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #ffffffa3;
+	height: 50px;
+  width: 50px;
+  overflow: hidden;
+	border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	clear: both;
+  visibility: visible;
+  position: fixed;
+  cursor: pointer;
+  display: block;
+  border: none;
+  right: 25px;
+	bottom: 50px;
+  font-size: 25px;
+  outline: 0 !important;
+  z-index: 99;
+  transition: all .3s ease-in-out;
+  box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
+}
+
+button.keyboard-shortcuts::before {
+  content: "\f11c";
+  font-family: "FontAwesome";
+  display: block;
+  vertical-align: middle;
+  margin: -5px 0 auto;
+}
+button.keyboard-shortcuts:hover {
+  box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.20);
+  -webkit-box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.20);
+  -moz-box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.20);
+}
+button.keyboard-shortcuts:active {
+  box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.25);
+}
 #index-account-action {
-    position: fixed;
+    position: static;
     z-index: 2;
     right: 0px;
 }

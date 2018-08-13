@@ -566,6 +566,11 @@ foreach ($plugins as $result) {
                         </div>
                     </div>
                 </div>
+                <script> 
+                    function submitForm() { document.getElementById("form").submit(); };
+                    function exitForm() { window.location.href="../list/maildomain.php?domain=<?php echo $requestdomain; ?>"; };
+                </script>
+                <?php hotkeys($configlocation); ?>
                 <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>

@@ -22,6 +22,8 @@ if (!empty($_POST['v_fwd_only'])) {
 } else {
     $v_fwd_only = 'no';
 }
+
+
 // Check autoreply option
 if (!empty($_POST['v_autoreply'])) {
     $v_autoreply = 'yes';
@@ -95,8 +97,8 @@ else {
 }
 if($phpmailenabled == "true" && isset($_POST['v_sendemail']) && $_POST['v_sendemail'] != '') {
     
-    if($webmailurl != ''){ $webmailurlx0 = "Webmail URL: <a href='" . $webmailurl . "'>" . $webmailurl . "</a>"; } else { $webmailurlx1 = ''; }
-    if($webmailurl != ''){ $webmailurlx1 = "Webmail URL: " . $webmailurl; } else { $webmailurlx0 = ''; }
+    if($webmailurl != ''){ $webmailurlx0 = "Webmail URL: <a href='" . $webmailurl . "'>" . $webmailurl . "</a>"; $webmailurlx1 = "Webmail URL: " . $webmailurl; } 
+    else { $webmailurlx0 = ''; $webmailurlx1 = ''; }
     addslashes(
     $mail = new PHPMailer;
     $mail->setFrom($mailfrom, $mailname);

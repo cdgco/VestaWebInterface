@@ -180,7 +180,7 @@ foreach ($plugins as $result) {
                                     <div class="form-group">
                                         <div class="col-sm-12">
                                             <button class="btn btn-success" type="submit"><?php echo _("Add Ban"); ?></button> &nbsp;
-                                            <a href="../list/firewall.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
+                                            <a href="../list/fail2ban.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </form>
@@ -188,6 +188,11 @@ foreach ($plugins as $result) {
                         </div>
                     </div>
                 </div>
+                <script> 
+                    function submitForm() { document.getElementById("form").submit(); };
+                    function exitForm() { window.location.href="../list/fail2ban.php"; };
+                </script>
+                <?php hotkeys($configlocation); ?>
                 <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>

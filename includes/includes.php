@@ -449,5 +449,69 @@ function formatMBUnitOnly($number, $precision = 2) {
 
     return $units[$pow];
 } 
+function hotKeys($conflocation) {
+    echo 
+        '<div class="shortcuts" id="shortcuts" style="display:none;">
+                        <div class="header">
+                          <div class="title">Shortcuts</div>
+                          <div class="close-s" onclick="toggleShortcuts()">x</div>
+
+                        </div>
+                            <ul>
+                              <li><span class="key">1</span>Go to DASHBOARD</li>
+                              <li><span class="key">2</span>Go to WEB</li>
+                              <li><span class="key">3</span>Go to DNS</li>
+                              <li><span class="key">4</span>Go to MAIL</li>
+                              <li><span class="key">5</span>Go to DATABASE</li>
+                              <li><span class="key">6</span>Go to CRON JOBS</li>
+                              <li><span class="key">7</span>Go to BACKUPS</li>
+                              <li><span class="key">8</span>Go to PROFILE</li>
+                            </ul>
+                            <ul>
+                          <li><span class="key">h</span>Display/Close shortcuts</li>
+
+                          <li class="step-top"><span class="key">a</span>Add New object</li>
+                          <li><span class="key">Ctrl + Enter</span>Save Form</li>
+                          <li><span class="key">Ctrl + Backspace</span>Cancel saving form</li>
+                          
+                          <li class="step-top"><span class="key">Ctrl + L</span>Logout</li>
+                        
+                        </ul>
+                        
+                        
+                      </div>
+                    <button class="keyboard-shortcuts theme-color" onclick="toggleShortcuts()" type="button"></button>
+                    <button class="back-to-top theme-color" type="button"></button>
+                    <script src="' . $conflocation . '../js/hotkeys.min.js"></script>
+                    <script type="text/javascript">
+                        hotkeys("1,2,3,4,5,6,7,8,h,a,ctrl+enter,ctrl+backspace,ctrl+l", function(event,handler) {
+                          switch(handler.key){
+                            case "1":window.location.href = "' . $conflocation . '../index.php";break;
+                            case "2":window.location.href = "' . $conflocation . '../list/web.php";break;
+                            case "3":window.location.href = "' . $conflocation . '../list/dns.php";break;
+                            case "4":window.location.href = "' . $conflocation . '../list/mail.php";break;
+                            case "5":window.location.href = "' . $conflocation . '../list/db.php";break;
+                            case "6":window.location.href = "' . $conflocation . '../list/cron.php";break;
+                            case "7":window.location.href = "' . $conflocation . '../list/backups.php";break;
+                            case "8":window.location.href = "' . $conflocation . '../profile.php";break;
+                            case "h":toggleShortcuts();break;
+                            case "a":addNewObj();break;
+                            case "ctrl+enter":submitForm();break;
+                            case "ctrl+backspace":exitForm();break;
+                            case "ctrl+l":window.location.href = "' . $conflocation . '../process/logout.php";break;
+                          }
+                        });
+                        if(typeof addNewObj != \'function\'){
+                           addNewObj = function(){ return undefined; };
+                        }
+                        if(typeof submitForm != \'function\'){
+                           submitForm = function(){ return undefined; };
+                        }
+                        if(typeof exitForm != \'function\'){
+                           exitForm = function(){ return undefined; };
+                        }
+                        </script>';
+    
+}
 if(isset($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING'] != '') { $urlquery = '?'; } else { $urlquery = ''; }
 ?>

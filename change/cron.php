@@ -7,16 +7,16 @@ if(base64_decode($_SESSION['loggedin']) != 'true') { header('Location: ../login.
 
 if(isset($cronenabled) && $cronenabled != 'true'){ header("Location: ../error-pages/403.html"); }
 
-if (isset($_POST['v_min']) { $v_min = $_POST['v_min']; }
-elseif (isset($_POST['v_hour']) { $v_hour = $_POST['v_hour']; }
-elseif (isset($_POST['v_day']) { $v_month = $_POST['v_month']; }
-elseif (isset($_POST['v_month']) { $v_month = $_POST['v_month']; }
-elseif (isset($_POST['v_wday']) { $v_wday = $_POST['v_wday']; }
-elseif (isset($_POST['v_cmd']) { $v_cmd = $_POST['v_cmd']; }
-elseif (isset($_POST['v_job']) { $v_job = $_POST['v_job']; 
+if (isset($_POST['v_min'])) { $v_min = $_POST['v_min']; }
+elseif (isset($_POST['v_hour'])) { $v_hour = $_POST['v_hour']; }
+elseif (isset($_POST['v_day'])) { $v_month = $_POST['v_month']; }
+elseif (isset($_POST['v_month'])) { $v_month = $_POST['v_month']; }
+elseif (isset($_POST['v_wday'])) { $v_wday = $_POST['v_wday']; }
+elseif (isset($_POST['v_cmd'])) { $v_cmd = $_POST['v_cmd']; }
+elseif (isset($_POST['v_job'])) { $v_job = $_POST['v_job']; }
 elseif (!isset($v_min)) { header('Location: ../edit/cron.php?error=1&job=' . $v_job);}
 elseif (!isset($v_hour)) { header('Location: ../edit/cron.php?error=1&job=' . $v_job);}
-elseif (!isset($v_day) { header('Location: ../edit/cron.php?error=1&job=' . $v_job);}
+elseif (!isset($v_day)) { header('Location: ../edit/cron.php?error=1&job=' . $v_job);}
 elseif (!isset($v_month)) { header('Location: ../edit/cron.php?error=1&job=' . $v_job);}
 elseif (!isset($v_wday)) { header('Location: ../edit/cron.php?error=1&job=' . $v_job);}
 elseif (!isset($v_cmd)) { header('Location: ../edit/cron.php?error=1&job=' . $v_job);}
@@ -64,7 +64,7 @@ $r1 = curl_exec($curl0);
 
         <form id="form" action="../edit/cron.php?job=<?php echo $v_job; ?>" method="post">
             <?php 
-                                                                                    echo '<input type="hidden" name="returncode" value="'.$r1.'">';
+                echo '<input type="hidden" name="returncode" value="'.$r1.'">';
             ?>
         </form>
         <script type="text/javascript">

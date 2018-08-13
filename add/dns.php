@@ -240,6 +240,11 @@ if (CLOUDFLARE_EMAIL == '' || CLOUDFLARE_API_KEY == ''){ $cfenabled = 'off'; }
                         </div>
                     </div>
                 </div>
+                <script> 
+                    function submitForm() { document.getElementById("form").submit(); };
+                    function exitForm() { window.location.href="../list/dns.php"; };
+                </script>
+                <?php hotkeys($configlocation); ?>
                 <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
