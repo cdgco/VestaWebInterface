@@ -194,6 +194,12 @@ button.keyboard-shortcuts:active {
   -webkit-box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.25);
 }
+@media screen and (max-width: 767px) {
+    .reskeys { display:none !important;}
+    button.keyboard-shortcuts{ display:none !important; }
+    button.back-to-top { right: 25px; }
+    button.back-to-top.show { right: 25px; }
+}  
 #index-account-action {
     position: static;
     z-index: 2;
