@@ -7,9 +7,9 @@ if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: ../login.php'); }
 
 if(isset($dbenabled) && $dbenabled != 'true'){ header("Location: ../error-pages/403.html"); }
-require '../plugins/components/PHPMailer/src/PHPMailer.php';
-require '../plugins/components/PHPMailer/src/SMTP.php';
-require '../plugins/components/PHPMailer/src/Exception.php';
+require '../plugins/components/phpmailer/src/PHPMailer.php';
+require '../plugins/components/phpmailer/src/SMTP.php';
+require '../plugins/components/phpmailer/src/Exception.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 
