@@ -1,5 +1,11 @@
 ## Changelog
 
+### v0.5.1-Beta
+Design Updates
+Stability & Bug Fixes
+Keyboard Shortcuts
+Back-To-Top Button
+
 ### v0.5.0-Beta
 Cloudflare Integration  
 Admin Panel (Server Config Coming Soon)  

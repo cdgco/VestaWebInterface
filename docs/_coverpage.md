@@ -1,4 +1,4 @@
-# Vesta Web Interface v0.5.0-Beta
+# Vesta Web Interface v0.5.1-Beta
 
 > A PHP Control Panel for VestaCP 
 
