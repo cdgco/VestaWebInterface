@@ -56,7 +56,7 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.0-Beta/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Menu Plugin JavaScript -->
-<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.0-Beta/plugins/components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.0-Beta/plugins/components/metismenu/dist/metisMenu.min.js"></script>
 
 <!--slimscroll JavaScript -->
 <script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.0-Beta/js/jquery.slimscroll.js"></script>

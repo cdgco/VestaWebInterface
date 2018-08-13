@@ -56,7 +56,7 @@ textdomain('messages');
         <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="css/animate.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-        <link href="plugins/components/toast-master/css/jquery.toast.css" rel="stylesheet">
+        <link href="plugins/components/jquery-toast/dist/jquery.toast.min.css" rel="stylesheet">
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
         <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?>
         <style>
@@ -235,9 +235,9 @@ textdomain('messages');
             </div>            
         </section>
         <script src="plugins/components/jquery/dist/jquery.min.js"></script>
-        <script src="../plugins/components/toast-master/js/jquery.toast.js"></script>
+        <script src="../plugins/components/jquery-toast/dist/jquery.toast.min.js"></script>
         <script src="bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="plugins/components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+        <script src="plugins/components/metismenu/dist/metisMenu.min.js"></script>
         <script src="js/jquery.slimscroll.js"></script>
         <script src="js/waves.js"></script>
         <script src="js/custom.js"></script>
