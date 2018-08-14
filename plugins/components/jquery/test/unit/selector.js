@@ -109,7 +109,7 @@ QUnit.test( "child and adjacent", function( assert ) {
 	assert.t( "Child", "p>a", [ "simon1", "google", "groups", "mark", "yahoo", "simon" ] );
 	assert.t( "Child w/ Class", "p > a.blog", [ "mark", "simon" ] );
 	assert.t( "All Children", "code > *", [ "anchor1", "anchor2" ] );
-	assert.selectInFixture( "All Grandchildren", "p > * > *", [ "anchor1", "anchor2" ] );
+	assert.t( "All Grandchildren", "p > * > *", [ "anchor1", "anchor2" ] );
 	assert.t( "Adjacent", "p + p", [ "ap", "en", "sap" ] );
 	assert.t( "Adjacent", "p#firstp + p", [ "ap" ] );
 	assert.t( "Adjacent", "p[lang=en] + p", [ "sap" ] );
@@ -209,7 +209,6 @@ QUnit.test( "attributes", function( assert ) {
 
 	assert.t( "Empty values", "#select1 option[value='']", [ "option1a" ] );
 
-
 	assert.t( "Grouped Form Elements", "input[name='foo[bar]']", [ "hidden2" ] );
 
 	// Make sure attribute value quoting works correctly. See jQuery #6093; #6428; #13894
@@ -262,7 +261,6 @@ QUnit.test( "attributes", function( assert ) {
 		assert.ok( "skip", ":input not supported in selector-native" );
 	}
 
-
 	// #11115
 	assert.ok( jQuery( "<input type='checkbox' checked='checked'/>" ).prop( "checked", false ).is( "[checked]" ),
 		"[checked] selects by attribute (positive)"
@@ -290,9 +288,9 @@ QUnit[ jQuery.find.compile ? "test" : "skip" ]( "disconnected nodes", function( 
 } );
 
 testIframe(
+	"selector/html5_selector",
 	"attributes - jQuery.attr",
-	"selector/html5_selector.html",
-	function( assert, jQuery, window, document ) {
+	function( jQuery, window, document, assert ) {
 		assert.expect( 38 );
 
 		/**
@@ -490,10 +488,10 @@ QUnit.test( "jQuery.uniqueSort", function( assert ) {
 } );
 
 testIframe(
+	"selector/sizzle_cache",
 	"Sizzle cache collides with multiple Sizzles on a page",
-	"selector/sizzle_cache.html",
-	function( assert, jQuery, window, document ) {
-		var $cached = window.$cached;
+	function( jQuery, window, document, assert ) {
+		var $cached = window[ "$cached" ];
 
 		assert.expect( 4 );
 		assert.notStrictEqual( jQuery, $cached, "Loaded two engines" );
@@ -535,10 +533,4 @@ QUnit.asyncTest( "Iframe dispatch should not affect jQuery (#13936)", 1, functio
 	iframeDoc.open();
 	iframeDoc.write( "<body><form id='navigate' action='?'></form></body>" );
 	iframeDoc.close();
-} );
-
-QUnit.test( "Ensure escapeSelector exists (escape tests in Sizzle)", function( assert ) {
-	assert.expect( 1 );
-
-	assert.equal( jQuery.escapeSelector( "#foo.bar" ), "\\#foo\\.bar", "escapeSelector present" );
 } );

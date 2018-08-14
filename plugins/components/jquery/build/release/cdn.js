@@ -5,23 +5,22 @@ var
 
 	cdnFolder = "dist/cdn",
 
+	devFile = "dist/jquery.js",
+	minFile = "dist/jquery.min.js",
+	mapFile = "dist/jquery.min.map",
+
 	releaseFiles = {
-		"jquery-VER.js": "dist/jquery.js",
-		"jquery-VER.min.js": "dist/jquery.min.js",
-		"jquery-VER.min.map": "dist/jquery.min.map",
-		"jquery-VER.slim.js": "dist/jquery.slim.js",
-		"jquery-VER.slim.min.js": "dist/jquery.slim.min.js",
-		"jquery-VER.slim.min.map": "dist/jquery.slim.min.map"
+		"jquery-VER.js": devFile,
+		"jquery-VER.min.js": minFile,
+		"jquery-VER.min.map": mapFile
 	},
 
 	googleFilesCDN = [
-		"jquery.js", "jquery.min.js", "jquery.min.map",
-		"jquery.slim.js", "jquery.slim.min.js", "jquery.slim.min.map"
+		"jquery.js", "jquery.min.js", "jquery.min.map"
 	],
 
 	msFilesCDN = [
-		"jquery-VER.js", "jquery-VER.min.js", "jquery-VER.min.map",
-		"jquery-VER.slim.js", "jquery-VER.slim.min.js", "jquery-VER.slim.min.map"
+		"jquery-VER.js", "jquery-VER.min.js", "jquery-VER.min.map"
 	];
 
 /**
@@ -40,12 +39,11 @@ function makeReleaseCopies( Release ) {
 
 			// Map files need to reference the new uncompressed name;
 			// assume that all files reside in the same directory.
-			// "file":"jquery.min.js" ... "sources":["jquery.js"]
+			// "file":"jquery.min.js","sources":["jquery.js"]
 			text = fs.readFileSync( builtFile, "utf8" )
-				.replace( /"file":"([^"]+)"/,
-					"\"file\":\"" + unpathedFile.replace( /\.min\.map/, ".min.js\"" ) )
-				.replace( /"sources":\["([^"]+)"\]/,
-					"\"sources\":[\"" + unpathedFile.replace( /\.min\.map/, ".js" ) + "\"]" );
+				.replace( /"file":"([^"]+)","sources":\["([^"]+)"\]/,
+					"\"file\":\"" + unpathedFile.replace( /\.min\.map/, ".min.js" ) +
+					"\",\"sources\":[\"" + unpathedFile.replace( /\.min\.map/, ".js" ) + "\"]" );
 			fs.writeFileSync( releaseFile, text );
 		} else if ( builtFile !== releaseFile ) {
 			shell.cp( "-f", builtFile, releaseFile );
@@ -87,7 +85,7 @@ function makeArchives( Release, callback ) {
 				item.replace( rver, Release.newVersion );
 		} );
 
-		sum = Release.exec( "md5 -r " + files.join( " " ), "Error retrieving md5sum" );
+		sum = Release.exec( "md5sum " + files.join( " " ), "Error retrieving md5sum" );
 		fs.writeFileSync( md5file, sum );
 		files.push( md5file );
 

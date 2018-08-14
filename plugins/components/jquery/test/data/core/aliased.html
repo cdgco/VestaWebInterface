@@ -10,16 +10,15 @@
 		};
 	</script>
 	<script src="../../jquery.js"></script>
-	<script src="../iframeTest.js"></script>
 </head>
 <body>
 	<form>
 		<input type="text" id="nodeName"/>
 	</form>
 	<script>
-		jQuery( function() {
-			startIframeTest( errors );
-		} );
+		jQuery(function() {
+			window.parent.iframeCallback( errors );
+		});
 	</script>
 </body>
 </html>

@@ -76,7 +76,6 @@ foreach ($plugins as $result) {
         <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="plugins/components/footable/css/footable.bootstrap.css" rel="stylesheet">
-        <link href="plugins/components/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet">
         <link href="css/animate.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
         <link href="plugins/components/jquery-toast/dist/jquery.toast.min.css" rel="stylesheet">

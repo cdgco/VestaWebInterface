@@ -8,7 +8,6 @@
 		window.onready = function() { error = "Called window.onready"; };
 	</script>
 	<script src="../../jquery.js"></script>
-	<script src="../iframeTest.js"></script>
 </head>
 <body>
 	<form>
@@ -17,7 +16,7 @@
 	<script>
 		jQuery(function() {
 			setTimeout( function() {
-				startIframeTest( error );
+				window.parent.iframeCallback( error );
 			});
 		});
 	</script>

@@ -65,7 +65,7 @@ jQuery.each( tests, function( strFlags, resultString ) {
 
 				QUnit.test( "jQuery.Callbacks( " + showFlags( flags ) + " ) - " + filterLabel, function( assert ) {
 
-					assert.expect( 29 );
+					assert.expect( 28 );
 
 					var cblist,
 						results = resultString.split( /\s+/ );
@@ -76,20 +76,20 @@ jQuery.each( tests, function( strFlags, resultString ) {
 					assert.strictEqual( cblist.locked(), false, ".locked() initially false" );
 					assert.strictEqual( cblist.disabled(), false, ".disabled() initially false" );
 					assert.strictEqual( cblist.fired(), false, ".fired() initially false" );
-					cblist.add( function( str ) {
+					cblist.add(function( str ) {
 						output += str;
-					} );
+					});
 					assert.strictEqual( cblist.fired(), false, ".fired() still false after .add" );
 					cblist.fire( "A" );
 					assert.strictEqual( output, "XA", "Basic binding and firing" );
 					assert.strictEqual( cblist.fired(), true, ".fired() detects firing" );
 					output = "X";
 					cblist.disable();
-					cblist.add( function( str ) {
+					cblist.add(function( str ) {
 						output += str;
-					} );
+					});
 					assert.strictEqual( output, "X", "Adding a callback after disabling" );
-					cblist.fire( "A" );
+					cblist.fire("A");
 					assert.strictEqual( output, "X", "Firing after disabling" );
 					assert.strictEqual( cblist.disabled(), true, ".disabled() becomes true" );
 					assert.strictEqual( cblist.locked(), true, "disabling locks" );
@@ -113,20 +113,20 @@ jQuery.each( tests, function( strFlags, resultString ) {
 					// Basic binding and firing (context, arguments)
 					output = "X";
 					cblist = jQuery.Callbacks( flags );
-					cblist.add( function() {
+					cblist.add(function() {
 						assert.equal( this, window, "Basic binding and firing (context)" );
 						output += Array.prototype.join.call( arguments, "" );
-					} );
+					});
 					cblist.fireWith( window, [ "A", "B" ] );
 					assert.strictEqual( output, "XAB", "Basic binding and firing (arguments)" );
 
 					// fireWith with no arguments
 					output = "";
 					cblist = jQuery.Callbacks( flags );
-					cblist.add( function() {
+					cblist.add(function() {
 						assert.equal( this, window, "fireWith with no arguments (context is window)" );
 						assert.strictEqual( arguments.length, 0, "fireWith with no arguments (no arguments)" );
-					} );
+					});
 					cblist.fireWith();
 
 					// Basic binding, removing and firing
@@ -150,34 +150,24 @@ jQuery.each( tests, function( strFlags, resultString ) {
 					// Locking
 					output = "X";
 					cblist = jQuery.Callbacks( flags );
-					cblist.add( function( str ) {
+					cblist.add(function( str ) {
 						output += str;
-					} );
+					});
 					cblist.lock();
-					cblist.add( function( str ) {
+					cblist.add(function( str ) {
 						output += str;
-					} );
-					cblist.fire( "A" );
-					cblist.add( function( str ) {
+					});
+					cblist.fire("A");
+					cblist.add(function( str ) {
 						output += str;
-					} );
+					});
 					assert.strictEqual( output, "X", "Lock early" );
 					assert.strictEqual( cblist.locked(), true, "Locking reflected in accessor" );
-
-					// Locking while firing (gh-1990)
-					output = "X";
-					cblist = jQuery.Callbacks( flags );
-					cblist.add( cblist.lock );
-					cblist.add( function( str ) {
-						output += str;
-					} );
-					cblist.fire( "A" );
-					assert.strictEqual( output, "XA", "Locking doesn't abort execution (gh-1990)" );
 
 					// Ordering
 					output = "X";
 					cblist = jQuery.Callbacks( flags );
-					cblist.add( function() {
+					cblist.add(function() {
 						cblist.add( outputC );
 						outputA();
 					}, outputB );
@@ -186,7 +176,7 @@ jQuery.each( tests, function( strFlags, resultString ) {
 
 					// Add and fire again
 					output = "X";
-					cblist.add( function() {
+					cblist.add(function() {
 						cblist.add( outputC );
 						outputA();
 					}, outputB );
@@ -199,23 +189,23 @@ jQuery.each( tests, function( strFlags, resultString ) {
 					// Multiple fire
 					output = "X";
 					cblist = jQuery.Callbacks( flags );
-					cblist.add( function( str ) {
+					cblist.add(function( str ) {
 						output += str;
-					} );
-					cblist.fire( "A" );
+					});
+					cblist.fire("A");
 					assert.strictEqual( output, "XA", "Multiple fire (first fire)" );
 					output = "X";
-					cblist.add( function( str ) {
+					cblist.add(function( str ) {
 						output += str;
-					} );
+					});
 					assert.strictEqual( output, results.shift(), "Multiple fire (first new callback)" );
 					output = "X";
-					cblist.fire( "B" );
+					cblist.fire("B");
 					assert.strictEqual( output, results.shift(), "Multiple fire (second fire)" );
 					output = "X";
-					cblist.add( function( str ) {
+					cblist.add(function( str ) {
 						output += str;
-					} );
+					});
 					assert.strictEqual( output, results.shift(), "Multiple fire (second new callback)" );
 
 					// Return false
@@ -365,25 +355,4 @@ QUnit.test( "jQuery.Callbacks() - disabled callback doesn't fire (gh-1790)", fun
 	cb.add( shot );
 	cb.fire();
 	assert.ok( !fired, "Disabled callback function didn't fire" );
-} );
-
-QUnit.test( "jQuery.Callbacks() - list with memory stays locked (gh-3469)", function( assert ) {
-
-	assert.expect( 3 );
-
-	var cb = jQuery.Callbacks( "memory" ),
-		fired = 0,
-		count1 = function() { fired += 1; },
-		count2 = function() { fired += 10; };
-
-	cb.add( count1 );
-	cb.fire();
-	assert.equal( fired, 1, "Pre-lock() fire" );
-
-	cb.lock();
-	cb.add( count2 );
-	assert.equal( fired, 11, "Post-lock() add" );
-
-	cb.fire();
-	assert.equal( fired, 11, "Post-lock() fire ignored" );
 } );

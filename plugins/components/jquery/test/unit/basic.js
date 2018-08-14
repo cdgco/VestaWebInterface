@@ -8,7 +8,7 @@ QUnit.test( "ajax", function( assert ) {
 
 	jQuery.ajax( {
 		type: "GET",
-		url: url( "mock.php?action=name&name=foo" ),
+		url: url( "data/name.php?name=foo" ),
 		success: function( msg ) {
 			assert.strictEqual( msg, "bar", "Check for GET" );
 			done.pop()();
@@ -17,7 +17,7 @@ QUnit.test( "ajax", function( assert ) {
 
 	jQuery.ajax( {
 		type: "POST",
-		url: url( "mock.php?action=name" ),
+		url: url( "data/name.php" ),
 		data: "name=peter",
 		success: function( msg ) {
 			assert.strictEqual( msg, "pan", "Check for POST" );
@@ -25,7 +25,7 @@ QUnit.test( "ajax", function( assert ) {
 		}
 	} );
 
-	jQuery( "#first" ).load( url( "name.html" ), function() {
+	jQuery( "#first" ).load( url( "data/name.html" ), function() {
 		assert.ok( /^ERROR/.test( jQuery( "#first" ).text() ),
 			"Check if content was injected into the DOM" );
 		done.pop()();
@@ -54,19 +54,11 @@ QUnit.test( "attributes", function( assert ) {
 
 if ( jQuery.css ) {
 QUnit.test( "css", function( assert ) {
-	assert.expect( 1 );
+	assert.expect( 3 );
 
 	var div = jQuery( "<div/>" ).appendTo( "#qunit-fixture" );
 
 	assert.strictEqual( div.css( "width", "50px" ).css( "width" ), "50px", ".css getter/setter" );
-} );
-}
-
-if ( jQuery.fn.show && jQuery.fn.hide ) {
-QUnit.test( "show/hide", function( assert ) {
-	assert.expect( 2 );
-
-	var div = jQuery( "<div/>" ).appendTo( "#qunit-fixture" );
 
 	div.hide();
 	assert.strictEqual( div.css( "display" ), "none", "div hidden" );
@@ -76,19 +68,32 @@ QUnit.test( "show/hide", function( assert ) {
 }
 
 QUnit.test( "core", function( assert ) {
-	assert.expect( 18 );
+	assert.expect( 28 );
 
 	var elem = jQuery( "<div></div><span></span>" );
 
 	assert.strictEqual( elem.length, 2, "Correct number of elements" );
 	assert.strictEqual( jQuery.trim( "  hello   " ), "hello", "jQuery.trim" );
 
+	assert.strictEqual( jQuery.type( null ), "null", "jQuery.type(null)" );
+	assert.strictEqual( jQuery.type( undefined ), "undefined", "jQuery.type(undefined)" );
+	assert.strictEqual( jQuery.type( "a" ), "string", "jQuery.type(String)" );
+
 	assert.ok( jQuery.isPlainObject( { "a": 2 } ), "jQuery.isPlainObject(object)" );
 	assert.ok( !jQuery.isPlainObject( "foo" ), "jQuery.isPlainObject(String)" );
+
+	assert.ok( jQuery.isFunction( jQuery.noop ), "jQuery.isFunction(jQuery.noop)" );
+	assert.ok( !jQuery.isFunction( 2 ), "jQuery.isFunction(Number)" );
+
+	assert.ok( jQuery.isNumeric( "-2" ), "jQuery.isNumeric(String representing a number)" );
+	assert.ok( !jQuery.isNumeric( "" ), "jQuery.isNumeric(\"\")" );
 
 	assert.ok( jQuery.isXMLDoc( jQuery.parseXML(
 		"<?xml version='1.0' encoding='UTF-8'?><foo bar='baz'></foo>"
 	) ), "jQuery.isXMLDoc" );
+
+	assert.ok( jQuery.isWindow( window ), "jQuery.isWindow(window)" );
+	assert.ok( !jQuery.isWindow( 2 ), "jQuery.isWindow(Number)" );
 
 	assert.strictEqual( jQuery.inArray( 3, [ "a", 6, false, 3, {} ] ), 3, "jQuery.inArray - true" );
 	assert.strictEqual(
@@ -122,6 +127,8 @@ QUnit.test( "core", function( assert ) {
 
 	assert.strictEqual( jQuery.parseHTML( "<div></div><span></span>" ).length,
 		2, "jQuery.parseHTML" );
+
+	assert.deepEqual( jQuery.parseJSON( "{\"a\": 2}" ), { a: 2 }, "jQuery.parseJON" );
 } );
 
 QUnit.test( "data", function( assert ) {
@@ -174,7 +181,10 @@ QUnit.test( "manipulation", function( assert ) {
 	assert.strictEqual( elem1.text( "foo" ).text(), "foo", ".html getter/setter" );
 
 	assert.strictEqual(
-		elem1.html( "<span/>" ).html(),
+
+		// Support: IE 8 only
+		// IE 8 prints tag names in upper case.
+		elem1.html( "<span/>" ).html().toLowerCase(),
 		"<span></span>",
 		".html getter/setter"
 	);
@@ -187,7 +197,10 @@ QUnit.test( "manipulation", function( assert ) {
 	child.before( "<b/>" );
 
 	assert.strictEqual(
-		elem1.html(),
+
+		// Support: IE 8 only
+		// IE 8 prints tag names in upper case.
+		elem1.html().toLowerCase(),
 		"<div></div><b></b><span></span><a></a>",
 		".after/.before"
 	);
@@ -256,7 +269,10 @@ QUnit.test( "wrap", function( assert ) {
 	elem.find( "b" ).wrap( "<span>" );
 
 	assert.strictEqual(
-		elem.html(),
+
+		// Support: IE 8 only
+		// IE 8 prints tag names in upper case.
+		elem.html().toLowerCase(),
 		"<a><span><b></b></span></a><a></a>",
 		".wrap"
 	);
@@ -264,7 +280,10 @@ QUnit.test( "wrap", function( assert ) {
 	elem.find( "span" ).wrapInner( "<em>" );
 
 	assert.strictEqual(
-		elem.html(),
+
+		// Support: IE 8 only
+		// IE 8 prints tag names in upper case.
+		elem.html().toLowerCase(),
 		"<a><span><em><b></b></em></span></a><a></a>",
 		".wrapInner"
 	);
@@ -272,7 +291,10 @@ QUnit.test( "wrap", function( assert ) {
 	elem.find( "a" ).wrapAll( "<i>" );
 
 	assert.strictEqual(
-		elem.html(),
+
+		// Support: IE 8 only
+		// IE 8 prints tag names in upper case.
+		elem.html().toLowerCase(),
 		"<i><a><span><em><b></b></em></span></a><a></a></i>",
 		".wrapAll"
 	);
