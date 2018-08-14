@@ -665,7 +665,7 @@ foreach ($plugins as $result) {
         <script src="../js/cbpFWTabs.js"></script>
         <script src="../plugins/components/styleswitcher/jQuery.style.switcher.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.all.js"></script>
-        <script src="../plugins/components/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+
         <script type="text/javascript">
             $('#form').submit(function(ev) {
                 ev.preventDefault();

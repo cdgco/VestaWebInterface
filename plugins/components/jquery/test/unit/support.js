@@ -18,10 +18,10 @@ function getComputedSupport( support ) {
 }
 
 if ( jQuery.css ) {
-	testIframe(
+	testIframeWithCallback(
 		"body background is not lost if set prior to loading jQuery (#9239)",
 		"support/bodyBackground.html",
-		function( assert, jQuery, window, document, color, support ) {
+		function( color, support, assert ) {
 			assert.expect( 2 );
 			var okValue = {
 				"#000000": true,
@@ -29,36 +29,53 @@ if ( jQuery.css ) {
 			};
 			assert.ok( okValue[ color ], "color was not reset (" + color + ")" );
 
-			assert.deepEqual( jQuery.extend( {}, support ), computedSupport,
-				"Same support properties" );
+			assert.deepEqual( jQuery.extend( {}, support ), computedSupport, "Same support properties" );
 		}
 	);
 }
 
 // This test checks CSP only for browsers with "Content-Security-Policy" header support
 // i.e. no old WebKit or old Firefox
-testIframe(
+testIframeWithCallback(
 	"Check CSP (https://developer.mozilla.org/en-US/docs/Security/CSP) restrictions",
-	"mock.php?action=cspFrame",
-	function( assert, jQuery, window, document, support ) {
+	"support/csp.php",
+	function( support, assert ) {
 		var done = assert.async();
 
 		assert.expect( 2 );
-		assert.deepEqual( jQuery.extend( {}, support ), computedSupport,
-			"No violations of CSP polices" );
+		assert.deepEqual( jQuery.extend( {}, support ), computedSupport, "No violations of CSP polices" );
 
-		supportjQuery.get( baseURL + "support/csp.log" ).done( function( data ) {
+		supportjQuery.get( "data/support/csp.log" ).done( function( data ) {
 			assert.equal( data, "", "No log request should be sent" );
-			supportjQuery.get( baseURL + "mock.php?action=cspClean" ).done( done );
+			supportjQuery.get( "data/support/csp-clean.php" ).done( done );
 		} );
 	}
 );
 
 ( function() {
-	var expected,
+	var expected, version,
 		userAgent = window.navigator.userAgent;
 
 	if ( /edge\//i.test( userAgent ) ) {
+		version = userAgent.match( /edge\/(\d+)/i )[ 1 ];
+		expected = {
+			"ajax": true,
+			"boxSizingReliable": true,
+			"checkClone": true,
+			"checkOn": true,
+			"clearCloneStyle": version >= 13,
+			"cors": true,
+			"focusin": false,
+			"noCloneChecked": true,
+			"optDisabled": true,
+			"optSelected": true,
+			"pixelMarginRight": true,
+			"pixelPosition": true,
+			"radioValue": true,
+			"reliableMarginLeft": true,
+			"reliableMarginRight": true
+		};
+	} else if ( /opera.*version\/12\.1/i.test( userAgent ) ) {
 		expected = {
 			"ajax": true,
 			"boxSizingReliable": true,
@@ -66,15 +83,15 @@ testIframe(
 			"checkOn": true,
 			"clearCloneStyle": true,
 			"cors": true,
-			"createHTMLDocument": true,
 			"focusin": false,
 			"noCloneChecked": true,
+			"optDisabled": true,
 			"optSelected": true,
-			"pixelBoxStyles": true,
+			"pixelMarginRight": true,
 			"pixelPosition": true,
-			"radioValue": true,
-			"reliableMarginLeft": true,
-			"scrollboxSize": true
+			"radioValue": false,
+			"reliableMarginLeft": false,
+			"reliableMarginRight": true
 		};
 	} else if ( /(msie 10\.0|trident\/7\.0)/i.test( userAgent ) ) {
 		expected = {
@@ -84,15 +101,15 @@ testIframe(
 			"checkOn": true,
 			"clearCloneStyle": false,
 			"cors": true,
-			"createHTMLDocument": true,
 			"focusin": true,
 			"noCloneChecked": false,
+			"optDisabled": true,
 			"optSelected": false,
-			"pixelBoxStyles": true,
+			"pixelMarginRight": true,
 			"pixelPosition": true,
 			"radioValue": false,
 			"reliableMarginLeft": true,
-			"scrollboxSize": true
+			"reliableMarginRight": true
 		};
 	} else if ( /msie 9\.0/i.test( userAgent ) ) {
 		expected = {
@@ -102,15 +119,15 @@ testIframe(
 			"checkOn": true,
 			"clearCloneStyle": false,
 			"cors": false,
-			"createHTMLDocument": true,
 			"focusin": true,
 			"noCloneChecked": false,
+			"optDisabled": true,
 			"optSelected": false,
-			"pixelBoxStyles": true,
+			"pixelMarginRight": true,
 			"pixelPosition": true,
 			"radioValue": false,
 			"reliableMarginLeft": true,
-			"scrollboxSize": "absolute"
+			"reliableMarginRight": true
 		};
 	} else if ( /chrome/i.test( userAgent ) ) {
 
@@ -123,17 +140,17 @@ testIframe(
 			"checkOn": true,
 			"clearCloneStyle": true,
 			"cors": true,
-			"createHTMLDocument": true,
 			"focusin": false,
 			"noCloneChecked": true,
+			"optDisabled": true,
 			"optSelected": true,
-			"pixelBoxStyles": true,
+			"pixelMarginRight": true,
 			"pixelPosition": true,
 			"radioValue": true,
 			"reliableMarginLeft": true,
-			"scrollboxSize": true
+			"reliableMarginRight": true
 		};
-	} else if ( /\b11\.\d(\.\d+)* safari/i.test( userAgent ) ) {
+	} else if ( /\b9\.\d(\.\d+)* safari/i.test( userAgent ) ) {
 		expected = {
 			"ajax": true,
 			"boxSizingReliable": true,
@@ -141,33 +158,69 @@ testIframe(
 			"checkOn": true,
 			"clearCloneStyle": true,
 			"cors": true,
-			"createHTMLDocument": true,
 			"focusin": false,
 			"noCloneChecked": true,
+			"optDisabled": true,
 			"optSelected": true,
-			"pixelBoxStyles": true,
-			"pixelPosition": true,
-			"radioValue": true,
-			"reliableMarginLeft": true,
-			"scrollboxSize": true
-		};
-	} else if ( /\b(?:9|10)\.\d(\.\d+)* safari/i.test( userAgent ) ) {
-		expected = {
-			"ajax": true,
-			"boxSizingReliable": true,
-			"checkClone": true,
-			"checkOn": true,
-			"clearCloneStyle": true,
-			"cors": true,
-			"createHTMLDocument": true,
-			"focusin": false,
-			"noCloneChecked": true,
-			"optSelected": true,
-			"pixelBoxStyles": false,
+			"pixelMarginRight": true,
 			"pixelPosition": false,
 			"radioValue": true,
 			"reliableMarginLeft": true,
-			"scrollboxSize": true
+			"reliableMarginRight": true
+		};
+	} else if ( /8\.0(\.\d+|) safari/i.test( userAgent ) ) {
+		expected = {
+			"ajax": true,
+			"boxSizingReliable": true,
+			"checkClone": true,
+			"checkOn": true,
+			"clearCloneStyle": true,
+			"cors": true,
+			"focusin": false,
+			"noCloneChecked": true,
+			"optDisabled": true,
+			"optSelected": true,
+			"pixelMarginRight": true,
+			"pixelPosition": false,
+			"radioValue": true,
+			"reliableMarginLeft": true,
+			"reliableMarginRight": true
+		};
+	} else if ( /(?:6|7)\.0(\.\d+|) safari/i.test( userAgent ) ) {
+		expected = {
+			"ajax": true,
+			"boxSizingReliable": true,
+			"checkClone": true,
+			"checkOn": true,
+			"clearCloneStyle": true,
+			"cors": true,
+			"focusin": false,
+			"noCloneChecked": true,
+			"optDisabled": true,
+			"optSelected": true,
+			"pixelMarginRight": true,
+			"pixelPosition": false,
+			"radioValue": true,
+			"reliableMarginLeft": true,
+			"reliableMarginRight": true
+		};
+	} else if ( /5\.1(\.\d+|) safari/i.test( userAgent ) ) {
+		expected = {
+			"ajax": true,
+			"boxSizingReliable": true,
+			"checkClone": false,
+			"checkOn": false,
+			"clearCloneStyle": true,
+			"cors": true,
+			"focusin": false,
+			"noCloneChecked": true,
+			"optDisabled": true,
+			"optSelected": true,
+			"pixelMarginRight": false,
+			"pixelPosition": false,
+			"radioValue": true,
+			"reliableMarginLeft": false,
+			"reliableMarginRight": true
 		};
 	} else if ( /firefox/i.test( userAgent ) ) {
 		expected = {
@@ -177,17 +230,17 @@ testIframe(
 			"checkOn": true,
 			"clearCloneStyle": true,
 			"cors": true,
-			"createHTMLDocument": true,
 			"focusin": false,
 			"noCloneChecked": true,
+			"optDisabled": true,
 			"optSelected": true,
-			"pixelBoxStyles": true,
+			"pixelMarginRight": true,
 			"pixelPosition": true,
 			"radioValue": true,
 			"reliableMarginLeft": false,
-			"scrollboxSize": true
+			"reliableMarginRight": true
 		};
-	} else if ( /iphone os 11_/i.test( userAgent ) ) {
+	} else if ( /iphone os 9_/i.test( userAgent ) ) {
 		expected = {
 			"ajax": true,
 			"boxSizingReliable": true,
@@ -195,33 +248,15 @@ testIframe(
 			"checkOn": true,
 			"clearCloneStyle": true,
 			"cors": true,
-			"createHTMLDocument": true,
 			"focusin": false,
 			"noCloneChecked": true,
+			"optDisabled": true,
 			"optSelected": true,
-			"pixelBoxStyles": true,
-			"pixelPosition": true,
-			"radioValue": true,
-			"reliableMarginLeft": true,
-			"scrollboxSize": true
-		};
-	} else if ( /iphone os (?:9|10)_/i.test( userAgent ) ) {
-		expected = {
-			"ajax": true,
-			"boxSizingReliable": true,
-			"checkClone": true,
-			"checkOn": true,
-			"clearCloneStyle": true,
-			"cors": true,
-			"createHTMLDocument": true,
-			"focusin": false,
-			"noCloneChecked": true,
-			"optSelected": true,
-			"pixelBoxStyles": false,
+			"pixelMarginRight": true,
 			"pixelPosition": false,
 			"radioValue": true,
 			"reliableMarginLeft": true,
-			"scrollboxSize": true
+			"reliableMarginRight": true
 		};
 	} else if ( /iphone os 8_/i.test( userAgent ) ) {
 		expected = {
@@ -231,17 +266,17 @@ testIframe(
 			"checkOn": true,
 			"clearCloneStyle": true,
 			"cors": true,
-			"createHTMLDocument": false,
 			"focusin": false,
 			"noCloneChecked": true,
+			"optDisabled": true,
 			"optSelected": true,
-			"pixelBoxStyles": false,
+			"pixelMarginRight": true,
 			"pixelPosition": false,
 			"radioValue": true,
 			"reliableMarginLeft": true,
-			"scrollboxSize": true
+			"reliableMarginRight": true
 		};
-	} else if ( /iphone os 7_/i.test( userAgent ) ) {
+	} else if ( /iphone os (?:6|7)_/i.test( userAgent ) ) {
 		expected = {
 			"ajax": true,
 			"boxSizingReliable": true,
@@ -249,15 +284,15 @@ testIframe(
 			"checkOn": true,
 			"clearCloneStyle": true,
 			"cors": true,
-			"createHTMLDocument": true,
 			"focusin": false,
 			"noCloneChecked": true,
+			"optDisabled": true,
 			"optSelected": true,
-			"pixelBoxStyles": false,
+			"pixelMarginRight": true,
 			"pixelPosition": false,
 			"radioValue": true,
 			"reliableMarginLeft": true,
-			"scrollboxSize": true
+			"reliableMarginRight": true
 		};
 	} else if ( /android 4\.[0-3]/i.test( userAgent ) ) {
 		expected = {
@@ -267,15 +302,33 @@ testIframe(
 			"checkOn": false,
 			"clearCloneStyle": true,
 			"cors": true,
-			"createHTMLDocument": true,
 			"focusin": false,
 			"noCloneChecked": true,
+			"optDisabled": true,
 			"optSelected": true,
-			"pixelBoxStyles": false,
+			"pixelMarginRight": false,
 			"pixelPosition": false,
 			"radioValue": true,
 			"reliableMarginLeft": false,
-			"scrollboxSize": true
+			"reliableMarginRight": true
+		};
+	} else if ( /android 2\.3/i.test( userAgent ) ) {
+		expected = {
+			"ajax": true,
+			"boxSizingReliable": true,
+			"checkClone": true,
+			"checkOn": false,
+			"clearCloneStyle": false,
+			"cors": true,
+			"focusin": false,
+			"noCloneChecked": true,
+			"optDisabled": false,
+			"optSelected": true,
+			"pixelMarginRight": true,
+			"pixelPosition": false,
+			"radioValue": true,
+			"reliableMarginLeft": true,
+			"reliableMarginRight": false
 		};
 	}
 

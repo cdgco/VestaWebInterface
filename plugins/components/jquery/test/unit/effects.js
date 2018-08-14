@@ -5,39 +5,40 @@ if ( !jQuery.fx ) {
 	return;
 }
 
-var oldRaf = window.requestAnimationFrame,
-	hideOptions = {
-		inline: function() { jQuery.style( this, "display", "none" ); },
-		cascade: function() { this.className = "hidden"; }
-	};
-
 QUnit.module( "effects", {
 	setup: function() {
-		window.requestAnimationFrame = null;
 		this.sandbox = sinon.sandbox.create();
 		this.clock = this.sandbox.useFakeTimers( 505877050 );
 		this._oldInterval = jQuery.fx.interval;
 		jQuery.fx.step = {};
 		jQuery.fx.interval = 10;
+		jQuery.now = Date.now;
 	},
 	teardown: function() {
 		this.sandbox.restore();
+		jQuery.now = Date.now;
 		jQuery.fx.stop();
 		jQuery.fx.interval = this._oldInterval;
-		window.requestAnimationFrame = oldRaf;
 		return moduleTeardown.apply( this, arguments );
 	}
 } );
 
 QUnit[ jQuery.find.compile ? "test" : "skip" ]( "sanity check", function( assert ) {
 	assert.expect( 1 );
-	assert.equal( jQuery( "#qunit-fixture:visible, #foo:visible" ).length, 2, "QUnit state is correct for testing effects" );
+	assert.equal( jQuery( "#dl:visible, #qunit-fixture:visible, #foo:visible" ).length, 3, "QUnit state is correct for testing effects" );
 } );
 
 QUnit.test( "show() basic", function( assert ) {
-	assert.expect( 1 );
+	assert.expect( 2 );
 
-	var div = jQuery( "<div>" ).hide().appendTo( "#qunit-fixture" ).show();
+	var div,
+		hiddendiv = jQuery( "div.hidden" );
+
+	hiddendiv.hide().show();
+
+	assert.equal( hiddendiv.css( "display" ), "block", "Make sure a pre-hidden div is visible." );
+
+	div = jQuery( "<div>" ).hide().appendTo( "#qunit-fixture" ).show();
 
 	assert.equal( div.css( "display" ), "block", "Make sure pre-hidden divs show" );
 
@@ -48,7 +49,7 @@ QUnit.test( "show() basic", function( assert ) {
 QUnit.test( "show()", function( assert ) {
 	assert.expect( 27 );
 
-	var div, speeds, test,
+	var div, speeds, old, test,
 		hiddendiv = jQuery( "div.hidden" );
 
 	assert.equal( jQuery.css( hiddendiv[ 0 ], "display" ), "none", "hiddendiv is display: none" );
@@ -93,12 +94,11 @@ QUnit.test( "show()", function( assert ) {
 	// Tolerate data from show()/hide()
 	assert.expectJqData( this, div, "olddisplay" );
 
-	jQuery(
-		"<div id='show-tests'>" +
-		"<div><p><a href='#'></a></p><code></code><pre></pre><span></span></div>" +
-		"<table><thead><tr><th></th></tr></thead><tbody><tr><td></td></tr></tbody></table>" +
-		"<ul><li></li></ul></div>"
-	).appendTo( "#qunit-fixture" ).find( "*" ).css( "display", "none" );
+	// #show-tests * is set display: none in CSS
+	jQuery( "#qunit-fixture" ).append( "<div id='show-tests'><div><p><a href='#'></a></p><code></code><pre></pre><span></span></div><table><thead><tr><th></th></tr></thead><tbody><tr><td></td></tr></tbody></table><ul><li></li></ul></div><table id='test-table'></table>" );
+
+	old = jQuery( "#test-table" ).show().css( "display" ) !== "table";
+	jQuery( "#test-table" ).remove();
 
 	test = {
 		"div": "block",
@@ -107,14 +107,14 @@ QUnit.test( "show()", function( assert ) {
 		"code": "inline",
 		"pre": "block",
 		"span": "inline",
-		"table": "table",
-		"thead": "table-header-group",
-		"tbody": "table-row-group",
-		"tr": "table-row",
-		"th": "table-cell",
-		"td": "table-cell",
+		"table": old ? "block" : "table",
+		"thead": old ? "block" : "table-header-group",
+		"tbody": old ? "block" : "table-row-group",
+		"tr": old ? "block" : "table-row",
+		"th": old ? "block" : "table-cell",
+		"td": old ? "block" : "table-cell",
 		"ul": "block",
-		"li": "list-item"
+		"li": old ? "block" : "list-item"
 	};
 
 	jQuery.each( test, function( selector, expected ) {
@@ -129,97 +129,79 @@ QUnit.test( "show()", function( assert ) {
 	jQuery( "<div>test</div> text <span>test</span>" ).hide().remove();
 } );
 
-supportjQuery.each( hideOptions, function( type, setup ) {
-	QUnit.test( "show(Number) - " + type + " hidden", function( assert ) {
-		assert.expect( 30 );
+QUnit.test( "show(Number) - other displays", function( assert ) {
+	assert.expect( 15 );
 
-		jQuery(
-			"<div id='show-tests'>" +
-			"<div><p><a href='#'></a></p><code></code><pre></pre><span></span></div>" +
-			"<table><thead><tr><th></th></tr></thead><tbody><tr><td></td></tr></tbody>" +
-				"</table>" +
-			"<ul><li></li></ul></div>"
-		).appendTo( "#qunit-fixture" ).find( "*" ).each( setup );
+	// #show-tests * is set display: none in CSS
+	jQuery( "#qunit-fixture" ).append( "<div id='show-tests'><div><p><a href='#'></a></p><code></code><pre></pre><span></span></div><table><thead><tr><th></th></tr></thead><tbody><tr><td></td></tr></tbody></table><ul><li></li></ul></div><table id='test-table'></table>" );
 
-		// Note: inline elements are expected to be inline-block
-		// because we're showing width/height
-		// Can't animate width/height inline
-		// See #14344
-		var test = {
-			"div": "block",
-			"p": "block",
-			"a": "inline",
-			"code": "inline",
-			"pre": "block",
-			"span": "inline",
-			"table": "table",
-			"thead": "table-header-group",
-			"tbody": "table-row-group",
-			"tr": "table-row",
-			"th": "table-cell",
-			"td": "table-cell",
-			"ul": "block",
-			"li": "list-item"
-		};
+	var test,
+		old = jQuery( "#test-table" ).show().css( "display" ) !== "table";
 
-		jQuery.each( test, function( selector ) {
-			jQuery( selector, "#show-tests" ).show( 100 );
+	jQuery( "#test-table" ).remove();
+
+	// Note: inline elements are expected to be inline-block
+	// because we're showing width/height
+	// Can't animate width/height inline
+	// See #14344
+	test = {
+		"div": "block",
+		"p": "block",
+		"a": "inline-block",
+		"code": "inline-block",
+		"pre": "block",
+		"span": "inline-block",
+		"table": old ? "block" : "table",
+		"thead": old ? "block" : "table-header-group",
+		"tbody": old ? "block" : "table-row-group",
+		"tr": old ? "block" : "table-row",
+		"th": old ? "block" : "table-cell",
+		"td": old ? "block" : "table-cell",
+		"ul": "block",
+		"li": old ? "block" : "list-item"
+	};
+
+	jQuery.each( test, function( selector, expected ) {
+		var elem = jQuery( selector, "#show-tests" ).show( 1, function() {
+			assert.equal( elem.css( "display" ), expected, "Show using correct display type for " + selector );
 		} );
-		this.clock.tick( 50 );
-		jQuery.each( test, function( selector, expected ) {
-			jQuery( selector, "#show-tests" ).each( function() {
-				assert.equal(
-					jQuery( this ).css( "display" ),
-					expected === "inline" ? "inline-block" : expected,
-					"Correct display type during animation for " + selector
-				);
-			} );
-		} );
-		this.clock.tick( 50 );
-		jQuery.each( test, function( selector, expected ) {
-			jQuery( selector, "#show-tests" ).each( function() {
-				assert.equal( jQuery( this ).css( "display" ), expected,
-					"Correct display type after animation for " + selector );
-			} );
-		} );
-
-		jQuery( "#show-tests" ).remove();
 	} );
+	this.clock.tick( 10 );
+
+	jQuery( "#show-tests" ).remove();
 } );
 
 // Supports #7397
-supportjQuery.each( hideOptions, function( type, setup ) {
-	QUnit.test( "Persist correct display value - " + type + " hidden", function( assert ) {
-		assert.expect( 3 );
+QUnit.test( "Persist correct display value", function( assert ) {
+	assert.expect( 3 );
 
-		jQuery( "<div id='show-tests'><span style='position:absolute;'>foo</span></div>" )
-			.appendTo( "#qunit-fixture" ).find( "*" ).each( setup );
+	// #show-tests * is set display: none in CSS
+	jQuery( "#qunit-fixture" ).append( "<div id='show-tests'><span style='position:absolute;'>foo</span></div>" );
 
-		var $span = jQuery( "#show-tests span" ),
-			displayNone = $span.css( "display" ),
-			display = "",
-			clock = this.clock;
+	var $span = jQuery( "#show-tests span" ),
+		displayNone = $span.css( "display" ),
+		display = "",
+		clock = this.clock;
 
-		$span.show();
+	$span.show();
 
-		display = $span.css( "display" );
+	display = $span.css( "display" );
 
-		$span.hide();
+	$span.hide();
 
-		$span.fadeIn( 100, function() {
-			assert.equal( $span.css( "display" ), display, "Expecting display: " + display );
-			$span.fadeOut( 100, function() {
-				assert.equal( $span.css( "display" ), displayNone, "Expecting display: " + displayNone );
-				$span.fadeIn( 100, function() {
-					assert.equal( $span.css( "display" ), display, "Expecting display: " + display );
-				} );
+	$span.fadeIn( 100, function() {
+		assert.equal( $span.css( "display" ), display, "Expecting display: " + display );
+		$span.fadeOut( 100, function() {
+			assert.equal( $span.css( "display" ), displayNone, "Expecting display: " + displayNone );
+			$span.fadeIn( 100, function() {
+				assert.equal( $span.css( "display" ), display, "Expecting display: " + display );
 			} );
 		} );
-
-		clock.tick( 300 );
-
-		assert.expectJqData( this, $span, "olddisplay" );
 	} );
+
+	clock.tick( 300 );
+
+	assert.expectJqData( this, $span, "olddisplay" );
 } );
 
 QUnit.test( "animate(Hash, Object, Function)", function( assert ) {
@@ -357,8 +339,10 @@ QUnit.test( "animate block width/height", function( assert ) {
 QUnit.test( "animate table width/height", function( assert ) {
 	assert.expect( 1 );
 
+	var displayMode = jQuery( "#table" ).css( "display" ) !== "table" ? "block" : "table";
+
 	jQuery( "#table" ).animate( { width: 42, height: 42 }, 100, function() {
-		assert.equal( jQuery( this ).css( "display" ), "table", "display mode is correct" );
+		assert.equal( jQuery( this ).css( "display" ), displayMode, "display mode is correct" );
 	} );
 	this.clock.tick( 100 );
 } );
@@ -647,44 +631,35 @@ QUnit.test( "stop()", function( assert ) {
 	this.clock.tick( 100 );
 } );
 
-// In IE9 inside testswarm this test doesn't work properly
-( function() {
-	var type = "test";
+QUnit.test( "stop() - several in queue", function( assert ) {
+	assert.expect( 5 );
 
-	if ( QUnit.isSwarm && /msie 9\.0/i.test( window.navigator.userAgent ) ) {
-		type = "skip";
-	}
+	var nw, $foo = jQuery( "#foo" );
 
-	QUnit[ type ]( "stop() - several in queue", function( assert ) {
-		assert.expect( 5 );
+	// default duration is 400ms, so 800px ensures we aren't 0 or 1 after 1ms
+	$foo.hide().css( "width", 800 );
 
-		var nw, $foo = jQuery( "#foo" );
+	$foo.animate( { "width": "show" }, 400, "linear" );
+	$foo.animate( { "width": "hide" } );
+	$foo.animate( { "width": "show" } );
 
-		// default duration is 400ms, so 800px ensures we aren't 0 or 1 after 1ms
-		$foo.hide().css( "width", 800 );
+	this.clock.tick( 1 );
 
-		$foo.animate( { "width": "show" }, 400, "linear" );
-		$foo.animate( { "width": "hide" } );
-		$foo.animate( { "width": "show" } );
+	jQuery.fx.tick();
+	assert.equal( $foo.queue().length, 3, "3 in the queue" );
 
-		this.clock.tick( 1 );
+	nw = $foo.css( "width" );
+	assert.notEqual( parseFloat( nw ), 1, "An animation occurred " + nw );
+	$foo.stop();
 
-		jQuery.fx.tick();
-		assert.equal( $foo.queue().length, 3, "3 in the queue" );
+	assert.equal( $foo.queue().length, 2, "2 in the queue" );
+	nw = $foo.css( "width" );
+	assert.notEqual( parseFloat( nw ), 1, "Stop didn't reset the animation " + nw );
 
-		nw = $foo.css( "width" );
-		assert.notEqual( parseFloat( nw ), 1, "An animation occurred " + nw );
-		$foo.stop();
+	$foo.stop( true );
 
-		assert.equal( $foo.queue().length, 2, "2 in the queue" );
-		nw = $foo.css( "width" );
-		assert.notEqual( parseFloat( nw ), 1, "Stop didn't reset the animation " + nw );
-
-		$foo.stop( true );
-
-		assert.equal( $foo.queue().length, 0, "0 in the queue" );
-	} );
-} )();
+	assert.equal( $foo.queue().length, 0, "0 in the queue" );
+} );
 
 QUnit.test( "stop(clearQueue)", function( assert ) {
 	assert.expect( 4 );
@@ -906,7 +881,7 @@ jQuery.each( {
 }, function( fn, f ) {
 	jQuery.each( {
 		"show": function( elem, prop ) {
-			jQuery( elem ).hide().addClass( "wide" + prop );
+			jQuery( elem ).hide( ).addClass( "wide" + prop );
 			return "show";
 		},
 		"hide": function( elem, prop ) {
@@ -942,15 +917,15 @@ jQuery.each( {
 			num = 0;
 
 			// TODO: uncrowd this
-			if ( t_h === "show" ) { num++; }
-			if ( t_w === "show" ) { num++; }
-			if ( t_w === "hide" || t_w === "show" ) { num++; }
-			if ( t_h === "hide" || t_h === "show" ) { num++; }
-			if ( t_o === "hide" || t_o === "show" ) { num++; }
-			if ( t_w === "hide" ) { num++; }
-			if ( t_o.constructor === Number ) { num += 2; }
-			if ( t_w.constructor === Number ) { num += 2; }
-			if ( t_h.constructor === Number ) { num += 2; }
+			if ( t_h === "show" ) {num++;}
+			if ( t_w === "show" ) {num++;}
+			if ( t_w === "hide" || t_w === "show" ) {num++;}
+			if ( t_h === "hide" || t_h === "show" ) {num++;}
+			if ( t_o === "hide" || t_o === "show" ) {num++;}
+			if ( t_w === "hide" ) {num++;}
+			if ( t_o.constructor === Number ) {num += 2;}
+			if ( t_w.constructor === Number ) {num += 2;}
+			if ( t_h.constructor === Number ) {num += 2;}
 
 			assert.expect( num );
 
@@ -958,13 +933,13 @@ jQuery.each( {
 
 			elem.animate( anim, 50 );
 
-			jQuery.when( elem ).done( function( $elem ) {
-				var cur_o, cur_w, cur_h, old_h,
-					elem = $elem[ 0 ];
+			jQuery.when( elem ).done( function( elem ) {
+				var cur_o, cur_w, cur_h, old_h;
+
+				elem = elem[ 0 ];
 
 				if ( t_w === "show" ) {
-					assert.equal( $elem.css( "display" ), "block",
-						"Showing, display should block: " + elem.style.display );
+					assert.equal( elem.style.display, "block", "Showing, display should block: " + elem.style.display );
 				}
 
 				if ( t_w === "hide" || t_w === "show" ) {
@@ -1026,7 +1001,7 @@ jQuery.each( {
 				jQuery( elem ).remove();
 
 			} );
-			this.clock.tick( 100 );
+			this.clock.tick( 50 );
 		} );
 	} );
 } );
@@ -1254,18 +1229,17 @@ QUnit.test( "animate with CSS shorthand properties", function( assert ) {
 } );
 
 QUnit.test( "hide hidden elements, with animation (bug #7141)", function( assert ) {
-	assert.expect( 4 );
+	assert.expect( 3 );
 
-	var div = jQuery( "<div id='bug7141' style='display:none'/>" ).appendTo( "#qunit-fixture" );
-	assert.equal( div.css( "display" ), "none", "Element is initially hidden" );
-	div.hide( 10, function() {
-		assert.equal( div.css( "display" ), "none", "Element is hidden in .hide() callback" );
-		div.show( 11, function() {
-			assert.equal( div.css( "display" ), "block", "Element is visible in .show() callback" );
+	var div = jQuery( "<div style='display:none'></div>" ).appendTo( "#qunit-fixture" );
+	assert.equal( div.css( "display" ), "none", "Element is hidden by default" );
+	div.hide( 1, function() {
+		assert.ok( !jQuery._data( div, "olddisplay" ), "olddisplay is undefined after hiding an already-hidden element" );
+		div.show( 1, function() {
+			assert.equal( div.css( "display" ), "block", "Show a double-hidden element" );
 		} );
 	} );
-	this.clock.tick( 50 );
-	assert.equal( div.css( "display" ), "block", "Element is visible after animations" );
+	this.clock.tick( 10 );
 } );
 
 QUnit.test( "animate unit-less properties (#4966)", function( assert ) {
@@ -1385,7 +1359,13 @@ QUnit.test( "Do not append px to 'fill-opacity' #9548", function( assert ) {
 	var $div = jQuery( "<div>" ).appendTo( "#qunit-fixture" );
 
 	$div.css( "fill-opacity", 0 ).animate( { "fill-opacity": 1.0 }, 0, function() {
-		assert.equal( jQuery( this ).css( "fill-opacity" ), 1, "Do not append px to 'fill-opacity'" );
+
+		// Support: Android 2.3 (no support for fill-opacity)
+		if ( jQuery( this ).css( "fill-opacity" ) ) {
+			assert.equal( jQuery( this ).css( "fill-opacity" ), 1, "Do not append px to 'fill-opacity'" );
+		} else {
+			assert.ok( true, "No support for fill-opacity CSS property" );
+		}
 		$div.remove();
 	} );
 } );
@@ -1543,65 +1523,55 @@ QUnit.test( "User supplied callback called after show when fx off (#8892)", func
 } );
 
 QUnit.test( "animate should set display for disconnected nodes", function( assert ) {
-	assert.expect( 20 );
+	assert.expect( 18 );
 
 	var env = this,
-		showMethods = {
+		methods = {
+			toggle: [ 1 ],
+			slideToggle: [],
 			fadeIn: [],
 			fadeTo: [ "fast", 0.5 ],
 			slideDown: [ "fast" ],
 			show: [ 1 ],
 			animate: [ { width: "show" } ]
 		},
-		toggleMethods = {
-			toggle: [ 1 ],
-			slideToggle: []
-		},
-		$divEmpty = jQuery( "<div/>" ),
 		$divTest = jQuery( "<div>test</div>" ),
+
+		// parentNode = null
+		$divEmpty = jQuery( "<div/>" ),
 		$divNone = jQuery( "<div style='display: none;'/>" ),
 		$divInline = jQuery( "<div style='display: inline;'/>" ),
-		nullParentDisplay = $divEmpty.css( "display" ),
-		underFragmentDisplay = $divTest.css( "display" ),
 		clock = this.clock;
 
-	assert.strictEqual( $divEmpty[ 0 ].parentNode, null, "Setup: element with null parentNode" );
-	assert.strictEqual( ( $divTest[ 0 ].parentNode || {} ).nodeType, 11, "Setup: element under fragment" );
+	assert.strictEqual( $divTest.show()[ 0 ].style.display, "block", "set display with show() for element with parentNode = document fragment" );
+	assert.strictEqual( $divEmpty.show()[ 0 ].style.display, "block", "set display with show() for element with parentNode = null" );
+	assert.strictEqual( $divNone.show()[ 0 ].style.display, "block", "show() should change display if it already set to none" );
+	assert.strictEqual( $divInline.show()[ 0 ].style.display, "inline", "show() should not change display if it already set" );
 
-	assert.strictEqual( $divEmpty.show()[ 0 ].style.display, "",
-		"set display with show() for element with null parentNode" );
-	assert.strictEqual( $divTest.show()[ 0 ].style.display, "",
-		"set display with show() for element under fragment" );
-	assert.strictEqual( $divNone.show()[ 0 ].style.display, "",
-		"show() should change display if it already set to none" );
-	assert.strictEqual( $divInline.show()[ 0 ].style.display, "inline",
-		"show() should not change display if it already set" );
-
+	assert.expectJqData( env, $divTest[ 0 ], "olddisplay" );
+	assert.expectJqData( env, $divEmpty[ 0 ], "olddisplay" );
 	assert.expectJqData( env, $divNone[ 0 ], "olddisplay" );
 
-	jQuery.each( showMethods, function( name, opt ) {
-		jQuery.fn[ name ].apply( jQuery( "<div/>" ), opt.concat( [ function() {
-			assert.strictEqual( jQuery( this ).css( "display" ), nullParentDisplay,
-				"." + name + " block with null parentNode" );
-		} ] ) );
+	jQuery.each( methods, function( name, opt ) {
+		jQuery.each( [
 
-		jQuery.fn[ name ].apply( jQuery( "<div>test</div>" ), opt.concat( [ function() {
-			assert.strictEqual( jQuery( this ).css( "display" ), underFragmentDisplay,
-				"." + name + " block under fragment" );
-		} ] ) );
-	} );
-	jQuery.each( toggleMethods, function( name, opt ) {
-		jQuery.fn[ name ].apply( jQuery( "<div/>" ), opt.concat( [ function() {
-			assert.strictEqual( jQuery( this ).css( "display" ), "none",
-				"." + name + " block with null parentNode" );
-		} ] ) );
+			// parentNode = document fragment
+			jQuery( "<div>test</div>" ),
 
-		jQuery.fn[ name ].apply( jQuery( "<div>test</div>" ), opt.concat( [ function() {
-			assert.strictEqual( jQuery( this ).css( "display" ), "none",
-				"." + name + " block under fragment" );
-		} ] ) );
+			// parentNode = null
+			jQuery( "<div/>" )
+
+		], function() {
+			var callback = [ function() {
+					assert.strictEqual( this.style.display, "block", "set display to block with " + name );
+
+					assert.expectJqData( env, this, "olddisplay" );
+
+			} ];
+			jQuery.fn[ name ].apply( this, opt.concat( callback ) );
+		} );
 	} );
-	clock.tick( 400 );
+        clock.tick( 400 );
 } );
 
 QUnit[ jQuery.find.compile ? "test" : "skip" ]( "Animation callback should not show animated element as :animated (#7157)", function( assert ) {
@@ -1805,8 +1775,7 @@ QUnit.test( "animate does not change start value for non-px animation (#7109)", 
 		}
 	} ).queue( function( next ) {
 		var ratio = computed[ 0 ] / actual;
-		assert.ok( ratio > 0.9 && ratio < 1.1,
-			"Starting width was close enough (" + computed[ 0 ] + " approximates " + actual + ")" );
+		assert.ok( ratio > 0.9 && ratio < 1.1, "Starting width was close enough" );
 		next();
 		parent.remove();
 	} );
@@ -1846,12 +1815,12 @@ QUnit.test( "non-px animation handles non-numeric start (#11971)", function( ass
 } );
 
 QUnit.test( "Animation callbacks (#11797)", function( assert ) {
-	assert.expect( 15 );
+	assert.expect( 16 );
 
 	var prog = 0,
 		targets = jQuery( "#foo" ).children(),
 		done = false,
-		expectedProgress = 1;
+		expectedProgress = 0;
 
 	targets.eq( 0 ).animate( {}, {
 		duration: 1,
@@ -1909,7 +1878,14 @@ QUnit.test( "Animation callbacks (#11797)", function( assert ) {
 			assert.ok( true, "async: start" );
 		},
 		progress: function( anim, percent ) {
+
+			// occasionally the progress handler is called twice in first frame.... *shrug*
+			if ( percent === 0 && expectedProgress === 1 ) {
+				return;
+			}
 			assert.equal( percent, expectedProgress, "async: progress " + expectedProgress );
+
+			// once at 0, once at 1
 			expectedProgress++;
 		},
 		done: function() {
@@ -2411,179 +2387,6 @@ QUnit.test( "jQuery.easing._default in Tween (gh-2218)", function( assert ) {
 		"Animation used custom jQuery.easing._default" );
 	jQuery.easing._default = defaultEasing;
 	delete jQuery.easing.custom;
-} );
-
-QUnit.test( "Display value is correct for disconnected nodes (trac-13310)", function( assert ) {
-	assert.expect( 3 );
-
-	var div = jQuery( "<div/>" );
-
-	assert.equal( div.css( "display", "inline" ).hide().show().appendTo( "body" ).css( "display" ), "inline", "Initialized display value has returned" );
-	div.remove();
-
-	div.css( "display", "none" ).hide();
-	assert.equal( jQuery._data( div[ 0 ], "olddisplay" ), undefined, "olddisplay is undefined after hiding a detached and hidden element" );
-	div.remove();
-
-	div.css( "display", "inline-block" ).hide().appendTo( "body" ).fadeIn( function() {
-		assert.equal( div.css( "display" ), "inline-block", "Initialized display value has returned" );
-		div.remove();
-	} );
-	this.clock.tick( 1000 );
-} );
-
-QUnit.test( "Show/hide/toggle and display: inline", function( assert ) {
-	assert.expect( 40 );
-
-	var clock = this.clock;
-
-	jQuery( "<span/><div style='display:inline' title='inline div'/>" ).each( function() {
-		var completed, interrupted,
-			N = 100,
-			fixture = jQuery( "#qunit-fixture" ),
-			$el = jQuery( this ),
-			kind = this.title || this.nodeName.toLowerCase();
-
-		// Animations allowed to complete
-		completed = jQuery.map( [
-			$el.clone().data( { call: "hide", done: "none" } ).appendTo( fixture ).hide( N ),
-			$el.clone().data( { call: "toggle", done: "none" } ).appendTo( fixture ).toggle( N ),
-			$el.clone().data( { call: "hide+show", done: "inline" } ).appendTo( fixture )
-				.hide().show( N ),
-			$el.clone().data( { call: "hide+toggle", done: "inline" } ).appendTo( fixture )
-				.hide().toggle( N )
-		], function( $clone ) { return $clone[ 0 ]; } );
-
-		// Animations not allowed to complete
-		interrupted = jQuery.map( [
-			$el.clone().data( { call: "hide+stop" } ).appendTo( fixture ).hide( N ),
-			$el.clone().data( { call: "toggle+stop" } ).appendTo( fixture ).toggle( N ),
-			$el.clone().data( { call: "hide+show+stop" } ).appendTo( fixture ).hide().show( N ),
-			$el.clone().data( { call: "hide+toggle+stop" } ).appendTo( fixture ).hide().toggle( N )
-		], function( $clone ) { return $clone[ 0 ]; } );
-
-		// All elements should be inline-block during the animation
-		clock.tick( N / 2 );
-		jQuery( completed ).each( function() {
-			var $el = jQuery( this ),
-				call = $el.data( "call" );
-			assert.strictEqual( $el.css( "display" ), "inline-block", kind + " display during " + call );
-		} );
-
-		// Interrupted elements should remain inline-block
-		jQuery( interrupted ).stop();
-		clock.tick( N / 2 );
-		jQuery( interrupted ).each( function() {
-			var $el = jQuery( this ),
-				call = $el.data( "call" );
-			assert.strictEqual( $el.css( "display" ), "inline-block", kind + " display after " + call );
-		} );
-
-		// Completed elements should not remain inline-block
-		clock.tick( N / 2 );
-		jQuery( completed ).each( function() {
-			var $el = jQuery( this ),
-				call = $el.data( "call" ),
-				display = $el.data( "done" );
-			assert.strictEqual( $el.css( "display" ), display, kind + " display after " + call );
-		} );
-
-		// A post-animation toggle should not make any element inline-block
-		completed = jQuery( completed.concat( interrupted ) );
-		completed.toggle( N / 2 );
-		clock.tick( N );
-		completed.each( function() {
-			var $el = jQuery( this ),
-				call = $el.data( "call" );
-			assert.ok( $el.css( "display" ) !== "inline-block",
-				kind + " display is not inline-block after " + call + "+toggle" );
-		} );
-	} );
-} );
-
-function testEasing( assert, speed, easing, complete ) {
-	assert.expect( 4 );
-	var options = jQuery.speed( speed, easing, complete );
-
-	assert.equal( options.duration, 10, "Duration set properly" );
-	assert.equal(
-		typeof options.easing === "function" ? options.easing() : options.easing,
-		"linear",
-		"Easing set properly"
-	);
-	assert.equal( options.queue, "fx", "Queue defaults to fx" );
-	options.complete();
-}
-
-QUnit.test( "jQuery.speed( speed, easing, complete )", function( assert ) {
-	testEasing( assert, 10, "linear", function() {
-		assert.ok( true, "Complete called" );
-	} );
-} );
-
-QUnit.test( "jQuery.speed( speed, easing, complete ) - with easing function", function( assert ) {
-	testEasing(
-		assert,
-		10,
-		function() {
-			return "linear";
-		},
-		function() {
-			assert.ok( true, "Complete called" );
-		}
-	);
-} );
-
-QUnit.test( "jQuery.speed( options )", function( assert ) {
-	testEasing( assert, {
-		duration: 10,
-		easing: "linear",
-		complete: function() {
-			assert.ok( true, "Complete called" );
-		}
-	} );
-} );
-
-QUnit.test( "jQuery.speed( options ) - with easing function", function( assert ) {
-	testEasing( assert, {
-		duration: 10,
-		easing: function() {
-			return "linear";
-		},
-		complete: function() {
-			assert.ok( true, "Complete called" );
-		}
-	} );
-} );
-
-QUnit.test( "jQuery.speed( options ) - queue values", function( assert ) {
-	assert.expect( 5 );
-
-	var get = function( queue ) {
-		return jQuery.speed( { queue: queue } ).queue;
-	};
-
-	assert.equal( get( null ), "fx", "null defaults to 'fx'" );
-	assert.equal( get( undefined ), "fx", "undefined defaults to 'fx'" );
-	assert.equal( get( true ), "fx", "true defaults to 'fx'" );
-	assert.equal( get( "fx" ), "fx", "'fx' passed through" );
-	assert.equal( get( "custom" ), "custom", "'custom' passed through" );
-} );
-
-QUnit.test( "jQuery.speed() - durations", function( assert ) {
-	assert.expect( 5 );
-
-	var get = function( duration ) {
-		return jQuery.speed( duration ).duration;
-	};
-
-	assert.equal( get( 100 ), 100, "jQuery.speed sets number duration" );
-	assert.equal( get(), jQuery.fx.speeds._default, "jQuery.speed falls back default duration" );
-	assert.equal( get( "slow" ), jQuery.fx.speeds.slow, "jQuery.speed uses preset speeds" );
-	assert.equal( get( "fast" ), jQuery.fx.speeds.fast, "jQuery.speed uses preset speeds" );
-	jQuery.fx.off = true;
-	assert.equal( get( 100 ), 0, "jQuery.speed defaults duration to zero if fx is off" );
-	jQuery.fx.off = false;
 } );
 
 } )();

@@ -442,7 +442,6 @@ foreach ($plugins as $result) {
                 processLoader();
                 this.submit();
             });
-            $('.datepicker').datepicker();
             (function () {
                 [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {
                     new CBPFWTabs(el);

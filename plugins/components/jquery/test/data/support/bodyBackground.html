@@ -18,11 +18,10 @@
 <body>
 	<div>
 		<script src="../../jquery.js"></script>
-		<script src="../iframeTest.js"></script>
 		<script src="getComputedSupport.js"></script>
 	</div>
 	<script>
-		startIframeTest( jQuery( "body" ).css( "backgroundColor" ),
+		window.parent.iframeCallback( jQuery( "body" ).css( "backgroundColor" ),
 				getComputedSupport( jQuery.support ) );
 	</script>
 </body>

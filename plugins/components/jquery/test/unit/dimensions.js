@@ -30,14 +30,14 @@ function fn( val ) {
 
 function testWidth( val, assert ) {
 	assert.expect( 9 );
-	var $div, $empty;
+	var $div, blah;
 
 	$div = jQuery( "#nothiddendiv" );
 	$div.width( val( 30 ) );
 	assert.equal( $div.width(), 30, "Test set to 30 correctly" );
-	$div.css( "display", "none" );
+	$div.hide();
 	assert.equal( $div.width(), 30, "Test hidden div" );
-	$div.css( "display", "" );
+	$div.show();
 	$div.width( val( -1 ) ); // handle negative numbers by setting to 0 #11604
 	assert.equal( $div.width(), 0, "Test negative width normalized to 0" );
 	$div.css( "padding", "20px" );
@@ -51,9 +51,9 @@ function testWidth( val, assert ) {
 	assert.equal( jQuery( "#nothiddendivchild" ).width(), 20, "Test child width with border and padding" );
 	jQuery( "#nothiddendiv, #nothiddendivchild" ).css( { "border": "", "padding": "", "width": "" } );
 
-	$empty = jQuery();
-	assert.equal( $empty.width( val( 10 ) ), $empty, "Make sure that setting a width on an empty set returns the set." );
-	assert.strictEqual( $empty.width(), undefined, "Make sure 'undefined' is returned on an empty set" );
+	blah = jQuery( "blah" );
+	assert.equal( blah.width( val( 10 ) ), blah, "Make sure that setting a width on an empty set returns the set." );
+	assert.equal( blah.width(), null, "Make sure 'null' is returned on an empty set" );
 
 	assert.equal( jQuery( window ).width(), document.documentElement.clientWidth, "Window width is equal to width reported by window/document." );
 }
@@ -86,9 +86,9 @@ function testHeight( val, assert ) {
 	$div = jQuery( "#nothiddendiv" );
 	$div.height( val( 30 ) );
 	assert.equal( $div.height(), 30, "Test set to 30 correctly" );
-	$div.css( "display", "none" );
+	$div.hide();
 	assert.equal( $div.height(), 30, "Test hidden div" );
-	$div.css( "display", "" );
+	$div.show();
 	$div.height( val( -1 ) ); // handle negative numbers by setting to 0 #11604
 	assert.equal( $div.height(), 0, "Test negative height normalized to 0" );
 	$div.css( "padding", "20px" );
@@ -104,7 +104,7 @@ function testHeight( val, assert ) {
 
 	blah = jQuery( "blah" );
 	assert.equal( blah.height( val( 10 ) ), blah, "Make sure that setting a height on an empty set returns the set." );
-	assert.strictEqual( blah.height(), undefined, "Make sure 'undefined' is returned on an empty set" );
+	assert.equal( blah.height(), null, "Make sure 'null' is returned on an empty set" );
 
 	assert.equal( jQuery( window ).height(), document.documentElement.clientHeight, "Window width is equal to width reported by window/document." );
 }
@@ -130,7 +130,7 @@ QUnit.test( "height(Function(args))", function( assert ) {
 } );
 
 QUnit.test( "innerWidth()", function( assert ) {
-	assert.expect( 7 );
+	assert.expect( 6 );
 
 	var $div, div,
 		$win = jQuery( window ),
@@ -138,7 +138,6 @@ QUnit.test( "innerWidth()", function( assert ) {
 
 	assert.equal( jQuery( window ).innerWidth(), $win.width(), "Test on window" );
 	assert.equal( jQuery( document ).innerWidth(), $doc.width(), "Test on document" );
-	assert.strictEqual( jQuery().innerWidth(), undefined, "Test on empty set" );
 
 	$div = jQuery( "#nothiddendiv" );
 	$div.css( {
@@ -150,7 +149,7 @@ QUnit.test( "innerWidth()", function( assert ) {
 	assert.equal( $div.innerWidth(), 30, "Test with margin and border" );
 	$div.css( "padding", "20px" );
 	assert.equal( $div.innerWidth(), 70, "Test with margin, border and padding" );
-	$div.css( "display", "none" );
+	$div.hide();
 	assert.equal( $div.innerWidth(), 70, "Test hidden div" );
 
 	// reset styles
@@ -165,7 +164,7 @@ QUnit.test( "innerWidth()", function( assert ) {
 } );
 
 QUnit.test( "innerHeight()", function( assert ) {
-	assert.expect( 7 );
+	assert.expect( 6 );
 
 	var $div, div,
 		$win = jQuery( window ),
@@ -173,7 +172,6 @@ QUnit.test( "innerHeight()", function( assert ) {
 
 	assert.equal( jQuery( window ).innerHeight(), $win.height(), "Test on window" );
 	assert.equal( jQuery( document ).innerHeight(), $doc.height(), "Test on document" );
-	assert.strictEqual( jQuery().innerHeight(), undefined, "Test on empty set" );
 
 	$div = jQuery( "#nothiddendiv" );
 	$div.css( {
@@ -185,7 +183,7 @@ QUnit.test( "innerHeight()", function( assert ) {
 	assert.equal( $div.innerHeight(), 30, "Test with margin and border" );
 	$div.css( "padding", "20px" );
 	assert.equal( $div.innerHeight(), 70, "Test with margin, border and padding" );
-	$div.css( "display", "none" );
+	$div.hide();
 	assert.equal( $div.innerHeight(), 70, "Test hidden div" );
 
 	// reset styles
@@ -200,18 +198,16 @@ QUnit.test( "innerHeight()", function( assert ) {
 } );
 
 QUnit.test( "outerWidth()", function( assert ) {
-	assert.expect( 12 );
+	assert.expect( 11 );
 
 	var $div, div,
 		$win = jQuery( window ),
-		$doc = jQuery( document ),
-		winwidth = $win.prop( "innerWidth" );
+		$doc = jQuery( document );
 
-	assert.equal( jQuery( window ).outerWidth(), winwidth, "Test on window without margin option" );
-	assert.equal( jQuery( window ).outerWidth( true ), winwidth, "Test on window with margin option" );
+	assert.equal( jQuery( window ).outerWidth(), $win.width(), "Test on window without margin option" );
+	assert.equal( jQuery( window ).outerWidth( true ), $win.width(), "Test on window with margin option" );
 	assert.equal( jQuery( document ).outerWidth(), $doc.width(), "Test on document without margin option" );
 	assert.equal( jQuery( document ).outerWidth( true ), $doc.width(), "Test on document with margin option" );
-	assert.strictEqual( jQuery().outerWidth(), undefined, "Test on empty set" );
 
 	$div = jQuery( "#nothiddendiv" );
 	$div.css( "width", 30 );
@@ -225,48 +221,8 @@ QUnit.test( "outerWidth()", function( assert ) {
 	assert.equal( $div.outerWidth(), 74, "Test with padding, border and margin without margin option" );
 	$div.css( "position", "absolute" );
 	assert.equal( $div.outerWidth( true ), 94, "Test with padding, border and margin with margin option" );
-	$div.css( "display", "none" );
+	$div.hide();
 	assert.equal( $div.outerWidth( true ), 94, "Test hidden div with padding, border and margin with margin option" );
-
-	// reset styles
-	$div.css( { "position": "", "display": "", "border": "", "padding": "", "width": "", "height": "" } );
-
-	div = jQuery( "<div>" );
-
-	// Temporarily require 0 for backwards compat - should be auto
-	assert.equal( div.outerWidth(), 0, "Make sure that disconnected nodes are handled." );
-
-	div.remove();
-} );
-
-QUnit.test( "outerHeight()", function( assert ) {
-	assert.expect( 12 );
-
-	var $div, div,
-		$win = jQuery( window ),
-		$doc = jQuery( document ),
-		winheight = $win.prop( "innerHeight" );
-
-	assert.equal( jQuery( window ).outerHeight(), winheight, "Test on window without margin option" );
-	assert.equal( jQuery( window ).outerHeight( true ), winheight, "Test on window with margin option" );
-	assert.equal( jQuery( document ).outerHeight(), $doc.height(), "Test on document without margin option" );
-	assert.equal( jQuery( document ).outerHeight( true ), $doc.height(), "Test on document with margin option" );
-	assert.strictEqual( jQuery().outerHeight(), undefined, "Test on empty set" );
-
-	$div = jQuery( "#nothiddendiv" );
-	$div.css( "height", 30 );
-
-	assert.equal( $div.outerHeight(), 30, "Test with only height set" );
-	$div.css( "padding", "20px" );
-	assert.equal( $div.outerHeight(), 70, "Test with padding" );
-	$div.css( "border", "2px solid #fff" );
-	assert.equal( $div.outerHeight(), 74, "Test with padding and border" );
-	$div.css( "margin", "10px" );
-	assert.equal( $div.outerHeight(), 74, "Test with padding, border and margin without margin option" );
-	$div.css( "position", "absolute" );
-	assert.equal( $div.outerHeight( true ), 94, "Test with padding, border and margin with margin option" );
-	$div.css( "display", "none" );
-	assert.equal( $div.outerHeight( true ), 94, "Test hidden div with padding, border and margin with margin option" );
 
 	// reset styles
 	$div.css( { "position": "", "display": "", "border": "", "padding": "", "width": "", "height": "" } );
@@ -389,6 +345,43 @@ QUnit.test( "box-sizing:border-box child of a hidden elem (or unconnected node) 
 	$divNormal.remove();
 } );
 
+QUnit.test( "outerHeight()", function( assert ) {
+	assert.expect( 11 );
+
+	var $div, div,
+		$win = jQuery( window ),
+		$doc = jQuery( document );
+
+	assert.equal( jQuery( window ).outerHeight(), $win.height(), "Test on window without margin option" );
+	assert.equal( jQuery( window ).outerHeight( true ), $win.height(), "Test on window with margin option" );
+	assert.equal( jQuery( document ).outerHeight(), $doc.height(), "Test on document without margin option" );
+	assert.equal( jQuery( document ).outerHeight( true ), $doc.height(), "Test on document with margin option" );
+
+	$div = jQuery( "#nothiddendiv" );
+	$div.css( "height", 30 );
+
+	assert.equal( $div.outerHeight(), 30, "Test with only width set" );
+	$div.css( "padding", "20px" );
+	assert.equal( $div.outerHeight(), 70, "Test with padding" );
+	$div.css( "border", "2px solid #fff" );
+	assert.equal( $div.outerHeight(), 74, "Test with padding and border" );
+	$div.css( "margin", "10px" );
+	assert.equal( $div.outerHeight(), 74, "Test with padding, border and margin without margin option" );
+	assert.equal( $div.outerHeight( true ), 94, "Test with padding, border and margin with margin option" );
+	$div.hide();
+	assert.equal( $div.outerHeight( true ), 94, "Test hidden div with padding, border and margin with margin option" );
+
+	// reset styles
+	$div.css( { "display": "", "border": "", "padding": "", "width": "", "height": "" } );
+
+	div = jQuery( "<div>" );
+
+	// Temporarily require 0 for backwards compat - should be auto
+	assert.equal( div.outerHeight(), 0, "Make sure that disconnected nodes are handled." );
+
+	div.remove();
+} );
+
 QUnit.test( "passing undefined is a setter #5571", function( assert ) {
 	assert.expect( 4 );
 	assert.equal( jQuery( "#nothiddendiv" ).height( 30 ).height( undefined ).height(), 30, ".height(undefined) is chainable (#5571)" );
@@ -397,14 +390,29 @@ QUnit.test( "passing undefined is a setter #5571", function( assert ) {
 	assert.equal( jQuery( "#nothiddendiv" ).width( 30 ).width( undefined ).width(), 30, ".width(undefined) is chainable (#5571)" );
 } );
 
-QUnit.test( "setters with and without box-sizing:border-box", function( assert ) {
-	assert.expect( 120 );
+QUnit.test( "getters on non elements should return null", function( assert ) {
+	assert.expect( 8 );
 
+	var nonElem = jQuery( "notAnElement" );
+
+	assert.strictEqual( nonElem.width(), null, ".width() is not null (#12283)" );
+	assert.strictEqual( nonElem.innerWidth(), null, ".innerWidth() is not null (#12283)" );
+	assert.strictEqual( nonElem.outerWidth(), null, ".outerWidth() is not null (#12283)" );
+	assert.strictEqual( nonElem.outerWidth( true ), null, ".outerWidth(true) is not null (#12283)" );
+
+	assert.strictEqual( nonElem.height(), null, ".height() is not null (#12283)" );
+	assert.strictEqual( nonElem.innerHeight(), null, ".innerHeight() is not null (#12283)" );
+	assert.strictEqual( nonElem.outerHeight(), null, ".outerHeight() is not null (#12283)" );
+	assert.strictEqual( nonElem.outerHeight( true ), null, ".outerHeight(true) is not null (#12283)" );
+} );
+
+QUnit.test( "setters with and without box-sizing:border-box", function( assert ) {
+	assert.expect( 60 );
+
+	// Support: Firefox<29, Android 2.3 (Prefixed box-sizing versions).
 	var parent = jQuery( "#foo" ).css( { width: "200px", height: "200px", "font-size": "16px" } ),
-		el_bb = jQuery( "<div style='margin:5px;padding:1px;border:2px solid black;box-sizing:border-box;'></div>" ).appendTo( parent ),
-		el = jQuery( "<div style='margin:5px;padding:1px;border:2px solid black;'></div>" ).appendTo( parent ),
-		el_bb_np = jQuery( "<div style='margin:5px; padding:0px; border:0px solid green;box-sizing:border-box;'></div>" ).appendTo( parent ),
-		el_np = jQuery( "<div style='margin:5px; padding:0px; border:0px solid green;'></div>" ).appendTo( parent );
+		el_bb = jQuery( "<div style='margin:5px;padding:1px;border:2px solid black;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;'></div>" ).appendTo( parent ),
+		el = jQuery( "<div style='margin:5px;padding:1px;border:2px solid black;'></div>" ).appendTo( parent );
 
 	jQuery.each( {
 		"number": { set: 100, expected: 100 },
@@ -415,56 +423,32 @@ QUnit.test( "setters with and without box-sizing:border-box", function( assert )
 		assert.equal( el_bb.innerWidth( values.set ).width(), values.expected - 2, "test border-box innerWidth(" + units + ") by roundtripping" );
 		assert.equal( el_bb.outerWidth( values.set ).width(), values.expected - 6, "test border-box outerWidth(" + units + ") by roundtripping" );
 		assert.equal( el_bb.outerWidth( values.set, false ).width(), values.expected - 6, "test border-box outerWidth(" + units + ", false) by roundtripping" );
-		assert.equal( el_bb.outerWidth( values.set, true ).width(), values.expected - 16, "test border-box outerWidth(" + units + ", true) by roundtripping" );
+		assert.equal( el_bb.outerWidth( values.set, true ).width(), values.expected - 16, "test border-box innerWidth(" + units + ", true) by roundtripping" );
 
 		assert.equal( el_bb.height( values.set ).height(), values.expected, "test border-box height(" + units + ") by roundtripping" );
 		assert.equal( el_bb.innerHeight( values.set ).height(), values.expected - 2, "test border-box innerHeight(" + units + ") by roundtripping" );
 		assert.equal( el_bb.outerHeight( values.set ).height(), values.expected - 6, "test border-box outerHeight(" + units + ") by roundtripping" );
 		assert.equal( el_bb.outerHeight( values.set, false ).height(), values.expected - 6, "test border-box outerHeight(" + units + ", false) by roundtripping" );
-		assert.equal( el_bb.outerHeight( values.set, true ).height(), values.expected - 16, "test border-box outerHeight(" + units + ", true) by roundtripping" );
+		assert.equal( el_bb.outerHeight( values.set, true ).height(), values.expected - 16, "test border-box innerHeight(" + units + ", true) by roundtripping" );
 
 		assert.equal( el.width( values.set ).width(), values.expected, "test non-border-box width(" + units + ") by roundtripping" );
 		assert.equal( el.innerWidth( values.set ).width(), values.expected - 2, "test non-border-box innerWidth(" + units + ") by roundtripping" );
 		assert.equal( el.outerWidth( values.set ).width(), values.expected - 6, "test non-border-box outerWidth(" + units + ") by roundtripping" );
 		assert.equal( el.outerWidth( values.set, false ).width(), values.expected - 6, "test non-border-box outerWidth(" + units + ", false) by roundtripping" );
-		assert.equal( el.outerWidth( values.set, true ).width(), values.expected - 16, "test non-border-box outerWidth(" + units + ", true) by roundtripping" );
+		assert.equal( el.outerWidth( values.set, true ).width(), values.expected - 16, "test non-border-box innerWidth(" + units + ", true) by roundtripping" );
 
 		assert.equal( el.height( values.set ).height(), values.expected, "test non-border-box height(" + units + ") by roundtripping" );
 		assert.equal( el.innerHeight( values.set ).height(), values.expected - 2, "test non-border-box innerHeight(" + units + ") by roundtripping" );
 		assert.equal( el.outerHeight( values.set ).height(), values.expected - 6, "test non-border-box outerHeight(" + units + ") by roundtripping" );
 		assert.equal( el.outerHeight( values.set, false ).height(), values.expected - 6, "test non-border-box outerHeight(" + units + ", false) by roundtripping" );
-		assert.equal( el.outerHeight( values.set, true ).height(), values.expected - 16, "test non-border-box outerHeight(" + units + ", true) by roundtripping" );
-
-		assert.equal( el_bb_np.width( values.set ).width(), values.expected, "test border-box width and negative padding(" + units + ") by roundtripping" );
-		assert.equal( el_bb_np.innerWidth( values.set ).width(), values.expected, "test border-box innerWidth and negative padding(" + units + ") by roundtripping" );
-		assert.equal( el_bb_np.outerWidth( values.set ).width(), values.expected, "test border-box outerWidth and negative padding(" + units + ") by roundtripping" );
-		assert.equal( el_bb_np.outerWidth( values.set, false ).width(), values.expected, "test border-box outerWidth and negative padding(" + units + ", false) by roundtripping" );
-		assert.equal( el_bb_np.outerWidth( values.set, true ).width(), values.expected - 10, "test border-box outerWidth and negative padding(" + units + ", true) by roundtripping" );
-
-		assert.equal( el_bb_np.height( values.set ).height(), values.expected, "test border-box height  and negative padding(" + units + ") by roundtripping" );
-		assert.equal( el_bb_np.innerHeight( values.set ).height(), values.expected, "test border-box innerHeight and negative padding(" + units + ") by roundtripping" );
-		assert.equal( el_bb_np.outerHeight( values.set ).height(), values.expected, "test border-box outerHeight and negative padding(" + units + ") by roundtripping" );
-		assert.equal( el_bb_np.outerHeight( values.set, false ).height(), values.expected, "test border-box outerHeight and negative padding(" + units + ", false) by roundtripping" );
-		assert.equal( el_bb_np.outerHeight( values.set, true ).height(), values.expected - 10, "test border-box outerHeight and negative padding(" + units + ", true) by roundtripping" );
-
-		assert.equal( el_np.width( values.set ).width(), values.expected, "test non-border-box width  and negative padding(" + units + ") by roundtripping" );
-		assert.equal( el_np.innerWidth( values.set ).width(), values.expected, "test non-border-box innerWidth and negative padding(" + units + ") by roundtripping" );
-		assert.equal( el_np.outerWidth( values.set ).width(), values.expected, "test non-border-box outerWidth and negative padding(" + units + ") by roundtripping" );
-		assert.equal( el_np.outerWidth( values.set, false ).width(), values.expected, "test non-border-box outerWidth and negative padding(" + units + ", false) by roundtripping" );
-		assert.equal( el_np.outerWidth( values.set, true ).width(), values.expected - 10, "test non-border-box outerWidth and negative padding(" + units + ", true) by roundtripping" );
-
-		assert.equal( el_np.height( values.set ).height(), values.expected, "test non-border-box height and negative padding(" + units + ") by roundtripping" );
-		assert.equal( el_np.innerHeight( values.set ).height(), values.expected, "test non-border-box innerHeight and negative padding(" + units + ") by roundtripping" );
-		assert.equal( el_np.outerHeight( values.set ).height(), values.expected, "test non-border-box outerHeight and negative padding(" + units + ") by roundtripping" );
-		assert.equal( el_np.outerHeight( values.set, false ).height(), values.expected, "test non-border-box outerHeight and negative padding(" + units + ", false) by roundtripping" );
-		assert.equal( el_np.outerHeight( values.set, true ).height(), values.expected - 10, "test non-border-box outerHeight and negative padding(" + units + ", true) by roundtripping" );
+		assert.equal( el.outerHeight( values.set, true ).height(), values.expected - 16, "test non-border-box innerHeight(" + units + ", true) by roundtripping" );
 	} );
 } );
 
 testIframe(
+	"dimensions/documentLarge",
 	"window vs. large document",
-	"dimensions/documentLarge.html",
-	function( assert, jQuery, window, document ) {
+	function( jQuery, window, document, assert ) {
 		assert.expect( 2 );
 
 		assert.ok( jQuery( document ).height() > jQuery( window ).height(), "document height is larger than window height" );
@@ -512,182 +496,11 @@ QUnit.test( "outside view position (gh-2836)", function( assert ) {
 	parent.one( "scroll", function() {
 		var pos = parent.find( "div" ).eq( 3 ).position();
 
-		assert.strictEqual( pos.top, -100 );
+		assert.strictEqual(pos.top, -100);
 		stop();
-	} );
+	});
 
 	parent.scrollTop( 400 );
-} );
-
-QUnit.test( "width/height on element with transform (gh-3193)", function( assert ) {
-
-	assert.expect( 2 );
-
-	var $elem = jQuery( "<div style='width: 200px; height: 200px; transform: scale(2);' />" )
-		.appendTo( "#qunit-fixture" );
-
-	assert.equal( $elem.width(), 200, "Width ignores transforms" );
-	assert.equal( $elem.height(), 200, "Height ignores transforms" );
-} );
-
-QUnit.test( "width/height on an inline element with no explicitly-set dimensions (gh-3571)", function( assert ) {
-	assert.expect( 8 );
-
-	var $elem = jQuery( "<span style='border: 2px solid black;padding: 1px;margin: 3px;'>Hello, I'm some text.</span>" ).appendTo( "#qunit-fixture" );
-
-	jQuery.each( [ "Width", "Height" ], function( i, method ) {
-		var val = $elem[ method.toLowerCase() ]();
-		assert.notEqual( val, 0, method + " should not be zero on inline element." );
-		assert.equal( $elem[ "inner" + method ](), val + 2, "inner" + method + " should include padding" );
-		assert.equal( $elem[ "outer" + method ](), val + 6, "outer" + method + " should include padding and border" );
-		assert.equal( $elem[ "outer" + method ]( true ), val + 12, "outer" + method + "(true) should include padding, border, and margin" );
-	} );
-} );
-
-QUnit.test( "width/height on an inline element with percentage dimensions (gh-3611)",
-	function( assert ) {
-		assert.expect( 4 );
-
-		jQuery( "<div id='gh3611' style='width: 100px;'>" +
-			"<span style='width: 100%; padding: 0 5px'>text</span>" +
-		"</div>" ).appendTo( "#qunit-fixture" );
-
-		var $elem = jQuery( "#gh3611 span" ),
-			actualWidth = $elem[ 0 ].getBoundingClientRect().width,
-			marginWidth = $elem.outerWidth( true ),
-			borderWidth = $elem.outerWidth(),
-			paddingWidth = $elem.innerWidth(),
-			contentWidth = $elem.width();
-
-		assert.equal( Math.round( borderWidth ), Math.round( actualWidth ),
-			".outerWidth(): " + borderWidth + " approximates " + actualWidth );
-		assert.equal( marginWidth, borderWidth, ".outerWidth(true) matches .outerWidth()" );
-		assert.equal( paddingWidth, borderWidth, ".innerWidth() matches .outerWidth()" );
-		assert.equal( contentWidth, borderWidth - 10, ".width() excludes padding" );
-	}
-);
-
-QUnit.test( "width/height on a table row with phantom borders (gh-3698)", function( assert ) {
-	assert.expect( 4 );
-
-	jQuery( "<table id='gh3698' style='border-collapse: separate; border-spacing: 0;'><tbody>" +
-		"<tr style='margin: 0; border: 10px solid black; padding: 0'>" +
-			"<td style='margin: 0; border: 0; padding: 0; height: 42px; width: 42px;'></td>" +
-		"</tr>" +
-	"</tbody></table>" ).appendTo( "#qunit-fixture" );
-
-	var $elem = jQuery( "#gh3698 tr" );
-
-	jQuery.each( [ "Width", "Height" ], function( i, method ) {
-		assert.equal( $elem[ "outer" + method ](), 42,
-			"outer" + method + " should match content dimensions" );
-		assert.equal( $elem[ "outer" + method ]( true ), 42,
-			"outer" + method + "(true) should match content dimensions" );
-	} );
-} );
-
-QUnit.test( "interaction with scrollbars (gh-3589)", function( assert ) {
-	assert.expect( 48 );
-
-	var i,
-		suffix = "",
-		updater = function( adjustment ) {
-			return function( i, old ) {
-				return old + adjustment;
-			};
-		},
-		parent = jQuery( "<div/>" )
-			.css( { position: "absolute", width: "1000px", height: "1000px" } )
-			.appendTo( "#qunit-fixture" ),
-		fraction = jQuery( "<div style='width:4.5px;'/>" ).appendTo( parent ).width() % 1,
-		borderWidth = 1,
-		padding = 2,
-		size = 100 + fraction,
-		plainBox = jQuery( "<div />" )
-			.css( {
-				"box-sizing": "content-box",
-				position: "absolute",
-				overflow: "scroll",
-				width: size + "px",
-				height: size + "px"
-			} ),
-		contentBox = plainBox
-			.clone()
-			.css( {
-				border: borderWidth + "px solid blue",
-				padding: padding + "px"
-			} ),
-		borderBox = contentBox
-			.clone()
-			.css( { "box-sizing": "border-box" } ),
-		relativeBorderBox = borderBox
-			.clone()
-			.css( { position: "relative" } ),
-		$boxes = jQuery(
-			[ plainBox[ 0 ], contentBox[ 0 ], borderBox[ 0 ], relativeBorderBox[ 0 ] ]
-		).appendTo( parent ),
-
-		// Support: IE 9 only
-		// Computed width seems to report content width even with "box-sizing: border-box", and
-		// "overflow: scroll" actually _shrinks_ the element (gh-3699).
-		borderBoxLoss =
-			borderBox.clone().css( { overflow: "auto" } ).appendTo( parent )[ 0 ].offsetWidth -
-			borderBox[ 0 ].offsetWidth;
-
-	if ( borderBoxLoss > 0 ) {
-		borderBox.css( {
-			width: ( size + borderBoxLoss ) + "px",
-			height: ( size + borderBoxLoss ) + "px"
-		} );
-	}
-
-	for ( i = 0; i < 3; i++ ) {
-		if ( i === 1 ) {
-			suffix = " after increasing inner* by " + i;
-			size += i;
-			$boxes.innerWidth( updater( i ) ).innerHeight( updater( i ) );
-		} else if ( i === 2 ) {
-			suffix = " after increasing outer* by " + i;
-			size += i;
-			$boxes.outerWidth( updater( i ) ).outerHeight( updater( i ) );
-		}
-
-		assert.equal( plainBox.innerWidth(), size,
-			"plain content-box innerWidth includes scroll gutter" + suffix );
-		assert.equal( plainBox.innerHeight(), size,
-			"plain content-box innerHeight includes scroll gutter" + suffix );
-		assert.equal( plainBox.outerWidth(), size,
-			"plain content-box outerWidth includes scroll gutter" + suffix );
-		assert.equal( plainBox.outerHeight(), size,
-			"plain content-box outerHeight includes scroll gutter" + suffix );
-
-		assert.equal( contentBox.innerWidth(), size + 2 * padding,
-			"content-box innerWidth includes scroll gutter" + suffix );
-		assert.equal( contentBox.innerHeight(), size + 2 * padding,
-			"content-box innerHeight includes scroll gutter" + suffix );
-		assert.equal( contentBox.outerWidth(), size + 2 * padding + 2 * borderWidth,
-			"content-box outerWidth includes scroll gutter" + suffix );
-		assert.equal( contentBox.outerHeight(), size + 2 * padding + 2 * borderWidth,
-			"content-box outerHeight includes scroll gutter" + suffix );
-
-		assert.equal( borderBox.innerWidth(), size - 2 * borderWidth,
-			"border-box innerWidth includes scroll gutter" + suffix );
-		assert.equal( borderBox.innerHeight(), size - 2 * borderWidth,
-			"border-box innerHeight includes scroll gutter" + suffix );
-		assert.equal( borderBox.outerWidth(), size,
-			"border-box outerWidth includes scroll gutter" + suffix );
-		assert.equal( borderBox.outerHeight(), size,
-			"border-box outerHeight includes scroll gutter" + suffix );
-
-		assert.equal( relativeBorderBox.innerWidth(), size - 2 * borderWidth,
-			"relative border-box innerWidth includes scroll gutter" + suffix );
-		assert.equal( relativeBorderBox.innerHeight(), size - 2 * borderWidth,
-			"relative border-box innerHeight includes scroll gutter" + suffix );
-		assert.equal( relativeBorderBox.outerWidth(), size,
-			"relative border-box outerWidth includes scroll gutter" + suffix );
-		assert.equal( relativeBorderBox.outerHeight(), size,
-			"relative border-box outerHeight includes scroll gutter" + suffix );
-	}
 } );
 
 } )();

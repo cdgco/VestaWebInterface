@@ -192,7 +192,7 @@ foreach ($plugins as $result) {
                                                     <td class="resone"><b>' . $firedata[$x1]['DATE'] . '</b><br>' . $firedata[$x1]['TIME'] . '</td>
                                                     <td>' . $firedata[$x1]['CHAIN'] . '</td>
                                                     <td>' . $firedata[$x1]['IP'] . '</td><td>
-                                                    <button onclick="confirmDelete(\'' . $firedata[$x1]['CHAIN'] . '\', \'' . $firename[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
+                                                    <button onclick="confirmDelete(\'' . $firedata[$x1]['CHAIN'] . '\', \'' . $firename[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-trash-o"></i></button>
                                                     </td>
                                                 </tr>';
                                                 $x1++;

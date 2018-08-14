@@ -1,8 +1,9 @@
-.eslintignore
-.eslintrc.json
+.jshintignore
+.jshintrc
 
 /.editorconfig
 /.gitattributes
+/.jscs.json
 /.mailmap
 /.travis.yml
 

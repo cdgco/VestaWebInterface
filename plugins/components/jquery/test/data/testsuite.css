@@ -20,6 +20,10 @@ div#fx-tests div.overflow {
 	overflow: visible;
 }
 
+div.inline {
+	display: inline;
+}
+
 div.autoheight {
 	height: auto;
 }
@@ -53,15 +57,19 @@ div.medopacity {
 }
 
 div.nowidth {
-	width: 0;
+	width: 0px;
 }
 
 div.noheight {
-	height: 0;
+	height: 0px;
 }
 
 div.noopacity {
 	opacity: 0;
+}
+
+div.hidden {
+	display: none;
 }
 
 div#fx-tests div.widewidth {
@@ -108,9 +116,18 @@ div#fx-tests div.noback {
 	display: none;
 }
 
+/* tests to ensure jQuery can determine the native display mode of elements
+   that have been set as display: none in stylesheets */
+div#show-tests * { display: none; }
+
 #nothiddendiv { font-size: 16px; }
 #nothiddendivchild.em { font-size: 2em; }
 #nothiddendivchild.prct { font-size: 150%; }
+
+/* 8099 changes to default styles are read correctly */
+tt { display: none; }
+sup { display: none; }
+dfn { display: none; }
 
 /* #9239 Attach a background to the body( avoid crashes in removing the test element in support ) */
 body, div { background: url(http://static.jquery.com/files/rocker/images/logo_jquery_215x53.gif) no-repeat -1000px 0; }
@@ -125,11 +142,6 @@ section { background:#f0f; display:block; }
 #span-14824 { display: block; }
 
 #display { display: list-item !important; }
-
-.block { display: block; }
-.inline { display: inline; }
-.list-item { display: list-item; }
-.hidden, .none { display: none; }
 
 #div-gh-2836 {
 	position: relative;

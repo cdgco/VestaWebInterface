@@ -199,7 +199,7 @@ foreach ($plugins as $result) {
                                                     <td>' . $ipdata[$x1]['OWNER'] . '</td>                                                                  
                                                     <td class="restwo">' . ucfirst($ipdata[$x1]['STATUS']) . '</td>
                                                     <td class="resone" data-sort-value="' . $ipdata[$x1]['DATE'] . '">' . $ipdata[$x1]['DATE'] . '</td><td>
-                                                        <a href="../edit/ip.php?ip=' . $ipname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button></a><button onclick="confirmDelete(\'' . $ipname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="icon-trash"></i></button>
+                                                        <a href="../edit/ip.php?ip=' . $ipname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button></a><button onclick="confirmDelete(\'' . $ipname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-trash-o"></i></button>
                                                     </td>
                                                     <td>' . $ipdata[$x1]['NETMASK'] . '</td>
                                                     <td>' . $ipdata[$x1]['INTERFACE'] . '</td>

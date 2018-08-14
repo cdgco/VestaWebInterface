@@ -313,7 +313,7 @@ foreach ($plugins as $result) {
                                                 echo '</td>
                                                       <td>
                                                             <a href="../edit/cfrecord.php?domain=' . $cfid . '&record=' . $val1['id'] . '"><button type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button></a>
-                                                            <button type="button" onclick="confirmDelete(\'' . $val1['id'] . '\')" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="icon-trash" ></i></button>
+                                                            <button type="button" onclick="confirmDelete(\'' . $val1['id'] . '\')" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="fa fa-trash-o" ></i></button>
                                                      </td>
                                                      <td>' . date("Y-m-d", strtotime($val1['created_on'])) . '</td>
                                                      </tr>';
