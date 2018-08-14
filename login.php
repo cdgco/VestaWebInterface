@@ -80,8 +80,8 @@ textdomain('messages');
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.css" />
+        <script src="plugins/components/sweetalert2/sweetalert2.min.js"></script>
+        <link rel="stylesheet" href="plugins/components/sweetalert2/sweetalert2.min.css" />
     </head>
     <body>
         <?php
@@ -235,13 +235,12 @@ textdomain('messages');
             </div>            
         </section>
         <script src="plugins/components/jquery/dist/jquery.min.js"></script>
-        <script src="../plugins/components/jquery-toast/dist/jquery.toast.min.js"></script>
+        <script src="plugins/components/jquery-toast/dist/jquery.toast.min.js"></script>
         <script src="bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="plugins/components/metismenu/dist/metisMenu.min.js"></script>
         <script src="js/jquery.slimscroll.js"></script>
         <script src="js/waves.js"></script>
         <script src="js/custom.js"></script>
-        <script src="plugins/components/styleswitcher/jQuery.style.switcher.js"></script>
         <script>
             <?php 
             if($configstyle == '2'){

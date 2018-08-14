@@ -34,6 +34,13 @@
     right: 3px;
     position: relative;
 }
+.swal2-popup {
+  font-size: 1.6rem !important;
+}
+.dropdown-menu.open {
+    border-radius: 0px 0px 8px 8px;
+    padding: 0px;
+}
 .shortcuts {
   background: rgba(50, 50, 50, 0.9);
   position: fixed;

@@ -140,12 +140,13 @@ foreach ($plugins as $result) {
         <link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../plugins/components/footable/css/footable.bootstrap.css" rel="stylesheet">
-        <link href="../plugins/components/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet">
+        <link href="../plugins/components/select2/css/select2.min.css" rel="stylesheet">
+        <link href="../plugins/components/bootstrap-datepicker/css/bootstrap-datepicker3.standalone.min.css" rel="stylesheet">
         <link href="../css/animate.css" rel="stylesheet">
         <link href="../css/style.css" rel="stylesheet">
         <link href="../plugins/components/jquery-toast/dist/jquery.toast.min.css" rel="stylesheet">
         <link href="../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.min.css" />
+        <link rel="stylesheet" href="../plugins/components/sweetalert2/sweetalert2.min.css" />
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
         <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?> 
         <!--[if lt IE 9]>
@@ -342,8 +343,7 @@ foreach ($plugins as $result) {
                                             <div class="input-group date">
                                                 <input type="text" <?php if ($cfenabled == "true") { echo 'disabled style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);background-image: none;" class="form-control uneditable-input datepicker"'; } else { echo 'name="v_exp" class="form-control datepicker"'; } ?> value="<?php echo date("m/d/Y", strtotime($dnsdata[0]['EXP'])); ?>" required>
                                                 <span class="input-group-addon">
-                                                    <i class="icon-calender">
-                                                    </i>
+                                                    <i class="fa fa-calendar"></i>
                                                 </span> 
                                             </div>
                                         </div>
@@ -423,15 +423,13 @@ foreach ($plugins as $result) {
         <script src="../plugins/components/metismenu/dist/metisMenu.min.js"></script>
         <script src="../js/jquery.slimscroll.js"></script>
         <script src="../js/waves.js"></script>
-        <script src="../plugins/components/moment/moment.js"></script>
+        <script src="../js/moment.min.js"></script>
         <script src="../plugins/components/footable/js/footable.min.js"></script>
-        <script src="../plugins/components/bootstrap-select/js/bootstrap-select.min.js" type="text/javascript"></script>
-        <script src="../plugins/components/select2-custom/custom-select.min.js"></script>
+        <script src="../plugins/components/select2/js/select2.min.js"></script>
         <script src="../js/footable-init.js"></script>
         <script src="../js/custom.js"></script>
         <script src="../js/cbpFWTabs.js"></script>
-        <script src="../plugins/components/styleswitcher/jQuery.style.switcher.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.all.js"></script>
+        <script src="../plugins/components/sweetalert2.min.js"></script>
         <script src="../plugins/components/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
         <script type="text/javascript">
             <?php 
@@ -447,10 +445,12 @@ foreach ($plugins as $result) {
                     new CBPFWTabs(el);
                 });
             })();
+            $('.select2').select2();
             document.getElementById('select2').value = '<?php print_r($dnsdata[0]['TPL']); ?>'; 
             jQuery(function($){
                 $('.footable').footable();
             });
+            $('.datepicker').datepicker();
             function confirmDelete(){
                 swal({
                     title: '<?php echo _("Delete DNS Domain"); ?>:<br> <?php echo $requestdns; ?>' + ' ?',

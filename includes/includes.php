@@ -468,13 +468,15 @@ function hotKeys($conflocation) {
                               <li><span class="key">8</span>Go to PROFILE</li>
                             </ul>
                             <ul>
-                          <li><span class="key">h</span>Display/Close shortcuts</li>
+                          <li><span class="key">H</span>Display/Close shortcuts</li>
 
-                          <li class="step-top"><span class="key">a</span>Add New object</li>
+                          <li class="step-top"><span class="key">A</span>Add New object</li>
                           <li><span class="key">Ctrl + Enter</span>Save Form</li>
-                          <li><span class="key">Ctrl + Backspace</span>Cancel saving form</li>
+                          <li><span class="key">Ctrl + Backspace</span>Exit form</li>
                           
-                          <li class="step-top"><span class="key">Ctrl + L</span>Logout</li>
+                          <li class="step-top"><span class="key">Esc</span>Hide Notifications</li>
+                          <li><span class="key">Backspace</span>Go back</li>
+                          <li><span class="key">Ctrl + L</span>Logout</li>
                         
                         </ul>
                         
@@ -484,7 +486,7 @@ function hotKeys($conflocation) {
                     <button class="back-to-top theme-color" type="button"></button>
                     <script src="' . $conflocation . '../js/hotkeys.min.js"></script>
                     <script type="text/javascript">
-                        hotkeys("1,2,3,4,5,6,7,8,h,a,ctrl+enter,ctrl+backspace,ctrl+l", function(event,handler) {
+                        hotkeys("1,2,3,4,5,6,7,8,h,a,ctrl+enter,ctrl+e,ctrl+backspace,backspace,ctrl+l,esc", function(event,handler) {
                           switch(handler.key){
                             case "1":window.location.href = "' . $conflocation . '../index.php";break;
                             case "2":window.location.href = "' . $conflocation . '../list/web.php";break;
@@ -498,7 +500,9 @@ function hotKeys($conflocation) {
                             case "a":addNewObj();break;
                             case "ctrl+enter":submitForm();break;
                             case "ctrl+backspace":exitForm();break;
+                            case "backspace":{if (document.referrer.indexOf(window.location.host) !== -1) { history.go(-1); return false; } else { window.location.href = \'' . $conflocation . '../index.php\'; };break;}
                             case "ctrl+l":window.location.href = "' . $conflocation . '../process/logout.php";break;
+                            case "esc":{$.toast().reset(\'all\');break;}
                           }
                         });
                         if(typeof addNewObj != \'function\'){

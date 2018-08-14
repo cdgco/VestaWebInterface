@@ -66,7 +66,5 @@
 <script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.0-Beta/js/waves.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.0-Beta/js/custom.js"></script>
-<!--Style Switcher -->
-<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.0-Beta/plugins/components/styleswitcher/jQuery.style.switcher.js"></script>
 </body>
 </html>

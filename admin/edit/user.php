@@ -78,13 +78,12 @@ foreach ($plugins as $result) {
         <link href="../../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../../plugins/components/footable/css/footable.bootstrap.css" rel="stylesheet">
-        <link href="../../plugins/components/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet">
-        <link href="../../plugins/components/select2-custom/custom-select.css" rel="stylesheet">
+        <link href="../../plugins/components/select2/css/select2.min.css" rel="stylesheet">
         <link href="../../css/animate.css" rel="stylesheet">
         <link href="../../css/style.css" rel="stylesheet">
         <link href="../../plugins/components/jquery-toast/dist/jquery.toast.min.css" rel="stylesheet">
         <link href="../../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.min.css" />
+        <link rel="stylesheet" href="../../plugins/components/sweetalert2/sweetalert2.min.css" />
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
         <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?> 
         <!--[if lt IE 9]>
@@ -93,7 +92,7 @@ foreach ($plugins as $result) {
         <![endif]-->
     </head>
 
-    <body class="fix-header" onload="checkDiv();">
+    <body class="fix-header">
         <div class="preloader">
             <svg class="circular" viewBox="25 25 50 50">
                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
@@ -176,7 +175,7 @@ foreach ($plugins as $result) {
                                     <div class="form-group">
                                         <label for="password" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10)"> <?php echo _("Generate"); ?></a></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
-                                            <input type="password" style="padding-left: 0.5%;" autocomplete="new-password" onkeyup="fillSpan()" class="form-control form-control-line" name="password" id="password">                                    <span class="input-group-btn"> 
+                                            <input type="password" style="padding-left: 0.5%;" autocomplete="new-password" class="form-control form-control-line" name="password" id="password">                                    <span class="input-group-btn"> 
                                             <button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler(this)" id="tg" type="button"><i class="ti-eye"></i></button> 
                                             </span>  </div>
                                     </div>
@@ -327,15 +326,13 @@ foreach ($plugins as $result) {
         <script src="../../plugins/components/metismenu/dist/metisMenu.min.js"></script>
         <script src="../../js/jquery.slimscroll.js"></script>
         <script src="../../js/waves.js"></script>
-        <script src="../../plugins/components/moment/moment.js"></script>
+        <script src="../../js/moment.min.js"></script>
         <script src="../../plugins/components/footable/js/footable.min.js"></script>
-        <script src="../../plugins/components/bootstrap-select/js/bootstrap-select.min.js" type="text/javascript"></script>
-        <script src="../../plugins/components/select2-custom/custom-select.min.js"></script>
+        <script src="../../plugins/components/select2/js/select2.min.js"></script>
         <script src="../../js/footable-init.js"></script>
         <script src="../../js/custom.js"></script>
         <script src="../../js/cbpFWTabs.js"></script>
-        <script src="../../plugins/components/styleswitcher/jQuery.style.switcher.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.all.js"></script>
+        <script src="../../plugins/components/sweetalert2.min.js"></script>
         <script type="text/javascript">
             <?php 
             $pluginlocation = "../../plugins/"; if(isset($pluginnames[0]) && $pluginnames[0] != '') { $currentplugin = 0; do { if (strtolower($pluginhide[$currentplugin]) != 'y' && strtolower($pluginhide[$currentplugin]) != 'yes') { if (strtolower($pluginadminonly[$currentplugin]) != 'y' && strtolower($pluginadminonly[$currentplugin]) != 'yes') { if (strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; } else { $currentstring = "<li><a href='".$pluginlocation.$pluginlinks[$currentplugin]."/'><i class='fa ".$pluginicons[$currentplugin]." fa-fw'></i><span class='hide-menu'>"._($pluginnames[$currentplugin])."</span></a></li>"; }} else { if(strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";} } else { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; }}} echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');\n var plugindata" . $currentplugin . " = \"" . $currentstring . "\";\n plugincontainer" . $currentplugin . ".innerHTML += plugindata" . $currentplugin . ";\n"; } $currentplugin++; } while ($pluginnames[$currentplugin] != ''); } ?> 
@@ -363,7 +360,6 @@ foreach ($plugins as $result) {
                 document.getElementById('password').value = password;
                 document.getElementById('tg').name='Hide';
                 document.getElementById('password').type="text";
-                fillSpan();
             }
             <?php echo 'document.getElementById("packageselect").value = \'' . $uxdata[0]['PACKAGE'] . '\';'; ?>
             <?php echo 'document.getElementById("langselect").value = \'' . $uxdata[0]['LANGUAGE'] . '\';'; ?>

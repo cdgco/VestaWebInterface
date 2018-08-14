@@ -146,14 +146,13 @@ textdomain('messages');
             confirm_password.onkeyup = validatePassword;
         </script>
         <script src="plugins/components/jquery/dist/jquery.min.js"></script>
-        <script src="../plugins/components/jquery-toast/dist/jquery.toast.min.js"></script>
+        <script src="plugins/components/jquery-toast/dist/jquery.toast.min.js"></script>
         <script src="bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="bootstrap/dist/js/bootstrap-select.min.js"></script>
         <script src="plugins/components/metismenu/dist/metisMenu.min.js"></script>
         <script src="js/jquery.slimscroll.js"></script>
         <script src="js/waves.js"></script>
         <script src="js/custom.js"></script>
-        <script src="plugins/components/styleswitcher/jQuery.style.switcher.js"></script>
         <script>
              <?php 
             if($configstyle == '2'){

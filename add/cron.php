@@ -66,12 +66,12 @@ foreach ($plugins as $result) {
         <link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../plugins/components/footable/css/footable.bootstrap.css" rel="stylesheet">
-        <link href="../plugins/components/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet">
+        <link href="../plugins/components/select2/css/select2.min.css" rel="stylesheet">
         <link href="../css/animate.css" rel="stylesheet">
         <link href="../css/style.css" rel="stylesheet">
         <link href="../plugins/components/jquery-toast/dist/jquery.toast.min.css" rel="stylesheet">
         <link href="../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.min.css" />
+        <link rel="stylesheet" href="../plugins/components/sweetalert2/sweetalert2.min.css" />
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
         <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?> 
         <!--[if lt IE 9]>
@@ -235,7 +235,7 @@ foreach ($plugins as $result) {
                                                     <div class="form-group">
                                                         <label class="col-md-12"><?php echo _("Run Command"); ?></label>
                                                         <div class="col-md-12">
-                                                            <select class="form-control" name="h_min" >
+                                                            <select class="form-control select2" name="h_min" >
                                                                 <option value="*" selected="selected"><?php echo _("every minute"); ?></option>
                                                                 <option value="*/2"><?php echo _("every two minutes"); ?></option>
                                                                 <option value="*/5"><?php echo _("every"); ?> 5</option>
@@ -264,7 +264,7 @@ foreach ($plugins as $result) {
                                                     <div class="form-group">
                                                         <label class="col-md-12">Run Command</label>
                                                         <div class="col-md-12">
-                                                            <select class="form-control" name="h_hour">
+                                                            <select class="form-control select2" name="h_hour">
                                                                 <option value="*" selected="selected"><?php echo _("every hour"); ?></option>
                                                                 <option value="*/2"><?php echo _("every two hours"); ?></option>
                                                                 <option value="*/6"><?php echo _("every"); ?> 6</option>
@@ -275,7 +275,7 @@ foreach ($plugins as $result) {
                                                     <div class="form-group">
                                                         <label class="col-md-12"><?php echo _("Minute"); ?></label>
                                                         <div class="col-md-12">
-                                                            <select class="form-control" name="h_min">
+                                                            <select class="form-control select2" name="h_min">
                                                                 <option value="0" selected="selected">00</option>
                                                                 <option value="15">15</option>
                                                                 <option value="30">30</option>
@@ -297,7 +297,7 @@ foreach ($plugins as $result) {
                                                     <div class="form-group">
                                                         <label class="col-md-12"><?php echo _("Run Command"); ?></label>
                                                         <div class="col-md-12">
-                                                            <select class="form-control" name="h_day">
+                                                            <select class="form-control select2" name="h_day">
                                                                 <option value="*" selected="selected"><?php echo _("every day"); ?></option>
                                                                 <option value="1-31/2"><?php echo _("every odd day"); ?></option>
                                                                 <option value="*/2"><?php echo _("every even day"); ?></option>
@@ -310,9 +310,9 @@ foreach ($plugins as $result) {
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label class="col-sm-6 pull-left"<?php echo _("Hour"); ?></label><label class="col-sm-6 pull-right"><?php echo _("Minute"); ?></label>
+                                                        <label class="col-sm-6 pull-left"><?php echo _("Hour"); ?></label><label class="col-sm-6 pull-right"><?php echo _("Minute"); ?></label>
                                                         <div class="col-sm-6 pull-left">
-                                                            <select class="form-control" name="h_hour">
+                                                            <select class="form-control select2" name="h_hour">
                                                                 <option value="0">00</option>
                                                                 <option value="1">01</option>
                                                                 <option value="2">02</option>
@@ -340,7 +340,7 @@ foreach ($plugins as $result) {
                                                             </select>
                                                         </div>
                                                         <div class="col-sm-6 pull-right">
-                                                            <select class="form-control" name="h_min">
+                                                            <select class="form-control select2" name="h_min">
                                                                 <option value="0" selected="selected">00</option>
                                                                 <option value="1">01</option>
                                                                 <option value="2">02</option>
@@ -372,7 +372,7 @@ foreach ($plugins as $result) {
                                                     <div class="form-group">
                                                         <label class="col-md-12"><?php echo _("Run Command"); ?></label>
                                                         <div class="col-md-12">
-                                                            <select class="form-control" name="h_wday">
+                                                            <select class="form-control select2" name="h_wday">
                                                                 <option value="*" selected="selected"><?php echo _("every day"); ?></option>
                                                                 <option value="1,2,3,4,5"><?php echo _("weekdays (5 days)"); ?></option>
                                                                 <option value="0,6"><?php echo _("weekend (2 days)"); ?></option>
@@ -389,7 +389,7 @@ foreach ($plugins as $result) {
                                                     <div class="form-group">
                                                         <label class="col-sm-6 pull-left"><?php echo _("Hour"); ?></label><label class="col-sm-6 pull-right"><?php echo _("Minute"); ?></label>
                                                         <div class="col-sm-6 pull-left">
-                                                            <select class="form-control" name="h_hour">
+                                                            <select class="form-control select2" name="h_hour">
                                                                 <option value="0">00</option>
                                                                 <option value="1">01</option>
                                                                 <option value="2">02</option>
@@ -417,7 +417,7 @@ foreach ($plugins as $result) {
                                                             </select>
                                                         </div>
                                                         <div class="col-sm-6 pull-right">
-                                                            <select class="form-control" name="h_min">
+                                                            <select class="form-control select2" name="h_min">
                                                                 <option value="0" selected="selected">00</option>
                                                                 <option value="1">01</option>
                                                                 <option value="2">02</option>
@@ -448,7 +448,7 @@ foreach ($plugins as $result) {
                                                     <div class="form-group">
                                                         <label class="col-md-12"><?php echo _("Run Command"); ?></label>
                                                         <div class="col-md-12">
-                                                            <select class="form-control" name="h_month">
+                                                            <select class="form-control select2" name="h_month">
                                                                 <option value="*" selected="selected"><?php echo _("every month"); ?></option>
                                                                 <option value="1-11/2"><?php echo _("every odd month"); ?></option>
                                                                 <option value="*/2"><?php echo _("every even month"); ?></option>
@@ -472,7 +472,7 @@ foreach ($plugins as $result) {
                                                     <div class="form-group">
                                                         <label class="col-md-12"><?php echo _("Date"); ?></label>
                                                         <div class="col-md-12">
-                                                            <select class="form-control" name="h_day">
+                                                            <select class="form-control select2" name="h_day">
                                                                 <option value="1" selected="selected">1</option>
                                                                 <option value="2">2</option>
                                                                 <option value="3">3</option>
@@ -510,7 +510,7 @@ foreach ($plugins as $result) {
                                                     <div class="form-group">
                                                         <label class="col-sm-6 pull-left"><?php echo _("Hour"); ?></label><label class="col-sm-6 pull-right"><?php echo _("Minute"); ?></label>
                                                         <div class="col-sm-6 pull-left">
-                                                            <select class="form-control" name="h_hour">
+                                                            <select class="form-control select2" name="h_hour">
                                                                 <option value="0">00</option>
                                                                 <option value="1">01</option>
                                                                 <option value="2">02</option>
@@ -538,7 +538,7 @@ foreach ($plugins as $result) {
                                                             </select>
                                                         </div>
                                                         <div class="col-sm-6 pull-right">
-                                                            <select class="form-control" name="h_min">
+                                                            <select class="form-control select2" name="h_min">
                                                                 <option value="0" selected="selected">00</option>
                                                                 <option value="1">01</option>
                                                                 <option value="2">02</option>
@@ -584,15 +584,13 @@ foreach ($plugins as $result) {
         <script src="../plugins/components/metismenu/dist/metisMenu.min.js"></script>
         <script src="../js/jquery.slimscroll.js"></script>
         <script src="../js/waves.js"></script>
-        <script src="../plugins/components/moment/moment.js"></script>
+        <script src="../js/moment.min.js"></script>
         <script src="../plugins/components/footable/js/footable.min.js"></script>
-        <script src="../plugins/components/bootstrap-select/js/bootstrap-select.min.js" type="text/javascript"></script>
-        <script src="../plugins/components/select2-custom/custom-select.min.js"></script>
+        <script src="../plugins/components/select2/js/select2.min.js"></script>
         <script src="../js/footable-init.js"></script>
         <script src="../js/custom.js"></script>
         <script src="../js/cbpFWTabs.js"></script>
-        <script src="../plugins/components/styleswitcher/jQuery.style.switcher.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.all.js"></script>
+        <script src="../plugins/components/sweetalert2.min.js"></script>
         <script type="text/javascript">
             $('#vstobjects').submit(function(ev) {
                 ev.preventDefault();
@@ -614,6 +612,7 @@ foreach ($plugins as $result) {
 
                 return false;
             });
+            $('.select2').select2();
             jQuery(function($){
                 $('.footable').footable();
             });

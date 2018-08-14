@@ -69,13 +69,12 @@ foreach ($plugins as $result) {
         <link href="../../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../../plugins/components/footable/css/footable.bootstrap.css" rel="stylesheet">
-        <link href="../../plugins/components/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet">
-        <link href="../../plugins/components/select2-custom/custom-select.css" rel="stylesheet">
+        <link href="../../plugins/components/select2/css/select2.min.css" rel="stylesheet">
         <link href="../../css/animate.css" rel="stylesheet">
         <link href="../../css/style.css" rel="stylesheet">
         <link href="../../plugins/components/jquery-toast/dist/jquery.toast.min.css" rel="stylesheet">
         <link href="../../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.min.css" />
+        <link rel="stylesheet" href="../../plugins/components/sweetalert2/sweetalert2.min.css" />
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
         <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?> 
         <!--[if lt IE 9]>
@@ -435,14 +434,14 @@ foreach ($plugins as $result) {
                                         <div class="form-group">
                                             <label class="col-md-12" for="VESTA_ADMIN_UNAME">Vesta Admin Username</label>  
                                             <div class="col-md-12">
-                                                <input id="VESTA_ADMIN_UNAME" id="uname" name="VESTA_ADMIN_UNAME" type="text" value="<?php echo $vst_username; ?>" class="form-control input-md">
+                                                <input id="VESTA_ADMIN_UNAME" name="VESTA_ADMIN_UNAME" type="text" value="<?php echo $vst_username; ?>" class="form-control input-md">
 
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12" for="VESTA_ADMIN_PW">Vesta Admin Password</label>
                                             <div class="col-md-12">
-                                                <input id="VESTA_ADMIN_PW" id="pw" name="VESTA_ADMIN_PW" type="text" value="<?php echo $vst_password; ?>" class="form-control input-md">
+                                                <input id="VESTA_ADMIN_PW" name="VESTA_ADMIN_PW" type="text" value="<?php echo $vst_password; ?>" class="form-control input-md">
                                             </div>
                                         </div>
                                     </div>
@@ -786,15 +785,13 @@ foreach ($plugins as $result) {
         <script src="../../plugins/components/metismenu/dist/metisMenu.min.js"></script>
         <script src="../../js/jquery.slimscroll.js"></script>
         <script src="../../js/waves.js"></script>
-        <script src="../../plugins/components/moment/moment.js"></script>
+        <script src="../../js/moment.min.js"></script>
         <script src="../../plugins/components/footable/js/footable.min.js"></script>
-        <script src="../../plugins/components/bootstrap-select/js/bootstrap-select.min.js" type="text/javascript"></script>
-        <script src="../../plugins/components/select2-custom/custom-select.min.js"></script>
+        <script src="../../plugins/components/select2/js/select2.min.js"></script>
         <script src="../../js/footable-init.js"></script>
         <script src="../../js/custom.js"></script>
         <script src="../../js/cbpFWTabs.js"></script>
-        <script src="../../plugins/components/styleswitcher/jQuery.style.switcher.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.all.js"></script>
+        <script src="../../plugins/components/sweetalert2.min.js"></script>
         <script type="text/javascript">
             <?php 
             $pluginlocation = "../../plugins/"; if(isset($pluginnames[0]) && $pluginnames[0] != '') { $currentplugin = 0; do { if (strtolower($pluginhide[$currentplugin]) != 'y' && strtolower($pluginhide[$currentplugin]) != 'yes') { if (strtolower($pluginadminonly[$currentplugin]) != 'y' && strtolower($pluginadminonly[$currentplugin]) != 'yes') { if (strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; } else { $currentstring = "<li><a href='".$pluginlocation.$pluginlinks[$currentplugin]."/'><i class='fa ".$pluginicons[$currentplugin]." fa-fw'></i><span class='hide-menu'>"._($pluginnames[$currentplugin])."</span></a></li>"; }} else { if(strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";} } else { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; }}} echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');\n var plugindata" . $currentplugin . " = \"" . $currentstring . "\";\n plugincontainer" . $currentplugin . ".innerHTML += plugindata" . $currentplugin . ";\n"; } $currentplugin++; } while ($pluginnames[$currentplugin] != ''); } ?> 
@@ -821,8 +818,8 @@ foreach ($plugins as $result) {
                 else {
                     document.getElementById('api').style.display = 'none';
                     document.getElementById('cred').style.display = 'block';
-                    document.getElementById("uname").required = true;
-                    document.getElementById("pw").required = true;
+                    document.getElementById('VESTA_ADMIN_UNAME').required = true;
+                    document.getElementById('VESTA_ADMIN_PW').required = true;
                 }
             }
             function checkDiv2(){
