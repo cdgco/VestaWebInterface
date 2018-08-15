@@ -1139,6 +1139,7 @@ pre {
   width: 100%;
   background: #3c4451;
   border: 0px;
+  z-index: 2;
 }
 .navbar-default {
   border: 0px;
@@ -5407,6 +5408,9 @@ ul.list-icons li i {
   z-index: 1;
 }
 /*Bootstrap select*/
+.bootstrap-select {
+    z-index: 1;
+}
 .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
   width: 100%;
 }

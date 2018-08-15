@@ -38,8 +38,8 @@ textdomain('messages');
         <meta name="author" content="">
         <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
         <title><?php echo $sitetitle; ?> - <?php echo _('Register'); ?></title>
-        <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="bootstrap/dist/css/bootstrap-select.min.css" rel="stylesheet">
+        <link href="plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="plugins/components/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
         <link href="css/animate.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
         <link href="plugins/components/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet">
@@ -147,8 +147,8 @@ textdomain('messages');
         </script>
         <script src="plugins/components/jquery/dist/jquery.min.js"></script>
         <script src="plugins/components/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
-        <script src="bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="bootstrap/dist/js/bootstrap-select.min.js"></script>
+        <script src="plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="plugins/components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
         <script src="plugins/components/metismenu/dist/metisMenu.min.js"></script>
         <script src="js/jquery.slimscroll.js"></script>
         <script src="js/waves.js"></script>

@@ -88,7 +88,7 @@ foreach ($plugins as $result) {
         <meta name="author" content="">
         <link rel="icon" type="image/ico" href="../plugins/images/<?php echo $cpfavicon; ?>">
         <title><?php echo $sitetitle; ?> - <?php echo _("DNS"); ?></title>
-        <link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../plugins/components/footable/compiled/footable.bootstrap.css" rel="stylesheet">
         <link href="../css/animate.css" rel="stylesheet">
@@ -270,7 +270,7 @@ foreach ($plugins as $result) {
         </div>
         <script src="../plugins/components/jquery/dist/jquery.min.js"></script>
         <script src="../plugins/components/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
-        <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="../plugins/components/metismenu/dist/metisMenu.min.js"></script>
         <script src="../js/jquery.slimscroll.js"></script>
         <script src="../js/waves.js"></script>

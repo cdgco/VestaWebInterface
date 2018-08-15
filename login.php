@@ -53,7 +53,7 @@ textdomain('messages');
         <meta name="author" content="">
         <link rel="icon" type="image/ico" href="plugins/images/<?php echo $cpfavicon; ?>">
         <title><?php echo $sitetitle . ' - ' . _("Login"); ?></title>
-        <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="css/animate.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
         <link href="plugins/components/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet">
@@ -236,7 +236,7 @@ textdomain('messages');
         </section>
         <script src="plugins/components/jquery/dist/jquery.min.js"></script>
         <script src="plugins/components/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
-        <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="plugins/components/metismenu/dist/metisMenu.min.js"></script>
         <script src="js/jquery.slimscroll.js"></script>
         <script src="js/waves.js"></script>

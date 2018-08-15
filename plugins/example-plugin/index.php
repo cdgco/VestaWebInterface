@@ -62,7 +62,7 @@ foreach ($plugins as $result) {
         <meta name="author" content="">
         <link rel="icon" type="image/ico" href="../images/<?php echo $cpfavicon; ?>">
         <title><?php echo $sitetitle; ?> - <?php echo _("Example Plugin"); ?></title>
-        <link href="../../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../components/footable/compiled/footable.bootstrap.css" rel="stylesheet">
         <link href="../components/select2/dist/css/select2.min.css" rel="stylesheet">
@@ -160,7 +160,7 @@ foreach ($plugins as $result) {
         </div>
         <script src="../components/jquery/dist/jquery.min.js"></script>
         <script src="../components/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
-        <script src="../../bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="../components/metismenu/dist/metisMenu.min.js"></script>
         <script src="../../js/jquery.slimscroll.js"></script>
         <script src="../../js/waves.js"></script>

@@ -94,8 +94,8 @@ foreach ($plugins as $result) {
         <meta name="author" content="">
         <link rel="icon" type="image/ico" href="plugins/images/<?php echo $cpfavicon; ?>">
         <title><?php echo $sitetitle; ?> - <?php echo _("Dashboard"); ?></title>
-        <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="bootstrap/dist/css/bootstrap-select.min.css" rel="stylesheet">
+        <link href="plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="plugins/components/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
         <link href="plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="plugins/components/footable/compiled/footable.bootstrap.css" rel="stylesheet">
         <link href="css/animate.css" rel="stylesheet">
@@ -220,12 +220,12 @@ foreach ($plugins as $result) {
             </div>
             <div id="page-wrapper">
                 <div class="container-fluid">
-                    <div class="row bg-title" style="overflow-y: visible;">
+                    <div class="row bg-title" style="overflow:visible;">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                             <h4 class="page-title"><?php echo _("Host Dashboard"); ?></h4>
                         </div>
-                        <div id="index-account-action" class="col-lg-2 col-sm-8 col-md-8 col-xs-12 pull-right restwo">
-                            <div class="btn-group bootstrap-select input-group-btn" style="position:absolute;right:64px;">
+                        <div class="col-lg-2 col-sm-8 col-md-8 col-xs-12 pull-right restwo">
+                            <div class="btn-group bootstrap-select input-group-btn" style="margin-right:257px;width:220px;">
                                 <form id="rebuildform" action="process/rebuild.php" method="post">
                                     <select class="selectpicker pull-right m-l-20" name="action" data-style="form-control">
                                         <option value="rebuild-user"><?php echo _("Rebuild Account"); ?></option>
@@ -826,8 +826,8 @@ foreach ($plugins as $result) {
         </div>
         <script src="plugins/components/jquery/dist/jquery.min.js"></script>
         <script src="plugins/components/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
-        <script src="bootstrap/dist/js/bootstrap-select.min.js"></script>
-        <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="plugins/components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
         <script src="plugins/components/metismenu/dist/metisMenu.min.js"></script>
         <script src="js/jquery.slimscroll.js"></script>
         <script src="js/waves.js"></script>
