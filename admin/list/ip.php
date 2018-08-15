@@ -70,12 +70,12 @@ foreach ($plugins as $result) {
         <title><?php echo $sitetitle; ?> - <?php echo _("IP"); ?></title>
         <link href="../../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
-        <link href="../../plugins/components/footable/css/footable.bootstrap.css" rel="stylesheet">
+        <link href="../../plugins/components/footable/compiled/footable.bootstrap.css" rel="stylesheet">
         <link href="../../css/animate.css" rel="stylesheet">
         <link href="../../css/style.css" rel="stylesheet">
-        <link href="../../plugins/components/jquery-toast/dist/jquery.toast.min.css" rel="stylesheet">
+        <link href="../../plugins/components/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet">
         <link href="../../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
-        <link rel="stylesheet" href="../../plugins/components/sweetalert2/sweetalert2.min.css" />
+        <link rel="stylesheet" href="../../plugins/components/sweetalert2/dist/sweetalert2.min.css" />
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
         <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?>
         <!--[if lt IE 9]>
@@ -222,17 +222,17 @@ foreach ($plugins as $result) {
             </div>
         </div>
         <script src="../../plugins/components/jquery/dist/jquery.min.js"></script>
-        <script src="../../plugins/components/jquery-toast/dist/jquery.toast.min.js"></script>
+        <script src="../../plugins/components/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
         <script src="../../bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="../../plugins/components/metismenu/dist/metisMenu.min.js"></script>
         <script src="../../js/jquery.slimscroll.js"></script>
         <script src="../../js/waves.js"></script>
         <script src="../../js/moment.min.js"></script>
-        <script src="../../plugins/components/footable/js/footable.min.js"></script>
+        <script src="../../plugins/components/footable/compiled/footable.min.js"></script>
         <script src="../../js/footable-init.js"></script>
         <script src="../../js/custom.js"></script>
         <script src="../../js/cbpFWTabs.js"></script>
-        <script src="../../plugins/components/sweetalert2.min.js"></script>
+        <script src="../../plugins/components/sweetalert2/dist/sweetalert2.min.js"></script>
         <script type="text/javascript">
             <?php 
 

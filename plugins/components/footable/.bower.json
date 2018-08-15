@@ -1,0 +1,14 @@
+{
+  "name": "footable",
+  "homepage": "https://github.com/bradvin/FooTable",
+  "version": "3.1.6",
+  "_release": "3.1.6",
+  "_resolution": {
+    "type": "version",
+    "tag": "3.1.6",
+    "commit": "e77ff2e91491b47438bc44884f5d98e0a37e3734"
+  },
+  "_source": "https://github.com/bradvin/FooTable.git",
+  "_target": "^3.1.6",
+  "_originalSource": "footable"
+}

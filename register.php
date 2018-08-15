@@ -42,7 +42,7 @@ textdomain('messages');
         <link href="bootstrap/dist/css/bootstrap-select.min.css" rel="stylesheet">
         <link href="css/animate.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-        <link href="plugins/components/jquery-toast/dist/jquery.toast.min.css" rel="stylesheet">
+        <link href="plugins/components/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet">
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
         <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?>
         <style>
@@ -146,7 +146,7 @@ textdomain('messages');
             confirm_password.onkeyup = validatePassword;
         </script>
         <script src="plugins/components/jquery/dist/jquery.min.js"></script>
-        <script src="plugins/components/jquery-toast/dist/jquery.toast.min.js"></script>
+        <script src="plugins/components/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
         <script src="bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="bootstrap/dist/js/bootstrap-select.min.js"></script>
         <script src="plugins/components/metismenu/dist/metisMenu.min.js"></script>

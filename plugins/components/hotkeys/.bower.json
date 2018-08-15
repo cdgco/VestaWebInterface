@@ -1,0 +1,14 @@
+{
+  "name": "hotkeys",
+  "homepage": "https://github.com/jaywcjlove/hotkeys",
+  "version": "3.3.5",
+  "_release": "3.3.5",
+  "_resolution": {
+    "type": "version",
+    "tag": "v3.3.5",
+    "commit": "aecd59b5713df220c04de19e6529c32d30b11b33"
+  },
+  "_source": "https://github.com/jaywcjlove/hotkeys.git",
+  "_target": "^3.3.5",
+  "_originalSource": "jaywcjlove/hotkeys"
+}

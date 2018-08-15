@@ -97,11 +97,11 @@ foreach ($plugins as $result) {
         <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="bootstrap/dist/css/bootstrap-select.min.css" rel="stylesheet">
         <link href="plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
-        <link href="plugins/components/footable/css/footable.bootstrap.css" rel="stylesheet">
+        <link href="plugins/components/footable/compiled/footable.bootstrap.css" rel="stylesheet">
         <link href="css/animate.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-        <link href="plugins/components/jquery-toast/dist/jquery.toast.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="plugins/components/sweetalert2/sweetalert2.min.css" />
+        <link href="plugins/components/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="plugins/components/sweetalert2/dist/sweetalert2.min.css" />
         <link href="css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
         <?php if(GOOGLE_ANALYTICS_ID != ''){ 
         echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
@@ -147,7 +147,7 @@ foreach ($plugins as $result) {
             app_id: "' . INTERAKT_APP_ID . '"
             };
             </script>'; } ?>
-        <script src="plugins/components/sweetalert2/sweetalert2.min.js"></script>
+        <script src="plugins/components/sweetalert2/dist/sweetalert2.min.js"></script>
         <?php
 
         if(isset($_GET['rebuild'])){
@@ -825,7 +825,7 @@ foreach ($plugins as $result) {
             </div>
         </div>
         <script src="plugins/components/jquery/dist/jquery.min.js"></script>
-        <script src="plugins/components/jquery-toast/dist/jquery.toast.min.js"></script>
+        <script src="plugins/components/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
         <script src="bootstrap/dist/js/bootstrap-select.min.js"></script>
         <script src="bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="plugins/components/metismenu/dist/metisMenu.min.js"></script>
@@ -834,7 +834,7 @@ foreach ($plugins as $result) {
         <script src="js/jquery.overlaps.js"></script>
         <script src="js/moment.min.js"></script>
         <script src="js/cbpFWTabs.js"></script>
-        <script src="plugins/components/footable/js/footable.min.js"></script>
+        <script src="plugins/components/footable/compiled/footable.min.js"></script>
         <script src="js/footable-init.js"></script>
         <script type="text/javascript">
         <?php 

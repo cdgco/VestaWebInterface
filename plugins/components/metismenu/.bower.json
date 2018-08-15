@@ -1,0 +1,14 @@
+{
+  "name": "metismenu",
+  "homepage": "https://github.com/onokumus/metisMenu",
+  "version": "2.7.9",
+  "_release": "2.7.9",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.7.9",
+    "commit": "1259c3142440c6f607bdfb4359a0ca5cdcf901b7"
+  },
+  "_source": "https://github.com/onokumus/metisMenu.git",
+  "_target": "^2.7.9",
+  "_originalSource": "metismenu"
+}
