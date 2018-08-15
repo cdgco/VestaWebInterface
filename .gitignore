@@ -9,3 +9,10 @@ plugins/vwi-billing/*
 plugins/vwi-billing/
 .vscode/settings.json
 .vscode/launch.json
+bower.json
+.bowerrc
+*/docs
+test
+tests
+demos
+website
