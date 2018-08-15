@@ -8,7 +8,7 @@ The Google Analytics integration with VWI allows you to live monitor and manage 
 Create a new property within [Google Analytics](https://analytics.google.com/analytics/web/), entering the VWI site as the website then hit 'Get Tracking ID'.
 
 #### Step 2
-Copy the tracking ID starting with 'UA-' and enter it into your VWI config. (Read the [Web Based Config](web-config) or [Manual Config](manual-config) pages for info on how to do this.)
+Copy the tracking ID starting with 'UA-' and enter it into your VWI config. (Read the [Web Based Config](web-config#optional-integrations) or [Manual Config](manual-config#integrations) pages for info on how to do this.)
 
 
 All Done!

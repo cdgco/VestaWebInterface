@@ -8,10 +8,10 @@ The Cloudflare integration with VWI allows users to use Cloudflare rather than V
 From your [Cloudflare Profile Page](https://dash.cloudflare.com/profile) scroll down to 'API Keys' and click 'View' for 'Global API Key'.
 
 #### Step 2:
-After entering your password, copy the API Key and enter it into your VWI config. (Read the [Web Based Config](web-config) or [Manual Config](manual-config) pages for info on how to do this.)
+After entering your password, copy the API Key and enter it into your VWI config. (Read the [Web Based Config](web-config#optional-integrations) or [Manual Config](manual-config#integrations) pages for info on how to do this.)
 
 #### Step 3:
-Enter the email address for your Cloudflare account in your VWI config. (Read the [Web Based Config](web-config) or [Manual Config](manual-config) pages for info on how to do this.)
+Enter the email address for your Cloudflare account in your VWI config. (Read the [Web Based Config](web-config#optional-integrations) or [Manual Config](manual-config#integrations) pages for info on how to do this.)
 
 All Done!
 
