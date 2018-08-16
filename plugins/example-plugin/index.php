@@ -62,15 +62,15 @@ foreach ($plugins as $result) {
         <meta name="author" content="">
         <link rel="icon" type="image/ico" href="../images/<?php echo $cpfavicon; ?>">
         <title><?php echo $sitetitle; ?> - <?php echo _("Example Plugin"); ?></title>
-        <link href="../components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
-        <link href="../components/footable/compiled/footable.bootstrap.css" rel="stylesheet">
-        <link href="../components/select2/dist/css/select2.min.css" rel="stylesheet">
+        <link href="../components/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../components/metismenu/metisMenu.min.css" rel="stylesheet">
+        <link href="../components/footable//footable.bootstrap.css" rel="stylesheet">
+        <link href="../components/select2/select2.min.css" rel="stylesheet">
         <link href="../components/animate.css/animate.min.css" rel="stylesheet">
         <link href="../../css/style.css" rel="stylesheet">
-        <link href="../components/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet">
+        <link href="../components/jquery-toast-plugin/jquery.toast.min.css" rel="stylesheet">
         <link href="../../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
-        <link rel="stylesheet" href="../components/sweetalert2/dist/sweetalert2.min.css" />
+        <link rel="stylesheet" href="../components/sweetalert2/sweetalert2.min.css" />
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
         <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?> 
         <!--[if lt IE 9]>
@@ -158,19 +158,19 @@ foreach ($plugins as $result) {
                 <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
-        <script src="../components/jquery/dist/jquery.min.js"></script>
-        <script src="../components/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
-        <script src="../components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="../components/metismenu/dist/metisMenu.min.js"></script>
-        <script src="../../js/jquery.slimscroll.js"></script>
+        <script src="../components/jquery/jquery.min.js"></script>
+        <script src="../components/jquery-toast-plugin/jquery.toast.min.js"></script>
+        <script src="../components/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../components/metismenu/metisMenu.min.js"></script>
+        <script src="../components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
         <script src="../../js/waves.js"></script>
-        <script src="../../js/moment.min.js"></script>
-        <script src="../components/footable/compiled/footable.min.js"></script>
-        <script src="../components/select2/dist/js/select2.min.js"></script>
+        <script src="../components/moment/moment.min.js"></script>
+        <script src="../components/footable//footable.min.js"></script>
+        <script src="../components/select2/select2.min.js"></script>
         <script src="../../js/footable-init.js"></script>
         <script src="../../js/custom.js"></script>
         <script src="../../js/cbpFWTabs.js"></script>
-        <script src="../components/sweetalert2/dist/sweetalert2.min.js"></script>
+        <script src="../components/sweetalert2/sweetalert2.min.js"></script>
         <script type="text/javascript">
             <?php 
             

@@ -60,11 +60,11 @@ textdomain('messages');
         <meta name="author" content="">
         <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
         <title><?php echo $sitetitle; ?> - <?php echo _('Register'); ?></title>
-        <link href="plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="plugins/components/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+        <link href="plugins/components/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="plugins/components/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet">
         <link href="plugins/components/animate.css/animate.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-        <link href="plugins/components/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet">
+        <link href="plugins/components/jquery-toast-plugin/jquery.toast.min.css" rel="stylesheet">
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
         <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?>
         <style>
@@ -167,12 +167,12 @@ textdomain('messages');
             password.onchange = validatePassword;
             confirm_password.onkeyup = validatePassword;
         </script>
-        <script src="plugins/components/jquery/dist/jquery.min.js"></script>
-        <script src="plugins/components/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
-        <script src="plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="plugins/components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-        <script src="plugins/components/metismenu/dist/metisMenu.min.js"></script>
-        <script src="js/jquery.slimscroll.js"></script>
+        <script src="plugins/components/jquery/jquery.min.js"></script>
+        <script src="plugins/components/jquery-toast-plugin/jquery.toast.min.js"></script>
+        <script src="plugins/components/bootstrap/js/bootstrap.min.js"></script>
+        <script src="plugins/components/bootstrap-select/js/bootstrap-select.min.js"></script>
+        <script src="plugins/components/metismenu/metisMenu.min.js"></script>
+        <script src="plugins/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
         <script src="js/waves.js"></script>
         <script src="js/custom.js"></script>
         <script>

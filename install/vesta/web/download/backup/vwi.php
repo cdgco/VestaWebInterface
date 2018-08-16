@@ -81,5 +81,5 @@ if (isset($_POST['user']) && isset($_POST['password'])) {
             </svg>
         </div>
                     </body>
-        <script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/plugins/bower_components/jquery/jquery.min.js"></script>
 </html>

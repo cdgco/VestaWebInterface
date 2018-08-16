@@ -64,5 +64,5 @@ if(curl_exec($curl0)){
             </svg>
         </div>
     </body>
-    <script src="../plugins/components/jquery/dist/jquery.min.js"></script>
+    <script src="../plugins/components/jquery/jquery.min.js"></script>
 </html>

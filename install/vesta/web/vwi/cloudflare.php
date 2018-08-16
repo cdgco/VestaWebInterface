@@ -186,7 +186,7 @@ body{
 		</div>
  </div>
 </div>
-    <script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/plugins/components/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/plugins/components/jquery/jquery.min.js"></script>
     <script>
     setTimeout( function(){ 
        $('.loader').addClass("process"); 

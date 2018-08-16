@@ -140,5 +140,5 @@ if(isset($cookie)){
             document.getElementById('form').submit();
         </script>
     </body>
-    <script src="../plugins/components/jquery/dist/jquery.min.js"></script>
+    <script src="../plugins/components/jquery/jquery.min.js"></script>
 </html>

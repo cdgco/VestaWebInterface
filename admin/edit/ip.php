@@ -96,15 +96,15 @@ foreach ($plugins as $result) {
         <meta name="author" content="">
         <link rel="icon" type="image/ico" href="../../plugins/images/<?php echo $cpfavicon; ?>">
         <title><?php echo $sitetitle; ?> - <?php echo _("IP"); ?></title>
-        <link href="../../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
-        <link href="../../plugins/components/footable/compiled/footable.bootstrap.css" rel="stylesheet">
+        <link href="../../plugins/components/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../plugins/components/metismenu/metisMenu.min.css" rel="stylesheet">
+        <link href="../../plugins/components/footable//footable.bootstrap.css" rel="stylesheet">
         <link href="../../plugins/components/animate.css/animate.min.css" rel="stylesheet">
         <link href="../../css/style.css" rel="stylesheet">
-        <link href="../../plugins/components/select2/dist/css/select2.min.css" rel="stylesheet">
-        <link href="../../plugins/components/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet">
+        <link href="../../plugins/components/select2/select2.min.css" rel="stylesheet">
+        <link href="../../plugins/components/jquery-toast-plugin/jquery.toast.min.css" rel="stylesheet">
         <link href="../../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
-        <link rel="stylesheet" href="../../plugins/components/sweetalert2/dist/sweetalert2.min.css" />
+        <link rel="stylesheet" href="../../plugins/components/sweetalert2/sweetalert2.min.css" />
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
         <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?> 
         <!--[if lt IE 9]>
@@ -269,19 +269,19 @@ foreach ($plugins as $result) {
                 <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
-        <script src="../../plugins/components/jquery/dist/jquery.min.js"></script>
-        <script src="../../plugins/components/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
-        <script src="../../plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="../../plugins/components/metismenu/dist/metisMenu.min.js"></script>
-        <script src="../../js/jquery.slimscroll.js"></script>
+        <script src="../../plugins/components/jquery/jquery.min.js"></script>
+        <script src="../../plugins/components/jquery-toast-plugin/jquery.toast.min.js"></script>
+        <script src="../../plugins/components/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../../plugins/components/metismenu/metisMenu.min.js"></script>
+        <script src="../../plugins/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
         <script src="../../js/waves.js"></script>
-        <script src="../../js/moment.min.js"></script>
-        <script src="../../plugins/components/footable/compiled/footable.min.js"></script>
-        <script src="../../plugins/components/select2/dist/js/select2.min.js"></script>
+        <script src="../../plugins/components/moment/moment.min.js"></script>
+        <script src="../../plugins/components/footable//footable.min.js"></script>
+        <script src="../../plugins/components/select2/select2.min.js"></script>
         <script src="../../js/footable-init.js"></script>
         <script src="../../js/custom.js"></script>
         <script src="../../js/cbpFWTabs.js"></script>
-        <script src="../../plugins/components/sweetalert2/dist/sweetalert2.min.js"></script>
+        <script src="../../plugins/components/sweetalert2/sweetalert2.min.js"></script>
         <script type="text/javascript">
             <?php 
             $pluginlocation = "../../plugins/"; if(isset($pluginnames[0]) && $pluginnames[0] != '') { $currentplugin = 0; do { if (strtolower($pluginhide[$currentplugin]) != 'y' && strtolower($pluginhide[$currentplugin]) != 'yes') { if (strtolower($pluginadminonly[$currentplugin]) != 'y' && strtolower($pluginadminonly[$currentplugin]) != 'yes') { if (strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; } else { $currentstring = "<li><a href='".$pluginlocation.$pluginlinks[$currentplugin]."/'><i class='fa ".$pluginicons[$currentplugin]." fa-fw'></i><span class='hide-menu'>"._($pluginnames[$currentplugin])."</span></a></li>"; }} else { if(strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";} } else { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; }}} echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');\n var plugindata" . $currentplugin . " = \"" . $currentstring . "\";\n plugincontainer" . $currentplugin . ".innerHTML += plugindata" . $currentplugin . ";\n"; } $currentplugin++; } while ($pluginnames[$currentplugin] != ''); } ?> 

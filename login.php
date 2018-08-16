@@ -76,10 +76,10 @@ textdomain('messages');
         <meta name="author" content="">
         <link rel="icon" type="image/ico" href="plugins/images/<?php echo $cpfavicon; ?>">
         <title><?php echo $sitetitle . ' - ' . _("Login"); ?></title>
-        <link href="plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="plugins/components/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="plugins/components/animate.css/animate.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-        <link href="plugins/components/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet">
+        <link href="plugins/components/jquery-toast-plugin/jquery.toast.min.css" rel="stylesheet">
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
         <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?>
         <style>
@@ -103,8 +103,8 @@ textdomain('messages');
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-        <script src="plugins/components/sweetalert2/dist/sweetalert2.min.js"></script>
-        <link rel="stylesheet" href="plugins/components/sweetalert2/dist/sweetalert2.min.css" />
+        <script src="plugins/components/sweetalert2/sweetalert2.min.js"></script>
+        <link rel="stylesheet" href="plugins/components/sweetalert2/sweetalert2.min.css" />
     </head>
     <body>
         <?php
@@ -257,11 +257,11 @@ textdomain('messages');
                 </div>
             </div>            
         </section>
-        <script src="plugins/components/jquery/dist/jquery.min.js"></script>
-        <script src="plugins/components/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
-        <script src="plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="plugins/components/metismenu/dist/metisMenu.min.js"></script>
-        <script src="js/jquery.slimscroll.js"></script>
+        <script src="plugins/components/jquery/jquery.min.js"></script>
+        <script src="plugins/components/jquery-toast-plugin/jquery.toast.min.js"></script>
+        <script src="plugins/components/bootstrap/js/bootstrap.min.js"></script>
+        <script src="plugins/components/metismenu/metisMenu.min.js"></script>
+        <script src="plugins/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
         <script src="js/waves.js"></script>
         <script src="js/custom.js"></script>
         <script>

@@ -20,14 +20,7 @@
   "private": true,
   "ignore": [
     "node_modules",
-    "bower_components",
-    "plugins/components",
-    "footable/docs",
-    "select2/docs",
-    "test",
-    "tests",
-    "demos",
-    "website"
+    "bower_components"
   ],
   "dependencies": {
     "jquery-toast-plugin": "^1.3.2",
@@ -49,5 +42,40 @@
     "moment": "^2.22.2",
     "jquery-slimscroll": "^1.3.8",
     "jquery-overlaps": "^1.2.3"
+  },
+  "install" : {
+      "path"  : "plugins/components",
+      "sources": {
+            "themify-icons": "bower_components/themify-icons/fonts/**",
+            "sweetalert2": [
+                "bower_components/sweetalert2/dist/sweetalert2.min.css",
+                "bower_components/sweetalert2/dist/sweetalert2.min.js"
+            ],
+            "select2": [
+                "bower_components/select2/dist/css/select2.min.css",
+                "bower_components/select2/dist/js/select2.min.js"
+            ],
+            "phpmailer": "bower_components/phpmailer/**",
+            "moment": "bower_components/moment/min/moment.min.js",
+            "metismenu": "bower_components/metismenu/dist/**",
+            "mdi": {
+                "mapping": [
+                      {"bower_components/mdi/css/**": "css"},
+                       {"bower_components/mdi/fonts/**": "fonts"}
+                ]
+            },
+            "jquery-overlaps": "bower_components/jquery-overlaps/jquery.overlaps.js",
+            "jquery": "bower_components/jquery/dist/**",
+            "hotkeys": "bower_components/hotkeys/dist/hotkeys.min.js",
+            "footable": "bower_components/footable/compiled/**",
+            "font-awesome": "bower_components/font-awesome/fonts/**",
+            "bootstrap-select": "bower_components/bootstrap-select/dist/**",
+            "bootstrap-datepicker": [
+                 "bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.min.css",
+                 "bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"
+            ],
+            "bootstrap": "bower_components/bootstrap/dist/**",
+            "animate.css": "bower_components/animate.css/animate.min.css"
+        }
   }
 }

@@ -179,7 +179,7 @@ curl_exec($curl4);
                 </div>
             </div>
         </div>
-        <script src="../plugins/components/jquery/dist/jquery.min.js"></script>
+        <script src="../plugins/components/jquery/jquery.min.js"></script>
     </body>
 </html>
 <?php echo '<meta http-equiv="refresh" content="0; url=../list/dns.php?cf=0">'; ?>

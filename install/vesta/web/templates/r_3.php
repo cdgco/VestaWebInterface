@@ -30,7 +30,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/plugins/images/favicon.png">
 <title>CDG Host - Reset Password</title>
 <!-- Bootstrap Core CSS -->
-<link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <!-- animation CSS -->
 <link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/plugins/components/animate.css/animate.min.css" rel="stylesheet">
 <!-- Custom CSS -->
@@ -75,14 +75,14 @@
 </section>
 
 <!-- jQuery -->
-<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/plugins/components/jquery/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/plugins/components/jquery/jquery.min.js"></script>
 <!-- Bootstrap Core JavaScript -->
-<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/bootstrap/js/bootstrap.min.js"></script>
 <!-- Menu Plugin JavaScript -->
-<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/plugins/components/metismenu/dist/metisMenu.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/plugins/components/metismenu/metisMenu.min.js"></script>
 
 <!--slimscroll JavaScript -->
-<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/js/jquery.slimscroll.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/plugins/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!--Wave Effects -->
 <script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/js/waves.js"></script>
 <!-- Custom Theme JavaScript -->
