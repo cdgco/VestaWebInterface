@@ -81,7 +81,7 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/bootstrap/js/bootstrap.min.js"></script>
 <!-- Menu Plugin JavaScript -->
-<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/plugins/components/metismenu/metisMenu.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/plugins/components/metismenu/dist/metisMenu.min.js"></script>
 
 <!--slimscroll JavaScript -->
 <script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/plugins/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>

@@ -89,9 +89,9 @@ foreach ($plugins as $result) {
         <meta name="author" content="">
         <link rel="icon" type="image/ico" href="../plugins/images/<?php echo $cpfavicon; ?>">
         <title><?php echo $sitetitle; ?> - SSL</title>
-        <link href="../plugins/components/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../plugins/components/metismenu/metisMenu.min.css" rel="stylesheet">
-        <link href="../plugins/components/footable//footable.bootstrap.css" rel="stylesheet">
+        <link href="../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
+        <link href="../plugins/components/footable/footable.bootstrap.css" rel="stylesheet">
         <link href="../plugins/components/animate.css/animate.min.css" rel="stylesheet">
         <link href="../css/style.css" rel="stylesheet">
         <link href="../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
@@ -242,12 +242,12 @@ foreach ($plugins as $result) {
             </div>
         </div>
         <script src="../plugins/components/jquery/jquery.min.js"></script>
-        <script src="../plugins/components/bootstrap/js/bootstrap.min.js"></script>
-        <script src="../plugins/components/metismenu/metisMenu.min.js"></script>
+        <script src="../plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../plugins/components/metismenu/dist/metisMenu.min.js"></script>
         <script src="../plugins/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
         <script src="../js/waves.js"></script>
         <script src="../plugins/components/moment/moment.min.js"></script>
-        <script src="../plugins/components/footable//footable.min.js"></script>
+        <script src="../plugins/components/footable/footable.min.js"></script>
         <script src="../js/footable-init.js"></script>
         <script src="../js/custom.js"></script>
         <script src="../js/cbpFWTabs.js"></script>

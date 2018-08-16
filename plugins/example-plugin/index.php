@@ -62,9 +62,9 @@ foreach ($plugins as $result) {
         <meta name="author" content="">
         <link rel="icon" type="image/ico" href="../images/<?php echo $cpfavicon; ?>">
         <title><?php echo $sitetitle; ?> - <?php echo _("Example Plugin"); ?></title>
-        <link href="../components/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../components/metismenu/metisMenu.min.css" rel="stylesheet">
-        <link href="../components/footable//footable.bootstrap.css" rel="stylesheet">
+        <link href="../components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
+        <link href="../components/footable/footable.bootstrap.css" rel="stylesheet">
         <link href="../components/select2/select2.min.css" rel="stylesheet">
         <link href="../components/animate.css/animate.min.css" rel="stylesheet">
         <link href="../../css/style.css" rel="stylesheet">
@@ -160,12 +160,12 @@ foreach ($plugins as $result) {
         </div>
         <script src="../components/jquery/jquery.min.js"></script>
         <script src="../components/jquery-toast-plugin/jquery.toast.min.js"></script>
-        <script src="../components/bootstrap/js/bootstrap.min.js"></script>
-        <script src="../components/metismenu/metisMenu.min.js"></script>
+        <script src="../components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../components/metismenu/dist/metisMenu.min.js"></script>
         <script src="../components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
         <script src="../../js/waves.js"></script>
         <script src="../components/moment/moment.min.js"></script>
-        <script src="../components/footable//footable.min.js"></script>
+        <script src="../components/footable/footable.min.js"></script>
         <script src="../components/select2/select2.min.js"></script>
         <script src="../../js/footable-init.js"></script>
         <script src="../../js/custom.js"></script>

@@ -94,9 +94,9 @@ foreach ($plugins as $result) {
         <meta name="author" content="">
         <link rel="icon" type="image/ico" href="../../plugins/images/<?php echo $cpfavicon; ?>">
         <title><?php echo $sitetitle; ?> - <?php echo _("IP"); ?></title>
-        <link href="../../plugins/components/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../plugins/components/metismenu/metisMenu.min.css" rel="stylesheet">
-        <link href="../../plugins/components/footable//footable.bootstrap.css" rel="stylesheet">
+        <link href="../../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
+        <link href="../../plugins/components/footable/footable.bootstrap.css" rel="stylesheet">
         <link href="../../plugins/components/select2/select2.min.css" rel="stylesheet">
         <link href="../../plugins/components/animate.css/animate.min.css" rel="stylesheet">
         <link href="../../css/style.css" rel="stylesheet">
@@ -272,12 +272,12 @@ foreach ($plugins as $result) {
         </div>
         <script src="../../plugins/components/jquery/jquery.min.js"></script>
         <script src="../../plugins/components/jquery-toast-plugin/jquery.toast.min.js"></script>
-        <script src="../../plugins/components/bootstrap/js/bootstrap.min.js"></script>
-        <script src="../../plugins/components/metismenu/metisMenu.min.js"></script>
+        <script src="../../plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../../plugins/components/metismenu/dist/metisMenu.min.js"></script>
         <script src="../../plugins/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
         <script src="../../js/waves.js"></script>
         <script src="../../plugins/components/moment/moment.min.js"></script>
-        <script src="../../plugins/components/footable//footable.min.js"></script>
+        <script src="../../plugins/components/footable/footable.min.js"></script>
         <script src="../../plugins/components/select2/select2.min.js"></script>
         <script src="../../js/footable-init.js"></script>
         <script src="../../js/custom.js"></script>
