@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # Includes
 source $VESTA/func/main.sh
 source $VESTA/conf/vesta.conf

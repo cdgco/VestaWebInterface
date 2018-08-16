@@ -1,10 +1,31 @@
 <?php
 
-////////////////////////////////////////////////////////////////////////////////
-//                                                                            //
-//         Vesta Web Interface Configuration, Variables and Functions         //
-//                                                                            //
-////////////////////////////////////////////////////////////////////////////////
+/** 
+*
+* Vesta Web Interface v0.5.1-Beta
+*
+* Copyright (C) 2018 Carter Roeser <carter@cdgtech.one>
+* https://cdgco.github.io/VestaWebInterface
+*
+* Vesta Web Interface is free software: you can redistribute it and/or modify
+* it under the terms of version 3 of the GNU General Public License as published 
+* by the Free Software Foundation.
+*
+* Vesta Web Interface is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+* 
+* You should have received a copy of the GNU General Public License
+* along with Vesta Web Interface.  If not, see
+* <https://github.com/cdgco/VestaWebInterface/blob/master/LICENSE>.
+*
+*/
+
+
+/*
+* Vesta Web Interface Configuration, Variables and Functions
+*/
 
 // Require MySQL Credentials & Arrays of Countries, Languages and Error Codes in all pages
 require("config.php"); require("arrays.php");
@@ -58,15 +79,12 @@ else {
     $displayname = $initialusername;
 }
 
-/////////////////////////////////////////////////////////////////////////////////                
-//         Vesta Web Interface Configuration Conversions & Definitions         //
-//                       Ordered the same as settings.php                      //
-/////////////////////////////////////////////////////////////////////////////////
+/*             
+* Vesta Web Interface Configuration Conversions & Definitions
+* Ordered the same as settings.php
+*/
 
-
-//////////////////////////
-// Server Configuration //
-//////////////////////////
+// Server Configuration
 
 date_default_timezone_set($config["TIMEZONE"]);
 $sitetitle = $config["SITE_NAME"];
@@ -126,9 +144,7 @@ $cpicon = $config["ICON"];
 $cplogo = $config["LOGO"];
 $cpfavicon = $config["FAVICON"];
 
-///////////////////////////////
-// Enable / Disable Sections //
-///////////////////////////////
+// Enable / Disable Sections
 
 if($config["WEB_ENABLED"] != 'true'){
     $webenabled = '';
@@ -196,9 +212,8 @@ if($config["OLD_CP_LINK"] == 'false'){
 else{
     $oldcpurl = $url8083;
 }
-//////////
-// MAIL //
-//////////
+
+// MAIL
 
 $phpmailenabled = strtolower($config["PHPMAIL_ENABLED"]);
 $mailfrom = $config["MAIL_FROM"];
@@ -211,9 +226,7 @@ $smtpuname = $config["SMTP_UNAME"];
 $smtppw = $config["SMTP_PW"];
 $smtpenc = strtolower($config["SMTP_ENC"]);
 
-////////////////////
-// Optional Links //
-////////////////////
+// Optional Links
 
 if($config["FTP_URL"] == ''){
     $ftpurl = 'http://net2ftp.com/';
@@ -261,9 +274,8 @@ else{
     $supporturl = $config["SUPPORT_URL"];
 }
 
-//////////////////////////
-// Optional Integration //
-//////////////////////////
+// Optional Integration
+
 $plugins = explode(",", str_replace(' ', '', $config["PLUGINS"]));
 $pluginlinks = array();
 $pluginnames = array();
@@ -281,9 +293,7 @@ DEFINE('CLOUDFLARE_API_KEY', $config["CLOUDFLARE_API_KEY"]);
 $cfapikey = $config["CLOUDFLARE_API_KEY"];
 DEFINE('CLOUDFLARE_EMAIL', $config["CLOUDFLARE_EMAIL"]);
 
-///////////////////
-// VWI Functions //
-///////////////////
+// VWI Functions
 
 function vwicrypt($cs,$ca='e') { 
     $op = false; $ecm ="AES-256-CBC"; $key=hash('sha256',$KEY1); $iv=substr(hash('sha256',$KEY2),0,16); 

@@ -1,4 +1,40 @@
 <?php
+
+/*
+ * Plugin:        StreamlineFoundation
+ *
+ * Class:        Schedule
+ *
+ * Description:    Provides scheduling mechanics including creating a schedule, testing if a specific moment is part of the schedule, moving back
+ *                and forth between scheduled moments in time and translating the created schedule back to a human readable form.
+ *
+ * Usage:        ::fromCronString() creates a new Schedule class and requires a string in the cron ('* * * * *', $language) format.
+ *
+ *                ->next(<datetime>) returns the first scheduled datetime after <datetime> in array format.
+ *                ->nextAsString(<datetime>) does the same with an ISO string as the result.
+ *                ->nextAsTime(<datetime>) does the same with a UNIX timestamp as the result.
+ *
+ *                ->previous(<datetime>) returns the first scheduled datetime before <datetime> in array format.
+ *                ->previousAsString(<datetime>) does the same with an ISO string as the result.
+ *                ->previousAsTime(<datetime>) does the same with a UNIX timestamp as the result.
+ *
+ *                ->asNaturalLanguage() returns the entire schedule in natural language form.
+ *
+ *                In the next and previous functions, <datetime> can be a UNIX timestamp, an ISO string or an array format such as returned by
+ *                next() and previous().
+ *
+ * Copyright:    2012 Joost Brugman (joost@brugmanholding.com, joost@joostbrugman.com)
+ *        
+ *                This file is part of the Streamline plugin "StreamlineFoundation" and referenced in the next paragraphs inside this comment block as "this
+ *                plugin". It is based on the Streamline application framework.
+ *
+ *                This plugin is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as
+ *                published by the Free Software Foundation, either version 3 of the License, or any later version. This plugin is distributed in the
+ *                hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ *                PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public
+ *                License along with Streamline.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 class CronSchedule
 {
 	private    $_minutes            = array();

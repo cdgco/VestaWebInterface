@@ -1,3 +1,24 @@
+<!-- /** 
+*
+* Vesta Web Interface v0.5.1-Beta
+*
+* Copyright (C) 2018 Carter Roeser <carter@cdgtech.one>
+* https://cdgco.github.io/VestaWebInterface
+*
+* Vesta Web Interface is free software: you can redistribute it and/or modify
+* it under the terms of version 3 of the GNU General Public License as published 
+* by the Free Software Foundation.
+*
+* Vesta Web Interface is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+* 
+* You should have received a copy of the GNU General Public License
+* along with Vesta Web Interface.  If not, see
+* <https://github.com/cdgco/VestaWebInterface/blob/master/LICENSE>.
+*
+*/ -->
 <!DOCTYPE html>  
 <html lang="en">
 <head>
@@ -6,16 +27,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="icon" type="image/png" sizes="16x16" href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.0-Beta/plugins/images/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/plugins/images/favicon.png">
 <title>CDG Host - Reset Password</title>
 <!-- Bootstrap Core CSS -->
-<link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.0-Beta/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- animation CSS -->
-<link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.0-Beta/css/animate.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/plugins/components/animate.css/animate.min.css" rel="stylesheet">
 <!-- Custom CSS -->
-<link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.0-Beta/css/style.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/css/style.css" rel="stylesheet">
 <!-- color CSS -->
-<link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.0-Beta/css/colors/default.css" id="theme"  rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/css/colors/default.css" id="theme"  rel="stylesheet">
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -54,17 +75,17 @@
 </section>
 
 <!-- jQuery -->
-<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.0-Beta/plugins/components/jquery/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/plugins/components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap Core JavaScript -->
-<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.0-Beta/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Menu Plugin JavaScript -->
-<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.0-Beta/plugins/components/metismenu/dist/metisMenu.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/plugins/components/metismenu/dist/metisMenu.min.js"></script>
 
 <!--slimscroll JavaScript -->
-<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.0-Beta/js/jquery.slimscroll.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/js/jquery.slimscroll.js"></script>
 <!--Wave Effects -->
-<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.0-Beta/js/waves.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/js/waves.js"></script>
 <!-- Custom Theme JavaScript -->
-<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.0-Beta/js/custom.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/js/custom.js"></script>
 </body>
 </html>

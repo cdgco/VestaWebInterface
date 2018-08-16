@@ -66,7 +66,7 @@ foreach ($plugins as $result) {
         <link href="../components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../components/footable/compiled/footable.bootstrap.css" rel="stylesheet">
         <link href="../components/select2/dist/css/select2.min.css" rel="stylesheet">
-        <link href="../../css/animate.css" rel="stylesheet">
+        <link href="../components/animate.css/animate.min.css" rel="stylesheet">
         <link href="../../css/style.css" rel="stylesheet">
         <link href="../components/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet">
         <link href="../../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">

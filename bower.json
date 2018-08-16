@@ -43,6 +43,7 @@
     "font-awesome": "4.7.0",
     "mdi": "^2.6.95",
     "bootstrap": "3",
-    "bootstrap-select": "^1.13.1"
+    "bootstrap-select": "^1.13.1",
+    "animate.css": "^3.7.0"
   }
 }

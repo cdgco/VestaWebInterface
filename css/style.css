@@ -1,6 +1,27 @@
+/** 
+*
+* Vesta Web Interface v0.5.1-Beta
+*
+* Copyright (C) 2018 Carter Roeser <carter@cdgtech.one>
+* https://cdgco.github.io/VestaWebInterface
+*
+* Vesta Web Interface is free software: you can redistribute it and/or modify
+* it under the terms of version 3 of the GNU General Public License as published 
+* by the Free Software Foundation.
+*
+* Vesta Web Interface is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+* 
+* You should have received a copy of the GNU General Public License
+* along with Vesta Web Interface.  If not, see
+* <https://github.com/cdgco/VestaWebInterface/blob/master/LICENSE>.
+*
+*/
+
 @charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900);
-@import "spinners.css";
 @import "../plugins/components/mdi/css/materialdesignicons.min.css";
 
 @font-face {
@@ -206,7 +227,57 @@ button.keyboard-shortcuts:active {
     button.keyboard-shortcuts{ display:none !important; }
     button.back-to-top { right: 25px; }
     button.back-to-top.show { right: 25px; }
-}  
+}
+.circular {
+  animation: rotate 2s linear infinite;
+  height: 50px;
+  transform-origin: center center;
+  width: 50px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.path {
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+  stroke-linecap: round;
+}
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+
+@keyframes color {
+  100%,
+  0% {
+    stroke: #d62d20;
+  }
+  40% {
+    stroke: #0057e7;
+  }
+  66% {
+    stroke: #008744;
+  }
+  80%,
+  90% {
+    stroke: #ffa700;
+  }
+}
+
 #index-account-action {
     position: static;
     z-index: 2;
@@ -244,6 +315,11 @@ ul.dashed li:before {
   position: absolute;
   top: calc(50% - 3.5px);
   left: calc(50% - 3.5px);
+}
+.preloader:before{
+    content: '';
+    display: block;
+    padding-top: 100%;
 }
 * {
   outline: none !important;

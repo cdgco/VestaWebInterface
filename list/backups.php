@@ -1,5 +1,27 @@
 <?php
 
+/** 
+*
+* Vesta Web Interface v0.5.1-Beta
+*
+* Copyright (C) 2018 Carter Roeser <carter@cdgtech.one>
+* https://cdgco.github.io/VestaWebInterface
+*
+* Vesta Web Interface is free software: you can redistribute it and/or modify
+* it under the terms of version 3 of the GNU General Public License as published 
+* by the Free Software Foundation.
+*
+* Vesta Web Interface is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+* 
+* You should have received a copy of the GNU General Public License
+* along with Vesta Web Interface.  If not, see
+* <https://github.com/cdgco/VestaWebInterface/blob/master/LICENSE>.
+*
+*/
+
 session_start();
 $configlocation = "../includes/";
 if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
@@ -70,7 +92,7 @@ foreach ($plugins as $result) {
         <link href="../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../plugins/components/footable/compiled/footable.bootstrap.css" rel="stylesheet">
-        <link href="../css/animate.css" rel="stylesheet">
+        <link href="../plugins/components/animate.css/animate.min.css" rel="stylesheet">
         <link href="../css/style.css" rel="stylesheet">
         <link href="../plugins/components/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet">
         <link href="../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">

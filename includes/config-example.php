@@ -1,8 +1,6 @@
 <?php
 
-///////////////////////////////////////
-// VESTA WEB INTERFACE CONFIGURATION //
-///////////////////////////////////////
+// VESTA WEB INTERFACE CONFIGURATION
 
 $mysql_server = 'localhost'; // MySQL Server Address.
 $mysql_uname = 'username'; // MySQL Database Username.
