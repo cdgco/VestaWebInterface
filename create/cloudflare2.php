@@ -291,11 +291,10 @@ curl_exec($curl4);
 
             ?>
         </form>
+        <script src="../plugins/components/jquery/jquery.min.js"></script>
         <script type="text/javascript">
             document.getElementById('form').submit();
-        </script>
-        <script src="../plugins/components/jquery/jquery.min.js"></script>
-        <script>
+            
             setTimeout( function(){ 
                 $('.loader').addClass("special"); 
             }  , 4000 );

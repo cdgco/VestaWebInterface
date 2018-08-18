@@ -88,14 +88,13 @@ foreach ($plugins as $result) {
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="icon" type="image/ico" href="../plugins/images/<?php echo $cpfavicon; ?>">
-        <title><?php echo $sitetitle; ?> - SSL</title>
+        <title><?php echo $sitetitle . ' - ' . _("SSL"); ?></title>
         <link href="../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
-        <link href="../plugins/components/footable/footable.bootstrap.css" rel="stylesheet">
         <link href="../plugins/components/animate.css/animate.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../plugins/components/sweetalert2/sweetalert2.min.css" />
         <link href="../css/style.css" rel="stylesheet">
         <link href="../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
-        <link rel="stylesheet" href="../plugins/components/sweetalert2/sweetalert2.min.css" />
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
         <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?>
         <!--[if lt IE 9]>
@@ -242,18 +241,15 @@ foreach ($plugins as $result) {
             </div>
         </div>
         <script src="../plugins/components/jquery/jquery.min.js"></script>
+        <script src="../plugins/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+       <script src="../plugins/components/sweetalert2/sweetalert2.min.js"></script>
         <script src="../plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="../plugins/components/metismenu/dist/metisMenu.min.js"></script>
-        <script src="../plugins/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-        <script src="../js/waves.js"></script>
-        <script src="../plugins/components/moment/moment.min.js"></script>
-        <script src="../plugins/components/footable/footable.min.js"></script>
-        <script src="../js/footable-init.js"></script>
-        <script src="../js/custom.js"></script>
-        <script src="../js/cbpFWTabs.js"></script>
-        <script src="../plugins/components/sweetalert2/sweetalert2.min.js"></script>
-
+        <script src="../plugins/components/Waves/waves.js"></script>
+        <script src="../js/main.js"></script>
         <script type="text/javascript">
+            Waves.attach('.button', ['waves-effect']);
+            Waves.init();
             $('#form').submit(function(ev) {
                 ev.preventDefault();
                 processLoader();
@@ -267,14 +263,6 @@ foreach ($plugins as $result) {
                         swal.showLoading()
                     }
                 })};
-            (function () {
-                [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {
-                    new CBPFWTabs(el);
-                });
-            })();
-            jQuery(function($){
-                $('.footable').footable();
-            });
             <?php
             if(isset($_GET['error']) && $_GET['error'] == "1") {
                 echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";

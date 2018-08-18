@@ -90,19 +90,16 @@ foreach ($plugins as $result) {
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
         <link rel="icon" type="image/ico" href="../plugins/images/<?php echo $cpfavicon; ?>">
-        <title><?php echo $sitetitle; ?> - WEB</title>
+        <title><?php echo $sitetitle . ' - ' . _("Web"); ?></title>
         <link href="../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../plugins/components/jquery-toast-plugin/jquery.toast.min.css" rel="stylesheet">
         <link href="../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
-        <link href="../plugins/components/footable/footable.bootstrap.css" rel="stylesheet">
         <link href="../plugins/components/select2/select2.min.css" rel="stylesheet">
         <link href="../plugins/components/animate.css/animate.min.css" rel="stylesheet">
-        <link href="../css/style.css" rel="stylesheet">
-        <link href="../plugins/components/jquery-toast-plugin/jquery.toast.min.css" rel="stylesheet">
-        <link href="../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
         <link rel="stylesheet" href="../plugins/components/sweetalert2/sweetalert2.min.css" />
+        <link href="../css/style.css" rel="stylesheet">
+        <link href="../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
         <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?> 
         <!--[if lt IE 9]>
@@ -406,18 +403,17 @@ foreach ($plugins as $result) {
         </div>
         <script src="../plugins/components/jquery/jquery.min.js"></script>
         <script src="../plugins/components/jquery-toast-plugin/jquery.toast.min.js"></script>
+        <script src="../plugins/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="../plugins/components/sweetalert2/sweetalert2.min.js"></script>
         <script src="../plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="../plugins/components/metismenu/dist/metisMenu.min.js"></script>
-        <script src="../plugins/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-        <script src="../js/waves.js"></script>
-        <script src="../plugins/components/moment/moment.min.js"></script>
-        <script src="../plugins/components/footable/footable.min.js"></script>
         <script src="../plugins/components/select2/select2.min.js"></script>
-        <script src="../js/footable-init.js"></script>
-        <script src="../js/custom.js"></script>
-        <script src="../js/cbpFWTabs.js"></script>
-        <script src="../plugins/components/sweetalert2/sweetalert2.min.js"></script>
+        <script src="../plugins/components/Waves/waves.js"></script>
+        <script src="../js/main.js"></script>
         <script type="text/javascript">
+            Waves.attach('.button', ['waves-effect']);
+            Waves.init();
+            
             $('#form').submit(function(ev) {
                 ev.preventDefault();
                 processLoader();
@@ -499,15 +495,6 @@ foreach ($plugins as $result) {
                     document.getElementById('statspassword').type="text";
                 }
             }
-            (function () {
-                [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {
-                    new CBPFWTabs(el);
-                });
-            })();
-
-            jQuery(function($){
-                $('.footable').footable();
-            });
             function generatePassword(length) {
                 var password = '', character; 
                 while (length > password.length) {

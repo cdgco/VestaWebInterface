@@ -56,17 +56,14 @@ textdomain('messages');
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
         <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
         <title><?php echo $sitetitle; ?> - <?php echo _('Register'); ?></title>
         <link href="plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="plugins/components/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet">
+        <link href="plugins/components/jquery-toast-plugin/jquery.toast.min.css" rel="stylesheet">
         <link href="plugins/components/animate.css/animate.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-        <link href="plugins/components/jquery-toast-plugin/jquery.toast.min.css" rel="stylesheet">
-        <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
-        <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?>
+        <link href="css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
         <style>
             html {
                 overflow-y: scroll;
@@ -86,17 +83,16 @@ textdomain('messages');
                 -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
                 transition: background-color 5000s ease-in-out 0s;
             }
+            .color-button {
+                color: #fff !important;
+            }
         </style>
-        <link href="css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
+        <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
+        <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?>
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-        <style>
-        .color-button {
-                color: #fff !important;
-            }
-        </style>
     </head>
 
     <body>
@@ -169,13 +165,15 @@ textdomain('messages');
         </script>
         <script src="plugins/components/jquery/jquery.min.js"></script>
         <script src="plugins/components/jquery-toast-plugin/jquery.toast.min.js"></script>
+        <script src="plugins/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
         <script src="plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="plugins/components/bootstrap-select/js/bootstrap-select.min.js"></script>
         <script src="plugins/components/metismenu/dist/metisMenu.min.js"></script>
-        <script src="plugins/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-        <script src="js/waves.js"></script>
-        <script src="js/custom.js"></script>
-        <script>
+        <script src="plugins/components/Waves/waves.js"></script>
+        <script src="js/main.js"></script>
+        <script type="text/javascript">
+            Waves.attach('.button', ['waves-effect']);
+            Waves.init();
              <?php 
             if($configstyle == '2'){
                 if($warningson == "all"){

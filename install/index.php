@@ -29,20 +29,17 @@ require '../includes/arrays.php';
     <head>
         <meta charset="UTF-8">
         <title>Install Vesta Web Interface</title>
-        <script src="https://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
+        <link rel='stylesheet prefetch' href='../plugins/components/bootstrap/dist/css/bootstrap.min.css'>
+        <link rel='stylesheet prefetch' href='../plugins/components/bootstrap/dist/css/bootstrap-theme.min.css'>
+        <link rel='stylesheet prefetch' href='../plugins/components/bootstrapvalidator/bootstrapValidator.css'>
+        <link rel="stylesheet" href="css/style.css">
         <style>
             .tooltip-inner {
                 max-width: 350px;
                 width: 350px; 
             }
+            #success_message{ display: none;}
         </style>
-        <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-        <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css'>
-        <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css'>
-        <style>
-        #success_message{ display: none;}
-        </style>
-        <link rel="stylesheet" href="css/style.css">
     </head>
 
     <body><br><br>
@@ -123,11 +120,11 @@ require '../includes/arrays.php';
             </form>
             <br><br><br>
         </div>
+        <script src='../plugins/components/jquery/jquery.min.js'></script>
+        <script src='../plugins/components/bootstrap/dist/js/bootstrap.min.js'></script>
+        <script src='../plugins/components/bootstrapvalidator/bootstrapValidator.js'></script>
         <script src="../plugins/components/popper.js/popper.js"></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-        <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
-        <script>
+        <script type="text/javascript">
         $(document).ready(function(){$("#contact_form").bootstrapValidator({feedbackIcons:{valid:"glyphicon glyphicon-ok",invalid:"glyphicon g lyphicon-remove",validating:"glyphicon glyphicon-refresh"},fields:{first_name:{validators:{stringLength:{min:2},notEmpty:{message:"Please supply your first name"}}},last_name:{validators:{stringLength:{min:2},notEmpty:{message:"Please supply your last name"}}},email:{validators:{notEmpty:{message:"Please supply your email address"},emailAddress:{message:"Please supply a valid email address"}}},phone:{validators:{notEmpty:{message:"Please supply your phone number"},phone:{country:"US",message:"Please supply a vaild phone number with area code"}}},address:{validators:{stringLength:{min:8},notEmpty:{message:"Please supply your street address"}}},city:{validators:{stringLength:{min:4},notEmpty:{message:"Please supply your city"}}},state:{validators:{notEmpty:{message:"Please select your state"}}},zip:{validators:{notEmpty:{message:"Please supply your zip code"},zipCode:{country:"US",message:"Please supply a vaild zip code"}}},comment:{validators:{stringLength:{min:10,max:200,message:"Please enter at least 10 characters and no more than 200"},notEmpty:{message:"Please supply a description of your project"}}}}}).on("success.form.bv",function(e){$("#success_message").slideDown({opacity:"show"},"slow"),$("#contact_form").data("bootstrapValidator").resetForm(),e.preventDefault();var s=$(e.target);s.data("bootstrapValidator");$.post(s.attr("action"),s.serialize(),function(e){console.log(e)},"json")})});
         $(function () {
             $('[data-toggle="tooltip"]').tooltip()

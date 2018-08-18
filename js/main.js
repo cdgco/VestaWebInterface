@@ -52,7 +52,7 @@ $(window).load(function () {
             width = (this.window.innerWidth > 0) ? this.window.innerWidth : this.screen.width;
             if (width < 768) {
                 $("div.navbar-collapse").addClass("collapse");
-                topOffset = 100; // 2-row-menu
+                topOffset = 100;
             } else {
                 $("div.navbar-collapse").removeClass("collapse");
             }
@@ -125,7 +125,7 @@ $(window).load(function () {
             removeElement();
         });
     }(jQuery, window, document));
-    //tooltip
+
     $(function () {
         $('[data-toggle="tooltip"]').tooltip();
     });
@@ -164,7 +164,7 @@ $(".slimscrollsidebar").slimScroll({
     $(this).next(".slimScrollBar").css("opacity", 0.4);
 });
 $("body").trigger("resize");
-// visited ul li
+
 $(".visited li a").click(function (e) {
     "use strict";
     $(".visited li").removeClass("active");

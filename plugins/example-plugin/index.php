@@ -58,19 +58,16 @@ foreach ($plugins as $result) {
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
         <link rel="icon" type="image/ico" href="../images/<?php echo $cpfavicon; ?>">
         <title><?php echo $sitetitle; ?> - <?php echo _("Example Plugin"); ?></title>
         <link href="../components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../components/jquery-toast-plugin/jquery.toast.min.css" rel="stylesheet">
         <link href="../components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
-        <link href="../components/footable/footable.bootstrap.css" rel="stylesheet">
         <link href="../components/select2/select2.min.css" rel="stylesheet">
         <link href="../components/animate.css/animate.min.css" rel="stylesheet">
-        <link href="../../css/style.css" rel="stylesheet">
-        <link href="../components/jquery-toast-plugin/jquery.toast.min.css" rel="stylesheet">
-        <link href="../../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
         <link rel="stylesheet" href="../components/sweetalert2/sweetalert2.min.css" />
+        <link href="../../css/style.css" rel="stylesheet">
+        <link href="../../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
         <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?> 
         <!--[if lt IE 9]>
@@ -160,18 +157,17 @@ foreach ($plugins as $result) {
         </div>
         <script src="../components/jquery/jquery.min.js"></script>
         <script src="../components/jquery-toast-plugin/jquery.toast.min.js"></script>
+        <script src="../components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="../components/sweetalert2/sweetalert2.min.js"></script>
         <script src="../components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="../components/metismenu/dist/metisMenu.min.js"></script>
-        <script src="../components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-        <script src="../../js/waves.js"></script>
-        <script src="../components/moment/moment.min.js"></script>
-        <script src="../components/footable/footable.min.js"></script>
         <script src="../components/select2/select2.min.js"></script>
-        <script src="../../js/footable-init.js"></script>
-        <script src="../../js/custom.js"></script>
-        <script src="../../js/cbpFWTabs.js"></script>
-        <script src="../components/sweetalert2/sweetalert2.min.js"></script>
+        <script src="../components/Waves/waves.js"></script>
+        <script src="../../js/main.js"></script>
         <script type="text/javascript">
+            Waves.attach('.button', ['waves-effect']);
+            Waves.init();
+            
             <?php 
             
             includeScript();

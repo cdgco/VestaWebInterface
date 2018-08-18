@@ -344,7 +344,7 @@ if (CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != ''){
             </div>
         </div>
         <script src="../plugins/components/jquery/jquery.min.js"></script>
-        <script>
+        <script type="text/javascript">
             setTimeout( function(){ 
                 $('.loader').addClass("special"); 
             }  , 2000 );
