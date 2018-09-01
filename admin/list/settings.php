@@ -2,7 +2,7 @@
 
 /** 
 *
-* Vesta Web Interface v0.5.1-Beta
+* Vesta Web Interface v0.5.2-Beta
 *
 * Copyright (C) 2018 Carter Roeser <carter@cdgtech.one>
 * https://cdgco.github.io/VestaWebInterface
@@ -806,7 +806,7 @@ foreach ($plugins as $result) {
         <script src="../../plugins/components/moment/moment.min.js"></script>
         <script src="../../plugins/components/footable/footable.min.js"></script>
         <script src="../../plugins/components/select2/select2.min.js"></script>
-        <script src="../../plugins/components/Waves/waves.js"></script>
+        <script src="../../plugins/components/waves/waves.js"></script>
         <script src="../../plugins/components/popper.js/popper.js"></script>
         <script src="../../js/main.js"></script>
         <script type="text/javascript">

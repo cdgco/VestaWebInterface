@@ -2,7 +2,7 @@
 
 /** 
 *
-* Vesta Web Interface v0.5.1-Beta
+* Vesta Web Interface v0.5.2-Beta
 *
 * Copyright (C) 2018 Carter Roeser <carter@cdgtech.one>
 * https://cdgco.github.io/VestaWebInterface
@@ -72,7 +72,7 @@ if (isset($_POST['user']) && isset($_POST['password'])) {
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/css/style.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.2-Beta/css/style.css" rel="stylesheet">
     </head>
     <body class="fix-header">
         <div class="preloader">
@@ -81,5 +81,5 @@ if (isset($_POST['user']) && isset($_POST['password'])) {
             </svg>
         </div>
                     </body>
-        <script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/plugins/bower_components/jquery/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.2-Beta/plugins/components/jquery/jquery.min.js"></script>
 </html>

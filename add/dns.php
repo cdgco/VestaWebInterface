@@ -2,7 +2,7 @@
 
 /** 
 *
-* Vesta Web Interface v0.5.1-Beta
+* Vesta Web Interface v0.5.2-Beta
 *
 * Copyright (C) 2018 Carter Roeser <carter@cdgtech.one>
 * https://cdgco.github.io/VestaWebInterface
@@ -274,7 +274,7 @@ if (CLOUDFLARE_EMAIL == '' || CLOUDFLARE_API_KEY == ''){ $cfenabled = 'off'; }
         <script src="../plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="../plugins/components/metismenu/dist/metisMenu.min.js"></script>
         <script src="../plugins/components/select2/select2.min.js"></script>
-        <script src="../plugins/components/Waves/waves.js"></script>
+        <script src="../plugins/components/waves/waves.js"></script>
         <script src="../js/main.js"></script>
         <script type="text/javascript">
             Waves.attach('.button', ['waves-effect']);

@@ -1,6 +1,6 @@
 /** 
 *
-* Vesta Web Interface v0.5.1-Beta
+* Vesta Web Interface v0.5.2-Beta
 *
 * Copyright (C) 2018 Carter Roeser <carter@cdgtech.one>
 * https://cdgco.github.io/VestaWebInterface
@@ -25,7 +25,7 @@
 @import "../plugins/components/mdi/css/materialdesignicons.min.css";
 @import "../plugins/components/font-awesome/css/font-awesome.min.css";
 @import "../plugins/components/themify-icons/css/themify-icons.css";
-@import "../plugins/components/Waves/waves.css";
+@import "../plugins/components/waves/waves.css";
 @font-face {
       font-family: 'fontello';
       src: url('./font/fontello.eot?93153592');

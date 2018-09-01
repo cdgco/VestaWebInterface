@@ -162,7 +162,7 @@ foreach ($plugins as $result) {
         <script src="../components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="../components/metismenu/dist/metisMenu.min.js"></script>
         <script src="../components/select2/select2.min.js"></script>
-        <script src="../components/Waves/waves.js"></script>
+        <script src="../components/waves/waves.js"></script>
         <script src="../../js/main.js"></script>
         <script type="text/javascript">
             Waves.attach('.button', ['waves-effect']);

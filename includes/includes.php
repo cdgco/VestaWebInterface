@@ -2,7 +2,7 @@
 
 /** 
 *
-* Vesta Web Interface v0.5.1-Beta
+* Vesta Web Interface v0.5.2-Beta
 *
 * Copyright (C) 2018 Carter Roeser <carter@cdgtech.one>
 * https://cdgco.github.io/VestaWebInterface
@@ -494,7 +494,7 @@ function hotKeys($conflocation) {
                       </div>
                     <button class="keyboard-shortcuts theme-color" onclick="toggleShortcuts()" type="button"></button>
                     <button class="back-to-top theme-color" type="button"></button>
-                    <script src="' . $conflocation . '../plugins/components/hotkeys/hotkeys.min.js"></script>
+                    <script src="' . $conflocation . '../plugins/components/hotkeysjs/hotkeys.min.js"></script>
                     <script type="text/javascript">
                         hotkeys("1,2,3,4,5,6,7,8,h,a,ctrl+enter,ctrl+e,ctrl+backspace,backspace,ctrl+l,esc", function(event,handler) {
                           switch(handler.key){

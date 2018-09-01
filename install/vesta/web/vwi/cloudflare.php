@@ -2,7 +2,7 @@
 
 /** 
 *
-* Vesta Web Interface v0.5.1-Beta
+* Vesta Web Interface v0.5.2-Beta
 *
 * Copyright (C) 2018 Carter Roeser <carter@cdgtech.one>
 * https://cdgco.github.io/VestaWebInterface
@@ -186,7 +186,7 @@ body{
 		</div>
  </div>
 </div>
-    <script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.1-Beta/plugins/components/jquery/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.2-Beta/plugins/components/jquery/jquery.min.js"></script>
     <script>
     setTimeout( function(){ 
        $('.loader').addClass("process"); 

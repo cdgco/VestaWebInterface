@@ -1,5 +1,9 @@
 ## Changelog
 
+### v0.5.2-Beta
+Dependencies
+Bug Fixes
+
 ### v0.5.1-Beta
 Design Updates
 Stability & Bug Fixes
