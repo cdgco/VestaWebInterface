@@ -4,5 +4,6 @@ plugins/ftp
 plugins/vwi-billing
 tmp/config.json
 bfg.jar
+build.sh
 config.json
 test.php

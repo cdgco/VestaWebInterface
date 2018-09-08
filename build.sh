@@ -1,7 +1,5 @@
 #!/bin/bash
 printf "Vesta Web Interface Release Builder\n\n"
-printf "Enter the current (old) release version: "
-read OLDVERSION
 printf "Enter the desired release version: "
 read VERSION
 
@@ -13,11 +11,11 @@ fi
 
 echo "<?php \$currentversion = '$VERSION';" > includes/version.php
 
-sed -i "s/$OLDVERSION/$VERSION/g" docs/_coverpage.md
-sed -i "s/$OLDVERSION/$VERSION/g" docs/manual-install.md
-sed -i "s/$OLDVERSION/$VERSION/g" docs/manual-upgrade.md
-sed -i "s/$OLDVERSION/$VERSION/g" docs/select-install.md
-sed -i "s/$OLDVERSION/$VERSION/g" docs/select-upgrade.md
+sed -i "s/Vesta Web Interface.*>#Vesta Web Interface $VERSION\n>#g" docs/_coverpage.md
+sed -i "s#archive/.*.zip#archive/$VERSION.zip#g" docs/manual-install.md
+sed -i "s#archive/.*.zip#archive/$VERSION.zip#g" docs/manual-upgrade.md
+sed -i "s#archive/.*.zip#archive/$VERSION.zip#g" docs/select-install.md
+sed -i "s#archive/.*.zip#archive/$VERSION.zip#g" docs/select-upgrade.md
 
 if [ -f docs/readme.md ] ; then
     rm docs/readme.md
@@ -84,17 +82,30 @@ else
     GNU General Public License v3.0" > docs/readme.md
 fi
 
-sed -i "s/@$OLDVERSION/@$VERSION/g" install/vesta/web/download/backup/vwi.php
-sed -i "s/@$OLDVERSION/@$VERSION/g" install/vesta/web/templates/r_1.php
-sed -i "s/@$OLDVERSION/@$VERSION/g" install/vesta/web/templates/r_2.php
-sed -i "s/@$OLDVERSION/@$VERSION/g" install/vesta/web/templates/r_3.php
-sed -i "s/@$OLDVERSION/@$VERSION/g" install/vesta/web/vwi/cloudflare.php
-sed -i "s/@$OLDVERSION/@$VERSION/g" .htaccess
+sed -i "s#VestaWebInterface@.*/plugins#VestaWebInterface@$VERSION/plugins#g" install/vesta/web/download/backup/vwi.php
+sed -i "s#VestaWebInterface@.*/css#VestaWebInterface@$VERSION/css#g" install/vesta/web/download/backup/vwi.php
+
+sed -i "s#VestaWebInterface@.*/plugins#VestaWebInterface@$VERSION/plugins#g" install/vesta/web/templates/r_1.php
+sed -i "s#VestaWebInterface@.*/css#VestaWebInterface@$VERSION/css#g" install/vesta/web/templates/r_1.php
+sed -i "s#VestaWebInterface@.*/js#VestaWebInterface@$VERSION/js#g" install/vesta/web/templates/r_1.php
+
+sed -i "s#VestaWebInterface@.*/plugins#VestaWebInterface@$VERSION/plugins#g" install/vesta/web/templates/r_2.php
+sed -i "s#VestaWebInterface@.*/css#VestaWebInterface@$VERSION/css#g" install/vesta/web/templates/r_2.php
+sed -i "s#VestaWebInterface@.*/js#VestaWebInterface@$VERSION/js#g" install/vesta/web/templates/r_2.php
+
+sed -i "s#VestaWebInterface@.*/plugins#VestaWebInterface@$VERSION/plugins#g" install/vesta/web/templates/r_3.php
+sed -i "s#VestaWebInterface@.*/css#VestaWebInterface@$VERSION/css#g" install/vesta/web/templates/r_3.php
+sed -i "s#VestaWebInterface@.*/js#VestaWebInterface@$VERSION/js#g" install/vesta/web/templates/r_3.php
+
+sed -i "s#VestaWebInterface@.*/plugins#VestaWebInterface@$VERSION/plugins#g" install/vesta/web/vwi/cloudflare.php
+
+sed -i "s#VestaWebInterface@.*/plugins#VestaWebInterface@$VERSION/plugins#g" .htaccess
+sed -i "s#VestaWebInterface@.*/css#VestaWebInterface@$VERSION/css#g" .htaccess
 
 printf "Enter the changelog in string format: "
 read CHANGELOG
 
-sed -i "/### $OLDVERSION/i ### $VERSION \n$CHANGELOG\n" docs/changelog.md
+sed -i "s/## Changelog.*###/## Changelog\n\n### $VERSION\n$CHANGELOG\n\n###/g" docs/changelog.md
 
 if [ -f install/vesta.tar.gz ] ; then
     rm install/vesta.tar.gz
