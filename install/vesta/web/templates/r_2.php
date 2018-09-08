@@ -1,6 +1,6 @@
 <!-- /** 
 *
-* Vesta Web Interface v0.5.2-Beta
+* Vesta Web Interface
 *
 * Copyright (C) 2018 Carter Roeser <carter@cdgtech.one>
 * https://cdgco.github.io/VestaWebInterface

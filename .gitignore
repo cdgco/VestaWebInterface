@@ -11,3 +11,4 @@ plugins/ftp
 .vscode/settings.json
 .vscode/launch.json
 bower_components/
+build.sh
