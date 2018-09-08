@@ -7,7 +7,7 @@ Delete all files in your existing VWI web directory except includs/config.php. E
 
 
 #### Step 2:
-[Download the latest release](https://github.com/cdgco/VestaWebInterface/archive/v0.5.2-Beta.zip) of VWI from GitHub.
+[Download the latest release](https://github.com/cdgco/VestaWebInterface/archive/v0.5.3-Beta.zip) of VWI from GitHub.
 
 #### Step 3:
 Extract Vesta Web Interface to the blank domain directory.

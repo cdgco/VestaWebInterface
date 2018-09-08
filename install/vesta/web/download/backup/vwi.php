@@ -72,7 +72,7 @@ if (isset($_POST['user']) && isset($_POST['password'])) {
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.2-Beta/css/style.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.3-Beta/css/style.css" rel="stylesheet">
     </head>
     <body class="fix-header">
         <div class="preloader">
@@ -81,5 +81,5 @@ if (isset($_POST['user']) && isset($_POST['password'])) {
             </svg>
         </div>
                     </body>
-        <script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.2-Beta/plugins/components/jquery/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 </html>

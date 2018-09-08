@@ -82,25 +82,25 @@ else
     GNU General Public License v3.0" > docs/readme.md
 fi
 
-sed -i "s#VestaWebInterface@.*/plugins#VestaWebInterface@$VERSION/plugins#g" install/vesta/web/download/backup/vwi.php
-sed -i "s#VestaWebInterface@.*/css#VestaWebInterface@$VERSION/css#g" install/vesta/web/download/backup/vwi.php
+sed -i "s#VestaWebInterface@.*/css/style.css#VestaWebInterface@$VERSION/css/style.css#g" install/vesta/web/download/backup/vwi.php
 
-sed -i "s#VestaWebInterface@.*/plugins#VestaWebInterface@$VERSION/plugins#g" install/vesta/web/templates/r_1.php
-sed -i "s#VestaWebInterface@.*/css#VestaWebInterface@$VERSION/css#g" install/vesta/web/templates/r_1.php
-sed -i "s#VestaWebInterface@.*/js#VestaWebInterface@$VERSION/js#g" install/vesta/web/templates/r_1.php
+sed -i "s#VestaWebInterface@.*/plugins/images/favicon.png#VestaWebInterface@$VERSION/plugins/images/favicon.png#g" install/vesta/web/templates/r_1.php
+sed -i "s#VestaWebInterface@.*/css/style.css#VestaWebInterface@$VERSION/css/style.css#g" install/vesta/web/templates/r_1.php
+sed -i "s#VestaWebInterface@.*/css/colors/default.css#VestaWebInterface@$VERSION/css/colors/default.css#g" install/vesta/web/templates/r_1.php
+sed -i "s#VestaWebInterface@.*/js/main.js#VestaWebInterface@$VERSION/js/main.js#g" install/vesta/web/templates/r_1.php
 
-sed -i "s#VestaWebInterface@.*/plugins#VestaWebInterface@$VERSION/plugins#g" install/vesta/web/templates/r_2.php
-sed -i "s#VestaWebInterface@.*/css#VestaWebInterface@$VERSION/css#g" install/vesta/web/templates/r_2.php
-sed -i "s#VestaWebInterface@.*/js#VestaWebInterface@$VERSION/js#g" install/vesta/web/templates/r_2.php
+sed -i "s#VestaWebInterface@.*/plugins/images/favicon.png#VestaWebInterface@$VERSION/plugins/images/favicon.png#g" install/vesta/web/templates/r_2.php
+sed -i "s#VestaWebInterface@.*/css/style.css#VestaWebInterface@$VERSION/css/style.css#g" install/vesta/web/templates/r_2.php
+sed -i "s#VestaWebInterface@.*/css/colors/default.css#VestaWebInterface@$VERSION/css/colors/default.css#g" install/vesta/web/templates/r_2.php
+sed -i "s#VestaWebInterface@.*/js/main.js#VestaWebInterface@$VERSION/js/main.js#g" install/vesta/web/templates/r_2.php
 
-sed -i "s#VestaWebInterface@.*/plugins#VestaWebInterface@$VERSION/plugins#g" install/vesta/web/templates/r_3.php
-sed -i "s#VestaWebInterface@.*/css#VestaWebInterface@$VERSION/css#g" install/vesta/web/templates/r_3.php
-sed -i "s#VestaWebInterface@.*/js#VestaWebInterface@$VERSION/js#g" install/vesta/web/templates/r_3.php
+sed -i "s#VestaWebInterface@.*/plugins/images/favicon.png#VestaWebInterface@$VERSION/plugins/images/favicon.png#g" install/vesta/web/templates/r_3.php
+sed -i "s#VestaWebInterface@.*/css/style.css#VestaWebInterface@$VERSION/css/style.css#g" install/vesta/web/templates/r_3.php
+sed -i "s#VestaWebInterface@.*/css/colors/default.css#VestaWebInterface@$VERSION/css/colors/default.css#g" install/vesta/web/templates/r_3.php
+sed -i "s#VestaWebInterface@.*/js/main.js#VestaWebInterface@$VERSION/js/main.js#g" install/vesta/web/templates/r_3.php
 
-sed -i "s#VestaWebInterface@.*/plugins#VestaWebInterface@$VERSION/plugins#g" install/vesta/web/vwi/cloudflare.php
-
-sed -i "s#VestaWebInterface@.*/plugins#VestaWebInterface@$VERSION/plugins#g" .htaccess
-sed -i "s#VestaWebInterface@.*/css#VestaWebInterface@$VERSION/css#g" .htaccess
+sed -i "s#VestaWebInterface@.*/css/style.css#VestaWebInterface@$VERSION/css/style.css#g" .htaccess
+sed -i "s#VestaWebInterface@.*/css/colors/blue.css#VestaWebInterface@$VERSION/css/colors/blue.css#g" .htaccess
 
 printf "Enter the changelog in string format: "
 read CHANGELOG
