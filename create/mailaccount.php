@@ -121,7 +121,6 @@ if($phpmailenabled == "true" && isset($_POST['v_sendemail']) && $_POST['v_sendem
     
     if($webmailurl != ''){ $webmailurlx0 = "Webmail URL: <a href='" . $webmailurl . "'>" . $webmailurl . "</a>"; $webmailurlx1 = "Webmail URL: " . $webmailurl; } 
     else { $webmailurlx0 = ''; $webmailurlx1 = ''; }
-    addslashes(
     $mail = new PHPMailer;
     $mail->setFrom($mailfrom, $mailname);
     $mail->addAddress($_POST['v_sendemail']);
