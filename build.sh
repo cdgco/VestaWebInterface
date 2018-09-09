@@ -99,7 +99,7 @@ sed -i "s#VestaWebInterface@.*/css/style.css#VestaWebInterface@$VERSION/css/styl
 sed -i "s#VestaWebInterface@.*/css/colors/default.css#VestaWebInterface@$VERSION/css/colors/default.css#g" install/vesta/web/templates/r_3.php
 sed -i "s#VestaWebInterface@.*/js/main.js#VestaWebInterface@$VERSION/js/main.js#g" install/vesta/web/templates/r_3.php
 
-sed -i "s#VestaWebInterface@.*/css/colors/blue.css#https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@$VERSION/css/style.css\" rel=\"stylesheet\"><link href=\"https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@$VERSION/css/colors/blue.css#g" .htaccess
+sed -i "s#VestaWebInterface@.*/css/colors/blue.css#VestaWebInterface@$VERSION/css/style.css\" rel=\"stylesheet\"><link href=\"https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@$VERSION/css/colors/blue.css#g" .htaccess
 
 printf "Enter the changelog in string format: "
 read CHANGELOG
