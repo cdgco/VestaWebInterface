@@ -116,7 +116,8 @@ git commit -a -m "$VERSION"
 git push origin $VERSION
 git checkout master
 
-printf "Build complete. New branch on Github named $VERSION."
+printf "Build complete. New branch on Github named $VERSION.\n\n"
+read -p "Press [Enter] key to close ..."
 exit 1
 
 fi
