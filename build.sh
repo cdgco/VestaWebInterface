@@ -11,7 +11,7 @@ fi
 
 echo "<?php \$currentversion = '$VERSION';" > includes/version.php
 
-sed -i "s/Vesta Web Interface.*>#Vesta Web Interface $VERSION\n>#g" docs/_coverpage.md
+sed -i "s#Vesta Web Interface.*>#Vesta Web Interface $VERSION\n>#g" docs/_coverpage.md
 sed -i "s#archive/.*.zip#archive/$VERSION.zip#g" docs/manual-install.md
 sed -i "s#archive/.*.zip#archive/$VERSION.zip#g" docs/manual-upgrade.md
 sed -i "s#archive/.*.zip#archive/$VERSION.zip#g" docs/select-install.md
@@ -99,8 +99,7 @@ sed -i "s#VestaWebInterface@.*/css/style.css#VestaWebInterface@$VERSION/css/styl
 sed -i "s#VestaWebInterface@.*/css/colors/default.css#VestaWebInterface@$VERSION/css/colors/default.css#g" install/vesta/web/templates/r_3.php
 sed -i "s#VestaWebInterface@.*/js/main.js#VestaWebInterface@$VERSION/js/main.js#g" install/vesta/web/templates/r_3.php
 
-sed -i "s#VestaWebInterface@.*/css/style.css#VestaWebInterface@$VERSION/css/style.css#g" .htaccess
-sed -i "s#VestaWebInterface@.*/css/colors/blue.css#VestaWebInterface@$VERSION/css/colors/blue.css#g" .htaccess
+sed -i "s#VestaWebInterface@.*/css/colors/blue.css#https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@$VERSION/css/style.css\" rel=\"stylesheet\"><link href=\"https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@$VERSION/css/colors/blue.css#g" .htaccess
 
 printf "Enter the changelog in string format: "
 read CHANGELOG
