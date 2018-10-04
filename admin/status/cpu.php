@@ -76,7 +76,7 @@ foreach ($plugins as $result) {
         }    
     }
 }
- 
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
