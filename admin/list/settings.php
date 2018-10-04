@@ -359,7 +359,7 @@ foreach ($plugins as $result) {
                                                 <option value="blue">Blue</option>
                                                 <option value="purple">Purple</option>
                                                 <option value="orange">Orange</option>
-                                                <option value="orange">Dark</option>
+                                                <option value="dark">Dark</option>
                                             </select>
                                         </div>
                                     </div>             
