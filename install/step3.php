@@ -286,7 +286,7 @@ require '../includes/arrays.php';
                         <label class="col-md-4 control-label" for="VESTA_HOST_ADDRESS">Vesta Host Address</label>  
                         <div class="col-md-4">
                             <input id="VESTA_HOST_ADDRESS" name="VESTA_HOST_ADDRESS" type="text" placeholder="myhost.com or 12.34.56.78" class="form-control input-md" required="">
-                            <span class="help-block">VestaCP Host URL or IP Address</span>  
+                            <span class="help-block">VestaCP Host or IP Address without leading 'http(s)://' or trailing '/'</span>  
                         </div>
                     </div>
 
