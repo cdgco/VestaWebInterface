@@ -96,7 +96,14 @@ if($config["DEFAULT_TO_ADMIN"] != 'true'){
 else{
     $defaulttoadmin = $config["DEFAULT_TO_ADMIN"];
 }
-DEFINE('VESTA_HOST_ADDRESS', $config["VESTA_HOST_ADDRESS"]); 
+
+if(substr( $config["VESTA_HOST_ADDRESS"], 0, 7 ) === "http://") {
+    $config["VESTA_HOST_ADDRESS"] = substr($config["VESTA_HOST_ADDRESS"], 7);
+}
+elseif(substr( $config["VESTA_HOST_ADDRESS"], 0, 8 ) === "https://") {
+    $config["VESTA_HOST_ADDRESS"] = substr($config["VESTA_HOST_ADDRESS"], 8);
+}
+DEFINE('VESTA_HOST_ADDRESS', rtrim($config["VESTA_HOST_ADDRESS"], '/')); 
 if($config["VESTA_SSL_ENABLED"] == 'false'){
     $vst_ssl = 'http://';
 }
