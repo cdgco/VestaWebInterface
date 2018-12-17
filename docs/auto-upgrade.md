@@ -1,6 +1,6 @@
 ## If Automatic Installation was used
 
-NOTE: v0.5.0 requires a clean install and cannot be installed through upgrade.
+NOTE: Upgrading from v0.4.x or older to v0.5.x requires a [clean installation](auto-install).
 
 #### Step 1:
 Enter the web directory of your VWI Installation.
