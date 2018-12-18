@@ -288,7 +288,9 @@ if (CLOUDFLARE_EMAIL == '' || CLOUDFLARE_API_KEY == ''){ $cfenabled = 'off'; }
                 processLoader();
                 this.submit();
             });
-            $('.select2').select2();
+            $(document).ready(function() {
+                $('.select2').select2();
+            });
             function subDomain() {
 
                 url = document.getElementById("v_domain").value;
