@@ -278,6 +278,7 @@ foreach ($plugins as $result) {
         <script src="../../plugins/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
         <script src="../../plugins/components/sweetalert2/sweetalert2.min.js"></script>
         <script src="../../plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../../plugins/components/bootstrap-select/js/bootstrap-select.min.js"></script>
         <script src="../../plugins/components/metismenu/dist/metisMenu.min.js"></script>
         <script src="../../plugins/components/moment/moment.min.js"></script>
         <script src="../../plugins/components/footable/footable.min.js"></script>
