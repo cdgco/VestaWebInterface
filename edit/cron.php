@@ -678,6 +678,7 @@ foreach ($plugins as $result) {
         <script src="../plugins/components/sweetalert2/sweetalert2.min.js"></script>
         <script src="../plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="../plugins/components/metismenu/dist/metisMenu.min.js"></script>
+        <script src="../plugins/components/select2/select2.min.js"></script>
         <script src="../plugins/components/waves/waves.js"></script>
         <script src="../js/main.js"></script>
         <script type="text/javascript">
