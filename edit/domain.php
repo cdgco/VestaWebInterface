@@ -559,7 +559,9 @@ foreach ($plugins as $result) {
                 processLoader();
                 this.submit();
             });
-            $('.select2').select2();
+            $(document).ready(function() {
+                $('.select2').select2();
+            });
             document.getElementById('select1').value = '<?php print_r($domaindata[0]['IP']); ?>'; 
             document.getElementById('select2').value = '<?php print_r($domaindata[0]['TPL']); ?>'; 
 
@@ -688,7 +690,6 @@ foreach ($plugins as $result) {
                         swal.showLoading()
                     }
                 })};
-            $('select').trigger('change');
            <?php 
             if($warningson == "all"){
                 if(isset($apienabled) && $apienabled == 'true') {
