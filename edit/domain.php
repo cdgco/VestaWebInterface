@@ -688,7 +688,7 @@ foreach ($plugins as $result) {
                         swal.showLoading()
                     }
                 })};
-
+            $('select').trigger('change');
            <?php 
             if($warningson == "all"){
                 if(isset($apienabled) && $apienabled == 'true') {
