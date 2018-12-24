@@ -273,14 +273,9 @@ foreach ($plugins as $result) {
                                             <li>
                                                 <span class="circle circle-md bg-danger"><i class="fa fa-cloud"></i></span>
                                             <li class="col-last">
-                                                <h3 style="font-size:36px;" class="counter text-right m-t-15">
-                                                    <?php echo formatMBNumOnly($admindata['U_BANDWIDTH']); ?>
-                                                </h3>
-                                                <center>
-                                                    <h6>
-                                                        <?php echo formatMBUnitOnly($admindata['U_BANDWIDTH']); ?>
-                                                    </h6>
-                                                </center>
+                                                <h2 class="counter text-right m-t-15">
+                                                    <?php echo formatMBNumOnly($admindata['U_BANDWIDTH'])." ".formatMBUnitOnly($admindata['U_BANDWIDTH'])." / ".formatMBNumOnly($admindata['BANDWIDTH'])." ".formatMBUnitOnly($admindata['BANDWIDTH']); ?>
+                                                </h2>
                                             </li>
                                         </li><br><br>
                                         <li class="col-middle">
@@ -294,14 +289,9 @@ foreach ($plugins as $result) {
                                             <span class="circle circle-md bg-info"><i class="ti-harddrive"></i></span>
                                         </li>
                                         <li class="col-last">
-                                            <h3 style="font-size:36px;" class="counter text-right m-t-15">
-                                                <?php echo formatMBNumOnly($admindata['U_DISK']); ?>
-                                            </h3>
-                                            <center>
-                                                <h6>
-                                                    <?php echo formatMBUnitOnly($admindata['U_DISK']); ?>
-                                                </h6>
-                                            </center>
+                                            <h2 class="counter text-right m-t-15">
+                                                <?php echo formatMBNumOnly($admindata['U_DISK'])." ".formatMBUnitOnly($admindata['U_DISK'])." / ".formatMBNumOnly($admindata['DISK_QUOTA'])." ".formatMBUnitOnly($admindata['DISK_QUOTA']); ?>
+                                            </h2>
                                         </li>
                                         <br><br>
                                         <li class="col-middle">
@@ -315,10 +305,10 @@ foreach ($plugins as $result) {
                                             <span class="circle circle-md bg-success"><i class=" ti-world"></i></span>
                                         </li>
                                         <li class="col-last">
-                                            <h3 style="font-size:36px;" class="text-right m-t-15">
+                                            <h2 class="text-right m-t-15">
                                                 <?php print_r($admindata['U_WEB_DOMAINS']); ?> /
                                                 <?php if($admindata['WEB_DOMAINS'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($admindata['WEB_DOMAINS']); } ?>
-                                            </h3>
+                                            </h2>
                                         </li><br><br>
                                         <li class="col-middle">
                                             <h4><?php echo _("Web Domains"); ?></h4>
@@ -331,10 +321,10 @@ foreach ($plugins as $result) {
                                             <span class="circle circle-md bg-warning"><i class="fa fa-envelope"></i></span>
                                         </li>
                                         <li class="col-last">
-                                            <h3 style="font-size:36px;" class="text-right m-t-15">
+                                            <h2 class="text-right m-t-15">
                                                 <?php print_r($admindata['U_MAIL_ACCOUNTS']); ?> /
                                                 <?php if($admindata['MAIL_ACCOUNTS'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($admindata['MAIL_ACCOUNTS'] * $admindata['MAIL_DOMAINS']); } ?>
-                                            </h3>
+                                            </h2>
                                         </li><br><br>
                                         <li class="col-middle">
                                             <h4><?php echo _("Email Addresses"); ?></h4>
@@ -630,7 +620,7 @@ foreach ($plugins as $result) {
                                             if ($admindata['DISK_QUOTA'] != 0) {
                                                 $diskpercent = (($admindata['U_DISK'] / $admindata['DISK_QUOTA']) * 100);
                                             } else { $diskpercent = '0'; }
-                                            if(is_infinite($diskpercent)){ echo "0";}else{echo $diskpercent;} ?>%</div>
+                                            if(is_infinite($diskpercent)){ echo "0";}else{echo round($diskpercent);} ?>%</div>
                                         <div class="progress">
                                             <div class="progress-bar progress-bar-inverse" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?php if($diskpercent == " INF "){ echo "0 ";}else{echo $diskpercent;} ?>%;"> <span class="sr-only"><?php if($diskpercent == "INF"){ echo "0";}else{echo $diskpercent;} ?>%;">% Complete</span></div>
                                         </div>
