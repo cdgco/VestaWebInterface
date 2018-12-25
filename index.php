@@ -275,7 +275,8 @@ foreach ($plugins as $result) {
                                                 <span class="circle circle-md bg-danger"><i class="fa fa-cloud"></i></span>
                                             <li class="col-last">
                                                 <h2 class="counter text-right m-t-15">
-                                                    <?php echo formatMBNumOnly($admindata['U_BANDWIDTH'])." ".formatMBUnitOnly($admindata['U_BANDWIDTH'])." / ".formatMBNumOnly($admindata['BANDWIDTH'])." ".formatMBUnitOnly($admindata['BANDWIDTH']); ?>
+                                                    <?php echo formatMBNumOnly($admindata['U_BANDWIDTH'])." ".formatMBUnitOnly($admindata['U_BANDWIDTH'])." / ";
+                                                    if($admindata['BANDWIDTH'] != 'unlimited') { echo formatMBNumOnly($admindata['BANDWIDTH'])." ".formatMBUnitOnly($admindata['BANDWIDTH']); } else { echo "<i style='position:relative;top:6px' class='ti-infinite'></i>"; } ?>
                                                 </h2>
                                             </li>
                                         </li><br><br>
@@ -291,7 +292,8 @@ foreach ($plugins as $result) {
                                         </li>
                                         <li class="col-last">
                                             <h2 class="counter text-right m-t-15">
-                                                <?php echo formatMBNumOnly($admindata['U_DISK'])." ".formatMBUnitOnly($admindata['U_DISK'])." / ".formatMBNumOnly($admindata['DISK_QUOTA'])." ".formatMBUnitOnly($admindata['DISK_QUOTA']); ?>
+                                                <?php echo formatMBNumOnly($admindata['U_DISK'])." ".formatMBUnitOnly($admindata['U_DISK'])." / ";
+                                                if($admindata['DISK_QUOTA'] != 'unlimited') { echo formatMBNumOnly($admindata['DISK_QUOTA'])." ".formatMBUnitOnly($admindata['DISK_QUOTA']); } else { echo "<i style='position:relative;top:6px' class='ti-infinite'></i>"; } ?>
                                             </h2>
                                         </li>
                                         <br><br>
@@ -308,7 +310,7 @@ foreach ($plugins as $result) {
                                         <li class="col-last">
                                             <h2 class="text-right m-t-15">
                                                 <?php print_r($admindata['U_WEB_DOMAINS']); ?> /
-                                                <?php if($admindata['WEB_DOMAINS'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($admindata['WEB_DOMAINS']); } ?>
+                                                <?php if($admindata['WEB_DOMAINS'] == "unlimited"){echo "<i class='ti-infinite' style='position:relative;top:6px'></i>";} else{ print_r($admindata['WEB_DOMAINS']); } ?>
                                             </h2>
                                         </li><br><br>
                                         <li class="col-middle">
@@ -324,7 +326,7 @@ foreach ($plugins as $result) {
                                         <li class="col-last">
                                             <h2 class="text-right m-t-15">
                                                 <?php print_r($admindata['U_MAIL_ACCOUNTS']); ?> /
-                                                <?php if($admindata['MAIL_ACCOUNTS'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($admindata['MAIL_ACCOUNTS'] * $admindata['MAIL_DOMAINS']); } ?>
+                                                <?php if($admindata['MAIL_ACCOUNTS'] == "unlimited"){echo "<i class='ti-infinite' style='position:relative;top:6px'></i>";} else{ print_r($admindata['MAIL_ACCOUNTS'] * $admindata['MAIL_DOMAINS']); } ?>
                                             </h2>
                                         </li><br><br>
                                         <li class="col-middle">
