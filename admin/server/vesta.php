@@ -37,18 +37,21 @@ $postvars = array(
     array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-info','arg1' => 'json'),
     array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-get-sys-timezone'),
     array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-config','arg1' => 'json'),
-    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-vesta-ssl','arg1' => 'json')
-);
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-vesta-ssl','arg1' => 'json'),
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-backup-host','arg1' => 'ftp','arg2' => 'json'),
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-backup-host','arg1' => 'sftp','arg2' => 'json'));
 
 $curl0 = curl_init();
 $curl1 = curl_init();
 $curl2 = curl_init();
 $curl3 = curl_init();
 $curl4 = curl_init();
+$curl5 = curl_init();
+$curl6 = curl_init();
 $curlstart = 0; 
 
 
-while($curlstart <= 4) {
+while($curlstart <= 6) {
     curl_setopt(${'curl' . $curlstart}, CURLOPT_URL, $vst_url);
     curl_setopt(${'curl' . $curlstart}, CURLOPT_RETURNTRANSFER,true);
     curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYPEER, false);
@@ -63,6 +66,8 @@ $sysdata = array_values(json_decode(curl_exec($curl1), true));
 $systimezone = curl_exec($curl2);
 $sysconfig = array_values(json_decode(curl_exec($curl3), true));
 $sysssl = array_values(json_decode(curl_exec($curl4), true));
+$ftpconf = array_values(json_decode(curl_exec($curl5), true));
+$sftpconf = array_values(json_decode(curl_exec($curl6), true));
 $useremail = $admindata['CONTACT'];
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
 setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
@@ -86,6 +91,39 @@ foreach ($plugins as $result) {
             }
         }    
     }
+}
+
+$vcpservices = curl_init();
+curl_setopt($vcpservices, CURLOPT_URL, $vst_url);
+curl_setopt($vcpservices, CURLOPT_RETURNTRANSFER,true);
+curl_setopt($vcpservices, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($vcpservices, CURLOPT_SSL_VERIFYHOST, false);
+curl_setopt($vcpservices, CURLOPT_POST, true);
+curl_setopt($vcpservices, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-services', 'arg1' => 'json')));
+$servicedata = curl_exec($vcpservices);
+
+if( strpos( $servicedata, 'mysql' ) !== false ) { 
+
+    $vcpmysql = curl_init();
+    curl_setopt($vcpmysql, CURLOPT_URL, $vst_url);
+    curl_setopt($vcpmysql, CURLOPT_RETURNTRANSFER,true);
+    curl_setopt($vcpmysql, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($vcpmysql, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt($vcpmysql, CURLOPT_POST, true);
+    curl_setopt($vcpmysql, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-database-host', 'arg1' => 'mysql', 'arg2' => 'localhost', 'arg3' => 'json')));
+    $mysqldata = array_values(json_decode(curl_exec($vcpmysql), true))[0];
+}
+
+if( strpos( $servicedata, 'postgresql' ) !== false ) { 
+
+    $vcppostgresql = curl_init();
+    curl_setopt($vcppostgresql, CURLOPT_URL, $vst_url);
+    curl_setopt($vcppostgresql, CURLOPT_RETURNTRANSFER,true);
+    curl_setopt($vcppostgresql, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($vcppostgresql, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt($vcppostgresql, CURLOPT_POST, true);
+    curl_setopt($vcppostgresql, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-database-host', 'arg1' => 'pgsql', 'arg2' => 'localhost', 'arg3' => 'json')));
+    $pgsqldata = array_values(json_decode(curl_exec($vcppostgresql), true))[0];
 }
 ?>
 
@@ -185,16 +223,19 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box">
-                                <form class="form-horizontal form-material" method="post" id="form" action="../change/firewall.php">
+                                
+                                <form class="form-horizontal form-material" method="post" id="form" action="../change/vesta.php">
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Hostname"); ?></label>
                                         <div class="col-md-12">
-                                            <input type="text" name="v_hostname" value="<?php echo $sysdata[0]['HOSTNAME']; ?>" class="form-control form-control-line" required> 
+                                            <input type="text" name="v_hostname" value="<?php echo $sysdata[0]['HOSTNAME']; ?>" class="form-control form-control-line" required>
+                                            <input type="hidden" name="v_hostname-x" value="<?php echo $sysdata[0]['HOSTNAME']; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group"  style="overflow: visible;">
                                         <label class="col-md-12">Timezone</label>
                                         <div class="col-md-12">
+                                            <input type="hidden" name="v_timezone-x" value="<?php echo preg_replace('/\s+/', '', $systimezone); ?>">
                                             <select id="timeselect" name="v_timezone" class="form-control select2">
                                                 <option value="UTC">UTC (UTC+00:00)</option>
                                                 <option value="HAST">HAST ((UTC-10:00)</option>
@@ -641,7 +682,8 @@ foreach ($plugins as $result) {
                                     <div class="form-group" style="overflow: visible;">
                                         <label class="col-md-12"><?php echo _("Default Language"); ?></label>
                                         <div class="col-md-12">
-                                            <select class="form-control select2" name="language" id="langselect">
+                                            <input type="hidden" name="v_language-x" value="<?php echo $admindata['LANGUAGE']; ?>">
+                                            <select class="form-control select2" name="v_language" id="langselect">
                                                 <option value="ar"><?php print_r($countries['ar']); ?></option>
                                                 <option value="bs"><?php print_r($countries['bs']); ?></option>
                                                 <option value="cn"><?php print_r($countries['cn']); ?></option>
@@ -675,103 +717,158 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>
                                     <div class="form-group" id="toggle1" style="overflow:visible;">
-                                        <a href="#"><label class="col-md-12" style="cursor:pointer;"><?php echo _("Web"); ?> <span id="togglein1">&#9658;</span></label></a>
+                                        <a href="javascript:void(0);"><label class="col-md-12" style="cursor:pointer;"><?php echo _("Web"); ?> <span id="togglein1">&#9658;</span></label></a>
                                     </div>
                                     <div class="form-group" id="div1" style="margin-left: 4%;">
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Proxy Server"); ?></label>
+                                            <label class="col-md-12"><?php echo _("Proxy Server"); ?> / <a href="nginx.php"><?php echo _("Configure"); ?></a></label>
                                             <div class="col-md-12">
-                                                <input type="text" disabled value="<?php echo $sysconfig[0]['PROXY_SYSTEM']; ?>" class="form-control form-control-line" required> 
+                                                <input type="text" disabled value="<?php if($sysconfig[0]['PROXY_SYSTEM'] != '') { echo $sysconfig[0]['PROXY_SYSTEM']; } else { echo 'None'; } ?>" class="form-control form-control-line" required> 
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("Web Server"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="text" disabled value="<?php echo $sysconfig[0]['WEB_SYSTEM']; ?>" class="form-control form-control-line" required> 
+                                                <input type="text" disabled value="<?php if($sysconfig[0]['WEB_SYSTEM'] != '') { echo $sysconfig[0]['WEB_SYSTEM']; } else { echo 'None'; } ?>" class="form-control form-control-line" required> 
                                             </div>
                                         </div>
-                                        <?php if(!empty($sysconfig[0]['WEB_BACKEND'])) {
-                                              echo '<div class="form-group">
-                                                        <label class="col-md-12">' . _("Backend Server") . '</label>
-                                                        <div class="col-md-12">
-                                                            <input type="text" disabled value="' . $sysconfig[0]['WEB_BACKEND'] . '" class="form-control form-control-line" required> 
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-12">' . _("Backend Server") . '</label>
-                                                        <div class="col-md-12">
-                                                            <input type="text" disabled value="" class="form-control form-control-line" required> 
-                                                        </div>
-                                                    </div>';
-
-                                                } ?>
+                                        <div class="form-group">
+                                            <label class="col-md-12"><?php echo _("Backend Server"); ?> </label>
+                                            <div class="col-md-12">
+                                                <input type="text" disabled value="<?php if($sysconfig[0]['WEB_BACKEND'] != '') { echo $sysconfig[0]['WEB_BACKEND']; } else { echo 'None'; } ?>" class="form-control form-control-line" required> 
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-group" id="toggle2" style="overflow:visible;cursor:pointer;">
-                                        <a href="#"><label class="col-md-12" style="cursor:pointer;"><?php echo _("DNS"); ?> <span id="togglein2">&#9658;</span></label></a>
+                                        <a href="javascript:void(0);"><label class="col-md-12" style="cursor:pointer;"><?php echo _("DNS"); ?> <span id="togglein2">&#9658;</span></label></a>
                                     </div>
                                     <div class="form-group" id="div2" style="margin-left: 4%;">
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("DNS Server"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="text" disabled value="<?php echo $sysconfig[0]['DNS_SYSTEM']; ?>" class="form-control form-control-line" required> 
+                                                <input type="text" disabled value="<?php if($sysconfig[0]['DNS_SYSTEM'] != '') { echo $sysconfig[0]['DNS_SYSTEM']; } else { echo 'None'; } ?>" class="form-control form-control-line" required> 
                                             </div>
                                         </div>
                                         <div class="form-group" style="overflow: visible;">
                                             <label class="col-md-12"><?php echo _("DNS Cluster"); ?></label>
                                             <div class="col-md-12">
-                                                <select class="form-control select2" name="language" id="dns-clusterselect">
+                                                <select class="form-control select2" disabled name="language" id="dns-clusterselect">
                                                     <option value="yes">Yes</option>
-                                                    <option value="">No</option>
+                                                    <option value="no">No</option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group" id="toggle3" style="overflow:visible;cursor:pointer;">
-                                        <a href="#"><label class="col-md-12" style="cursor:pointer;"><?php echo _("Mail"); ?> <span id="togglein3">&#9658;</span></label></a>
+                                        <a href="javascript:void(0);"><label class="col-md-12" style="cursor:pointer;"><?php echo _("Mail"); ?> <span id="togglein3">&#9658;</span></label></a>
                                     </div>
                                     <div class="form-group" id="div3" style="margin-left: 4%;">
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("Mail Server"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="text" disabled value="<?php echo $sysconfig[0]['MAIL_SYSTEM']; ?>" class="form-control form-control-line" required> 
+                                                <input type="text" disabled value="<?php if($sysconfig[0]['MAIL_SYSTEM'] != '') { echo $sysconfig[0]['MAIL_SYSTEM']; } else { echo "None"; } ?>" class="form-control form-control-line" required> 
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("Antivirus"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="text" disabled value="<?php echo $sysconfig[0]['ANTIVIRUS_SYSTEM']; ?>" class="form-control form-control-line" required> 
+                                                <input type="text" disabled value="<?php if($sysconfig[0]['ANTIVIRUS_SYSTEM'] != '') { echo $sysconfig[0]['ANTIVIRUS_SYSTEM']; } else { echo "None"; } ?>" class="form-control form-control-line" required> 
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("Antispam"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="text" disabled value="<?php echo $sysconfig[0]['ANTISPAM_SYSTEM']; ?>" class="form-control form-control-line" required> 
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Webmail URL"); ?></label>
-                                            <div class="col-md-12">
-                                                <input type="text" value="<?php echo $sysconfig[0]['MAIL_URL']; ?>" class="form-control form-control-line" required> 
+                                                <input type="text" disabled value="<?php if($sysconfig[0]['ANTISPAM_SYSTEM'] != '') { echo $sysconfig[0]['ANTISPAM_SYSTEM']; } else { echo "None"; } ?>" class="form-control form-control-line" required> 
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group" id="toggle4" style="overflow:visible;cursor:pointer;">
-                                        <a href="#"><label class="col-md-12" style="cursor:pointer;"><?php echo _("DB"); ?> <span id="togglein4">&#9658;</span></label></a>
+                                        <a href="javascript:void(0);"><label class="col-md-12" style="cursor:pointer;"><?php echo _("DB"); ?> <span id="togglein4">&#9658;</span></label></a>
                                     </div>
                                     <div class="form-group" id="div4" style="margin-left: 4%;">
-                                        <label class="col-md-12"><?php echo _("Message"); ?></label>
-                                        <div class="col-md-12">
-                                            Test
+                                        <div class="form-group" style="overflow: visible;">
+                                            <label class="col-md-12"><?php echo _("MySQL Support"); ?></label>
+                                            <div class="col-md-12">
+                                                <select class="form-control select2" disabled id="mysql">
+                                                    <option value="no">No</option>
+                                                    <option value="yes">Yes</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
+                                        <?php if( strpos( $servicedata, 'mysql' ) !== false ) { echo '
+                                        <div class="form-group" id="div13" style="margin-left: 4%;">
+                                                <div class="form-group">
+                                                    <label class="col-md-12">' .  _("Host") . '</label>
+                                                    <div class="col-md-12">
+                                                        <input type="text" disabled value="' . $mysqldata["HOST"]. '" class="form-control form-control-line" required> 
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-12">' . _("Password") . '</label>
+                                                    <div class="col-md-12">
+                                                        <input type="text" name="v_mysql_root_pw" value="" class="form-control form-control-line" required> 
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-12">' ._("Maximum Number of Databases").'</label>
+                                                    <div class="col-md-12">
+                                                        <input type="text" disabled value="'.$mysqldata["MAX_DB"].'" class="form-control form-control-line" required> 
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-12">' . _("Current Number of Databases") . '</label>
+                                                    <div class="col-md-12">
+                                                        <input type="text" disabled value="'. $mysqldata["U_DB_BASES"].'" class="form-control form-control-line" required> 
+                                                    </div>
+                                                </div>
+                                            </div>';
+                            } ?>
+                                        <div class="form-group" style="overflow: visible;">
+                                            <label class="col-md-12"><?php echo _("PostgreSQL Support"); ?></label>
+                                            <div class="col-md-12">
+                                                <select class="form-control select2" disabled id="postgresql">
+                                                    <option value="no">No</option>
+                                                    <option value="yes">Yes</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <?php if( strpos( $servicedata, 'postgresql' ) !== false ) { echo '<div class="form-group" id="div14" style="margin-left: 4%;">
+                                                <div class="form-group">
+                                                    <label class="col-md-12">' . _("Host") . '</label>
+                                                    <div class="col-md-12">
+                                                        <input type="text" disabled value="'.$pgsqldata["HOST"].'" class="form-control form-control-line" required> 
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-12">' . _("Password") . '</label>
+                                                    <div class="col-md-12">
+                                                        <input type="text" name="v_pgsql_root_pw" value="" class="form-control form-control-line" required> 
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-12">' ._("Maximum Number of Databases"). '</label>
+                                                    <div class="col-md-12">
+                                                        <input type="text" disabled value="'. $pgsqldata["MAX_DB"].'" class="form-control form-control-line" required> 
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-12">'._("Current Number of Databases").'</label>
+                                                    <div class="col-md-12">
+                                                        <input type="text" disabled value="'. $pgsqldata["U_DB_BASES"].'" class="form-control form-control-line" required> 
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>'; } ?>
+                                        </div>
                                     <div class="form-group" id="toggle5" style="overflow:visible;cursor:pointer;">
-                                        <a href="#"><label class="col-md-12" style="cursor:pointer;"><?php echo _("Backup"); ?> <span id="togglein5">&#9658;</span></label></a>
+                                        <a href="javascript:void(0);"><label class="col-md-12" style="cursor:pointer;"><?php echo _("Backup"); ?> <span id="togglein5">&#9658;</span></label></a>
                                     </div>
                                     <div class="form-group" id="div5" style="margin-left: 4%;">
                                         <div class="form-group" style="overflow: visible;">
                                             <label class="col-md-12"><?php echo _("Local Backup"); ?></label>
                                             <div class="col-md-12">
-                                                <select class="form-control select2" name="language" id="backup-localselect">
+                                                <input type="hidden" name="v_backupsystem-x" value="<?php echo $sysconfig[0]["BACKUP_SYSTEM"]; ?>">
+                                                <select class="form-control select2" name="v_backupsystem" id="backup-localselect">
                                                     <option value="yes">Yes</option>
                                                     <option value="no">No</option>
                                                 </select>
@@ -780,7 +877,8 @@ foreach ($plugins as $result) {
                                         <div class="form-group" style="overflow: visible;">
                                             <label class="col-md-12"><?php echo _("Compression Level"); ?></label>
                                             <div class="col-md-12">
-                                                <select class="form-control select2" name="language" id="backup-compselect">
+                                                <input type="hidden" name="v_backupgzip-x" value="<?php echo $sysconfig[0]["BACKUP_GZIP"]; ?>">
+                                                <select class="form-control select2" name="v_backupgzip" id="backup-compselect">
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
@@ -796,17 +894,19 @@ foreach ($plugins as $result) {
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("Directory"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="text" value="<?php echo $sysconfig[0]['BACKUP_DIRECTORY']; ?>" class="form-control form-control-line" required> 
+                                                <input type="hidden" name="v_backupdir-x" value="<?php echo $sysconfig[0]["BACKUP"]; ?>">
+                                                <input type="text" name="v_backupdir" value="<?php if($sysconfig[0]['BACKUP'] != '') { echo $sysconfig[0]['BACKUP']; } else { echo '/backup'; } ?>" class="form-control form-control-line" required> 
                                             </div>
                                         </div>
-                                        <div class="form-group" id="toggle5.1" style="overflow:visible;cursor:pointer;">
-                                            <a href="#"><label class="col-md-12" style="cursor:pointer;"><?php echo _("Remote Backup"); ?> <span id="togglein5.1">&#9658;</span></label></a>
+                                        <?php /*
+                                        <div class="form-group" id="toggle51" style="overflow:visible;cursor:pointer;">
+                                            <a href="javascript:void(0);"><label class="col-md-12" style="cursor:pointer;"><?php echo _("Remote Backup"); ?> <span id="togglein51">&#9658;</span></label></a>
                                         </div>
-                                        <div class="form-group" id="div5.1" style="margin-left: 4%;">
+                                        <div class="form-group" id="div51" style="margin-left: 4%;">
                                             <div class="form-group" style="overflow: visible;">
                                             <label class="col-md-12"><?php echo _("Protocol"); ?></label>
                                             <div class="col-md-12">
-                                                <select class="form-control select2" id="backup-remoteprotocol">
+                                                <select class="form-control select2" id="backup-remoteselect">
                                                     <option value="ftp">FTP</option>
                                                     <option value="sftp">SFTP</option>
                                                 </select>
@@ -815,13 +915,13 @@ foreach ($plugins as $result) {
                                             <div class="form-group">
                                             <label class="col-md-12"><?php echo _("Host"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="text" value="" class="form-control form-control-line" required> 
+                                                <input type="text" value="<?php if (strpos($sysconfig[0]["BACKUP_SYSTEM"], 'sftp') !== false) { echo $sftpconf[0]["HOST"]; } else { echo $ftpconf[0]["HOST"]; } ?>" class="form-control form-control-line" required> 
                                             </div>
                                         </div>
                                             <div class="form-group">
                                             <label class="col-md-12"><?php echo _("Username"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="text" value="" class="form-control form-control-line" required> 
+                                                <input type="text" value="<?php if (strpos($sysconfig[0]["BACKUP_SYSTEM"], 'sftp') !== false) { echo $sftpconf[0]["USERNAME"]; } else { echo $ftpconf[0]["USERNAME"]; } ?>" class="form-control form-control-line" required> 
                                             </div>
                                         </div>
                                             <div class="form-group">
@@ -833,26 +933,27 @@ foreach ($plugins as $result) {
                                             <div class="form-group">
                                             <label class="col-md-12"><?php echo _("Directory"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="text" value="" class="form-control form-control-line" required> 
+                                                <input type="text" value="<?php if (strpos($sysconfig[0]["BACKUP_SYSTEM"], 'sftp') !== false) { echo $sftpconf[0]["BPATH"]; } else { echo $ftpconf[0]["BPATH"]; } ?>" class="form-control form-control-line" required> 
                                             </div>
                                         </div>
                                         </div>
-                                    </div>
+                                     */ ?>
+                                        </div>
                                     <div class="form-group" id="toggle6" style="overflow:visible;cursor:pointer;">
-                                        <a href="#"><label class="col-md-12" style="cursor:pointer;"><?php echo _("Vesta SSL"); ?> <span id="togglein6">&#9658;</span></label></a>
+                                        <a href="javascript:void(0);"><label class="col-md-12" style="cursor:pointer;"><?php echo _("Vesta SSL"); ?> <span id="togglein6">&#9658;</span></label></a>
                                     </div>
                                     <div class="form-group" id="div6" style="margin-left: 4%;">
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("SSL Certificate"); ?> / <a href="../process/generatecsr.php?domain=<?php echo $requestdomain; ?>" target="_blank"><?php echo _("Generate CSR"); ?></a></label>
+                                            <label class="col-md-12"><?php echo _("SSL Certificate"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="hidden" name="v_sslcrt-x" value="<?php echo $domaindata[0]['CRT']; ?>">
+                                                <input type="hidden" name="v_sslcrt-x" value="<?php echo $sysssl[0]['CRT']; ?>">
                                                 <textarea class="form-control" rows="4" class="form-control form-control-static" name="v_sslcrt" <?php if($apienabled == 'true'){ echo "disabled"; } ?>><?php print_r($sysssl[0]['CRT']); ?></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("SSL Key"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="hidden" name="v_sslkey-x" value="<?php echo $domaindata[0]['KEY']; ?>">
+                                                <input type="hidden" name="v_sslkey-x" value="<?php echo $sysssl[0]['KEY']; ?>">
                                                 <textarea class="form-control" rows="4" class="form-control form-control-static" name="v_sslkey" <?php if($apienabled == 'true'){ echo "disabled"; } ?>><?php print_r($sysssl[0]['KEY']); ?></textarea>
                                             </div>
                                         </div>
@@ -869,17 +970,151 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>
                                     <div class="form-group" id="toggle7" style="overflow:visible;cursor:pointer;">
-                                        <a href="#"><label class="col-md-12" style="cursor:pointer;"><?php echo _("Vesta Control Panel Plugins"); ?> <span id="togglein7">&#9658;</span></label></a>
+                                        <a href="javascript:void(0);"><label class="col-md-12" style="cursor:pointer;"><?php echo _("Vesta Control Panel Plugins"); ?> <span id="togglein7">&#9658;</span></label></a>
                                     </div>
                                     <div class="form-group" id="div7" style="margin-left: 4%;">
-                                        <label class="col-md-12"><?php echo _("Message"); ?></label>
-                                        <div class="col-md-12">
-                                            Test
+                                        <div class="form-group">
+                                            <label class="col-md-12"><?php echo _("Version"); ?></label>
+                                            <div class="col-md-12">
+                                                <input type="text" disabled value="<?php echo $sysconfig[0]['VERSION']; ?>" class="form-control form-control-line" required> 
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12"><?php echo _("FileSystem Disk Quota"); ?></label>
+                                            <div class="col-md-12">
+                                                <input type="hidden" name="v_quota-x" value="<?php echo $sysconfig[0]["BACKUP"]; ?>">
+                                                <select class="form-control select2" name="v_quota" id="diskquota">
+                                                    <option value="no">No</option>
+                                                    <option value="yes">Yes</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12"><?php echo _("Firewall"); ?></label>
+                                            <div class="col-md-12">
+                                                <input type="hidden" name="v_firewall-x" value="<?php echo $sysconfig[0]["BACKUP"]; ?>">
+                                                <select class="form-control select2" name="v_firewall" id="firewall">
+                                                    <option value="no">No</option>
+                                                    <option value="yes">Yes</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12"><?php echo _("Reseller Role"); ?></label>
+                                            <div class="col-md-12">
+                                                <select class="form-control select2" disabled id="resellerrole">
+                                                    <option value="no">No</option>
+                                                    <option value="yes">Yes</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12"><?php echo _("Backup Migration Manager"); ?></label>
+                                            <div class="col-md-12">
+                                                <select class="form-control select2" disabled id="backupmigration">
+                                                    <option value="no">No</option>
+                                                    <option value="yes">Yes</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                        <label class="col-md-12"><?php echo _("SFTP Chroot"); ?></label>
+                                            <div class="col-md-12">
+                                                <input type="hidden" name="v_sftpjail-x" value="<?php if($sysconfig[0]["SFTPJAIL_KEY"] != '') {echo 'yes'; } else { echo 'no'; } ?>">
+                                                <select class="form-control select2" name="v_sftpjail" id="sftpchroot">
+                                                    <option value="no">No</option>
+                                                    <option value="yes">Yes</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" id="div10" style="margin-left: 4%;">
+                                            <p>Restrict users so that they cannot use SSH and access only their home directory. This is a commercial module, you would need to purchace license key to enable it.</p>
+                                            <input type="hidden" name="v_sftpjail-key-x" value="<?php echo $sysconfig[0]["SFTPJAIL_KEY"]; ?>">
+                                            <?php if($sysconfig[0]["SFTPJAIL_KEY"] != '') {echo '<div class="form-group">
+                                                <label class="col-md-12">' . _("License Key") . '</label>
+                                                <div class="col-md-12">
+                                                    <input type="text" name="v_sftpjail-key" value="' . $sysconfig[0]["SFTPJAIL_KEY"] . '" class="form-control form-control-line" required> 
+                                                </div>
+                                            </div>'; }
+                                            else { echo '<div class="form-group">
+                                                <label class="col-md-12">' . _("Enter License Key") . '</label>
+                                                <div class="col-md-12">
+                                                    <input type="text" value="" name="v_sftpjail-key" class="form-control form-control-line" required> 
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-12">
+                                                    <a href="https://vestacp.com/checkout/2co.php?product_id=6&referer=' . $_SERVER['HTTP_HOST'] . '" style="color: inherit;text-decoration: inherit;"><button class="btn btn-success" type="button">' . _("Buy License $3/Month") . '</button></a>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-12">
+                                                      <a href="https://vestacp.com/checkout/2co.php?product_id=9&referer=' . $_SERVER['HTTP_HOST'] . '" style="color: inherit;text-decoration: inherit;"><button class="btn btn-success" type="button">' . _("Buy Lifetime License $18") . '</button></a>
+                                                </div>
+                                            </div>
+                                            <span class="help-block">2Checkout.com Inc. (Ohio, USA) is a payment facilitator for goods and services provided by vestacp.com.</span>'; } ?>
+                                            
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12"><?php echo _("File Manager"); ?></label>
+                                            <div class="col-md-12">
+                                                <input type="hidden" name="v_filemanager-x" value="<?php if($sysconfig[0]["FILEMANAGER_KEY"] != '') {echo 'yes'; } else { echo 'yes'; } ?>">
+                                                <select class="form-control select2" name="v_filemanager" id="filemanager">
+                                                    <option value="no">No</option>
+                                                    <option value="yes">Yes</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" id="div11" style="margin-left: 4%;">
+                                            <p>Browse, copy, edit, view, and retrieve all of your web domain files using fully featured File Manager. This is a commercial module, you would need to purchace license key to enable it.</p>
+                                            <input type="hidden" name="v_filemanager-key-x" value="<?php echo $sysconfig[0]["BACKUP"]; ?>">
+                                            <?php if($sysconfig[0]["FILEMANAGER_KEY"] != '') { echo '<div class="form-group">
+                                                <label class="col-md-12">' . _("License Key") . '</label>
+                                                <div class="col-md-12">
+                                                    <input type="text" name="v_filemanager-key" value="' . $sysconfig[0]["FILEMANAGER_KEY"] . '" class="form-control form-control-line" required> 
+                                                </div>
+                                            </div>'; }
+                                            else { echo '<div class="form-group">
+                                                <label class="col-md-12">' . _("Enter License Key") . '</label>
+                                                <div class="col-md-12">
+                                                    <input type="text" value="" name="v_filemanager-key" class="form-control form-control-line" required> 
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-12">
+                                                    <a href="https://vestacp.com/checkout/2co.php?product_id=7&referer=' . $_SERVER['HTTP_HOST'] . '" style="color: inherit;text-decoration: inherit;"><button class="btn btn-success" type="button">' . _("Buy License $5/Month") . '</button></a>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-12">
+                                                      <a href="https://vestacp.com/checkout/2co.php?product_id=8&referer=' . $_SERVER['HTTP_HOST'] . '" style="color: inherit;text-decoration: inherit;"><button class="btn btn-success" type="button">' . _("Buy Lifetime License $50") . '</button></a>
+                                                </div>
+                                            </div>
+                                            <span class="help-block">2Checkout.com Inc. (Ohio, USA) is a payment facilitator for goods and services provided by vestacp.com.</span>'; } ?>
+                                              
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12"><?php echo _("Softaculous"); ?></label>
+                                            <div class="col-md-12">
+                                                <input type="hidden" name="v_softaculous-x" value="<?php echo $sysconfig[0]["BACKUP"]; ?>">
+                                                <select class="form-control select2" name="v_softaculous" id="softaculous">
+                                                    <option value="no">No</option>
+                                                    <option value="yes">Yes</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" id="div12" style="margin-left: 4%;">
+                                            <p>* Plugin installation will run in background.<br><br>Softaculous is a great Auto Installer having 426 great scripts, 1115 PHP Classes and we are still adding more. Softaculous is ideal for Web Hosting companies and it could give a significant boost to your sales. These scripts cover most of the uses a customer could ever have. We have covered a wide array of Categories so that everyone could find the required script one would need to power their Web Site.</p>
+                                            <div class="form-group">
+                                                <div class="col-sm-12">
+                                                      <a href="https://www.softaculous.com/softaculous/" style="color: inherit;text-decoration: inherit;"><button class="btn btn-success" type="button"><?php echo _("Get Premium License"); ?></button></a>
+                                                </div>
+                                            </div> 
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" type="submit"><?php echo _("Save"); ?></button> &nbsp;
+                                            <button class="btn btn-success" disabled type="submit"><?php echo _("Save"); ?></button> &nbsp;
                                             <a href="../list/server.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
                                         </div>
                                     </div>
@@ -972,17 +1207,18 @@ foreach ($plugins as $result) {
                     document.getElementById('togglein5').innerHTML = '&#9660;';
                 }
             });
-            $('#div5.1').hide();
-            $( "#toggle5.1" ).click(function() {     
-                if($('#div5.1:visible').length) {
-                    $('#div5.1').hide();
-                    document.getElementById('togglein5.1').innerHTML = '&#9658;';
+            /*
+            $('#div51').hide();
+            $( "#toggle51" ).click(function() {     
+                if($('#div51:visible').length) {
+                    $('#div51').hide();
+                    document.getElementById('togglein51').innerHTML = '&#9658;';
                 }
                 else {
-                    $('#div5.1').show();
-                    document.getElementById('togglein5.1').innerHTML = '&#9660;';
+                    $('#div51').show();
+                    document.getElementById('togglein51').innerHTML = '&#9660;';
                 }
-            });
+            }); */
              $('#div6').hide();
             $( "#toggle6" ).click(function() {     
                 if($('#div6:visible').length) {
@@ -1005,14 +1241,88 @@ foreach ($plugins as $result) {
                     document.getElementById('togglein7').innerHTML = '&#9660;';
                 }
             });
+            document.getElementById('sftpchroot').value = '<?php if($sysconfig[0]["SFTPJAIL_KEY"] != '') { echo 'yes'; } else { echo 'no'; } ?>';  
+            $(function () {
+                var val = $("#sftpchroot").val();
+                if(val === "yes") {
+                    $("#div10").show();
+                }
+                else if(val != "yes") {
+                    $("#div10").hide();
+                }
+              });
+            $(function () {
+              $("#sftpchroot").change(function() {
+                var val1 = $(this).val();
+                if(val1 === "yes") {
+                    $("#div10").show();
+                }
+                else if(val1 != "custom") {
+                    $("#div10").hide();
+                }
+              });
+            });
+            document.getElementById('filemanager').value = '<?php if($sysconfig[0]["FILEMANAGER_KEY"] != '') { echo 'yes'; } else { echo 'no'; } ?>';   
+            $(function () {
+                var val = $("#filemanager").val();
+                if(val === "yes") {
+                    $("#div11").show();
+                }
+                else if(val != "yes") {
+                    $("#div11").hide();
+                }
+              });
+            $(function () {
+              $("#filemanager").change(function() {
+                var val1 = $(this).val();
+                if(val1 === "yes") {
+                    $("#div11").show();
+                }
+                else if(val1 != "custom") {
+                    $("#div11").hide();
+                }
+              });
+            });
+            document.getElementById('softaculous').value = '<?php if($sysconfig[0]["SOFTACULOUS"] != '' && $sysconfig[0]["SOFTACULOUS"] != 'no') { echo 'yes'; } else { echo "no"; } ?>';  
+            $(function () {
+                var val = $("#softaculous").val();
+                if(val === "yes") {
+                    $("#div12").show();
+                }
+                else if(val != "yes") {
+                    $("#div12").hide();
+                }
+              });
+            $(function () {
+              $("#softaculous").change(function() {
+                var val1 = $(this).val();
+                if(val1 === "yes") {
+                    $("#div12").show();
+                }
+                else if(val1 != "custom") {
+                    $("#div12").hide();
+                }
+              });
+            });
+            
             <?php 
             $systimezone = preg_replace('/\s+/', '', $systimezone);
             echo 'document.getElementById("timeselect").value = \'' . $systimezone . '\';'; 
             ?>
             document.getElementById('langselect').value = '<?php print_r($admindata['LANGUAGE']); ?>'; 
-            document.getElementById('backup-localselect').value = '<?php print_r($sysconfig[0]["BACKUP_LOCAL"]); ?>';  
-            document.getElementById('backup-compselect').value = '<?php print_r($sysconfig[0]["BACKUP_COMPRESSION"]); ?>';  
-            document.getElementById('dns-clusterselect').value = '<?php print_r($sysconfig[0]["DNS_CLUSTER"]); ?>'; 
+            document.getElementById('backup-localselect').value = '<?php if (strpos($sysconfig[0]["BACKUP_SYSTEM"], 'local') !== false) {
+    echo 'yes'; } else { echo 'no'; } ?>';  
+           // document.getElementById('backup-remoteselect').value = '<?php if (strpos($sysconfig[0]["BACKUP_SYSTEM"], 'sftp') !== false) {
+    echo 'sftp'; } if (strpos($sysconfig[0]["BACKUP_SYSTEM"], 'ftp') !== false) {
+    echo 'ftp'; } ?>';  
+            document.getElementById('backup-compselect').value = '<?php print_r($sysconfig[0]["BACKUP_GZIP"]); ?>';  
+            document.getElementById('dns-clusterselect').value = '<?php if($sysconfig[0]["DNS_CLUSTER"] == "") { echo "no"; } else { echo "yes"; } ?>'; 
+            document.getElementById('diskquota').value = '<?php print_r($sysconfig[0]["DISK_QUOTA"]); ?>';  
+            document.getElementById('mysql').value = '<?php if( strpos( $servicedata, 'mysql' ) !== false ) { echo "yes"; } else { echo "no"; } ?>';  
+            document.getElementById('postgresql').value = '<?php if( strpos( $servicedata, 'postgresql' ) !== false ) { echo "yes"; } else { echo "no"; } ?>';  
+            document.getElementById('firewall').value = '<?php if($sysconfig[0]["FIREWALL_SYSTEM"] != '' && $sysconfig[0]["FIREWALL_SYSTEM"] != 'no') { echo 'yes'; } else { echo 'no'; } ?>';  
+            document.getElementById('resellerrole').value = "no";
+            document.getElementById('backupmigration').value = "no";
             $(document).ready(function() {
                 $('.select2').select2();
             });

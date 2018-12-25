@@ -24,27 +24,24 @@
 
 session_start();
 $configlocation = "../../includes/";
-            
 if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' );};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php?to=admin/list/server.php'.$urlquery.$_SERVER['QUERY_STRING']); }
+else { header('Location: ../../login.php?to=admin/server/vesta.php'.$urlquery.$_SERVER['QUERY_STRING']); }
 if($username != 'admin') { header("Location: ../../"); }
 
 if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
 
 $postvars = array(
     array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
-    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-info','arg1' => 'json'),
-    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-services','arg1' => 'json'),
-);
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-mysql-config','arg1' => 'json'));
 
 $curl0 = curl_init();
 $curl1 = curl_init();
-$curl2 = curl_init();
 $curlstart = 0; 
 
-while($curlstart <= 2) {
+
+while($curlstart <= 1) {
     curl_setopt(${'curl' . $curlstart}, CURLOPT_URL, $vst_url);
     curl_setopt(${'curl' . $curlstart}, CURLOPT_RETURNTRANSFER,true);
     curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYPEER, false);
@@ -55,11 +52,8 @@ while($curlstart <= 2) {
 } 
 
 $admindata = json_decode(curl_exec($curl0), true)[$username];
+$confdata = array_values(json_decode(curl_exec($curl1), true));
 $useremail = $admindata['CONTACT'];
-$sysdata = array_values(json_decode(curl_exec($curl1), true));
-$servicename = array_keys(json_decode(curl_exec($curl2), true));
-$servicedata = array_values(json_decode(curl_exec($curl2), true));
-
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
 setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
 bindtextdomain('messages', '../../locale');
@@ -83,12 +77,6 @@ foreach ($plugins as $result) {
         }    
     }
 }
-
-function secondsToTime($seconds) {
-    $dtF = new \DateTime('@0');
-    $dtT = new \DateTime("@$seconds");
-    return $dtF->diff($dtT)->format('%a days, %h hours');
-}
 ?>
 
 <!DOCTYPE html>
@@ -101,33 +89,16 @@ function secondsToTime($seconds) {
         <link rel="icon" type="image/ico" href="../../plugins/images/<?php echo $cpfavicon; ?>">
         <title><?php echo $sitetitle; ?> - <?php echo _("Server"); ?></title>
         <link href="../../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../plugins/components/footable/footable.bootstrap.css" rel="stylesheet">
         <link href="../../plugins/components/jquery-toast-plugin/jquery.toast.min.css" rel="stylesheet">
         <link href="../../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
+        <link href="../../plugins/components/select2/select2.min.css" rel="stylesheet">
         <link href="../../plugins/components/animate.css/animate.min.css" rel="stylesheet">
         <link rel="stylesheet" href="../../plugins/components/sweetalert2/sweetalert2.min.css" />
         <link href="../../css/style.css" rel="stylesheet">
         <link href="../../css/colors/<?php if(isset($_COOKIE['theme']) && $themecolor != 'custom.css') { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
         <?php if($themecolor == "custom.css") { require( '../../css/colors/custom.php'); } ?>
-        <style>
-            @media screen and (max-width: 1199px) {
-                .resone { display:none !important;}
-            }  
-            @media screen and (max-width: 991px) {
-                .restwo { display:none !important;}
-            }    
-            @media screen and (max-width: 767px) {
-                .resthree { display:none !important;}
-            } 
-            @media screen and (max-width: 540px) {
-                .resfour { display:none !important;}
-            } 
-            @media screen and (max-width: 410px) {
-                .resfive { display:none !important;}
-            } 
-        </style>
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
-        <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?>
+        <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?> 
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -187,7 +158,7 @@ function secondsToTime($seconds) {
                     </div>
                     <ul class="nav" id="side-menu">
                         <?php indexMenu("../../"); 
-                              adminMenu("./", "server");
+                              adminMenu("../list/", "server");
                               profileMenu("../../");
                               primaryMenu("../../list/", "../../process/", "");
                         ?>
@@ -198,79 +169,59 @@ function secondsToTime($seconds) {
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title"><?php echo _("Server"); ?></h4> </div>
+                            <h4 class="page-title"><?php echo _("View Configuration / PHP"); ?></h4>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box">
-                                <ul class="side-icon-text pull-right">
-                                    <li><a href="../status/cpu.php"><span class="circle circle-sm bg-info di" style="padding-top: 11px;"><i class="ti-pulse"></i></span><span><wrapper class="resthree"><?php echo _("Show "); ?></wrapper><?php echo _("Status"); ?></span></a></li>
-                                    <!-- <li><a href="#"><span class="circle circle-sm bg-info di" style="padding-top: 11px;"><i class="ti-settings"></i></span><span><?php echo _("Configure"); ?></span></a></li> -->
-                                </ul><br><br><br>
-                                <div class="table-responsive">
-                                <table class="table footable m-b-0" data-sorting="true">
-                                    <tbody>
-                                        <tr>
-                                            <td></td>
-                                            <td><h1><b><?php print_r($sysdata[0]['HOSTNAME']); ?></b></h1><br><b><?php print_r($sysdata[0]['OS'] . ' ' . $sysdata[0]['VERSION']); ?></b> (<?php print_r($sysdata[0]['ARCH']); ?>)</td>
-                                            <td><h1>&nbsp;</h1><br>Load Average: <b><?php print_r($sysdata[0]['LOADAVERAGE']); ?></b></td>
-                                            <td class="restwo"><h1>&nbsp;</h1><br>Uptime: <b><?php 
-                                                if (strpos(secondsToTime($sysdata[0]['UPTIME'] * 60),'0 days') !== false) {
-                                                            echo str_replace('0 days, ', '', secondsToTime($sysdata[0]['UPTIME'] * 60));
-                                                    }
-                                                    else {
-                                                        echo secondsToTime($sysdata[0]['UPTIME'] * 60);
-                                                    }
-                                                ?></b></td>
-                                            <td><h2>&nbsp;</h2>
-                                                <a href="../server/vesta.php"><button type="button" data-toggle="tooltip" data-original-title="<?php echo _("Configure"); ?>" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-settings"></i></button></a>
-                                                <button type="button" data-toggle="tooltip" data-original-title="<?php echo _("Restart"); ?>" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    </table>
-                                </div>
-                                    <div class="table-responsive">
-                                    <table class="table footable m-b-0" data-paging="false" data-sorting="true">
-                                        <tbody>
-                                            <?php
-                                            if($servicename[0] != '') { 
-                                                $x1 = 0; 
-
-                                                do {
-                                                    echo '<tr'; if($servicedata[$x1]['STATE'] != 'running') { echo ' style="background: #efefef"'; } echo '>';
-                                                        echo '<td></td>
-                                                        <td></td>
-                                                        <td><h2>' . $servicename[$x1] . '</h2><br>' . $servicedata[$x1]['SYSTEM'] . '<br>&nbsp;</td>
-                                                        <td data-sort-value="' . $servicedata[$x1]['CPU'] . '"><h2>&nbsp;</h2><br>CPU: ' . $servicedata[$x1]['CPU'] . '</td>
-                                                        <td data-sort-value="' . $servicedata[$x1]['MEM'] . '"><h2>&nbsp;</h2><br>Memory: ' . $servicedata[$x1]['MEM'] . '</td>
-                                                        <td class="restwo" data-sort-value="' . $servicedata[$x1]['RTIME'] . '"><h2>&nbsp;</h2><br>Uptime: ';
-                                                        if (strpos(secondsToTime($servicedata[$x1]['RTIME'] * 60),'0 days') !== false) {
-                                                                echo str_replace('0 days, ', '', secondsToTime($servicedata[$x1]['RTIME'] * 60));
-                                                        }
-                                                        else {
-                                                            echo secondsToTime($servicedata[$x1]['RTIME'] * 60);
-                                                        }
-                                                        echo '</td>';
-                                                        /* <td><h4>&nbsp;</h4>
-                                                        <button type="button" data-toggle="tooltip" data-original-title="' . _("Configure") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-settings"></i></button>';  
-                                                        if ($servicedata[$x1]['STATE'] != 'running') { echo '<button type="button" data-toggle="tooltip" data-original-title="' . _("Start") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-control-play"></i></button>'; } else { echo '<button type="button" data-toggle="tooltip" data-original-title="' . _("Stop") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-control-stop"></i></button>'; }
-                                                        echo '<button type="button" data-toggle="tooltip" data-original-title="' . _("Restart") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></td> */
-                                                    echo '</tr>';
-                                                    $x1++;
-                                                } while (isset($servicename[$x1])); }
-                                            ?>
-
-                                        </tbody>
-                                    </table>
-                                </div>
+                                <form class="form-horizontal form-material" method="post" id="form">
+                                    <div class="form-group">
+                                        <label class="col-md-12"><?php echo _("Max Connections"); ?></label>
+                                        <div class="col-md-12">
+                                            <input type="text" disabled name="max_connections" value="<?php echo $confdata[0]['max_connections']; ?>" class="form-control form-control-line" required> 
+                                        </div>
                                     </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12"><?php echo _("Max User Connections"); ?></label>
+                                        <div class="col-md-12">
+                                            <input type="text" disabled name="max_user_connections" value="<?php echo $confdata[0]['max_user_connections']; ?>" class="form-control form-control-line" required> 
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12"><?php echo _("Wait Timeout"); ?></label>
+                                        <div class="col-md-12">
+                                            <input type="text" disabled name="wait_timeout" value="<?php echo $confdata[0]['wait_timeout']; ?>" class="form-control form-control-line" required> 
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12"><?php echo _("Interactive Timeout"); ?></label>
+                                        <div class="col-md-12">
+                                            <input type="text" disabled name="interactive_timeout" value="<?php echo $confdata[0]['interactive_timeout']; ?>" class="form-control form-control-line" required> 
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12"><?php echo _("Max Allowed Packet"); ?></label>
+                                        <div class="col-md-12">
+                                            <input type="text" disabled name="max_allowed_packet" value="<?php echo $confdata[0]['max_allowed_packet']; ?>" class="form-control form-control-line" required> 
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                             <a href="../list/server.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                        <?php hotkeys($configlocation); ?>
-                        <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
                     </div>
                 </div>
+                <script> 
+                    function exitForm() { window.location.href="../list/server.php"; };
+                </script>
+                <?php hotkeys($configlocation); ?>
+                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
+            </div>
         </div>
         <script src="../../plugins/components/jquery/jquery.min.js"></script>
         <script src="../../plugins/components/jquery-toast-plugin/jquery.toast.min.js"></script>
@@ -278,36 +229,47 @@ function secondsToTime($seconds) {
         <script src="../../plugins/components/sweetalert2/sweetalert2.min.js"></script>
         <script src="../../plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="../../plugins/components/metismenu/dist/metisMenu.min.js"></script>
-        <script src="../../plugins/components/moment/moment.min.js"></script>
-        <script src="../../plugins/components/footable/footable.min.js"></script>
+        <script src="../../plugins/components/select2/select2.min.js"></script>
         <script src="../../plugins/components/waves/waves.js"></script>
         <script src="../../js/main.js"></script>
         <script type="text/javascript">
             Waves.attach('.button', ['waves-effect']);
             Waves.init();
-
+            
             <?php 
             $pluginlocation = "../../plugins/"; if(isset($pluginnames[0]) && $pluginnames[0] != '') { $currentplugin = 0; do { if (strtolower($pluginhide[$currentplugin]) != 'y' && strtolower($pluginhide[$currentplugin]) != 'yes') { if (strtolower($pluginadminonly[$currentplugin]) != 'y' && strtolower($pluginadminonly[$currentplugin]) != 'yes') { if (strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; } else { $currentstring = "<li><a href='".$pluginlocation.$pluginlinks[$currentplugin]."/'><i class='fa ".$pluginicons[$currentplugin]." fa-fw'></i><span class='hide-menu'>"._($pluginnames[$currentplugin])."</span></a></li>"; }} else { if(strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";} } else { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; }}} echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');\n var plugindata" . $currentplugin . " = \"" . $currentstring . "\";\n plugincontainer" . $currentplugin . ".innerHTML += plugindata" . $currentplugin . ";\n"; } $currentplugin++; } while ($pluginnames[$currentplugin] != ''); } ?> 
-
-            jQuery(function($){
-                $('.footable').footable();
+            
+            $(document).ready(function() {
+                $('.select2').select2();
             });
-
+            function processLoader(){
+                swal({
+                    title: '<?php echo _("Processing"); ?>',
+                    text: '',
+                    onOpen: function () {
+                        swal.showLoading()
+                    }
+                })};
+            function loadLoader(){
+                swal({
+                    title: '<?php echo _("Loading"); ?>',
+                    text: '',
+                    onOpen: function () {
+                        swal.showLoading()
+                    }
+                })};
             <?php
-
+            
             includeScript();
-
+            
             if(isset($_GET['error']) && $_GET['error'] == "1") {
                 echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
             } 
-            
-            $returntotal = $_POST['r1'] + $_POST['r2'] + $_POST['r3'] + $_POST['r4'] + $_POST['r5'] + $_POST['r6'] + $_POST['r7'] + $_POST['r8'] + $_POST['r9'] + $_POST['r10'] + $_POST['r11'] + $_POST['r12'] + $_POST['r13'] + $_POST['r14'];
-            
-            if(isset($_POST['r1']) && $returntotal == 0) {
+            if(isset($_POST['r1']) && $_POST['r1'] == "0") {
                 echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
             } 
-            if(isset($_POST['r1']) && $returntotal != 0) {
-                echo "swal({title:'" . _("Error Updating User") . "<br>" . "(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . "." . $_POST['r4'] . "." . $_POST['r5'] . "." . $_POST['r6'] . "." . $_POST['r7'] . "." . $_POST['r8'] . "." . $_POST['r9'] . "." . $_POST['r10'] . "." . $_POST['r11'] . "." . $_POST['r12'] . "." . $_POST['r13'] . "." . $_POST['r14'] . ")<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+            if(isset($_POST['r1']) && $_POST['r1'] > "0") { echo "swal({title:'" . $errorcode[$_POST['r1']] . "<br><br>" . _("Please try again later or contact support.") . "', type:'error'});";
+                                                          }
             ?>
         </script>
     </body>

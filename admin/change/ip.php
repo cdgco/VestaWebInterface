@@ -60,7 +60,7 @@ if (isset($_POST['v_address']) && $_POST['v_address'] != '') {
         curl_setopt($curl0, CURLOPT_POST, true);
         curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query($postvars[0]));
         $r1 = curl_exec($curl0);
-    }
+    } else { $r1 = '0'; }
     if ($v_4 != $_POST['v_assigned-x']) { 
         $curl1 = curl_init(); 
 
@@ -71,7 +71,7 @@ if (isset($_POST['v_address']) && $_POST['v_address'] != '') {
         curl_setopt($curl1, CURLOPT_POST, true);
         curl_setopt($curl1, CURLOPT_POSTFIELDS, http_build_query($postvars[1]));
         $r2 = curl_exec($curl1);
-    }
+    } else { $r2 = '0'; }
     if ($v_2 != $_POST['v_domain-x']) { 
         $curl2 = curl_init();
 
@@ -82,7 +82,7 @@ if (isset($_POST['v_address']) && $_POST['v_address'] != '') {
         curl_setopt($curl2, CURLOPT_POST, true);
         curl_setopt($curl2, CURLOPT_POSTFIELDS, http_build_query($postvars[2]));
         $r3 = curl_exec($curl2);
-    }
+    } else { $r3 = '0'; }
     if ($v_3 != $_POST['v_nat-x']) { 
         $curl3 = curl_init(); 
 
@@ -93,7 +93,7 @@ if (isset($_POST['v_address']) && $_POST['v_address'] != '') {
         curl_setopt($curl3, CURLOPT_POST, true);
         curl_setopt($curl3, CURLOPT_POSTFIELDS, http_build_query($postvars[3]));   
         $r4 = curl_exec($curl3);
-    }
+    } else { $r4 = '0'; }
 }
 else { header('Location: ../list/ip.php?error=1'); }
 
