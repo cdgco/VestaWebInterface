@@ -61,7 +61,7 @@ $statsname = array_keys(json_decode(curl_exec($curl1), true));
 $statsdata = array_values(json_decode(curl_exec($curl1), true));
 $sysusers = array_keys(json_decode(curl_exec($curl2), true));
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale("LC_CTYPE", $locale); setlocale("LC_MESSAGES", $locale);
+setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
 bindtextdomain('messages', '../../locale');
 textdomain('messages');
 
@@ -279,6 +279,7 @@ foreach ($plugins as $result) {
         <script src="../../plugins/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
         <script src="../../plugins/components/sweetalert2/sweetalert2.min.js"></script>
         <script src="../../plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../../plugins/components/bootstrap-select/js/bootstrap-select.min.js"></script>
         <script src="../../plugins/components/metismenu/dist/metisMenu.min.js"></script>
         <script src="../../plugins/components/moment/moment.min.js"></script>
         <script src="../../plugins/components/footable/footable.min.js"></script>

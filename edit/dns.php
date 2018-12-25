@@ -63,7 +63,7 @@ $dnsdata = array_values(json_decode(curl_exec($curl1), true));
 $dnstpl = array_values(json_decode(curl_exec($curl2), true));
 if ($dnsname[0] == '') { header('Location: ../list/dns.php'); }
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale("LC_CTYPE", $locale); setlocale("LC_MESSAGES", $locale);
+setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
 bindtextdomain('messages', '../locale');
 textdomain('messages');
 

@@ -58,7 +58,7 @@ $useremail = $admindata['CONTACT'];
 $graphname = array_keys(json_decode(curl_exec($curl1), true));
 $graphdata = array_values(json_decode(curl_exec($curl1), true));
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale("LC_CTYPE", $locale); setlocale("LC_MESSAGES", $locale);
+setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
 bindtextdomain('messages', '../../locale');
 textdomain('messages');
 
@@ -191,21 +191,25 @@ foreach ($plugins as $result) {
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                             <h4 class="page-title"><?php echo _("RRD Graphs"); ?></h4> 
                         </div>
+
                         <div class="col-lg-2 col-sm-8 col-md-8 col-xs-12 pull-right">
-                            <div style="margin-right:257px;width:220px;" class="btn-group bootstrap-select input-group-btn">
-                                <form id="loguserform" action="graphs.php" method="get">
-                                    <select class="selectpicker pull-right m-l-20" id="period" name="period" data-style="form-control">';
-                                        <option value="daily">Daily</option>
-                                        <option value="weekly">Weekly</option>
-                                        <option value="monthly">Monthly</option>
-                                        <option value="yearly">Yearly</option>
-                                    </select>
+                            <div class="btn-group bootstrap-select input-group-btn" style="margin-right:257px;width:220px;">
+                                 <form id="loguserform" action="graphs.php" method="get">
+                                     <div class="dropdown bootstrap-select pull-right m-l-20">
+                                        <select class="selectpicker pull-right m-l-20" id="period" name="period" data-style="form-control">
+                                            <option value="daily">Daily</option>
+                                            <option value="weekly">Weekly</option>
+                                            <option value="monthly">Monthly</option>
+                                            <option value="yearly">Yearly</option>
+                                        </select>
+                                    </div>
                                 </form>
                             </div>
                             <div class="input-group-btn">
                                 <button type="button" onclick='document.getElementById("loguserform").submit();swal({title: "Processing", text: "",timer: 5000,onOpen: function () {swal.showLoading();}}).then(function () {},function (dismiss) {if (dismiss === "timer") {}})' class=" pull-right btn waves-effect waves-light color-button"><i class="ti-angle-right"></i></button>
                             </div>
                         </div>
+
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
@@ -242,6 +246,7 @@ foreach ($plugins as $result) {
         <script src="../../plugins/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
         <script src="../../plugins/components/sweetalert2/sweetalert2.min.js"></script>
         <script src="../../plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../../plugins/components/bootstrap-select/js/bootstrap-select.min.js"></script>
         <script src="../../plugins/components/metismenu/dist/metisMenu.min.js"></script>
         <script src="../../plugins/components/moment/moment.min.js"></script>
         <script src="../../plugins/components/footable/footable.min.js"></script>
