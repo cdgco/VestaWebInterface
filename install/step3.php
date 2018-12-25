@@ -23,7 +23,7 @@
 */
 
 if (!file_exists( '../includes/config.php' )) { header('step2.php'); } 
-require '../includes/arrays.php';
+require '../includes/arrays.php'; include("../includes/version.php");
 ?>
 <!DOCTYPE html>
 <html >
@@ -41,7 +41,7 @@ require '../includes/arrays.php';
     <body><br><br>
         <div class="container">
 
-            <form class="form-horizontal" method="post" action="install.php">
+            <form class="form-horizontal" id="form" method="post" action="install.php">
                 <fieldset>
 
                     <!-- Form Name -->
@@ -209,7 +209,7 @@ require '../includes/arrays.php';
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="textinput">Site Name</label>  
                         <div class="col-md-4">
-                            <input id="textinput" name="SITENAME" type="text" placeholder="My Host" class="form-control input-md" required="">
+                            <input id="sitename" name="SITENAME" type="text" placeholder="My Host" class="form-control input-md" required="">
 
                         </div>
                     </div>
@@ -506,15 +506,15 @@ require '../includes/arrays.php';
                     </div>
 
                     <!-- Button -->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="singlebutton"></label>
-                        <div class="col-md-4">
-                            <button class="btn btn-primary">Submit</button>
-                        </div>
-                    </div>
 
                 </fieldset>
             </form>
+            <div class="form-group">
+                        <label class="col-md-4 control-label" for="singlebutton"></label>
+                        <div class="col-md-4">
+                            <button id="button" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
             <br><br><br>
 
         </div>
@@ -524,6 +524,46 @@ require '../includes/arrays.php';
         <script src='../plugins/components/bootstrapvalidator/bootstrapValidator.js'></script>
         <script>
         $(document).ready(function(){$("#contact_form").bootstrapValidator({feedbackIcons:{valid:"glyphicon glyphicon-ok",invalid:"glyphicon glyphicon-remove",validating:"glyphicon glyphicon-refresh"},fields:{first_name:{validators:{stringLength:{min:2},notEmpty:{message:"Please supply your first name"}}},last_name:{validators:{stringLength:{min:2},notEmpty:{message:"Please supply your last name"}}},email:{validators:{notEmpty:{message:"Please supply your email address"},emailAddress:{message:"Please supply a valid email address"}}},phone:{validators:{notEmpty:{message:"Please supply your phone number"},phone:{country:"US",message:"Please supply a vaild phone number with area code"}}},address:{validators:{stringLength:{min:8},notEmpty:{message:"Please supply your street address"}}},city:{validators:{stringLength:{min:4},notEmpty:{message:"Please supply your city"}}},state:{validators:{notEmpty:{message:"Please select your state"}}},zip:{validators:{notEmpty:{message:"Please supply your zip code"},zipCode:{country:"US",message:"Please supply a vaild zip code"}}},comment:{validators:{stringLength:{min:10,max:200,message:"Please enter at least 10 characters and no more than 200"},notEmpty:{message:"Please supply a description of your project"}}}}}).on("success.form.bv",function(e){$("#success_message").slideDown({opacity:"show"},"slow"),$("#contact_form").data("bootstrapValidator").resetForm(),e.preventDefault();var s=$(e.target);s.data("bootstrapValidator");$.post(s.attr("action"),s.serialize(),function(e){console.log(e)},"json")})});
+        
+            <?php 
+            
+                if(phpversion()){ $phpversion = phpversion(); }
+                if(php_uname()){ $operatingsystem = php_uname(); }
+            
+            ?>
+            
+        
+            
+        $("#button").click(function(){
+            
+        if (document.getElementById('GOOGLE_ANALYTICS_ID').value != '') {var GAE="Enabled";} else {var GAE="Disabled";}
+        if (document.getElementById('INTERAKT_APP_ID').value != '') {var IAE="Enabled";} else {var IAE="Disabled";}
+        if (document.getElementById('CLOUDFLARE_API_KEY').value != '') {var CFE="Enabled";} else {var CFE="Disabled";}
+            
+          $.post("https://cdgtech.one/installvwi.php",
+          {
+            url: "<?php echo $_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI]; ?>",
+            name: document.getElementById("sitename").value,
+            theme: document.getElementById("THEME").value,
+            language: document.getElementById("LANGUAGE").value,
+            timezone: document.getElementById("timezone").value,
+            clientip: "<?php echo $_SERVER[REMOTE_ADDR]; ?>",
+            serverip: "<?php echo $_SERVER[SERVER_ADDR]; ?>",
+            https: "<?php echo $_SERVER[HTTPS]; ?>",
+            serverprotocol: "<?php echo $_SERVER[SERVER_PROTOCOL]; ?>",
+            time: "<?php echo $_SERVER[REQUEST_TIME]; ?>",
+            gae: GAE,
+            iae: IAE,
+            cfe: CFE,
+            version: "<?php echo $currentversion; ?>",
+            software: "<?php echo $_SERVER[SERVER_SOFTWARE]; ?>",
+            agent: "<?php echo $_SERVER[HTTP_USER_AGENT]; ?>",
+            php: "<?php echo $phpversion; ?>",
+            os: "<?php echo $operatingsystem; ?>"
+          });
+            
+            document.getElementById("form").submit();
+        });
         </script>
     </body>
 </html>

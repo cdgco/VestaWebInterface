@@ -24,7 +24,7 @@
 
 if (!file_exists( '../includes/config.php' )) { header('step2.php'); } 
 $configlocation = "../includes/";
-require("../includes/config.php"); include("../includes/version.php");
+require("../includes/config.php");
 function randomPassword() { $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'; $pass = array(); $alphaLength = strlen($alphabet) - 1; for ($i = 0; $i < 8; $i++) { $n = rand(0, $alphaLength); $pass[] = $alphabet[$n]; } return implode($pass); }
 
 $a = randomPassword();
@@ -166,42 +166,7 @@ mysqli_close($con);
                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
             </svg>
         </div>
-
-
-        <form id="form" action="https://cdgtech.one/installvwi.php" method="post">
-            <?php 
-
-            if ($_POST['GOOGLE_ANALYTICS_ID'] != '') {$GAE="Enabled";} else {$GAE="Disabled";}
-            if ($_POST['INTERAKT_APP_ID'] != '') {$IAE="Enabled";} else {$IAE="Disabled";}
-            if ($_POST['CLOUDFLARE_API_KEY'] != '') {$CFE="Enabled";} else {$CFE="Disabled";}
-            if(phpversion()){ $phpversion = phpversion(); }
-            if(php_uname()){ $operatingsystem = php_uname(); }
-            echo '<input type="hidden" name="url" value="'.$_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI].'">';
-            echo '<input type="hidden" name="name" value="'.$_POST['SITENAME'].'">';
-            echo '<input type="hidden" name="theme" value="'.$_POST['THEME'].'">';
-            echo '<input type="hidden" name="language" value="'.$_POST['LANGUAGE'].'">';
-            echo '<input type="hidden" name="timezone" value="'.$_POST['TIMEZONE'].'">';
-            echo '<input type="hidden" name="clientip" value="'.$_SERVER[REMOTE_ADDR].'">';
-            echo '<input type="hidden" name="serverip" value="'.$_SERVER[SERVER_ADDR].'">';
-            echo '<input type="hidden" name="https" value="'.$_SERVER[HTTPS].'">';
-            echo '<input type="hidden" name="serverprotocol" value="'.$_SERVER[SERVER_PROTOCOL].'">';
-            echo '<input type="hidden" name="time" value="'.$_SERVER[REQUEST_TIME].'">';
-            echo '<input type="hidden" name="email" value="'.$_POST['EMAILADDR'].'">';
-            echo '<input type="hidden" name="gae" value="'.$GAE.'">';
-            echo '<input type="hidden" name="iae" value="'.$IAE.'">';
-            echo '<input type="hidden" name="cfe" value="'.$CFE.'">';
-            echo '<input type="hidden" name="version" value="'.$currentversion.'">';
-            echo '<input type="hidden" name="software" value="'.$_SERVER[SERVER_SOFTWARE].'">';
-            echo '<input type="hidden" name="agent" value="'.$_SERVER[HTTP_USER_AGENT].'">';
-            echo '<input type="hidden" name="php" value="'.$phpversion.'">';
-            echo '<input type="hidden" name="os" value="'.$operatingsystem.'">';
-
-            ?>
-
-        </form>
-        <script type="text/javascript">
-            document.getElementById('form').submit();
-        </script>
     </body>
     <script src="../plugins/components/jquery/jquery.min.js"></script>
+    <script>window.location = "complete.html"</script>
 </html>
