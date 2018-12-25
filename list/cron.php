@@ -370,74 +370,69 @@ foreach ($plugins as $result) {
                         }
                     }
                 )}
-
-
             function confirmDelete(e){
                 e1 = String(e)
-                swal({
-                    title: '<?php echo _("Delete Cron Job"); ?>: ' + e1 +' ?',
-                    text: "<?php echo _("You won't be able to revert this!"); ?>",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
-                }).then(function () {
+                Swal({
+                  title: '<?php echo _("Delete Cron Job"); ?>: ' + e1 +' ?',
+                  text: "<?php echo _("You won't be able to revert this!"); ?>",
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
+                }).then((result) => {
+                  if (result.value) {
                     swal({
                         title: '<?php echo _("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()
                         }
-                    }).then(
-                        function () {},
-                        function (dismiss) {}
-                    )
-                    window.location.replace("../delete/cron.php?job=" + e1);
+                    });
+                  window.location.replace("../delete/cron.php?job=" + e1);
+                  }
                 })}
             function confirmSuspend(f){
                 f1 = String(f)
-                swal({
-                    title: '<?php echo _("Suspend Cron Job"); ?>: ' + f1 +' ?',
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '<?php echo _("Confirm"); ?>'
-                }).then(function () {
+                Swal({
+                  title: '<?php echo _("Suspend Cron Job"); ?>: ' + f1 +' ?',
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: '<?php echo _("Confirm"); ?>'
+                }).then((result) => {
+                  if (result.value) {
                     swal({
                         title: '<?php echo _("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()
                         }
-                    }).then(
-                        function () {},
-                        function (dismiss) {}
-                    )
-                    window.location.replace("../admin/suspend/cron.php?user=<?php echo $username; ?>&resource=" + f1);
+                    });
+                  window.location.replace("../admin/suspend/cron.php?user=<?php echo $username; ?>&resource=" + f1);
+                  }
                 })}
             function confirmUnsuspend(f2){
                 f2 = String(f2)
-                swal({
-                    title: '<?php echo _("Unsuspend Cron Job"); ?>: ' + f2 +' ?',
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '<?php echo _("Confirm"); ?>'
-                }).then(function () {
+                Swal({
+                  title: '<?php echo _("Unsuspend Cron Job"); ?>: ' + f2 +' ?',
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: '<?php echo _("Confirm"); ?>'
+                }).then((result) => {
+                  if (result.value) {
                     swal({
                         title: '<?php echo _("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()
                         }
-                    }).then(
-                        function () {},
-                        function (dismiss) {}
-                    )
-                    window.location.replace("../admin/unsuspend/cron.php?user=<?php echo $username; ?>&resource=" + f2);
+                    });
+                  window.location.replace("../admin/unsuspend/cron.php?user=<?php echo $username; ?>&resource=" + f2);
+                  }
                 })}
 
             <?php

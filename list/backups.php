@@ -321,28 +321,26 @@ foreach ($plugins as $result) {
             });
             function confirmDelete(e){
                 e1 = String(e)
-                swal({
-                    title: '<?php echo _("Delete Backup"); ?>:<br> ' + e1 +' ?',
-                    text: "<?php echo _("You won't be able to revert this!"); ?>",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
-                }).then(function () {
+                Swal({
+                  title: '<?php echo _("Delete Backup"); ?>:<br> ' + e1 +' ?',
+                  text: "<?php echo _("You won't be able to revert this!"); ?>",
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
+                }).then((result) => {
+                  if (result.value) {
                     swal({
                         title: '<?php echo _("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()
                         }
-                    }).then(
-                        function () {},
-                        function (dismiss) {}
-                    )
-                    window.location.replace("../delete/backup.php?backup=" + e1);
+                    });
+                   window.location.replace("../delete/backup.php?backup=" + e1);
+                  }
                 })}
-
             <?php           
             
             includeScript();

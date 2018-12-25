@@ -317,27 +317,27 @@ foreach ($plugins as $result) {
             jQuery(function($){
                 $('.footable').footable();
             });
-            function confirmDelete(){
-                swal({
-                    title: '<?php echo _("Delete Backup"); ?>:<br> <?php echo $requestbackup; ?>' + ' ?',
-                    text: "<?php echo _("You won't be able to revert this!"); ?>",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
-                }).then(function () {
+            function confirmDelete(e){
+                e1 = String(e)
+                Swal({
+                  title: '<?php echo _("Delete Backup"); ?>:<br> <?php echo $requestbackup; ?>' + ' ?',
+                  text: "<?php echo _("You won't be able to revert this!"); ?>",
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
+                }).then((result) => {
+                  if (result.value) {
                     swal({
                         title: '<?php echo _("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()
                         }
-                    }).then(
-                        function () {},
-                        function (dismiss) {}
-                    )
-                    window.location.replace("../delete/backup.php?backup=<?php echo $requestbackup; ?>");
+                    });
+                   window.location.replace("../delete/backup.php?backup=<?php echo $requestbackup; ?>");
+                  }
                 })}
 
             <?php

@@ -357,70 +357,68 @@ foreach ($plugins as $result) {
             });
             function confirmDelete(e){
                 e1 = String(e)
-                swal({
-                    title: '<?php echo _("Delete"); ?> ' + e1 + '?',
+                Swal({
+                  title: '<?php echo _("Delete"); ?> ' + e1 + '?',
                     text: "<?php echo _("You won't be able to revert this!"); ?>",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
-                }).then(function () {
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
+                }).then((result) => {
+                  if (result.value) {
                     swal({
                         title: '<?php echo _("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()
                         }
-                    }).then(
-                        function () {},
-                        function (dismiss) {}
-                    )
-                    window.location.replace("../delete/user.php?user=" + e1);
+                    });
+                   window.location.replace("../delete/user.php?user=" + e1);
+                  }
                 })}
+
             function confirmSuspend(f){
                 f1 = String(f)
-                swal({
-                    title: '<?php echo _("Suspend"); ?> ' + f1 +' ?',
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '<?php echo _("Confirm"); ?>'
-                }).then(function () {
+                Swal({
+                  title: '<?php echo _("Suspend"); ?> ' + f1 +' ?',
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: '<?php echo _("Confirm"); ?>'
+                }).then((result) => {
+                  if (result.value) {
                     swal({
                         title: '<?php echo _("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()
                         }
-                    }).then(
-                        function () {},
-                        function (dismiss) {}
-                    )
-                    window.location.replace("../suspend/user.php?user=" + f1);
+                    });
+                   window.location.replace("../suspend/user.php?user=" + f1);
+                  }
                 })}
             function confirmUnsuspend(f2){
                 f2 = String(f2)
-                swal({
-                    title: '<?php echo _("Unsuspend"); ?> ' + f2 +' ?',
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '<?php echo _("Confirm"); ?>'
-                }).then(function () {
+                Swal({
+                  title: '<?php echo _("Unsuspend"); ?> ' + f2 +' ?',
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: '<?php echo _("Confirm"); ?>'
+                }).then((result) => {
+                  if (result.value) {
                     swal({
                         title: '<?php echo _("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()
                         }
-                    }).then(
-                        function () {},
-                        function (dismiss) {}
-                    )
-                    window.location.replace("../unsuspend/user.php?user=" + f2);
+                    });
+                   window.location.replace("../unsuspend/user.php?user=" + f2);
+                  }
                 })}
 
             <?php

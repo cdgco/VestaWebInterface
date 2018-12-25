@@ -707,26 +707,25 @@ foreach ($plugins as $result) {
                 return false;
             });
             function confirmDelete(){
-                swal({
-                    title: '<?php echo _("Delete Cron Job"); ?>:<br> #<?php echo $requestjob; ?>' + ' ?',
-                    text: "<?php echo _("You won't be able to revert this!"); ?>",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
-                }).then(function () {
+                Swal({
+                  title: '<?php echo _("Delete Cron Job"); ?>:<br> #<?php echo $requestjob; ?>' + ' ?',
+                  text: "<?php echo _("You won't be able to revert this!"); ?>",
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
+                }).then((result) => {
+                  if (result.value) {
                     swal({
                         title: '<?php echo _("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()
                         }
-                    }).then(
-                        function () {},
-                        function (dismiss) {}
-                    )
-                    window.location.replace("../delete/cron.php?job=<?php echo $requestjob; ?>");
+                    });
+                  window.location.replace("../delete/cron.php?job=<?php echo $requestjob; ?>");
+                  }
                 })}
             function processLoader(){
                 swal({

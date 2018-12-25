@@ -364,26 +364,25 @@ foreach ($plugins as $result) {
                 document.getElementById('password').type="text";
             }
             function confirmDelete(){
-                swal({
-                    title: '<?php echo _("Delete Database"); ?>:<br> <?php echo $requestdb; ?>' + ' ?',
+                Swal({
+                  title: '<?php echo _("Delete Database"); ?>:<br> <?php echo $requestdb; ?>' + ' ?',
                     text: "<?php echo _("You won't be able to revert this!"); ?>",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
-                }).then(function () {
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
+                }).then((result) => {
+                  if (result.value) {
                     swal({
                         title: '<?php echo _("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()
                         }
-                    }).then(
-                        function () {},
-                        function (dismiss) {}
-                    )
-                    window.location.replace("../delete/db.php?db=<?php echo $requestdb; ?>");
+                    });
+                  window.location.replace("../delete/db.php?db=<?php echo $requestdb; ?>");
+                  }
                 })}
             function processLoader(){
                 swal({

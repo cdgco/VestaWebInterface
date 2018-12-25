@@ -205,7 +205,6 @@ function secondsToTime($seconds) {
                             <div class="white-box">
                                 <ul class="side-icon-text pull-right">
                                     <li><a href="../status/cpu.php"><span class="circle circle-sm bg-info di" style="padding-top: 11px;"><i class="ti-pulse"></i></span><span><wrapper class="resthree"><?php echo _("Show "); ?></wrapper><?php echo _("Status"); ?></span></a></li>
-                                    <!-- <li><a href="#"><span class="circle circle-sm bg-info di" style="padding-top: 11px;"><i class="ti-settings"></i></span><span><?php echo _("Configure"); ?></span></a></li> -->
                                 </ul><br><br><br>
                                 <div class="table-responsive">
                                 <table class="table footable m-b-0" data-sorting="true">
@@ -224,7 +223,7 @@ function secondsToTime($seconds) {
                                                 ?></b></td>
                                             <td><h2>&nbsp;</h2>
                                                 <a href="../server/vesta.php"><button type="button" data-toggle="tooltip" data-original-title="<?php echo _("Configure"); ?>" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-settings"></i></button></a>
-                                                <button type="button" data-toggle="tooltip" data-original-title="<?php echo _("Restart"); ?>" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button>
+                                                <button type="button" onclick="confirmRestartSystem();" data-toggle="tooltip" data-original-title="<?php echo _("Restart"); ?>" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -251,11 +250,12 @@ function secondsToTime($seconds) {
                                                         else {
                                                             echo secondsToTime($servicedata[$x1]['RTIME'] * 60);
                                                         }
-                                                        echo '</td>';
-                                                        /* <td><h4>&nbsp;</h4>
-                                                        <button type="button" data-toggle="tooltip" data-original-title="' . _("Configure") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-settings"></i></button>';  
-                                                        if ($servicedata[$x1]['STATE'] != 'running') { echo '<button type="button" data-toggle="tooltip" data-original-title="' . _("Start") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-control-play"></i></button>'; } else { echo '<button type="button" data-toggle="tooltip" data-original-title="' . _("Stop") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-control-stop"></i></button>'; }
-                                                        echo '<button type="button" data-toggle="tooltip" data-original-title="' . _("Restart") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></td> */
+                                                        echo '</td>
+                                                        <td><h4>&nbsp;</h4>';
+                                                        /* <button type="button" data-toggle="tooltip" data-original-title="' . _("Configure") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-settings"></i></button>';  
+                                                        if ($servicedata[$x1]['STATE'] != 'running') { echo '<button type="button" data-toggle="tooltip" data-original-title="' . _("Start") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-control-play"></i></button>'; } else { echo '<button type="button" data-toggle="tooltip" data-original-title="' . _("Stop") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-control-stop"></i></button>'; } */
+                                                        echo '<button onclick="confirmRestart(\'' . $servicename[$x1] . '\')" type="button" data-t
+                                                        oggle="tooltip" data-original-title="' . _("Restart") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></td>';
                                                     echo '</tr>';
                                                     $x1++;
                                                 } while (isset($servicename[$x1])); }
@@ -292,7 +292,49 @@ function secondsToTime($seconds) {
             jQuery(function($){
                 $('.footable').footable();
             });
-
+            function confirmRestart(e){
+                e1 = String(e)
+                Swal({
+                  title: '<?php echo _("Restart"); ?> ' + e1 +' ?',
+                  text: "<?php echo _("Please confirm action."); ?>",
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: '<?php echo _("Restart"); ?>'
+                }).then((result) => {
+                  if (result.value) {
+                    swal({
+                        title: '<?php echo _("Processing"); ?>',
+                        text: '',
+                        onOpen: function () {
+                            swal.showLoading()
+                        }
+                    });
+                    window.location.replace("../process/restart-service.php?service=" + e1);
+                  }
+                })}
+            function confirmRestartSystem(){
+                Swal({
+                  title: '<?php echo _("Restart System?"); ?>',
+                  text: "<?php echo _("Please confirm action."); ?>",
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: '<?php echo _("Restart"); ?>'
+                }).then((result) => {
+                  if (result.value) {
+                    swal({
+                        title: '<?php echo _("Processing"); ?>',
+                        text: '',
+                        onOpen: function () {
+                            swal.showLoading()
+                        }
+                    });
+                    window.location.replace("../process/restart-system.php?confirm=yes");
+                  }
+                })}
             <?php
 
             includeScript();
@@ -300,14 +342,11 @@ function secondsToTime($seconds) {
             if(isset($_GET['error']) && $_GET['error'] == "1") {
                 echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
             } 
-            
-            $returntotal = $_POST['r1'] + $_POST['r2'] + $_POST['r3'] + $_POST['r4'] + $_POST['r5'] + $_POST['r6'] + $_POST['r7'] + $_POST['r8'] + $_POST['r9'] + $_POST['r10'] + $_POST['r11'] + $_POST['r12'] + $_POST['r13'] + $_POST['r14'];
-            
-            if(isset($_POST['r1']) && $returntotal == 0) {
-                echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
+            if(isset($_POST['r1']) && $_POST['r1'] == "0") {
+                echo "swal({title:'" . _("Successfully Processed!") . "', type:'success'});";
             } 
-            if(isset($_POST['r1']) && $returntotal != 0) {
-                echo "swal({title:'" . _("Error Updating User") . "<br>" . "(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . "." . $_POST['r4'] . "." . $_POST['r5'] . "." . $_POST['r6'] . "." . $_POST['r7'] . "." . $_POST['r8'] . "." . $_POST['r9'] . "." . $_POST['r10'] . "." . $_POST['r11'] . "." . $_POST['r12'] . "." . $_POST['r13'] . "." . $_POST['r14'] . ")<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+            if(isset($_POST['r1']) && $_POST['r1'] > "0") { echo "swal({title:'" . $errorcode[$_POST['r1']] . "<br><br>" . _("Please try again later or contact support.") . "', type:'error'});";
+                                                          }
             ?>
         </script>
     </body>

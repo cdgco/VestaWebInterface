@@ -273,29 +273,6 @@ foreach ($plugins as $result) {
             if ($username = 'admin') { echo 'document.getElementById("loguser").value = \'' . $logusername . '\';';}
 
             ?>
-            function confirmDelete(e){
-                e1 = String(e)
-                swal({
-                    title: '<?php echo _("Delete Database"); ?>:<br> ' + e1 +' ?',
-                    text: "<?php echo _("You won't be able to revert this!"); ?>",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
-                }).then(function () {
-                    swal({
-                        title: '<?php echo _("Processing"); ?>',
-                        text: '',
-                        onOpen: function () {
-                            swal.showLoading()
-                        }
-                    }).then(
-                        function () {},
-                        function (dismiss) {}
-                    )
-                    window.location.replace("delete/db.php?db=" + e1);
-                })}
 
             <?php
             if(isset($_GET['error']) && $_GET['error'] == "1") {

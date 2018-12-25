@@ -255,26 +255,25 @@ foreach ($plugins as $result) {
             function confirmDelete(e,f){
                 e1 = String(e)
                 e2 = String(f)
-                swal({
-                    title: '<?php echo _("Delete"); ?> ' + e1 + ' <?php echo _("ban for IP"); ?>:<br>' + e2 +' ?',
+                Swal({
+                  title: '<?php echo _("Delete"); ?> ' + e1 + ' <?php echo _("ban for IP"); ?>:<br>' + e2 +' ?',
                     text: "<?php echo _("You won't be able to revert this!"); ?>",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
-                }).then(function () {
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
+                }).then((result) => {
+                  if (result.value) {
                     swal({
                         title: '<?php echo _("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()
                         }
-                    }).then(
-                        function () {},
-                        function (dismiss) {}
-                    )
-                    window.location.replace("../delete/fail2ban.php?chain=" + e1 + "&ip=" + e2);
+                    });
+                   window.location.replace("../delete/fail2ban.php?chain=" + e1 + "&ip=" + e2);
+                  }
                 })}
 
             <?php

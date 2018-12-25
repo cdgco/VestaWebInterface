@@ -351,52 +351,49 @@ foreach ($plugins as $result) {
             jQuery(function($){
                 $('.footable').footable();
             });
-
             function confirmDelete(e){
                 e1 = String(e)
-                e0 = '<?php print_r($cfid); ?>';
-                swal({
-                    title: '<?php echo _("Delete DNS Record?"); ?>',
-                    text: "<?php echo _("You won't be able to revert this!"); ?>",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
-                }).then(function () {
+                Swal({
+                  title: '<?php echo _("Delete DNS Record?"); ?>',
+                  text: "<?php echo _("You won't be able to revert this!"); ?>",
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
+                }).then((result) => {
+                  if (result.value) {
                     swal({
                         title: '<?php echo _("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()
                         }
-                    }).then(
-                        function () {},
-                        function (dismiss) {}
-                    )
-                    window.location.replace("../delete/cfrecord.php?domain=<?php echo $requestdns; ?>&zid=" + e0 + "&id=" +e1);
+                    });
+                   window.location.replace("../delete/cfrecord.php?domain=<?php echo $requestdns; ?>&zid=" + e0 + "&id=" +e1);
+                  }
                 })}
-            function confirmDelete2(){
-                swal({
-                    title: '<?php echo _("Delete DNS Domain"); ?>:<br> <?php echo $cfname; ?>' + ' ?',
-                    text: "<?php echo _("You won't be able to revert this!"); ?>",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
-                }).then(function () {
+            function confirmDelete2(e){
+                e1 = String(e)
+                Swal({
+                  title: '<?php echo _("Delete DNS Domain"); ?>:<br> <?php echo $cfname; ?>' + ' ?',
+                  text: "<?php echo _("You won't be able to revert this!"); ?>",
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
+                }).then((result) => {
+                  if (result.value) {
                     swal({
                         title: '<?php echo _("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()
                         }
-                    }).then(
-                        function () {},
-                        function (dismiss) {}
-                    )
-                    window.location.replace("../delete/dns.php?domain=<?php echo $cfname; ?>");
+                    });
+                   window.location.replace("../delete/dns.php?domain=<?php echo $cfname; ?>");
+                  }
                 })}
 
             <?php

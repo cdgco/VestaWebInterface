@@ -138,7 +138,7 @@ foreach ($plugins as $result) {
         <link rel="stylesheet" href="../plugins/components/sweetalert2/sweetalert2.min.css" />
         <link href="../css/style.css" rel="stylesheet">
         <link href="../css/colors/<?php if(isset($_COOKIE['theme']) && $themecolor != 'custom.css') { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
-        <?php if($themecolor == "custom.css") { require( '../css/colors/custom.php'); } ?>
+        <?php i($themecolor == "custom.css") { require( '../css/colors/custom.php'); } ?>
         <style>
             @media screen and (max-width: 1199px) {
                 .resone { display:none !important;}
@@ -368,52 +368,50 @@ foreach ($plugins as $result) {
                         document.getElementById("cloudflare").style.display = "none";
                     }
                     subDomain();'; } ?>
-                function confirmDelete(e){
-                    e1 = String(e)
-                    e0 = '<?php print_r($requestdns); ?>';
+            function confirmDelete(e){
+                e1 = String(e)
+                e0 = '<?php print_r($requestdns); ?>';
+                Swal({
+                  title: '<?php echo _("Delete DNS Record"); ?><br> #' + e1 +' ?',
+                  text: "<?php echo _("You won't be able to revert this!"); ?>",
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
+                }).then((result) => {
+                  if (result.value) {
                     swal({
-                        title: '<?php echo _("Delete DNS Record"); ?><br> #' + e1 +' ?',
+                        title: '<?php echo _("Processing"); ?>',
+                        text: '',
+                        onOpen: function () {
+                            swal.showLoading()
+                        }
+                    });
+                  window.location.replace("../delete/dnsrecord.php?domain=" + e0 + "&id=" +e1);
+                  }
+                })}
+            function confirmDelete2(){
+                Swal({
+                 title: '<?php echo _("Delete DNS Domain"); ?>:<br> <?php echo $requestdns; ?>' + ' ?',
                         text: "<?php echo _("You won't be able to revert this!"); ?>",
-                        type: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
-                    }).then(function () {
-                        swal({
-                            title: '<?php echo _("Processing"); ?>',
-                            text: '',
-                            onOpen: function () {
-                                swal.showLoading()
-                            }
-                        }).then(
-                            function () {},
-                            function (dismiss) {}
-                        )
-                        window.location.replace("../delete/dnsrecord.php?domain=" + e0 + "&id=" +e1);
-                    })}
-                function confirmDelete2(){
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
+                }).then((result) => {
+                  if (result.value) {
                     swal({
-                        title: '<?php echo _("Delete DNS Domain"); ?>:<br> <?php echo $requestdns; ?>' + ' ?',
-                        text: "<?php echo _("You won't be able to revert this!"); ?>",
-                        type: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
-                    }).then(function () {
-                        swal({
-                            title: '<?php echo _("Processing"); ?>',
-                            text: '',
-                            onOpen: function () {
-                                swal.showLoading()
-                            }
-                        }).then(
-                            function () {},
-                            function (dismiss) {}
-                        )
-                        window.location.replace("../delete/dns.php?domain=<?php echo $requestdns; ?>");
-                    })}
+                        title: '<?php echo _("Processing"); ?>',
+                        text: '',
+                        onOpen: function () {
+                            swal.showLoading()
+                        }
+                    });
+                  window.location.replace("../delete/dns.php?domain=<?php echo $requestdns; ?>");
+                  }
+                })}
 
                 <?php
             

@@ -314,95 +314,90 @@ foreach ($plugins as $result) {
             function confirmDelete(e){
                 e0 = '<?php print_r($requestmail); ?>';
                 e1 = String(e)
-                swal({
-                    title: '<?php echo _("Delete Mail Account"); ?>:<br> ' + e1 + '@' + e0 + ' ?',
+                Swal({
+                  title: '<?php echo _("Delete Mail Account"); ?>:<br> ' + e1 + '@' + e0 + ' ?',
                     text: "<?php echo _("You won't be able to revert this!"); ?>",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
-                }).then(function () {
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
+                }).then((result) => {
+                  if (result.value) {
                     swal({
                         title: '<?php echo _("Processing"); ?>',
                         text: '',
-                        timer: 5000,
                         onOpen: function () {
                             swal.showLoading()
                         }
-                    }).then(
-                        function () {},
-                        function (dismiss) {}
-                    )
-                    window.location.replace("../delete/domain.php?domain=" + e0 + "&account=" +e1);
+                    });
+                   window.location.replace("../delete/domain.php?domain=" + e0 + "&account=" +e1);
+                  }
                 })}
             function confirmDelete2(){
-                swal({
-                    title: '<?php echo _("Delete Mail Domain"); ?>:<br> <?php echo $requestmail; ?>' + ' ?',
+                Swal({
+                  title: '<?php echo _("Delete Mail Domain"); ?>:<br> <?php echo $requestmail; ?>' + ' ?',
                     text: "<?php echo _("You won't be able to revert this!"); ?>",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
-                }).then(function () {
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
+                }).then((result) => {
+                  if (result.value) {
                     swal({
                         title: '<?php echo _("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()
                         }
-                    }).then(
-                        function () {},
-                        function (dismiss) {}
-                    )
-                    window.location.replace("../delete/mail.php?domain=<?php echo $requestmail; ?>");
+                    });
+                   window.location.replace("../delete/mail.php?domain=<?php echo $requestmail; ?>");
+                  }
                 })}
             function confirmSuspend(f){
                 f1 = String(f)
                 g1 = '<?php print_r($requestmail); ?>';
-                swal({
-                    title: '<?php echo _("Suspend Mail Account"); ?>:<br> ' + f1 + '@<?php print_r($requestmail); ?> ?',
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '<?php echo _("Confirm"); ?>'
-                }).then(function () {
+                Swal({
+                  title: '<?php echo _("Suspend Mail Account"); ?>:<br> ' + f1 + '@<?php print_r($requestmail); ?> ?',
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: '<?php echo _("Confirm"); ?>'
+                }).then((result) => {
+                  if (result.value) {
                     swal({
                         title: '<?php echo _("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()
                         }
-                    }).then(
-                        function () {},
-                        function (dismiss) {}
-                    )
-                    window.location.replace("../admin/suspend/mailaccount.php?user=<?php echo $username; ?>&resource=<?php print_r($requestmail); ?>&account=" + f1);
+                    });
+                   window.location.replace("../admin/suspend/mailaccount.php?user=<?php echo $username; ?>&resource=<?php print_r($requestmail); ?>&account=" + f1);
+                  }
                 })}
             function confirmUnsuspend(f2){
                 f2 = String(f2)
                 g1 = '<?php print_r($requestmail); ?>';
-                swal({
-                    title: '<?php echo _("Unsuspend Mail Account"); ?>:<br> ' + f2 + '@<?php print_r($requestmail); ?> ?',
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '<?php echo _("Confirm"); ?>'
-                }).then(function () {
+                Swal({
+                  title: '<?php echo _("Unsuspend Mail Account"); ?>:<br> ' + f2 + '@<?php print_r($requestmail); ?> ?',
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: '<?php echo _("Confirm"); ?>'
+                }).then((result) => {
+                  if (result.value) {
                     swal({
                         title: '<?php echo _("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()
                         }
-                    }).then(
-                        function () {},
-                        function (dismiss) {}
-                    )
-                    window.location.replace("../admin/unsuspend/mailaccount.php?user=<?php echo $username; ?>&resource=<?php print_r($requestmail); ?>&account=" + f2);
+                    });
+                   window.location.replace("../admin/unsuspend/mailaccount.php?user=<?php echo $username; ?>&resource=<?php print_r($requestmail); ?>&account=" + f2);
+                  }
                 })}
 
             <?php

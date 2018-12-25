@@ -721,7 +721,7 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
                                     </div>
                                     <div class="form-group" id="div1" style="margin-left: 4%;">
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Proxy Server"); ?> / <a href="nginx.php"><?php echo _("Configure"); ?></a></label>
+                                            <label class="col-md-12"><?php echo _("Proxy Server"); ?><?php if($sysconfig[0]['PROXY_SYSTEM'] == 'nginx') { echo ' / <a href="nginx.php">' . _("Configure") . '</a>'; } ?></label>
                                             <div class="col-md-12">
                                                 <input type="text" disabled value="<?php if($sysconfig[0]['PROXY_SYSTEM'] != '') { echo $sysconfig[0]['PROXY_SYSTEM']; } else { echo 'None'; } ?>" class="form-control form-control-line" required> 
                                             </div>
@@ -1346,14 +1346,17 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
             
             includeScript();
             
-            if(isset($_GET['error']) && $_GET['error'] == "1") {
+           if(isset($_GET['error']) && $_GET['error'] == "1") {
                 echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
             } 
-            if(isset($_POST['r1']) && $_POST['r1'] == "0") {
+            
+            $returntotal = $_POST['r1'] + $_POST['r2'] + $_POST['r3'] + $_POST['r4'] + $_POST['r5'] + $_POST['r6'] + $_POST['r7'] + $_POST['r8'] + $_POST['r9'] + $_POST['r10'] + $_POST['r11'] + $_POST['r12'] + $_POST['r13'] + $_POST['r14'];
+            
+            if(isset($_POST['r1']) && $returntotal == 0) {
                 echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
             } 
-            if(isset($_POST['r1']) && $_POST['r1'] > "0") { echo "swal({title:'" . $errorcode[$_POST['r1']] . "<br><br>" . _("Please try again later or contact support.") . "', type:'error'});";
-                                                          }
+            if(isset($_POST['r1']) && $returntotal != 0) {
+                echo "swal({title:'" . _("Error Updating User") . "<br>" . "(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . "." . $_POST['r4'] . "." . $_POST['r5'] . "." . $_POST['r6'] . "." . $_POST['r7'] . "." . $_POST['r'] . "." . $_POST['r9'] . "." . $_POST['r10'] . "." . $_POST['r11'] . "." . $_POST['r12'] . "." . $_POST['r13'] . "." . $_POST['r14'] . ")<br><br>" . _("Please try again or contact support.") . "', type:'error'});"; }
             ?>
         </script>
     </body>

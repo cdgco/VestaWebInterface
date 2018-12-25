@@ -346,26 +346,25 @@ foreach ($plugins as $result) {
                 this.submit();
             });
             function confirmDelete(){
-                swal({
-                    title: '<?php echo _("Delete Mail Domain"); ?>:<br> <?php echo $requestmail; ?>' + ' ?',
-                    text: "<?php echo _("You won't be able to revert this!"); ?>",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
-                }).then(function () {
+                Swal({
+                  title: '<?php echo _("Delete Mail Domain"); ?>:<br> <?php echo $requestmail; ?>' + ' ?',
+                  text: "<?php echo _("You won't be able to revert this!"); ?>",
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
+                }).then((result) => {
+                  if (result.value) {
                     swal({
                         title: '<?php echo _("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()
                         }
-                    }).then(
-                        function () {},
-                        function (dismiss) {}
-                    )
-                    window.location.replace("../delete/mail.php?domain=<?php echo $requestmail; ?>");
+                    });
+                   window.location.replace("../delete/mail.php?domain=<?php echo $requestmail; ?>");
+                  }
                 })}
             function processLoader(){
                 swal({
