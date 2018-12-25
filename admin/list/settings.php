@@ -87,13 +87,15 @@ foreach ($plugins as $result) {
         <link rel="icon" type="image/ico" href="../../plugins/images/<?php echo $cpfavicon; ?>">
         <title><?php echo $sitetitle; ?> - <?php echo _("Settings"); ?></title>
         <link href="../../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../plugins/components/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet">
         <link href="../../plugins/components/jquery-toast-plugin/jquery.toast.min.css" rel="stylesheet">
         <link href="../../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../../plugins/components/select2/select2.min.css" rel="stylesheet">
         <link href="../../plugins/components/animate.css/animate.min.css" rel="stylesheet">
         <link rel="stylesheet" href="../../plugins/components/sweetalert2/sweetalert2.min.css" />
         <link href="../../css/style.css" rel="stylesheet">
-        <link href="../../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
+        <link href="../../css/colors/<?php if(isset($_COOKIE['theme']) && $themecolor != 'custom.css') { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
+        <?php if($themecolor == "custom.css") { require( '../../css/colors/custom.php'); } ?>
         <style>
             @media screen and (max-width: 1199px) {
                 .resone { display:none !important;}
@@ -360,9 +362,27 @@ foreach ($plugins as $result) {
                                                 <option value="purple">Purple</option>
                                                 <option value="orange">Orange</option>
                                                 <option value="dark">Dark</option>
+                                                <option value="custom">Custom</option>
                                             </select>
                                         </div>
-                                    </div>             
+                                    </div>
+                                    <div id="customtheme" style="margin-left: 4%;">
+                                        <div class="form-group">
+                                            <label class="col-md-12">Custom Theme Colors</label>  
+                                            <div class="col-md-12">
+                                                <div id="color1" class="input-group colorpicker-component">
+                                                    <input type="text" value="<?php if(CUSTOM_THEME_PRIMARY != '') { echo CUSTOM_THEME_PRIMARY; } else { echo '#FF9649'; } ?>" name="color1" class="form-control" />
+                                                    <span class="input-group-addon"><i></i></span>
+                                                </div>
+                                                <span class="help-block">Primary Color (Header, Active Buttons / Text, Etc.)</span>  
+                                                <div id="color2" class="input-group colorpicker-component">
+                                                    <input type="text" value="<?php if(CUSTOM_THEME_SECONDARY != '') { echo CUSTOM_THEME_SECONDARY; } else { echo '#2f323e'; } ?>" name="color2" class="form-control" />
+                                                    <span class="input-group-addon"><i></i></span>
+                                                </div>
+                                                <span class="help-block">Secondary Color (Buttons / Text)</span>  
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="form-group" style="overflow: visible;">
                                         <label class="col-md-12"><?php echo _("Language"); ?></label>
                                         <div class="col-md-12">
@@ -802,6 +822,7 @@ foreach ($plugins as $result) {
         <script src="../../plugins/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
         <script src="../../plugins/components/sweetalert2/sweetalert2.min.js"></script>
         <script src="../../plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../../plugins/components/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
         <script src="../../plugins/components/metismenu/dist/metisMenu.min.js"></script>
         <script src="../../plugins/components/moment/moment.min.js"></script>
         <script src="../../plugins/components/footable/footable.min.js"></script>
@@ -854,6 +875,26 @@ foreach ($plugins as $result) {
                 }
                 else {document.getElementById('div3').style.display = 'none';}
             }
+            $(function () {
+                var color = $("#themeselect").val();
+                if(color === "custom") {
+                    $("#customtheme").show();
+                }
+                else if(color != "custom") {
+                    $("#customtheme").hide();
+                }
+              });
+            $(function () {
+              $("#themeselect").change(function() {
+                var val = $(this).val();
+                if(val === "custom") {
+                    $("#customtheme").show();
+                }
+                else if(val != "custom") {
+                    $("#customtheme").hide();
+                }
+              });
+            });
             var uploadField = document.getElementById("file");
 
             uploadField.onchange = function() {
@@ -885,6 +926,8 @@ foreach ($plugins as $result) {
             $(document).ready(function() {
                 $('.select2').select2();
             });
+            $('#color1').colorpicker();
+            $('#color2').colorpicker();
             function processLoader(){
                 swal({
                     title: '<?php echo _("Processing"); ?>',

@@ -92,7 +92,8 @@ foreach ($plugins as $result) {
         <link href="plugins/components/animate.css/animate.min.css" rel="stylesheet">
         <link rel="stylesheet" href="plugins/components/sweetalert2/sweetalert2.min.css" />
         <link href="css/style.css" rel="stylesheet">
-        <link href="css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
+        <link href="css/colors/<?php if(isset($_COOKIE['theme']) && $themecolor != 'custom.css') { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
+        <?php if($themecolor == "custom.css") { require( 'css/colors/custom.php'); } ?>
         <style>
             .select2-results{
                 max-height: 200px;
@@ -391,18 +392,19 @@ foreach ($plugins as $result) {
                                                 <div id="ns8" style="display:<?php if(explode(',', ($admindata['NS']))[7] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[7]); ?>" class="form-control form-control-line" name="ns8" id="ns8x"><br><div id="ns8wrapper"><a style="cursor:pointer;" id="remove6" onclick="rem7();"><?php echo _("Remove One"); ?></a></div></div>
                                             </div>
                                         </div>
+                                        <?php if($themecolor != 'custom.css') { echo '
                                         <div class="form-group" style="overflow: visible;">
-                                            <label class="col-md-12"><?php echo _("Theme"); ?></label>
+                                            <label class="col-md-12">' . _("Theme") . '</label>
                                             <div class="col-md-12">
                                                 <select class="form-control" name="cookie">
-                                                    <option value="default" <?php if(base64_decode($_COOKIE["theme"]) == "default.css") { echo "selected"; } ?>><?php echo _("Default"); ?></option>
-                                                    <option value="blue" <?php if(base64_decode($_COOKIE["theme"]) == "blue.css") { echo "selected"; } ?>><?php echo _("Blue"); ?></option>
-                                                    <option value="purple" <?php if(base64_decode($_COOKIE["theme"]) == "purple.css") { echo "selected"; } ?>><?php echo _("Purple"); ?></option>
-                                                    <option value="orange" <?php if(base64_decode($_COOKIE["theme"]) == "orange.css") { echo "selected"; } ?>><?php echo _("Orange"); ?></option>
-                                                    <option value="dark" <?php if(base64_decode($_COOKIE["theme"]) == "dark.css") { echo "selected"; } ?>><?php echo _("Dark"); ?></option>
+                                                    <option value="default" '; if(base64_decode($_COOKIE["theme"]) == "default.css") { echo "selected"; } echo '>' . _("Default") . '</option>
+                                                    <option value="blue" '; if(base64_decode($_COOKIE["theme"]) == "blue.css") { echo "selected"; } echo '>' . _("Blue") . '</option>
+                                                    <option value="purple" '; if(base64_decode($_COOKIE["theme"]) == "purple.css") { echo "selected"; } echo '>' . _("Purple") . '</option>
+                                                    <option value="orange" '; if(base64_decode($_COOKIE["theme"]) == "orange.css") { echo "selected"; } echo '>' . _("Orange") . '</option>
+                                                    <option value="dark" '; if(base64_decode($_COOKIE["theme"]) == "dark.css") { echo "selected"; } echo '>' . _("Dark") . '</option>
                                                 </select>
                                             </div>
-                                        </div>
+                                        </div>'; } ?>
                                         <div class="form-group">
                                             <div class="col-sm-12">
                                                 <button class="btn btn-success" type="submit"><?php echo _("Update Profile"); ?></button> &nbsp;

@@ -26,6 +26,7 @@
     "animate.css": "^3.7.0",
     "bootstrap": "3",
     "bootstrap-datepicker": "uxsolutions/bootstrap-datepicker#^1.8.0",
+    "bootstrap-colorpicker": "2.5.3",
     "bootstrap-select": "^1.13.1",
     "bootstrapvalidator": "^0.5.3",
     "font-awesome": "4.7.0",
@@ -63,6 +64,7 @@
         "bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.min.css",
         "bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"
       ],
+      "bootstrap-colorpicker": "bower_components/bootstrap-colorpicker/dist/**",
       "bootstrap-select": "bower_components/bootstrap-select/dist/**",
       "font-awesome": {
         "mapping": [

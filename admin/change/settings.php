@@ -55,6 +55,21 @@ if(isset($_POST['THEME']) && $config["THEME"] != $_POST['THEME']) {
     if (mysqli_query($conn, $sql2)) {} else { $r1 = $r1 + 1; }
     mysqli_close($conn);
 } 
+if(isset($_POST['color1']) && $config["CUSTOM_THEME_PRIMARY"] != $_POST['color2']) { 
+    $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
+    $v25 = mysqli_real_escape_string($conn, $_POST['color1']);
+    $sql25 = "UPDATE ".$mysql_table."config SET `VALUE` = '".$v25."' WHERE `VARIABLE` = 'CUSTOM_THEME_PRIMARY';";
+    if (mysqli_query($conn, $sql25)) {} else { $r1 = $r1 + 1; }
+    mysqli_close($conn);
+} 
+
+if(isset($_POST['color2']) && $config["CUSTOM_THEME_SECONDARY"] != $_POST['color2']) { 
+    $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
+    $v26 = mysqli_real_escape_string($conn, $_POST['color2']);
+    $sql26 = "UPDATE ".$mysql_table."config SET `VALUE` = '".$v26."' WHERE `VARIABLE` = 'CUSTOM_THEME_SECONDARY';";
+    if (mysqli_query($conn, $sql26)) {} else { $r1 = $r1 + 1; }
+    mysqli_close($conn);
+} 
 if(isset($_POST['LANGUAGE']) && $locale != $_POST['LANGUAGE']) { 
     $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
     $v3 = mysqli_real_escape_string($conn, $_POST['LANGUAGE']);

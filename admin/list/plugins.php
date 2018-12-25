@@ -90,7 +90,8 @@ foreach ($plugins as $result) {
         <link href="../../plugins/components/animate.css/animate.min.css" rel="stylesheet">
         <link rel="stylesheet" href="../../plugins/components/sweetalert2/sweetalert2.min.css" />
         <link href="../../css/style.css" rel="stylesheet">
-        <link href="../../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
+        <link href="../../css/colors/<?php if(isset($_COOKIE['theme']) && $themecolor != 'custom.css') { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
+        <?php if($themecolor == "custom.css") { require( '../../css/colors/custom.php'); } ?>
         <style>
             @media screen and (max-width: 1199px) {
                 .resone { display:none !important;}
@@ -163,7 +164,7 @@ foreach ($plugins as $result) {
                     </div>
                     <ul class="nav" id="side-menu">
                         <?php indexMenu("../../"); 
-                              adminMenu("./", "ip");
+                              adminMenu("./", "plugins");
                               profileMenu("../../");
                               primaryMenu("../../list/", "../../process/", "");
                         ?>

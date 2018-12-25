@@ -1,0 +1,93 @@
+/** 
+*
+* Vesta Web Interface
+*
+* Copyright (C) 2018 Carter Roeser <carter@cdgtech.one>
+* https://cdgco.github.io/VestaWebInterface
+*
+* Vesta Web Interface is free software: you can redistribute it and/or modify
+* it under the terms of version 3 of the GNU General Public License as published 
+* by the Free Software Foundation.
+*
+* Vesta Web Interface is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+* 
+* You should have received a copy of the GNU General Public License
+* along with Vesta Web Interface.  If not, see
+* <https://github.com/cdgco/VestaWebInterface/blob/master/LICENSE>.
+*
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900);
+
+html {
+    --white: #fff;
+    --other-one: #01c0c8;
+    --other-two: #686868;
+}
+
+.preloader {
+  background: var(--white);
+}
+body {
+  background: var(--white);
+}
+.logo i {
+  color: var(--white);
+}
+.navbar-top-links > li > a {
+  color: var(--white);
+}
+.sidebar {
+  background: var(--white);
+  box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
+}
+.sidebar .label-custom {
+  background: var(--other-one);
+}
+#side-menu li a {
+  border-left: 0px solid var(--white);
+}
+#side-menu > li > a:hover,
+#side-menu > li > a:focus {
+  background: rgba(0, 0, 0, 0.07);
+}
+#side-menu > li > a.active {
+  color: var(--white);
+  font-weight: 500;
+}
+#side-menu ul > li > a.active {
+  font-weight: 500;
+}
+.color-button:hover,
+.color-button.disabled:hover,
+.color-button:focus,
+.color-button.disabled:focus,
+.color-button.focus,
+.color-button.disabled.focus {
+    color: var(--white) !important;
+    opacity: 0.8;
+}
+.btn-custom {
+    color: var(--white);
+}
+.btn-custom:hover {
+    opacity: 0.8;
+    color: var(--white);
+}
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:focus,
+.nav-pills > li.active > a:hover {
+    color: var(--white);
+}
+
+/* Theme Specific CSS */
+
+.sidebar .sidebar-head {
+    background: var(--white);
+}
+.sidebar .sidebar-head h3 {
+    color: var(--other-two);
+}

@@ -102,7 +102,8 @@ foreach ($plugins as $result) {
         <link href="../../plugins/components/animate.css/animate.min.css" rel="stylesheet">
         link rel="stylesheet" href="../../plugins/components/sweetalert2/sweetalert2.min.css" />
         <link href="../../css/style.css" rel="stylesheet">
-        <link href="../../css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
+        <link href="../../css/colors/<?php if(isset($_COOKIE['theme']) && $themecolor != 'custom.css') { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
+        <?php if($themecolor == "custom.css") { require( '../../css/colors/custom.php'); } ?>
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
         <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?> 
         <!--[if lt IE 9]>

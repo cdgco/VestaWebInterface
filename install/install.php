@@ -147,7 +147,9 @@ $sql3 = "INSERT INTO `".$mysql_table."config` (`VARIABLE`, `VALUE`) VALUES
 ('INTERAKT_APP_ID', '".$v14."'),
 ('INTERAKT_API_KEY', '".$v15."'),
 ('CLOUDFLARE_API_KEY', '".$v16."'),
-('CLOUDFLARE_EMAIL', '".$v17."');";
+('CLOUDFLARE_EMAIL', '".$v17."'),
+('CUSTOM_THEME_PRIMARY', ''),
+('CUSTOM_THEME_SECONDARY', '');";
 
 if (mysqli_query($con, $sql3)) {} else { echo "Error populating table: " . mysqli_error($con); }
 

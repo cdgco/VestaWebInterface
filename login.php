@@ -79,7 +79,8 @@ textdomain('messages');
         <link href="plugins/components/animate.css/animate.min.css" rel="stylesheet">
         <link rel="stylesheet" href="plugins/components/sweetalert2/sweetalert2.min.css" />
         <link href="css/style.css" rel="stylesheet">
-        <link href="css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme"  rel="stylesheet">
+        <link href="css/colors/<?php if(isset($_COOKIE['theme']) && $themecolor != 'custom.css') { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme"  rel="stylesheet">
+        <?php if($themecolor == "custom.css") { require( 'css/colors/custom.php'); } ?>
         <style>
             input:-webkit-autofill,
             input:-webkit-autofill:hover, 
@@ -179,12 +180,12 @@ textdomain('messages');
                                 if($answer == "OK") {
                                     $_SESSION['loggedin'] = base64_encode ( 'true' );
                                     $_SESSION['username'] = base64_encode ( $username2 );
-
-                                    if ($username2 == "admin" && DEFAULT_TO_ADMIN == "true") { $userredirect = 'admin/list/users.php'; }
+                                    $userredirect = 'index.php';
+                                    
+                                    if ($_POST['username'] == "admin" && $defaulttoadmin == "true") { $userredirect = 'admin/list/users.php'; }
                                     elseif(isset($_GET['to']) && $_GET['to'] != ''){
                                         $userredirect = $_GET['to'];
                                     }
-                                    else { $userredirect = 'index.php'; }
 
                                     echo '<br><br>
                                         <div style="color: #000;" class="alert alert-success alert-dismissable">

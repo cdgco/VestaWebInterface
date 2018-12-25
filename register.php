@@ -63,7 +63,8 @@ textdomain('messages');
         <link href="plugins/components/jquery-toast-plugin/jquery.toast.min.css" rel="stylesheet">
         <link href="plugins/components/animate.css/animate.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-        <link href="css/colors/<?php if(isset($_COOKIE['theme'])) { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
+        <link href="css/colors/<?php if(isset($_COOKIE['theme']) && $themecolor != 'custom.css') { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
+        <?php if($themecolor == "custom.css") { require( 'css/colors/custom.php'); } ?>
         <style>
             html {
                 overflow-y: scroll;
