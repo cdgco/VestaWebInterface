@@ -1,5 +1,19 @@
 ## Changelog
 
+### v0.5.4-Beta
+Search Engine
+AJAX Installation Analytics
+Completed Admin Panel
+Custom Theme Support
+Design Updates
+Locale Updates
+Dependencies
+Bug Fixes
+
+### v0.5.3-Beta
+Dependencies
+Bug Fixes
+
 ### v0.5.2-Beta
 Dependencies
 Bug Fixes
