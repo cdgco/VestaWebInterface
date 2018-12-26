@@ -1,14 +1,14 @@
 ## Changelog
 
 ### v0.5.4-Beta
-Search Engine
-AJAX Installation Analytics
-Completed Admin Panel
-Custom Theme Support
-Design Updates
-Locale Updates
-Dependencies
-Bug Fixes
+Search Engine<br>
+AJAX Installation Analytics<br>
+Completed Admin Panel<br>
+Custom Theme Support<br>
+Design Updates<br>
+Locale Updates<br>
+Dependencies<br>
+Bug Fixes<br>
 
 ### v0.5.3-Beta
 Dependencies
@@ -44,7 +44,7 @@ Dark Theme
 UI Upgrades  
 Dynamic CSS  
 Updated Installer  
-Updated Documentation  
+Updated Documentation
 Stability & Bug Fixes  
 
 ### v0.4.0-Beta
