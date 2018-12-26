@@ -282,7 +282,7 @@ foreach ($plugins as $result) {
                                             <tr>
                                                 <th data-toggle="true"> <?php echo _("Record"); ?> </th>
                                                 <th> <?php echo _("Type"); ?> </th>
-                                                <th> <?php echo _("Value"); ?> </th>
+                                                <th style="max-width:10%"> <?php echo _("Value"); ?> </th>
                                                 <th data-sortable="false"> <?php echo _("Action"); ?> </th>
                                                 <th data-breakpoints="all"> <?php echo _("Status"); ?> </th>
                                                 <th data-breakpoints="all" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo _("Created"); ?> </th>
@@ -297,7 +297,7 @@ foreach ($plugins as $result) {
                                                     echo '<tr>
                                                             <td>' . $dnsdata[$x1]['RECORD'] . '</td>
                                                             <td>' . $dnsdata[$x1]['TYPE'] . '</td>
-                                                            <td>' . $dnsdata[$x1]['VALUE'] . '</td>
+                                                            <td style="max-width: 240px;overflow-wrap: break-word;overflow: auto;">' . $dnsdata[$x1]['VALUE'] . '</td>
                                                             <td><a href="../edit/dnsrecord.php?domain=' . $requestdns . '&record=' . $dnsname[$x1] . '"><button type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button></a>
                                                                 
                                                                 <button type="button" onclick="confirmDelete(\'' . $dnsname[$x1] . '\');" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="fa fa-trash-o" ></i></button>

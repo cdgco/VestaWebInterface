@@ -303,7 +303,7 @@ foreach ($plugins as $result) {
                                                 echo '<tr>
                                                         <td>' . $val1['name'] . '</td>
                                                         <td>' . $val1['type'] . '</td>
-                                                        <td>' . $val1['content'] . '</td>
+                                                        <td style="max-width: 240px;overflow-wrap: break-word;overflow: auto;">' . $val1['content'] . '</td>
                                                         <td>';                                                                   
                                                 if($val1['proxiable'] === true){ 
                                                     if($val1['proxied'] === true){

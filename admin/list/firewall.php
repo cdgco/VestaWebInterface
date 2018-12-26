@@ -296,7 +296,7 @@ foreach ($plugins as $result) {
             function confirmSuspend(f){
                 f1 = String(f)
                 Swal({
-                  title: title: '<?php echo _("Suspend Rule"); ?> ' + f1 +' ?',
+                  title: '<?php echo _("Suspend Rule"); ?> ' + f1 +' ?',
                   type: 'warning',
                   showCancelButton: true,
                   confirmButtonColor: '#3085d6',
@@ -317,7 +317,7 @@ foreach ($plugins as $result) {
             function confirmUnsuspend(f2){
                 f2 = String(f2)
                 Swal({
-                  title: title: '<?php echo _("Unsuspend Rule"); ?> ' + f2 +' ?',
+                  title: '<?php echo _("Unsuspend Rule"); ?> ' + f2 +' ?',
                   type: 'warning',
                   showCancelButton: true,
                   confirmButtonColor: '#3085d6',
