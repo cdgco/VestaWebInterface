@@ -138,7 +138,7 @@ foreach ($plugins as $result) {
         <link rel="stylesheet" href="../plugins/components/sweetalert2/sweetalert2.min.css" />
         <link href="../css/style.css" rel="stylesheet">
         <link href="../css/colors/<?php if(isset($_COOKIE['theme']) && $themecolor != 'custom.css') { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
-        <?php i($themecolor == "custom.css") { require( '../css/colors/custom.php'); } ?>
+        <?php if($themecolor == "custom.css") { require( '../css/colors/custom.php'); } ?>
         <style>
             @media screen and (max-width: 1199px) {
                 .resone { display:none !important;}
@@ -187,6 +187,10 @@ foreach ($plugins as $result) {
                         <li><a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs"><i class="ti-close ti-menu"></i></a></li>      
                     </ul>
                     <ul class="nav navbar-top-links navbar-right pull-right">
+                        <li>
+                            <form class="app-search m-r-10" id="searchform" action="../process/search.php" method="get">
+                                <input type="text" placeholder="Search..." class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                        </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
                             <ul class="dropdown-menu dropdown-user animated flipInY">
@@ -294,8 +298,7 @@ foreach ($plugins as $result) {
                                                             <td>' . $dnsdata[$x1]['RECORD'] . '</td>
                                                             <td>' . $dnsdata[$x1]['TYPE'] . '</td>
                                                             <td>' . $dnsdata[$x1]['VALUE'] . '</td>
-                                                            <td>
-                                                                <a href="../edit/dnsrecord.php?domain=' . $requestdns . '&record=' . $dnsname[$x1] . '"><button type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button></a>
+                                                            <td><a href="../edit/dnsrecord.php?domain=' . $requestdns . '&record=' . $dnsname[$x1] . '"><button type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button></a>
                                                                 
                                                                 <button type="button" onclick="confirmDelete(\'' . $dnsname[$x1] . '\');" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="fa fa-trash-o" ></i></button>
                                                             </td><td>';                                                                   

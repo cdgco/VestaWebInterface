@@ -538,4 +538,18 @@ function hotKeys($conflocation) {
     
 }
 if(isset($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING'] != '') { $urlquery = '?'; } else { $urlquery = ''; }
+
+function searchURL($result, $type, $key, $parent) { 
+    if($type == "db") { $outputlink = "../edit/db.php?db=" . $result; return $outputlink; }
+    if($type == "cron") { $outputlink = "../edit/cron.php?job=" . $parent; return $outputlink; }
+    if($type == "mail") { 
+        if($key == "ACCOUNT") { $outputlink = "../edit/mailaccount.php?domain=" . $parent . "&account=" . $result; return $outputlink; }
+        if($key == "DOMAIN") { $outputlink = "../list/maildomain.php?domain=" . $result; return $outputlink; }    
+    }
+    if($type == "web") { $outputlink = "../edit/domain.php?domain=" . $result; return $outputlink; }
+    if($type == "dns") { 
+        if($key == "RECORD") { $outputlink = "../process/record-to-id.php?dnsdomain=" . $parent . "&recordvalue=" . $result; return $outputlink; }
+        if($key == "DOMAIN") { $outputlink = "../list/dnsdomain.php?domain=" . $result; return $outputlink; }    
+    }
+}
 ?>

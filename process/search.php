@@ -27,17 +27,13 @@ $configlocation = "../includes/";
 if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php?to=log/access.php' . $urlquery . $_SERVER['QUERY_STRING']); }
+else { header('Location: ../login.php?to=list/backups.php' . $urlquery . $_SERVER['QUERY_STRING']); }
 
-if(isset($webenabled) && $webenabled != 'true'){ header("Location: ../error-pages/403.html"); }
-
-$v_domain = $_GET['domain'];
-
-if ((!isset($v_domain)) || $v_domain == '') { header('Location: ../list/web.php'); }
+if(isset($backupsenabled) && $backupsenabled != 'true'){ header("Location: ../error-pages/403.html"); }
 
 $postvars = array(
     array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
-    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-domain-accesslog', 'arg1' => $username, 'arg2' => $v_domain, 'arg3' => '10000000000000000000'));
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-search-user-object','arg1' => $username,'arg2' => $_GET['q'], 'arg3' => 'json'));
 
 $curl0 = curl_init();
 $curl1 = curl_init();
@@ -55,10 +51,11 @@ while($curlstart <= 1) {
 
 $admindata = json_decode(curl_exec($curl0), true)[$username];
 $useremail = $admindata['CONTACT'];
-$accesslog = curl_exec($curl1);
+$searchresults = array_values(json_decode(curl_exec($curl1), true));
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
-bindtextdomain('messages', '../locale');
+setlocale(LC_CTYPE, $locale);
+setlocale(LC_MESSAGES, $locale);
+bindtextdomain('messages', './locale');
 textdomain('messages');
 
 foreach ($plugins as $result) {
@@ -88,12 +85,10 @@ foreach ($plugins as $result) {
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
         <link rel="icon" type="image/ico" href="../plugins/images/<?php echo $cpfavicon; ?>">
-        <title><?php echo $sitetitle; ?> - <?php echo _("Access Log"); ?></title>
+        <title><?php echo $sitetitle; ?> - <?php echo _("Search"); ?></title>
         <link href="../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../plugins/components/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet">
+        <link href="../plugins/components/footable/footable.bootstrap.css" rel="stylesheet">
         <link href="../plugins/components/jquery-toast-plugin/jquery.toast.min.css" rel="stylesheet">
         <link href="../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../plugins/components/animate.css/animate.min.css" rel="stylesheet">
@@ -105,11 +100,19 @@ foreach ($plugins as $result) {
             @media screen and (max-width: 1199px) {
                 .resone { display:none !important;}
             }  
-            @media screen and (max-width: 767px) {
+            @media screen and (max-width: 991px) {
                 .restwo { display:none !important;}
             }    
-            @media screen and (max-width: 540px) {
+            @media screen and (max-width: 767px) {
                 .resthree { display:none !important;}
+            } 
+            @media screen and (max-width: 540px) {
+                .resfour { display:none !important;}
+                td { font-size: 11px; }
+            } 
+            @media screen and (max-width: 410px) {
+                .resfive { display:none !important;}
+                td { font-size: 10px; }
             } 
         </style>
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
@@ -140,7 +143,7 @@ foreach ($plugins as $result) {
                     </ul>
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
-                            <form class="app-search m-r-10" id="searchform" action="../process/search.php" method="get">
+                            <form class="app-search m-r-10" id="searchform" action="search.php" method="get">
                                 <input type="text" placeholder="Search..." class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
@@ -150,14 +153,15 @@ foreach ($plugins as $result) {
                                     <div class="dw-user-box">
                                         <div class="u-text">
                                             <h4><?php print_r($displayname); ?></h4>
-                                            <p class="text-muted"><?php print_r($useremail); ?></p></div>
+                                            <p class="text-muted"><?php print_r($useremail); ?></p>
+                                        </div>
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
                                 <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
+                                <li><a href="logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -178,81 +182,106 @@ foreach ($plugins as $result) {
                         <?php indexMenu("../"); 
                               adminMenu("../admin/list/", "");
                               profileMenu("../");
-                              primaryMenu("../list/", "../process/", "");
+                              primaryMenu("../list/", "./", "");
                         ?>
                     </ul>
                 </div>
             </div>
-            <form id="accessform" method="post" action="download.php">
-                <input type="hidden" name="domain" value="<?php echo $v_domain; ?>"/>
-                <input type="hidden" name="type" value="access"/>  
-            </form>
-            <form id="errorform" method="post" action="download.php">
-                <input type="hidden" name="domain" value="<?php echo $v_domain; ?>"/>
-                <input type="hidden" name="type" value="error"/>  
-            </form>
-
             <div id="page-wrapper">
                 <div class="container-fluid">
-                    <div class="row bg-title" style="overflow:visible;">
-                        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 restwo">
-                            <h4 class="page-title"><?php echo _("Access Log"); ?></h4> </div>
-                        <div class="col-lg-2 col-sm-8 col-md-8 col-xs-12 pull-right">
-                            <div style="margin-right:257px;width:220px;" class="btn-group bootstrap-select input-group-btn" onclick="changeAction();">
-                                <form id="pageform" method="post">
-                                    <select class="selectpicker pull-right m-l-20" id="pagechange" data-style="form-control">';
-                                        <option value="access" selected>Access Log</option>
-                                        <option value="error">Error Log</option>
-                                    </select>
-                                </form>
-                            </div>
-                            <div class="input-group-btn">
-                                <button type="button" onclick='document.getElementById("pageform").submit();swal({title: "<?php echo _('Processing'); ?>", text: "",timer: 5000,onOpen: function () {swal.showLoading();}}).then(function () {},function (dismiss) {if (dismiss === "timer") {}})' class="pull-right btn waves-effect waves-light color-button"><i class="ti-angle-right"></i></button>
-                            </div>
+                    <div class="row bg-title">
+                        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                            <h4 class="page-title"><?php echo _("Search Results"); ?></h4>
                         </div>
                     </div>
                     <div class="row">
-                        <div>
+                        <div class="col-lg-12">
                             <div class="white-box">
-                                <ul class="side-icon-text pull-right resthree">
-                                    <li><a style="cursor: pointer;" onclick="document.getElementById('accessform').submit();"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="ti-download"></i></span><span><wrapper class="restwo"><?php echo _("Download"); ?> </wrapper><?php echo _("AccessLog"); ?></span></a></li>
-                                    <li><a style="cursor: pointer;" onclick="document.getElementById('errorform').submit();"><span class="circle circle-sm bg-danger di" style="padding-top: 11px;"><i class="ti-download"></i></span><span><wrapper class="restwo"><?php echo _("Download"); ?> </wrapper><?php echo _("ErrorLog"); ?></span></a></li>
-                                </ul>
-                                <br class="resthree"><br class="resthree"><br class="resthree"><div class="l-center">
-                                <pre style="color: #555"><?php print_r($accesslog); ?> 
-                            </pre></div>     
+                                <div class="table-responsive manage-table">
+                                <table class="table footable m-b-0" data-paging-size="10" data-paging="true" cellspacing="14"  data-page-size="10"  data-sorting="true">
+                                    <thead>
+                                        <tr>
+                                            <th> <?php echo _("Result"); ?></th>
+                                            <th> <?php echo _("Type"); ?> </th>
+                                            <th> <?php echo _("Key"); ?> </th>
+                                            <th> <?php echo _("Parent"); ?> </th>
+                                            <th> <?php echo _("Suspended"); ?> </th>
+                                            <th> <?php echo _("Created"); ?> </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php 
+                                        if($searchresults[0] != '') {
+                                            $x1 = 0; 
+
+                                            do {
+                                                echo '<tr class="clickable-row" data-href="';
+                                                    
+                                                    echo searchURL($searchresults[$x1]['RESULT'], $searchresults[$x1]['TYPE'], $searchresults[$x1]['KEY'], $searchresults[$x1]['PARENT']);
+                                                echo '">
+                                                        <td>' . $searchresults[$x1]['RESULT'] . '</td>
+                                                        <td>' . $searchresults[$x1]['TYPE'] . '</td>
+                                                        <td>' . $searchresults[$x1]['KEY'] . '</td>
+                                                        <td>' . $searchresults[$x1]['PARENT'] . '</td>
+                                                        <td>'; if($searchresults[$x1]['SUSPENDED'] == "no"){ 
+                                                            echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
+                                                        else{ 
+                                                            echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
+                                                        echo '</td>
+                                                        <td>' . $searchresults[$x1]['DATE'] . '</td>
+                                                        
+                                                    </tr>';
+                                                $x1++;
+                                            } while ($searchresults[$x1] != ''); }
+                                        ?>
+                                    </tbody>
+                                </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <script> 
+                    function addNewObj() { window.location.href="../add/backup.php?verified=yes"; };
+                </script>
                 <?php hotkeys($configlocation); ?>
                 <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
             </div>
         </div>
+        <?php if(isset($_POST['download']) && $_POST['download'] == "yes") { echo '
+                <form method="post" id="formx" action="' . $_POST['url'] . '">
+                    <input type="hidden" name="user" value="' . $_POST['user'] . '"/>
+                    <input type="hidden" name="password" value="' . $_POST['password'] . '">
+                </form>'; 
+            } ?> 
         <script src="../plugins/components/jquery/jquery.min.js"></script>
         <script src="../plugins/components/jquery-toast-plugin/jquery.toast.min.js"></script>
         <script src="../plugins/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
         <script src="../plugins/components/sweetalert2/sweetalert2.min.js"></script>
         <script src="../plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="../plugins/components/bootstrap-select/js/bootstrap-select.min.js"></script>
         <script src="../plugins/components/metismenu/dist/metisMenu.min.js"></script>
+        <script src="../plugins/components/moment/moment.min.js"></script>
+        <script src="../plugins/components/footable/footable.min.js"></script>
         <script src="../plugins/components/waves/waves.js"></script>
         <script src="../js/main.js"></script>
-        
         <script type="text/javascript">
             Waves.attach('.button', ['waves-effect']);
             Waves.init();
             
             <?php 
+            $pluginlocation = "../plugins/"; if(isset($pluginnames[0]) && $pluginnames[0] != '') { $currentplugin = 0; do { if (strtolower($pluginhide[$currentplugin]) != 'y' && strtolower($pluginhide[$currentplugin]) != 'yes') { if (strtolower($pluginadminonly[$currentplugin]) != 'y' && strtolower($pluginadminonly[$currentplugin]) != 'yes') { if (strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; } else { $currentstring = "<li><a href='".$pluginlocation.$pluginlinks[$currentplugin]."/'><i class='fa ".$pluginicons[$currentplugin]." fa-fw'></i><span class='hide-menu'>"._($pluginnames[$currentplugin])."</span></a></li>"; }} else { if(strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";} } else { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; }}} echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');\n var plugindata" . $currentplugin . " = \"" . $currentstring . "\";\n plugincontainer" . $currentplugin . ".innerHTML += plugindata" . $currentplugin . ";\n"; } $currentplugin++; } while ($pluginnames[$currentplugin] != ''); } ?>
+            jQuery(document).ready(function($) {
+                $(".clickable-row").click(function() {
+                    window.location = $(this).data("href");
+                });
+            });
+            jQuery(function($){
+                $('.footable').footable();
+            });
+            <?php           
             
             includeScript();
-            
-            $pluginlocation = "../plugins/"; if(isset($pluginnames[0]) && $pluginnames[0] != '') { $currentplugin = 0; do { if (strtolower($pluginhide[$currentplugin]) != 'y' && strtolower($pluginhide[$currentplugin]) != 'yes') { if (strtolower($pluginadminonly[$currentplugin]) != 'y' && strtolower($pluginadminonly[$currentplugin]) != 'yes') { if (strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; } else { $currentstring = "<li><a href='".$pluginlocation.$pluginlinks[$currentplugin]."/'><i class='fa ".$pluginicons[$currentplugin]." fa-fw'></i><span class='hide-menu'>"._($pluginnames[$currentplugin])."</span></a></li>"; }} else { if(strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";} } else { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; }}} echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');\n var plugindata" . $currentplugin . " = \"" . $currentstring . "\";\n plugincontainer" . $currentplugin . ".innerHTML += plugindata" . $currentplugin . ";\n"; } $currentplugin++; } while ($pluginnames[$currentplugin] != ''); } ?>
-
-            function changeAction(){    
-                if (document.getElementById('pagechange').value == "access") {document.getElementById('pageform').action='access.php?domain=<?php echo $v_domain;?>';}
-                if (document.getElementById('pagechange').value == "error") {document.getElementById('pageform').action='error.php?domain=<?php echo $v_domain;?>';}  
-            }
+            ?> 
         </script>
     </body>
 </html>

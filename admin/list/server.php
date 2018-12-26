@@ -153,7 +153,10 @@ function secondsToTime($seconds) {
                         <li><a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs"><i class="ti-close ti-menu"></i></a></li>      
                     </ul>
                     <ul class="nav navbar-top-links navbar-right pull-right">
-
+                        <li>
+                            <form class="app-search m-r-10" id="searchform" action="../../process/search.php" method="get">
+                                <input type="text" placeholder="Search..." class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                        </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
                             <ul class="dropdown-menu dropdown-user animated flipInY">
@@ -252,8 +255,8 @@ function secondsToTime($seconds) {
                                                         }
                                                         echo '</td>
                                                         <td><h4>&nbsp;</h4>';
-                                                        /* <button type="button" data-toggle="tooltip" data-original-title="' . _("Configure") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-settings"></i></button>';  
-                                                        if ($servicedata[$x1]['STATE'] != 'running') { echo '<button type="button" data-toggle="tooltip" data-original-title="' . _("Start") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-control-play"></i></button>'; } else { echo '<button type="button" data-toggle="tooltip" data-original-title="' . _("Stop") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-control-stop"></i></button>'; } */
+                                                        if($servicename[$x1] == "nginx" || $servicename[$x1] == "php" || $servicename[$x1] == "mysql") { echo '<a href="../server/'.$servicename[$x1].'.php"><button type="button" data-toggle="tooltip" data-original-title="' . _("Configure") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-settings"></i></button></a>';  }
+                                                        if ($servicedata[$x1]['STATE'] != 'running') { echo '<button type="button" onclick="confirmStartService(\'' . $servicename[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Start") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-control-play"></i></button>'; } else { echo '<button type="button" onclick="confirmStopService(\'' . $servicename[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Stop") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-control-stop"></i></button>'; }
                                                         echo '<button onclick="confirmRestart(\'' . $servicename[$x1] . '\')" type="button" data-t
                                                         oggle="tooltip" data-original-title="' . _("Restart") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></td>';
                                                     echo '</tr>';
@@ -333,6 +336,50 @@ function secondsToTime($seconds) {
                         }
                     });
                     window.location.replace("../process/restart-system.php?confirm=yes");
+                  }
+                })}
+            function confirmStopService(f){
+                f1 = String(f)
+                Swal({
+                  title: '<?php echo _("Stop"); ?> ' + f1 +' ?',
+                  text: "<?php echo _("Please confirm action."); ?>",
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: '<?php echo _("Stop"); ?>'
+                }).then((result) => {
+                  if (result.value) {
+                    swal({
+                        title: '<?php echo _("Processing"); ?>',
+                        text: '',
+                        onOpen: function () {
+                            swal.showLoading()
+                        }
+                    });
+                    window.location.replace("../process/stop-service.php?service=" + f1);
+                  }
+                })}
+            function confirmStartService(g){
+                g1 = String(g)
+                Swal({
+                  title: '<?php echo _("Start"); ?> ' + g1 +' ?',
+                  text: "<?php echo _("Please confirm action."); ?>",
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: '<?php echo _("Start"); ?>'
+                }).then((result) => {
+                  if (result.value) {
+                    swal({
+                        title: '<?php echo _("Processing"); ?>',
+                        text: '',
+                        onOpen: function () {
+                            swal.showLoading()
+                        }
+                    });
+                    window.location.replace("../process/start-service.php?service=" + g1);
                   }
                 })}
             <?php

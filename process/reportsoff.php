@@ -51,7 +51,7 @@ if($verified == "yes"){
         $curlstart++;
     } 
 
-    $rs1 = curl_exec($curl0);
+    $r1 = curl_exec($curl0);
     print_r($r1);
 }
 // If accessed directly, redirect to 403 error

@@ -47,7 +47,8 @@ $postvars = array(
     array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-domains','arg1' => $username,'arg2' => 'json'),
     array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-dns-domains','arg1' => $username,'arg2' => 'json'),
     array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-mail-domains','arg1' => $username,'arg2' => 'json'),
-    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-databases','arg1' => $username,'arg2' => 'json')
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-databases','arg1' => $username,'arg2' => 'json'),
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user-notifications','arg1' => $username,'arg2' => 'json'),
 );
 
 $curl0 = curl_init();
@@ -55,9 +56,10 @@ $curl1 = curl_init();
 $curl2 = curl_init();
 $curl3 = curl_init();
 $curl4 = curl_init();
+$curl5 = curl_init();
 $curlstart = 0; 
 
-while($curlstart <= 4) {
+while($curlstart <= 5) {
     curl_setopt(${'curl' . $curlstart}, CURLOPT_URL, $vst_url);
     curl_setopt(${'curl' . $curlstart}, CURLOPT_RETURNTRANSFER,true);
     curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYPEER, false);
@@ -76,6 +78,7 @@ $mailname = array_keys(json_decode(curl_exec($curl3), true));
 $maildata = array_values(json_decode(curl_exec($curl3), true));
 $dbname = array_keys(json_decode(curl_exec($curl4), true));
 $dbdata = array_values(json_decode(curl_exec($curl4), true));
+$notifications = array_values(json_decode(curl_exec($curl5), true));
 
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
 setlocale(LC_CTYPE, $locale);
@@ -190,9 +193,52 @@ foreach ($plugins as $result) {
                     </div>
                     <ul class="nav navbar-top-links navbar-left">
                         <li><a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs"><i class="ti-close ti-menu"></i></a></li>
+                    <?php 
+                        
+                        // Notification System (In Progress)
+                        
+                        /* <li class="dropdown">
+                        <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#"> <i class="mdi mdi-bell"></i>
+                            <div class="notify"> <?php
+                                
+                                if($notifications[0] != '') {
+                                    $ack1 = 0; 
+                                    $ack = 0;
+                                    do {
+                                        if($notifications[$ack1]['ACK'] != 'yes') { $ack = $ack + 1; }
+                                        $ack1++;
+                                    } while (isset($notifications[$ack1])); 
+                                }
+                                if($ack != 0) { echo '<span class="heartbit"></span>'; } ?>  <span class="point"></span> </div>
+                        </a>
+                        <ul class="dropdown-menu mailbox" style="position: absolute;width: 36vw;padding: 15px;">
+                            <li>
+                                <div class="message-center">
+                                    <?php
+                            
+                                        if($notifications[0] != '') {
+                                            $x1 = 0; 
+                                            $x1x = $x1 + 1;
+                                            do {
+                                                if($notifications[$x1]['ACK'] != 'yes') { echo '<div class="mail-contnet">
+                                                        <h5><b>'.$notifications[$x1]['TOPIC'].'</b></h5><span class="pull-right"><i onclick="dismissNotification('.$x1x.');" class="fa fa-close" style="position: relative;top: -30px;"></i></span> <span class="mail-desc">'.$notifications[$x1]['NOTICE'].'</span><br><br><span class="time">' . $notifications[$x1]['DATE'] . ' ' . $notifications[$x1]['TIME'] . '</span> 
+                                                    </div><hr>'; }
+                                                $x1++;
+                                            } while (isset($notifications[$x1])); }
+                                    else { echo '<div class="mail-content"><h5>No Notifications</h5></div>'; }
+
+                                        ?>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- /.dropdown-messages -->
+                    </li> */ ?>
                     </ul>
                     <ul class="nav navbar-top-links navbar-right pull-right">
-
+                        <li>
+                            <form class="app-search m-r-10" id="searchform" action="process/search.php" method="get">
+                                <input type="text" placeholder="Search..." class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                        </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
                             <ul class="dropdown-menu dropdown-user animated flipInY">
@@ -876,6 +922,16 @@ foreach ($plugins as $result) {
             jQuery(function($){
                 $('.footable').footable();
             });
+            function dismissNotification(e){
+                e1 = String(e)
+                $.ajax({  
+                        type: "POST",  
+                        url: "process/acknowledge-notification.php",  
+                        data: { 'num': e1 },
+                        success: function(data){ console.log("Notification " + e1 + " dismissed.")},
+                        error: function(){ alert("Notification Error. Please try again later."); } 
+                    })
+            }
             
             !function(t){"use strict";function s(t,s){for(var i in s)s.hasOwnProperty(i)&&(t[i]=s[i]);return t}function i(t,i){this.el=t,this.options=s({},this.options),s(this.options,i),this._init()}i.prototype.options={start:0},i.prototype._init=function(){this.tabs=[].slice.call(this.el.querySelectorAll("nav > ul > li")),this.items=[].slice.call(this.el.querySelectorAll(".content-wrap > section")),this.current=-1,this._show(),this._initEvents()},i.prototype._initEvents=function(){var t=this;this.tabs.forEach(function(s,i){s.addEventListener("click",function(s){s.preventDefault(),t._show(i)})})},i.prototype._show=function(t){this.current>=0&&(this.tabs[this.current].className=this.items[this.current].className=""),this.current=void 0!==t?t:this.options.start>=0&&this.options.start<this.items.length?this.options.start:0,this.tabs[this.current].className="tab-current",this.items[this.current].className="content-current"},t.CBPFWTabs=i}(window);
             
