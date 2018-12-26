@@ -685,7 +685,7 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
                                     <div class="form-group" style="overflow: visible;">
                                         <label class="col-md-12"><?php echo _("Default Language"); ?></label>
                                         <div class="col-md-12">
-                                            <input type="hidden" name="v_language-x" value="<?php echo $admindata['LANGUAGE']; ?>">
+                                            <input type="hidden" name="v_language-x" value="<?php print_r($sysconfig[0]["LANGUAGE"]); ?>">
                                             <select class="form-control select2" name="v_language" id="langselect">
                                                 <option value="ar"><?php print_r($countries['ar']); ?></option>
                                                 <option value="bs"><?php print_r($countries['bs']); ?></option>
@@ -726,19 +726,19 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("Proxy Server"); ?><?php if($sysconfig[0]['PROXY_SYSTEM'] == 'nginx') { echo ' / <a href="nginx.php">' . _("Configure") . '</a>'; } ?></label>
                                             <div class="col-md-12">
-                                                <input type="text" disabled value="<?php if($sysconfig[0]['PROXY_SYSTEM'] != '') { echo $sysconfig[0]['PROXY_SYSTEM']; } else { echo 'None'; } ?>" class="form-control form-control-line" required> 
+                                                <input type="text" disabled value="<?php if($sysconfig[0]['PROXY_SYSTEM'] != '') { echo $sysconfig[0]['PROXY_SYSTEM']; } else { echo 'None'; } ?>" class="form-control form-control-line"> 
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("Web Server"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="text" disabled value="<?php if($sysconfig[0]['WEB_SYSTEM'] != '') { echo $sysconfig[0]['WEB_SYSTEM']; } else { echo 'None'; } ?>" class="form-control form-control-line" required> 
+                                                <input type="text" disabled value="<?php if($sysconfig[0]['WEB_SYSTEM'] != '') { echo $sysconfig[0]['WEB_SYSTEM']; } else { echo 'None'; } ?>" class="form-control form-control-line"> 
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("Backend Server"); ?> </label>
                                             <div class="col-md-12">
-                                                <input type="text" disabled value="<?php if($sysconfig[0]['WEB_BACKEND'] != '') { echo $sysconfig[0]['WEB_BACKEND']; } else { echo 'None'; } ?>" class="form-control form-control-line" required> 
+                                                <input type="text" disabled value="<?php if($sysconfig[0]['WEB_BACKEND'] != '') { echo $sysconfig[0]['WEB_BACKEND']; } else { echo 'None'; } ?>" class="form-control form-control-line"> 
                                             </div>
                                         </div>
                                     </div>
@@ -749,13 +749,13 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("DNS Server"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="text" disabled value="<?php if($sysconfig[0]['DNS_SYSTEM'] != '') { echo $sysconfig[0]['DNS_SYSTEM']; } else { echo 'None'; } ?>" class="form-control form-control-line" required> 
+                                                <input type="text" disabled value="<?php if($sysconfig[0]['DNS_SYSTEM'] != '') { echo $sysconfig[0]['DNS_SYSTEM']; } else { echo 'None'; } ?>" class="form-control form-control-line"> 
                                             </div>
                                         </div>
                                         <div class="form-group" style="overflow: visible;">
                                             <label class="col-md-12"><?php echo _("DNS Cluster"); ?></label>
                                             <div class="col-md-12">
-                                                <select class="form-control select2" disabled name="language" id="dns-clusterselect">
+                                                <select class="form-control select2" disabled id="dns-clusterselect">
                                                     <option value="yes">Yes</option>
                                                     <option value="no">No</option>
                                                 </select>
@@ -769,19 +769,19 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("Mail Server"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="text" disabled value="<?php if($sysconfig[0]['MAIL_SYSTEM'] != '') { echo $sysconfig[0]['MAIL_SYSTEM']; } else { echo "None"; } ?>" class="form-control form-control-line" required> 
+                                                <input type="text" disabled value="<?php if($sysconfig[0]['MAIL_SYSTEM'] != '') { echo $sysconfig[0]['MAIL_SYSTEM']; } else { echo "None"; } ?>" class="form-control form-control-line"> 
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("Antivirus"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="text" disabled value="<?php if($sysconfig[0]['ANTIVIRUS_SYSTEM'] != '') { echo $sysconfig[0]['ANTIVIRUS_SYSTEM']; } else { echo "None"; } ?>" class="form-control form-control-line" required> 
+                                                <input type="text" disabled value="<?php if($sysconfig[0]['ANTIVIRUS_SYSTEM'] != '') { echo $sysconfig[0]['ANTIVIRUS_SYSTEM']; } else { echo "None"; } ?>" class="form-control form-control-line"> 
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("Antispam"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="text" disabled value="<?php if($sysconfig[0]['ANTISPAM_SYSTEM'] != '') { echo $sysconfig[0]['ANTISPAM_SYSTEM']; } else { echo "None"; } ?>" class="form-control form-control-line" required> 
+                                                <input type="text" disabled value="<?php if($sysconfig[0]['ANTISPAM_SYSTEM'] != '') { echo $sysconfig[0]['ANTISPAM_SYSTEM']; } else { echo "None"; } ?>" class="form-control form-control-line"> 
                                             </div>
                                         </div>
                                     </div>
@@ -803,25 +803,25 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
                                                 <div class="form-group">
                                                     <label class="col-md-12">' .  _("Host") . '</label>
                                                     <div class="col-md-12">
-                                                        <input type="text" disabled value="' . $mysqldata["HOST"]. '" class="form-control form-control-line" required> 
+                                                        <input type="text" disabled value="' . $mysqldata["HOST"]. '" class="form-control form-control-line"> 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-12">' . _("Password") . '</label>
                                                     <div class="col-md-12">
-                                                        <input type="text" name="v_mysql_root_pw" value="" class="form-control form-control-line" required> 
+                                                        <input type="text" name="v_mysql_root_pw" value="" class="form-control form-control-line"> 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-12">' ._("Maximum Number of Databases").'</label>
                                                     <div class="col-md-12">
-                                                        <input type="text" disabled value="'.$mysqldata["MAX_DB"].'" class="form-control form-control-line" required> 
+                                                        <input type="text" disabled value="'.$mysqldata["MAX_DB"].'" class="form-control form-control-line"> 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-12">' . _("Current Number of Databases") . '</label>
                                                     <div class="col-md-12">
-                                                        <input type="text" disabled value="'. $mysqldata["U_DB_BASES"].'" class="form-control form-control-line" required> 
+                                                        <input type="text" disabled value="'. $mysqldata["U_DB_BASES"].'" class="form-control form-control-line"> 
                                                     </div>
                                                 </div>
                                             </div>';
@@ -839,25 +839,25 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
                                                 <div class="form-group">
                                                     <label class="col-md-12">' . _("Host") . '</label>
                                                     <div class="col-md-12">
-                                                        <input type="text" disabled value="'.$pgsqldata["HOST"].'" class="form-control form-control-line" required> 
+                                                        <input type="text" disabled value="'.$pgsqldata["HOST"].'" class="form-control form-control-line"> 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-12">' . _("Password") . '</label>
                                                     <div class="col-md-12">
-                                                        <input type="text" name="v_pgsql_root_pw" value="" class="form-control form-control-line" required> 
+                                                        <input type="text" name="v_pgsql_root_pw" value="" class="form-control form-control-line"> 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-12">' ._("Maximum Number of Databases"). '</label>
                                                     <div class="col-md-12">
-                                                        <input type="text" disabled value="'. $pgsqldata["MAX_DB"].'" class="form-control form-control-line" required> 
+                                                        <input type="text" disabled value="'. $pgsqldata["MAX_DB"].'" class="form-control form-control-line"> 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-12">'._("Current Number of Databases").'</label>
                                                     <div class="col-md-12">
-                                                        <input type="text" disabled value="'. $pgsqldata["U_DB_BASES"].'" class="form-control form-control-line" required> 
+                                                        <input type="text" disabled value="'. $pgsqldata["U_DB_BASES"].'" class="form-control form-control-line"> 
                                                     </div>
                                                 </div>
                                                 
@@ -870,7 +870,7 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
                                         <div class="form-group" style="overflow: visible;">
                                             <label class="col-md-12"><?php echo _("Local Backup"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="hidden" name="v_backupsystem-x" value="<?php echo $sysconfig[0]["BACKUP_SYSTEM"]; ?>">
+                                                <input type="hidden" name="v_backupsystem-x" value="<?php if (strpos($sysconfig[0]["BACKUP_SYSTEM"], 'local') !== false) { echo 'yes'; } else { echo 'no'; } ?>">
                                                 <select class="form-control select2" name="v_backupsystem" id="backup-localselect">
                                                     <option value="yes">Yes</option>
                                                     <option value="no">No</option>
@@ -898,7 +898,7 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
                                             <label class="col-md-12"><?php echo _("Directory"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_backupdir-x" value="<?php echo $sysconfig[0]["BACKUP"]; ?>">
-                                                <input type="text" name="v_backupdir" value="<?php if($sysconfig[0]['BACKUP'] != '') { echo $sysconfig[0]['BACKUP']; } else { echo '/backup'; } ?>" class="form-control form-control-line" required> 
+                                                <input type="text" name="v_backupdir" value="<?php if($sysconfig[0]['BACKUP'] != '') { echo $sysconfig[0]['BACKUP']; } else { echo '/backup'; } ?>" class="form-control form-control-line"> 
                                             </div>
                                         </div>
                                         <?php /*
@@ -918,25 +918,25 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
                                             <div class="form-group">
                                             <label class="col-md-12"><?php echo _("Host"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="text" value="<?php if (strpos($sysconfig[0]["BACKUP_SYSTEM"], 'sftp') !== false) { echo $sftpconf[0]["HOST"]; } else { echo $ftpconf[0]["HOST"]; } ?>" class="form-control form-control-line" required> 
+                                                <input type="text" value="<?php if (strpos($sysconfig[0]["BACKUP_SYSTEM"], 'sftp') !== false) { echo $sftpconf[0]["HOST"]; } else { echo $ftpconf[0]["HOST"]; } ?>" class="form-control form-control-line"> 
                                             </div>
                                         </div>
                                             <div class="form-group">
                                             <label class="col-md-12"><?php echo _("Username"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="text" value="<?php if (strpos($sysconfig[0]["BACKUP_SYSTEM"], 'sftp') !== false) { echo $sftpconf[0]["USERNAME"]; } else { echo $ftpconf[0]["USERNAME"]; } ?>" class="form-control form-control-line" required> 
+                                                <input type="text" value="<?php if (strpos($sysconfig[0]["BACKUP_SYSTEM"], 'sftp') !== false) { echo $sftpconf[0]["USERNAME"]; } else { echo $ftpconf[0]["USERNAME"]; } ?>" class="form-control form-control-line"> 
                                             </div>
                                         </div>
                                             <div class="form-group">
                                             <label class="col-md-12"><?php echo _("Password"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="text" value="" class="form-control form-control-line" required> 
+                                                <input type="text" value="" class="form-control form-control-line"> 
                                             </div>
                                         </div>
                                             <div class="form-group">
                                             <label class="col-md-12"><?php echo _("Directory"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="text" value="<?php if (strpos($sysconfig[0]["BACKUP_SYSTEM"], 'sftp') !== false) { echo $sftpconf[0]["BPATH"]; } else { echo $ftpconf[0]["BPATH"]; } ?>" class="form-control form-control-line" required> 
+                                                <input type="text" value="<?php if (strpos($sysconfig[0]["BACKUP_SYSTEM"], 'sftp') !== false) { echo $sftpconf[0]["BPATH"]; } else { echo $ftpconf[0]["BPATH"]; } ?>" class="form-control form-control-line"> 
                                             </div>
                                         </div>
                                         </div>
@@ -979,13 +979,13 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("Version"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="text" disabled value="<?php echo $sysconfig[0]['VERSION']; ?>" class="form-control form-control-line" required> 
+                                                <input type="text" disabled value="<?php echo $sysconfig[0]['VERSION']; ?>" class="form-control form-control-line"> 
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("FileSystem Disk Quota"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="hidden" name="v_quota-x" value="<?php echo $sysconfig[0]["BACKUP"]; ?>">
+                                                <input type="hidden" name="v_quota-x" value="<?php print_r($sysconfig[0]["DISK_QUOTA"]); ?>">
                                                 <select class="form-control select2" name="v_quota" id="diskquota">
                                                     <option value="no">No</option>
                                                     <option value="yes">Yes</option>
@@ -995,7 +995,7 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("Firewall"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="hidden" name="v_firewall-x" value="<?php echo $sysconfig[0]["BACKUP"]; ?>">
+                                                <input type="hidden" name="v_firewall-x" value="<?php if($sysconfig[0]["FIREWALL_SYSTEM"] != '' && $sysconfig[0]["FIREWALL_SYSTEM"] != 'no') { echo 'yes'; } else { echo 'no'; } ?>">
                                                 <select class="form-control select2" name="v_firewall" id="firewall">
                                                     <option value="no">No</option>
                                                     <option value="yes">Yes</option>
@@ -1036,13 +1036,13 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
                                             <?php if($sysconfig[0]["SFTPJAIL_KEY"] != '') {echo '<div class="form-group">
                                                 <label class="col-md-12">' . _("License Key") . '</label>
                                                 <div class="col-md-12">
-                                                    <input type="text" name="v_sftpjail-key" value="' . $sysconfig[0]["SFTPJAIL_KEY"] . '" class="form-control form-control-line" required> 
+                                                    <input type="text" name="v_sftpjail-key" value="' . $sysconfig[0]["SFTPJAIL_KEY"] . '" class="form-control form-control-line"> 
                                                 </div>
                                             </div>'; }
                                             else { echo '<div class="form-group">
                                                 <label class="col-md-12">' . _("Enter License Key") . '</label>
                                                 <div class="col-md-12">
-                                                    <input type="text" value="" name="v_sftpjail-key" class="form-control form-control-line" required> 
+                                                    <input type="text" value="" name="v_sftpjail-key" class="form-control form-control-line"> 
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -1061,7 +1061,7 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("File Manager"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="hidden" name="v_filemanager-x" value="<?php if($sysconfig[0]["FILEMANAGER_KEY"] != '') {echo 'yes'; } else { echo 'yes'; } ?>">
+                                                <input type="hidden" name="v_filemanager-x" value="<?php echo $sysconfig[0]["FILEMANAGER_KEY"]; ?>">
                                                 <select class="form-control select2" name="v_filemanager" id="filemanager">
                                                     <option value="no">No</option>
                                                     <option value="yes">Yes</option>
@@ -1070,17 +1070,17 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
                                         </div>
                                         <div class="form-group" id="div11" style="margin-left: 4%;">
                                             <p><?php echo _("Browse, copy, edit, view, and retrieve all of your web domain files using fully featured File Manager. This is a commercial module, you would need to purchace license key to enable it."); ?></p>
-                                            <input type="hidden" name="v_filemanager-key-x" value="<?php echo $sysconfig[0]["BACKUP"]; ?>">
+                                            <input type="hidden" name="v_filemanager-key-x" value="<?php if($sysconfig[0]["FILEMANAGER_KEY"] != '') { echo 'yes'; } else { echo 'no'; } ?>">
                                             <?php if($sysconfig[0]["FILEMANAGER_KEY"] != '') { echo '<div class="form-group">
                                                 <label class="col-md-12">' . _("License Key") . '</label>
                                                 <div class="col-md-12">
-                                                    <input type="text" name="v_filemanager-key" value="' . $sysconfig[0]["FILEMANAGER_KEY"] . '" class="form-control form-control-line" required> 
+                                                    <input type="text" name="v_filemanager-key" value="' . $sysconfig[0]["FILEMANAGER_KEY"] . '" class="form-control form-control-line"> 
                                                 </div>
                                             </div>'; }
                                             else { echo '<div class="form-group">
                                                 <label class="col-md-12">' . _("Enter License Key") . '</label>
                                                 <div class="col-md-12">
-                                                    <input type="text" value="" name="v_filemanager-key" class="form-control form-control-line" required> 
+                                                    <input type="text" value="" name="v_filemanager-key" class="form-control form-control-line"> 
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -1117,7 +1117,7 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" disabled type="submit"><?php echo _("Save"); ?></button> &nbsp;
+                                            <button class="btn btn-success" type="submit"><?php echo _("Save"); ?></button> &nbsp;
                                             <a href="../list/server.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
                                         </div>
                                     </div>
@@ -1312,12 +1312,12 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
             $systimezone = preg_replace('/\s+/', '', $systimezone);
             echo 'document.getElementById("timeselect").value = \'' . $systimezone . '\';'; 
             ?>
-            document.getElementById('langselect').value = '<?php print_r($admindata['LANGUAGE']); ?>'; 
+            document.getElementById('langselect').value = '<?php print_r($sysconfig[0]["LANGUAGE"]); ?>'; 
             document.getElementById('backup-localselect').value = '<?php if (strpos($sysconfig[0]["BACKUP_SYSTEM"], 'local') !== false) {
     echo 'yes'; } else { echo 'no'; } ?>';  
-           // document.getElementById('backup-remoteselect').value = '<?php if (strpos($sysconfig[0]["BACKUP_SYSTEM"], 'sftp') !== false) {
+           <?php /* document.getElementById('backup-remoteselect').value = '<?php if (strpos($sysconfig[0]["BACKUP_SYSTEM"], 'sftp') !== false) {
     echo 'sftp'; } if (strpos($sysconfig[0]["BACKUP_SYSTEM"], 'ftp') !== false) {
-    echo 'ftp'; } ?>';  
+    echo 'ftp'; } ?>'; */ ?>  
             document.getElementById('backup-compselect').value = '<?php print_r($sysconfig[0]["BACKUP_GZIP"]); ?>';  
             document.getElementById('dns-clusterselect').value = '<?php if($sysconfig[0]["DNS_CLUSTER"] == "") { echo "no"; } else { echo "yes"; } ?>'; 
             document.getElementById('diskquota').value = '<?php print_r($sysconfig[0]["DISK_QUOTA"]); ?>';  
@@ -1359,7 +1359,7 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
                 echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
             } 
             if(isset($_POST['r1']) && $returntotal != 0) {
-                echo "swal({title:'" . _("Error Updating User") . "<br>" . "(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . "." . $_POST['r4'] . "." . $_POST['r5'] . "." . $_POST['r6'] . "." . $_POST['r7'] . "." . $_POST['r'] . "." . $_POST['r9'] . "." . $_POST['r10'] . "." . $_POST['r11'] . "." . $_POST['r12'] . "." . $_POST['r13'] . "." . $_POST['r14'] . ")<br><br>" . _("Please try again or contact support.") . "', type:'error'});"; }
+                echo "swal({title:'" . _("Error Updating User") . "<br>" . "(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . "." . $_POST['r4'] . "." . $_POST['r5'] . "." . $_POST['r6'] . "." . $_POST['r7'] . "." . $_POST['r8'] . "." . $_POST['r9'] . "." . $_POST['r10'] . "." . $_POST['r11'] . "." . $_POST['r12'] . "." . $_POST['r13'] . "." . $_POST['r14'] . ")<br><br>" . _("Please try again or contact support.") . "', type:'error'});"; }
             ?>
         </script>
     </body>

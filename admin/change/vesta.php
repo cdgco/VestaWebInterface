@@ -32,7 +32,7 @@ if($username != 'admin') { header("Location: ../../"); }
 if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
 if(isset($apienabled) && $apienabled == 'true'){ header("Location: ../../error-pages/403.html"); }
 
-if ((!isset($_POST['v_hostname'])) || (!isset($_POST['v_hostname-x'])) || (!isset($_POST['v_timezone'])) || (!isset($_POST['v_timezone-x'])) || (!isset($_POST['v_language'])) || (!isset($_POST['v_language-x'])) || (!isset($_POST['v_backupsystem'])) || (!isset($_POST['v_backupsystem-x'])) || (!isset($_POST['v_backupgzip'])) || (!isset($_POST['v_backupgzip-x'])) || (!isset($_POST['v_sslcrt'])) || (!isset($_POST['v_backupdir'])) || (!isset($_POST['v_backupdir-x'])) || (!isset($_POST['v_bandwidth'])) || (!isset($_POST['v_sslcrt-x'])) || (!isset($_POST['v_sslkey'])) || (!isset($_POST['v_sslkey-x'])) || (!isset($_POST['v_quota-x'])) || (!isset($_POST['v_quota'])) || (!isset($_POST['v_firewall-x'])) || (!isset($_POST['v_firewall'])) || (!isset($_POST['v_sftpjail-x'])) || (!isset($_POST['v_sftpjail'])) || (!isset($_POST['v_sftpjail-key-x'])) || (!isset($_POST['v_sftpjail-key'])) || (!isset($_POST['v_filemanager'])) || (!isset($_POST['v_filemanager-x'])) || (!isset($_POST['v_filemanager-key'])) || (!isset($_POST['v_filemanager-key-x'])) || (!isset($_POST['v_sftpjail-x'])) || (!isset($_POST['v_softaculous-x'])) || (!isset($_POST['v_softaculous-x']))) { header('Location: ../add/package.php?error=1');}
+if ((!isset($_POST['v_hostname'])) || (!isset($_POST['v_hostname-x'])) || (!isset($_POST['v_timezone'])) || (!isset($_POST['v_timezone-x'])) || (!isset($_POST['v_language'])) || (!isset($_POST['v_language-x']))) { header('Location: ../server/vesta.php?error=1');}
 
 
 if($_POST['v_hostname'] != $_POST['v_hostname-x']) {
@@ -67,7 +67,7 @@ if($_POST['v_timezone'] != $_POST['v_timezone-x']) {
 
 if($_POST['v_language'] != $_POST['v_language-x']) {
 
-    $postvars3 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-sys-language','arg1' => $_POST['v_languaeg']);
+    $postvars3 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-sys-language','arg1' => $_POST['v_language']);
 
     $curl3 = curl_init();
     curl_setopt($curl3, CURLOPT_URL, $vst_url);
@@ -93,7 +93,7 @@ if(isset($_POST['v_mysql_root_pw']) && $_POST['v_mysql_root_pw'] != '') {
     curl_setopt($curl4, CURLOPT_POSTFIELDS, http_build_query($postvars4));
     $r4 = curl_exec($curl4);
     
-} 
+} else { $r4 = '0'; }
 
 if(isset($_POST['v_pgsql_root_pw']) && $_POST['v_pgsql_root_pw'] != '') {
 
@@ -110,7 +110,7 @@ if(isset($_POST['v_pgsql_root_pw']) && $_POST['v_pgsql_root_pw'] != '') {
     
 } else { $r14 = '0'; }
 
-if($_POST['v_backupsystem'] == "yes" && $_POST['v_backupsystem-x'] != 'yes') {
+if($_POST['v_backupsystem'] == "yes" && $_POST['v_backupsystem-x'] == 'no') {
 
     $postvars5 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-backup-host','arg1' => 'local');
 
@@ -125,7 +125,7 @@ if($_POST['v_backupsystem'] == "yes" && $_POST['v_backupsystem-x'] != 'yes') {
     
 }
 
-elseif($_POST['v_backupsystem'] == "no" && $_POST['v_backupsystem-x'] != 'no') {
+elseif($_POST['v_backupsystem'] == "no" && $_POST['v_backupsystem-x'] == 'yes') {
 
     $postvars5 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-backup-host','arg1' => 'local');
 
@@ -142,7 +142,7 @@ elseif($_POST['v_backupsystem'] == "no" && $_POST['v_backupsystem-x'] != 'no') {
 
 if($_POST['v_backupgzip'] != $_POST['v_backupgzip-x']) {
 
-    $postvars6 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-backup-host','arg1' => 'BACKUP_GZIP','arg2' => $_POST['v_backupgzip']);
+    $postvars6 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-sys-config-value','arg1' => 'BACKUP_GZIP','arg2' => $_POST['v_backupgzip']);
 
     $curl6 = curl_init();
     curl_setopt($curl6, CURLOPT_URL, $vst_url);
@@ -157,7 +157,7 @@ if($_POST['v_backupgzip'] != $_POST['v_backupgzip-x']) {
 
 if($_POST['v_backupdir'] != $_POST['v_backupdir-x']) {
 
-    $postvars7 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-backup-host','arg1' => 'BACKUP','arg2' => $_POST['v_backupdir']);
+    $postvars7 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-sys-config-value','arg1' => 'BACKUP','arg2' => $_POST['v_backupdir']);
 
     $curl7 = curl_init();
     curl_setopt($curl7, CURLOPT_URL, $vst_url);
@@ -215,7 +215,7 @@ if ($_POST['v_sslcrt'] != $_POST['v_sslcrt-x'] || $_POST['v_sslkey'] != $_POST['
     
 } else { $r8 = '0'; }
 
-if($_POST['v_quota'] == "yes" && $_POST['v_quota-x'] != 'yes') {
+if($_POST['v_quota'] == "yes" && $_POST['v_quota-x'] == 'no') {
 
     $postvars9 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-sys-quota','arg1' => 'local');
 
@@ -230,7 +230,7 @@ if($_POST['v_quota'] == "yes" && $_POST['v_quota-x'] != 'yes') {
     
 }
 
-elseif($_POST['v_quota'] == "no" && $_POST['v_quota-x'] != 'no') {
+elseif($_POST['v_quota'] == "no" && $_POST['v_quota-x'] == 'yes') {
 
     $postvars9 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-sys-quota','arg1' => 'local');
 
@@ -245,7 +245,7 @@ elseif($_POST['v_quota'] == "no" && $_POST['v_quota-x'] != 'no') {
     
 } else { $r9 = '0'; }
 
-if($_POST['v_firewall'] == "yes" && $_POST['v_firewall-x'] != 'yes') {
+if($_POST['v_firewall'] == "yes" && $_POST['v_firewall-x'] == 'no') {
 
     $postvars10 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-sys-firewall','arg1' => 'local');
 
@@ -259,7 +259,7 @@ if($_POST['v_firewall'] == "yes" && $_POST['v_firewall-x'] != 'yes') {
     $r10 = curl_exec($curl10);
     
 }
-elseif($_POST['v_firewall'] == "no" && $_POST['v_firewall-x'] != 'no') {
+elseif($_POST['v_firewall'] == "no" && $_POST['v_firewall-x'] == 'yes') {
 
     $postvars10 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-sys-firewall','arg1' => 'local');
 
@@ -288,7 +288,7 @@ if($_POST['v_sftpjail'] == "yes" && $_POST['v_sftpjail-key'] != $_POST['v_sftpja
     $r11 = curl_exec($curl11);
     
 }
-elseif($_POST['v_sftpjail'] == "no" && $_POST['v_sftpjail-x'] != 'no' && ) {
+elseif($_POST['v_sftpjail'] == "no" && $_POST['v_sftpjail-x'] == 'yes') {
 
     $postvars11 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-deactivate-vesta-license','arg1' => 'sftpjail', 'arg2' => '');
 
@@ -318,7 +318,7 @@ if($_POST['v_filemanager'] == "yes" && $_POST['v_filemanager-key'] != $_POST['v_
     
 }
 
-elseif($_POST['v_filemanager'] == "no" && $_POST['v_filemanager-x'] != 'no' && ) {
+elseif($_POST['v_filemanager'] == "no" && $_POST['v_filemanager-x'] == 'yes') {
 
     $postvars12 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-deactivate-vesta-license','arg1' => 'filemanager', 'arg2' => '');
 
@@ -333,7 +333,7 @@ elseif($_POST['v_filemanager'] == "no" && $_POST['v_filemanager-x'] != 'no' && )
     
 } else { $r12 = '0'; }
 
-if($_POST['v_softaculous'] == "yes" && $_POST['v_softaculous-x'] != 'yes') {
+if($_POST['v_softaculous'] == "yes" && $_POST['v_softaculous-x'] == 'no') {
 
     $postvars13 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-vesta-softaculous');
 
@@ -347,7 +347,7 @@ if($_POST['v_softaculous'] == "yes" && $_POST['v_softaculous-x'] != 'yes') {
     $r13 = curl_exec($curl13);
     
 }
-elseif($_POST['v_softaculous'] == "no" && $_POST['v_softaculous-x'] != 'no') {
+elseif($_POST['v_softaculous'] == "no" && $_POST['v_softaculous-x'] == 'yes') {
 
     $postvars13 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-vesta-softaculous');
 

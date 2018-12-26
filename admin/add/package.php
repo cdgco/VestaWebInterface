@@ -100,7 +100,7 @@ foreach ($plugins as $result) {
         <link href="../../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../../plugins/components/select2/select2.min.css" rel="stylesheet">
         <link href="../../plugins/components/animate.css/animate.min.css" rel="stylesheet">
-        link rel="stylesheet" href="../../plugins/components/sweetalert2/sweetalert2.min.css" />
+        <link rel="stylesheet" href="../../plugins/components/sweetalert2/sweetalert2.min.css" />
         <link href="../../css/style.css" rel="stylesheet">
         <link href="../../css/colors/<?php if(isset($_COOKIE['theme']) && $themecolor != 'custom.css') { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
         <?php if($themecolor == "custom.css") { require( '../../css/colors/custom.php'); } ?>
