@@ -129,7 +129,7 @@ foreach ($plugins as $result) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="../../process/search.php" method="get">
-                                <input type="text" placeholder="Search..." class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -186,8 +186,8 @@ foreach ($plugins as $result) {
                                         <label class="col-md-12"><?php echo _("Type"); ?></label>
                                         <div class="col-md-12">
                                             <select class="form-control select2" name="v_type" id="typeselect">
-                                                <option value="ACCEPT">Accept</option>
-                                                <option value="DROP">Drop</option>
+                                                <option value="ACCEPT"><?php echo _("Accept"); ?></option>
+                                                <option value="DROP"><?php echo _("Drop"); ?></option>
                                             </select>
                                             <input type="hidden" name="rule" value="<?php print_r($_GET['rule']); ?>">
                                         </div>

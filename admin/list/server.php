@@ -155,7 +155,7 @@ function secondsToTime($seconds) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="../../process/search.php" method="get">
-                                <input type="text" placeholder="Search..." class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -215,8 +215,8 @@ function secondsToTime($seconds) {
                                         <tr>
                                             <td></td>
                                             <td><h1><b><?php print_r($sysdata[0]['HOSTNAME']); ?></b></h1><br><b><?php print_r($sysdata[0]['OS'] . ' ' . $sysdata[0]['VERSION']); ?></b> (<?php print_r($sysdata[0]['ARCH']); ?>)</td>
-                                            <td><h1>&nbsp;</h1><br>Load Average: <b><?php print_r($sysdata[0]['LOADAVERAGE']); ?></b></td>
-                                            <td class="restwo"><h1>&nbsp;</h1><br>Uptime: <b><?php 
+                                            <td><h1>&nbsp;</h1><br><?php echo _("Load Average:"); ?> <b><?php print_r($sysdata[0]['LOADAVERAGE']); ?></b></td>
+                                            <td class="restwo"><h1>&nbsp;</h1><br><?php echo _("Uptime:"); ?> <b><?php 
                                                 if (strpos(secondsToTime($sysdata[0]['UPTIME'] * 60),'0 days') !== false) {
                                                             echo str_replace('0 days, ', '', secondsToTime($sysdata[0]['UPTIME'] * 60));
                                                     }

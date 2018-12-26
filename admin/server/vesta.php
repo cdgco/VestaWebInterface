@@ -174,7 +174,7 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="../../process/search.php" method="get">
-                                <input type="text" placeholder="Search..." class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -1031,7 +1031,7 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
                                             </div>
                                         </div>
                                         <div class="form-group" id="div10" style="margin-left: 4%;">
-                                            <p>Restrict users so that they cannot use SSH and access only their home directory. This is a commercial module, you would need to purchace license key to enable it.</p>
+                                            <p><?php echo _("Restrict users so that they cannot use SSH and access only their home directory. This is a commercial module, you would need to purchace license key to enable it."); ?></p>
                                             <input type="hidden" name="v_sftpjail-key-x" value="<?php echo $sysconfig[0]["SFTPJAIL_KEY"]; ?>">
                                             <?php if($sysconfig[0]["SFTPJAIL_KEY"] != '') {echo '<div class="form-group">
                                                 <label class="col-md-12">' . _("License Key") . '</label>
@@ -1055,7 +1055,7 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
                                                       <a href="https://vestacp.com/checkout/2co.php?product_id=9&referer=' . $_SERVER['HTTP_HOST'] . '" style="color: inherit;text-decoration: inherit;"><button class="btn btn-success" type="button">' . _("Buy Lifetime License $18") . '</button></a>
                                                 </div>
                                             </div>
-                                            <span class="help-block">2Checkout.com Inc. (Ohio, USA) is a payment facilitator for goods and services provided by vestacp.com.</span>'; } ?>
+                                            <span class="help-block">' . _("2Checkout.com Inc. (Ohio, USA) is a payment facilitator for goods and services provided by vestacp.com.") . '</span>'; } ?>
                                             
                                         </div>
                                         <div class="form-group">
@@ -1069,7 +1069,7 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
                                             </div>
                                         </div>
                                         <div class="form-group" id="div11" style="margin-left: 4%;">
-                                            <p>Browse, copy, edit, view, and retrieve all of your web domain files using fully featured File Manager. This is a commercial module, you would need to purchace license key to enable it.</p>
+                                            <p><?php echo _("Browse, copy, edit, view, and retrieve all of your web domain files using fully featured File Manager. This is a commercial module, you would need to purchace license key to enable it."); ?></p>
                                             <input type="hidden" name="v_filemanager-key-x" value="<?php echo $sysconfig[0]["BACKUP"]; ?>">
                                             <?php if($sysconfig[0]["FILEMANAGER_KEY"] != '') { echo '<div class="form-group">
                                                 <label class="col-md-12">' . _("License Key") . '</label>
@@ -1093,7 +1093,7 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
                                                       <a href="https://vestacp.com/checkout/2co.php?product_id=8&referer=' . $_SERVER['HTTP_HOST'] . '" style="color: inherit;text-decoration: inherit;"><button class="btn btn-success" type="button">' . _("Buy Lifetime License $50") . '</button></a>
                                                 </div>
                                             </div>
-                                            <span class="help-block">2Checkout.com Inc. (Ohio, USA) is a payment facilitator for goods and services provided by vestacp.com.</span>'; } ?>
+                                            <span class="help-block">' . _("2Checkout.com Inc. (Ohio, USA) is a payment facilitator for goods and services provided by vestacp.com.") . '</span>'; } ?>
                                               
                                         </div>
                                         <div class="form-group">
@@ -1107,7 +1107,7 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
                                             </div>
                                         </div>
                                         <div class="form-group" id="div12" style="margin-left: 4%;">
-                                            <p>* Plugin installation will run in background.<br><br>Softaculous is a great Auto Installer having 426 great scripts, 1115 PHP Classes and we are still adding more. Softaculous is ideal for Web Hosting companies and it could give a significant boost to your sales. These scripts cover most of the uses a customer could ever have. We have covered a wide array of Categories so that everyone could find the required script one would need to power their Web Site.</p>
+                                            <p>* <?php echo _("Plugin installation will run in background."); ?><br><br><?php echo _("Softaculous is a great Auto Installer having 426 great scripts, 1115 PHP Classes and we are still adding more. Softaculous is ideal for Web Hosting companies and it could give a significant boost to your sales. These scripts cover most of the uses a customer could ever have. We have covered a wide array of Categories so that everyone could find the required script one would need to power their Web Site."); ?></p>
                                             <div class="form-group">
                                                 <div class="col-sm-12">
                                                       <a href="https://www.softaculous.com/softaculous/" style="color: inherit;text-decoration: inherit;"><button class="btn btn-success" type="button"><?php echo _("Get Premium License"); ?></button></a>

@@ -143,7 +143,7 @@ foreach ($plugins as $result) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="../../process/search.php" method="get">
-                                <input type="text" placeholder="Search..." class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -196,9 +196,9 @@ foreach ($plugins as $result) {
                         <div class="col-lg-12">
                             <div class="white-box">
                                 <form class="form-horizontal form-material" id="form" autocomplete="off" method="post" action="../change/settings.php" enctype="multipart/form-data">
-                                    <h3>Server Configuration</h3><br><hr><br>
+                                    <h3><?php echo _("Server Configuration"); ?></h3><br><hr><br>
                                     <div class="form-group"  style="overflow: visible;">
-                                        <label class="col-md-12">Server Timezone</label>
+                                        <label class="col-md-12"><?php echo _("Server Timezone"); ?></label>
                                         <div class="col-md-12">
                                             <select id="timeselect" name="TIMEZONE" class="form-control select2">
                                                 <option value="Pacific/Midway">(UTC-11:00) Midway Island</option>
@@ -350,39 +350,39 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Site Name</label>  
+                                        <label class="col-md-12"><?php echo _("Site Name"); ?></label>  
                                         <div class="col-md-12">
                                             <input id="textinput" name="SITENAME" type="text" value="<?php echo $sitetitle; ?>" class="form-control input-md" required="">
 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Theme</label>
+                                        <label class="col-md-12"><?php echo _("Theme"); ?></label>
                                         <div class="col-md-12">
                                             <select id="themeselect" name="THEME" class="form-control select2">
-                                                <option value="default">Default</option>
-                                                <option value="blue">Blue</option>
-                                                <option value="purple">Purple</option>
-                                                <option value="orange">Orange</option>
-                                                <option value="dark">Dark</option>
-                                                <option value="custom">Custom</option>
+                                                <option value="default"><?php echo _("Default"); ?></option>
+                                                <option value="blue"><?php echo _("Blue"); ?></option>
+                                                <option value="purple"><?php echo _("Purple"); ?></option>
+                                                <option value="orange"><?php echo _("Orange"); ?></option>
+                                                <option value="dark"><?php echo _("Dark"); ?></option>
+                                                <option value="custom"><?php echo _("Custom"); ?></option>
                                             </select>
                                         </div>
                                     </div>
                                     <div id="customtheme" style="margin-left: 4%;">
                                         <div class="form-group">
-                                            <label class="col-md-12">Custom Theme Colors</label>  
+                                            <label class="col-md-12"><?php echo _("Custom Theme Colors"); ?></label>  
                                             <div class="col-md-12">
                                                 <div id="color1" class="input-group colorpicker-component">
                                                     <input type="text" value="<?php if(CUSTOM_THEME_PRIMARY != '') { echo CUSTOM_THEME_PRIMARY; } else { echo '#FF9649'; } ?>" name="color1" class="form-control" />
                                                     <span class="input-group-addon"><i></i></span>
                                                 </div>
-                                                <span class="help-block">Primary Color (Header, Active Buttons / Text, Etc.)</span>  
+                                                <span class="help-block"><?php echo _("Primary Color (Header, Active Buttons / Text, Etc.)"); ?></span>  
                                                 <div id="color2" class="input-group colorpicker-component">
                                                     <input type="text" value="<?php if(CUSTOM_THEME_SECONDARY != '') { echo CUSTOM_THEME_SECONDARY; } else { echo '#2f323e'; } ?>" name="color2" class="form-control" />
                                                     <span class="input-group-addon"><i></i></span>
                                                 </div>
-                                                <span class="help-block">Secondary Color (Buttons / Text)</span>  
+                                                <span class="help-block"><?php echo _("Secondary Color (Buttons / Text)"); ?></span>  
                                             </div>
                                         </div>
                                     </div>
@@ -423,296 +423,296 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Default To Admin</label>
+                                        <label class="col-md-12"><?php echo _("Default To Admin"); ?></label>
                                         <div class="col-md-12">
                                             <div class="radio-info">
-                                            <label class="radio-inline"><input value="true" type="radio" name="DEFAULT_TO_ADMIN" <?php if($config["DEFAULT_TO_ADMIN"] == 'true'){ echo 'checked'; } ?>/>Enabled</label>
-                                            <label class="radio-inline"><input value="false" type="radio" name="DEFAULT_TO_ADMIN" <?php if($config["DEFAULT_TO_ADMIN"] != 'true'){ echo 'checked'; } ?>/>Disabled</label>
+                                            <label class="radio-inline"><input value="true" type="radio" name="DEFAULT_TO_ADMIN" <?php if($config["DEFAULT_TO_ADMIN"] == 'true'){ echo 'checked'; } ?>/><?php echo _("Enabled"); ?></label>
+                                            <label class="radio-inline"><input value="false" type="radio" name="DEFAULT_TO_ADMIN" <?php if($config["DEFAULT_TO_ADMIN"] != 'true'){ echo 'checked'; } ?>/><?php echo _("Disabled"); ?></label>
                                             </div><p style="line-height:2px">&nbsp;</p>
-                                            <span class="help-block">Choose whether or not the admin should go to the admin panel or home after login.</span>
+                                            <span class="help-block"><?php echo _("Choose whether or not the admin should go to the admin panel or home after login."); ?></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Vesta Host Address</label>  
+                                        <label class="col-md-12"><?php echo _("Vesta Host Address"); ?></label>  
                                         <div class="col-md-12">
                                             <input id="VESTA_HOST_ADDRESS" name="VESTA_HOST_ADDRESS" type="text" value="<?php echo $config["VESTA_HOST_ADDRESS"]; ?>" class="form-control input-md" required="">
-                                            <span class="help-block">VestaCP Host URL or IP Address</span>  
+                                            <span class="help-block"><?php echo _("VestaCP Host URL or IP Address"); ?></span>  
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Vesta SSL</label>
+                                        <label class="col-md-12"><?php echo _("Vesta SSL"); ?></label>
                                         <div class="col-md-12">
                                             <div class="radio-info">
-                                            <label class="radio-inline"><input value="true" type="radio" name="VESTA_SSL_ENABLED" <?php if($config["VESTA_SSL_ENABLED"] != 'false'){ echo 'checked'; } ?>/>Enabled</label>
-                                            <label class="radio-inline"><input value="false" type="radio" name="VESTA_SSL_ENABLED" <?php if($config["VESTA_SSL_ENABLED"] == 'false'){ echo 'checked'; } ?>/>Disabled</label>
+                                            <label class="radio-inline"><input value="true" type="radio" name="VESTA_SSL_ENABLED" <?php if($config["VESTA_SSL_ENABLED"] != 'false'){ echo 'checked'; } ?>/><?php echo _("Enabled"); ?></label>
+                                            <label class="radio-inline"><input value="false" type="radio" name="VESTA_SSL_ENABLED" <?php if($config["VESTA_SSL_ENABLED"] == 'false'){ echo 'checked'; } ?>/><?php echo _("Disabled"); ?></label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12" for="VESTA_PORT">Vesta Port</label>  
+                                        <label class="col-md-12" for="VESTA_PORT"><?php echo _("Vesta Port"); ?></label>  
                                         <div class="col-md-12">
                                             <input id="VESTA_PORT" name="VESTA_PORT" type="text" value="<?php echo $vesta_port; ?>" class="form-control input-md">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">API Method</label>
+                                        <label class="col-md-12"><?php echo _("API Method"); ?></label>
                                         <div class="col-md-12">
                                             <div class="radio-info">
-                                            <label class="radio-inline"><input onclick="checkDiv1();" value="credentials" type="radio" name="VESTA_METHOD" <?php if($config["VESTA_METHOD"] != 'api'){ echo 'checked'; } ?>/>Username / Password</label>
-                                            <label class="radio-inline"><input id="apienabled" onclick="checkDiv1();" value="api" type="radio" name="VESTA_METHOD" <?php if($config["VESTA_METHOD"] == 'api'){ echo 'checked'; } ?>/>API Key</label>
+                                            <label class="radio-inline"><input onclick="checkDiv1();" value="credentials" type="radio" name="VESTA_METHOD" <?php if($config["VESTA_METHOD"] != 'api'){ echo 'checked'; } ?>/><?php echo _("Username / Password"); ?></label>
+                                            <label class="radio-inline"><input id="apienabled" onclick="checkDiv1();" value="api" type="radio" name="VESTA_METHOD" <?php if($config["VESTA_METHOD"] == 'api'){ echo 'checked'; } ?>/><?php echo _("API Key"); ?></label>
                                             </div>
                                         </div>
                                     </div>
                                     <div id="api" style="margin-left: 4%;">
                                         <div class="form-group">
-                                            <label class="col-md-12">Vesta API Key</label>  
+                                            <label class="col-md-12"><?php echo _("Vesta API Key"); ?></label>  
                                             <div class="col-md-12">
                                                 <input name="VESTA_API_KEY" id="apikey" type="text" value="<?php echo $vst_apikey; ?>" class="form-control input-md">
-                                                <span class="help-block">Adding & editing custom SSL certificates and backup exclusions does not Work with API key. Features will be disabled.</span>  
+                                                <span class="help-block"><?php echo _("Adding & editing custom SSL certificates and backup exclusions does not Work with API key. Features will be disabled."); ?></span>  
                                             </div>
                                         </div>
                                     </div>
                                     <div id="cred" style="margin-left: 4%;">
                                         <div class="form-group">
-                                            <label class="col-md-12" for="VESTA_ADMIN_UNAME">Vesta Admin Username</label>  
+                                            <label class="col-md-12" for="VESTA_ADMIN_UNAME"><?php echo _("Vesta Admin Username"); ?></label>  
                                             <div class="col-md-12">
                                                 <input id="VESTA_ADMIN_UNAME" name="VESTA_ADMIN_UNAME" type="text" value="<?php echo $vst_username; ?>" class="form-control input-md">
 
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12" for="VESTA_ADMIN_PW">Vesta Admin Password</label>
+                                            <label class="col-md-12" for="VESTA_ADMIN_PW"><?php echo _("Vesta Admin Password"); ?></label>
                                             <div class="col-md-12">
                                                 <input id="VESTA_ADMIN_PW" name="VESTA_ADMIN_PW" type="text" value="<?php echo $vst_password; ?>" class="form-control input-md">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Warnings Enabled</label>
+                                        <label class="col-md-12"><?php echo _("Warnings Enabled"); ?></label>
                                         <div class="col-md-12">
                                             <div class="radio-info">
                                             <label class="radio-inline"><input value="all" type="radio" name="ENABLE_WARNINGS" <?php if($config["WARNINGS_ENABLED"] == 'all'){ echo 'checked'; } ?>/>All Users</label>
                                             <label class="radio-inline"><input value="admin" type="radio" name="ENABLE_WARNINGS" <?php if($config["WARNINGS_ENABLED"] == 'admin'){ echo 'checked'; } ?>/>Admin Only</label>  
-                                            <label class="radio-inline"><input value="false" type="radio" name="ENABLE_WARNINGS" <?php if($config["WARNINGS_ENABLED"] != 'all' && $config["WARNINGS_ENABLED"] != 'admin'){ echo 'checked'; } ?>/>Disabled</label>
+                                            <label class="radio-inline"><input value="false" type="radio" name="ENABLE_WARNINGS" <?php if($config["WARNINGS_ENABLED"] != 'all' && $config["WARNINGS_ENABLED"] != 'admin'){ echo 'checked'; } ?>/><?php echo _("Disabled"); ?></label>
                                             </div>
-                                            <span class="help-block">Display messages for installation warnings and connection errors.</span>  
+                                            <span class="help-block"><?php echo _("Display messages for installation warnings and connection errors."); ?></span>  
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Encryption Key 1</label>
+                                        <label class="col-md-12"><?php echo _("Encryption Key 1"); ?></label>
                                         <div class="col-md-12">
                                             <input name="KEY1" type="text" value="<?php echo $key1; ?>" class="form-control input-md" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Encryption Key 2</label>
+                                        <label class="col-md-12"><?php echo _("Encryption Key 2"); ?></label>
                                         <div class="col-md-12">
                                             <input name="KEY2" type="text" value="<?php echo $key2; ?>" class="form-control input-md" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Current Favicon:</label><br>
+                                        <label class="col-md-12"><?php echo _("Current Favicon:"); ?></label><br>
                                         <img src="../../plugins/images/<?php echo $cpfavicon; ?>" style="border:1px solid black;height:32px;right: -20px;position: relative;"/>&nbsp;&nbsp;<img src="../../plugins/images/<?php echo $cpfavicon; ?>" style="background-color:black;height: 32px;right: -20px;position: relative;"/><br><br>
-                                        <label class="col-md-12">New Favicon:</label>
+                                        <label class="col-md-12"><?php echo _("New Favicon:"); ?></label>
                                         <div class="col-md-12">
                                             <input name="FAVICON" id="file3" accept=".ico" type="file" class="form-control input-md">
-                                            <span class="help-block">Recommended 32x32px .ico</span>  
+                                            <span class="help-block"><?php echo _("Recommended 32x32px .ico"); ?></span>  
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Current Icon:</label><br>
+                                        <label class="col-md-12"><?php echo _("Current Icon:"); ?></label><br>
                                         <img src="../../plugins/images/<?php echo $cpicon; ?>" style="border:1px solid black;height: 40px;right: -20px;position: relative;"/>&nbsp;&nbsp;<img src="../../plugins/images/<?php echo $cpicon; ?>" style="background-color:black;height: 40px;right: -20px;position: relative;"/><br><br>
-                                        <label class="col-md-12">New Icon:</label>
+                                        <label class="col-md-12"><?php echo _("New Icon:"); ?></label>
                                         <div class="col-md-12">
                                             <input name="ICON" id="file" accept=".png,.gif,.jpg,.jpeg" type="file" class="form-control input-md">
-                                            <span class="help-block">Recommended 40x40px .png or .gif. (.png, .gif, .jpg, and .jpeg up to 1MB allowed.)</span>  
+                                            <span class="help-block"><?php echo _("Recommended 40x40px .png or .gif. (.png, .gif, .jpg, and .jpeg up to 1MB allowed.)"); ?></span>  
                                         </div>
                                         
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Current Logo:</label><br>
+                                        <label class="col-md-12"><?php echo _("Current Logo:"); ?></label><br>
                                         <img class="logosize" src="../../plugins/images/<?php echo $cplogo; ?>" style="border:1px solid black;height:60px;right: -20px;position: relative;"/>&nbsp;&nbsp;<p style="display:none;line-height:40%" class="logobr">&nbsp;</p><img class="logosize" src="../../plugins/images/<?php echo $cplogo; ?>" style="background-color:black;height: 60px;right: -20px;position: relative;"/><br><br>
-                                        <label class="col-md-12">New Logo:</label>
+                                        <label class="col-md-12"><?php echo _("New Logo:"); ?></label>
                                         <div class="col-md-12">
                                             <input name="LOGO" id="file2" accept=".png,.gif,.jpg,.jpeg" type="file" class="form-control input-md">
-                                            <span class="help-block">Recommended 134x24px .png or .gif. (.png, .gif, .jpg, and .jpeg up to 1MB allowed.)</span>  
+                                            <span class="help-block"><?php echo _("Recommended 134x24px .png or .gif. (.png, .gif, .jpg, and .jpeg up to 1MB allowed.)"); ?></span>  
                                         </div>
                                     </div>
                                     
-                                    <br><h3>Enable / Disable Sections</h3><br><hr><br>
+                                    <br><h3><?php echo _("Enable / Disable Sections"); ?></h3><br><hr><br>
                                     <div class="form-group">
-                                        <label class="col-md-12">Web Enabled</label>
+                                        <label class="col-md-12"><?php echo _("Web Enabled"); ?></label>
                                         <div class="col-md-12">
                                             <div class="radio-info">
-                                            <label class="radio-inline"><input value="true" type="radio" name="ENABLE_WEB" <?php if($config["WEB_ENABLED"] == 'true'){ echo 'checked'; } ?>/>Enabled</label>
-                                            <label class="radio-inline"><input value="false" type="radio" name="ENABLE_WEB" <?php if($config["WEB_ENABLED"] != 'true'){ echo 'checked'; } ?>/>Disabled</label>
+                                            <label class="radio-inline"><input value="true" type="radio" name="ENABLE_WEB" <?php if($config["WEB_ENABLED"] == 'true'){ echo 'checked'; } ?>/><?php echo _("Enabled"); ?></label>
+                                            <label class="radio-inline"><input value="false" type="radio" name="ENABLE_WEB" <?php if($config["WEB_ENABLED"] != 'true'){ echo 'checked'; } ?>/><?php echo _("Disabled"); ?></label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">DNS Enabled</label>
+                                        <label class="col-md-12"><?php echo _("DNS Enabled"); ?></label>
                                         <div class="col-md-12">
                                             <div class="radio-info">
-                                            <label class="radio-inline"><input value="true" type="radio" name="ENABLE_DNS" <?php if($config["DNS_ENABLED"] == 'true'){ echo 'checked'; } ?>/>Enabled</label>
-                                            <label class="radio-inline"><input value="false" type="radio" name="ENABLE_DNS" <?php if($config["DNS_ENABLED"] != 'true'){ echo 'checked'; } ?>/>Disabled</label>
+                                            <label class="radio-inline"><input value="true" type="radio" name="ENABLE_DNS" <?php if($config["DNS_ENABLED"] == 'true'){ echo 'checked'; } ?>/><?php echo _("Enabled"); ?></label>
+                                            <label class="radio-inline"><input value="false" type="radio" name="ENABLE_DNS" <?php if($config["DNS_ENABLED"] != 'true'){ echo 'checked'; } ?>/><?php echo _("Disabled"); ?></label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Mail Enabled</label>
+                                        <label class="col-md-12"><?php echo _("Mail Enabled"); ?></label>
                                         <div class="col-md-12">
                                             <div class="radio-info">
-                                            <label class="radio-inline"><input value="true" type="radio" name="ENABLE_MAIL" <?php if($config["MAIL_ENABLED"] == 'true'){ echo 'checked'; } ?>/>Enabled</label>
-                                            <label class="radio-inline"><input value="false" type="radio" name="ENABLE_MAIL" <?php if($config["MAIL_ENABLED"] != 'true'){ echo 'checked'; } ?>/>Disabled</label>
+                                            <label class="radio-inline"><input value="true" type="radio" name="ENABLE_MAIL" <?php if($config["MAIL_ENABLED"] == 'true'){ echo 'checked'; } ?>/><?php echo _("Enabled"); ?></label>
+                                            <label class="radio-inline"><input value="false" type="radio" name="ENABLE_MAIL" <?php if($config["MAIL_ENABLED"] != 'true'){ echo 'checked'; } ?>/><?php echo _("Disabled"); ?></label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Database Enabled</label>
+                                        <label class="col-md-12"><?php echo _("Database Enabled"); ?></label>
                                         <div class="col-md-12">
                                             <div class="radio-info">
-                                            <label class="radio-inline"><input value="true" type="radio" name="ENABLE_DB" <?php if($config["DB_ENABLED"] == 'true'){ echo 'checked'; } ?>/>Enabled</label>
-                                            <label class="radio-inline"><input value="false" type="radio" name="ENABLE_DB" <?php if($config["DB_ENABLED"] != 'true'){ echo 'checked'; } ?>/>Disabled</label>
+                                            <label class="radio-inline"><input value="true" type="radio" name="ENABLE_DB" <?php if($config["DB_ENABLED"] == 'true'){ echo 'checked'; } ?>/><?php echo _("Enabled"); ?></label>
+                                            <label class="radio-inline"><input value="false" type="radio" name="ENABLE_DB" <?php if($config["DB_ENABLED"] != 'true'){ echo 'checked'; } ?>/><?php echo _("Disabled"); ?></label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Admin Panel Enabled</label>
+                                        <label class="col-md-12"><?php echo _("Admin Panel Enabled"); ?></label>
                                         <div class="col-md-12">
                                             <div class="radio-info">
-                                            <label class="radio-inline"><input value="true" type="radio" name="ENABLE_ADMIN" <?php if($config["ADMIN_ENABLED"] == 'true'){ echo 'checked'; } ?>/>Enabled</label>
-                                            <label class="radio-inline"><input value="false" type="radio" name="ENABLE_ADMIN" <?php if($config["ADMIN_ENABLED"] != 'true'){ echo 'checked'; } ?>/>Disabled</label>
+                                            <label class="radio-inline"><input value="true" type="radio" name="ENABLE_ADMIN" <?php if($config["ADMIN_ENABLED"] == 'true'){ echo 'checked'; } ?>/><?php echo _("Enabled"); ?></label>
+                                            <label class="radio-inline"><input value="false" type="radio" name="ENABLE_ADMIN" <?php if($config["ADMIN_ENABLED"] != 'true'){ echo 'checked'; } ?>/><?php echo _("Disabled"); ?></label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Profile Page Enabled</label>
+                                        <label class="col-md-12"><?php echo _("Profile Page Enabled"); ?></label>
                                         <div class="col-md-12">
                                             <div class="radio-info">
-                                            <label class="radio-inline"><input value="true" type="radio" name="ENABLE_PROFILE" <?php if($config["PROFILE_ENABLED"] == 'true'){ echo 'checked'; } ?>/>Enabled</label>
-                                            <label class="radio-inline"><input value="false" type="radio" name="ENABLE_PROFILE" <?php if($config["PROFILE_ENABLED"] != 'true'){ echo 'checked'; } ?>/>Disabled</label>
+                                            <label class="radio-inline"><input value="true" type="radio" name="ENABLE_PROFILE" <?php if($config["PROFILE_ENABLED"] == 'true'){ echo 'checked'; } ?>/><?php echo _("Enabled"); ?></label>
+                                            <label class="radio-inline"><input value="false" type="radio" name="ENABLE_PROFILE" <?php if($config["PROFILE_ENABLED"] != 'true'){ echo 'checked'; } ?>/><?php echo _("Disabled"); ?></label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Cron Enabled</label>
+                                        <label class="col-md-12"><?php echo _("Cron Enabled"); ?></label>
                                         <div class="col-md-12">
                                             <div class="radio-info">
-                                            <label class="radio-inline"><input value="true" type="radio" name="ENABLE_CRON" <?php if($config["CRON_ENABLED"] == 'true'){ echo 'checked'; } ?>/>Enabled</label>
-                                            <label class="radio-inline"><input value="false" type="radio" name="ENABLE_CRON" <?php if($config["CRON_ENABLED"] != 'true'){ echo 'checked'; } ?>/>Disabled</label>
+                                            <label class="radio-inline"><input value="true" type="radio" name="ENABLE_CRON" <?php if($config["CRON_ENABLED"] == 'true'){ echo 'checked'; } ?>/><?php echo _("Enabled"); ?></label>
+                                            <label class="radio-inline"><input value="false" type="radio" name="ENABLE_CRON" <?php if($config["CRON_ENABLED"] != 'true'){ echo 'checked'; } ?>/><?php echo _("Disabled"); ?></label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Backups Enabled</label>
+                                        <label class="col-md-12"><?php echo _("Backups Enabled"); ?></label>
                                         <div class="col-md-12">
                                             <div class="radio-info">
-                                            <label class="radio-inline"><input value="true" type="radio" name="ENABLE_BACKUPS" <?php if($config["BACKUPS_ENABLED"] == 'true'){ echo 'checked'; } ?>/>Enabled</label>
-                                            <label class="radio-inline"><input value="false" type="radio" name="ENABLE_BACKUPS" <?php if($config["BACKUPS_ENABLED"] != 'true'){ echo 'checked'; } ?>/>Disabled</label>
+                                            <label class="radio-inline"><input value="true" type="radio" name="ENABLE_BACKUPS" <?php if($config["BACKUPS_ENABLED"] == 'true'){ echo 'checked'; } ?>/><?php echo _("Enabled"); ?></label>
+                                            <label class="radio-inline"><input value="false" type="radio" name="ENABLE_BACKUPS" <?php if($config["BACKUPS_ENABLED"] != 'true'){ echo 'checked'; } ?>/><?php echo _("Disabled"); ?></label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Registrations Enabled</label>
+                                        <label class="col-md-12"><?php echo _("Registrations Enabled"); ?></label>
                                         <div class="col-md-12">
                                             <div class="radio-info">
-                                            <label class="radio-inline"><input value="true" type="radio" name="ENABLE_REG" <?php if($config["REGISTRATIONS_ENABLED"] == 'true'){ echo 'checked'; } ?>/>Enabled</label>
-                                            <label class="radio-inline"><input value="false" type="radio" name="ENABLE_REG" <?php if($config["REGISTRATIONS_ENABLED"] != 'true'){ echo 'checked'; } ?>/>Disabled</label>
+                                            <label class="radio-inline"><input value="true" type="radio" name="ENABLE_REG" <?php if($config["REGISTRATIONS_ENABLED"] == 'true'){ echo 'checked'; } ?>/><?php echo _("Enabled"); ?></label>
+                                            <label class="radio-inline"><input value="false" type="radio" name="ENABLE_REG" <?php if($config["REGISTRATIONS_ENABLED"] != 'true'){ echo 'checked'; } ?>/><?php echo _("Disabled"); ?></label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Softaculous Enabled</label>
+                                        <label class="col-md-12"><?php echo _("Softaculous Enabled"); ?></label>
                                         <div class="col-md-12">
                                             <div class="radio-info">
-                                            <label class="radio-inline"><input value="true" type="radio" name="ENABLE_SOFTURL" <?php if($config["SOFTACULOUS_URL"] != 'false'){ echo 'checked'; } ?>/>Enabled</label>
-                                            <label class="radio-inline"><input value="false" type="radio" name="ENABLE_SOFTURL" <?php if($config["SOFTACULOUS_URL"] == 'false'){ echo 'checked'; } ?>/>Disabled</label>
+                                            <label class="radio-inline"><input value="true" type="radio" name="ENABLE_SOFTURL" <?php if($config["SOFTACULOUS_URL"] != 'false'){ echo 'checked'; } ?>/><?php echo _("Enabled"); ?></label>
+                                            <label class="radio-inline"><input value="false" type="radio" name="ENABLE_SOFTURL" <?php if($config["SOFTACULOUS_URL"] == 'false'){ echo 'checked'; } ?>/><?php echo _("Disabled"); ?></label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Link to Old CP Enabled</label>
+                                        <label class="col-md-12"><?php echo _("Link to Old CP Enabled"); ?></label>
                                         <div class="col-md-12">
                                             <div class="radio-info">
-                                            <label class="radio-inline"><input value="true" type="radio" name="ENABLE_OLDCPURL" <?php if($config["OLD_CP_LINK"] != 'false'){ echo 'checked'; } ?>/>Enabled</label>
-                                            <label class="radio-inline"><input value="false" type="radio" name="ENABLE_OLDCPURL" <?php if($config["OLD_CP_LINK"] == 'false'){ echo 'checked'; } ?>/>Disabled</label>
+                                            <label class="radio-inline"><input value="true" type="radio" name="ENABLE_OLDCPURL" <?php if($config["OLD_CP_LINK"] != 'false'){ echo 'checked'; } ?>/><?php echo _("Enabled"); ?></label>
+                                            <label class="radio-inline"><input value="false" type="radio" name="ENABLE_OLDCPURL" <?php if($config["OLD_CP_LINK"] == 'false'){ echo 'checked'; } ?>/><?php echo _("Disabled"); ?></label>
                                             </div>
                                         </div>
                                     </div>
                                     <br>
                                     <h3>Mail</h3><br><hr><br>
                                     <div class="form-group">
-                                        <label class="col-md-12">PHP Mail Enabled</label>
+                                        <label class="col-md-12"><?php echo _("PHP Mail Enabled"); ?></label>
                                         <div class="col-md-12">
                                             <div class="radio-info">
-                                            <label class="radio-inline"><input id="phpmailenabled" onclick="checkDiv();" value="true" type="radio" name="PHPMAIL_ENABLED" <?php if($phpmailenabled == 'true'){ echo 'checked'; } ?>/>Enabled</label>
-                                            <label class="radio-inline"><input onclick="checkDiv();" value="false" type="radio" name="PHPMAIL_ENABLED" <?php if($phpmailenabled != 'true'){ echo 'checked'; } ?>/>Disabled</label>
+                                            <label class="radio-inline"><input id="phpmailenabled" onclick="checkDiv();" value="true" type="radio" name="PHPMAIL_ENABLED" <?php if($phpmailenabled == 'true'){ echo 'checked'; } ?>/><?php echo _("Enabled"); ?></label>
+                                            <label class="radio-inline"><input onclick="checkDiv();" value="false" type="radio" name="PHPMAIL_ENABLED" <?php if($phpmailenabled != 'true'){ echo 'checked'; } ?>/><?php echo _("Disabled"); ?></label>
                                             </div>
                                         </div>
                                     </div>
                                     <div id="div1" style="margin-left: 4%;">
                                         <div class="form-group">
-                                            <label class="col-md-12">From Address</label>  
+                                            <label class="col-md-12"><?php echo _("From Address"); ?></label>  
                                             <div class="col-md-12">
                                                 <input name="MAIL_FROM" type="text" value="<?php echo $mailfrom; ?>" class="form-control input-md">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12">From Name</label>  
+                                            <label class="col-md-12"><?php echo _("From Name"); ?></label>  
                                             <div class="col-md-12">
                                                 <input name="MAIL_NAME" type="text" value="<?php echo $mailname; ?>" class="form-control input-md">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12">Mail Method</label>
+                                            <label class="col-md-12"><?php echo _("Mail Method"); ?></label>
                                             <div class="col-md-12">
                                                 <div class="radio-info">
                                                 <label class="radio-inline"><input id="smtpenabled" onclick="checkDiv2();" value="true" type="radio" name="SMTP_ENABLED" <?php if($smtpenabled == 'true'){ echo 'checked'; } ?>/>SMTP</label>
-                                                <label class="radio-inline"><input onclick="checkDiv2();" value="false" type="radio" name="SMTP_ENABLED" <?php if($smtpenabled != 'true'){ echo 'checked'; } ?>/>PHP Mail</label>
+                                                <label class="radio-inline"><input onclick="checkDiv2();" value="false" type="radio" name="SMTP_ENABLED" <?php if($smtpenabled != 'true'){ echo 'checked'; } ?>/><?php echo _("PHP Mail"); ?></label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div id="div2" style="margin-left: 4%;">
                                             <div class="form-group">
-                                                <label class="col-md-12">SMTP Host</label>  
+                                                <label class="col-md-12"><?php echo _("SMTP Host"); ?></label>  
                                                 <div class="col-md-12">
                                                     <input name="SMTP_HOST" type="text" value="<?php echo $smtphost; ?>" class="form-control input-md">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-12">SMTP Port</label>  
+                                                <label class="col-md-12"><?php echo _("SMTP Port"); ?></label>  
                                                 <div class="col-md-12">
                                                     <input name="SMTP_PORT" type="text" value="<?php echo $smtpport; ?>" class="form-control input-md">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-12">SMTP Encryption</label>
+                                                <label class="col-md-12"><?php echo _("SMTP Encryption"); ?></label>
                                                 <div class="col-md-12">
                                                     <select name="SMTP_ENC" class="form-control select2">
                                                         <option <?php if($smtpenc == 'ssl'){ echo 'selected'; } ?>value="ssl">SSL</option>
                                                         <option <?php if($smtpenc == 'tls'){ echo 'selected'; } ?>value="tls">TLS</option>
-                                                        <option <?php if($smtpenc != 'tls' && $smtpenc != 'ssl'){ echo 'selected'; } ?>value="none">None</option>
+                                                        <option <?php if($smtpenc != 'tls' && $smtpenc != 'ssl'){ echo 'selected'; } ?>value="none"><?php echo _("None"); ?></option>
                                                     </select>
                                                 </div>
                                             </div>   
                                             <div class="form-group">
-                                                <label class="col-md-12">Authentication Enabled</label>
+                                                <label class="col-md-12"><?php echo _("Authentication Enabled"); ?></label>
                                                 <div class="col-md-12">
                                                     <div class="radio-info">
-                                                    <label class="radio-inline"><input id="authenabled" onclick="checkDiv3();" value="true" type="radio" name="SMTP_AUTH" <?php if($smtpauth == 'true'){ echo 'checked'; } ?>/>Enabled</label>
-                                                    <label class="radio-inline"><input onclick="checkDiv3();" value="false" type="radio" name="SMTP_AUTH" <?php if($smtpauth != 'true'){ echo 'checked'; } ?>/>Disabled</label>
+                                                    <label class="radio-inline"><input id="authenabled" onclick="checkDiv3();" value="true" type="radio" name="SMTP_AUTH" <?php if($smtpauth == 'true'){ echo 'checked'; } ?>/><?php echo _("Enabled"); ?></label>
+                                                    <label class="radio-inline"><input onclick="checkDiv3();" value="false" type="radio" name="SMTP_AUTH" <?php if($smtpauth != 'true'){ echo 'checked'; } ?>/><?php echo _("Disabled"); ?></label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div id="div3" style="margin-left: 4%;">
                                                 <div class="form-group">
-                                                    <label class="col-md-12">SMTP Username</label>  
+                                                    <label class="col-md-12"><?php echo _("SMTP Username"); ?></label>  
                                                     <div class="col-md-12">
                                                         <input name="SMTP_UNAME" type="text" value="<?php echo $smtpuname; ?>" class="form-control input-md">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-md-12">SMTP Password</label>  
+                                                    <label class="col-md-12"><?php echo _("SMTP Password"); ?></label>  
                                                     <div class="col-md-12">
                                                         <input name="SMTP_PW" type="text" value="<?php echo $smtppw; ?>" class="form-control input-md">
                                                     </div>
@@ -721,80 +721,80 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>
                                     <br>
-                                        <h3>Optional Links</h3><br><hr><br>
+                                        <h3><?php echo _("Optional Links"); ?></h3><br><hr><br>
                                     <div class="form-group">
-                                        <label class="col-md-12" for="FTP_URL">FTP Client URL</label>  
+                                        <label class="col-md-12" for="FTP_URL"><?php echo _("FTP Client URL"); ?></label>  
                                         <div class="col-md-12">
                                             <input id="FTP_URL" name="FTP_URL" type="text" value="<?php echo $config["FTP_URL"]; ?>" class="form-control input-md">
-                                            <span class="help-block">Leave blank for default or enter 'disabled' to disable.</span> 
+                                            <span class="help-block"><?php echo _("Leave blank for default or enter 'disabled' to disable."); ?></span> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12" for="WEBMAIL_URL">Webmail URL</label>  
+                                        <label class="col-md-12" for="WEBMAIL_URL"><?php echo _("Webmail URL"); ?></label>  
                                         <div class="col-md-12">
                                             <input id="WEBMAIL_URL" name="WEBMAIL_URL" type="text" value="<?php echo $config["WEBMAIL_URL"]; ?>" class="form-control input-md">
-                                            <span class="help-block">Leave blank for default or enter 'disabled' to disable.</span>  
+                                            <span class="help-block"><?php echo _("Leave blank for default or enter 'disabled' to disable."); ?></span>  
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12" for="PHPMYADMIN_URL">phpMyAdmin URL</label>  
+                                        <label class="col-md-12" for="PHPMYADMIN_URL"><?php echo _("phpMyAdmin URL"); ?></label>  
                                         <div class="col-md-12">
                                             <input id="PHPMYADMIN_URL" name="PHPMYADMIN_URL" type="text" value="<?php echo $config["PHPMYADMIN_URL"]; ?>" class="form-control input-md">
-                                            <span class="help-block">Leave blank for default or enter 'disabled' to disable.</span>  
+                                            <span class="help-block"><?php echo _("Leave blank for default or enter 'disabled' to disable."); ?></span>  
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12" for="PHPPGADMIN_URL">phpPgAdmin URL</label>  
+                                        <label class="col-md-12" for="PHPPGADMIN_URL"><?php echo _("phpPgAdmin URL"); ?></label>  
                                         <div class="col-md-12">
                                             <input id="PHPPGADMIN_URL" name="PHPPGADMIN_URL" type="text" value="<?php echo $config["PHPPGADMIN_URL"]; ?>" class="form-control input-md">
-                                            <span class="help-block">Leave blank for default or enter 'disabled' to disable.</span>  
+                                            <span class="help-block"><?php echo _("Leave blank for default or enter 'disabled' to disable."); ?></span>  
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12" for="SUPPORT_URL">Support URL</label>  
+                                        <label class="col-md-12" for="SUPPORT_URL"><?php echo _("Support URL"); ?></label>  
                                         <div class="col-md-12">
                                             <input id="SUPPORT_URL" name="SUPPORT_URL" type="text" value="<?php echo $config["SUPPORT_URL"]; ?>" class="form-control input-md">
-                                            <span class="help-block">Leave blank or enter 'disabled' to disable.</span>  
+                                            <span class="help-block"><?php echo _("Leave blank or enter 'disabled' to disable."); ?></span>  
                                         </div>
                                     </div>
-                                    <br><h3>Optional Integrations</h3><br><hr><br>
+                                    <br><h3><?php echo _("Optional Integrations"); ?></h3><br><hr><br>
                                     <div class="form-group">
                                         <label class="col-md-12" for="PLUGINS">Plugins</label>  
                                         <div class="col-md-12">
                                             <input id="PLUGINS" name="PLUGINS" type="text" value="<?php echo $config["PLUGINS"]; ?>" class="form-control input-md">
-                                            <span class="help-block">Comma seperated list of installed plugins.</span>  
+                                            <span class="help-block"><?php echo _("Comma seperated list of installed plugins."); ?></span>  
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12" for="GOOGLE_ANALYTICS_ID">Google Analytics ID</label>  
+                                        <label class="col-md-12" for="GOOGLE_ANALYTICS_ID"><?php echo _("Google Analytics ID"); ?></label>  
                                         <div class="col-md-12">
                                             <input id="GOOGLE_ANALYTICS_ID" name="GOOGLE_ANALYTICS_ID" type="text" value="<?php echo $config["GOOGLE_ANALYTICS_ID"]; ?>" class="form-control input-md">
 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12" for="INTERAKT_APP_ID">Interakt App ID</label>  
+                                        <label class="col-md-12" for="INTERAKT_APP_ID"><?php echo _("Interakt App ID"); ?></label>  
                                         <div class="col-md-12">
                                             <input id="INTERAKT_APP_ID" name="INTERAKT_APP_ID" type="text" value="<?php echo $config["INTERAKT_APP_ID"]; ?>" class="form-control input-md">
 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12" for="INTERAKT_API_KEY">Interakt API Key</label>  
+                                        <label class="col-md-12" for="INTERAKT_API_KEY"><?php echo _("Interakt API Key"); ?></label>  
                                         <div class="col-md-12">
                                             <input id="INTERAKT_API_KEY" name="INTERAKT_API_KEY" type="text" value="<?php echo $config["INTERAKT_API_KEY"]; ?>" class="form-control input-md">
 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12" for="CLOUDFLARE_API_KEY">Cloudflare API Key</label>  
+                                        <label class="col-md-12" for="CLOUDFLARE_API_KEY"><?php echo _("Cloudflare API Key"); ?></label>  
                                         <div class="col-md-12">
                                             <input id="CLOUDFLARE_API_KEY" name="CLOUDFLARE_API_KEY" type="text" value="<?php echo $config["CLOUDFLARE_API_KEY"]; ?>" class="form-control input-md">
 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12" for="CLOUDFLARE_EMAIL">Cloudflare Account Email Address</label>  
+                                        <label class="col-md-12" for="CLOUDFLARE_EMAIL"><?php echo _("Cloudflare Account Email Address"); ?></label>  
                                         <div class="col-md-12">
                                             <input id="CLOUDFLARE_EMAIL" name="CLOUDFLARE_EMAIL" type="text" value="<?php echo $config["CLOUDFLARE_EMAIL"]; ?>" class="form-control input-md">
 

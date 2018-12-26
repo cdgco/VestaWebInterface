@@ -146,7 +146,7 @@ foreach ($plugins as $result) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="../../process/search.php" method="get">
-                                <input type="text" placeholder="Search..." class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -200,10 +200,10 @@ foreach ($plugins as $result) {
                                  <form id="loguserform" action="graphs.php" method="get">
                                      <div class="dropdown bootstrap-select pull-right m-l-20">
                                         <select class="selectpicker pull-right m-l-20" id="period" name="period" data-style="form-control">
-                                            <option value="daily">Daily</option>
-                                            <option value="weekly">Weekly</option>
-                                            <option value="monthly">Monthly</option>
-                                            <option value="yearly">Yearly</option>
+                                            <option value="daily"><?php echo _("Daily"); ?></option>
+                                            <option value="weekly"><?php echo _("Weekly"); ?></option>
+                                            <option value="monthly"><?php echo _("Monthly"); ?></option>
+                                            <option value="yearly"><?php echo _("Yearly"); ?></option>
                                         </select>
                                     </div>
                                 </form>

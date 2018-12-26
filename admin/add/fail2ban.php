@@ -124,7 +124,7 @@ foreach ($plugins as $result) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="../../process/search.php" method="get">
-                                <input type="text" placeholder="Search..." class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -182,13 +182,13 @@ foreach ($plugins as $result) {
                                         <label class="col-md-12"><?php echo _("Banlist"); ?></label>
                                         <div class="col-md-12">
                                             <select class="form-control select2" name="v_chain">
-                                                <option value="SSH">SSH</option>
-                                                <option value="WEB">WEB</option>
-                                                <option value="FTP">FTP</option>
-                                                <option value="DNS">DNS</option>
-                                                <option value="MAIL">MAIL</option>
-                                                <option value="DB">DB</option>
-                                                <option value="VESTA">VESTA</option>
+                                                <option value="SSH"><?php echo _("SSH"); ?></option>
+                                                <option value="WEB"><?php echo _("WEB"); ?></option>
+                                                <option value="FTP"><?php echo _("FTP"); ?></option>
+                                                <option value="DNS"><?php echo _("DNS"); ?></option>
+                                                <option value="MAIL"><?php echo _("MAIL"); ?></option>
+                                                <option value="DB"><?php echo _("DB"); ?></option>
+                                                <option value="VESTA"><?php echo _("VESTA"); ?></option>
                                             </select>
                                         </div>
                                     </div>

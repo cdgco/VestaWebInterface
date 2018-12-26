@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-07-22 15:53-0700\n"
-"PO-Revision-Date: 2018-07-22 15:53-0700\n"
+"POT-Creation-Date: 2018-12-25 23:13-0800\n"
+"PO-Revision-Date: 2018-12-25 23:13-0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.9\n"
+"X-Generator: Poedit 2.2\n"
 "X-Poedit-Basepath: ../../../../VestaWebInterface\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -17,2568 +17,3331 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-1: install/web\n"
 "X-Poedit-SearchPathExcluded-2: bootstrap\n"
 
-#: add/cfrecord.php:110 add/dns.php:67 add/dnsrecord.php:110
-#: admin/list/stats.php:211 admin/status/dns.php:188 edit/cfrecord.php:90
-#: edit/dns.php:139 edit/dnsrecord.php:86 includes/includes.php:350
-#: index.php:338 list/backup.php:234 list/backups.php:226 list/cfdomain.php:125
-#: list/cfdomain.php:285 list/dns.php:69 list/dnsdomain.php:112
-#: list/dnsdomain.php:256
+#: add/cfrecord.php:130 add/dns.php:87 add/dnsrecord.php:130
+#: admin/add/fail2ban.php:188 admin/list/stats.php:235
+#: admin/server/vesta.php:746 admin/status/dns.php:211 edit/cfrecord.php:110
+#: edit/dns.php:159 edit/dnsrecord.php:106 includes/includes.php:370
+#: index.php:396 list/backup.php:258 list/backups.php:250 list/cfdomain.php:146
+#: list/cfdomain.php:287 list/dns.php:89 list/dnsdomain.php:132
+#: list/dnsdomain.php:278
 msgid "DNS"
 msgstr ""
 
-#: add/cfrecord.php:159 add/cron.php:119 add/db.php:125 add/dns.php:116
-#: add/dnsrecord.php:159 add/domain.php:123 add/mail.php:114
-#: add/mailaccount.php:134 admin/add/fail2ban.php:119
-#: admin/add/firewall.php:119 admin/add/ip.php:124 admin/add/package.php:127
-#: admin/add/user.php:122 admin/edit/firewall.php:123 admin/edit/ip.php:126
-#: admin/edit/package.php:134 admin/edit/user.php:129
-#: admin/list/fail2ban.php:133 admin/list/firewall.php:136
-#: admin/list/graphs.php:137 admin/list/ip.php:133 admin/list/packages.php:147
-#: admin/list/plugins.php:125 admin/list/server.php:148
-#: admin/list/settings.php:136 admin/list/stats.php:144
-#: admin/list/updates.php:143 admin/list/users.php:157 admin/status/cpu.php:131
-#: admin/status/db.php:131 admin/status/disk.php:131 admin/status/dns.php:131
-#: admin/status/mail.php:131 admin/status/memory.php:131
-#: admin/status/network.php:131 admin/status/web.php:131
-#: edit/backupexclusions.php:119 edit/cfrecord.php:161 edit/cron.php:146
-#: edit/db.php:148 edit/dns.php:211 edit/dnsrecord.php:157 edit/domain.php:161
-#: edit/mail.php:147 edit/mailaccount.php:152 includes/includes.php:335
-#: index.php:192 list/backup.php:148 list/backups.php:158 list/cfdomain.php:217
-#: list/cron.php:131 list/db.php:133 list/dns.php:134 list/dnsdomain.php:183
-#: list/mail.php:130 list/maildomain.php:143 list/web.php:139 log.php:124
-#: log.php:155 log/access.php:132 log/error.php:131 profile.php:170
-#: profile.php:200 profile.php:213
+#: add/cfrecord.php:169 add/cron.php:129 add/db.php:135 add/dns.php:126
+#: add/dnsrecord.php:169 add/domain.php:133 add/mail.php:123
+#: add/mailaccount.php:143 admin/add/fail2ban.php:127
+#: admin/add/firewall.php:127 admin/add/ip.php:133 admin/add/package.php:136
+#: admin/add/user.php:130 admin/edit/firewall.php:132 admin/edit/ip.php:135
+#: admin/edit/package.php:143 admin/edit/user.php:138
+#: admin/list/fail2ban.php:143 admin/list/firewall.php:146
+#: admin/list/graphs.php:149 admin/list/ip.php:143 admin/list/packages.php:157
+#: admin/list/plugins.php:135 admin/list/server.php:158
+#: admin/list/settings.php:146 admin/list/stats.php:155
+#: admin/list/updates.php:153 admin/list/users.php:166
+#: admin/server/mysql.php:129 admin/server/nginx.php:129
+#: admin/server/php.php:129 admin/server/vesta.php:177 admin/status/cpu.php:141
+#: admin/status/db.php:141 admin/status/disk.php:141 admin/status/dns.php:141
+#: admin/status/mail.php:141 admin/status/memory.php:141
+#: admin/status/network.php:141 admin/status/web.php:140
+#: edit/backupexclusions.php:128 edit/cfrecord.php:170 edit/cron.php:156
+#: edit/db.php:157 edit/dns.php:222 edit/dnsrecord.php:166 edit/domain.php:171
+#: edit/mail.php:156 edit/mailaccount.php:161 index.php:240 list/backup.php:159
+#: list/backups.php:168 list/cfdomain.php:205 list/cron.php:140 list/db.php:142
+#: list/dns.php:143 list/dnsdomain.php:192 list/mail.php:139
+#: list/maildomain.php:152 list/web.php:148 log.php:135 log/access.php:144
+#: log/error.php:144 process/csr.php:134 process/generatecsr.php:127
+#: profile.php:176
+msgid "Search..."
+msgstr ""
+
+#: add/cfrecord.php:182 add/cron.php:142 add/db.php:148 add/dns.php:139
+#: add/dnsrecord.php:182 add/domain.php:146 add/mail.php:136
+#: add/mailaccount.php:156 admin/add/fail2ban.php:141
+#: admin/add/firewall.php:141 admin/add/ip.php:146 admin/add/package.php:149
+#: admin/add/user.php:144 admin/edit/firewall.php:145 admin/edit/ip.php:148
+#: admin/edit/package.php:156 admin/edit/user.php:151
+#: admin/list/fail2ban.php:156 admin/list/firewall.php:159
+#: admin/list/graphs.php:162 admin/list/ip.php:156 admin/list/packages.php:170
+#: admin/list/plugins.php:148 admin/list/server.php:171
+#: admin/list/settings.php:159 admin/list/stats.php:168
+#: admin/list/updates.php:166 admin/list/users.php:179
+#: admin/server/mysql.php:142 admin/server/nginx.php:142
+#: admin/server/php.php:142 admin/server/vesta.php:190 admin/status/cpu.php:154
+#: admin/status/db.php:154 admin/status/disk.php:154 admin/status/dns.php:154
+#: admin/status/mail.php:154 admin/status/memory.php:154
+#: admin/status/network.php:154 admin/status/web.php:153
+#: edit/backupexclusions.php:141 edit/cfrecord.php:183 edit/cron.php:169
+#: edit/db.php:170 edit/dns.php:235 edit/dnsrecord.php:179 edit/domain.php:184
+#: edit/mail.php:169 edit/mailaccount.php:174 includes/includes.php:355
+#: index.php:258 list/backup.php:172 list/backups.php:182 list/cfdomain.php:219
+#: list/cron.php:154 list/db.php:156 list/dns.php:157 list/dnsdomain.php:205
+#: list/mail.php:153 list/maildomain.php:166 list/web.php:162 log.php:148
+#: log.php:179 log/access.php:157 log/error.php:157 process/search.php:161
+#: profile.php:194 profile.php:224 profile.php:237
 msgid "My Account"
 msgstr ""
 
-#: add/cfrecord.php:160 add/cron.php:120 add/db.php:126 add/dns.php:117
-#: add/dnsrecord.php:160 add/domain.php:124 add/mail.php:115
-#: add/mailaccount.php:135 admin/add/fail2ban.php:120
-#: admin/add/firewall.php:120 admin/add/ip.php:125 admin/add/package.php:128
-#: admin/add/user.php:123 admin/edit/firewall.php:124 admin/edit/ip.php:127
-#: admin/edit/package.php:135 admin/edit/user.php:130
-#: admin/list/fail2ban.php:134 admin/list/firewall.php:137
-#: admin/list/graphs.php:138 admin/list/ip.php:134 admin/list/packages.php:148
-#: admin/list/plugins.php:126 admin/list/server.php:149
-#: admin/list/settings.php:137 admin/list/stats.php:145
-#: admin/list/updates.php:144 admin/list/users.php:158 admin/status/cpu.php:132
-#: admin/status/db.php:132 admin/status/disk.php:132 admin/status/dns.php:132
-#: admin/status/mail.php:132 admin/status/memory.php:132
-#: admin/status/network.php:132 admin/status/web.php:132
-#: edit/backupexclusions.php:120 edit/cfrecord.php:162 edit/cron.php:147
-#: edit/db.php:149 edit/dns.php:212 edit/dnsrecord.php:158 edit/domain.php:162
-#: edit/mail.php:148 edit/mailaccount.php:153 includes/includes.php:336
-#: index.php:193 list/backup.php:149 list/backups.php:159 list/cfdomain.php:218
-#: list/cron.php:132 list/db.php:134 list/dns.php:135 list/dnsdomain.php:184
-#: list/mail.php:131 list/maildomain.php:144 list/web.php:140 log.php:125
-#: log.php:156 log/access.php:133 log/error.php:132 profile.php:171
-#: profile.php:201
+#: add/cfrecord.php:183 add/cron.php:143 add/db.php:149 add/dns.php:140
+#: add/dnsrecord.php:183 add/domain.php:147 add/mail.php:137
+#: add/mailaccount.php:157 admin/add/fail2ban.php:142
+#: admin/add/firewall.php:142 admin/add/ip.php:147 admin/add/package.php:150
+#: admin/add/user.php:145 admin/edit/firewall.php:146 admin/edit/ip.php:149
+#: admin/edit/package.php:157 admin/edit/user.php:152
+#: admin/list/fail2ban.php:157 admin/list/firewall.php:160
+#: admin/list/graphs.php:163 admin/list/ip.php:157 admin/list/packages.php:171
+#: admin/list/plugins.php:149 admin/list/server.php:172
+#: admin/list/settings.php:160 admin/list/stats.php:169
+#: admin/list/updates.php:167 admin/list/users.php:180
+#: admin/server/mysql.php:143 admin/server/nginx.php:143
+#: admin/server/php.php:143 admin/server/vesta.php:191 admin/status/cpu.php:155
+#: admin/status/db.php:155 admin/status/disk.php:155 admin/status/dns.php:155
+#: admin/status/mail.php:155 admin/status/memory.php:155
+#: admin/status/network.php:155 admin/status/web.php:154
+#: edit/backupexclusions.php:142 edit/cfrecord.php:184 edit/cron.php:170
+#: edit/db.php:171 edit/dns.php:236 edit/dnsrecord.php:180 edit/domain.php:185
+#: edit/mail.php:170 edit/mailaccount.php:175 includes/includes.php:356
+#: index.php:259 list/backup.php:173 list/backups.php:183 list/cfdomain.php:220
+#: list/cron.php:155 list/db.php:157 list/dns.php:158 list/dnsdomain.php:206
+#: list/mail.php:154 list/maildomain.php:167 list/web.php:163 log.php:149
+#: log.php:180 log/access.php:158 log/error.php:158 process/search.php:162
+#: profile.php:195 profile.php:225
 msgid "Account Settings"
 msgstr ""
 
-#: add/cfrecord.php:162 add/cron.php:122 add/db.php:128 add/dns.php:119
-#: add/dnsrecord.php:162 add/domain.php:126 add/mail.php:117
-#: add/mailaccount.php:137 admin/add/fail2ban.php:122
-#: admin/add/firewall.php:122 admin/add/ip.php:127 admin/add/package.php:130
-#: admin/add/user.php:125 admin/edit/firewall.php:126 admin/edit/ip.php:129
-#: admin/edit/package.php:137 admin/edit/user.php:132
-#: admin/list/fail2ban.php:136 admin/list/firewall.php:139
-#: admin/list/graphs.php:140 admin/list/ip.php:136 admin/list/packages.php:150
-#: admin/list/plugins.php:128 admin/list/server.php:151
-#: admin/list/settings.php:139 admin/list/stats.php:147
-#: admin/list/updates.php:146 admin/list/users.php:160 admin/status/cpu.php:134
-#: admin/status/db.php:134 admin/status/disk.php:134 admin/status/dns.php:134
-#: admin/status/mail.php:134 admin/status/memory.php:134
-#: admin/status/network.php:134 admin/status/web.php:134
-#: edit/backupexclusions.php:122 edit/cfrecord.php:164 edit/cron.php:149
-#: edit/db.php:151 edit/dns.php:214 edit/dnsrecord.php:160 edit/domain.php:164
-#: edit/mail.php:150 edit/mailaccount.php:155 index.php:195 list/backup.php:151
-#: list/backups.php:161 list/cfdomain.php:220 list/cron.php:134 list/db.php:136
-#: list/dns.php:137 list/dnsdomain.php:186 list/mail.php:133
-#: list/maildomain.php:146 list/web.php:142 log.php:127 log/access.php:135
-#: log/error.php:134 profile.php:173
+#: add/cfrecord.php:185 add/cron.php:145 add/db.php:151 add/dns.php:142
+#: add/dnsrecord.php:185 add/domain.php:149 add/mail.php:139
+#: add/mailaccount.php:159 admin/add/fail2ban.php:144
+#: admin/add/firewall.php:144 admin/add/ip.php:149 admin/add/package.php:152
+#: admin/add/user.php:147 admin/edit/firewall.php:148 admin/edit/ip.php:151
+#: admin/edit/package.php:159 admin/edit/user.php:154
+#: admin/list/fail2ban.php:159 admin/list/firewall.php:162
+#: admin/list/graphs.php:165 admin/list/ip.php:159 admin/list/packages.php:173
+#: admin/list/plugins.php:151 admin/list/server.php:174
+#: admin/list/settings.php:162 admin/list/stats.php:171
+#: admin/list/updates.php:169 admin/list/users.php:182
+#: admin/server/mysql.php:145 admin/server/nginx.php:145
+#: admin/server/php.php:145 admin/server/vesta.php:193 admin/status/cpu.php:157
+#: admin/status/db.php:157 admin/status/disk.php:157 admin/status/dns.php:157
+#: admin/status/mail.php:157 admin/status/memory.php:157
+#: admin/status/network.php:157 admin/status/web.php:156
+#: edit/backupexclusions.php:144 edit/cfrecord.php:186 edit/cron.php:172
+#: edit/db.php:173 edit/dns.php:238 edit/dnsrecord.php:182 edit/domain.php:187
+#: edit/mail.php:172 edit/mailaccount.php:177 index.php:261 list/backup.php:175
+#: list/backups.php:185 list/cfdomain.php:222 list/cron.php:157 list/db.php:159
+#: list/dns.php:160 list/dnsdomain.php:208 list/mail.php:156
+#: list/maildomain.php:169 list/web.php:165 log.php:151 log/access.php:160
+#: log/error.php:160 process/search.php:164 profile.php:197
 msgid "Logout"
 msgstr ""
 
-#: add/cfrecord.php:176 add/cron.php:136 add/db.php:142 add/dns.php:133
-#: add/dnsrecord.php:176 add/domain.php:140 add/mail.php:131
-#: add/mailaccount.php:151 admin/add/fail2ban.php:136
-#: admin/add/firewall.php:136 admin/add/ip.php:141 admin/add/package.php:144
-#: admin/add/user.php:139 admin/edit/firewall.php:140 admin/edit/ip.php:143
-#: admin/edit/package.php:151 admin/edit/user.php:146
-#: admin/list/fail2ban.php:150 admin/list/firewall.php:153
-#: admin/list/graphs.php:154 admin/list/ip.php:150 admin/list/packages.php:164
-#: admin/list/plugins.php:142 admin/list/server.php:165
-#: admin/list/settings.php:153 admin/list/stats.php:161
-#: admin/list/updates.php:160 admin/list/users.php:174 admin/status/cpu.php:148
-#: admin/status/db.php:148 admin/status/disk.php:148 admin/status/dns.php:148
-#: admin/status/mail.php:148 admin/status/memory.php:148
-#: admin/status/network.php:148 admin/status/web.php:148
-#: edit/backupexclusions.php:136 edit/cfrecord.php:178 edit/cron.php:163
-#: edit/db.php:165 edit/dns.php:228 edit/dnsrecord.php:174 edit/domain.php:178
-#: edit/mail.php:164 edit/mailaccount.php:169 index.php:210 list/backup.php:165
-#: list/backups.php:175 list/cfdomain.php:234 list/cron.php:148 list/db.php:150
-#: list/dns.php:151 list/dnsdomain.php:200 list/mail.php:147
-#: list/maildomain.php:160 list/web.php:156 log.php:141 log/access.php:149
-#: log/error.php:148 profile.php:188
+#: add/cfrecord.php:199 add/cron.php:159 add/db.php:165 add/dns.php:156
+#: add/dnsrecord.php:199 add/domain.php:163 add/mail.php:153
+#: add/mailaccount.php:173 admin/add/fail2ban.php:158
+#: admin/add/firewall.php:158 admin/add/ip.php:163 admin/add/package.php:166
+#: admin/add/user.php:161 admin/edit/firewall.php:162 admin/edit/ip.php:165
+#: admin/edit/package.php:173 admin/edit/user.php:168
+#: admin/list/fail2ban.php:173 admin/list/firewall.php:176
+#: admin/list/graphs.php:179 admin/list/ip.php:173 admin/list/packages.php:187
+#: admin/list/plugins.php:165 admin/list/server.php:188
+#: admin/list/settings.php:176 admin/list/stats.php:185
+#: admin/list/updates.php:183 admin/list/users.php:196
+#: admin/server/mysql.php:159 admin/server/nginx.php:159
+#: admin/server/php.php:159 admin/server/vesta.php:207 admin/status/cpu.php:171
+#: admin/status/db.php:171 admin/status/disk.php:171 admin/status/dns.php:171
+#: admin/status/mail.php:171 admin/status/memory.php:171
+#: admin/status/network.php:171 admin/status/web.php:170
+#: edit/backupexclusions.php:158 edit/cfrecord.php:200 edit/cron.php:186
+#: edit/db.php:187 edit/dns.php:252 edit/dnsrecord.php:196 edit/domain.php:201
+#: edit/mail.php:186 edit/mailaccount.php:191 index.php:276 list/backup.php:189
+#: list/backups.php:199 list/cfdomain.php:236 list/cron.php:171 list/db.php:173
+#: list/dns.php:174 list/dnsdomain.php:222 list/mail.php:170
+#: list/maildomain.php:183 list/web.php:179 log.php:165 log/access.php:174
+#: log/error.php:174 process/search.php:178 profile.php:212
 msgid "Navigation"
 msgstr ""
 
-#: add/cfrecord.php:192 add/dnsrecord.php:192
+#: add/cfrecord.php:215 add/dnsrecord.php:215
 msgid "Add DNS Record"
 msgstr ""
 
-#: add/cfrecord.php:200 add/dns.php:157 add/dnsrecord.php:200
-#: add/domain.php:164 add/mail.php:155 add/mailaccount.php:175
-#: edit/cfrecord.php:198 edit/cfrecord.php:208 edit/dns.php:248
-#: edit/dns.php:310 edit/dnsrecord.php:256 edit/domain.php:198
-#: edit/mail.php:184 edit/mail.php:246 list/cfdomain.php:250
-#: list/cfdomain.php:254 list/dns.php:220 list/dnsdomain.php:220
-#: list/dnsdomain.php:226 list/mail.php:215 list/mail.php:222
-#: list/maildomain.php:180 list/web.php:225 list/web.php:232
-#: process/csr.php:166
+#: add/cfrecord.php:223 add/dns.php:180 add/dnsrecord.php:223
+#: add/domain.php:187 add/mail.php:177 add/mailaccount.php:197
+#: edit/cfrecord.php:220 edit/cfrecord.php:230 edit/dns.php:272
+#: edit/dns.php:334 edit/dnsrecord.php:278 edit/domain.php:221
+#: edit/mail.php:206 edit/mail.php:268 list/cfdomain.php:252
+#: list/cfdomain.php:256 list/dns.php:243 list/dnsdomain.php:242
+#: list/dnsdomain.php:248 list/mail.php:238 list/mail.php:245
+#: list/maildomain.php:203 list/web.php:248 list/web.php:255
+#: process/csr.php:188
 msgid "Domain"
 msgstr ""
 
-#: add/cfrecord.php:207 add/dnsrecord.php:207 edit/cfrecord.php:218
-#: edit/dnsrecord.php:194 edit/dnsrecord.php:264 list/cfdomain.php:283
-#: list/cfdomain.php:290 list/dnsdomain.php:254 list/dnsdomain.php:261
+#: add/cfrecord.php:230 add/dnsrecord.php:230 edit/cfrecord.php:240
+#: edit/dnsrecord.php:216 edit/dnsrecord.php:286 list/cfdomain.php:285
+#: list/cfdomain.php:292 list/dnsdomain.php:276 list/dnsdomain.php:283
 msgid "Record"
 msgstr ""
 
-#: add/cfrecord.php:213 add/db.php:192 add/dnsrecord.php:213
-#: admin/add/firewall.php:160 admin/edit/firewall.php:164
-#: admin/list/firewall.php:184 edit/cfrecord.php:224 edit/db.php:277
-#: edit/dnsrecord.php:270 list/backup.php:217 list/cfdomain.php:291
-#: list/db.php:218 list/dnsdomain.php:262
+#: add/cfrecord.php:236 add/db.php:215 add/dnsrecord.php:236
+#: admin/add/firewall.php:182 admin/edit/firewall.php:186
+#: admin/list/firewall.php:207 edit/cfrecord.php:246 edit/db.php:299
+#: edit/dnsrecord.php:292 list/backup.php:241 list/cfdomain.php:293
+#: list/db.php:241 list/dnsdomain.php:284 process/search.php:205
 msgid "Type"
 msgstr ""
 
-#: add/cfrecord.php:229 add/dnsrecord.php:233 edit/cfrecord.php:230
-#: edit/dnsrecord.php:276
+#: add/cfrecord.php:252 add/dnsrecord.php:256 edit/cfrecord.php:252
+#: edit/dnsrecord.php:298
 msgid "IP or Value"
 msgstr ""
 
-#: add/cfrecord.php:234 edit/cfrecord.php:236 list/dns.php:234
+#: add/cfrecord.php:257 edit/cfrecord.php:258 list/dns.php:257
 msgid "TTL (Time-To-Live)"
 msgstr ""
 
-#: add/cfrecord.php:237 admin/add/firewall.php:196 admin/add/ip.php:223
-#: admin/add/ip.php:230 admin/edit/firewall.php:201 admin/edit/ip.php:220
-#: admin/edit/ip.php:228 edit/cfrecord.php:239 edit/dnsrecord.php:285
-#: edit/dnsrecord.php:293 edit/mail.php:287
+#: add/cfrecord.php:260 admin/add/firewall.php:218 admin/add/ip.php:245
+#: admin/add/ip.php:252 admin/edit/firewall.php:223 admin/edit/ip.php:242
+#: admin/edit/ip.php:250 edit/cfrecord.php:261 edit/dnsrecord.php:307
+#: edit/dnsrecord.php:315 edit/mail.php:309
 msgid "Optional"
 msgstr ""
 
-#: add/cfrecord.php:242 edit/cfrecord.php:245
+#: add/cfrecord.php:265 edit/cfrecord.php:267
 msgid "Cloudflare Proxy"
 msgstr ""
 
-#: add/cfrecord.php:246 add/dns.php:174 add/domain.php:191 add/domain.php:200
-#: add/domain.php:219 add/domain.php:235 add/domain.php:245 add/domain.php:301
-#: add/domain.php:327 add/mail.php:165 add/mail.php:174 add/mail.php:183
-#: add/mailaccount.php:228 add/mailaccount.php:238 admin/add/ip.php:197
-#: admin/edit/ip.php:191 edit/cfrecord.php:249 edit/dns.php:370
-#: edit/domain.php:315 edit/domain.php:352 edit/domain.php:363
-#: edit/domain.php:436 edit/domain.php:468 edit/mail.php:261 edit/mail.php:270
-#: edit/mail.php:279 edit/mailaccount.php:280 edit/mailaccount.php:290
-#: index.php:379 list/dns.php:362 list/mail.php:264 list/mail.php:270
-#: list/mail.php:276 list/maildomain.php:254 list/web.php:287
+#: add/cfrecord.php:269 add/dns.php:197 add/domain.php:214 add/domain.php:223
+#: add/domain.php:242 add/domain.php:258 add/domain.php:268 add/domain.php:324
+#: add/domain.php:350 add/mail.php:187 add/mail.php:196 add/mail.php:205
+#: add/mailaccount.php:250 add/mailaccount.php:260 admin/add/ip.php:219
+#: admin/edit/ip.php:213 admin/list/settings.php:429
+#: admin/list/settings.php:446 admin/list/settings.php:547
+#: admin/list/settings.php:556 admin/list/settings.php:565
+#: admin/list/settings.php:574 admin/list/settings.php:583
+#: admin/list/settings.php:592 admin/list/settings.php:601
+#: admin/list/settings.php:610 admin/list/settings.php:619
+#: admin/list/settings.php:628 admin/list/settings.php:637
+#: admin/list/settings.php:648 admin/list/settings.php:702
+#: edit/cfrecord.php:271 edit/dns.php:393 edit/domain.php:338
+#: edit/domain.php:375 edit/domain.php:386 edit/domain.php:459
+#: edit/domain.php:491 edit/mail.php:283 edit/mail.php:292 edit/mail.php:301
+#: edit/mailaccount.php:302 edit/mailaccount.php:312 index.php:437
+#: list/dns.php:385 list/mail.php:287 list/mail.php:293 list/mail.php:299
+#: list/maildomain.php:277 list/web.php:310
 msgid "Enabled"
 msgstr ""
 
-#: add/cfrecord.php:253 add/dnsrecord.php:246 list/dns.php:337 list/dns.php:340
+#: add/cfrecord.php:276 add/dnsrecord.php:269 list/dns.php:360 list/dns.php:363
 msgid "Add Record"
 msgstr ""
 
-#: add/cfrecord.php:254 add/cron.php:206 add/db.php:280 add/dns.php:234
-#: add/dnsrecord.php:247 add/domain.php:369 add/mail.php:190
-#: add/mailaccount.php:260 admin/add/fail2ban.php:183
-#: admin/add/firewall.php:202 admin/add/ip.php:236 admin/add/package.php:370
-#: admin/add/user.php:213 admin/edit/firewall.php:207 admin/edit/ip.php:235
-#: admin/edit/package.php:393 admin/edit/user.php:308
-#: admin/list/settings.php:766 edit/backupexclusions.php:222
-#: edit/cfrecord.php:256 edit/cron.php:278 edit/db.php:291 edit/dns.php:404
-#: edit/dnsrecord.php:299 edit/domain.php:506 edit/mail.php:293
-#: edit/mailaccount.php:310 process/csr.php:197 process/generatecsr.php:207
-#: profile.php:389
+#: add/cfrecord.php:277 add/cron.php:229 add/db.php:303 add/dns.php:257
+#: add/dnsrecord.php:270 add/domain.php:392 add/mail.php:212
+#: add/mailaccount.php:282 admin/add/fail2ban.php:205
+#: admin/add/firewall.php:224 admin/add/ip.php:258 admin/add/package.php:392
+#: admin/add/user.php:235 admin/edit/firewall.php:229 admin/edit/ip.php:257
+#: admin/edit/package.php:415 admin/edit/user.php:330
+#: admin/list/settings.php:807 admin/server/mysql.php:214
+#: admin/server/nginx.php:249 admin/server/php.php:226
+#: admin/server/vesta.php:1121 edit/backupexclusions.php:244
+#: edit/cfrecord.php:278 edit/cron.php:301 edit/db.php:313 edit/dns.php:427
+#: edit/dnsrecord.php:321 edit/domain.php:529 edit/mail.php:315
+#: edit/mailaccount.php:332 process/csr.php:219 process/generatecsr.php:232
+#: profile.php:414
 msgid "Back"
 msgstr ""
 
-#: add/cfrecord.php:262 add/cron.php:573 add/db.php:288 add/dns.php:243
-#: add/dnsrecord.php:255 add/domain.php:377 add/mail.php:198
-#: add/mailaccount.php:518 admin/add/fail2ban.php:191
-#: admin/add/firewall.php:210 admin/add/ip.php:244 admin/add/package.php:378
-#: admin/add/user.php:221 admin/edit/firewall.php:215 admin/edit/ip.php:243
-#: admin/edit/package.php:401 admin/edit/user.php:316
-#: admin/list/fail2ban.php:208 admin/list/firewall.php:224
-#: admin/list/graphs.php:214 admin/list/ip.php:218 admin/list/packages.php:255
-#: admin/list/plugins.php:209 admin/list/server.php:250
-#: admin/list/settings.php:774 admin/list/stats.php:252
-#: admin/list/updates.php:215 admin/list/users.php:312 admin/status/cpu.php:196
-#: admin/status/db.php:196 admin/status/disk.php:196 admin/status/dns.php:196
-#: admin/status/mail.php:196 admin/status/memory.php:196
-#: admin/status/network.php:196 admin/status/web.php:194
-#: edit/backupexclusions.php:230 edit/cfrecord.php:264 edit/cron.php:645
-#: edit/db.php:299 edit/dns.php:412 edit/dnsrecord.php:307 edit/domain.php:514
-#: edit/mail.php:301 edit/mailaccount.php:569 index.php:823 list/backup.php:275
-#: list/backups.php:268 list/cfdomain.php:329 list/cron.php:257 list/db.php:258
-#: list/dns.php:379 list/dnsdomain.php:300 list/mail.php:291
-#: list/maildomain.php:267 list/web.php:300 log.php:222 log/access.php:203
-#: log/error.php:202 profile.php:399
+#: add/cfrecord.php:290 add/cron.php:601 add/db.php:316 add/dns.php:271
+#: add/dnsrecord.php:283 add/domain.php:405 add/mail.php:225
+#: add/mailaccount.php:545 admin/add/fail2ban.php:218
+#: admin/add/firewall.php:237 admin/add/ip.php:271 admin/add/package.php:405
+#: admin/add/user.php:248 admin/edit/firewall.php:242 admin/edit/ip.php:270
+#: admin/edit/package.php:428 admin/edit/user.php:343
+#: admin/list/fail2ban.php:235 admin/list/firewall.php:251
+#: admin/list/graphs.php:244 admin/list/ip.php:245 admin/list/packages.php:282
+#: admin/list/plugins.php:233 admin/list/server.php:274
+#: admin/list/settings.php:820 admin/list/stats.php:277
+#: admin/list/updates.php:239 admin/list/users.php:338
+#: admin/server/mysql.php:226 admin/server/nginx.php:261
+#: admin/server/php.php:238 admin/server/vesta.php:1134
+#: admin/status/cpu.php:220 admin/status/db.php:220 admin/status/disk.php:220
+#: admin/status/dns.php:220 admin/status/mail.php:220
+#: admin/status/memory.php:220 admin/status/network.php:220
+#: admin/status/web.php:217 edit/backupexclusions.php:257 edit/cfrecord.php:291
+#: edit/cron.php:676 edit/db.php:326 edit/dns.php:440 edit/dnsrecord.php:334
+#: edit/domain.php:542 edit/mail.php:328 edit/mailaccount.php:596 index.php:882
+#: list/backup.php:300 list/backups.php:296 list/cfdomain.php:335
+#: list/cron.php:284 list/db.php:285 list/dns.php:406 list/dnsdomain.php:325
+#: list/mail.php:318 list/maildomain.php:294 list/web.php:327 log.php:247
+#: log/access.php:229 log/error.php:229 process/search.php:248 profile.php:429
 msgid "Vesta Web Interface"
 msgstr ""
 
-#: add/cfrecord.php:262 add/cron.php:573 add/db.php:288 add/dns.php:243
-#: add/dnsrecord.php:255 add/domain.php:377 add/mail.php:198
-#: add/mailaccount.php:518 admin/add/fail2ban.php:191
-#: admin/add/firewall.php:210 admin/add/ip.php:244 admin/add/package.php:378
-#: admin/add/user.php:221 admin/edit/firewall.php:215 admin/edit/ip.php:243
-#: admin/edit/package.php:401 admin/edit/user.php:316
-#: admin/list/fail2ban.php:208 admin/list/firewall.php:224
-#: admin/list/graphs.php:214 admin/list/ip.php:218 admin/list/packages.php:255
-#: admin/list/plugins.php:209 admin/list/server.php:250
-#: admin/list/settings.php:774 admin/list/stats.php:252
-#: admin/list/updates.php:215 admin/list/users.php:312 admin/status/cpu.php:196
-#: admin/status/db.php:196 admin/status/disk.php:196 admin/status/dns.php:196
-#: admin/status/mail.php:196 admin/status/memory.php:196
-#: admin/status/network.php:196 admin/status/web.php:194
-#: edit/backupexclusions.php:230 edit/cfrecord.php:264 edit/cron.php:645
-#: edit/db.php:299 edit/dns.php:412 edit/dnsrecord.php:307 edit/domain.php:514
-#: edit/mail.php:301 edit/mailaccount.php:569 index.php:823 list/backup.php:275
-#: list/backups.php:268 list/cfdomain.php:329 list/cron.php:257 list/db.php:258
-#: list/dns.php:379 list/dnsdomain.php:300 list/mail.php:291
-#: list/maildomain.php:267 list/web.php:300 log.php:222 log/access.php:203
-#: log/error.php:202 profile.php:399
+#: add/cfrecord.php:290 add/cron.php:601 add/db.php:316 add/dns.php:271
+#: add/dnsrecord.php:283 add/domain.php:405 add/mail.php:225
+#: add/mailaccount.php:545 admin/add/fail2ban.php:218
+#: admin/add/firewall.php:237 admin/add/ip.php:271 admin/add/package.php:405
+#: admin/add/user.php:248 admin/edit/firewall.php:242 admin/edit/ip.php:270
+#: admin/edit/package.php:428 admin/edit/user.php:343
+#: admin/list/fail2ban.php:235 admin/list/firewall.php:251
+#: admin/list/graphs.php:244 admin/list/ip.php:245 admin/list/packages.php:282
+#: admin/list/plugins.php:233 admin/list/server.php:274
+#: admin/list/settings.php:820 admin/list/stats.php:277
+#: admin/list/updates.php:239 admin/list/users.php:338
+#: admin/server/mysql.php:226 admin/server/nginx.php:261
+#: admin/server/php.php:238 admin/server/vesta.php:1134
+#: admin/status/cpu.php:220 admin/status/db.php:220 admin/status/disk.php:220
+#: admin/status/dns.php:220 admin/status/mail.php:220
+#: admin/status/memory.php:220 admin/status/network.php:220
+#: admin/status/web.php:217 edit/backupexclusions.php:257 edit/cfrecord.php:291
+#: edit/cron.php:676 edit/db.php:326 edit/dns.php:440 edit/dnsrecord.php:334
+#: edit/domain.php:542 edit/mail.php:328 edit/mailaccount.php:596 index.php:882
+#: list/backup.php:300 list/backups.php:296 list/cfdomain.php:335
+#: list/cron.php:284 list/db.php:285 list/dns.php:406 list/dnsdomain.php:325
+#: list/mail.php:318 list/maildomain.php:294 list/web.php:327 log.php:247
+#: log/access.php:229 log/error.php:229 process/search.php:248 profile.php:429
 msgid "by Carter Roeser"
 msgstr ""
 
-#: add/cfrecord.php:315 add/cron.php:619 add/db.php:346 add/dns.php:372
-#: add/dnsrecord.php:295 add/domain.php:515 add/mail.php:237
-#: add/mailaccount.php:616 admin/add/fail2ban.php:234
-#: admin/add/firewall.php:253 admin/add/ip.php:294 admin/add/package.php:439
-#: admin/add/user.php:285 admin/edit/firewall.php:260 admin/edit/ip.php:293
-#: admin/edit/package.php:448 admin/edit/user.php:383
-#: admin/list/fail2ban.php:251 admin/list/firewall.php:266
-#: admin/list/firewall.php:288 admin/list/firewall.php:310
-#: admin/list/ip.php:261 admin/list/packages.php:299
-#: admin/list/settings.php:879 admin/list/stats.php:194
-#: admin/list/users.php:354 admin/list/users.php:376 admin/list/users.php:398
-#: admin/status/cpu.php:181 admin/status/db.php:181 admin/status/disk.php:181
-#: admin/status/dns.php:181 admin/status/mail.php:181
-#: admin/status/memory.php:181 admin/status/network.php:181
-#: admin/status/web.php:181 edit/backupexclusions.php:275 edit/cfrecord.php:313
-#: edit/cfrecord.php:326 edit/cron.php:697 edit/cron.php:710 edit/db.php:366
-#: edit/db.php:379 edit/dns.php:462 edit/dns.php:475 edit/dnsrecord.php:356
-#: edit/dnsrecord.php:369 edit/domain.php:651 edit/domain.php:664
-#: edit/mail.php:351 edit/mail.php:364 edit/mailaccount.php:655
-#: edit/mailaccount.php:668 index.php:244 list/backup.php:316
-#: list/backups.php:317 list/cfdomain.php:374 list/cfdomain.php:396
-#: list/cron.php:291 list/cron.php:326 list/cron.php:371 list/cron.php:393
-#: list/cron.php:415 list/db.php:301 list/db.php:323 list/db.php:345
-#: list/dns.php:412 list/dns.php:430 list/dns.php:452 list/dns.php:474
-#: list/dnsdomain.php:368 list/dnsdomain.php:390 list/mail.php:334
-#: list/mail.php:356 list/mail.php:378 list/maildomain.php:312
-#: list/maildomain.php:335 list/maildomain.php:358 list/maildomain.php:381
-#: list/web.php:343 list/web.php:365 list/web.php:387 log.php:185 log.php:273
-#: log/access.php:185 log/error.php:184 process/generatecsr.php:242
-#: profile.php:420
+#: add/cfrecord.php:330 add/cron.php:640 add/db.php:363 add/dns.php:389
+#: add/dnsrecord.php:309 add/domain.php:528 add/mail.php:250
+#: add/mailaccount.php:630 admin/add/fail2ban.php:247
+#: admin/add/firewall.php:266 admin/add/ip.php:306 admin/add/package.php:451
+#: admin/add/user.php:297 admin/edit/firewall.php:274 admin/edit/ip.php:304
+#: admin/edit/package.php:461 admin/edit/user.php:395
+#: admin/list/fail2ban.php:272 admin/list/firewall.php:287
+#: admin/list/firewall.php:308 admin/list/firewall.php:329
+#: admin/list/ip.php:281 admin/list/packages.php:319 admin/list/server.php:311
+#: admin/list/server.php:332 admin/list/server.php:354
+#: admin/list/server.php:376 admin/list/settings.php:936
+#: admin/list/stats.php:218 admin/list/users.php:374 admin/list/users.php:396
+#: admin/list/users.php:417 admin/server/mysql.php:250
+#: admin/server/nginx.php:285 admin/server/php.php:262
+#: admin/server/vesta.php:1334 admin/status/cpu.php:204 admin/status/db.php:204
+#: admin/status/disk.php:204 admin/status/dns.php:204 admin/status/mail.php:204
+#: admin/status/memory.php:204 admin/status/network.php:204
+#: admin/status/web.php:203 edit/backupexclusions.php:288 edit/cfrecord.php:326
+#: edit/cfrecord.php:337 edit/cron.php:724 edit/cron.php:735 edit/db.php:381
+#: edit/db.php:392 edit/dns.php:481 edit/dns.php:492 edit/dnsrecord.php:369
+#: edit/dnsrecord.php:380 edit/domain.php:671 edit/domain.php:682
+#: edit/mail.php:363 edit/mail.php:374 edit/mailaccount.php:668
+#: edit/mailaccount.php:679 index.php:310 list/backup.php:336
+#: list/backups.php:338 list/cfdomain.php:371 list/cfdomain.php:393
+#: list/cron.php:310 list/cron.php:345 list/cron.php:389 list/cron.php:410
+#: list/cron.php:431 list/db.php:321 list/db.php:342 list/db.php:363
+#: list/dns.php:431 list/dns.php:450 list/dns.php:471 list/dns.php:492
+#: list/dnsdomain.php:388 list/dnsdomain.php:409 list/mail.php:354
+#: list/mail.php:375 list/mail.php:396 list/maildomain.php:331
+#: list/maildomain.php:352 list/maildomain.php:374 list/maildomain.php:396
+#: list/web.php:364 list/web.php:385 list/web.php:406 log.php:209
+#: log/access.php:210 log/error.php:210 process/generatecsr.php:265
+#: profile.php:452
 msgid "Processing"
 msgstr ""
 
-#: add/cfrecord.php:323 add/cron.php:627 add/db.php:354 add/dns.php:380
-#: add/dnsrecord.php:303 add/domain.php:523 add/mail.php:245
-#: add/mailaccount.php:624 admin/add/fail2ban.php:242
-#: admin/add/firewall.php:261 admin/add/ip.php:302 admin/add/package.php:447
-#: admin/add/user.php:293 admin/edit/firewall.php:268 admin/edit/ip.php:301
-#: admin/edit/package.php:456 admin/edit/user.php:391
-#: admin/list/settings.php:887 edit/backupexclusions.php:283
-#: edit/cfrecord.php:334 edit/cron.php:718 edit/db.php:387 edit/dns.php:483
-#: edit/dnsrecord.php:377 edit/domain.php:672 edit/mail.php:372
-#: edit/mailaccount.php:676 process/csr.php:233 profile.php:428
+#: add/cfrecord.php:338 add/cron.php:648 add/db.php:371 add/dns.php:397
+#: add/dnsrecord.php:317 add/domain.php:536 add/mail.php:258
+#: add/mailaccount.php:638 admin/add/fail2ban.php:255
+#: admin/add/firewall.php:274 admin/add/ip.php:314 admin/add/package.php:459
+#: admin/add/user.php:305 admin/edit/firewall.php:282 admin/edit/ip.php:312
+#: admin/edit/package.php:469 admin/edit/user.php:403
+#: admin/list/settings.php:944 admin/server/mysql.php:258
+#: admin/server/nginx.php:293 admin/server/php.php:270
+#: admin/server/vesta.php:1342 edit/backupexclusions.php:296
+#: edit/cfrecord.php:345 edit/cron.php:743 edit/db.php:400 edit/dns.php:500
+#: edit/dnsrecord.php:388 edit/domain.php:690 edit/mail.php:382
+#: edit/mailaccount.php:687 process/csr.php:253 profile.php:460
 msgid "Loading"
 msgstr ""
 
-#: add/cfrecord.php:331 add/cron.php:635 add/db.php:365 add/dns.php:391
-#: add/dnsrecord.php:314 add/domain.php:559 add/mail.php:256
-#: add/mailaccount.php:635 admin/add/fail2ban.php:253
-#: admin/add/firewall.php:272 admin/add/ip.php:313 admin/add/package.php:503
-#: admin/add/user.php:304 admin/edit/firewall.php:279 admin/edit/ip.php:312
-#: admin/edit/ip.php:319 admin/edit/package.php:511 admin/edit/package.php:518
-#: admin/edit/user.php:447 admin/edit/user.php:454 admin/list/fail2ban.php:268
-#: admin/list/fail2ban.php:281 admin/list/fail2ban.php:283
-#: admin/list/firewall.php:327 admin/list/firewall.php:340
-#: admin/list/firewall.php:342 admin/list/graphs.php:252 admin/list/ip.php:278
-#: admin/list/ip.php:286 admin/list/ip.php:288 admin/list/packages.php:316
-#: admin/list/packages.php:329 admin/list/packages.php:331
-#: admin/list/plugins.php:247 admin/list/plugins.php:255
-#: admin/list/plugins.php:257 admin/list/server.php:286
-#: admin/list/server.php:299 admin/list/server.php:301 admin/list/stats.php:293
-#: admin/list/updates.php:251 admin/list/updates.php:264
-#: admin/list/updates.php:266 admin/list/users.php:415 admin/list/users.php:428
-#: admin/list/users.php:430 edit/cfrecord.php:346 edit/cfrecord.php:352
-#: edit/cron.php:730 edit/db.php:398 edit/dns.php:508 edit/dns.php:515
-#: edit/dnsrecord.php:389 edit/dnsrecord.php:396 edit/domain.php:709
-#: edit/domain.php:716 edit/mail.php:384 edit/mail.php:391
-#: edit/mailaccount.php:687 edit/mailaccount.php:695 list/backups.php:334
-#: list/backups.php:345 list/backups.php:347 list/backups.php:349
-#: list/cfdomain.php:413 list/cfdomain.php:422 list/cfdomain.php:424
-#: list/cron.php:432 list/cron.php:440 list/cron.php:442 list/cron.php:448
-#: list/db.php:361 list/db.php:377 list/dns.php:491 list/dns.php:514
-#: list/dnsdomain.php:407 list/dnsdomain.php:415 list/dnsdomain.php:417
-#: list/mail.php:395 list/mail.php:403 list/mail.php:405 list/mail.php:411
-#: list/maildomain.php:400 list/maildomain.php:407 list/maildomain.php:413
-#: list/web.php:409 list/web.php:417 list/web.php:423 log.php:287
-#: process/generatecsr.php:258 profile.php:130 profile.php:518
+#: add/cfrecord.php:346 add/cron.php:656 add/db.php:382 add/dns.php:408
+#: add/dnsrecord.php:328 add/domain.php:572 add/mail.php:269
+#: add/mailaccount.php:649 admin/add/fail2ban.php:266
+#: admin/add/firewall.php:285 admin/add/ip.php:325 admin/add/package.php:515
+#: admin/add/user.php:316 admin/edit/firewall.php:293 admin/edit/ip.php:323
+#: admin/edit/ip.php:330 admin/edit/package.php:524 admin/edit/package.php:531
+#: admin/edit/user.php:459 admin/edit/user.php:466 admin/list/fail2ban.php:287
+#: admin/list/fail2ban.php:300 admin/list/fail2ban.php:302
+#: admin/list/firewall.php:344 admin/list/firewall.php:357
+#: admin/list/firewall.php:359 admin/list/graphs.php:276 admin/list/ip.php:296
+#: admin/list/ip.php:304 admin/list/ip.php:306 admin/list/packages.php:334
+#: admin/list/packages.php:347 admin/list/packages.php:349
+#: admin/list/plugins.php:262 admin/list/plugins.php:270
+#: admin/list/plugins.php:272 admin/list/server.php:390
+#: admin/list/stats.php:308 admin/list/updates.php:268
+#: admin/list/updates.php:281 admin/list/updates.php:283
+#: admin/list/users.php:432 admin/list/users.php:445 admin/list/users.php:447
+#: admin/server/mysql.php:269 admin/server/nginx.php:304
+#: admin/server/php.php:281 admin/server/vesta.php:1353
+#: admin/server/vesta.php:1362 edit/cfrecord.php:357 edit/cfrecord.php:363
+#: edit/cron.php:755 edit/db.php:411 edit/dns.php:525 edit/dns.php:532
+#: edit/dnsrecord.php:400 edit/dnsrecord.php:407 edit/domain.php:726
+#: edit/domain.php:733 edit/mail.php:394 edit/mail.php:401
+#: edit/mailaccount.php:698 edit/mailaccount.php:706 list/backups.php:352
+#: list/backups.php:363 list/backups.php:365 list/backups.php:367
+#: list/cfdomain.php:408 list/cfdomain.php:417 list/cfdomain.php:419
+#: list/cron.php:446 list/cron.php:454 list/cron.php:456 list/cron.php:462
+#: list/db.php:377 list/db.php:393 list/dns.php:507 list/dns.php:530
+#: list/dnsdomain.php:424 list/dnsdomain.php:432 list/dnsdomain.php:434
+#: list/mail.php:411 list/mail.php:419 list/mail.php:421 list/mail.php:427
+#: list/maildomain.php:413 list/maildomain.php:420 list/maildomain.php:426
+#: list/web.php:426 list/web.php:434 list/web.php:440 log.php:282
+#: process/generatecsr.php:273 profile.php:151 profile.php:550
 msgid "Please try again or contact support."
 msgstr ""
 
-#: add/cron.php:65 admin/add/package.php:299 admin/edit/package.php:314
-#: admin/list/stats.php:214 edit/cron.php:75 includes/includes.php:356
-#: index.php:795 list/cron.php:70 list/cron.php:204
+#: add/cron.php:85 admin/add/package.php:321 admin/edit/package.php:336
+#: admin/list/stats.php:238 edit/cron.php:95 includes/includes.php:376
+#: index.php:853 list/cron.php:90 list/cron.php:227
 msgid "Cron Jobs"
 msgstr ""
 
-#: add/cron.php:152
+#: add/cron.php:175
 msgid "Add Cron Job"
 msgstr ""
 
-#: add/cron.php:160 edit/cron.php:231 list/cron.php:210
+#: add/cron.php:183 edit/cron.php:254 list/cron.php:233
 msgid "Command"
 msgstr ""
 
-#: add/cron.php:174 add/cron.php:276 add/cron.php:313 add/cron.php:390
-#: add/cron.php:511 edit/cron.php:246 edit/cron.php:348 edit/cron.php:385
-#: edit/cron.php:462 edit/cron.php:583
+#: add/cron.php:197 add/cron.php:299 add/cron.php:336 add/cron.php:413
+#: add/cron.php:534 edit/cron.php:269 edit/cron.php:371 edit/cron.php:409
+#: edit/cron.php:488 edit/cron.php:609
 msgid "Minute"
 msgstr ""
 
-#: add/cron.php:180 add/cron.php:313 add/cron.php:390 add/cron.php:511
-#: edit/cron.php:252 edit/cron.php:385 edit/cron.php:462 edit/cron.php:583
+#: add/cron.php:203 add/cron.php:336 add/cron.php:413 add/cron.php:534
+#: edit/cron.php:275 edit/cron.php:409 edit/cron.php:488 edit/cron.php:609
 msgid "Hour"
 msgstr ""
 
-#: add/cron.php:186 edit/cron.php:258
+#: add/cron.php:209 edit/cron.php:281
 msgid "Day"
 msgstr ""
 
-#: add/cron.php:192 edit/cron.php:264
+#: add/cron.php:215 edit/cron.php:287
 msgid "Month"
 msgstr ""
 
-#: add/cron.php:198 edit/cron.php:270
+#: add/cron.php:221 edit/cron.php:293
 msgid "Day of Week"
 msgstr ""
 
-#: add/cron.php:205
+#: add/cron.php:228
 msgid "Add Cron"
 msgstr ""
 
-#: add/cron.php:216 edit/cron.php:288
+#: add/cron.php:239 edit/cron.php:311
 msgid "Cron Generator"
 msgstr ""
 
-#: add/cron.php:221 edit/cron.php:293
+#: add/cron.php:244 edit/cron.php:316
 msgid "Minutes"
 msgstr ""
 
-#: add/cron.php:223 edit/cron.php:295
+#: add/cron.php:246 edit/cron.php:318
 msgid "Hourly"
 msgstr ""
 
-#: add/cron.php:225 edit/cron.php:297
+#: add/cron.php:248 admin/list/graphs.php:203 edit/cron.php:320
 msgid "Daily"
 msgstr ""
 
-#: add/cron.php:227 edit/cron.php:299
+#: add/cron.php:250 admin/list/graphs.php:204 edit/cron.php:322
 msgid "Weekly"
 msgstr ""
 
-#: add/cron.php:229 edit/cron.php:301
+#: add/cron.php:252 admin/list/graphs.php:205 edit/cron.php:324
 msgid "Monthly"
 msgstr ""
 
-#: add/cron.php:236 add/cron.php:298 add/cron.php:373 add/cron.php:449
-#: edit/cron.php:308 edit/cron.php:370 edit/cron.php:445 edit/cron.php:521
+#: add/cron.php:259 add/cron.php:321 add/cron.php:396 add/cron.php:472
+#: edit/cron.php:331 edit/cron.php:393 edit/cron.php:469 edit/cron.php:547
 msgid "Run Command"
 msgstr ""
 
-#: add/cron.php:239 edit/cron.php:311
+#: add/cron.php:262 edit/cron.php:334
 msgid "every minute"
 msgstr ""
 
-#: add/cron.php:240 edit/cron.php:312
+#: add/cron.php:263 edit/cron.php:335
 msgid "every two minutes"
 msgstr ""
 
-#: add/cron.php:241 add/cron.php:242 add/cron.php:243 add/cron.php:244
-#: add/cron.php:270 add/cron.php:271 add/cron.php:304 add/cron.php:305
-#: add/cron.php:306 add/cron.php:307 add/cron.php:455 add/cron.php:456
-#: edit/cron.php:313 edit/cron.php:314 edit/cron.php:315 edit/cron.php:316
-#: edit/cron.php:342 edit/cron.php:343 edit/cron.php:376 edit/cron.php:377
-#: edit/cron.php:378 edit/cron.php:379 edit/cron.php:527 edit/cron.php:528
+#: add/cron.php:264 add/cron.php:265 add/cron.php:266 add/cron.php:267
+#: add/cron.php:293 add/cron.php:294 add/cron.php:327 add/cron.php:328
+#: add/cron.php:329 add/cron.php:330 add/cron.php:478 add/cron.php:479
+#: edit/cron.php:336 edit/cron.php:337 edit/cron.php:338 edit/cron.php:339
+#: edit/cron.php:365 edit/cron.php:366 edit/cron.php:400 edit/cron.php:401
+#: edit/cron.php:402 edit/cron.php:403 edit/cron.php:553 edit/cron.php:554
 msgid "every"
 msgstr ""
 
-#: add/cron.php:254 add/cron.php:288 add/cron.php:363 add/cron.php:440
-#: add/cron.php:561 add/db.php:185 add/domain.php:314 add/domain.php:343
-#: add/mailaccount.php:191 admin/add/user.php:169 admin/edit/user.php:177
-#: edit/cron.php:326 edit/cron.php:360 edit/cron.php:435 edit/cron.php:512
-#: edit/cron.php:633 edit/db.php:264 edit/domain.php:450 edit/domain.php:486
-#: edit/mailaccount.php:245 profile.php:300
+#: add/cron.php:277 add/cron.php:311 add/cron.php:386 add/cron.php:463
+#: add/cron.php:584 add/db.php:208 add/domain.php:337 add/domain.php:366
+#: add/mailaccount.php:213 admin/add/user.php:191 admin/edit/user.php:199
+#: edit/cron.php:349 edit/cron.php:383 edit/cron.php:459 edit/cron.php:538
+#: edit/cron.php:659 edit/db.php:286 edit/domain.php:473 edit/domain.php:509
+#: edit/mailaccount.php:267 profile.php:324
 msgid "Generate"
 msgstr ""
 
-#: add/cron.php:268 edit/cron.php:340
+#: add/cron.php:291 edit/cron.php:363
 msgid "every hour"
 msgstr ""
 
-#: add/cron.php:269 edit/cron.php:341
+#: add/cron.php:292 edit/cron.php:364
 msgid "every two hours"
 msgstr ""
 
-#: add/cron.php:301 add/cron.php:376 edit/cron.php:373 edit/cron.php:448
+#: add/cron.php:324 add/cron.php:399 edit/cron.php:397 edit/cron.php:473
 msgid "every day"
 msgstr ""
 
-#: add/cron.php:302 edit/cron.php:374
+#: add/cron.php:325 edit/cron.php:398
 msgid "every odd day"
 msgstr ""
 
-#: add/cron.php:303 edit/cron.php:375
+#: add/cron.php:326 edit/cron.php:399
 msgid "every even day"
 msgstr ""
 
-#: add/cron.php:377 edit/cron.php:449
+#: add/cron.php:400 edit/cron.php:474
 msgid "weekdays (5 days)"
 msgstr ""
 
-#: add/cron.php:378 edit/cron.php:450
+#: add/cron.php:401 edit/cron.php:475
 msgid "weekend (2 days)"
 msgstr ""
 
-#: add/cron.php:379 edit/cron.php:451
+#: add/cron.php:402 edit/cron.php:476
 msgid "Monday"
 msgstr ""
 
-#: add/cron.php:380 edit/cron.php:452
+#: add/cron.php:403 edit/cron.php:477
 msgid "Tuesday"
 msgstr ""
 
-#: add/cron.php:381 edit/cron.php:453
+#: add/cron.php:404 edit/cron.php:478
 msgid "Wednesday"
 msgstr ""
 
-#: add/cron.php:382 edit/cron.php:454
+#: add/cron.php:405 edit/cron.php:479
 msgid "Thursday"
 msgstr ""
 
-#: add/cron.php:383 edit/cron.php:455
+#: add/cron.php:406 edit/cron.php:480
 msgid "Friday"
 msgstr ""
 
-#: add/cron.php:384 edit/cron.php:456
+#: add/cron.php:407 edit/cron.php:481
 msgid "Saturday"
 msgstr ""
 
-#: add/cron.php:385 edit/cron.php:457
+#: add/cron.php:408 edit/cron.php:482
 msgid "Sunday"
 msgstr ""
 
-#: add/cron.php:452 edit/cron.php:524
+#: add/cron.php:475 edit/cron.php:550
 msgid "every month"
 msgstr ""
 
-#: add/cron.php:453 edit/cron.php:525
+#: add/cron.php:476 edit/cron.php:551
 msgid "every odd month"
 msgstr ""
 
-#: add/cron.php:454 edit/cron.php:526
+#: add/cron.php:477 edit/cron.php:552
 msgid "every even month"
 msgstr ""
 
-#: add/cron.php:457 edit/cron.php:529
+#: add/cron.php:480 edit/cron.php:555
 msgid "January"
 msgstr ""
 
-#: add/cron.php:458 edit/cron.php:530
+#: add/cron.php:481 edit/cron.php:556
 msgid "February"
 msgstr ""
 
-#: add/cron.php:459 edit/cron.php:531
+#: add/cron.php:482 edit/cron.php:557
 msgid "March"
 msgstr ""
 
-#: add/cron.php:460 edit/cron.php:532
+#: add/cron.php:483 edit/cron.php:558
 msgid "April"
 msgstr ""
 
-#: add/cron.php:461 edit/cron.php:533
+#: add/cron.php:484 edit/cron.php:559
 msgid "May"
 msgstr ""
 
-#: add/cron.php:462 edit/cron.php:534
+#: add/cron.php:485 edit/cron.php:560
 msgid "June"
 msgstr ""
 
-#: add/cron.php:463 edit/cron.php:535
+#: add/cron.php:486 edit/cron.php:561
 msgid "July"
 msgstr ""
 
-#: add/cron.php:464 edit/cron.php:536
+#: add/cron.php:487 edit/cron.php:562
 msgid "August"
 msgstr ""
 
-#: add/cron.php:465 edit/cron.php:537
+#: add/cron.php:488 edit/cron.php:563
 msgid "September"
 msgstr ""
 
-#: add/cron.php:466 edit/cron.php:538
+#: add/cron.php:489 edit/cron.php:564
 msgid "October"
 msgstr ""
 
-#: add/cron.php:467 edit/cron.php:539
+#: add/cron.php:490 edit/cron.php:565
 msgid "November"
 msgstr ""
 
-#: add/cron.php:468 edit/cron.php:540
+#: add/cron.php:491 edit/cron.php:566
 msgid "December"
 msgstr ""
 
-#: add/cron.php:473 admin/list/fail2ban.php:179 admin/list/stats.php:206
-#: edit/cron.php:545 log.php:196
+#: add/cron.php:496 admin/list/fail2ban.php:202 admin/list/stats.php:230
+#: edit/cron.php:571 log.php:220
 msgid "Date"
 msgstr ""
 
-#: add/db.php:76 add/db.php:166 admin/status/db.php:188 edit/db.php:76
-#: edit/db.php:185 edit/db.php:247 includes/includes.php:352 index.php:340
-#: list/backup.php:248 list/db.php:203 list/db.php:211
+#: add/db.php:96 add/db.php:189 admin/status/db.php:211 edit/db.php:96
+#: edit/db.php:207 edit/db.php:269 includes/includes.php:372 index.php:398
+#: list/backup.php:272 list/db.php:226 list/db.php:234
 msgid "Database"
 msgstr ""
 
-#: add/db.php:158 add/db.php:279 index.php:562
+#: add/db.php:181 add/db.php:302 index.php:620
 msgid "Add Database"
 msgstr ""
 
-#: add/db.php:175 add/domain.php:308 add/domain.php:334 add/mailaccount.php:296
-#: add/mailaccount.php:330 add/mailaccount.php:364 add/mailaccount.php:411
-#: add/mailaccount.php:445 add/mailaccount.php:479 admin/add/user.php:163
-#: admin/edit/user.php:170 edit/db.php:256 edit/domain.php:443
-#: edit/domain.php:476 edit/mailaccount.php:346 edit/mailaccount.php:380
-#: edit/mailaccount.php:414 edit/mailaccount.php:461 edit/mailaccount.php:495
-#: edit/mailaccount.php:529 index.php:744 list/db.php:212 login.php:182
-#: login.php:183 login.php:219 profile.php:294 register.php:106
+#: add/db.php:198 add/domain.php:331 add/domain.php:357 add/mailaccount.php:318
+#: add/mailaccount.php:352 add/mailaccount.php:386 add/mailaccount.php:433
+#: add/mailaccount.php:467 add/mailaccount.php:501 admin/add/user.php:185
+#: admin/edit/user.php:192 edit/db.php:278 edit/domain.php:466
+#: edit/domain.php:499 edit/mailaccount.php:368 edit/mailaccount.php:402
+#: edit/mailaccount.php:436 edit/mailaccount.php:483 edit/mailaccount.php:517
+#: edit/mailaccount.php:551 index.php:802 list/db.php:235 login.php:205
+#: login.php:206 login.php:242 profile.php:318 register.php:125
 msgid "Username"
 msgstr "Username"
 
-#: add/db.php:181
+#: add/db.php:204
 msgid "Max Length 16 Characters Including Prefix"
 msgstr ""
 
-#: add/db.php:185 add/domain.php:314 add/domain.php:343 add/mailaccount.php:191
-#: add/mailaccount.php:297 add/mailaccount.php:331 add/mailaccount.php:365
-#: add/mailaccount.php:412 add/mailaccount.php:446 add/mailaccount.php:480
-#: admin/add/user.php:169 admin/edit/user.php:177 edit/db.php:264
-#: edit/domain.php:450 edit/domain.php:486 edit/mailaccount.php:245
-#: edit/mailaccount.php:347 edit/mailaccount.php:381 edit/mailaccount.php:415
-#: edit/mailaccount.php:462 edit/mailaccount.php:496 edit/mailaccount.php:530
-#: list/backups.php:120 login.php:188 login.php:189 profile.php:300
-#: register.php:110
+#: add/db.php:208 add/domain.php:337 add/domain.php:366 add/mailaccount.php:213
+#: add/mailaccount.php:319 add/mailaccount.php:353 add/mailaccount.php:387
+#: add/mailaccount.php:434 add/mailaccount.php:468 add/mailaccount.php:502
+#: admin/add/user.php:191 admin/edit/user.php:199 admin/server/vesta.php:810
+#: admin/server/vesta.php:846 edit/db.php:286 edit/domain.php:473
+#: edit/domain.php:509 edit/mailaccount.php:267 edit/mailaccount.php:369
+#: edit/mailaccount.php:403 edit/mailaccount.php:437 edit/mailaccount.php:484
+#: edit/mailaccount.php:518 edit/mailaccount.php:552 list/backups.php:141
+#: login.php:211 login.php:212 profile.php:324 register.php:129
 msgid "Password"
 msgstr "Password"
 
-#: add/db.php:209
+#: add/db.php:232
 msgid "Hosts"
 msgstr ""
 
-#: add/db.php:226 edit/db.php:283
+#: add/db.php:249 admin/server/nginx.php:242 edit/db.php:305
 msgid "Charset"
 msgstr ""
 
-#: add/db.php:271 add/mailaccount.php:251
+#: add/db.php:294 add/mailaccount.php:273
 msgid "Send Credentials To Email"
 msgstr ""
 
-#: add/dns.php:149
+#: add/dns.php:172
 msgid "Add DNS Domain"
 msgstr ""
 
-#: add/dns.php:163 add/domain.php:170 admin/add/fail2ban.php:174
-#: admin/add/firewall.php:186 admin/add/ip.php:165 admin/edit/firewall.php:191
-#: admin/edit/ip.php:167 admin/list/firewall.php:188 edit/dns.php:317
-#: edit/domain.php:260
+#: add/dns.php:186 add/domain.php:193 admin/add/fail2ban.php:196
+#: admin/add/firewall.php:208 admin/add/ip.php:187 admin/edit/firewall.php:213
+#: admin/edit/ip.php:189 admin/list/firewall.php:211 edit/dns.php:341
+#: edit/domain.php:283
 msgid "IP Address"
 msgstr ""
 
-#: add/dns.php:170 edit/dns.php:365
+#: add/dns.php:193 edit/dns.php:388
 msgid "Cloudflare Support"
 msgstr ""
 
-#: add/dns.php:180 edit/dns.php:376
+#: add/dns.php:203 edit/dns.php:399
 msgid "Security Level"
 msgstr ""
 
-#: add/dns.php:192 edit/dns.php:389
+#: add/dns.php:215 edit/dns.php:412
 msgid "SSL Setting"
 msgstr ""
 
-#: add/dns.php:205 add/domain.php:205 add/mailaccount.php:198
+#: add/dns.php:228 add/domain.php:228 add/mailaccount.php:220
 msgid "Advanced Options"
 msgstr ""
 
-#: add/dns.php:209 index.php:756 profile.php:261
+#: add/dns.php:232 index.php:814 profile.php:285
 msgid "Nameservers"
 msgstr ""
 
-#: add/dns.php:214 add/dns.php:216 add/dns.php:218 add/dns.php:220
-#: add/dns.php:222 add/dns.php:224 admin/add/package.php:358
-#: admin/add/package.php:359 admin/add/package.php:360
-#: admin/add/package.php:361 admin/add/package.php:362
-#: admin/add/package.php:363 admin/edit/package.php:375
-#: admin/edit/package.php:377 admin/edit/package.php:379
-#: admin/edit/package.php:381 admin/edit/package.php:383
-#: admin/edit/package.php:385 admin/edit/user.php:282 admin/edit/user.php:284
-#: admin/edit/user.php:286 admin/edit/user.php:288 admin/edit/user.php:290
-#: admin/edit/user.php:292 profile.php:365 profile.php:366 profile.php:367
-#: profile.php:368 profile.php:369 profile.php:370
+#: add/dns.php:237 add/dns.php:239 add/dns.php:241 add/dns.php:243
+#: add/dns.php:245 add/dns.php:247 admin/add/package.php:380
+#: admin/add/package.php:381 admin/add/package.php:382
+#: admin/add/package.php:383 admin/add/package.php:384
+#: admin/add/package.php:385 admin/edit/package.php:397
+#: admin/edit/package.php:399 admin/edit/package.php:401
+#: admin/edit/package.php:403 admin/edit/package.php:405
+#: admin/edit/package.php:407 admin/edit/user.php:304 admin/edit/user.php:306
+#: admin/edit/user.php:308 admin/edit/user.php:310 admin/edit/user.php:312
+#: admin/edit/user.php:314 profile.php:389 profile.php:390 profile.php:391
+#: profile.php:392 profile.php:393 profile.php:394
 msgid "Add One"
 msgstr ""
 
-#: add/dns.php:216 add/dns.php:218 add/dns.php:220 add/dns.php:222
-#: add/dns.php:224 add/dns.php:226 admin/add/package.php:359
-#: admin/add/package.php:360 admin/add/package.php:361
-#: admin/add/package.php:362 admin/add/package.php:363
-#: admin/add/package.php:364 admin/edit/package.php:377
-#: admin/edit/package.php:379 admin/edit/package.php:381
-#: admin/edit/package.php:383 admin/edit/package.php:385
-#: admin/edit/package.php:387 admin/edit/user.php:284 admin/edit/user.php:286
-#: admin/edit/user.php:288 admin/edit/user.php:290 admin/edit/user.php:292
-#: admin/edit/user.php:294 profile.php:366 profile.php:367 profile.php:368
-#: profile.php:369 profile.php:370 profile.php:371
+#: add/dns.php:239 add/dns.php:241 add/dns.php:243 add/dns.php:245
+#: add/dns.php:247 add/dns.php:249 admin/add/package.php:381
+#: admin/add/package.php:382 admin/add/package.php:383
+#: admin/add/package.php:384 admin/add/package.php:385
+#: admin/add/package.php:386 admin/edit/package.php:399
+#: admin/edit/package.php:401 admin/edit/package.php:403
+#: admin/edit/package.php:405 admin/edit/package.php:407
+#: admin/edit/package.php:409 admin/edit/user.php:306 admin/edit/user.php:308
+#: admin/edit/user.php:310 admin/edit/user.php:312 admin/edit/user.php:314
+#: admin/edit/user.php:316 profile.php:390 profile.php:391 profile.php:392
+#: profile.php:393 profile.php:394 profile.php:395
 msgid "Remove One"
 msgstr ""
 
-#: add/dns.php:233 add/domain.php:156 add/domain.php:368 add/mail.php:189
-#: index.php:352
+#: add/dns.php:256 add/domain.php:179 add/domain.php:391 add/mail.php:211
+#: index.php:410
 msgid "Add Domain"
 msgstr ""
 
-#: add/dnsrecord.php:238 edit/dnsrecord.php:282
+#: add/dnsrecord.php:261 edit/dnsrecord.php:304
 msgid "Priority"
 msgstr ""
 
-#: add/domain.php:187
+#: add/domain.php:94 admin/list/stats.php:234 admin/server/vesta.php:723
+#: admin/status/web.php:210 edit/domain.php:109 includes/includes.php:369
+#: index.php:395 list/backup.php:251 list/backups.php:249 list/web.php:89
+msgid "Web"
+msgstr ""
+
+#: add/domain.php:210
 msgid "DNS Support"
 msgstr ""
 
-#: add/domain.php:196
+#: add/domain.php:219
 msgid "Mail Support"
 msgstr ""
 
-#: add/domain.php:209 add/mailaccount.php:209 edit/domain.php:279
-#: edit/domain.php:402 edit/mailaccount.php:259 list/maildomain.php:218
-#: list/web.php:238 process/csr.php:172
+#: add/domain.php:232 add/mailaccount.php:231 admin/server/vesta.php:966
+#: edit/domain.php:302 edit/domain.php:425 edit/mailaccount.php:281
+#: list/maildomain.php:241 list/web.php:261 process/csr.php:194
 msgid "Aliases"
 msgstr ""
 
-#: add/domain.php:215 edit/domain.php:310
+#: add/domain.php:238 edit/domain.php:333
 msgid "Proxy Support"
 msgstr ""
 
-#: add/domain.php:224 edit/domain.php:339
+#: add/domain.php:247 edit/domain.php:362
 msgid "Proxy Extensions"
 msgstr ""
 
-#: add/domain.php:231 edit/domain.php:347
+#: add/domain.php:254 edit/domain.php:370
 msgid "SSL Support"
 msgstr ""
 
-#: add/domain.php:241 edit/domain.php:358
+#: add/domain.php:264 edit/domain.php:381
 msgid "Let's Encrypt Support"
 msgstr ""
 
-#: add/domain.php:251 edit/domain.php:369
+#: add/domain.php:274 edit/domain.php:392
 msgid "SSL Directory"
 msgstr ""
 
-#: add/domain.php:260 edit/domain.php:379
+#: add/domain.php:283 admin/server/vesta.php:950 edit/domain.php:402
 msgid "SSL Certificate"
 msgstr ""
 
-#: add/domain.php:260 edit/domain.php:379
+#: add/domain.php:283 edit/domain.php:402
 msgid "Generate CSR"
 msgstr ""
 
-#: add/domain.php:266 edit/domain.php:386
+#: add/domain.php:289 admin/server/vesta.php:957 edit/domain.php:409
 msgid "SSL Key"
 msgstr ""
 
-#: add/domain.php:272 edit/domain.php:393
+#: add/domain.php:295 edit/domain.php:416
 msgid "SSL Certificate Authority / Intermediate"
 msgstr ""
 
-#: add/domain.php:279 edit/domain.php:412 list/web.php:242
+#: add/domain.php:302 edit/domain.php:435 list/web.php:265
 msgid "Web Statistics"
 msgstr ""
 
-#: add/domain.php:297 edit/domain.php:431
+#: add/domain.php:320 edit/domain.php:454
 msgid "Statistics Authorization"
 msgstr ""
 
-#: add/domain.php:323 edit/domain.php:463 list/web.php:241
+#: add/domain.php:346 edit/domain.php:486 list/web.php:264
 msgid "Additional FTP"
 msgstr ""
 
-#: add/domain.php:350 edit/domain.php:493
+#: add/domain.php:373 edit/domain.php:516
 msgid "Path"
 msgstr ""
 
-#: add/domain.php:359
+#: add/domain.php:382
 msgid "Send FTP Credentials to Email:"
 msgstr ""
 
-#: add/domain.php:533 add/domain.php:545 admin/add/package.php:513
-#: admin/add/package.php:525 admin/edit/package.php:523
-#: admin/edit/package.php:535 edit/backupexclusions.php:293
-#: edit/backupexclusions.php:305 edit/domain.php:683 edit/domain.php:695
+#: add/domain.php:546 add/domain.php:558 admin/add/package.php:525
+#: admin/add/package.php:537 admin/edit/package.php:536
+#: admin/edit/package.php:548 edit/backupexclusions.php:306
+#: edit/backupexclusions.php:318 edit/domain.php:700 edit/domain.php:712
 msgid "Feature Disabled"
 msgstr ""
 
-#: add/domain.php:534 add/domain.php:546 edit/domain.php:684
-#: edit/domain.php:696
+#: add/domain.php:547 add/domain.php:559 edit/domain.php:701
+#: edit/domain.php:713
 msgid "Custom SSL Certificates are incompatible with API Key Authentication."
 msgstr ""
 
-#: add/mail.php:65 add/mailaccount.php:74 admin/list/stats.php:212
-#: admin/status/mail.php:188 edit/mail.php:75 edit/mailaccount.php:81
-#: includes/includes.php:351 index.php:339 list/backup.php:241
-#: list/backups.php:227 list/mail.php:69 list/maildomain.php:73
-#: list/maildomain.php:207
+#: add/mail.php:85 add/mailaccount.php:94 admin/list/stats.php:236
+#: admin/server/vesta.php:766 admin/status/mail.php:211 edit/mail.php:95
+#: edit/mailaccount.php:101 includes/includes.php:371 index.php:397
+#: list/backup.php:265 list/backups.php:251 list/mail.php:89
+#: list/maildomain.php:93 list/maildomain.php:230
 msgid "Mail"
 msgstr ""
 
-#: add/mail.php:147
+#: add/mail.php:169
 msgid "Add Mail Domain"
 msgstr ""
 
-#: add/mail.php:161 edit/mail.php:257
+#: add/mail.php:183 edit/mail.php:279
 msgid "AntiSpam Support"
 msgstr ""
 
-#: add/mail.php:170 edit/mail.php:266
+#: add/mail.php:192 edit/mail.php:288
 msgid "AntiVirus Support"
 msgstr ""
 
-#: add/mail.php:179 edit/mail.php:275
+#: add/mail.php:201 edit/mail.php:297
 msgid "DKIM Support"
 msgstr ""
 
-#: add/mailaccount.php:167
+#: add/mailaccount.php:189
 msgid "Add Mail Account"
 msgstr ""
 
-#: add/mailaccount.php:182 edit/mailaccount.php:189 list/maildomain.php:205
-#: profile.php:66 profile.php:233
+#: add/mailaccount.php:204 edit/mailaccount.php:211 list/maildomain.php:228
+#: profile.php:86 profile.php:257
 msgid "Account"
 msgstr ""
 
-#: add/mailaccount.php:202 admin/add/package.php:316 admin/edit/package.php:331
-#: edit/mailaccount.php:252 list/maildomain.php:217
+#: add/mailaccount.php:224 admin/add/package.php:338 admin/edit/package.php:353
+#: edit/mailaccount.php:274 list/maildomain.php:240
 msgid "Quota"
 msgstr ""
 
-#: add/mailaccount.php:205 edit/mailaccount.php:255
+#: add/mailaccount.php:227 admin/edit/package.php:363
+#: admin/edit/package.php:375 edit/mailaccount.php:277
 msgid "In Megabytes"
 msgstr ""
 
-#: add/mailaccount.php:212 edit/mailaccount.php:263
+#: add/mailaccount.php:234 edit/mailaccount.php:285
 msgid "Use Local-Part"
 msgstr ""
 
-#: add/mailaccount.php:216 edit/mailaccount.php:267 list/maildomain.php:219
+#: add/mailaccount.php:238 edit/mailaccount.php:289 list/maildomain.php:242
 msgid "Forward To"
 msgstr ""
 
-#: add/mailaccount.php:219
+#: add/mailaccount.php:241
 msgid "One Or More Email Addresses"
 msgstr ""
 
-#: add/mailaccount.php:224 edit/mailaccount.php:275
+#: add/mailaccount.php:246 edit/mailaccount.php:297
 msgid "Don't Store Forwarded Mail"
 msgstr ""
 
-#: add/mailaccount.php:234 edit/mailaccount.php:285 list/maildomain.php:220
+#: add/mailaccount.php:256 edit/mailaccount.php:307 list/maildomain.php:243
 msgid "Autoreply"
 msgstr ""
 
-#: add/mailaccount.php:243 edit/mailaccount.php:295
+#: add/mailaccount.php:265 edit/mailaccount.php:317
 msgid "Message"
 msgstr ""
 
-#: add/mailaccount.php:259
+#: add/mailaccount.php:281
 msgid "Add Account"
 msgstr ""
 
-#: add/mailaccount.php:270 edit/mailaccount.php:320
+#: add/mailaccount.php:292 edit/mailaccount.php:342
 msgid "Authentication Settings"
 msgstr ""
 
-#: add/mailaccount.php:275 edit/mailaccount.php:325
+#: add/mailaccount.php:297 edit/mailaccount.php:347
 msgid "Use Server Hostname"
 msgstr ""
 
-#: add/mailaccount.php:277 edit/mailaccount.php:327
+#: add/mailaccount.php:299 edit/mailaccount.php:349
 msgid "Use Domain Hostname"
 msgstr ""
 
-#: add/mailaccount.php:288 add/mailaccount.php:403 edit/mailaccount.php:338
-#: edit/mailaccount.php:453
+#: add/mailaccount.php:310 add/mailaccount.php:425 edit/mailaccount.php:360
+#: edit/mailaccount.php:475
 msgid "No Authentication"
 msgstr ""
 
-#: add/mailaccount.php:298 add/mailaccount.php:302 add/mailaccount.php:332
-#: add/mailaccount.php:336 add/mailaccount.php:366 add/mailaccount.php:370
-#: add/mailaccount.php:413 add/mailaccount.php:417 add/mailaccount.php:447
-#: add/mailaccount.php:451 add/mailaccount.php:481 add/mailaccount.php:485
-#: edit/mailaccount.php:348 edit/mailaccount.php:352 edit/mailaccount.php:382
-#: edit/mailaccount.php:386 edit/mailaccount.php:416 edit/mailaccount.php:420
-#: edit/mailaccount.php:463 edit/mailaccount.php:467 edit/mailaccount.php:497
-#: edit/mailaccount.php:501 edit/mailaccount.php:531 edit/mailaccount.php:535
+#: add/mailaccount.php:320 add/mailaccount.php:324 add/mailaccount.php:354
+#: add/mailaccount.php:358 add/mailaccount.php:388 add/mailaccount.php:392
+#: add/mailaccount.php:435 add/mailaccount.php:439 add/mailaccount.php:469
+#: add/mailaccount.php:473 add/mailaccount.php:503 add/mailaccount.php:507
+#: edit/mailaccount.php:370 edit/mailaccount.php:374 edit/mailaccount.php:404
+#: edit/mailaccount.php:408 edit/mailaccount.php:438 edit/mailaccount.php:442
+#: edit/mailaccount.php:485 edit/mailaccount.php:489 edit/mailaccount.php:519
+#: edit/mailaccount.php:523 edit/mailaccount.php:553 edit/mailaccount.php:557
 msgid "hostname"
 msgstr ""
 
-#: add/mailaccount.php:299 add/mailaccount.php:303 add/mailaccount.php:333
-#: add/mailaccount.php:337 add/mailaccount.php:367 add/mailaccount.php:371
-#: add/mailaccount.php:414 add/mailaccount.php:418 add/mailaccount.php:448
-#: add/mailaccount.php:452 add/mailaccount.php:482 add/mailaccount.php:486
-#: edit/mailaccount.php:349 edit/mailaccount.php:353 edit/mailaccount.php:383
-#: edit/mailaccount.php:387 edit/mailaccount.php:417 edit/mailaccount.php:421
-#: edit/mailaccount.php:464 edit/mailaccount.php:468 edit/mailaccount.php:498
-#: edit/mailaccount.php:502 edit/mailaccount.php:532 edit/mailaccount.php:536
+#: add/mailaccount.php:321 add/mailaccount.php:325 add/mailaccount.php:355
+#: add/mailaccount.php:359 add/mailaccount.php:389 add/mailaccount.php:393
+#: add/mailaccount.php:436 add/mailaccount.php:440 add/mailaccount.php:470
+#: add/mailaccount.php:474 add/mailaccount.php:504 add/mailaccount.php:508
+#: edit/mailaccount.php:371 edit/mailaccount.php:375 edit/mailaccount.php:405
+#: edit/mailaccount.php:409 edit/mailaccount.php:439 edit/mailaccount.php:443
+#: edit/mailaccount.php:486 edit/mailaccount.php:490 edit/mailaccount.php:520
+#: edit/mailaccount.php:524 edit/mailaccount.php:554 edit/mailaccount.php:558
 msgid "port"
 msgstr ""
 
-#: add/mailaccount.php:300 add/mailaccount.php:304 add/mailaccount.php:334
-#: add/mailaccount.php:338 add/mailaccount.php:368 add/mailaccount.php:372
-#: add/mailaccount.php:415 add/mailaccount.php:419 add/mailaccount.php:449
-#: add/mailaccount.php:453 add/mailaccount.php:483 add/mailaccount.php:487
-#: edit/mailaccount.php:350 edit/mailaccount.php:354 edit/mailaccount.php:384
-#: edit/mailaccount.php:388 edit/mailaccount.php:418 edit/mailaccount.php:422
-#: edit/mailaccount.php:465 edit/mailaccount.php:469 edit/mailaccount.php:499
-#: edit/mailaccount.php:503 edit/mailaccount.php:533 edit/mailaccount.php:537
+#: add/mailaccount.php:322 add/mailaccount.php:326 add/mailaccount.php:356
+#: add/mailaccount.php:360 add/mailaccount.php:390 add/mailaccount.php:394
+#: add/mailaccount.php:437 add/mailaccount.php:441 add/mailaccount.php:471
+#: add/mailaccount.php:475 add/mailaccount.php:505 add/mailaccount.php:509
+#: edit/mailaccount.php:372 edit/mailaccount.php:376 edit/mailaccount.php:406
+#: edit/mailaccount.php:410 edit/mailaccount.php:440 edit/mailaccount.php:444
+#: edit/mailaccount.php:487 edit/mailaccount.php:491 edit/mailaccount.php:521
+#: edit/mailaccount.php:525 edit/mailaccount.php:555 edit/mailaccount.php:559
 msgid "security"
 msgstr ""
 
-#: add/mailaccount.php:301 add/mailaccount.php:305 add/mailaccount.php:335
-#: add/mailaccount.php:339 add/mailaccount.php:369 add/mailaccount.php:373
-#: add/mailaccount.php:416 add/mailaccount.php:420 add/mailaccount.php:450
-#: add/mailaccount.php:454 add/mailaccount.php:484 add/mailaccount.php:488
-#: edit/mailaccount.php:351 edit/mailaccount.php:355 edit/mailaccount.php:385
-#: edit/mailaccount.php:389 edit/mailaccount.php:419 edit/mailaccount.php:423
-#: edit/mailaccount.php:466 edit/mailaccount.php:470 edit/mailaccount.php:500
-#: edit/mailaccount.php:504 edit/mailaccount.php:534 edit/mailaccount.php:538
+#: add/mailaccount.php:323 add/mailaccount.php:327 add/mailaccount.php:357
+#: add/mailaccount.php:361 add/mailaccount.php:391 add/mailaccount.php:395
+#: add/mailaccount.php:438 add/mailaccount.php:442 add/mailaccount.php:472
+#: add/mailaccount.php:476 add/mailaccount.php:506 add/mailaccount.php:510
+#: edit/mailaccount.php:373 edit/mailaccount.php:377 edit/mailaccount.php:407
+#: edit/mailaccount.php:411 edit/mailaccount.php:441 edit/mailaccount.php:445
+#: edit/mailaccount.php:488 edit/mailaccount.php:492 edit/mailaccount.php:522
+#: edit/mailaccount.php:526 edit/mailaccount.php:556 edit/mailaccount.php:560
 msgid "auth method"
 msgstr ""
 
-#: add/mailaccount.php:306 add/mailaccount.php:340 add/mailaccount.php:374
-#: add/mailaccount.php:421 add/mailaccount.php:455 add/mailaccount.php:489
-#: edit/mailaccount.php:356 edit/mailaccount.php:390 edit/mailaccount.php:424
-#: edit/mailaccount.php:471 edit/mailaccount.php:505 edit/mailaccount.php:539
-#: includes/includes.php:365
+#: add/mailaccount.php:328 add/mailaccount.php:362 add/mailaccount.php:396
+#: add/mailaccount.php:443 add/mailaccount.php:477 add/mailaccount.php:511
+#: edit/mailaccount.php:378 edit/mailaccount.php:412 edit/mailaccount.php:446
+#: edit/mailaccount.php:493 edit/mailaccount.php:527 edit/mailaccount.php:561
+#: includes/includes.php:385
 msgid "Webmail"
 msgstr ""
 
-#: add/mailaccount.php:316 add/mailaccount.php:320 add/mailaccount.php:350
-#: add/mailaccount.php:354 add/mailaccount.php:384 add/mailaccount.php:388
-#: add/mailaccount.php:431 add/mailaccount.php:435 add/mailaccount.php:465
-#: add/mailaccount.php:469 add/mailaccount.php:499 add/mailaccount.php:503
-#: edit/mailaccount.php:366 edit/mailaccount.php:370 edit/mailaccount.php:400
-#: edit/mailaccount.php:404 edit/mailaccount.php:434 edit/mailaccount.php:438
-#: edit/mailaccount.php:481 edit/mailaccount.php:485 edit/mailaccount.php:515
-#: edit/mailaccount.php:519 edit/mailaccount.php:549 edit/mailaccount.php:553
+#: add/mailaccount.php:338 add/mailaccount.php:342 add/mailaccount.php:372
+#: add/mailaccount.php:376 add/mailaccount.php:406 add/mailaccount.php:410
+#: add/mailaccount.php:453 add/mailaccount.php:457 add/mailaccount.php:487
+#: add/mailaccount.php:491 add/mailaccount.php:521 add/mailaccount.php:525
+#: edit/mailaccount.php:388 edit/mailaccount.php:392 edit/mailaccount.php:422
+#: edit/mailaccount.php:426 edit/mailaccount.php:456 edit/mailaccount.php:460
+#: edit/mailaccount.php:503 edit/mailaccount.php:507 edit/mailaccount.php:537
+#: edit/mailaccount.php:541 edit/mailaccount.php:571 edit/mailaccount.php:575
 msgid "Normal Password"
 msgstr ""
 
-#: add/mailaccount.php:383 add/mailaccount.php:387 add/mailaccount.php:498
-#: add/mailaccount.php:502 edit/mailaccount.php:433 edit/mailaccount.php:437
-#: edit/mailaccount.php:548 edit/mailaccount.php:552
+#: add/mailaccount.php:405 add/mailaccount.php:409 add/mailaccount.php:520
+#: add/mailaccount.php:524 edit/mailaccount.php:455 edit/mailaccount.php:459
+#: edit/mailaccount.php:570 edit/mailaccount.php:574
 msgid "No Encryption"
 msgstr ""
 
-#: admin/add/fail2ban.php:68 admin/add/firewall.php:68
-#: admin/edit/firewall.php:73 admin/list/fail2ban.php:70
-#: admin/list/firewall.php:70 includes/includes.php:318
+#: admin/add/fail2ban.php:88 admin/add/firewall.php:88
+#: admin/edit/firewall.php:93 admin/list/fail2ban.php:90
+#: admin/list/firewall.php:90 admin/server/vesta.php:996
+#: includes/includes.php:338
 msgid "Firewall"
 msgstr ""
 
-#: admin/add/fail2ban.php:152
+#: admin/add/fail2ban.php:174
 msgid "Add Banned IP"
 msgstr ""
 
-#: admin/add/fail2ban.php:160
+#: admin/add/fail2ban.php:182
 msgid "Banlist"
 msgstr ""
 
-#: admin/add/fail2ban.php:177 admin/add/firewall.php:189
-#: admin/edit/firewall.php:194
+#: admin/add/fail2ban.php:185
+msgid "SSH"
+msgstr ""
+
+#: admin/add/fail2ban.php:186
+msgid "WEB"
+msgstr ""
+
+#: admin/add/fail2ban.php:187 includes/includes.php:384 list/web.php:264
+msgid "FTP"
+msgstr ""
+
+#: admin/add/fail2ban.php:189
+msgid "MAIL"
+msgstr ""
+
+#: admin/add/fail2ban.php:190 admin/server/vesta.php:789
+msgid "DB"
+msgstr ""
+
+#: admin/add/fail2ban.php:191
+msgid "VESTA"
+msgstr ""
+
+#: admin/add/fail2ban.php:199 admin/add/firewall.php:211
+#: admin/edit/firewall.php:216
 msgid "CIDR format is supported"
 msgstr ""
 
-#: admin/add/fail2ban.php:182
+#: admin/add/fail2ban.php:204
 msgid "Add Ban"
 msgstr ""
 
-#: admin/add/firewall.php:152
+#: admin/add/firewall.php:174
 msgid "Add Firewall Rule"
 msgstr ""
 
-#: admin/add/firewall.php:169 admin/edit/firewall.php:174
-#: admin/list/firewall.php:185
+#: admin/add/firewall.php:185 admin/edit/firewall.php:189
+msgid "Accept"
+msgstr ""
+
+#: admin/add/firewall.php:186 admin/edit/firewall.php:190
+msgid "Drop"
+msgstr ""
+
+#: admin/add/firewall.php:191 admin/edit/firewall.php:196
+#: admin/list/firewall.php:208
 msgid "Protocol"
 msgstr ""
 
-#: admin/add/firewall.php:179 admin/edit/firewall.php:184
-#: admin/list/firewall.php:187
+#: admin/add/firewall.php:201 admin/edit/firewall.php:206
+#: admin/list/firewall.php:210
 msgid "Port"
 msgstr ""
 
-#: admin/add/firewall.php:182 admin/edit/firewall.php:187
+#: admin/add/firewall.php:204 admin/edit/firewall.php:209
 msgid "Ranges are acceptable"
 msgstr ""
 
-#: admin/add/firewall.php:193 admin/edit/firewall.php:198
-#: admin/list/firewall.php:186
+#: admin/add/firewall.php:215 admin/edit/firewall.php:220
+#: admin/list/firewall.php:209
 msgid "Comment"
 msgstr ""
 
-#: admin/add/firewall.php:201
+#: admin/add/firewall.php:223
 msgid "Add Rule"
 msgstr ""
 
-#: admin/add/ip.php:74 admin/edit/ip.php:76 admin/list/fail2ban.php:181
-#: admin/list/ip.php:70 includes/includes.php:314 list/dns.php:232
-#: list/web.php:243
+#: admin/add/ip.php:94 admin/edit/ip.php:96 admin/list/fail2ban.php:204
+#: admin/list/ip.php:90 includes/includes.php:334 list/dns.php:255
+#: list/web.php:266
 msgid "IP"
 msgstr ""
 
-#: admin/add/ip.php:157
+#: admin/add/ip.php:179
 msgid "Add IP Address"
 msgstr ""
 
-#: admin/add/ip.php:171 admin/edit/ip.php:175 admin/list/ip.php:185
+#: admin/add/ip.php:193 admin/edit/ip.php:197 admin/list/ip.php:208
 msgid "Netmask"
 msgstr ""
 
-#: admin/add/ip.php:177 admin/edit/ip.php:181 admin/list/ip.php:186
+#: admin/add/ip.php:199 admin/edit/ip.php:203 admin/list/ip.php:209
 msgid "Interface"
 msgstr ""
 
-#: admin/add/ip.php:193 admin/edit/ip.php:187
+#: admin/add/ip.php:215 admin/edit/ip.php:209
 msgid "Shared"
 msgstr ""
 
-#: admin/add/ip.php:203 admin/edit/ip.php:198
+#: admin/add/ip.php:225 admin/edit/ip.php:220
 msgid "Assigned User"
 msgstr ""
 
-#: admin/add/ip.php:220 admin/edit/ip.php:217
+#: admin/add/ip.php:242 admin/edit/ip.php:239
 msgid "Assigned Domain"
 msgstr ""
 
-#: admin/add/ip.php:227 admin/edit/ip.php:225
+#: admin/add/ip.php:249 admin/edit/ip.php:247
 msgid "NAT IP Association"
 msgstr ""
 
-#: admin/add/ip.php:235 admin/list/ip.php:172
+#: admin/add/ip.php:257 admin/list/ip.php:195
 msgid "Add IP"
 msgstr ""
 
-#: admin/add/package.php:77 admin/edit/package.php:82
-#: admin/list/packages.php:70 admin/list/packages.php:187
-#: includes/includes.php:313
+#: admin/add/package.php:97 admin/edit/package.php:102
+#: admin/list/packages.php:90 admin/list/packages.php:210
+#: includes/includes.php:333
 msgid "Packages"
 msgstr ""
 
-#: admin/add/package.php:160 admin/add/package.php:369
+#: admin/add/package.php:182 admin/add/package.php:391
 msgid "Add Package"
 msgstr ""
 
-#: admin/add/package.php:168 admin/edit/package.php:175
+#: admin/add/package.php:190 admin/edit/package.php:197
 msgid "Package Name"
 msgstr ""
 
-#: admin/add/package.php:174 admin/edit/package.php:183 edit/domain.php:294
+#: admin/add/package.php:196 admin/edit/package.php:205 edit/domain.php:317
 msgid "Web Template"
 msgstr ""
 
-#: admin/add/package.php:189 admin/edit/package.php:200 edit/domain.php:321
-#: list/web.php:240
+#: admin/add/package.php:211 admin/edit/package.php:222 edit/domain.php:344
+#: list/web.php:263
 msgid "Proxy Template"
 msgstr ""
 
-#: admin/add/package.php:204 admin/edit/package.php:217 edit/dns.php:322
-#: list/dns.php:235
+#: admin/add/package.php:226 admin/edit/package.php:239 edit/dns.php:346
+#: list/dns.php:258
 msgid "DNS Template"
 msgstr ""
 
-#: admin/add/package.php:219 admin/edit/package.php:234
-#: edit/backupexclusions.php:160 index.php:305 list/web.php:227
+#: admin/add/package.php:241 admin/edit/package.php:256
+#: edit/backupexclusions.php:182 index.php:363 list/web.php:250
 msgid "Web Domains"
 msgstr ""
 
-#: admin/add/package.php:230 admin/edit/package.php:245 index.php:809
+#: admin/add/package.php:252 admin/edit/package.php:267 index.php:867
 msgid "Web Aliases"
 msgstr ""
 
-#: admin/add/package.php:242 admin/edit/package.php:257 index.php:681
-#: list/dns.php:222
+#: admin/add/package.php:264 admin/edit/package.php:279 index.php:739
+#: list/dns.php:245
 msgid "DNS Domains"
 msgstr ""
 
-#: admin/add/package.php:253 admin/edit/package.php:268 index.php:695
+#: admin/add/package.php:275 admin/edit/package.php:290 index.php:753
 msgid "DNS Records"
 msgstr ""
 
-#: admin/add/package.php:265 admin/edit/package.php:280
-#: edit/backupexclusions.php:175 index.php:707 list/mail.php:217
+#: admin/add/package.php:287 admin/edit/package.php:302
+#: edit/backupexclusions.php:197 index.php:765 list/mail.php:240
 msgid "Mail Domains"
 msgstr ""
 
-#: admin/add/package.php:276 admin/edit/package.php:291
+#: admin/add/package.php:298 admin/edit/package.php:313
 msgid "Mail Accounts"
 msgstr ""
 
-#: admin/add/package.php:288 admin/edit/package.php:303
-#: admin/list/stats.php:213 edit/backupexclusions.php:190 index.php:653
-#: index.php:781 list/backups.php:228 list/db.php:69 list/db.php:206
+#: admin/add/package.php:310 admin/edit/package.php:325
+#: admin/list/stats.php:237 edit/backupexclusions.php:212 index.php:711
+#: index.php:839 list/backups.php:252 list/db.php:89 list/db.php:229
 msgid "Databases"
 msgstr ""
 
-#: admin/add/package.php:310 admin/edit/package.php:325
-#: admin/list/stats.php:216 edit/backupexclusions.php:70
-#: includes/includes.php:358 index.php:721 list/backup.php:74
-#: list/backups.php:69 list/backups.php:217
+#: admin/add/package.php:332 admin/edit/package.php:347
+#: admin/list/stats.php:240 edit/backupexclusions.php:90
+#: includes/includes.php:378 index.php:779 list/backup.php:95
+#: list/backups.php:90 list/backups.php:241
 msgid "Backups"
 msgstr ""
 
-#: admin/add/package.php:328 admin/edit/package.php:343
-#: admin/list/stats.php:207 index.php:268 index.php:747 list/web.php:234
+#: admin/add/package.php:350 admin/edit/package.php:365
+#: admin/list/stats.php:231 index.php:330 index.php:805 list/web.php:257
 msgid "Bandwidth"
 msgstr ""
 
-#: admin/add/package.php:340 admin/edit/package.php:355 admin/edit/user.php:261
+#: admin/add/package.php:362 admin/edit/package.php:377 admin/edit/user.php:283
 msgid "SSH Access"
 msgstr ""
 
-#: admin/add/package.php:355 admin/edit/package.php:370 admin/edit/user.php:277
-#: profile.php:362
+#: admin/add/package.php:377 admin/edit/package.php:392 admin/edit/user.php:299
+#: profile.php:386
 msgid "Default Nameservers"
 msgstr ""
 
-#: admin/add/package.php:506 admin/edit/firewall.php:282 admin/edit/ip.php:316
-#: admin/edit/package.php:515 admin/edit/user.php:451
-#: admin/list/fail2ban.php:277 admin/list/firewall.php:336
-#: admin/list/packages.php:325 admin/list/server.php:295
-#: admin/list/settings.php:898 admin/list/updates.php:260
-#: admin/list/users.php:424 edit/cron.php:733 edit/db.php:401 edit/dns.php:512
-#: edit/domain.php:713 list/cron.php:304 list/cron.php:339 list/cron.php:445
-#: list/db.php:374 list/dns.php:511 list/mail.php:408 list/maildomain.php:410
-#: list/web.php:420 profile.php:121 profile.php:515
+#: admin/add/package.php:518 admin/edit/firewall.php:296 admin/edit/ip.php:327
+#: admin/edit/package.php:528 admin/edit/user.php:463
+#: admin/list/fail2ban.php:296 admin/list/firewall.php:353
+#: admin/list/packages.php:343 admin/list/settings.php:955
+#: admin/list/updates.php:277 admin/list/users.php:441
+#: admin/server/mysql.php:272 admin/server/nginx.php:307
+#: admin/server/php.php:284 admin/server/vesta.php:1359 edit/cron.php:758
+#: edit/db.php:414 edit/dns.php:529 edit/domain.php:730 list/cron.php:323
+#: list/cron.php:358 list/cron.php:459 list/db.php:390 list/dns.php:527
+#: list/mail.php:424 list/maildomain.php:423 list/web.php:437 profile.php:142
+#: profile.php:547
 msgid "Successfully Updated!"
 msgstr ""
 
-#: admin/add/package.php:508 admin/edit/firewall.php:284
-#: admin/list/fail2ban.php:279 admin/list/firewall.php:338
-#: admin/list/graphs.php:260 admin/list/graphs.php:262
-#: admin/list/packages.php:327 admin/list/server.php:297
-#: admin/list/stats.php:301 admin/list/stats.php:303 admin/list/updates.php:262
-#: admin/list/users.php:426 edit/cron.php:735 edit/db.php:403
-#: list/backup.php:337 list/backup.php:344 list/cron.php:314 list/cron.php:348
-#: list/db.php:369 list/db.php:371 list/dns.php:505 list/dns.php:507
-#: log.php:295 log.php:297
+#: admin/add/package.php:520 admin/edit/firewall.php:298
+#: admin/list/fail2ban.php:298 admin/list/firewall.php:355
+#: admin/list/graphs.php:284 admin/list/graphs.php:286
+#: admin/list/packages.php:345 admin/list/server.php:395
+#: admin/list/stats.php:316 admin/list/stats.php:318 admin/list/updates.php:279
+#: admin/list/users.php:443 admin/server/mysql.php:274
+#: admin/server/nginx.php:309 admin/server/php.php:286 edit/cron.php:760
+#: edit/db.php:416 list/backup.php:355 list/backup.php:362 list/cron.php:333
+#: list/cron.php:367 list/db.php:385 list/db.php:387 list/dns.php:521
+#: list/dns.php:523 log.php:290 log.php:292
 msgid "Please try again later or contact support."
 msgstr ""
 
-#: admin/add/package.php:514 admin/add/package.php:526
-#: admin/edit/package.php:524 admin/edit/package.php:536
+#: admin/add/package.php:526 admin/add/package.php:538
+#: admin/edit/package.php:537 admin/edit/package.php:549
 msgid "Packages are incompatible with API Key Authentication."
 msgstr ""
 
-#: admin/add/user.php:71 admin/edit/user.php:77 admin/list/ip.php:187
-#: admin/list/users.php:70 admin/list/users.php:198 includes/includes.php:312
+#: admin/add/user.php:91 admin/edit/user.php:97 admin/list/ip.php:210
+#: admin/list/users.php:90 admin/list/users.php:220 includes/includes.php:332
 #, fuzzy
 #| msgid "Username"
 msgid "Users"
 msgstr "Username"
 
-#: admin/add/user.php:155 admin/add/user.php:212
+#: admin/add/user.php:177 admin/add/user.php:234
 msgid "Add User"
 msgstr ""
 
-#: admin/add/user.php:176 admin/edit/user.php:184 index.php:745
-#: list/maildomain.php:212 profile.php:320 register.php:102
+#: admin/add/user.php:198 admin/edit/user.php:206 index.php:803
+#: list/maildomain.php:235 profile.php:344 register.php:121
 msgid "Email"
 msgstr "Email"
 
-#: admin/add/user.php:182 admin/edit/user.php:191 admin/list/packages.php:185
+#: admin/add/user.php:204 admin/edit/user.php:213 admin/list/packages.php:208
 msgid "Package"
 msgstr ""
 
-#: admin/add/user.php:199 admin/edit/user.php:247 profile.php:308
-#: register.php:97
+#: admin/add/user.php:221 admin/edit/user.php:269 profile.php:332
+#: register.php:116
 msgid "First Name"
 msgstr "First Name"
 
-#: admin/add/user.php:205 admin/edit/user.php:254 profile.php:314
-#: register.php:98
+#: admin/add/user.php:227 admin/edit/user.php:276 profile.php:338
+#: register.php:117
 msgid "Last Name"
 msgstr "Last Name"
 
-#: admin/edit/firewall.php:156
+#: admin/edit/firewall.php:178
 msgid "Edit Firewall Rule"
 msgstr ""
 
-#: admin/edit/firewall.php:206
+#: admin/edit/firewall.php:228
 msgid "Update Rule"
 msgstr ""
 
-#: admin/edit/ip.php:159
+#: admin/edit/ip.php:181
 msgid "Edit IP Address"
 msgstr ""
 
-#: admin/edit/ip.php:234
+#: admin/edit/ip.php:256
 msgid "Update IP"
 msgstr ""
 
-#: admin/edit/ip.php:319
+#: admin/edit/ip.php:330
 msgid "Error Updating IP Address"
 msgstr ""
 
-#: admin/edit/package.php:167
+#: admin/edit/package.php:189
 msgid "Edit Package"
 msgstr ""
 
-#: admin/edit/package.php:392
+#: admin/edit/package.php:277 admin/edit/package.php:300
+#: admin/edit/package.php:323
+msgid "Per Domain"
+msgstr ""
+
+#: admin/edit/package.php:414
 msgid "Update Package"
 msgstr ""
 
-#: admin/edit/package.php:518
+#: admin/edit/package.php:531
 msgid "Error Updating Package"
 msgstr ""
 
-#: admin/edit/user.php:162
+#: admin/edit/user.php:184
 msgid "Edit User"
 msgstr ""
 
-#: admin/edit/user.php:209 admin/list/settings.php:349 profile.php:255
-#: profile.php:326
+#: admin/edit/user.php:231 admin/list/settings.php:390 profile.php:279
+#: profile.php:350
 msgid "Language"
 msgstr ""
 
-#: admin/edit/user.php:307
+#: admin/edit/user.php:329
 msgid "Update User"
 msgstr ""
 
-#: admin/edit/user.php:454
+#: admin/edit/user.php:466 admin/server/vesta.php:1362
 msgid "Error Updating User"
 msgstr ""
 
-#: admin/list/fail2ban.php:166
+#: admin/list/fail2ban.php:189
 msgid "Manage Fail2Ban"
 msgstr ""
 
-#: admin/list/fail2ban.php:172 admin/list/firewall.php:176
-#: admin/list/packages.php:185 admin/list/users.php:196 list/cfdomain.php:283
-#: list/dnsdomain.php:254 list/mail.php:215 list/maildomain.php:205
+#: admin/list/fail2ban.php:195 admin/list/firewall.php:199
+#: admin/list/packages.php:208 admin/list/users.php:218 list/cfdomain.php:285
+#: list/dnsdomain.php:276 list/mail.php:238 list/maildomain.php:228
 msgid "Add"
 msgstr ""
 
-#: admin/list/fail2ban.php:172 admin/list/fail2ban.php:180
+#: admin/list/fail2ban.php:195 admin/list/fail2ban.php:203
 msgid "Ban"
 msgstr ""
 
-#: admin/list/fail2ban.php:174
+#: admin/list/fail2ban.php:197
 msgid "Banned IPs"
 msgstr ""
 
-#: admin/list/fail2ban.php:181 admin/list/ip.php:172 admin/list/ip.php:179
-#: list/maildomain.php:212
+#: admin/list/fail2ban.php:204 admin/list/ip.php:195 admin/list/ip.php:202
+#: list/maildomain.php:235
 msgid "Address"
 msgstr ""
 
-#: admin/list/fail2ban.php:182 admin/list/firewall.php:189
-#: admin/list/ip.php:184 list/backup.php:219 list/backups.php:224
-#: list/cfdomain.php:294 list/cron.php:213 list/db.php:216 list/dns.php:231
-#: list/dnsdomain.php:264 list/mail.php:227 list/maildomain.php:216
-#: list/web.php:237
+#: admin/list/fail2ban.php:205 admin/list/firewall.php:212
+#: admin/list/ip.php:207 list/backup.php:243 list/backups.php:248
+#: list/cfdomain.php:296 list/cron.php:236 list/db.php:239 list/dns.php:254
+#: list/dnsdomain.php:286 list/mail.php:250 list/maildomain.php:239
+#: list/web.php:260
 msgid "Action"
 msgstr ""
 
-#: admin/list/fail2ban.php:195 admin/list/fail2ban.php:242
-#: admin/list/firewall.php:211 admin/list/ip.php:202
-#: admin/list/packages.php:242 admin/list/users.php:299
-#: admin/list/users.php:345 edit/cron.php:183 edit/db.php:185
-#: edit/domain.php:198 list/backup.php:185 list/backups.php:247
-#: list/cfdomain.php:316 list/cron.php:243 list/db.php:242 list/dns.php:349
-#: list/dnsdomain.php:282 list/mail.php:259 list/maildomain.php:244
-#: list/web.php:269
+#: admin/list/fail2ban.php:218 admin/list/fail2ban.php:262
+#: admin/list/firewall.php:234 admin/list/ip.php:225
+#: admin/list/packages.php:265 admin/list/users.php:321
+#: admin/list/users.php:364 edit/cron.php:206 edit/db.php:207
+#: edit/domain.php:221 list/backup.php:209 list/backups.php:271
+#: list/cfdomain.php:318 list/cron.php:266 list/db.php:265 list/dns.php:372
+#: list/dnsdomain.php:303 list/mail.php:282 list/maildomain.php:267
+#: list/web.php:292
 msgid "Delete"
 msgstr ""
 
-#: admin/list/fail2ban.php:242
+#: admin/list/fail2ban.php:262
 msgid "ban for IP"
 msgstr ""
 
-#: admin/list/fail2ban.php:243 admin/list/firewall.php:258
-#: admin/list/ip.php:253 admin/list/packages.php:291 admin/list/users.php:346
-#: edit/cfrecord.php:305 edit/cron.php:689 edit/db.php:358 edit/dns.php:454
-#: edit/dnsrecord.php:348 edit/domain.php:643 edit/mail.php:343
-#: edit/mailaccount.php:647 list/backup.php:308 list/backups.php:309
-#: list/cfdomain.php:366 list/cfdomain.php:388 list/cron.php:363
-#: list/db.php:293 list/dns.php:422 list/dnsdomain.php:360
-#: list/dnsdomain.php:382 list/mail.php:326 list/maildomain.php:304
-#: list/maildomain.php:327 list/web.php:335 log.php:265
+#: admin/list/fail2ban.php:263 admin/list/firewall.php:278
+#: admin/list/ip.php:272 admin/list/packages.php:310 admin/list/users.php:365
+#: edit/cfrecord.php:317 edit/cron.php:715 edit/db.php:372 edit/dns.php:472
+#: edit/dnsrecord.php:360 edit/domain.php:662 edit/mail.php:354
+#: edit/mailaccount.php:659 list/backup.php:327 list/backups.php:329
+#: list/cfdomain.php:362 list/cfdomain.php:384 list/cron.php:380
+#: list/db.php:312 list/dns.php:441 list/dnsdomain.php:379
+#: list/dnsdomain.php:400 list/mail.php:345 list/maildomain.php:322
+#: list/maildomain.php:343 list/web.php:355
 msgid "You won't be able to revert this!"
 msgstr ""
 
-#: admin/list/fail2ban.php:248 admin/list/firewall.php:263
-#: admin/list/ip.php:258 admin/list/packages.php:296 admin/list/users.php:351
-#: edit/cfrecord.php:310 edit/cron.php:694 edit/db.php:363 edit/dns.php:459
-#: edit/dnsrecord.php:353 edit/domain.php:648 edit/mail.php:348
-#: edit/mailaccount.php:652 list/backup.php:313 list/backups.php:314
-#: list/cfdomain.php:371 list/cfdomain.php:393 list/cron.php:368
-#: list/db.php:298 list/dns.php:427 list/dnsdomain.php:365
-#: list/dnsdomain.php:387 list/mail.php:331 list/maildomain.php:309
-#: list/maildomain.php:332 list/web.php:340 log.php:270
+#: admin/list/fail2ban.php:268 admin/list/firewall.php:283
+#: admin/list/ip.php:277 admin/list/packages.php:315 admin/list/users.php:370
+#: edit/cfrecord.php:322 edit/cron.php:720 edit/db.php:377 edit/dns.php:477
+#: edit/dnsrecord.php:365 edit/domain.php:667 edit/mail.php:359
+#: edit/mailaccount.php:664 list/backup.php:332 list/backups.php:334
+#: list/cfdomain.php:367 list/cfdomain.php:389 list/cron.php:385
+#: list/db.php:317 list/dns.php:446 list/dnsdomain.php:384
+#: list/dnsdomain.php:405 list/mail.php:350 list/maildomain.php:327
+#: list/maildomain.php:348 list/web.php:360
 msgid "Yes, delete it!"
 msgstr ""
 
-#: admin/list/fail2ban.php:271 admin/list/firewall.php:330
-#: admin/list/graphs.php:255 admin/list/ip.php:281 admin/list/packages.php:319
-#: admin/list/plugins.php:250 admin/list/server.php:289
-#: admin/list/stats.php:296 admin/list/updates.php:254 admin/list/users.php:418
-#: list/backup.php:335 list/backups.php:337 list/cfdomain.php:416
-#: list/cron.php:435 list/db.php:364 list/dns.php:500 list/dnsdomain.php:410
-#: list/mail.php:398 list/maildomain.php:398 list/web.php:406 log.php:290
+#: admin/list/fail2ban.php:290 admin/list/firewall.php:347
+#: admin/list/graphs.php:279 admin/list/ip.php:299 admin/list/packages.php:337
+#: admin/list/plugins.php:265 admin/list/stats.php:311
+#: admin/list/updates.php:271 admin/list/users.php:435 list/backup.php:353
+#: list/backups.php:355 list/cfdomain.php:411 list/cron.php:449 list/db.php:380
+#: list/dns.php:516 list/dnsdomain.php:427 list/mail.php:414
+#: list/maildomain.php:411 list/web.php:423 log.php:285
 msgid "Successfully Deleted!"
 msgstr ""
 
-#: admin/list/fail2ban.php:274 admin/list/firewall.php:333
-#: admin/list/graphs.php:258 admin/list/ip.php:284 admin/list/packages.php:322
-#: admin/list/plugins.php:253 admin/list/server.php:292
-#: admin/list/stats.php:299 admin/list/updates.php:257 admin/list/users.php:421
-#: edit/cfrecord.php:349 list/cfdomain.php:419 list/cron.php:438
-#: list/db.php:367 list/dns.php:503 list/dnsdomain.php:413 list/mail.php:401
-#: list/web.php:414 log.php:293
+#: admin/list/fail2ban.php:293 admin/list/firewall.php:350
+#: admin/list/graphs.php:282 admin/list/ip.php:302 admin/list/packages.php:340
+#: admin/list/plugins.php:268 admin/list/stats.php:314
+#: admin/list/updates.php:274 admin/list/users.php:438 edit/cfrecord.php:360
+#: list/cfdomain.php:414 list/cron.php:452 list/db.php:383 list/dns.php:519
+#: list/dnsdomain.php:430 list/mail.php:417 list/web.php:431 log.php:288
 msgid "Successfully Created!"
 msgstr ""
 
-#: admin/list/firewall.php:169
+#: admin/list/firewall.php:192
 msgid "Manage Firewall"
 msgstr ""
 
-#: admin/list/firewall.php:175
+#: admin/list/firewall.php:198
 msgid "List"
 msgstr ""
 
-#: admin/list/firewall.php:175
+#: admin/list/firewall.php:198
 msgid "Fail2Ban"
 msgstr ""
 
-#: admin/list/firewall.php:176
+#: admin/list/firewall.php:199
 msgid "Rule"
 msgstr ""
 
-#: admin/list/firewall.php:178
+#: admin/list/firewall.php:201
 msgid "Rules"
 msgstr ""
 
-#: admin/list/firewall.php:206 admin/list/ip.php:202
-#: admin/list/packages.php:241 admin/list/users.php:295 list/cfdomain.php:315
-#: list/cron.php:240 list/db.php:239 list/dns.php:349 list/dnsdomain.php:280
-#: list/mail.php:254 list/maildomain.php:239 list/web.php:264
+#: admin/list/firewall.php:229 admin/list/ip.php:225
+#: admin/list/packages.php:264 admin/list/users.php:317 list/cfdomain.php:317
+#: list/cron.php:263 list/db.php:262 list/dns.php:372 list/dnsdomain.php:301
+#: list/mail.php:277 list/maildomain.php:262 list/web.php:287
 msgid "Edit"
 msgstr ""
 
-#: admin/list/firewall.php:208 admin/list/users.php:296
-#: admin/list/users.php:368 list/cron.php:241 list/db.php:240 list/dns.php:346
-#: list/mail.php:256 list/maildomain.php:241 list/web.php:267
+#: admin/list/firewall.php:231 admin/list/users.php:318
+#: admin/list/users.php:387 list/cron.php:264 list/db.php:263 list/dns.php:369
+#: list/mail.php:279 list/maildomain.php:264 list/web.php:290
 msgid "Suspend"
 msgstr ""
 
-#: admin/list/firewall.php:209 admin/list/users.php:297
-#: admin/list/users.php:390 list/cron.php:242 list/db.php:241 list/dns.php:347
-#: list/mail.php:257 list/maildomain.php:242 list/web.php:268
+#: admin/list/firewall.php:232 admin/list/users.php:319
+#: admin/list/users.php:408 list/cron.php:265 list/db.php:264 list/dns.php:370
+#: list/mail.php:280 list/maildomain.php:265 list/web.php:291
 msgid "Unsuspend"
 msgstr ""
 
-#: admin/list/firewall.php:257
+#: admin/list/firewall.php:277
 msgid "Delete Rule"
 msgstr ""
 
-#: admin/list/firewall.php:280
+#: admin/list/firewall.php:299
 msgid "Suspend Rule"
 msgstr ""
 
-#: admin/list/firewall.php:285 admin/list/firewall.php:307
-#: admin/list/users.php:373 admin/list/users.php:395 list/cron.php:390
-#: list/cron.php:412 list/db.php:320 list/db.php:342 list/dns.php:449
-#: list/dns.php:471 list/mail.php:353 list/mail.php:375 list/maildomain.php:355
-#: list/maildomain.php:378 list/web.php:362 list/web.php:384
+#: admin/list/firewall.php:304 admin/list/firewall.php:325
+#: admin/list/users.php:392 admin/list/users.php:413 list/cron.php:406
+#: list/cron.php:427 list/db.php:338 list/db.php:359 list/dns.php:467
+#: list/dns.php:488 list/mail.php:371 list/mail.php:392 list/maildomain.php:370
+#: list/maildomain.php:392 list/web.php:381 list/web.php:402
 #, fuzzy
 #| msgid "Confirm Pass"
 msgid "Confirm"
 msgstr "Confirm Pass"
 
-#: admin/list/firewall.php:302
+#: admin/list/firewall.php:320
 msgid "Unsuspend Rule"
 msgstr ""
 
-#: admin/list/graphs.php:73 includes/includes.php:315
+#: admin/list/graphs.php:93 includes/includes.php:335
 msgid "Graphs"
 msgstr ""
 
-#: admin/list/graphs.php:170
+#: admin/list/graphs.php:195
 msgid "RRD Graphs"
 msgstr ""
 
-#: admin/list/graphs.php:202 list/backups.php:245 log/access.php:193
-#: log/access.php:194
+#: admin/list/graphs.php:206
+msgid "Yearly"
+msgstr ""
+
+#: admin/list/graphs.php:231 list/backups.php:269 log/access.php:218
+#: log/access.php:219
 msgid "Download"
 msgstr ""
 
-#: admin/list/ip.php:166
+#: admin/list/ip.php:189
 msgid "Manage IP Addresses"
 msgstr ""
 
-#: admin/list/ip.php:174
+#: admin/list/ip.php:197
 msgid "IPs"
 msgstr ""
 
-#: admin/list/ip.php:180
+#: admin/list/ip.php:203
 msgid "Domains"
 msgstr ""
 
-#: admin/list/ip.php:181
+#: admin/list/ip.php:204
 msgid "Owner"
 msgstr ""
 
-#: admin/list/ip.php:182 admin/list/server.php:187 list/cron.php:211
-#: list/db.php:214 list/dns.php:229 list/dnsdomain.php:265 list/mail.php:225
-#: list/maildomain.php:214 list/web.php:235
+#: admin/list/ip.php:205 admin/list/server.php:210 list/cron.php:234
+#: list/db.php:237 list/dns.php:252 list/dnsdomain.php:287 list/mail.php:248
+#: list/maildomain.php:237 list/web.php:258
 msgid "Status"
 msgstr ""
 
-#: admin/list/ip.php:183 list/cfdomain.php:295 list/cron.php:212
-#: list/db.php:215 list/dns.php:230 list/dnsdomain.php:266 list/mail.php:226
-#: list/maildomain.php:215 list/web.php:236
+#: admin/list/ip.php:206 list/cfdomain.php:297 list/cron.php:235
+#: list/db.php:238 list/dns.php:253 list/dnsdomain.php:288 list/mail.php:249
+#: list/maildomain.php:238 list/web.php:259 process/search.php:209
 msgid "Created"
 msgstr ""
 
-#: admin/list/ip.php:252
+#: admin/list/ip.php:271
 msgid "Delete IP Address"
 msgstr ""
 
-#: admin/list/packages.php:180
+#: admin/list/packages.php:203
 msgid "Manage Packages"
 msgstr ""
 
-#: admin/list/packages.php:290
+#: admin/list/packages.php:309
 msgid "Delete package:"
 msgstr ""
 
-#: admin/list/plugins.php:65 admin/list/plugins.php:158
-#: includes/includes.php:321
+#: admin/list/plugins.php:85 admin/list/plugins.php:181
+#: includes/includes.php:341
 msgid "Plugins"
 msgstr ""
 
-#: admin/list/plugins.php:168 list/mail.php:222 list/web.php:232
-#: profile.php:242
+#: admin/list/plugins.php:191 list/mail.php:245 list/web.php:255
+#: profile.php:266
 msgid "Name"
 msgstr ""
 
-#: admin/list/plugins.php:169
+#: admin/list/plugins.php:192 admin/server/vesta.php:980
 msgid "Version"
 msgstr ""
 
-#: admin/list/plugins.php:170
+#: admin/list/plugins.php:193
 msgid "Developer"
 msgstr ""
 
-#: admin/list/server.php:82 admin/list/server.php:181 includes/includes.php:319
+#: admin/list/server.php:102 admin/list/server.php:204
+#: admin/server/mysql.php:90 admin/server/nginx.php:90 admin/server/php.php:90
+#: admin/server/vesta.php:138 includes/includes.php:339
 msgid "Server"
 msgstr ""
 
-#: admin/list/server.php:187
+#: admin/list/server.php:210
 msgid "Show "
 msgstr ""
 
-#: admin/list/server.php:188 admin/list/server.php:206
+#: admin/list/server.php:218
+msgid "Load Average:"
+msgstr ""
+
+#: admin/list/server.php:219
+msgid "Uptime:"
+msgstr ""
+
+#: admin/list/server.php:228 admin/list/server.php:258
+#: admin/server/vesta.php:727
 msgid "Configure"
 msgstr ""
 
-#: admin/list/server.php:207
+#: admin/list/server.php:229 admin/list/server.php:261
+#: admin/list/server.php:301 admin/list/server.php:307
+#: admin/list/server.php:328
 msgid "Restart"
 msgstr ""
 
-#: admin/list/settings.php:68 includes/includes.php:320 profile.php:236
+#: admin/list/server.php:259 admin/list/server.php:366
+#: admin/list/server.php:372
+msgid "Start"
+msgstr ""
+
+#: admin/list/server.php:259 admin/list/server.php:344
+#: admin/list/server.php:350
+msgid "Stop"
+msgstr ""
+
+#: admin/list/server.php:302 admin/list/server.php:323
+#: admin/list/server.php:345 admin/list/server.php:367
+#, fuzzy
+#| msgid "Please check config.php"
+msgid "Please confirm action."
+msgstr "Please check config.php"
+
+#: admin/list/server.php:322
+msgid "Restart System?"
+msgstr ""
+
+#: admin/list/server.php:393
+msgid "Successfully Processed!"
+msgstr ""
+
+#: admin/list/settings.php:88 includes/includes.php:340 profile.php:260
 msgid "Settings"
 msgstr ""
 
-#: admin/list/settings.php:169
+#: admin/list/settings.php:192
 msgid "Edit Panel Settings"
 msgstr ""
 
+#: admin/list/settings.php:199
+#, fuzzy
+#| msgid "Please check config.php"
+msgid "Server Configuration"
+msgstr "Please check config.php"
+
+#: admin/list/settings.php:201
+msgid "Server Timezone"
+msgstr ""
+
+#: admin/list/settings.php:353
+#, fuzzy
+#| msgid "First Name"
+msgid "Site Name"
+msgstr "First Name"
+
+#: admin/list/settings.php:360 profile.php:400
+msgid "Theme"
+msgstr ""
+
+#: admin/list/settings.php:363 profile.php:403 register.php:136
+msgid "Default"
+msgstr "Default"
+
+#: admin/list/settings.php:364 profile.php:404
+msgid "Blue"
+msgstr ""
+
+#: admin/list/settings.php:365 profile.php:405
+msgid "Purple"
+msgstr ""
+
+#: admin/list/settings.php:366 profile.php:406
+msgid "Orange"
+msgstr ""
+
+#: admin/list/settings.php:367 profile.php:407
+msgid "Dark"
+msgstr ""
+
+#: admin/list/settings.php:368
+msgid "Custom"
+msgstr ""
+
+#: admin/list/settings.php:374
+msgid "Custom Theme Colors"
+msgstr ""
+
+#: admin/list/settings.php:380
+msgid "Primary Color (Header, Active Buttons / Text, Etc.)"
+msgstr ""
+
+#: admin/list/settings.php:385
+msgid "Secondary Color (Buttons / Text)"
+msgstr ""
+
+#: admin/list/settings.php:426
+#, fuzzy
+#| msgid "Default"
+msgid "Default To Admin"
+msgstr "Default"
+
+#: admin/list/settings.php:430 admin/list/settings.php:447
+#: admin/list/settings.php:496 admin/list/settings.php:548
+#: admin/list/settings.php:557 admin/list/settings.php:566
+#: admin/list/settings.php:575 admin/list/settings.php:584
+#: admin/list/settings.php:593 admin/list/settings.php:602
+#: admin/list/settings.php:611 admin/list/settings.php:620
+#: admin/list/settings.php:629 admin/list/settings.php:638
+#: admin/list/settings.php:649 admin/list/settings.php:703 index.php:439
+#: list/dns.php:386 list/mail.php:289 list/mail.php:295 list/mail.php:301
+#: list/maildomain.php:271 list/maildomain.php:275 list/web.php:308
+msgid "Disabled"
+msgstr ""
+
+#: admin/list/settings.php:432
+msgid ""
+"Choose whether or not the admin should go to the admin panel or home after "
+"login."
+msgstr ""
+
+#: admin/list/settings.php:436
+msgid "Vesta Host Address"
+msgstr ""
+
+#: admin/list/settings.php:439
+msgid "VestaCP Host URL or IP Address"
+msgstr ""
+
+#: admin/list/settings.php:443 admin/server/vesta.php:946
+msgid "Vesta SSL"
+msgstr ""
+
+#: admin/list/settings.php:452
+msgid "Vesta Port"
+msgstr ""
+
+#: admin/list/settings.php:458
+msgid "API Method"
+msgstr ""
+
+#: admin/list/settings.php:461
+#, fuzzy
+#| msgid "Recover Password"
+msgid "Username / Password"
+msgstr "Recover Password"
+
+#: admin/list/settings.php:462
+msgid "API Key"
+msgstr ""
+
+#: admin/list/settings.php:468
+msgid "Vesta API Key"
+msgstr ""
+
+#: admin/list/settings.php:471
+msgid ""
+"Adding & editing custom SSL certificates and backup exclusions does not Work "
+"with API key. Features will be disabled."
+msgstr ""
+
+#: admin/list/settings.php:477
+msgid "Vesta Admin Username"
+msgstr ""
+
+#: admin/list/settings.php:484
+msgid "Vesta Admin Password"
+msgstr ""
+
+#: admin/list/settings.php:491
+#, fuzzy
+#| msgid "Warning"
+msgid "Warnings Enabled"
+msgstr "Warning"
+
+#: admin/list/settings.php:498
+msgid "Display messages for installation warnings and connection errors."
+msgstr ""
+
+#: admin/list/settings.php:502
+msgid "Encryption Key 1"
+msgstr ""
+
+#: admin/list/settings.php:508
+msgid "Encryption Key 2"
+msgstr ""
+
+#: admin/list/settings.php:514
+msgid "Current Favicon:"
+msgstr ""
+
+#: admin/list/settings.php:516
+msgid "New Favicon:"
+msgstr ""
+
+#: admin/list/settings.php:519
+msgid "Recommended 32x32px .ico"
+msgstr ""
+
+#: admin/list/settings.php:523
+msgid "Current Icon:"
+msgstr ""
+
+#: admin/list/settings.php:525
+msgid "New Icon:"
+msgstr ""
+
+#: admin/list/settings.php:528
+msgid ""
+"Recommended 40x40px .png or .gif. (.png, .gif, .jpg, and .jpeg up to 1MB "
+"allowed.)"
+msgstr ""
+
+#: admin/list/settings.php:533
+msgid "Current Logo:"
+msgstr ""
+
+#: admin/list/settings.php:535
+msgid "New Logo:"
+msgstr ""
+
+#: admin/list/settings.php:538
+msgid ""
+"Recommended 134x24px .png or .gif. (.png, .gif, .jpg, and .jpeg up to 1MB "
+"allowed.)"
+msgstr ""
+
+#: admin/list/settings.php:542
+msgid "Enable / Disable Sections"
+msgstr ""
+
+#: admin/list/settings.php:544
+msgid "Web Enabled"
+msgstr ""
+
+#: admin/list/settings.php:553
+msgid "DNS Enabled"
+msgstr ""
+
+#: admin/list/settings.php:562
+msgid "Mail Enabled"
+msgstr ""
+
+#: admin/list/settings.php:571
+msgid "Database Enabled"
+msgstr ""
+
+#: admin/list/settings.php:580
+msgid "Admin Panel Enabled"
+msgstr ""
+
+#: admin/list/settings.php:589
+msgid "Profile Page Enabled"
+msgstr ""
+
+#: admin/list/settings.php:598
+msgid "Cron Enabled"
+msgstr ""
+
+#: admin/list/settings.php:607
+msgid "Backups Enabled"
+msgstr ""
+
+#: admin/list/settings.php:616
+msgid "Registrations Enabled"
+msgstr ""
+
+#: admin/list/settings.php:625
+msgid "Softaculous Enabled"
+msgstr ""
+
+#: admin/list/settings.php:634
+msgid "Link to Old CP Enabled"
+msgstr ""
+
+#: admin/list/settings.php:645
+msgid "PHP Mail Enabled"
+msgstr ""
+
+#: admin/list/settings.php:655
+msgid "From Address"
+msgstr ""
+
+#: admin/list/settings.php:661
+#, fuzzy
+#| msgid "First Name"
+msgid "From Name"
+msgstr "First Name"
+
+#: admin/list/settings.php:667
+msgid "Mail Method"
+msgstr ""
+
+#: admin/list/settings.php:671
+msgid "PHP Mail"
+msgstr ""
+
+#: admin/list/settings.php:677
+msgid "SMTP Host"
+msgstr ""
+
+#: admin/list/settings.php:683
+msgid "SMTP Port"
+msgstr ""
+
+#: admin/list/settings.php:689
+msgid "SMTP Encryption"
+msgstr ""
+
+#: admin/list/settings.php:694 list/mail.php:284 list/maildomain.php:270
+#: list/web.php:294 list/web.php:298 list/web.php:303
+msgid "None"
+msgstr ""
+
+#: admin/list/settings.php:699
+msgid "Authentication Enabled"
+msgstr ""
+
+#: admin/list/settings.php:709
+#, fuzzy
+#| msgid "Username"
+msgid "SMTP Username"
+msgstr "Username"
+
+#: admin/list/settings.php:715
+#, fuzzy
+#| msgid "Password"
+msgid "SMTP Password"
+msgstr "Password"
+
+#: admin/list/settings.php:724
+msgid "Optional Links"
+msgstr ""
+
+#: admin/list/settings.php:726
+msgid "FTP Client URL"
+msgstr ""
+
+#: admin/list/settings.php:729 admin/list/settings.php:736
+#: admin/list/settings.php:743 admin/list/settings.php:750
+msgid "Leave blank for default or enter 'disabled' to disable."
+msgstr ""
+
+#: admin/list/settings.php:733
+msgid "Webmail URL"
+msgstr ""
+
+#: admin/list/settings.php:740
+msgid "phpMyAdmin URL"
+msgstr ""
+
+#: admin/list/settings.php:747
+msgid "phpPgAdmin URL"
+msgstr ""
+
+#: admin/list/settings.php:754
+msgid "Support URL"
+msgstr ""
+
+#: admin/list/settings.php:757
+msgid "Leave blank or enter 'disabled' to disable."
+msgstr ""
+
+#: admin/list/settings.php:760
+msgid "Optional Integrations"
+msgstr ""
+
 #: admin/list/settings.php:765
+msgid "Comma seperated list of installed plugins."
+msgstr ""
+
+#: admin/list/settings.php:769
+msgid "Google Analytics ID"
+msgstr ""
+
+#: admin/list/settings.php:776
+msgid "Interakt App ID"
+msgstr ""
+
+#: admin/list/settings.php:783
+msgid "Interakt API Key"
+msgstr ""
+
+#: admin/list/settings.php:790
+msgid "Cloudflare API Key"
+msgstr ""
+
+#: admin/list/settings.php:797
+#, fuzzy
+#| msgid "Invalid Email Address"
+msgid "Cloudflare Account Email Address"
+msgstr "Invalid Email Address"
+
+#: admin/list/settings.php:806
 msgid "Update Settings"
 msgstr ""
 
-#: admin/list/stats.php:76 list/web.php:242
+#: admin/list/stats.php:96 list/web.php:265
 msgid "Stats"
 msgstr ""
 
-#: admin/list/stats.php:177
+#: admin/list/stats.php:201
 msgid "User Stats"
 msgstr ""
 
-#: admin/list/stats.php:208 admin/list/stats.php:209 admin/status/disk.php:188
+#: admin/list/stats.php:232 admin/list/stats.php:233 admin/status/disk.php:211
 msgid "Disk"
 msgstr ""
 
-#: admin/list/stats.php:210 admin/status/web.php:188 edit/domain.php:89
-#: includes/includes.php:349 index.php:337 list/backup.php:227
-#: list/backups.php:225 list/web.php:69
-msgid "Web"
-msgstr ""
-
-#: admin/list/stats.php:215
+#: admin/list/stats.php:239
 msgid "IP Addresses"
 msgstr ""
 
-#: admin/list/updates.php:77 admin/list/updates.php:176
-#: includes/includes.php:317
+#: admin/list/updates.php:97 admin/list/updates.php:199
+#: includes/includes.php:337
 msgid "Updates"
 msgstr ""
 
-#: admin/list/updates.php:182
+#: admin/list/updates.php:205
 msgid "Update All"
 msgstr ""
 
-#: admin/list/updates.php:184
+#: admin/list/updates.php:207
 msgid "Disable "
 msgstr ""
 
-#: admin/list/updates.php:184
+#: admin/list/updates.php:207
 msgid "Autoupdate"
 msgstr ""
 
-#: admin/list/updates.php:184
+#: admin/list/updates.php:207
 msgid "Enable "
 msgstr ""
 
-#: admin/list/updates.php:201
+#: admin/list/updates.php:224
 msgid "Update"
 msgstr ""
 
-#: admin/list/users.php:190
+#: admin/list/users.php:212
 msgid "Manage Users"
 msgstr ""
 
-#: admin/list/users.php:196 edit/db.php:254
+#: admin/list/users.php:218 edit/db.php:276
 msgid "User"
 msgstr ""
 
-#: admin/list/users.php:294
+#: admin/list/users.php:316
 #, fuzzy
 #| msgid "Login"
 msgid "Login as"
 msgstr "Login"
 
-#: admin/status/cpu.php:69 admin/status/cpu.php:164 admin/status/db.php:69
-#: admin/status/db.php:164 admin/status/disk.php:69 admin/status/disk.php:164
-#: admin/status/dns.php:69 admin/status/dns.php:164 admin/status/mail.php:69
-#: admin/status/mail.php:164 admin/status/memory.php:69
-#: admin/status/memory.php:164 admin/status/network.php:69
-#: admin/status/network.php:164 admin/status/web.php:69
-#: admin/status/web.php:164
+#: admin/server/mysql.php:175
+msgid "View Configuration / MySQL"
+msgstr ""
+
+#: admin/server/mysql.php:183
+msgid "Max Connections"
+msgstr ""
+
+#: admin/server/mysql.php:189
+msgid "Max User Connections"
+msgstr ""
+
+#: admin/server/mysql.php:195
+msgid "Wait Timeout"
+msgstr ""
+
+#: admin/server/mysql.php:201
+msgid "Interactive Timeout"
+msgstr ""
+
+#: admin/server/mysql.php:207
+msgid "Max Allowed Packet"
+msgstr ""
+
+#: admin/server/nginx.php:175
+msgid "View Configuration / NGINX"
+msgstr ""
+
+#: admin/server/nginx.php:183
+#, fuzzy
+#| msgid "Confirm Pass"
+msgid "Configure PHP"
+msgstr "Confirm Pass"
+
+#: admin/server/nginx.php:188
+msgid "Worker Processes"
+msgstr ""
+
+#: admin/server/nginx.php:194
+msgid "Worker Connections"
+msgstr ""
+
+#: admin/server/nginx.php:200
+msgid "Client Max Body Size"
+msgstr ""
+
+#: admin/server/nginx.php:206
+msgid "Send Timeout"
+msgstr ""
+
+#: admin/server/nginx.php:212
+msgid "Proxy Connect Timeout"
+msgstr ""
+
+#: admin/server/nginx.php:218
+msgid "Proxy Send Timeout"
+msgstr ""
+
+#: admin/server/nginx.php:224
+msgid "Proxy Read Timeout"
+msgstr ""
+
+#: admin/server/nginx.php:230
+msgid "GZip"
+msgstr ""
+
+#: admin/server/nginx.php:236
+msgid "GZip Compression Level"
+msgstr ""
+
+#: admin/server/php.php:175
+msgid "View Configuration / PHP"
+msgstr ""
+
+#: admin/server/php.php:183
+msgid "Max Execution Time"
+msgstr ""
+
+#: admin/server/php.php:189
+msgid "Max Input Time"
+msgstr ""
+
+#: admin/server/php.php:195
+msgid "Memory Limit"
+msgstr ""
+
+#: admin/server/php.php:201
+#, fuzzy
+#| msgid "Error"
+msgid "Error Reporting"
+msgstr "Error"
+
+#: admin/server/php.php:207
+msgid "Display Errors"
+msgstr ""
+
+#: admin/server/php.php:213
+msgid "Post Max Size"
+msgstr ""
+
+#: admin/server/php.php:219
+msgid "Upload Max Filesize"
+msgstr ""
+
+#: admin/server/vesta.php:223
+msgid "Configure Server"
+msgstr ""
+
+#: admin/server/vesta.php:232
+#, fuzzy
+#| msgid "Username"
+msgid "Hostname"
+msgstr "Username"
+
+#: admin/server/vesta.php:686
+#, fuzzy
+#| msgid "Default"
+msgid "Default Language"
+msgstr "Default"
+
+#: admin/server/vesta.php:727
+msgid "Proxy Server"
+msgstr ""
+
+#: admin/server/vesta.php:733
+msgid "Web Server"
+msgstr ""
+
+#: admin/server/vesta.php:739
+msgid "Backend Server"
+msgstr ""
+
+#: admin/server/vesta.php:750
+msgid "DNS Server"
+msgstr ""
+
+#: admin/server/vesta.php:756
+msgid "DNS Cluster"
+msgstr ""
+
+#: admin/server/vesta.php:770
+msgid "Mail Server"
+msgstr ""
+
+#: admin/server/vesta.php:776 list/mail.php:252
+msgid "Antivirus"
+msgstr ""
+
+#: admin/server/vesta.php:782 list/mail.php:253
+msgid "Antispam"
+msgstr ""
+
+#: admin/server/vesta.php:793
+msgid "MySQL Support"
+msgstr ""
+
+#: admin/server/vesta.php:804 admin/server/vesta.php:840 edit/db.php:293
+#: list/db.php:240
+msgid "Host"
+msgstr ""
+
+#: admin/server/vesta.php:816 admin/server/vesta.php:852
+msgid "Maximum Number of Databases"
+msgstr ""
+
+#: admin/server/vesta.php:822 admin/server/vesta.php:858
+msgid "Current Number of Databases"
+msgstr ""
+
+#: admin/server/vesta.php:830
+msgid "PostgreSQL Support"
+msgstr ""
+
+#: admin/server/vesta.php:867 list/backup.php:209 list/backups.php:238
+msgid "Backup"
+msgstr ""
+
+#: admin/server/vesta.php:871
+msgid "Local Backup"
+msgstr ""
+
+#: admin/server/vesta.php:881
+msgid "Compression Level"
+msgstr ""
+
+#: admin/server/vesta.php:898
+msgid "Directory"
+msgstr ""
+
+#: admin/server/vesta.php:965 edit/domain.php:424
+msgid "Subject"
+msgstr ""
+
+#: admin/server/vesta.php:967 edit/domain.php:426
+msgid "Not Before"
+msgstr ""
+
+#: admin/server/vesta.php:968 edit/domain.php:427
+msgid "Not After"
+msgstr ""
+
+#: admin/server/vesta.php:969 edit/domain.php:428
+msgid "Signature"
+msgstr ""
+
+#: admin/server/vesta.php:970 edit/domain.php:429
+msgid "Pub Key"
+msgstr ""
+
+#: admin/server/vesta.php:971 edit/domain.php:430
+msgid "Issuer"
+msgstr ""
+
+#: admin/server/vesta.php:976
+#, fuzzy
+#| msgid "Control Panel"
+msgid "Vesta Control Panel Plugins"
+msgstr "Control Panel"
+
+#: admin/server/vesta.php:986
+msgid "FileSystem Disk Quota"
+msgstr ""
+
+#: admin/server/vesta.php:1006
+msgid "Reseller Role"
+msgstr ""
+
+#: admin/server/vesta.php:1015
+msgid "Backup Migration Manager"
+msgstr ""
+
+#: admin/server/vesta.php:1024
+msgid "SFTP Chroot"
+msgstr ""
+
+#: admin/server/vesta.php:1034
+msgid ""
+"Restrict users so that they cannot use SSH and access only their home "
+"directory. This is a commercial module, you would need to purchace license "
+"key to enable it."
+msgstr ""
+
+#: admin/server/vesta.php:1037 admin/server/vesta.php:1075
+msgid "License Key"
+msgstr ""
+
+#: admin/server/vesta.php:1043 admin/server/vesta.php:1081
+msgid "Enter License Key"
+msgstr ""
+
+#: admin/server/vesta.php:1050
+msgid "Buy License $3/Month"
+msgstr ""
+
+#: admin/server/vesta.php:1055
+msgid "Buy Lifetime License $18"
+msgstr ""
+
+#: admin/server/vesta.php:1058 admin/server/vesta.php:1096
+msgid ""
+"2Checkout.com Inc. (Ohio, USA) is a payment facilitator for goods and "
+"services provided by vestacp.com."
+msgstr ""
+
+#: admin/server/vesta.php:1062
+msgid "File Manager"
+msgstr ""
+
+#: admin/server/vesta.php:1072
+msgid ""
+"Browse, copy, edit, view, and retrieve all of your web domain files using "
+"fully featured File Manager. This is a commercial module, you would need to "
+"purchace license key to enable it."
+msgstr ""
+
+#: admin/server/vesta.php:1088
+msgid "Buy License $5/Month"
+msgstr ""
+
+#: admin/server/vesta.php:1093
+msgid "Buy Lifetime License $50"
+msgstr ""
+
+#: admin/server/vesta.php:1100 includes/includes.php:388
+msgid "Softaculous"
+msgstr ""
+
+#: admin/server/vesta.php:1110
+msgid "Plugin installation will run in background."
+msgstr ""
+
+#: admin/server/vesta.php:1110
+msgid ""
+"Softaculous is a great Auto Installer having 426 great scripts, 1115 PHP "
+"Classes and we are still adding more. Softaculous is ideal for Web Hosting "
+"companies and it could give a significant boost to your sales. These scripts "
+"cover most of the uses a customer could ever have. We have covered a wide "
+"array of Categories so that everyone could find the required script one "
+"would need to power their Web Site."
+msgstr ""
+
+#: admin/server/vesta.php:1113
+msgid "Get Premium License"
+msgstr ""
+
+#: admin/server/vesta.php:1120 edit/backupexclusions.php:243
+msgid "Save"
+msgstr ""
+
+#: admin/status/cpu.php:89 admin/status/cpu.php:187 admin/status/db.php:89
+#: admin/status/db.php:187 admin/status/disk.php:89 admin/status/disk.php:187
+#: admin/status/dns.php:89 admin/status/dns.php:187 admin/status/mail.php:89
+#: admin/status/mail.php:187 admin/status/memory.php:89
+#: admin/status/memory.php:187 admin/status/network.php:89
+#: admin/status/network.php:187 admin/status/web.php:89
+#: admin/status/web.php:186
 msgid "Server Status"
 msgstr ""
 
-#: admin/status/cpu.php:188
+#: admin/status/cpu.php:211
 #, fuzzy
 #| msgid "CP"
 msgid "CPU"
 msgstr "CP"
 
-#: admin/status/memory.php:188
+#: admin/status/memory.php:211
 msgid "Memory"
 msgstr ""
 
-#: admin/status/network.php:188
+#: admin/status/network.php:211
 msgid "Network"
 msgstr ""
 
-#: edit/backupexclusions.php:152
+#: bower_components/moment/min/locales.min.js:1
+msgid "s"
+msgstr ""
+
+#: bower_components/moment/min/locales.min.js:1
+msgid "m"
+msgstr ""
+
+#: bower_components/moment/min/locales.min.js:1
+msgid "h"
+msgstr ""
+
+#: bower_components/moment/min/locales.min.js:1
+msgid "d"
+msgstr ""
+
+#: bower_components/moment/min/locales.min.js:1
+msgid "M"
+msgstr ""
+
+#: bower_components/moment/min/locales.min.js:1
+msgid "y"
+msgstr ""
+
+#: bower_components/moment/min/moment.min.js:1
+msgid ": "
+msgstr ""
+
+#: edit/backupexclusions.php:174
 msgid "Configure Backup Exclusions"
 msgstr ""
 
-#: edit/backupexclusions.php:162
+#: edit/backupexclusions.php:184
 msgid ""
 "Type domain name, one per line. To exclude all domains use *. To exclude "
 "specific directories use the following format: domain.com:public_html/cache:"
 "public_html/tmp"
 msgstr ""
 
-#: edit/backupexclusions.php:177
+#: edit/backupexclusions.php:199
 msgid ""
 "Type domain name, one per line. To exclude all domains use *. To exclude "
 "specific accounts use following format: domain.com:info:support:postmaster"
 msgstr ""
 
-#: edit/backupexclusions.php:192
+#: edit/backupexclusions.php:214
 msgid "Type full database name, one per line. To exclude all databases use *"
 msgstr ""
 
-#: edit/backupexclusions.php:205 index.php:666 list/backups.php:230
+#: edit/backupexclusions.php:227 index.php:724 list/backups.php:254
 msgid "User Directories"
 msgstr ""
 
-#: edit/backupexclusions.php:207
+#: edit/backupexclusions.php:229
 msgid "Type directory name, one per line. To exlude all dirs use *"
 msgstr ""
 
-#: edit/backupexclusions.php:221
-msgid "Save"
-msgstr ""
-
-#: edit/backupexclusions.php:294 edit/backupexclusions.php:306
+#: edit/backupexclusions.php:307 edit/backupexclusions.php:319
 msgid "Backup Exclusions are incompatible with API Key Authentication."
 msgstr ""
 
-#: edit/cfrecord.php:194 edit/dnsrecord.php:190
+#: edit/cfrecord.php:216 edit/dnsrecord.php:212
 msgid "Edit DNS Record"
 msgstr ""
 
-#: edit/cfrecord.php:198 edit/dns.php:248 edit/dnsrecord.php:194
-#: list/cfdomain.php:254 list/dnsdomain.php:220 list/dnsdomain.php:226
+#: edit/cfrecord.php:220 edit/dns.php:272 edit/dnsrecord.php:216
+#: list/cfdomain.php:256 list/dnsdomain.php:242 list/dnsdomain.php:248
 msgid "Delete DNS"
 msgstr ""
 
-#: edit/cfrecord.php:255 edit/dnsrecord.php:298
+#: edit/cfrecord.php:277 edit/dnsrecord.php:320
 msgid "Update Record"
 msgstr ""
 
-#: edit/cfrecord.php:304 list/cfdomain.php:365
+#: edit/cfrecord.php:316 list/cfdomain.php:361
 msgid "Delete DNS Record?"
 msgstr ""
 
-#: edit/cron.php:179
+#: edit/cron.php:202
 msgid "Edit Cron Job"
 msgstr ""
 
-#: edit/cron.php:183 list/backup.php:255 list/cron.php:201
+#: edit/cron.php:206 list/backup.php:279 list/cron.php:224
 msgid "Cron Job"
 msgstr ""
 
-#: edit/cron.php:194 edit/db.php:210 edit/dns.php:273 edit/dnsrecord.php:219
-#: edit/domain.php:223 edit/mail.php:209 edit/mailaccount.php:200
+#: edit/cron.php:217 edit/db.php:232 edit/dns.php:297 edit/dnsrecord.php:241
+#: edit/domain.php:246 edit/mail.php:231 edit/mailaccount.php:222
 msgid "CREATED"
 msgstr ""
 
-#: edit/cron.php:212 edit/db.php:228 edit/dns.php:291 edit/dnsrecord.php:237
-#: edit/domain.php:241 edit/mail.php:227 edit/mailaccount.php:218 index.php:365
-#: index.php:416 index.php:529 index.php:573
+#: edit/cron.php:235 edit/db.php:250 edit/dns.php:315 edit/dnsrecord.php:259
+#: edit/domain.php:264 edit/mail.php:249 edit/mailaccount.php:240 index.php:423
+#: index.php:474 index.php:587 index.php:631
 msgid "STATUS"
 msgstr ""
 
-#: edit/cron.php:277
+#: edit/cron.php:300
 msgid "Update Cron"
 msgstr ""
 
-#: edit/cron.php:688 list/cron.php:362
+#: edit/cron.php:714 list/cron.php:379
 msgid "Delete Cron Job"
 msgstr ""
 
-#: edit/db.php:181
+#: edit/db.php:203
 msgid "Edit Database"
 msgstr ""
 
-#: edit/db.php:196 index.php:571
+#: edit/db.php:218 index.php:629
 msgid "DATABASE"
 msgstr ""
 
-#: edit/db.php:233 edit/dns.php:296 edit/dnsrecord.php:242 edit/domain.php:246
-#: edit/mail.php:232 edit/mailaccount.php:223 index.php:384 index.php:498
-#: index.php:542 list/cron.php:235 list/db.php:234 list/dns.php:332
-#: list/dnsdomain.php:285 list/mail.php:246 list/maildomain.php:234
-#: list/web.php:259
+#: edit/db.php:255 edit/dns.php:320 edit/dnsrecord.php:264 edit/domain.php:269
+#: edit/mail.php:254 edit/mailaccount.php:245 index.php:442 index.php:556
+#: index.php:600 list/cron.php:258 list/db.php:257 list/dns.php:355
+#: list/dnsdomain.php:306 list/mail.php:269 list/maildomain.php:257
+#: list/web.php:282 process/search.php:227
 msgid "Active"
 msgstr ""
 
-#: edit/db.php:233 edit/dns.php:296 edit/dnsrecord.php:242 edit/domain.php:246
-#: edit/mail.php:232 edit/mailaccount.php:223 index.php:386 index.php:500
-#: index.php:544 list/cron.php:237 list/db.php:236 list/dns.php:334
-#: list/dnsdomain.php:287 list/mail.php:248 list/maildomain.php:236
-#: list/web.php:261
+#: edit/db.php:255 edit/dns.php:320 edit/dnsrecord.php:264 edit/domain.php:269
+#: edit/mail.php:254 edit/mailaccount.php:245 index.php:444 index.php:558
+#: index.php:602 list/cron.php:260 list/db.php:259 list/dns.php:357
+#: list/dnsdomain.php:308 list/mail.php:271 list/maildomain.php:259
+#: list/web.php:284 process/search.php:208 process/search.php:229
 msgid "Suspended"
 msgstr ""
 
-#: edit/db.php:271 list/db.php:217
-msgid "Host"
-msgstr ""
-
-#: edit/db.php:290
+#: edit/db.php:312
 msgid "Update Database"
 msgstr ""
 
-#: edit/db.php:357 list/db.php:292 log.php:264
+#: edit/db.php:371 list/db.php:311
 msgid "Delete Database"
 msgstr ""
 
-#: edit/dns.php:244
+#: edit/dns.php:268
 msgid "Edit DNS Domain"
 msgstr ""
 
-#: edit/dns.php:259 edit/domain.php:209 edit/mail.php:195 index.php:361
-#: index.php:414 index.php:527 list/cfdomain.php:269 list/dnsdomain.php:241
-#: list/maildomain.php:191
+#: edit/dns.php:283 edit/domain.php:232 edit/mail.php:217 index.php:419
+#: index.php:472 index.php:585 list/cfdomain.php:271 list/dnsdomain.php:263
+#: list/maildomain.php:214
 msgid "DOMAIN"
 msgstr ""
 
-#: edit/dns.php:339
+#: edit/dns.php:363
 msgid "Expiration Date"
 msgstr ""
 
-#: edit/dns.php:353 list/dns.php:233
+#: edit/dns.php:376 list/dns.php:256
 msgid "SOA (Start of Authority)"
 msgstr ""
 
-#: edit/dns.php:358
+#: edit/dns.php:381
 msgid "TTL (Time To Live)"
 msgstr ""
 
-#: edit/dns.php:403 edit/domain.php:505 edit/mail.php:292
+#: edit/dns.php:426 edit/domain.php:528 edit/mail.php:314
 msgid "Update Domain"
 msgstr ""
 
-#: edit/dns.php:453 list/cfdomain.php:387 list/dns.php:421
-#: list/dnsdomain.php:381
+#: edit/dns.php:471 list/cfdomain.php:383 list/dns.php:440
+#: list/dnsdomain.php:399
 msgid "Delete DNS Domain"
 msgstr ""
 
-#: edit/dns.php:515
+#: edit/dns.php:532
 msgid "Error Updating DNS Domain"
 msgstr ""
 
-#: edit/dnsrecord.php:205
+#: edit/dnsrecord.php:227
 msgid "RECORD"
 msgstr ""
 
-#: edit/dnsrecord.php:290
+#: edit/dnsrecord.php:312
 msgid "Order"
 msgstr ""
 
-#: edit/dnsrecord.php:347 list/dnsdomain.php:359
+#: edit/dnsrecord.php:359 list/dnsdomain.php:378
 msgid "Delete DNS Record"
 msgstr ""
 
-#: edit/dnsrecord.php:393 edit/mail.php:388 edit/mailaccount.php:692
-#: list/maildomain.php:404
+#: edit/dnsrecord.php:404 edit/mail.php:398 edit/mailaccount.php:703
+#: list/maildomain.php:417
 msgid "Successfully updated!"
 msgstr ""
 
-#: edit/dnsrecord.php:396
+#: edit/dnsrecord.php:407
 msgid "Error Updating DNS Record"
 msgstr ""
 
-#: edit/domain.php:194
+#: edit/domain.php:217
 msgid "Edit Web Domain"
 msgstr ""
 
-#: edit/domain.php:401
-msgid "Subject"
-msgstr ""
-
-#: edit/domain.php:403
-msgid "Not Before"
-msgstr ""
-
-#: edit/domain.php:404
-msgid "Not After"
-msgstr ""
-
-#: edit/domain.php:405
-msgid "Signature"
-msgstr ""
-
-#: edit/domain.php:406
-msgid "Pub Key"
-msgstr ""
-
-#: edit/domain.php:407
-msgid "Issuer"
-msgstr ""
-
-#: edit/domain.php:642
+#: edit/domain.php:661
 msgid "Delete Domain"
 msgstr ""
 
-#: edit/domain.php:716
+#: edit/domain.php:733
 msgid "Error Updating Web Domain"
 msgstr ""
 
-#: edit/mail.php:180
+#: edit/mail.php:202
 msgid "Edit Mail Domain"
 msgstr ""
 
-#: edit/mail.php:184 edit/mailaccount.php:189 list/maildomain.php:180
+#: edit/mail.php:206 edit/mailaccount.php:211 list/maildomain.php:203
 msgid "Delete Mail"
 msgstr ""
 
-#: edit/mail.php:284
+#: edit/mail.php:306
 msgid "Catchall Email"
 msgstr ""
 
-#: edit/mail.php:342 list/mail.php:325 list/maildomain.php:326
+#: edit/mail.php:353 list/mail.php:344 list/maildomain.php:342
 msgid "Delete Mail Domain"
 msgstr ""
 
-#: edit/mail.php:391
+#: edit/mail.php:401
 msgid "Error Updating Mail Domain"
 msgstr ""
 
-#: edit/mailaccount.php:185
+#: edit/mailaccount.php:207
 msgid "Edit Mail Account"
 msgstr ""
 
-#: edit/mailaccount.php:237
+#: edit/mailaccount.php:259
 msgid "Email Addresss"
 msgstr ""
 
-#: edit/mailaccount.php:271
+#: edit/mailaccount.php:293
 msgid "One or more email addresses"
 msgstr ""
 
-#: edit/mailaccount.php:309
+#: edit/mailaccount.php:331
 msgid "Update Account"
 msgstr ""
 
-#: edit/mailaccount.php:646 list/maildomain.php:303
+#: edit/mailaccount.php:658 list/maildomain.php:321
 msgid "Delete Mail Account"
 msgstr ""
 
-#: edit/mailaccount.php:695
+#: edit/mailaccount.php:706
 msgid "Error Updating Mail Account"
 msgstr ""
 
-#: includes/includes.php:301
+#: includes/includes.php:321
 msgid "Home"
 msgstr ""
 
-#: includes/includes.php:310
+#: includes/includes.php:330
 msgid "Administration"
 msgstr ""
 
-#: includes/includes.php:316
+#: includes/includes.php:336
 msgid "Statistics"
 msgstr ""
 
-#: includes/includes.php:337 log.php:75 log.php:157 log.php:198 profile.php:202
+#: includes/includes.php:357 log.php:95 log.php:181 log.php:222 profile.php:226
 #, fuzzy
 #| msgid "Login"
 msgid "Log"
 msgstr "Login"
 
-#: includes/includes.php:362
+#: includes/includes.php:382
 msgid "Apps"
 msgstr ""
 
-#: includes/includes.php:364 list/web.php:241
-msgid "FTP"
-msgstr ""
-
-#: includes/includes.php:366 list/db.php:204
+#: includes/includes.php:386 list/db.php:227
 msgid "phpMyAdmin"
 msgstr ""
 
-#: includes/includes.php:367 list/db.php:204
+#: includes/includes.php:387 list/db.php:227
 msgid "phpPgAdmin"
 msgstr ""
 
-#: includes/includes.php:368
-msgid "Softaculous"
-msgstr ""
-
-#: includes/includes.php:371
+#: includes/includes.php:391
 msgid "Log out"
 msgstr ""
 
-#: includes/includes.php:373
+#: includes/includes.php:393
 msgid "Control Panel v1"
 msgstr ""
 
-#: includes/includes.php:374
+#: includes/includes.php:394
 msgid "Support"
 msgstr ""
 
-#: includes/includes.php:381 includes/includes.php:404 login.php:251
-#: login.php:274 register.php:163 register.php:186
+#: includes/includes.php:401 includes/includes.php:424 login.php:275
+#: login.php:298 register.php:183 register.php:206
 msgid "Warning"
 msgstr "Warning"
 
-#: includes/includes.php:382 includes/includes.php:405 login.php:252
-#: login.php:275 register.php:164 register.php:187
+#: includes/includes.php:402 includes/includes.php:425 login.php:276
+#: login.php:299 register.php:184 register.php:207
 msgid "Includes folder has not been secured"
 msgstr "Includes folder has not been secured"
 
-#: includes/includes.php:392 includes/includes.php:415 login.php:262
-#: login.php:285 register.php:174 register.php:197
+#: includes/includes.php:412 includes/includes.php:435 login.php:286
+#: login.php:309 register.php:194 register.php:217
 msgid "Database Error"
 msgstr ""
 
-#: includes/includes.php:393 includes/includes.php:416 login.php:263
-#: login.php:286 register.php:175 register.php:198
+#: includes/includes.php:413 includes/includes.php:436 login.php:287
+#: login.php:310 register.php:195 register.php:218
 msgid "MySQL Server Failed To Connect"
 msgstr ""
 
-#: index.php:96
+#: index.php:119
 msgid "Dashboard"
 msgstr ""
 
-#: index.php:226
+#: index.php:292
 msgid "Host Dashboard"
 msgstr ""
 
-#: index.php:232
+#: index.php:298
 msgid "Rebuild Account"
 msgstr ""
 
-#: index.php:233
+#: index.php:299
 msgid "Rebuild Web"
 msgstr ""
 
-#: index.php:234
+#: index.php:300
 msgid "Rebuild DNS"
 msgstr ""
 
-#: index.php:235
+#: index.php:301
 msgid "Rebuild Mail"
 msgstr ""
 
-#: index.php:236
+#: index.php:302
 msgid "Rebuild DB"
 msgstr ""
 
-#: index.php:237
+#: index.php:303
 msgid "Rebuild Cron"
 msgstr ""
 
-#: index.php:238
+#: index.php:304
 msgid "Update Counters"
 msgstr ""
 
-#: index.php:289
+#: index.php:347
 msgid "Disk Space"
 msgstr ""
 
-#: index.php:321
+#: index.php:379
 msgid "Email Addresses"
 msgstr ""
 
-#: index.php:348 list/web.php:172
+#: index.php:406 list/web.php:195
 msgid "Manage Web Domains"
 msgstr ""
 
-#: index.php:353 index.php:406 index.php:519 index.php:563
+#: index.php:411 index.php:464 index.php:577 index.php:621
 msgid "Manage"
 msgstr ""
 
-#: index.php:362
+#: index.php:420
 msgid "DISK"
 msgstr ""
 
-#: index.php:363
+#: index.php:421
 msgid "BANDWIDTH"
 msgstr ""
 
-#: index.php:364 list/web.php:244
+#: index.php:422 list/web.php:267 process/csr.php:97 process/generatecsr.php:91
 msgid "SSL"
 msgstr ""
 
-#: index.php:381 list/dns.php:363 list/mail.php:266 list/mail.php:272
-#: list/mail.php:278 list/maildomain.php:248 list/maildomain.php:252
-#: list/web.php:285
-msgid "Disabled"
-msgstr ""
-
-#: index.php:401 list/dns.php:167
+#: index.php:459 list/dns.php:190
 msgid "Manage DNS Domains"
 msgstr ""
 
-#: index.php:405
+#: index.php:463
 msgid "Add DNS"
 msgstr ""
 
-#: index.php:415 list/dns.php:191
+#: index.php:473 list/dns.php:214
 msgid "RECORDS"
 msgstr ""
 
-#: index.php:514 list/mail.php:163
+#: index.php:572 list/mail.php:186
 msgid "Manage Mail Domains"
 msgstr ""
 
-#: index.php:518
+#: index.php:576
 msgid "Add Mail"
 msgstr ""
 
-#: index.php:528 list/mail.php:186
+#: index.php:586 list/mail.php:209
 msgid "ACCOUNTS"
 msgstr ""
 
-#: index.php:558 list/db.php:166
+#: index.php:616 list/db.php:189
 msgid "Manage Databases"
 msgstr ""
 
-#: index.php:572
+#: index.php:630
 msgid "USER"
 msgstr ""
 
-#: index.php:604
+#: index.php:662
 msgid "Disk Quota Used"
 msgstr ""
 
-#: index.php:609
+#: index.php:667
 msgid "Total Disk Space"
 msgstr ""
 
-#: index.php:620
+#: index.php:678
 msgid "Disk Usage Breakdown"
 msgstr ""
 
-#: index.php:628
+#: index.php:686
 msgid "Web Data"
 msgstr ""
 
-#: index.php:640
+#: index.php:698
 msgid "Mail Data"
 msgstr ""
 
-#: index.php:741
+#: index.php:799
 msgid "Account Details"
 msgstr ""
 
-#: index.php:746 profile.php:251
+#: index.php:804 profile.php:275
 msgid "Plan"
 msgstr ""
 
-#: index.php:748
+#: index.php:806
 msgid "Disk Quota"
 msgstr ""
 
-#: list/backup.php:182
+#: list/backup.php:206
 msgid "Configure Backup"
 msgstr ""
 
-#: list/backup.php:182 list/backup.php:229 list/backup.php:236
-#: list/backup.php:243 list/backup.php:250 list/backup.php:257
-#: list/backup.php:264
+#: list/backup.php:206 list/backup.php:253 list/backup.php:260
+#: list/backup.php:267 list/backup.php:274 list/backup.php:281
+#: list/backup.php:288
 msgid "Restore"
 msgstr ""
 
-#: list/backup.php:185 list/backups.php:214
-msgid "Backup"
-msgstr ""
-
-#: list/backup.php:196
+#: list/backup.php:220
 msgid "BACKUP"
 msgstr ""
 
-#: list/backup.php:210
+#: list/backup.php:234
 msgid "Restore All"
 msgstr ""
 
-#: list/backup.php:212
+#: list/backup.php:236
 msgid "Backed Up"
 msgstr ""
 
-#: list/backup.php:212 list/backup.php:218
+#: list/backup.php:236 list/backup.php:242
 msgid "Data"
 msgstr ""
 
-#: list/backup.php:262
+#: list/backup.php:286
 msgid "User Dir"
 msgstr ""
 
-#: list/backup.php:307 list/backups.php:308
+#: list/backup.php:326 list/backups.php:328
 msgid "Delete Backup"
 msgstr ""
 
-#: list/backup.php:342 list/backups.php:340
+#: list/backup.php:360 list/backups.php:358
 msgid "Backup Scheduled!"
 msgstr ""
 
-#: list/backups.php:117
+#: list/backups.php:138
 msgid "Confirm Password"
 msgstr ""
 
-#: list/backups.php:120
+#: list/backups.php:141
 msgid "Submit"
 msgstr ""
 
-#: list/backups.php:191
+#: list/backups.php:215
 msgid "Manage Backups"
 msgstr ""
 
-#: list/backups.php:200
+#: list/backups.php:224
 msgid "BACKUPS"
 msgstr ""
 
-#: list/backups.php:214
+#: list/backups.php:238
 msgid "Schedule "
 msgstr ""
 
-#: list/backups.php:215
+#: list/backups.php:239
 msgid "Backup "
 msgstr ""
 
-#: list/backups.php:215
+#: list/backups.php:239
 msgid "Exclusions"
 msgstr ""
 
-#: list/backups.php:222
+#: list/backups.php:246
 msgid "Backup Name"
 msgstr ""
 
-#: list/backups.php:223
+#: list/backups.php:247
 msgid "Size"
 msgstr ""
 
-#: list/backups.php:229
+#: list/backups.php:253
 msgid "Cron"
 msgstr ""
 
-#: list/backups.php:232
+#: list/backups.php:256
 msgid "Runtime"
 msgstr ""
 
-#: list/backups.php:246
+#: list/backups.php:270
 msgid "Configure Restore"
 msgstr ""
 
-#: list/backups.php:249 list/backups.php:250 list/backups.php:251
-#: list/backups.php:252 list/backups.php:253 list/backups.php:254
+#: list/backups.php:273 list/backups.php:274 list/backups.php:275
+#: list/backups.php:276 list/backups.php:277 list/backups.php:278
 msgid "Not Backed Up"
 msgstr ""
 
-#: list/backups.php:343
+#: list/backups.php:361
 msgid "Restore Scheduled!"
 msgstr ""
 
-#: list/cfdomain.php:250
+#: list/cfdomain.php:252
 msgid "Manage DNS"
 msgstr ""
 
-#: list/cfdomain.php:258
+#: list/cfdomain.php:260
 msgid "Disable"
 msgstr ""
 
-#: list/cfdomain.php:258 list/dns.php:238 list/dnsdomain.php:230
+#: list/cfdomain.php:260 list/dns.php:261 list/dnsdomain.php:252
 msgid "Cloudflare"
 msgstr ""
 
-#: list/cfdomain.php:285 list/dns.php:228 list/dnsdomain.php:256
+#: list/cfdomain.php:287 list/dns.php:251 list/dnsdomain.php:278
 msgid "Records"
 msgstr ""
 
-#: list/cfdomain.php:292 list/dnsdomain.php:263
+#: list/cfdomain.php:294 list/dnsdomain.php:285
 msgid "Value"
 msgstr ""
 
-#: list/cfdomain.php:293 list/web.php:240
+#: list/cfdomain.php:295 list/web.php:263
 msgid "Proxy"
 msgstr ""
 
-#: list/cfdomain.php:308
+#: list/cfdomain.php:310
 msgid "On"
 msgstr ""
 
-#: list/cfdomain.php:310
+#: list/cfdomain.php:312
 msgid "Off"
 msgstr ""
 
-#: list/cfdomain.php:312
+#: list/cfdomain.php:314
 msgid "N/A"
 msgstr ""
 
-#: list/cron.php:164
+#: list/cron.php:187
 msgid "Manage Cron Jobs"
 msgstr ""
 
-#: list/cron.php:173
+#: list/cron.php:196
 msgid "CRON JOBS"
 msgstr ""
 
-#: list/cron.php:187 list/db.php:189 list/dns.php:206 list/mail.php:201
-#: list/web.php:211
+#: list/cron.php:210 list/db.php:212 list/dns.php:229 list/mail.php:224
+#: list/web.php:234
 msgid "SUSPENDED"
 msgstr ""
 
-#: list/cron.php:201 list/db.php:203 list/dns.php:220 list/web.php:225
+#: list/cron.php:224 list/db.php:226 list/dns.php:243 list/web.php:248
 msgid "Add "
 msgstr ""
 
-#: list/cron.php:202
+#: list/cron.php:225
 msgid "Disable Cron "
 msgstr ""
 
-#: list/cron.php:202
+#: list/cron.php:225
 msgid "Notifications"
 msgstr ""
 
-#: list/cron.php:202
+#: list/cron.php:225
 msgid "Enable Cron "
 msgstr ""
 
-#: list/cron.php:202
+#: list/cron.php:225
 msgid "Enable Cron Notifications"
 msgstr ""
 
-#: list/cron.php:209
+#: list/cron.php:232
 msgid "Job"
 msgstr ""
 
-#: list/cron.php:214
+#: list/cron.php:237
 msgid "Frequency"
 msgstr ""
 
-#: list/cron.php:385
+#: list/cron.php:401
 msgid "Suspend Cron Job"
 msgstr ""
 
-#: list/cron.php:407
+#: list/cron.php:422
 msgid "Unsuspend Cron Job"
 msgstr ""
 
-#: list/db.php:174
+#: list/db.php:197
 msgid "DATABASES"
 msgstr ""
 
-#: list/db.php:213 list/mail.php:224 list/maildomain.php:213 list/web.php:233
+#: list/db.php:236 list/mail.php:247 list/maildomain.php:236 list/web.php:256
 msgid "Disk Usage"
 msgstr ""
 
-#: list/db.php:219
+#: list/db.php:242
 msgid "Character Set"
 msgstr ""
 
-#: list/db.php:315
+#: list/db.php:333
 msgid "Suspend Database"
 msgstr ""
 
-#: list/db.php:337
+#: list/db.php:354
 msgid "Unsuspend Database"
 msgstr ""
 
-#: list/dns.php:176 list/mail.php:171 list/web.php:181
+#: list/dns.php:199 list/mail.php:194 list/web.php:204
 msgid "DOMAINS"
 msgstr ""
 
-#: list/dns.php:227
+#: list/dns.php:250
 msgid "Domain Name"
 msgstr ""
 
-#: list/dns.php:236
+#: list/dns.php:259
 msgid "Expiration"
 msgstr ""
 
-#: list/dns.php:237
+#: list/dns.php:260
 msgid "Serial"
 msgstr ""
 
-#: list/dns.php:239
+#: list/dns.php:262
 msgid "Cloudflare Level"
 msgstr ""
 
-#: list/dns.php:240
+#: list/dns.php:263
 msgid "Cloudflare SSL"
 msgstr ""
 
-#: list/dns.php:343 list/dns.php:344
+#: list/dns.php:366 list/dns.php:367
 msgid "List Records"
 msgstr ""
 
-#: list/dns.php:351
+#: list/dns.php:374
 msgid "Disable Cloudflare"
 msgstr ""
 
-#: list/dns.php:352
+#: list/dns.php:375
 msgid "Enable Cloudflare"
 msgstr ""
 
-#: list/dns.php:363
+#: list/dns.php:386
 msgid "Unavailable"
 msgstr ""
 
-#: list/dns.php:366 list/dns.php:367
+#: list/dns.php:389 list/dns.php:390
 msgid "Cloudflare Disabled"
 msgstr ""
 
-#: list/dns.php:366 list/dns.php:367
+#: list/dns.php:389 list/dns.php:390
 msgid "Cloudflare Unavailable"
 msgstr ""
 
-#: list/dns.php:444
+#: list/dns.php:462
 msgid "Suspend DNS Domain"
 msgstr ""
 
-#: list/dns.php:466
+#: list/dns.php:483
 msgid "Unsuspend DNS Domain"
 msgstr ""
 
-#: list/dns.php:494
+#: list/dns.php:510
 msgid "Cloudflare Enabled!"
 msgstr ""
 
-#: list/dns.php:497
+#: list/dns.php:513
 msgid "Cloudflare Disabled!"
 msgstr ""
 
-#: list/dnsdomain.php:216
+#: list/dnsdomain.php:238
 msgid "Manage DNS Domain"
 msgstr ""
 
-#: list/dnsdomain.php:230
+#: list/dnsdomain.php:252
 msgid "Enable"
 msgstr ""
 
-#: list/mail.php:223 list/maildomain.php:207
+#: list/mail.php:246 list/maildomain.php:230
 msgid "Accounts"
 msgstr ""
 
-#: list/mail.php:228
+#: list/mail.php:251
 msgid "CatchAll"
 msgstr ""
 
-#: list/mail.php:229
-msgid "Antivirus"
-msgstr ""
-
-#: list/mail.php:230
-msgid "Antispam"
-msgstr ""
-
-#: list/mail.php:231
+#: list/mail.php:254
 msgid "DKIM"
 msgstr ""
 
-#: list/mail.php:252
+#: list/mail.php:275
 msgid "Add Accounts"
 msgstr ""
 
-#: list/mail.php:253
+#: list/mail.php:276
 msgid "List Accounts"
 msgstr ""
 
-#: list/mail.php:261 list/maildomain.php:247 list/web.php:271 list/web.php:275
-#: list/web.php:280
-msgid "None"
-msgstr ""
-
-#: list/mail.php:348
+#: list/mail.php:366
 msgid "Suspend Mail Domain"
 msgstr ""
 
-#: list/mail.php:370
+#: list/mail.php:387
 msgid "Unsuspend Mail Domain"
 msgstr ""
 
-#: list/maildomain.php:176
+#: list/maildomain.php:199
 msgid "Manage Mail Accounts"
 msgstr ""
 
-#: list/maildomain.php:350
+#: list/maildomain.php:365
 msgid "Suspend Mail Account"
 msgstr ""
 
-#: list/maildomain.php:373
+#: list/maildomain.php:387
 msgid "Unsuspend Mail Account"
 msgstr ""
 
-#: list/maildomain.php:407
+#: list/maildomain.php:420
 msgid "Error Adding Mail Domain"
 msgstr ""
 
-#: list/web.php:196
+#: list/web.php:219
 msgid "ALIASES"
 msgstr ""
 
-#: list/web.php:239
+#: list/web.php:262
 msgid "Web "
 msgstr ""
 
-#: list/web.php:239
+#: list/web.php:262
 msgid "Template"
 msgstr ""
 
-#: list/web.php:265
+#: list/web.php:288
 msgid "View Logs"
 msgstr ""
 
-#: list/web.php:269
+#: list/web.php:292
 msgid "View Stats"
 msgstr ""
 
-#: list/web.php:334
+#: list/web.php:354
 msgid "Delete Web Domain"
 msgstr ""
 
-#: list/web.php:357
+#: list/web.php:376
 msgid "Suspend Web Domain"
 msgstr ""
 
-#: list/web.php:379
+#: list/web.php:397
 msgid "Unsuspend Web Domain"
 msgstr ""
 
-#: list/web.php:409
+#: list/web.php:426
 msgid "Error Deleting Web Domain"
 msgstr ""
 
-#: list/web.php:417
+#: list/web.php:434
 msgid "Error Creating Web Domain"
 msgstr ""
 
-#: log.php:168
+#: log.php:192
 msgid "User Log"
 msgstr ""
 
-#: log.php:197
+#: log.php:221
 msgid "Time"
 msgstr ""
 
-#: log/access.php:72 log/access.php:174
+#: log/access.php:94 log/access.php:199
 msgid "Access Log"
 msgstr ""
 
-#: log/access.php:193
+#: log/access.php:218
 msgid "AccessLog"
 msgstr ""
 
-#: log/access.php:194
+#: log/access.php:219
 #, fuzzy
 #| msgid "Error"
 msgid "ErrorLog"
 msgstr "Error"
 
-#: log/error.php:72 log/error.php:173
+#: log/error.php:94 log/error.php:199
 #, fuzzy
 #| msgid "Error"
 msgid "Error Log"
 msgstr "Error"
 
-#: log/error.php:192
+#: log/error.php:218
 msgid "Download Accesslog"
 msgstr ""
 
-#: log/error.php:193
+#: log/error.php:219
 msgid "Download Errorlog"
 msgstr ""
 
-#: login.php:55 login.php:225
+#: login.php:76 login.php:248
 msgid "Login"
 msgstr "Login"
 
-#: login.php:95
+#: login.php:118
 msgid "Account has been successfully created!"
 msgstr "Account has been successfully created!"
 
-#: login.php:97
+#: login.php:120
 msgid "Please fill out all sections of the form."
 msgstr "Please fill out all sections of the form."
 
-#: login.php:100
+#: login.php:123
 msgid "Invalid data entered in form. Please try again."
 msgstr "Invalid data entered in form. Please try again."
 
-#: login.php:103
+#: login.php:126
 msgid "Server or form error (Code: 3). Please contact support."
 msgstr "Server or form error (Code: 3). Please contact support."
 
-#: login.php:106
+#: login.php:129
 msgid "Account already exists under same username."
 msgstr "Account already exists under same username."
 
-#: login.php:109
+#: login.php:132
 msgid "System Error (Code: 12). Please contact support."
 msgstr "System Error (Code: 12). Please contact support."
 
-#: login.php:112
+#: login.php:135
 msgid "Server Error (Code: 13). Please contact support."
 msgstr "Server Error (Code: 13). Please contact support."
 
-#: login.php:115
+#: login.php:138
 msgid "Server Error (Code: 14). Please contact support."
 msgstr "Server Error (Code: 14). Please contact support."
 
-#: login.php:118
+#: login.php:141
 msgid "System Error (Code: 15). Please contact support."
 msgstr "System Error (Code: 15). Please contact support."
 
-#: login.php:121
+#: login.php:144
 msgid "Server Error (Code: 16). Please contact support."
 msgstr "Server Error (Code: 16). Please contact support."
 
-#: login.php:124
+#: login.php:147
 msgid "Server Error (Code: 17). Please contact support."
 msgstr "Server Error (Code: 17). Please contact support."
 
-#: login.php:127
+#: login.php:150
 msgid "Process Error (Code: 18). Please contact support."
 msgstr "Process Error (Code: 18). Please contact support."
 
-#: login.php:130
+#: login.php:153
 msgid "Process Error (Code: 19). Please contact support."
 msgstr "Process Error (Code: 19). Please contact support."
 
-#: login.php:133
+#: login.php:156
 msgid "Fatal Error (Code: 20). Please contact support."
 msgstr "Fatal Error (Code: 20). Please contact support."
 
-#: login.php:144 register.php:86
+#: login.php:167 register.php:105
 msgid "Control Panel"
 msgstr "Control Panel"
 
-#: login.php:151
+#: login.php:174
 msgid "Sign In to"
 msgstr "Sign In to"
 
-#: login.php:151
+#: login.php:174
 msgid "CP"
 msgstr "CP"
 
-#: login.php:152 register.php:93
+#: login.php:175 register.php:112
 msgid "Enter your details below"
 msgstr "Enter your details below"
 
-#: login.php:172
+#: login.php:195
 msgid "Loading Dashboard"
 msgstr "Loading Dashboard"
 
-#: login.php:176
+#: login.php:199
 msgid "Error: Incorrect Login."
 msgstr "Error: Incorrect Login."
 
-#: login.php:195
+#: login.php:218
 msgid "Forgot pwd?"
 msgstr "Forgot pwd?"
 
-#: login.php:199
+#: login.php:222
 msgid "Log in"
 msgstr "Log in"
 
-#: login.php:206
+#: login.php:229
 msgid "Don't have an account?"
 msgstr "Don't have an account?"
 
-#: login.php:206 register.php:122
+#: login.php:229 register.php:141
 msgid "Sign Up"
 msgstr "Sign Up"
 
-#: login.php:213
+#: login.php:236
 msgid "Recover Password"
 msgstr "Recover Password"
 
-#: login.php:214
+#: login.php:237
 msgid "Enter your username and instructions will be sent to you."
 msgstr "Enter your username and instructions will be sent to you."
 
-#: login.php:230
+#: login.php:253
 msgid "Reset"
 msgstr "Reset"
 
-#: login.php:296 register.php:208
+#: login.php:320 register.php:228
 msgid "Error"
 msgstr "Error"
 
-#: login.php:297 register.php:209
+#: login.php:321 register.php:229
 msgid "Failed to connect to server."
 msgstr "Failed to connect to server."
 
-#: login.php:297 register.php:209
+#: login.php:321 register.php:229
 #, fuzzy
 #| msgid "Please check config.php"
 msgid "Please check config."
 msgstr "Please check config.php"
 
-#: process/generatecsr.php:206
+#: process/generatecsr.php:231
 msgid "Process"
 msgstr ""
 
-#: profile.php:123
+#: process/search.php:89
+msgid "Search"
+msgstr ""
+
+#: process/search.php:194
+msgid "Search Results"
+msgstr ""
+
+#: process/search.php:204
+msgid "Result"
+msgstr ""
+
+#: process/search.php:206
+msgid "Key"
+msgstr ""
+
+#: process/search.php:207
+msgid "Parent"
+msgstr ""
+
+#: profile.php:144
 msgid "Invalid data entered in form."
 msgstr ""
 
-#: profile.php:123
+#: profile.php:144
 msgid "Please try again."
 msgstr ""
 
-#: profile.php:246
+#: profile.php:270
 msgid "Joined"
 msgstr ""
 
-#: profile.php:375
-msgid "Theme"
-msgstr ""
-
-#: profile.php:378 register.php:117
-msgid "Default"
-msgstr "Default"
-
-#: profile.php:379
-msgid "Blue"
-msgstr ""
-
-#: profile.php:380
-msgid "Purple"
-msgstr ""
-
-#: profile.php:381
-msgid "Orange"
-msgstr ""
-
-#: profile.php:382
-msgid "Dark"
-msgstr ""
-
-#: profile.php:388
+#: profile.php:413
 msgid "Update Profile"
 msgstr ""
 
-#: profile.php:518
+#: profile.php:550
 msgid "Error Updating Profile"
 msgstr ""
 
-#: register.php:40
+#: register.php:60
 msgid "Register"
 msgstr "Register"
 
-#: register.php:93
+#: register.php:112
 msgid "Sign up for"
 msgstr "Sign up for"
 
-#: register.php:97 register.php:98
+#: register.php:116 register.php:117
 msgid "2 to 28 Letters Only. Apostrophes and hyphens allowed."
 msgstr "2 to 28 Letters Only. Apostrophes and hyphens allowed."
 
-#: register.php:102
+#: register.php:121
 msgid "Invalid Email Address"
 msgstr "Invalid Email Address"
 
-#: register.php:106
+#: register.php:125
 msgid "2 to 28 Characters A-Z, 0-9, '-' '.' and '_' Only."
 msgstr "2 to 28 Characters A-Z, 0-9, '-' '.' and '_' Only."
 
-#: register.php:110
+#: register.php:129
 msgid ""
 "Minimum 6 Characters: One uppercade letter, lowercase letter and number "
 "reuired."
@@ -2586,18 +3349,18 @@ msgstr ""
 "Minimum 6 Characters: One uppercade letter, lowercase letter and number "
 "reuired."
 
-#: register.php:112
+#: register.php:131
 msgid "Confirm Pass"
 msgstr "Confirm Pass"
 
-#: register.php:127
+#: register.php:146
 msgid "Already have an account?"
 msgstr "Already have an account?"
 
-#: register.php:127
+#: register.php:146
 msgid "Sign in"
 msgstr "Sign in"
 
-#: register.php:140
+#: register.php:159
 msgid "Passwords do not match"
 msgstr "Passwords do not match"
