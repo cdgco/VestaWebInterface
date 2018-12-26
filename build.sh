@@ -110,7 +110,7 @@ if [ -f install/vesta.tar.gz ] ; then
     rm install/vesta.tar.gz
 fi
 
-tar -cvzf install/vesta.tar.gz install/vesta
+tar -cvzf install/vesta.tar.gz -C install vesta
 
 git commit -a -m "$VERSION"
 git push origin $VERSION
