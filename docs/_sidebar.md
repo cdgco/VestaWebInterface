@@ -15,6 +15,7 @@
   * [Web Based](web-config.md)
   * [Manual](manual-config.md)
   * [Branding](branding.md)
+  * [Themes](themes.md)
   * [Registrations](registrations.md)
   * [Connection Method](connection-method.md)
 
@@ -25,6 +26,7 @@
   * [Google Analytics](ga.md)
   * [Interakt](interakt.md)
   * [Plugins](plugins.md)
+  * [Search Engine](search-engine.md)
 
 * Upgrading
 
