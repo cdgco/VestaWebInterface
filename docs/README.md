@@ -1,4 +1,4 @@
-# Vesta Web Interface v0.5.3-Beta
+# Vesta Web Interface v0.5.4-Beta
 <hr>
 
 !> Beta Pre Release: Vesta Web Interface is still in beta and is available as a pre-release. Therefore there may still be missing features and bugs. If you encounter an error or have suggestions, please tell us either through GitHub Issues or the support section

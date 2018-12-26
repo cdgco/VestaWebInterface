@@ -25,12 +25,12 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.3-Beta/plugins/images/favicon.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.4-Beta/plugins/images/favicon.png">
         <title>Reset Password</title>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.3-Beta/css/style.css" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.3-Beta/css/colors/default.css" id="theme"  rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.4-Beta/css/style.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.4-Beta/css/colors/default.css" id="theme"  rel="stylesheet">
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -68,7 +68,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.6/waves.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.3-Beta/js/main.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.4-Beta/js/main.js"></script>
         <script>
             Waves.attach('.button', ['waves-effect']);
             Waves.init();
