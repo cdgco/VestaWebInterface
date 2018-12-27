@@ -8,4 +8,4 @@
 * Multiple Themes
 
 [GitHub](https://github.com/cdgco/VestaWebInterface)
-[Get Started](#vesta-web-interface)
+[Get Started](#main)
