@@ -259,7 +259,7 @@ foreach ($plugins as $result) {
                     function exitForm() { window.location.href="../list/server.php"; };
                 </script>
                 <?php hotkeys($configlocation); ?>
-                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
+                <footer class="footer text-center"><?php footer(); ?></footer>
             </div>
         </div>
         <script src="../../plugins/components/jquery/jquery.min.js"></script>

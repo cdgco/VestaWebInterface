@@ -620,4 +620,22 @@ function notifications() {
 
      }
 }
+
+function footer() {
+    
+    global $sitetitle;
+    global $configlocation;
+    global $config;
+    
+    if($config["CUSTOM_FOOTER"] != 'true') {
+    
+        echo '&copy; ' . date("Y") . ' ' . $sitetitle . '.';
+    }
+    else { echo $config["FOOTER"]; }
+    if($config["VWI_BRANDING"] != 'false') {  
+        echo ' ' . _("Vesta Web Interface") . ' ';
+        require $configlocation . 'versioncheck.php';
+        echo ' ' . _("by Carter Roeser") . '.';
+    }
+}
 ?>

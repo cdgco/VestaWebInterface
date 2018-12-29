@@ -70,6 +70,27 @@ if(isset($_POST['color2']) && $config["CUSTOM_THEME_SECONDARY"] != $_POST['color
     if (mysqli_query($conn, $sqlcolor2)) {} else { $r1 = $r1 + 1; }
     mysqli_close($conn);
 } 
+if(isset($_POST['CUSTOM_FOOTER']) && $config["CUSTOM_FOOTER"] != $_POST['CUSTOM_FOOTER']) {
+    $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
+    $footer1 = mysqli_real_escape_string($conn, $_POST['CUSTOM_FOOTER']);
+    $sqlfooter1 = "UPDATE ".$mysql_table."config SET `VALUE` = '".$footer1."' WHERE `VARIABLE` = 'CUSTOM_FOOTER';";
+    if (mysqli_query($conn, $sqlfooter1)) {} else { $r1 = $r1 + 1; }
+    mysqli_close($conn);
+} 
+if(isset($_POST['FOOTER']) && $config["FOOTER"] != $_POST['FOOTER']) {
+    $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
+    $footer2 = mysqli_real_escape_string($conn, $_POST['FOOTER']);
+    $sqlfooter2 = "UPDATE ".$mysql_table."config SET `VALUE` = '".$footer2."' WHERE `VARIABLE` = 'FOOTER';";
+    if (mysqli_query($conn, $sqlfooter2)) {} else { $r1 = $r1 + 1; }
+    mysqli_close($conn);
+} 
+if(isset($_POST['VWI_BRANDING']) && $config["VWI_BRANDING"] != $_POST['VWI_BRANDING']) {
+    $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
+    $footer3 = mysqli_real_escape_string($conn, $_POST['VWI_BRANDING']);
+    $sqlfooter3 = "UPDATE ".$mysql_table."config SET `VALUE` = '".$footer3."' WHERE `VARIABLE` = 'VWI_BRANDING';";
+    if (mysqli_query($conn, $sqlfooter3)) {} else { $r1 = $r1 + 1; }
+    mysqli_close($conn);
+} 
 if(isset($_POST['LANGUAGE']) && $locale != $_POST['LANGUAGE']) { 
     $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
     $v3 = mysqli_real_escape_string($conn, $_POST['LANGUAGE']);

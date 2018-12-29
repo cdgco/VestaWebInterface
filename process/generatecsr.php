@@ -243,7 +243,7 @@ foreach ($plugins as $result) {
                     function exitForm() { window.location.href="../edit/domain.php?domain=<?php echo $requestdomain; ?>"; };
                 </script>
                 <?php hotkeys($configlocation); ?>
-                <footer class="footer text-center">&copy; Copyright <?php echo date("Y") . ' ' . $sitetitle; ?>. All Rights Reserved. Vesta Web Interface <?php require '../includes/versioncheck.php'; ?> by Carter Roeser.</footer>
+                <footer class="footer text-center"<?php footer(); ?></footer>
             </div>
         </div>
         <script src="../plugins/components/jquery/jquery.min.js"></script>

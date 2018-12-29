@@ -122,7 +122,7 @@ foreach ($plugins as $result) {
         <![endif]-->
     </head>
 
-    <body class="fix-header" onload="checkDiv();checkDiv1();checkDiv2();checkDiv3();">
+    <body class="fix-header" onload="checkDiv();checkDiv1();checkDiv2();checkDiv3();checkDiv4();">
         <div class="preloader">
             <svg class="circular" viewBox="25 25 50 50">
                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
@@ -384,6 +384,33 @@ foreach ($plugins as $result) {
                                                     <span class="input-group-addon"><i></i></span>
                                                 </div>
                                                 <span class="help-block"><?php echo _("Secondary Color (Buttons / Text)"); ?></span>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12"><?php echo _("Custom Footer"); ?></label>
+                                        <div class="col-md-12">
+                                            <div class="radio-info">
+                                            <label class="radio-inline"><input id="footerenabled" onclick="checkDiv4();" value="true" type="radio" name="CUSTOM_FOOTER" <?php if($config["CUSTOM_FOOTER"] == 'true'){ echo 'checked'; } ?>/><?php echo _("Enabled"); ?></label>
+                                            <label class="radio-inline"><input onclick="checkDiv4();" value="false" type="radio" name="CUSTOM_FOOTER" <?php if($config["CUSTOM_FOOTER"] != 'true'){ echo 'checked'; } ?>/><?php echo _("Disabled"); ?></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="customfooter" style="margin-left: 4%;">
+                                        <div class="form-group">
+                                            <label class="col-md-12"><?php echo _("Footer Text"); ?></label>  
+                                            <div class="col-md-12">
+                                                <input id="textinput" name="FOOTER" type="text" value="<?php echo $config["FOOTER"]; ?>" class="form-control input-md">
+
+                                            </div>
+                                    </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12"><?php echo _("VWI Branding in Footer"); ?></label>
+                                        <div class="col-md-12">
+                                            <div class="radio-info">
+                                            <label class="radio-inline"><input value="true" type="radio" name="VWI_BRANDING" <?php if($config["VWI_BRANDING"] == 'true'){ echo 'checked'; } ?>/><?php echo _("Enabled"); ?></label>
+                                            <label class="radio-inline"><input onclick="pleaseDonate();" value="false" type="radio" name="VWI_BRANDING" <?php if($config["VWI_BRANDING"] != 'true'){ echo 'checked'; } ?>/><?php echo _("Disabled"); ?></label>
                                             </div>
                                         </div>
                                     </div>
@@ -827,7 +854,7 @@ foreach ($plugins as $result) {
                     function exitForm() { window.location.href="../list/users.php"; };
                 </script>
                 <?php hotkeys($configlocation); ?>
-                <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
+                <footer class="footer text-center"><?php footer(); ?></footer>
             </div>
         </div>
         <script src="../../plugins/components/jquery/jquery.min.js"></script>
@@ -889,6 +916,12 @@ foreach ($plugins as $result) {
                 }
                 else {document.getElementById('div3').style.display = 'none';}
             }
+             function checkDiv4(){
+                if(document.getElementById("footerenabled").checked) {
+                    document.getElementById('customfooter').style.display = 'block';
+                }
+                else {document.getElementById('customfooter').style.display = 'none';}
+            } 
             $(function () {
                 var color = $("#themeselect").val();
                 if(color === "custom") {
@@ -958,6 +991,24 @@ foreach ($plugins as $result) {
                         swal.showLoading()
                     }
                 })};
+            function pleaseDonate(){
+                Swal({
+                  title: 'Please consider donating.',
+                  html: "<p>VWI is provided open source and free of charge, developed in my free time. Please consider supporting the project by donating before removing the VWI branding.<br><br>- Carter Roeser (Developer)</p>",
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Donate',
+                  cancelButtonText: 'No Thanks',
+                  reverseButtons: true
+                }).then((result) => {
+                  if (result.value) {
+                    
+                        window.location.href = "https://www.paypal.me/CJREvents";
+                  }
+                })
+            }
             <?php
             
             includeScript();
