@@ -84,3 +84,6 @@ localhost / 127.0.0.1, web addresses and IP addresses are acceptable hosts.
 * Cloudflare Email: Enter your Cloudflare account email address to enable Cloudflare DNS integration. Read the [Cloudflare section](cloudflare) for more info.
 
 After configuration you must chmod the 'includes' folder to 755 to prevent any unwanted alterations to your config.
+
+
+[Video Tutorial](https://www.youtube.com/watch?v=Hw5eQKEOsYE&list=PL4JkcC_rCsyf9ha5OBrWqDS4xWC3hZgfz)

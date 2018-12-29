@@ -189,3 +189,6 @@ Ex: 'mydomain.com' or '8.8.8.8'.
 * INTERAKT_API_KEY: Create and enter your Interakt API Key to enable user management and tracking on your site. Read the [Interakt section](interakt) for more info.
 * CLOUDFLARE_API_KEY: Enter your Cloudflare Global API Key to enable Cloudflare DNS integration. Read the [Cloudflare section](cloudflare) for more info.
 * CLOUDFLARE_EMAIL: Enter your Cloudflare account email address to enable Cloudflare DNS integration. Read the [Cloudflare section](cloudflare) for more info.
+
+
+[Video Tutorial](https://www.youtube.com/watch?v=caribXoTlBU&list=PL4JkcC_rCsyf9ha5OBrWqDS4xWC3hZgfz)

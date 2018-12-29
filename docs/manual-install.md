@@ -65,3 +65,6 @@ Configure Vesta Web Interface through the web based configurator or manual confi
 
 
 Installation is now complete. Visit your URL to start using Vesta Web Interface.
+
+
+[Video Tutorial](https://www.youtube.com/watch?v=dV4endnYTuY&list=PL4JkcC_rCsyf9ha5OBrWqDS4xWC3hZgfz)

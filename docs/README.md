@@ -20,6 +20,10 @@ Vesta Web Interface is a PHP Control Panel and Web Interface that integrates wit
 
 Check out the [Demo](https://cdgtech.one/vwi/demo.php) to test out VWI before you download.
 
+## Tutorials
+
+The VWI Tutorials Series is now [availble on YouTube](https://www.youtube.com/watch?v=0BAzGkF5Y8Y&list=PL4JkcC_rCsyf9ha5OBrWqDS4xWC3hZgfz).
+
 ## Donate
 
 If you like VWI, please consider [donating](http://paypal.me/CJREvents) to show your support and help me focus more time on it.

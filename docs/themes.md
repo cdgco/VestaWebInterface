@@ -14,3 +14,6 @@ When enabling a custom theme, theme selection will be locked for non-admin users
 
 To create your own theme file, use a stylesheet from the `/css/colors` folder as a template and save the file under a custom name within the `/css/colors` folder once done.
 To apply the custom theme, enter the name of the stylesheet without the ending '.css' as the 'theme' value in your MySQL database.
+
+
+[Video Tutorial](https://www.youtube.com/watch?v=xCWJyRbRd8Q&list=PL4JkcC_rCsyf9ha5OBrWqDS4xWC3hZgfz)

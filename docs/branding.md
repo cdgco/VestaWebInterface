@@ -20,3 +20,6 @@ Favicon
 * File Type: .ico
 * Recommended 32x32 Pixels
 * MySQL Value: 'FAVICON'
+
+
+[Video Tutorial](https://www.youtube.com/watch?v=xCWJyRbRd8Q&list=PL4JkcC_rCsyf9ha5OBrWqDS4xWC3hZgfz)

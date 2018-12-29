@@ -66,3 +66,6 @@ Configure Vesta Web Interface through the web based configurator or manual confi
  - Edit the settings within the vwi_config table following the instructions from the [manual config](manual-config) page.
 
 Installation is now complete. Visit your URL to start using Vesta Web Interface.
+
+
+[Video Tutorial](https://www.youtube.com/watch?v=L73EDpc0H9Q&list=PL4JkcC_rCsyf9ha5OBrWqDS4xWC3hZgfz)

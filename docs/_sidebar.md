@@ -35,5 +35,6 @@
   * [Manual](manual-upgrade.md)
 
 * [Uninstalling](uninstall.md)
+* [Tutorials](tutorials.md)
 * [Changelog](changelog.md)
 * [Support](support.md)
