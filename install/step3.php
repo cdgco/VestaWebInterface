@@ -380,20 +380,26 @@ require '../includes/arrays.php'; include("../includes/version.php");
                             </div>
                             <div class="checkbox">
                                 <label for="ENABLE_SECTIONS-8">
-                                    <input type="checkbox" name="ENABLE_REG" id="ENABLE_SECTIONS-8">
-                                    Registrations Enabled
+                                    <input type="checkbox" name="ENABLE_NOTIFICATIONS" id="ENABLE_SECTIONS-8">
+                                    Notification System Enabled
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label for="ENABLE_SECTIONS-9">
-                                    <input type="checkbox" name="ENABLE_SOFTURL" id="ENABLE_SECTIONS-9">
+                                    <input type="checkbox" name="ENABLE_REG" id="ENABLE_SECTIONS-9">
+                                    Registrations Enabled
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label for="ENABLE_SECTIONS-10">
+                                    <input type="checkbox" name="ENABLE_SOFTURL" id="ENABLE_SECTIONS-10">
                                     Softaculous Enabled
                                 </label>
                             </div>
 
                             <div class="checkbox">
-                                <label for="ENABLE_SECTIONS-10">
-                                    <input type="checkbox" name="ENABLE_OLDCPURL" id="ENABLE_SECTIONS-10">
+                                <label for="ENABLE_SECTIONS-11">
+                                    <input type="checkbox" name="ENABLE_OLDCPURL" id="ENABLE_SECTIONS-11">
                                     Link to Old CP Enabled
                                 </label>
                             </div>

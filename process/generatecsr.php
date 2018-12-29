@@ -119,7 +119,8 @@ foreach ($plugins as $result) {
                         </a>
                     </div>
                     <ul class="nav navbar-top-links navbar-left">
-                        <li><a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs"><i class="ti-close ti-menu"></i></a></li>      
+                        <li><a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs"><i class="ti-close ti-menu"></i></a></li>
+                        <?php notifications(); ?>
                     </ul>
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
@@ -247,14 +248,16 @@ foreach ($plugins as $result) {
         </div>
         <script src="../plugins/components/jquery/jquery.min.js"></script>
         <script src="../plugins/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-       <script src="../plugins/components/sweetalert2/sweetalert2.min.js"></script>
+        <script src="../plugins/components/sweetalert2/sweetalert2.min.js"></script>
         <script src="../plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="../plugins/components/metismenu/dist/metisMenu.min.js"></script>
         <script src="../plugins/components/waves/waves.js"></script>
+        <script src="../js/notifications.js"></script>
         <script src="../js/main.js"></script>
         <script type="text/javascript">
             Waves.attach('.button', ['waves-effect']);
             Waves.init();
+            var processLocation = "";
             $('#form').submit(function(ev) {
                 ev.preventDefault();
                 processLoader();

@@ -79,6 +79,7 @@ $maildata = array_values(json_decode(curl_exec($curl3), true));
 $dbname = array_keys(json_decode(curl_exec($curl4), true));
 $dbdata = array_values(json_decode(curl_exec($curl4), true));
 $notifications = array_values(json_decode(curl_exec($curl5), true));
+$notificationkeys = array_keys(json_decode(curl_exec($curl5), true));
 
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
 setlocale(LC_CTYPE, $locale);
@@ -193,46 +194,7 @@ foreach ($plugins as $result) {
                     </div>
                     <ul class="nav navbar-top-links navbar-left">
                         <li><a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs"><i class="ti-close ti-menu"></i></a></li>
-                    <?php 
-                        
-                        // Notification System (In Progress)
-                        
-                        /* <li class="dropdown">
-                        <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#"> <i class="mdi mdi-bell"></i>
-                            <div class="notify"> <?php
-                                
-                                if($notifications[0] != '') {
-                                    $ack1 = 0; 
-                                    $ack = 0;
-                                    do {
-                                        if($notifications[$ack1]['ACK'] != 'yes') { $ack = $ack + 1; }
-                                        $ack1++;
-                                    } while (isset($notifications[$ack1])); 
-                                }
-                                if($ack != 0) { echo '<span class="heartbit"></span>'; } ?>  <span class="point"></span> </div>
-                        </a>
-                        <ul class="dropdown-menu mailbox" style="position: absolute;width: 36vw;padding: 15px;">
-                            <li>
-                                <div class="message-center">
-                                    <?php
-                            
-                                        if($notifications[0] != '') {
-                                            $x1 = 0; 
-                                            $x1x = $x1 + 1;
-                                            do {
-                                                if($notifications[$x1]['ACK'] != 'yes') { echo '<div class="mail-contnet">
-                                                        <h5><b>'.$notifications[$x1]['TOPIC'].'</b></h5><span class="pull-right"><i onclick="dismissNotification('.$x1x.');" class="fa fa-close" style="position: relative;top: -30px;"></i></span> <span class="mail-desc">'.$notifications[$x1]['NOTICE'].'</span><br><br><span class="time">' . $notifications[$x1]['DATE'] . ' ' . $notifications[$x1]['TIME'] . '</span> 
-                                                    </div><hr>'; }
-                                                $x1++;
-                                            } while (isset($notifications[$x1])); }
-                                    else { echo '<div class="mail-content"><h5>No Notifications</h5></div>'; }
-
-                                        ?>
-                                </div>
-                            </li>
-                        </ul>
-                        <!-- /.dropdown-messages -->
-                    </li> */ ?>
+                        <?php notifications(); ?>
                     </ul>
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
@@ -894,6 +856,7 @@ foreach ($plugins as $result) {
         <script src="plugins/components/footable/footable.min.js"></script>
         <script src="plugins/components/waves/waves.js"></script>
         <script src="js/main.js"></script>
+        <script src="js/notifications.js"></script>
         <script type="text/javascript">
             <?php 
             
@@ -904,7 +867,7 @@ foreach ($plugins as $result) {
             ?>
             Waves.attach('.button', ['waves-effect']);
             Waves.init();
-            
+            var processLocation = "process/";
             document.getElementById("recordcount").innerHTML = "<?php if ($recordcount == "") { echo "0";} else { echo $recordcount; } ?>  / <?php if($admindata['DNS_RECORDS'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($admindata['DNS_DOMAINS'] * $admindata['DNS_RECORDS']); } ?>";
             
             (function($){
@@ -919,19 +882,10 @@ foreach ($plugins as $result) {
                     window.location = $(this).data("href");
                 });
             });
+
             jQuery(function($){
                 $('.footable').footable();
             });
-            function dismissNotification(e){
-                e1 = String(e)
-                $.ajax({  
-                        type: "POST",  
-                        url: "process/acknowledge-notification.php",  
-                        data: { 'num': e1 },
-                        success: function(data){ console.log("Notification " + e1 + " dismissed.")},
-                        error: function(){ alert("Notification Error. Please try again later."); } 
-                    })
-            }
             
             !function(t){"use strict";function s(t,s){for(var i in s)s.hasOwnProperty(i)&&(t[i]=s[i]);return t}function i(t,i){this.el=t,this.options=s({},this.options),s(this.options,i),this._init()}i.prototype.options={start:0},i.prototype._init=function(){this.tabs=[].slice.call(this.el.querySelectorAll("nav > ul > li")),this.items=[].slice.call(this.el.querySelectorAll(".content-wrap > section")),this.current=-1,this._show(),this._initEvents()},i.prototype._initEvents=function(){var t=this;this.tabs.forEach(function(s,i){s.addEventListener("click",function(s){s.preventDefault(),t._show(i)})})},i.prototype._show=function(t){this.current>=0&&(this.tabs[this.current].className=this.items[this.current].className=""),this.current=void 0!==t?t:this.options.start>=0&&this.options.start<this.items.length?this.options.start:0,this.tabs[this.current].className="tab-current",this.items[this.current].className="content-current"},t.CBPFWTabs=i}(window);
             

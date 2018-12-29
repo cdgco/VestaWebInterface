@@ -138,7 +138,8 @@ foreach ($plugins as $result) {
                         </a>
                     </div>
                     <ul class="nav navbar-top-links navbar-left">
-                        <li><a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs"><i class="ti-close ti-menu"></i></a></li>      
+                        <li><a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs"><i class="ti-close ti-menu"></i></a></li> 
+                        <?php notifications(); ?>
                     </ul>
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
@@ -613,6 +614,15 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <label class="col-md-12"><?php echo _("Notification System Enabled"); ?></label>
+                                        <div class="col-md-12">
+                                            <div class="radio-info">
+                                            <label class="radio-inline"><input value="true" type="radio" name="ENABLE_NOTIF" <?php if($config["NOTIFICATIONS_ENABLED"] == 'true'){ echo 'checked'; } ?>/><?php echo _("Enabled"); ?></label>
+                                            <label class="radio-inline"><input value="false" type="radio" name="ENABLE_NOTIF" <?php if($config["NOTIFICATIONS_ENABLED"] != 'true'){ echo 'checked'; } ?>/><?php echo _("Disabled"); ?></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Registrations Enabled"); ?></label>
                                         <div class="col-md-12">
                                             <div class="radio-info">
@@ -832,11 +842,12 @@ foreach ($plugins as $result) {
         <script src="../../plugins/components/select2/select2.min.js"></script>
         <script src="../../plugins/components/waves/waves.js"></script>
         <script src="../../plugins/components/popper.js/popper.js"></script>
+        <script src="../../js/notifications.js"></script>
         <script src="../../js/main.js"></script>
         <script type="text/javascript">
             Waves.attach('.button', ['waves-effect']);
             Waves.init();
-            
+            var processLocation = "../../process/";
             <?php 
             $pluginlocation = "../../plugins/"; if(isset($pluginnames[0]) && $pluginnames[0] != '') { $currentplugin = 0; do { if (strtolower($pluginhide[$currentplugin]) != 'y' && strtolower($pluginhide[$currentplugin]) != 'yes') { if (strtolower($pluginadminonly[$currentplugin]) != 'y' && strtolower($pluginadminonly[$currentplugin]) != 'yes') { if (strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; } else { $currentstring = "<li><a href='".$pluginlocation.$pluginlinks[$currentplugin]."/'><i class='fa ".$pluginicons[$currentplugin]." fa-fw'></i><span class='hide-menu'>"._($pluginnames[$currentplugin])."</span></a></li>"; }} else { if(strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";} } else { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; }}} echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');\n var plugindata" . $currentplugin . " = \"" . $currentstring . "\";\n plugincontainer" . $currentplugin . ".innerHTML += plugindata" . $currentplugin . ";\n"; } $currentplugin++; } while ($pluginnames[$currentplugin] != ''); } ?> 
             $('#form').submit(function(ev) {

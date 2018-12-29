@@ -55,19 +55,19 @@ if(isset($_POST['THEME']) && $config["THEME"] != $_POST['THEME']) {
     if (mysqli_query($conn, $sql2)) {} else { $r1 = $r1 + 1; }
     mysqli_close($conn);
 } 
-if(isset($_POST['color1']) && $config["CUSTOM_THEME_PRIMARY"] != $_POST['color2']) { 
+if(isset($_POST['color1']) && $config["CUSTOM_THEME_PRIMARY"] != $_POST['color1']) { 
     $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-    $v25 = mysqli_real_escape_string($conn, $_POST['color1']);
-    $sql25 = "UPDATE ".$mysql_table."config SET `VALUE` = '".$v25."' WHERE `VARIABLE` = 'CUSTOM_THEME_PRIMARY';";
-    if (mysqli_query($conn, $sql25)) {} else { $r1 = $r1 + 1; }
+    $vcolor1 = mysqli_real_escape_string($conn, $_POST['color1']);
+    $sqlcolor1 = "UPDATE ".$mysql_table."config SET `VALUE` = '".$vcolor1."' WHERE `VARIABLE` = 'CUSTOM_THEME_PRIMARY';";
+    if (mysqli_query($conn, $sqlcolor1)) {} else { $r1 = $r1 + 1; }
     mysqli_close($conn);
 } 
 
 if(isset($_POST['color2']) && $config["CUSTOM_THEME_SECONDARY"] != $_POST['color2']) { 
     $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-    $v26 = mysqli_real_escape_string($conn, $_POST['color2']);
-    $sql26 = "UPDATE ".$mysql_table."config SET `VALUE` = '".$v26."' WHERE `VARIABLE` = 'CUSTOM_THEME_SECONDARY';";
-    if (mysqli_query($conn, $sql26)) {} else { $r1 = $r1 + 1; }
+    $vcolor2 = mysqli_real_escape_string($conn, $_POST['color2']);
+    $sqlcolor2 = "UPDATE ".$mysql_table."config SET `VALUE` = '".$vcolor2."' WHERE `VARIABLE` = 'CUSTOM_THEME_SECONDARY';";
+    if (mysqli_query($conn, $sqlcolor2)) {} else { $r1 = $r1 + 1; }
     mysqli_close($conn);
 } 
 if(isset($_POST['LANGUAGE']) && $locale != $_POST['LANGUAGE']) { 
@@ -247,6 +247,13 @@ if(isset($_POST['ENABLE_BACKUPS']) && $config["BACKUPS_ENABLED"] != $_POST['ENAB
     $d10 = mysqli_real_escape_string($conn, $_POST['ENABLE_BACKUPS']);
     $sql22 = "UPDATE ".$mysql_table."config SET `VALUE` = '".$d10."' WHERE `VARIABLE` = 'BACKUPS_ENABLED';";
     if (mysqli_query($conn, $sql22)) {} else { $r1 = $r1 + 1; }
+    mysqli_close($conn);
+} 
+if(isset($_POST['ENABLE_NOTIF']) && $config["NOTIFICATIONS_ENABLED"]  != $_POST['ENABLE_NOTIF']) { 
+    $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
+    $dnotif = mysqli_real_escape_string($conn, $_POST['ENABLE_NOTIF']);
+    $sqlnotif = "UPDATE ".$mysql_table."config SET `VALUE` = '".$dnotif."' WHERE `VARIABLE` = 'NOTIFICATIONS_ENABLED';";
+    if (mysqli_query($conn, $sqlnotif)) {} else { $r1 = $r1 + 1; }
     mysqli_close($conn);
 } 
 if(isset($_POST['ENABLE_REG']) && $config["REGISTRATIONS_ENABLED"]  != $_POST['ENABLE_REG']) { 

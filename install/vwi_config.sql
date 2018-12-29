@@ -56,6 +56,7 @@ INSERT INTO `vwi_config` (`VARIABLE`, `VALUE`) VALUES
 ('PROFILE_ENABLED', 'true'),
 ('CRON_ENABLED', 'true'),
 ('BACKUPS_ENABLED', 'true'),
+('NOTIFICATIONS_ENABLED', 'true'),
 ('REGISTRATIONS_ENABLED', 'false'),
 ('SOFTACULOUS_URL', 'false'),
 ('OLD_CP_LINK', 'false'),

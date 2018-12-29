@@ -56,6 +56,8 @@ if($_POST['ENABLE_BACKUPS'] == 'on'){ $backupsenabled = 'true'; }
 else { $backupsenabled = 'false'; }
 if($_POST['ENABLE_REG'] == 'on'){ $regenabled = 'true'; }
 else { $regenabled = 'false'; }
+if($_POST['ENABLE_NOTIFICATIONS'] == 'on'){ $notifenabled = 'true'; }
+else { $notifenabled = 'false'; }
 
 $con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
 
@@ -124,6 +126,7 @@ $sql3 = "INSERT INTO `".$mysql_table."config` (`VARIABLE`, `VALUE`) VALUES
 ('PROFILE_ENABLED', '".$profileenabled."'),
 ('CRON_ENABLED', '".$cronenabled."'),
 ('BACKUPS_ENABLED', '".$backupsenabled."'),
+('NOTIFICATIONS_ENABLED', '".$notifenabled."'),
 ('REGISTRATIONS_ENABLED', '".$regenabled."'),
 ('SOFTACULOUS_URL', '".$softaculouslink."'),
 ('OLD_CP_LINK', '".$oldcplink."'),
@@ -154,6 +157,18 @@ $sql3 = "INSERT INTO `".$mysql_table."config` (`VARIABLE`, `VALUE`) VALUES
 if (mysqli_query($con, $sql3)) {} else { echo "Error populating table: " . mysqli_error($con); }
 
 mysqli_close($con);
+
+$con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
+
+$sql4 = "ALTER TABLE `".$mysql_table."config` ADD PRIMARY KEY (`VARIABLE`);";
+
+ALTER TABLE `vwi_config`
+  ADD PRIMARY KEY (`VARIABLE`);
+
+if (mysqli_query($con, $sql4)) {} else { echo "Error altering table: " . mysqli_error($con); }
+
+mysqli_close($con);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

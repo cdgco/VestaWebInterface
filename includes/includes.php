@@ -201,6 +201,12 @@ if($config["BACKUPS_ENABLED"] != 'true'){
 else{
     $backupsenabled = $config["BACKUPS_ENABLED"];
 }
+if($config["NOTIFICATIONS_ENABLED"] != 'true'){
+    $notifenabled = '';
+}
+else{
+    $notifenabled = $config["NOTIFICATIONS_ENABLED"];
+}
 if($config["REGISTRATIONS_ENABLED"] != 'true'){
     $regenabled = '';
 }
@@ -339,6 +345,7 @@ function adminMenu($l2, $a1) {
                     <li> <a href="' . $l2 . 'server.php"'; if($a1 == 'server') { echo ' class="active"'; } echo '><i class="fa fa-server fa-fw"></i><span class="hide-menu">' . _("Server") . '</span></a> </li>
                     <li> <a href="' . $l2 . 'settings.php"'; if($a1 == 'settings') { echo ' class="active"'; } echo '><i class="fa fa-cogs fa-fw"></i><span class="hide-menu">' . _("Settings") . '</span></a> </li>
                     <li> <a href="' . $l2 . 'plugins.php"'; if($a1 == 'plugins') { echo ' class="active"'; } echo '><i class="fa fa-puzzle-piece fa-fw"></i><span class="hide-menu">' . _("Plugins") . '</span></a> </li>
+                    <li> <a href="' . $l2 . 'notifications.php"'; if($a1 == 'notifications') { echo ' class="active"'; } echo '><i class="fa fa-bell fa-fw"></i><span class="hide-menu">' . _("Notifications") . '</span></a> </li>
                 </ul>
             </li>';
     } 
@@ -551,5 +558,66 @@ function searchURL($result, $type, $key, $parent) {
         if($key == "RECORD") { $outputlink = "../process/record-to-id.php?dnsdomain=" . $parent . "&recordvalue=" . $result; return $outputlink; }
         if($key == "DOMAIN") { $outputlink = "../list/dnsdomain.php?domain=" . $result; return $outputlink; }    
     }
+}
+
+function notifications() {
+    
+    global $notifenabled;
+    
+    if($notifenabled == "true") {
+
+        global $vst_apikey;
+        global $vst_url;
+        global $vst_username;
+        global $vst_password;
+        global $username;
+
+        $curlnotif = curl_init();
+
+        curl_setopt($curlnotif, CURLOPT_URL, $vst_url);
+        curl_setopt($curlnotif, CURLOPT_RETURNTRANSFER,true);
+        curl_setopt($curlnotif, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($curlnotif, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($curlnotif, CURLOPT_POST, true);
+        curl_setopt($curlnotif, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user-notifications','arg1' => $username,'arg2' => 'json')));
+
+        $notifications = array_values(json_decode(curl_exec($curlnotif), true));
+        $notificationkeys = array_keys(json_decode(curl_exec($curlnotif), true));
+
+
+        echo '<li class="dropdown vwi-notif">
+                <a class="dropdown-toggle waves-effect waves-light" href="javascript:void(0);">';
+
+                    if($notifications[0] != '') {
+                        $ack1 = 0; 
+                        $ack = 0;
+                        do {
+                            if($notifications[$ack1]['ACK'] != 'yes') { $ack = $ack + 1; }
+                            $ack1++;
+                        } while (isset($notifications[$ack1])); 
+                    }
+                    if($ack != 0) { echo '<i id="bell" class="fa fa-bell"></i><div id="activenotification" class="notify"><span id="heartbeat" class="heartbit"></span><span id="point" class="point"></span>'; } 
+                else { echo '<i class="fa fa-bell-o"></i><div class="notify">'; }
+                echo '</div>
+                </a>
+                <ul class="dropdown-menu mailbox" style="position: absolute;width: 36vw;padding: 15px;">
+                    <li>
+                        <div class="message-center">
+                            <div class="mail-content" id="nonotifications"><hr><h5>No Notifications</h5></div>';
+                                if($notifications[0] != '') {
+                                    $x1 = 0;
+                                    do {
+                                        if($notifications[$x1]['ACK'] != 'yes') { echo '<div class="mail-content mail-content-notif" id="notification'.$notificationkeys[$x1].'"><hr>
+                                                <h5><b>'.$notifications[$x1]['TOPIC'].'</b></h5><span class="pull-right" style="cursor:pointer;"><i onclick="dismissNotification('.$notificationkeys[$x1].');" class="fa fa-close" style="position: relative;top: -30px;"></i></span> <span class="mail-desc">'.$notifications[$x1]['NOTICE'].'</span><br><br><span class="time">' . $notifications[$x1]['DATE'] . ' ' . $notifications[$x1]['TIME'] . '</span></div>'; }
+                                        $x1++;
+                                    } while (isset($notifications[$x1])); 
+                                    echo '<hr>';
+                                }
+                        echo '</div>
+                    </li>
+                </ul>
+            </li>';
+
+     }
 }
 ?>

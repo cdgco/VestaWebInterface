@@ -27,24 +27,20 @@ $configlocation = "../../includes/";
 if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' );};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../../login.php?to=admin/add/ip.php'); }
+else { header('Location: ../login.php?to=admin/list/plugins.php'.$urlquery.$_SERVER['QUERY_STRING']); }
 if($username != 'admin') { header("Location: ../../"); }
 
 if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
 
 $postvars = array(
     array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
-    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-interfaces','arg1' => 'json'),
-    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-users','arg1' => 'json')
-);
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-users','arg1' => 'json'));
 
 $curl0 = curl_init();
 $curl1 = curl_init();
-$curl2 = curl_init();
 $curlstart = 0; 
 
-
-while($curlstart <= 2) {
+while($curlstart <= 1) {
     curl_setopt(${'curl' . $curlstart}, CURLOPT_URL, $vst_url);
     curl_setopt(${'curl' . $curlstart}, CURLOPT_RETURNTRANSFER,true);
     curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYPEER, false);
@@ -55,8 +51,7 @@ while($curlstart <= 2) {
 } 
 
 $admindata = json_decode(curl_exec($curl0), true)[$username];
-$ipname = json_decode(curl_exec($curl1), true);
-$uxname = array_keys(json_decode(curl_exec($curl2), true));
+$uxname = array_keys(json_decode(curl_exec($curl1), true));
 $useremail = $admindata['CONTACT'];
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
 setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
@@ -71,7 +66,6 @@ foreach ($plugins as $result) {
             $arr = json_decode(json_encode((array)$xml), TRUE);
             if (isset($arr['name']) && !empty($arr['name']) && isset($arr['fa-icon']) && !empty($arr['fa-icon']) && isset($arr['section']) && !empty($arr['section']) && isset($arr['admin-only']) && !empty($arr['admin-only']) && isset($arr['new-tab']) && !empty($arr['new-tab']) && isset($arr['hide']) && !empty($arr['hide'])){
                 array_push($pluginlinks,$result);
-                array_push($pluginnames,$arr['name']);
                 array_push($pluginicons,$arr['fa-icon']);
                 array_push($pluginsections,$arr['section']);
                 array_push($pluginadminonly,$arr['admin-only']);
@@ -91,25 +85,37 @@ foreach ($plugins as $result) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/ico" href="../../plugins/images/<?php echo $cpfavicon; ?>">
-        <title><?php echo $sitetitle; ?> - <?php echo _("IP"); ?></title>
+        <title><?php echo $sitetitle; ?> - <?php echo _("Notifications"); ?></title>
         <link href="../../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../plugins/components/footable/footable.bootstrap.css" rel="stylesheet">
         <link href="../../plugins/components/jquery-toast-plugin/jquery.toast.min.css" rel="stylesheet">
+        <link href="../../plugins/components/select2/select2.min.css" rel="stylesheet"/>
         <link href="../../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
-        <link href="../../plugins/components/select2/select2.min.css" rel="stylesheet">
         <link href="../../plugins/components/animate.css/animate.min.css" rel="stylesheet">
-        link rel="stylesheet" href="../../plugins/components/sweetalert2/sweetalert2.min.css" />
+        <link rel="stylesheet" href="../../plugins/components/sweetalert2/sweetalert2.min.css" />
         <link href="../../css/style.css" rel="stylesheet">
         <link href="../../css/colors/<?php if(isset($_COOKIE['theme']) && $themecolor != 'custom.css') { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
         <?php if($themecolor == "custom.css") { require( '../../css/colors/custom.php'); } ?>
+        <style>
+            @media screen and (max-width: 1199px) {
+                .resone { display:none !important;}
+            }  
+            @media screen and (max-width: 767px) {
+                .restwo { display:none !important;}
+            }    
+            @media screen and (max-width: 480px) {
+                .resthree { display:none !important;}
+            } 
+        </style>
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
-        <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?> 
+        <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?>
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->   
+        <![endif]-->
     </head>
 
-    <body class="fix-header" onload="checkDiv();">
+    <body class="fix-header">
         <div class="preloader">
             <svg class="circular" viewBox="25 25 50 50">
                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
@@ -125,7 +131,7 @@ foreach ($plugins as $result) {
                         </a>
                     </div>
                     <ul class="nav navbar-top-links navbar-left">
-                        <li><a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs"><i class="ti-close ti-menu"></i></a></li>
+                        <li><a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs"><i class="ti-close ti-menu"></i></a></li>  
                         <?php notifications(); ?>
                     </ul>
                     <ul class="nav navbar-top-links navbar-right pull-right">
@@ -166,7 +172,7 @@ foreach ($plugins as $result) {
                     </div>
                     <ul class="nav" id="side-menu">
                         <?php indexMenu("../../"); 
-                              adminMenu("../list/", "ip");
+                              adminMenu("./", "notifications");
                               profileMenu("../../");
                               primaryMenu("../../list/", "../../process/", "");
                         ?>
@@ -177,56 +183,26 @@ foreach ($plugins as $result) {
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title"><?php echo _("Add IP Address"); ?></h4>
+                            <h4 class="page-title"><?php echo _("Notifications"); ?></h4>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box">
-                                <form class="form-horizontal form-material" autocomplete="off" method="post" id="form" action="../create/ip.php">
-                                    <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("IP Address"); ?></label>
-                                        <div class="col-md-12">
-                                            <input type="text" name="v_address" autocomplete="new-password" class="form-control form-control-line" required> 
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Netmask"); ?></label>
-                                        <div class="col-md-12">
-                                            <input type="text" name="v_netmask" autocomplete="new-password" class="form-control form-control-line" required> 
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Interface"); ?></label>
-                                        <div class="col-md-12">
-                                            <select class="form-control select2" name="v_interface" id="typeselect">
-                                                <?php
-                                                if($ipname[0] != '') {
-                                                    $x1 = 0; 
-
-                                                    do {
-                                                        echo '<option value="' . $ipname[$x1] . '">' . $ipname[$x1] . '</option>';
-                                                        $x1++;
-                                                    } while ($ipname[$x1] != ''); }
-                                                ?>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Shared"); ?></label>
-                                        <div class="col-md-12">
-                                            <div class="checkbox checkbox-info">
-                                                <input id="checkbox4" type="checkbox" name="v_shared" onclick="checkDiv();" checked>
-                                                <label for="checkbox4"><?php echo _("Enabled"); ?></label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="shared-div" style="margin-left: 4%;display:none;">
+                                <h3 class="box-title m-b-0"><?php echo _("Send Notifications"); ?></h3><br>
+                                <?php if($notifenabled != 'true') {
+    
+                                    echo _('Notification System Disabled. Please enable the notification system from the VWI settings menu to send notifications.');
+                                    }
+                                else {
+                                    echo '
+                                    <form class="form-horizontal form-material" autocomplete="off" method="post" id="form" action="../process/send-notification.php">
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Assigned User"); ?></label>
+                                            <label class="col-md-12">' . _("Send To:") . '</label>
                                             <div class="col-md-12">
-                                                <select class="form-control select2" name="v_assigned" id="typeselect">
-                                                    <?php
+                                                <select class="form-control select2" name="to-user">
+                                                    <option value="*vwi-value-all-users*">All Users</option>';
+                                                    
                                                     if($uxname[0] != '') {
                                                         $x2 = 0; 
 
@@ -234,39 +210,37 @@ foreach ($plugins as $result) {
                                                             echo '<option value="' . $uxname[$x2] . '">' . $uxname[$x2] . '</option>';
                                                             $x2++;
                                                         } while ($uxname[$x2] != ''); }
-                                                    ?>
-                                                </select>
+
+                                                echo '</select>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Assigned Domain"); ?></label>
-                                        <div class="col-md-12">
-                                            <input type="text" name="v_domain" autocomplete="new-password" class="form-control form-control-line"> 
-                                            <small class="form-text text-muted"><?php echo _("Optional"); ?></small>
+                                        <div class="form-group">
+                                            <label class="col-md-12">' . _("Title") . '</label>
+                                            <div class="col-md-12">
+                                                <input type="text" name="title" class="form-control form-control-line" required> 
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("NAT IP Association"); ?></label>
-                                        <div class="col-md-12">
-                                            <input type="text" name="v_nat" autocomplete="new-password" class="form-control form-control-line"> 
-                                            <small class="form-text text-muted"><?php echo _("Optional"); ?></small>
-                                        </div>
-                                    </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12">' . _("Message") . '</label>
+                                            <div class="col-md-12">
+                                                <textarea class="form-control form-control-line" name="message" required rows="3"></textarea>
+                                            </div>
+                                          </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" type="submit"><?php echo _("Add IP"); ?></button> &nbsp;
-                                            <a href="../list/ip.php" onclick="loadLoader();" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
+                                            <button class="btn btn-success" type="submit">' . _("Send Notification") . '</button> &nbsp;
                                         </div>
                                     </div>
-                                </form>
+                                </form>';
+                                    
+                                } ?>
+                                
                             </div>
                         </div>
                     </div>
                 </div>
                 <script> 
                     function submitForm() { document.getElementById("form").submit(); };
-                    function exitForm() { window.location.href="../list/ip.php"; };
                 </script>
                 <?php hotkeys($configlocation); ?>
                 <footer class="footer text-center">&copy; <?php echo date("Y") . ' ' . $sitetitle; ?>. <?php echo _("Vesta Web Interface"); ?> <?php require '../../includes/versioncheck.php'; ?> <?php echo _("by Carter Roeser"); ?>.</footer>
@@ -276,9 +250,11 @@ foreach ($plugins as $result) {
         <script src="../../plugins/components/jquery-toast-plugin/jquery.toast.min.js"></script>
         <script src="../../plugins/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
         <script src="../../plugins/components/sweetalert2/sweetalert2.min.js"></script>
+        <script src="../../plugins/components/select2/select2.min.js"></script>
         <script src="../../plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="../../plugins/components/metismenu/dist/metisMenu.min.js"></script>
-        <script src="../../plugins/components/select2/select2.min.js"></script>
+        <script src="../../plugins/components/moment/moment.min.js"></script>
+        <script src="../../plugins/components/footable/footable.min.js"></script>
         <script src="../../plugins/components/waves/waves.js"></script>
         <script src="../../js/notifications.js"></script>
         <script src="../../js/main.js"></script>
@@ -289,20 +265,8 @@ foreach ($plugins as $result) {
             <?php 
             $pluginlocation = "../../plugins/"; if(isset($pluginnames[0]) && $pluginnames[0] != '') { $currentplugin = 0; do { if (strtolower($pluginhide[$currentplugin]) != 'y' && strtolower($pluginhide[$currentplugin]) != 'yes') { if (strtolower($pluginadminonly[$currentplugin]) != 'y' && strtolower($pluginadminonly[$currentplugin]) != 'yes') { if (strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; } else { $currentstring = "<li><a href='".$pluginlocation.$pluginlinks[$currentplugin]."/'><i class='fa ".$pluginicons[$currentplugin]." fa-fw'></i><span class='hide-menu'>"._($pluginnames[$currentplugin])."</span></a></li>"; }} else { if(strtolower($pluginnewtab[$currentplugin]) == 'y' || strtolower($pluginnewtab[$currentplugin]) == 'yes') { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/' target='_blank'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>";} } else { if($username == 'admin') { $currentstring = "<li><a href='" . $pluginlocation . $pluginlinks[$currentplugin] . "/'><i class='fa " . $pluginicons[$currentplugin] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$currentplugin] ) . "</span></a></li>"; }}} echo "var plugincontainer" . $currentplugin . " = document.getElementById ('append" . $pluginsections[$currentplugin] . "');\n var plugindata" . $currentplugin . " = \"" . $currentstring . "\";\n plugincontainer" . $currentplugin . ".innerHTML += plugindata" . $currentplugin . ";\n"; } $currentplugin++; } while ($pluginnames[$currentplugin] != ''); } ?> 
 
-            $('#form').submit(function(ev) {
-                ev.preventDefault();
-                processLoader();
-                this.submit();
-            });
-            
-            function checkDiv(){
-                if(document.getElementById("checkbox4").checked) {
-                    document.getElementById('shared-div').style.display = 'none';
-                }
-                else {document.getElementById('shared-div').style.display = 'block';}
-            }
-            $(document).ready(function() {
-                $('.select2').select2();
+            jQuery(function($){
+                $('.footable').footable();
             });
             function processLoader(){
                 swal({
@@ -320,13 +284,27 @@ foreach ($plugins as $result) {
                         swal.showLoading()
                     }
                 })};
-            <?php
             
+            $('#form').submit(function(ev) {
+                ev.preventDefault();
+                processLoader();
+                this.submit();
+            });
+            $(document).ready(function() {
+                $('.select2').select2();
+            });
+            <?php
+
             includeScript();
             
             if(isset($_GET['error']) && $_GET['error'] == "1") {
                 echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
             } 
+            if(isset($_POST['r1']) && $_POST['r1'] == "0") {
+                echo "swal({title:'" . _("Notification Sent!") . "', type:'success'});";
+            } 
+            if(isset($_POST['r1']) && $_POST['r1'] > "0") { echo "swal({title:'Error Sending Notification<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+                                                                    }
             ?>
         </script>
     </body>
