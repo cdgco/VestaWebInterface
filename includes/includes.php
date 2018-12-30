@@ -439,48 +439,49 @@ function primaryMenu($l4, $l5, $a2) {
 }
 function includeScript() {
     global $configlocation; global $mysqldown; global $initialusername; global $warningson;
+    echo 'const toast1 = Swal.mixin({
+              toast: true,
+              position: "top-end",
+              showConfirmButton: false,
+              timer: 3500
+            });
+          const toast2 = Swal.mixin({
+              toast: true,
+              position: "top-end",
+              showConfirmButton: false
+            });';
+      
+    
     if($warningson == "all"){
         if(substr(sprintf('%o', fileperms($configlocation)), -4) == '0777') {
-            echo "$.toast({
-                    heading: '"._("Warning")."', 
-                    text: '"._("Includes folder has not been secured")."',
-                    icon: 'warning',
-                    position: 'top-right',
-                    hideAfter: 3500,
-                    bgColor: '#ff8000'
+            echo "toast1({
+                    type: 'warning',
+                    text: '"._("Includes folder has not been secured")."'
                 });";
 
         } 
         if(isset($mysqldown) && $mysqldown == 'yes') {
-            echo "$.toast({
-                    heading: '" . _("Database Error") . "',
-                    text: '" . _("MySQL Server Failed To Connect") . "',
-                    icon: 'error',
-                    position: 'top-right',
-                    hideAfter: false
+            echo "toast2({
+                    type: 'error',
+                    title: '" . _("Database Error") . "',
+                    text: '" . _("MySQL Server Failed To Connect") . "'
                 });";
 
         } 
     }
     elseif($warningson == "admin" && $initialusername == "admin"){
         if(substr(sprintf('%o', fileperms($configlocation)), -4) == '0777') {
-            echo "$.toast({
-                    heading: '"._("Warning")."', 
-                    text: '"._("Includes folder has not been secured")."',
-                    icon: 'warning',
-                    position: 'top-right',
-                    hideAfter: 3500,
-                    bgColor: '#ff8000'
+            echo "toast1({
+                    type: 'warning',
+                    text: '"._("Includes folder has not been secured")."'
                 });";
 
         } 
         if(isset($mysqldown) && $mysqldown == 'yes') {
-            echo "$.toast({
-                    heading: '" . _("Database Error") . "',
-                    text: '" . _("MySQL Server Failed To Connect") . "',
-                    icon: 'error',
-                    position: 'top-right',
-                    hideAfter: false
+            echo "toast2({
+                    type: 'error',
+                    title: '" . _("Database Error:") . "',
+                    text: '" . _("MySQL Server Failed To Connect") . "'
                 });";
 
         } 
@@ -566,7 +567,7 @@ function hotKeys($conflocation) {
                             case "ctrl+backspace":exitForm();break;
                             case "backspace":{if (document.referrer.indexOf(window.location.host) !== -1) { history.go(-1); return false; } else { window.location.href = \'' . $conflocation . '../index.php\'; };break;}
                             case "ctrl+l":window.location.href = "' . $conflocation . '../process/logout.php";break;
-                            case "esc":{$.toast().reset(\'all\');break;}
+                            case "esc":{Swal.close();break;}
                           }
                         });
                         if(typeof addNewObj != \'function\'){

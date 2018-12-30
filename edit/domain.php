@@ -111,7 +111,6 @@ foreach ($plugins as $result) {
         <link rel="icon" type="image/ico" href="../plugins/images/<?php echo $cpfavicon; ?>">
         <title><?php echo $sitetitle; ?> - <?php echo _("Web"); ?></title>
         <link href="../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../plugins/components/jquery-toast-plugin/jquery.toast.min.css" rel="stylesheet">
         <link href="../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../plugins/components/select2/select2.min.css" rel="stylesheet">
         <link href="../plugins/components/animate.css/animate.min.css" rel="stylesheet">
@@ -557,7 +556,6 @@ foreach ($plugins as $result) {
             </div>
         </div>
         <script src="../plugins/components/jquery/jquery.min.js"></script>
-        <script src="../plugins/components/jquery-toast-plugin/jquery.toast.min.js"></script>
         <script src="../plugins/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
         <script src="../plugins/components/sweetalert2/sweetalert2.min.js"></script>
         <script src="../plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -715,33 +713,27 @@ foreach ($plugins as $result) {
                     }
                 })};
            <?php 
+            
+            includeScript();
             if($warningson == "all"){
                 if(isset($apienabled) && $apienabled == 'true') {
-                    echo "$.toast({
-                            heading: '" . _("Feature Disabled") . "',
+                    echo "toast2({
+                            title: '" . _("Feature Disabled") . "',
                             text: '" . _("Custom SSL Certificates are incompatible with API Key Authentication.") . "',
-                            icon: 'warning',
-                            position: 'top-right',
-                            bgColor: '#ff8000',
-                            hideAfter: false
+                            type: 'error'
                         });";
                 } 
             }
             elseif($warningson == "admin" && $initialusername == "admin"){
                 if(isset($apienabled) && $apienabled == 'true') {
-                    echo "$.toast({
-                            heading: '" . _("Feature Disabled") . "',
+                    echo "toast2({
+                            type: '" . _("Feature Disabled") . "',
                             text: '" . _("Custom SSL Certificates are incompatible with API Key Authentication.") . "',
-                            icon: 'warning',
-                            position: 'top-right',
-                            bgColor: '#ff8000',
-                            hideAfter: false
+                            type: 'error'
                         });";
 
                 } 
             }
-            
-            includeScript();
             
             if(isset($_GET['error']) && $_GET['error'] == "1") {
                 echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";

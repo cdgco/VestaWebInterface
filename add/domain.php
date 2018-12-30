@@ -96,7 +96,6 @@ foreach ($plugins as $result) {
         <link rel="icon" type="image/ico" href="../plugins/images/<?php echo $cpfavicon; ?>">
         <title><?php echo $sitetitle . ' - ' . _("Web"); ?></title>
         <link href="../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../plugins/components/jquery-toast-plugin/jquery.toast.min.css" rel="stylesheet">
         <link href="../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../plugins/components/select2/select2.min.css" rel="stylesheet">
         <link href="../plugins/components/animate.css/animate.min.css" rel="stylesheet">
@@ -351,51 +350,58 @@ foreach ($plugins as $result) {
                                                 </div>
                                             </div>
                                         </div>
-                                        <?php if(checkService('vsftpd') !== false || checkService('proftpd') !== false) { echo '
+                                        <?php if(checkService('vsftpd') !== false || checkService('proftpd') !== false) { echo ""; ?>
+                                        
                                         <div class="form-group">
-                                            <label class="col-md-12">'._("Additional FTP").'</label>
+                                            <label class="col-md-12"><?php echo _("Additional FTP"); ?></label>
                                             <div class="col-md-12">
                                                 <div class="checkbox checkbox-info">
-                                                    <input id="checkbox9" disabled type="checkbox" name="v_additionalftpenabled" onclick="checkDiv4();">
-                                                    <label for="checkbox9"> '. _("Enabled").' </label>
+                                                    <input id="checkbox9" type="checkbox" name="v_additionalftpenabled" disabled onclick="checkDiv4();">
+                                                    <label for="checkbox9"> <?php echo _("Enabled"); ?> </label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div id="ftp-div" style="margin-left: 4%;">
-
-                                            <div class="form-group">
-                                                <label class="col-md-12">'. _("Username").'</label><br>
-                                                <div class="col-md-12">
-                                                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                                                        <div class="input-group-addon">'.$uname.'_</div>
-                                                        <input type="text" class="form-control" autocomplete="new-password" name="v_ftpuname" style="padding-left: 0.5%;">    
+                                            <div class="ftp-account1" accnum="1">
+                                                <div class="form-group">
+                                                    <label class="col-md-12"><?php echo _("FTP Account"); ?> #1</label><hr>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-12"><?php echo _("Username"); ?></label><br>
+                                                    <div class="col-md-12">
+                                                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                                            <div class="input-group-addon"><?php echo $uname; ?>_</div>
+                                                            <input type="text" class="form-control" autocomplete="new-password" name="v_ftpuname1" style="padding-left: 0.5%;">    
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="password" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10)"> <?php echo _("Generate"); ?></a></label>
+                                                    <div class="col-md-12 input-group" style="padding-left: 15px;">
+                                                        <input type="password" class="form-control form-control-line" autocomplete="new-password" name="v_ftppw1" id="password">                                    <span class="input-group-btn"> 
+                                                        <button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler(this)" id="tg" type="button"><i class="ti-eye"></i></button> 
+                                                        </span>  </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-12"><?php echo _("Path"); ?></label>
+                                                    <div class="col-md-12">
+                                                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                                            <div class="input-group-addon" id="dirfill"></div>
+                                                            <input type="text" class="form-control" name="v_ftpdir1" style="padding-left: 0.5%;">    
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-12"><?php echo _("Send FTP Credentials to Email:"); ?></label>
+                                                    <div class="col-md-12">
+                                                        <input type="email" name="v_ftpnotif1" autocomplete="new-password" class="form-control"> 
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="password" class="col-md-12">'. _("Password").' / <a style="cursor:pointer" onclick="generatePassword(10)"> '. _("Generate").'</a></label>
-                                                <div class="col-md-12 input-group" style="padding-left: 15px;">
-                                                    <input type="password" class="form-control form-control-line" autocomplete="new-password" name="password" id="password">                                    <span class="input-group-btn"> 
-                                                    <button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler(this)" id="tg" type="button"><i class="ti-eye"></i></button> 
-                                                    </span>  </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-12">'. _("Path").'</label>
-                                                <div class="col-md-12">
-                                                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                                                        <div class="input-group-addon" id="dirfill"></div>
-                                                        <input type="text" class="form-control" name="v_ftpdir" value="'. $ftpdir[0].'" style="padding-left: 0.5%;">    
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-12">'. _("Send FTP Credentials to Email:").'</label>
-                                                <div class="col-md-12">
-                                                    <input type="email" name="v_ftpnotification" autocomplete="new-password" class="form-control"> 
-                                                </div>
-                                            </div>
+                                            <p>Add One / Remove One</p><br><br>
                                         </div>
-                                    </div>'; } ?>
+                                        <?php echo ""; } ?>
+                                    </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
                                             <button class="btn btn-success" type="submit"><?php echo _("Add Domain"); ?></button> &nbsp;
@@ -416,7 +422,6 @@ foreach ($plugins as $result) {
             </div>
         </div>
         <script src="../plugins/components/jquery/jquery.min.js"></script>
-        <script src="../plugins/components/jquery-toast-plugin/jquery.toast.min.js"></script>
         <script src="../plugins/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
         <script src="../plugins/components/sweetalert2/sweetalert2.min.js"></script>
         <script src="../plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -553,34 +558,28 @@ foreach ($plugins as $result) {
                         swal.showLoading()
                     }
                 })};
+            
            <?php 
+            includeScript();
             if($warningson == "all"){
                 if(isset($apienabled) && $apienabled == 'true') {
-                    echo "$.toast({
-                            heading: '" . _("Feature Disabled") . "',
+                    echo "toast2({
+                            title: '" . _("Feature Disabled") . "',
                             text: '" . _("Custom SSL Certificates are incompatible with API Key Authentication.") . "',
-                            icon: 'warning',
-                            position: 'top-right',
-                            bgColor: '#ff8000',
-                            hideAfter: false
+                            type: 'error'
                         });";
                 } 
             }
             elseif($warningson == "admin" && $initialusername == "admin"){
                 if(isset($apienabled) && $apienabled == 'true') {
-                    echo "$.toast({
-                            heading: '" . _("Feature Disabled") . "',
+                    echo "toast2({
+                            title: '" . _("Feature Disabled") . "',
                             text: '" . _("Custom SSL Certificates are incompatible with API Key Authentication.") . "',
-                            icon: 'warning',
-                            position: 'top-right',
-                            bgColor: '#ff8000',
-                            hideAfter: false
+                            type: 'error'
                         });";
 
                 } 
             }
-            
-            includeScript();
             
             if(isset($_GET['error']) && $_GET['error'] == "1") {
                 echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";

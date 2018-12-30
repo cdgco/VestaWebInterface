@@ -61,7 +61,6 @@ foreach ($plugins as $result) {
         <link rel="icon" type="image/ico" href="../images/<?php echo $cpfavicon; ?>">
         <title><?php echo $sitetitle; ?> - <?php echo _("Example Plugin"); ?></title>
         <link href="../components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../components/jquery-toast-plugin/jquery.toast.min.css" rel="stylesheet">
         <link href="../components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../components/select2/select2.min.css" rel="stylesheet">
         <link href="../components/animate.css/animate.min.css" rel="stylesheet">
@@ -161,7 +160,6 @@ foreach ($plugins as $result) {
             </div>
         </div>
         <script src="../components/jquery/jquery.min.js"></script>
-        <script src="../components/jquery-toast-plugin/jquery.toast.min.js"></script>
         <script src="../components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
         <script src="../components/sweetalert2/sweetalert2.min.js"></script>
         <script src="../components/bootstrap/dist/js/bootstrap.min.js"></script>

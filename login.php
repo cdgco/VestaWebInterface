@@ -75,7 +75,7 @@ textdomain('messages');
         <link rel="icon" type="image/ico" href="plugins/images/<?php echo $cpfavicon; ?>">
         <title><?php echo $sitetitle . ' - ' . _("Login"); ?></title>
         <link href="plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="plugins/components/jquery-toast-plugin/jquery.toast.min.css" rel="stylesheet">
+        <link href="plugins/components/sweetalert2/sweetalert2.min.css" rel="stylesheet">
         <link href="plugins/components/animate.css/animate.min.css" rel="stylesheet">
         <link rel="stylesheet" href="plugins/components/sweetalert2/sweetalert2.min.css" />
         <link href="css/style.css" rel="stylesheet">
@@ -258,7 +258,7 @@ textdomain('messages');
             </div>            
         </section>
         <script src="plugins/components/jquery/jquery.min.js"></script>
-        <script src="plugins/components/jquery-toast-plugin/jquery.toast.min.js"></script>
+        <script src="plugins/components/sweetalert2/sweetalert2.min.js"></script>
         <script src="plugins/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
         <script src="plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="plugins/components/metismenu/dist/metisMenu.min.js"></script>
@@ -267,62 +267,57 @@ textdomain('messages');
         <script type="text/javascript">
             Waves.attach('.button', ['waves-effect']);
             Waves.init();
+            const toast1 = Swal.mixin({
+              toast: true,
+              position: "top-end",
+              showConfirmButton: false,
+              timer: 3500
+            });
+          const toast2 = Swal.mixin({
+              toast: true,
+              position: "top-end",
+              showConfirmButton: false
+            });
             <?php 
             if($configstyle == '2'){
                 if($warningson == "all"){
                     if(substr(sprintf('%o', fileperms($configlocation)), -4) == '0777') {
-                        echo "$.toast({
-                                heading: '"._("Warning")."', 
+                        echo "toast1({ 
                                 text: '"._("Includes folder has not been secured")."',
-                                icon: 'warning',
-                                position: 'top-right',
-                                hideAfter: 3500,
-                                bgColor: '#ff8000'
+                                type: 'warning'
                             });";
 
                     } 
                     if(isset($mysqldown) && $mysqldown == 'yes') {
-                        echo "$.toast({
-                                heading: '" . _("Database Error") . "',
+                        echo "toast2({
+                                title: '" . _("Database Error") . "',
                                 text: '" . _("MySQL Server Failed To Connect") . "',
-                                icon: 'error',
-                                position: 'top-right',
-                                hideAfter: false
+                                type: 'error'
                             });";
                     } 
                 }
             }
             else {
                 if(substr(sprintf('%o', fileperms($configlocation)), -4) == '0777') {
-                    echo "$.toast({
-                            heading: '"._("Warning")."', 
+                    echo "toast1({ 
                             text: '"._("Includes folder has not been secured")."',
-                            icon: 'warning',
-                            position: 'top-right',
-                            hideAfter: 3500,
-                            bgColor: '#ff8000'
+                            type: 'warning'
                         });";
 
                 } 
                 if(isset($mysqldown) && $mysqldown == 'yes') {
-                    echo "$.toast({
-                            heading: '" . _("Database Error") . "',
+                    echo "toast2({
+                           title: '" . _("Database Error") . "',
                             text: '" . _("MySQL Server Failed To Connect") . "',
-                            icon: 'error',
-                            position: 'top-right',
-                            hideAfter: false
+                            type: 'error'
                         });";
 
                 }    
             }
             if(!isset($serverconnection)){
-            echo "$.toast({
-                heading: '" . _("Error") . "'
-                , text: '" . _("Failed to connect to server.") . "<br>" . _("Please check config.") . "'
-                , icon: 'error'
-                , position: 'top-right'
-                , hideAfter: false
-                , allowToastClose: false
+            echo "toast2({
+                    text: '" . _("Failed to connect to server. Please check config.") . "',
+                    type: 'error'
             });"; }
             ?>
         </script>
