@@ -33,14 +33,14 @@ if(isset($mailenabled) && $mailenabled != 'true'){ header("Location: ../error-pa
 $v_domain = $_POST['v_domain'];
 
 // Check antispam option
-if (!empty($_POST['v_antispam'])) {
+if (isset($_POST['v_antispam']) && !empty($_POST['v_antispam'])) {
     $v_antispam = 'yes';
 } else {
     $v_antispam = 'no';
 }
 
 // Check antivirus option
-if (!empty($_POST['v_antivirus'])) {
+if (isset($_POST['v_antivirus']) && !empty($_POST['v_antivirus'])) {
     $v_antivirus = 'yes';
 } else {
     $v_antivirus = 'no';

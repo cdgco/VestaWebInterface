@@ -31,7 +31,7 @@ else { header('Location: ../login.php?to=admin/list/firewall.php'.$urlquery.$_SE
 if($username != 'admin') { header("Location: ../../"); }
 
 if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
-
+if(checkService('iptables') === false){ header("Location: ../../error-pages/403.html"); }
 $postvars = array(
     array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
     array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-firewall','arg1' => 'json'));
@@ -196,7 +196,7 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box"> <ul class="side-icon-text pull-right">
-                                <li><a href="fail2ban.php"><span class="circle circle-sm bg-danger di"><i class="ti-list"></i></span><span class="resfour"><wrapper class="resthree"><?php echo _("List") ?> </wrapper><?php echo _("Fail2Ban"); ?></span></a></li>
+                                <?php if(checkService('fail2ban') !== false) { echo '<li><a href="fail2ban.php"><span class="circle circle-sm bg-danger di"><i class="ti-list"></i></span><span class="resfour"><wrapper class="resthree">' . _("List").' </wrapper>' . _("Fail2Ban") . '</span></a></li>'; } ?>
                                 <li><a href="../add/firewall.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span class="resfour"><wrapper class="resthree"><?php echo _("Add"); ?> </wrapper><?php echo _("Rule"); ?></span></a></li>
                                 </ul>
                                 <h3 class="box-title m-b-0"><?php echo _("Rules"); ?></h3><br>

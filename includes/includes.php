@@ -143,6 +143,17 @@ else {
     $apienabled = 'false';
 }
 
+$vcpservices = curl_init();
+    
+curl_setopt($vcpservices, CURLOPT_URL, $vst_url);
+curl_setopt($vcpservices, CURLOPT_RETURNTRANSFER,true);
+curl_setopt($vcpservices, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($vcpservices, CURLOPT_SSL_VERIFYHOST, false);
+curl_setopt($vcpservices, CURLOPT_POST, true);
+curl_setopt($vcpservices, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-services', 'arg1' => 'json')));
+
+$servicedata = curl_exec($vcpservices);
+
 $KEY1 = $config["KEY1"]; $key1 = $config["KEY1"];
 $KEY2 = $config["KEY2"]; $key2 = $config["KEY2"];
 $warningson = strtolower($config["WARNINGS_ENABLED"]);
@@ -152,31 +163,42 @@ $cplogo = $config["LOGO"];
 $cpfavicon = $config["FAVICON"];
 
 // Enable / Disable Sections
-
-if($config["WEB_ENABLED"] != 'true'){
-    $webenabled = '';
+if(checkService('apache2') !== false || checkService('php-fpm') !== false) {
+    if($config["WEB_ENABLED"] != 'true'){
+        $webenabled = '';
+    }
+    else{
+        $webenabled = $config["WEB_ENABLED"];
+    }
 }
-else{
-    $webenabled = $config["WEB_ENABLED"];
+else { $webenabled = ''; }
+if(checkService('bind9') !== false) {
+    if($config["DNS_ENABLED"] != 'true'){
+        $dnsenabled = '';
+    }
+    else{
+        $dnsenabled = $config["DNS_ENABLED"];
+    }
 }
-if($config["DNS_ENABLED"] != 'true'){
-    $dnsenabled = '';
+else { $dnsenabled = ''; }
+if(checkService('exim') !== false) {
+    if($config["MAIL_ENABLED"] != 'true'){
+        $mailenabled = '';
+    }
+    else{
+        $mailenabled = $config["MAIL_ENABLED"];
+    }
 }
-else{
-    $dnsenabled = $config["DNS_ENABLED"];
+else { $mailenabled = ''; }
+if(checkService('mysql') !== false || checkService('postgresql') !== false) {
+    if($config["DB_ENABLED"] != 'true'){
+        $dbenabled = '';
+    }
+    else{
+        $dbenabled = $config["DB_ENABLED"];
+    }
 }
-if($config["MAIL_ENABLED"] != 'true'){
-    $mailenabled = '';
-}
-else{
-    $mailenabled = $config["MAIL_ENABLED"];
-}
-if($config["DB_ENABLED"] != 'true'){
-    $dbenabled = '';
-}
-else{
-    $dbenabled = $config["DB_ENABLED"];
-}
+else { $dbenabled = ''; }
 if($config["ADMIN_ENABLED"] != 'true'){
     $adminenabled = '';
 }
@@ -240,43 +262,54 @@ $smtppw = $config["SMTP_PW"];
 $smtpenc = strtolower($config["SMTP_ENC"]);
 
 // Optional Links
-
-if($config["FTP_URL"] == ''){
-    $ftpurl = 'http://net2ftp.com/';
+if(checkService('vsftpd') !== false || checkService('proftpd') !== false) {
+    if($config["FTP_URL"] == ''){
+        $ftpurl = 'http://net2ftp.com/';
+    }
+    elseif($config["FTP_URL"] == 'disabled'){
+        $ftpurl = '';
+    }
+    else{
+        $ftpurl = $config["FTP_URL"];
+    }
 }
-elseif($config["FTP_URL"] == 'disabled'){
-    $ftpurl = '';
+else { $ftpurl = ''; }
+if(checkService('exim') !== false) {
+    if($config["WEBMAIL_URL"] == ''){
+        $webmailurl = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . '/webmail';
+    }
+    elseif($config["WEBMAIL_URL"] == 'disabled'){
+        $webmailurl = '';
+    }
+    else{
+        $webmailurl = $config["WEBMAIL_URL"];
+    }
 }
-else{
-    $ftpurl = $config["FTP_URL"];
+else { $webmailurl = ''; }
+if(checkService('mysql') !== false) {
+    if($config["PHPMYADMIN_URL"] == ''){
+        $phpmyadmin = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . '/phpmyadmin';
+    }
+    elseif($config["PHPMYADMIN_URL"] == 'disabled'){
+        $phpmyadmin = '';
+    }
+    else{
+        $phpmyadmin = $config["PHPMYADMIN_URL"];
+    }
 }
-if($config["WEBMAIL_URL"] == ''){
-    $webmailurl = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . '/webmail';
+else { $phpmyadmin = ''; }
+if(checkService('postgresql') !== false) {
+    if($config["PHPPGADMIN_URL"] == ''){
+        $phppgadmin = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . '/phppgadmin';
+    }
+    elseif($config["PHPPGADMIN_URL"] == 'disabled'){
+        $phppgadmin = '';
+    }
+    else{
+        $phppgadmin = $config["PHPPGADMIN_URL"];
+    }
 }
-elseif($config["WEBMAIL_URL"] == 'disabled'){
-    $webmailurl = '';
-}
-else{
-    $webmailurl = $config["WEBMAIL_URL"];
-}
-if($config["PHPMYADMIN_URL"] == ''){
-    $phpmyadmin = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . '/phpmyadmin';
-}
-elseif($config["PHPMYADMIN_URL"] == 'disabled'){
-    $phpmyadmin = '';
-}
-else{
-    $phpmyadmin = $config["PHPMYADMIN_URL"];
-}
-if($config["PHPPGADMIN_URL"] == ''){
-    $phppgadmin = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . '/phppgadmin';
-}
-elseif($config["PHPPGADMIN_URL"] == 'disabled'){
-    $phppgadmin = '';
-}
-else{
-    $phppgadmin = $config["PHPPGADMIN_URL"];
-}
+else { $phppgadmin = ''; }
 if($config["SUPPORT_URL"] == ''){
     $supporturl = '';
 }
@@ -340,8 +373,12 @@ function adminMenu($l2, $a1) {
                     <li> <a href="' . $l2 . 'ip.php"'; if($a1 == 'ip') { echo ' class="active"'; } echo '><i class="fa fa-sliders fa-fw"></i><span class="hide-menu">' . _("IP") . '</span></a> </li>
                     <li> <a href="' . $l2 . 'graphs.php"'; if($a1 == 'graph') { echo ' class="active"'; } echo '><i class="ti-pie-chart fa-fw"></i><span class="hide-menu">' . _("Graphs") . '</span></a> </li>
                     <li> <a href="' . $l2 . 'stats.php"'; if($a1 == 'stats') { echo ' class="active"'; } echo '><i class="ti-stats-up fa-fw"></i><span class="hide-menu">' . _("Statistics") . '</span></a> </li>
-                    <li> <a href="' . $l2 . 'updates.php"'; if($a1 == 'updates') { echo ' class="active"'; } echo '><i class="mdi mdi-weather-cloudy fa-fw"></i><span class="hide-menu">' . _("Updates") . '</span></a> </li>
-                    <li> <a href="' . $l2 . 'firewall.php"'; if($a1 == 'firewall') { echo ' class="active"'; } echo '><i class="fa fa-shield fa-fw"></i><span class="hide-menu">' . _("Firewall") . '</span></a> </li>
+                    <li> <a href="' . $l2 . 'updates.php"'; if($a1 == 'updates') { echo ' class="active"'; } echo '><i class="mdi mdi-weather-cloudy fa-fw"></i><span class="hide-menu">' . _("Updates") . '</span></a> </li>';
+        
+                    if(checkService('iptables') !== false){ echo '
+                    <li> <a href="' . $l2 . 'firewall.php"'; if($a1 == 'firewall') { echo ' class="active"'; } echo '><i class="fa fa-shield fa-fw"></i><span class="hide-menu">' . _("Firewall") . '</span></a> </li>';
+                    }
+                    echo '
                     <li> <a href="' . $l2 . 'server.php"'; if($a1 == 'server') { echo ' class="active"'; } echo '><i class="fa fa-server fa-fw"></i><span class="hide-menu">' . _("Server") . '</span></a> </li>
                     <li> <a href="' . $l2 . 'settings.php"'; if($a1 == 'settings') { echo ' class="active"'; } echo '><i class="fa fa-cogs fa-fw"></i><span class="hide-menu">' . _("Settings") . '</span></a> </li>
                     <li> <a href="' . $l2 . 'plugins.php"'; if($a1 == 'plugins') { echo ' class="active"'; } echo '><i class="fa fa-puzzle-piece fa-fw"></i><span class="hide-menu">' . _("Plugins") . '</span></a> </li>
@@ -637,5 +674,12 @@ function footer() {
         require $configlocation . 'versioncheck.php';
         echo ' ' . _("by Carter Roeser") . '.';
     }
+}
+function checkService($requestedService) {
+    global $servicedata;
+    
+    if( strpos($servicedata, $requestedService) !== false ) { return true; }
+    else { return false; }
+    
 }
 ?>

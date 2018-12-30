@@ -250,8 +250,10 @@ foreach ($plugins as $result) {
                                             <th class="resone" data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"><?php echo _("Created"); ?></th>
                                             <th data-sortable="false"><?php echo _("Action"); ?></th>
                                             <th data-breakpoints="all"><?php echo _("CatchAll"); ?></th>
-                                            <th data-breakpoints="all"><?php echo _("Antivirus"); ?></th>
-                                            <th data-breakpoints="all"><?php echo _("Antispam"); ?></th>
+                                            <?php if(checkService('clamav') !== false) { echo '
+                                            <th data-breakpoints="all">'._("Antivirus").'</th>'; } ?>
+                                            <?php if(checkService('spamassassin') !== false) { echo '
+                                            <th data-breakpoints="all">'._("Antispam").'</th>'; } ?>
                                             <th data-breakpoints="all"><?php echo _("DKIM"); ?></th>
                                         </tr>
                                     </thead>
@@ -282,20 +284,21 @@ foreach ($plugins as $result) {
 
                                                             echo '<button onclick="confirmDelete(\'' . $mailname[$x1] . '\')" type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="fa fa-trash-o" ></i></button>
                                                         </td>
-                                                        <td>'; if($maildata[$x1]['CATCHALL'] != ''){ echo $maildata[$x1]['CATCHALL'];} else { echo _("None");} echo '</td>
-                                                        <td>';                                                                   
+                                                        <td>'; if($maildata[$x1]['CATCHALL'] != ''){ echo $maildata[$x1]['CATCHALL'];} else { echo _("None");} echo '</td>';
+                                                        if(checkService('clamav') !== false) { echo '<td>';                                                                   
                                                         if($maildata[$x1]['ANTIVIRUS'] == "yes"){ 
                                                             echo '<span class="label label-table label-success">' . _("Enabled") . '</span>';} 
                                                         else{ 
                                                             echo '<span class="label label-table label-danger">' . _("Disabled") . '</span>';} 
-                                                        echo '</td>
-                                                                            <td>';                                                                   
+                                                        echo '</td>'; }
+                                                        if(checkService('spamassassin') !== false) { 
+                                                                            echo '<td>';                                                                   
                                                         if($maildata[$x1]['ANTISPAM'] == "yes"){ 
                                                             echo '<span class="label label-table label-success">' . _("Enabled") . '</span>';} 
                                                         else{ 
                                                             echo '<span class="label label-table label-danger">' . _("Disabled") . '</span>';} 
-                                                        echo '</td>
-                                                                            <td>';                                                                   
+                                                        echo '</td>'; }
+                                                        echo '<td>';                                                                   
                                                         if($maildata[$x1]['DKIM'] == "yes"){ 
                                                             echo '<span class="label label-table label-success">' . _("Enabled") . '</span>';} 
                                                         else{ 

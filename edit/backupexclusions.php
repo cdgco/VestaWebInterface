@@ -178,7 +178,8 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-md-12 col-xs-12">
                             <div class="white-box">
-                                <form class="form-horizontal form-material" action="../change/backupexclusion.php" id="form" autocomplete="off" method="post">
+                                <?php if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "Error: VestaCP FTP must be enabled to edit backup exclusions."; } ?>
+                                <form class="form-horizontal form-material" action="../change/backupexclusion.php"<?php if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "style='display:none;"; } ?> id="form" autocomplete="off" method="post">
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Web Domains"); ?></label>
                                         <div class="col-md-12">

@@ -180,24 +180,27 @@ foreach ($plugins as $result) {
                                             <input type="text" name="v_domain" class="form-control" required> 
                                         </div>
                                     </div>
+                                    <?php if(checkService('clamav') !== false) { echo '
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("AntiSpam Support"); ?></label>
+                                        <label class="col-md-12">'._("AntiSpam Support").'</label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
                                                 <input id="checkbox5" name="v_antispam" type="checkbox" checked>
-                                                <label for="checkbox5"> <?php echo _("Enabled"); ?> </label>
+                                                <label for="checkbox5"> '._("Enabled").' </label>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>';
+                                    }
+                                    if(checkService('spamassassin') !== false) { echo '
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("AntiVirus Support"); ?></label>
+                                        <label class="col-md-12">'._("AntiVirus Support").'</label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
                                                 <input id="checkbox6" name="v_antivirus" type="checkbox" checked>
-                                                <label for="checkbox6"> <?php echo _("Enabled"); ?> </label>
+                                                <label for="checkbox6"> '._("Enabled").' </label>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>'; } ?>
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("DKIM Support"); ?></label>
                                         <div class="col-md-12">

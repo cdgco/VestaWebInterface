@@ -35,15 +35,17 @@ $postvars = array(
     array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
     array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user-ips','arg1' => $username,'arg2' => 'json'),
     array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-templates-proxy','arg1' => 'json'),
-    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-stats','arg1' => 'json'));
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-stats','arg1' => 'json'),
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-config','arg1' => 'json'));
 
 $curl0 = curl_init();
 $curl1 = curl_init();
 $curl2 = curl_init();
 $curl3 = curl_init();
+$curl4 = curl_init();
 $curlstart = 0; 
 
-while($curlstart <= 3) {
+while($curlstart <= 4) {
     curl_setopt(${'curl' . $curlstart}, CURLOPT_URL, $vst_url);
     curl_setopt(${'curl' . $curlstart}, CURLOPT_RETURNTRANSFER,true);
     curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYPEER, false);
@@ -58,6 +60,7 @@ $useremail = $admindata['CONTACT'];
 $userips = array_keys(json_decode(curl_exec($curl1), true));
 $proxytemplates = array_values(json_decode(curl_exec($curl2), true));
 $webstats = array_values(json_decode(curl_exec($curl3), true));
+$sysconfigdata = array_values(json_decode(curl_exec($curl4), true))[0];
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
 setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
 bindtextdomain('messages', '../locale');
@@ -207,6 +210,7 @@ foreach ($plugins as $result) {
                                             </select>
                                         </div>
                                     </div>
+                                    <?php if(checkService('bind9') !== false && $admindata['DNS_DOMAINS'] != '0') { echo ""; ?>
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("DNS Support"); ?></label>
                                         <div class="col-md-12">
@@ -216,6 +220,8 @@ foreach ($plugins as $result) {
                                             </div>
                                         </div>
                                     </div>
+                                    <?php echo ""; } 
+                                    if(checkService('exim') !== false && $admindata['MAIL_DOMAINS'] != '0') { echo ""; ?>
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Mail Support"); ?></label>
                                         <div class="col-md-12">
@@ -225,6 +231,7 @@ foreach ($plugins as $result) {
                                             </div>
                                         </div>
                                     </div>
+                                    <?php echo ""; } ?>
                                     <div class="form-group">
                                         <label class="col-md-12"><a style="cursor: pointer;" onclick="toggle_visibility('togglediv');"><?php echo _("Advanced Options"); ?></a></label>
                                     </div>
@@ -235,6 +242,7 @@ foreach ($plugins as $result) {
                                                 <textarea class="form-control aliasfill" name="v_alias" rows="4"></textarea>
                                             </div>
                                         </div>
+                                        <?php if($sysconfigdata['PROXY_SYSTEM'] != '') { echo ""; ?>
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("Proxy Support"); ?></label>
                                             <div class="col-md-12">
@@ -250,7 +258,7 @@ foreach ($plugins as $result) {
                                                 <textarea class="form-control" rows="4" name="v_prxext" id="prxTextArea">jpeg, jpg, png, gif, bmp, ico, svg, tif, tiff, css, js, htm, html, ttf, otf, webp, woff, txt, csv, rtf, doc, docx, xls, xlsx, ppt, pptx, odf, odp, ods, odt, pdf, psd, ai, eot, eps, ps, zip, tar, tgz, gz, rar, bz2, 7z, aac, m4a, mp3, mp4, ogg, wav, wma, 3gp, avi, flv, m4v, mkv, mov, mp4, mpeg, mpg, wmv, exe, iso, dmg, swf</textarea>
                                             </div>
                                         </div>
-
+                                        <?php echo ""; }?>
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("SSL Support"); ?></label>
                                             <div class="col-md-12">
@@ -274,7 +282,7 @@ foreach ($plugins as $result) {
                                             <div class="form-group">
                                                 <label class="col-md-12"><?php echo _("SSL Directory"); ?></label>
                                                 <div class="col-md-12">
-                                                    <select name="v_ssldir" class="form-control form-control-static select2" <?php if($apienabled == 'true'){ echo "disabled"; } ?>>
+                                                    <select name="v_ssldir" class="form-control form-control-static select2" <?php if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "disabled"; } ?> <?php if($apienabled == 'true'){ echo "disabled"; } ?>>
                                                         <option value="public_html" selected>public_html</option>
                                                         <option value="public_shtml">public_shtml</option>
                                                     </select>
@@ -283,19 +291,19 @@ foreach ($plugins as $result) {
                                             <div class="form-group">
                                                 <label class="col-md-12"><?php echo _("SSL Certificate"); ?> / <a class="sslfill"  target="_blank"><?php echo _("Generate CSR"); ?></a></label>
                                                 <div class="col-md-12">
-                                                    <textarea class="form-control form-control-static" name="v_sslcrt" rows="4" <?php if($apienabled == 'true'){ echo "disabled"; } ?>></textarea>
+                                                    <textarea class="form-control form-control-static" name="v_sslcrt" rows="4" <?php if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "disabled"; } ?> <?php if($apienabled == 'true'){ echo "disabled"; } ?>></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-md-12"><?php echo _("SSL Key"); ?></label>
                                                 <div class="col-md-12">
-                                                    <textarea class="form-control form-control-static" name="v_sslkey" rows="4" <?php if($apienabled == 'true'){ echo "disabled"; } ?>></textarea>
+                                                    <textarea class="form-control form-control-static" name="v_sslkey" rows="4" <?php if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "disabled"; } ?> <?php if($apienabled == 'true'){ echo "disabled"; } ?>></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-md-12"><?php echo _("SSL Certificate Authority / Intermediate"); ?></label>
                                                 <div class="col-md-12">
-                                                    <textarea class="form-control form-control-static" name="v_sslca" rows="4" <?php if($apienabled == 'true'){ echo "disabled"; } ?>></textarea>
+                                                    <textarea class="form-control form-control-static" name="v_sslca" rows="4" <?php if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "disabled"; } ?> <?php if($apienabled == 'true'){ echo "disabled"; } ?>></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -343,50 +351,51 @@ foreach ($plugins as $result) {
                                                 </div>
                                             </div>
                                         </div>
+                                        <?php if(checkService('vsftpd') !== false || checkService('proftpd') !== false) { echo '
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Additional FTP"); ?></label>
+                                            <label class="col-md-12">'._("Additional FTP").'</label>
                                             <div class="col-md-12">
                                                 <div class="checkbox checkbox-info">
                                                     <input id="checkbox9" disabled type="checkbox" name="v_additionalftpenabled" onclick="checkDiv4();">
-                                                    <label for="checkbox9"> <?php echo _("Enabled"); ?> </label>
+                                                    <label for="checkbox9"> '. _("Enabled").' </label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div id="ftp-div" style="margin-left: 4%;">
 
                                             <div class="form-group">
-                                                <label class="col-md-12"><?php echo _("Username"); ?></label><br>
+                                                <label class="col-md-12">'. _("Username").'</label><br>
                                                 <div class="col-md-12">
                                                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                                                        <div class="input-group-addon"><?php print_r($uname); ?>_</div>
+                                                        <div class="input-group-addon">'.$uname.'_</div>
                                                         <input type="text" class="form-control" autocomplete="new-password" name="v_ftpuname" style="padding-left: 0.5%;">    
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="password" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10)"> <?php echo _("Generate"); ?></a></label>
+                                                <label for="password" class="col-md-12">'. _("Password").' / <a style="cursor:pointer" onclick="generatePassword(10)"> '. _("Generate").'</a></label>
                                                 <div class="col-md-12 input-group" style="padding-left: 15px;">
                                                     <input type="password" class="form-control form-control-line" autocomplete="new-password" name="password" id="password">                                    <span class="input-group-btn"> 
                                                     <button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler(this)" id="tg" type="button"><i class="ti-eye"></i></button> 
                                                     </span>  </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-12"><?php echo _("Path"); ?></label>
+                                                <label class="col-md-12">'. _("Path").'</label>
                                                 <div class="col-md-12">
                                                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                                         <div class="input-group-addon" id="dirfill"></div>
-                                                        <input type="text" class="form-control" name="v_ftpdir" value="<?php echo $ftpdir[0]; ?>" style="padding-left: 0.5%;">    
+                                                        <input type="text" class="form-control" name="v_ftpdir" value="'. $ftpdir[0].'" style="padding-left: 0.5%;">    
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-12"><?php echo _("Send FTP Credentials to Email:"); ?></label>
+                                                <label class="col-md-12">'. _("Send FTP Credentials to Email:").'</label>
                                                 <div class="col-md-12">
                                                     <input type="email" name="v_ftpnotification" autocomplete="new-password" class="form-control"> 
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>'; } ?>
                                     <div class="form-group">
                                         <div class="col-sm-12">
                                             <button class="btn btn-success" type="submit"><?php echo _("Add Domain"); ?></button> &nbsp;
@@ -447,10 +456,12 @@ foreach ($plugins as $result) {
                 document.getElementsByClassName("sslfill")[0].href =  '../process/generatecsr.php?domain=' + domain;
             }
             function checkDiv(){
+                <?php if($sysconfigdata['PROXY_SYSTEM'] != '') { echo ""; ?>
                 if(document.getElementById("checkbox4").checked) {
                     document.getElementById('prxextdiv').style.display = 'block';
                 }
                 else {document.getElementById('prxextdiv').style.display = 'none';}
+                <?php echo ""; }?>
             }
             function checkDiv2(){
                 if(document.getElementById("checkbox5").checked) {
@@ -465,10 +476,11 @@ foreach ($plugins as $result) {
                 else {document.getElementById('ssl-div').style.display = 'none';}
             }
             function checkDiv4(){
+                <?php if(checkService('vsftpd') !== false || checkService('proftpd') !== false) { echo '
                 if(document.getElementById("checkbox9").checked) {
-                    document.getElementById('ftp-div').style.display = 'block';
+                    document.getElementById("ftp-div").style.display = "block";
                 }
-                else {document.getElementById('ftp-div').style.display = 'none';}
+                else {document.getElementById("ftp-div").style.display = "none";}'; } ?>
             }
             function checkDiv5(){
                 if(document.getElementById("checkbox10").checked) {

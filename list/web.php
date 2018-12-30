@@ -33,13 +33,15 @@ if(isset($webenabled) && $webenabled != 'true'){ header("Location: ../error-page
 
 $postvars = array(
     array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
-    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-domains','arg1' => $username,'arg2' => 'json'));
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-domains','arg1' => $username,'arg2' => 'json'),
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-config','arg1' => 'json'));
 
 $curl0 = curl_init();
 $curl1 = curl_init();
+$curl2 = curl_init();
 $curlstart = 0; 
 
-while($curlstart <= 1) {
+while($curlstart <= 2) {
     curl_setopt(${'curl' . $curlstart}, CURLOPT_URL, $vst_url);
     curl_setopt(${'curl' . $curlstart}, CURLOPT_RETURNTRANSFER,true);
     curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYPEER, false);
@@ -53,6 +55,8 @@ $admindata = json_decode(curl_exec($curl0), true)[$username];
 $useremail = $admindata['CONTACT'];
 $domainname = array_keys(json_decode(curl_exec($curl1), true));
 $domaindata = array_values(json_decode(curl_exec($curl1), true));
+$sysconfigdata = array_values(json_decode(curl_exec($curl2), true))[0];
+
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
 setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
 bindtextdomain('messages', '../locale');
@@ -261,9 +265,11 @@ foreach ($plugins as $result) {
                                             <th data-sortable="false"><?php echo _("Action"); ?></th>
                                             <th data-breakpoints="all"><?php echo _("Aliases"); ?></th>
                                             <th data-breakpoints="all"><span class="resfour"><?php echo _("Web "); ?></span><?php echo _("Template"); ?></th>
-                                            <th data-breakpoints="all"><span class="resfour"><?php echo _("Proxy Template"); ?></span><span class="resfourshow"><?php echo _("Proxy"); ?></span></th>
-                                            <th data-breakpoints="all"><span class="resfour"><?php echo _("Additional FTP"); ?></span><span class="resfourshow"><?php echo _("FTP"); ?></span></th>
-                                            <th data-breakpoints="all"><span class="resfour"><?php echo _("Web Statistics"); ?></span><span class="resfourshow"><?php echo _("Stats"); ?></span></th>
+                                            <?php if($sysconfigdata['PROXY_SYSTEM'] != '') { echo '<th data-breakpoints="all"><span class="resfour">'. _("Proxy Template"). '</span><span style="display:none;" class="resfourshow">'._("Proxy").'</span></th>'; }
+                                            if($sysconfigdata['WEB_BACKEND'] != '') { echo '<th data-breakpoints="all"><span class="resfour">'. _("Backend Template").'</span><span style="display:none;" class="resfourshow">'._("Backend").'</span></th>'; }
+                                            if(checkService('vsftpd') !== false || checkService('proftpd') !== false) { echo '
+                                            <th data-breakpoints="all"><span class="resfour">' . _("Additional FTP") . '</span><span style="display:none;" class="resfourshow">' . _("FTP").'</span></th>'; } ?>
+                                            <th data-breakpoints="all"><span class="resfour"><?php echo _("Web Statistics"); ?></span><span class="resfourshow" style="display:none;"><?php echo _("Stats"); ?></span></th>
                                             <th data-breakpoints="all"><?php echo _("IP"); ?> </th>
                                             <th data-breakpoints="all"><?php echo _("SSL"); ?> </th>
                                         </tr>
@@ -293,14 +299,26 @@ foreach ($plugins as $result) {
                                                             echo '<button onclick="confirmDelete(\'' . $domainname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-trash-o"></i></button>'; if($domaindata[$x1]['STATS'] != ""){  echo '<button type="button" onclick="window.location=\'http://' . $domainname[$x1] . '/vstats/\';" data-toggle="tooltip" data-original-title="' . _("View Stats") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-stats-up"></i></button>';} echo '
                                                         </td>
                                                         <td>'; if(implode(', ', explode(",", $domaindata[$x1]['ALIAS'])) == "") { echo _("None");} else{ echo implode(', ', explode(",", $domaindata[$x1]['ALIAS']));} echo '</td>
-                                                        <td>' . ucfirst($domaindata[$x1]['TPL']) . '</td>
-                                                        <td>' . ucfirst($domaindata[$x1]['PROXY']) . '</td>
+                                                        <td>' . ucfirst($domaindata[$x1]['TPL']) . '</td>';
+                                                        if($sysconfigdata['PROXY_SYSTEM'] != '') { echo '<td>';
+                                                            if($domaindata[$x1]['PROXY'] != '') { echo
+                                                                ucfirst($domaindata[$x1]['PROXY']) . '</td>';
+                                                            }  
+                                                            else { echo 'None'; }
+                                                        }
+                                                        if($sysconfigdata['WEB_BACKEND'] != '') { echo '<td>';
+                                                            if($domaindata[$x1]['BACKEND'] != '') { echo
+                                                                ucfirst($domaindata[$x1]['BACKEND']) . '</td>';
+                                                            }  
+                                                            else { echo 'None'; }
+                                                        }
+                                                        if(checkService('vsftpd') !== false || checkService('proftpd') !== false) { echo '
                                                         <td>'; if($domaindata[$x1]['FTP_USER'] == ""){ 
                                                             echo _("None");} 
                                                             else{ 
                                                                 echo $domaindata[$x1]['FTP_USER'];} 
-                                                        echo '</td>
-                                                        <td>'; if($domaindata[$x1]['STATS'] == ""){ 
+                                                        echo '</td>'; }
+                                                        echo '<td>'; if($domaindata[$x1]['STATS'] == ""){ 
                                                             echo _("None");} 
                                                             else{ 
                                                                 echo ucfirst($domaindata[$x1]['STATS']);} 

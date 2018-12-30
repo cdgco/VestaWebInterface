@@ -43,7 +43,8 @@ $postvars = array(
     array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-templates-proxy','arg1' => 'json'),
     array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user-ips','arg1' => $username,'arg2' => 'json'),
     array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-domain-ssl','arg1' => $username,'arg2' => $requestdomain,'arg3' => 'json'),
-    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-stats','arg1' => 'json'));
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-web-stats','arg1' => 'json'),
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-config','arg1' => 'json'));
 
 $curl0 = curl_init();
 $curl1 = curl_init();
@@ -52,9 +53,10 @@ $curl3 = curl_init();
 $curl4 = curl_init();
 $curl5 = curl_init();
 $curl6 = curl_init();
+$curl7 = curl_init();
 $curlstart = 0; 
 
-while($curlstart <= 6) {
+while($curlstart <= 7) {
     curl_setopt(${'curl' . $curlstart}, CURLOPT_URL, $vst_url);
     curl_setopt(${'curl' . $curlstart}, CURLOPT_RETURNTRANSFER,true);
     curl_setopt(${'curl' . $curlstart}, CURLOPT_SSL_VERIFYPEER, false);
@@ -72,6 +74,7 @@ $proxytemplates = array_values(json_decode(curl_exec($curl3), true));
 $userips = array_keys(json_decode(curl_exec($curl4), true));
 $domainssl = array_values(json_decode(curl_exec($curl5), true));
 $webstats = array_values(json_decode(curl_exec($curl6), true));
+$sysconfigdata = array_values(json_decode(curl_exec($curl7), true))[0];
 if ($domainname[0] == '') { header('Location: ../list/web.php'); }
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
 setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
@@ -330,6 +333,7 @@ foreach ($plugins as $result) {
                                                 ?></select>
                                         </div>
                                     </div>
+                                    <?php if($sysconfigdata['PROXY_SYSTEM'] != '') { echo ""; ?>
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Proxy Support"); ?></label>
                                         <div class="col-md-12">
@@ -367,6 +371,7 @@ foreach ($plugins as $result) {
                                             </div>
                                         </div>
                                     </div>
+                                    <?php echo ""; }?>
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("SSL Support"); ?></label>
                                         <div class="col-md-12">
@@ -393,7 +398,7 @@ foreach ($plugins as $result) {
                                             <label class="col-md-12"><?php echo _("SSL Directory"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_ssldir-x" value="<?php echo $domaindata[0]['SSL_HOME']; ?>" >
-                                                <select class="form-control form-control-static select2" name="v_ssldir" <?php if($apienabled == 'true'){ echo "disabled"; } ?>>
+                                                <select class="form-control form-control-static select2" name="v_ssldir" <?php if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "disabled"; } ?> <?php if($apienabled == 'true'){ echo "disabled"; } ?>>
                                                     <option value="same" <?php if($domaindata[0]['SSL_HOME'] == 'same') {echo 'selected';} ?>>public_html</option>
                                                     <option value="single" <?php if($domaindata[0]['SSL_HOME'] == 'single') {echo 'selected';} ?>>public_shtml</option>
                                                 </select>
@@ -403,21 +408,21 @@ foreach ($plugins as $result) {
                                             <label class="col-md-12"><?php echo _("SSL Certificate"); ?> / <a href="../process/generatecsr.php?domain=<?php echo $requestdomain; ?>" target="_blank"><?php echo _("Generate CSR"); ?></a></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_sslcrt-x" value="<?php echo $domaindata[0]['CRT']; ?>">
-                                                <textarea class="form-control" rows="4" class="form-control form-control-static" name="v_sslcrt" <?php if($apienabled == 'true'){ echo "disabled"; } ?>><?php print_r($domainssl[0]['CRT']); ?></textarea>
+                                                <textarea class="form-control" rows="4" class="form-control form-control-static" name="v_sslcrt" <?php if($apienabled == 'true'){ echo "disabled"; } ?> <?php if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "disabled"; } ?>><?php print_r($domainssl[0]['CRT']); ?></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("SSL Key"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_sslkey-x" value="<?php echo $domaindata[0]['KEY']; ?>">
-                                                <textarea class="form-control" rows="4" class="form-control form-control-static" name="v_sslkey" <?php if($apienabled == 'true'){ echo "disabled"; } ?>><?php print_r($domainssl[0]['KEY']); ?></textarea>
+                                                <textarea class="form-control" rows="4" class="form-control form-control-static" name="v_sslkey" <?php if($apienabled == 'true'){ echo "disabled"; } ?> <?php if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "disabled"; } ?>><?php print_r($domainssl[0]['KEY']); ?></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("SSL Certificate Authority / Intermediate"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_sslca-x" value="<?php echo $domaindata[0]['CA']; ?>">
-                                                <textarea class="form-control" rows="4" class="form-control form-control-static" name="v_sslca" <?php if($apienabled == 'true'){ echo "disabled"; } ?>><?php print_r($domainssl[0]['CA']); ?></textarea>
+                                                <textarea class="form-control" rows="4" class="form-control form-control-static" name="v_sslca" <?php if($apienabled == 'true'){ echo "disabled"; } ?> <?php if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "disabled"; } ?>><?php print_r($domainssl[0]['CA']); ?></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group" style="margin-left: 0.1%;display:<?php if($domainssl[0]['NOT_BEFORE'] != ''){echo 'block';} else { echo 'none';} ?>">
@@ -480,16 +485,20 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>
                                     <?php
+                                    if(checkService('vsftpd') !== false || checkService('proftpd') !== false) { 
                                     $ftpuser = explode(':', ($domaindata[0]['FTP_USER'])); 
                                     $ftpdir = explode(':', ($domaindata[0]['FTP_PATH'])); 
-                                    ?>
+                                    echo '
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Additional FTP"); ?></label>
+                                        <label class="col-md-12">' . _("Additional FTP") . '</label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
-                                                <input type="hidden" name="v_additionalftpenabled-x" value="<?php if($ftpuser[0]) {echo 'yes';} else { echo 'no'; }?>">
-                                                <input id="checkbox9" disabled type="checkbox" name="v_addittionalftpenabled" <?php if($ftpuser[0]) {echo 'checked';} ?> onclick="checkDiv3();">
-                                                <label for="checkbox9"> <?php echo _("Enabled"); ?> </label>
+                                                <input type="hidden" name="v_additionalftpenabled-x" value="';
+                                                if($ftpuser[0]) {echo 'yes';} else { echo 'no'; }
+                                                echo '">
+                                                <input id="checkbox9" disabled type="checkbox" name="v_addittionalftpenabled"'; 
+                                                if($ftpuser[0]) {echo 'checked';} echo ' onclick="checkDiv3();">
+                                                <label for="checkbox9">' .  _("Enabled") . '</label>
                                             </div>
                                         </div>
                                     </div>
@@ -497,33 +506,37 @@ foreach ($plugins as $result) {
                                     <div id="ftp-div" style="margin-left: 4%;">
 
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Username"); ?></label><br>
+                                            <label class="col-md-12">' . _("Username") . '</label><br>
                                             <div class="col-md-12">
                                                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                                                    <div class="input-group-addon"><?php print_r($displayname); ?>_</div>
-                                                    <input type="hidden" name="v_ftpuname-x" value="<?php $prefix = $uname . '_'; $str = $ftpuser[0]; if (substr($str, 0, strlen($prefix)) == $prefix) { $str = substr($str, strlen($prefix));} print_r($str); ?>">
-                                                    <input type="text" class="form-control" name="v_ftpuname" value="<?php $prefix = $uname . '_'; $str = $ftpuser[0]; if (substr($str, 0, strlen($prefix)) == $prefix) { $str = substr($str, strlen($prefix));} print_r($str); ?>" style="padding-left: 0.5%;">    
+                                                    <div class="input-group-addon">' . $displayname . '_</div>
+                                                    <input type="hidden" name="v_ftpuname-x" value="'; 
+                                                    $prefix = $uname . '_'; $str = $ftpuser[0]; if (substr($str, 0, strlen($prefix)) == $prefix) { $str = substr($str, strlen($prefix));}
+                                                    echo $str . '">
+                                                    <input type="text" class="form-control" name="v_ftpuname" value="';
+                                                    $prefix = $uname . '_'; $str = $ftpuser[0]; if (substr($str, 0, strlen($prefix)) == $prefix) { $str = substr($str, strlen($prefix));}
+                                                    echo $str . '" style="padding-left: 0.5%;">    
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="password" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10)"> <?php echo _("Generate"); ?></a></label>
+                                            <label for="password" class="col-md-12">' .  _("Password") . ' / <a style="cursor:pointer" onclick="generatePassword(10)"> ' .  _("Generate") . '</a></label>
                                             <div class="col-md-12 input-group" style="padding-left: 15px;">
                                                 <input type="password" class="form-control form-control-line" name="password" id="password">                                    <span class="input-group-btn"> 
                                                 <button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler(this)" id="tg" type="button"><i class="ti-eye"></i></button> 
                                                 </span>  </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Path"); ?></label>
+                                            <label class="col-md-12">' . _("Path").'</label>
                                             <div class="col-md-12">
                                                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                                                    <input type="hidden" name="v_ftpdir-x" value="<?php echo $ftpdir[0]; ?>">
-                                                    <div class="input-group-addon">/home/<?php print_r($displayname); ?>/web/<?php print_r($requestdomain); ?>/</div>
-                                                    <input type="text" class="form-control" name="v_ftpdir" value="<?php echo $ftpdir[0]; ?>" style="padding-left: 0.5%;">    
+                                                    <input type="hidden" name="v_ftpdir-x" value="' . $ftpdir[0] . '">
+                                                    <div class="input-group-addon">/home/' . $displayname . '/web/' . $requestdomain . '/</div>
+                                                    <input type="text" class="form-control" name="v_ftpdir" value="'.$ftpdir[0].'" style="padding-left: 0.5%;">    
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>'; } ?>
                                     <div class="form-group">
                                         <div class="col-sm-12">
                                             <button class="btn btn-success" type="submit" type="submit"><?php echo _("Update Domain"); ?></button> &nbsp;
@@ -571,10 +584,12 @@ foreach ($plugins as $result) {
             document.getElementById('select1').value = '<?php print_r($domaindata[0]['IP']); ?>'; 
             document.getElementById('select2').value = '<?php print_r($domaindata[0]['TPL']); ?>'; 
 
+           <?php if($sysconfigdata['PROXY_SYSTEM'] != '') { echo ""; ?>
             if ('<?php print_r($domaindata[0]['PROXY']); ?>' == '') {  document.getElementById('select3').value = 'default';  }
             else { document.getElementById('select3').value = '<?php print_r($domaindata[0]['PROXY']); ?>'; }
             if ('<?php print_r($domaindata[0]['PROXY_EXT']); ?>' == '') {  document.getElementById('prxext').value = 'jpeg, jpg, png, gif, bmp, ico, svg, tif, tiff, css, js, htm, html, ttf, otf, webp, woff, txt, csv, rtf, doc, docx, xls, xlsx, ppt, pptx, odf, odp, ods, odt, pdf, psd, ai, eot, eps, ps, zip, tar, tgz, gz, rar, bz2, 7z, aac, m4a, mp3, mp4, ogg, wav, wma, 3gp, avi, flv, m4v, mkv, mov, mp4, mpeg, mpg, wmv, exe, iso, dmg, swf';  }
-            else { document.getElementById('prxext').value = '<?php print_r($domaindata[0]['PROXY_EXT']); ?>'; }
+            else { document.getElementById('prxext').value = '<?php print_r($domaindata[0]['PROXY_EXT']); ?>'; } 
+            <?php echo ""; } ?>
             if ('<?php print_r($domaindata[0]['STATS']); ?>' == '') {  document.getElementById('select6').value = 'none';  }
             else { document.getElementById('select6').value = '<?php print_r($domaindata[0]['STATS']); ?>'; }
 
@@ -586,10 +601,12 @@ foreach ($plugins as $result) {
                     document.getElementById('statsauth').style.display = "none";
                 }}
             function checkDiv(){
+                <?php if($sysconfigdata['PROXY_SYSTEM'] != '') { echo ""; ?>
                 if(document.getElementById("checkbox4").checked) {
                     document.getElementById('prxy-div').style.display = 'block';
                 }
                 else {document.getElementById('prxy-div').style.display = 'none';}
+                <?php echo ""; } ?>
             }
             function checkDiv2(){
                 if(document.getElementById("checkbox5").checked) {
@@ -598,11 +615,13 @@ foreach ($plugins as $result) {
                 else {document.getElementById('ssl-div').style.display = 'none';}
             }
             function checkDiv3(){
+                <?php if(checkService('vsftpd') !== false || checkService('proftpd') !== false) {
+                echo '
                 if(document.getElementById("checkbox9").checked) {
-                    document.getElementById('ftp-div').style.display = 'block';
+                    document.getElementById("ftp-div").style.display = "block";
                 }
-                else {document.getElementById('ftp-div').style.display = 'none';}
-            }
+                else {document.getElementById("ftp-div").style.display = "none";}
+                '; } ?>  }
             function checkDiv4(){
                 if(document.getElementById("checkbox10").checked) {
                     document.getElementById('stats-div').style.display = 'block';

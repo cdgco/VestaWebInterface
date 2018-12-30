@@ -93,16 +93,7 @@ foreach ($plugins as $result) {
     }
 }
 
-$vcpservices = curl_init();
-curl_setopt($vcpservices, CURLOPT_URL, $vst_url);
-curl_setopt($vcpservices, CURLOPT_RETURNTRANSFER,true);
-curl_setopt($vcpservices, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($vcpservices, CURLOPT_SSL_VERIFYHOST, false);
-curl_setopt($vcpservices, CURLOPT_POST, true);
-curl_setopt($vcpservices, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-services', 'arg1' => 'json')));
-$servicedata = curl_exec($vcpservices);
-
-if( strpos( $servicedata, 'mysql' ) !== false ) { 
+if( checkService('mysql') !== false ) { 
 
     $vcpmysql = curl_init();
     curl_setopt($vcpmysql, CURLOPT_URL, $vst_url);
@@ -114,7 +105,7 @@ if( strpos( $servicedata, 'mysql' ) !== false ) {
     $mysqldata = array_values(json_decode(curl_exec($vcpmysql), true))[0];
 }
 
-if( strpos( $servicedata, 'postgresql' ) !== false ) { 
+if( checkService('postgresql') !== false ) { 
 
     $vcppostgresql = curl_init();
     curl_setopt($vcppostgresql, CURLOPT_URL, $vst_url);
@@ -227,7 +218,6 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box">
-                                
                                 <form class="form-horizontal form-material" method="post" id="form" action="../change/vesta.php">
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Hostname"); ?></label>
@@ -799,7 +789,7 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
                                                 </select>
                                             </div>
                                         </div>
-                                        <?php if( strpos( $servicedata, 'mysql' ) !== false ) { echo '
+                                        <?php if( checkService('mysql') !== false ) { echo '
                                         <div class="form-group" id="div13" style="margin-left: 4%;">
                                                 <div class="form-group">
                                                     <label class="col-md-12">' .  _("Host") . '</label>
@@ -836,7 +826,7 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
                                                 </select>
                                             </div>
                                         </div>
-                                        <?php if( strpos( $servicedata, 'postgresql' ) !== false ) { echo '<div class="form-group" id="div14" style="margin-left: 4%;">
+                                        <?php if(checkService('postgresql') !== false ) { echo '<div class="form-group" id="div14" style="margin-left: 4%;">
                                                 <div class="form-group">
                                                     <label class="col-md-12">' . _("Host") . '</label>
                                                     <div class="col-md-12">
@@ -951,14 +941,14 @@ if( strpos( $servicedata, 'postgresql' ) !== false ) {
                                             <label class="col-md-12"><?php echo _("SSL Certificate"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_sslcrt-x" value="<?php echo $sysssl[0]['CRT']; ?>">
-                                                <textarea class="form-control" rows="4" class="form-control form-control-static" name="v_sslcrt" <?php if($apienabled == 'true'){ echo "disabled"; } ?>><?php print_r($sysssl[0]['CRT']); ?></textarea>
+                                                <textarea class="form-control" rows="4" class="form-control form-control-static" name="v_sslcrt" <?php if($apienabled == 'true'){ echo "disabled"; } if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "disabled"; } ?>><?php print_r($sysssl[0]['CRT']); ?></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("SSL Key"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_sslkey-x" value="<?php echo $sysssl[0]['KEY']; ?>">
-                                                <textarea class="form-control" rows="4" class="form-control form-control-static" name="v_sslkey" <?php if($apienabled == 'true'){ echo "disabled"; } ?>><?php print_r($sysssl[0]['KEY']); ?></textarea>
+                                                <textarea class="form-control" rows="4" class="form-control form-control-static" name="v_sslkey" <?php if($apienabled == 'true'){ echo "disabled"; } if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "disabled"; } ?>><?php print_r($sysssl[0]['KEY']); ?></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group" style="margin-left: 0.1%;display:<?php if($sysssl[0]['NOT_BEFORE'] != ''){echo 'block';} else { echo 'none';} ?>">

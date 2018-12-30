@@ -30,7 +30,7 @@ else { header('Location: ../../login.php'); }
 if($username != 'admin') { header("Location: ../../"); }
 
 if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
-
+if(checkService('iptables') === false){ header("Location: ../../error-pages/403.html"); }
 $v_type = $_POST['v_type'];
 $v_protocol = $_POST['v_protocol'];
 $v_port = $_POST['v_port'];

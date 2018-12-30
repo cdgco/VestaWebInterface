@@ -276,24 +276,30 @@ foreach ($plugins as $result) {
                                             <input type="hidden" name="v_catchall-x" value="<?php print_r($maildata[0]['CATCHALL']); ?>"> 
                                         </div>
                                     </div>
+                                    <?php if(checkService('spamassassin') !== false) { echo '
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("AntiSpam Support"); ?></label>
+                                        <label class="col-md-12">'._("AntiSpam Support").'</label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
-                                                <input id="checkbox5" type="checkbox" name="v_antispam" <?php if($maildata[0]['ANTISPAM'] == 'no') {} else {echo 'checked';} ?> >
-                                                <label for="checkbox5"> <?php echo _("Enabled"); ?> </label>
+                                                <input id="checkbox5" type="checkbox" name="v_antispam" ';
+                                                if($maildata[0]['ANTISPAM'] == 'no') {} else {echo 'checked';}
+                                                echo ' >
+                                                <label for="checkbox5"> '._("Enabled").'</label>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>'; } 
+                                     if(checkService('clamav') !== false) { echo '
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("AntiVirus Support"); ?></label>
+                                        <label class="col-md-12">'._("AntiVirus Support").'</label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
-                                                <input id="checkbox6" type="checkbox" name="v_antivirus" <?php if($maildata[0]['ANTIVIRUS'] == 'no') {} else {echo 'checked';} ?> >
-                                                <label for="checkbox6"> <?php echo _("Enabled"); ?> </label>
+                                                <input id="checkbox6" type="checkbox" name="v_antivirus" ';
+                                                if($maildata[0]['ANTIVIRUS'] == 'no') {} else {echo 'checked';}
+                                                echo ' >
+                                                <label for="checkbox6"> '._("Enabled").' </label>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>'; } ?>
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("DKIM Support"); ?></label>
                                         <div class="col-md-12">

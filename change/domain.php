@@ -75,11 +75,11 @@ if (!empty($_POST['v_statsuserenabled'])) {
     $v_statsuserenabled = 'no';
 }
 // Check FTP option
-if (!empty($_POST['v_ftpenabled'])) {
-    $v_ftpx = 'yes';
-} else {
-    $v_ftpx = 'no';
-}
+    if (!empty($_POST['v_ftpenabled'])) {
+        $v_ftpx = 'yes';
+    } else {
+        $v_ftpx = 'no';
+    }
 function ftp_file_put_contents($remote_file, $file_string) {
 
     $ftp_server=VESTA_HOST_ADDRESS; 
@@ -160,7 +160,7 @@ else {
         $r2 = curl_exec($curl2);
     }
     else { $r2 = '0'; }
-    if ($v_prxx != $v_prxx_x && $v_prxx == 'yes' && $v_prxx_x == 'no'){
+    if (isset($_POST['v_prxenabled']) && $v_prxx != $v_prxx_x && $v_prxx == 'yes' && $v_prxx_x == 'no'){
         $postvars3 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain-proxy','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_prxtpl'], 'arg4' => $prxext, 'arg5' => 'no');
 
         $curl3 = curl_init();
@@ -172,7 +172,7 @@ else {
         curl_setopt($curl3, CURLOPT_POSTFIELDS, http_build_query($postvars3));
         $r3 = curl_exec($curl3);
     } else { $r3 = '0'; }
-    if ($v_prxx != $v_prxx_x && $v_prxx == 'no' && $v_prxx_x == 'yes'){
+    if (isset($_POST['v_prxenabled']) && $v_prxx != $v_prxx_x && $v_prxx == 'no' && $v_prxx_x == 'yes'){
         $postvars3 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-web-domain-proxy','arg1' => $username,'arg2' => $v_domain);
 
         $curl3 = curl_init();
@@ -185,7 +185,7 @@ else {
         $r3 = curl_exec($curl3);
         if ($r3 == '3') { $r3 = '0';}
     } else { $r3 = '0'; }
-    if ($v_prxx == 'yes' && $_POST['v_prxtpl-x'] != $_POST['v_prxtpl'] || $_POST['v_prxext-x'] != $prxext ){
+    if (isset($_POST['v_prxenabled']) && $v_prxx == 'yes' && $_POST['v_prxtpl-x'] != $_POST['v_prxtpl'] || $_POST['v_prxext-x'] != $prxext ){
         $postvars4 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-web-domain-proxy-tpl','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_prxtpl'], 'arg4' => $prxext, 'arg5' => 'no');
 
         $curl4 = curl_init();
@@ -285,6 +285,7 @@ else {
         $r7 = curl_exec($curl7);
         if ($r7 == 'OK') { $r4 = '0';} 
     } else { $r7= '0'; }
+if(checkService('vsftpd') !== false || checkService('proftpd') !== false) {
     if ($v_sslx == 'no' && $_POST['v_sslenabled'] != $_POST['v_sslenabled-x']) {
         $postvars8 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-delete-web-domain-ssl','arg1' => $username,'arg2' => $v_domain, 'arg3' => 'no');
 
@@ -388,6 +389,7 @@ else {
 
   
     } else { $r8= '0'; }
+} else { $r8= '0'; }
 }
 
 ?>

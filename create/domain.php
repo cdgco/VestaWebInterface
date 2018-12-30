@@ -47,6 +47,7 @@ $alias = implode(",",$aliases_arr);
 if (empty($_POST['v_alias'])) $alias = 'none';
 
 // Define proxy extensions
+if(isset($_POST['v_prxext']) && $_POST['v_prxext'] != '') {
 $v_proxy_ext = $_POST['v_prxext'];
 $proxy_ext = preg_replace("/\n/", ",", $v_proxy_ext);
 $proxy_ext = preg_replace("/\r/", ",", $proxy_ext);
@@ -55,7 +56,8 @@ $proxy_ext = preg_replace("/ /", ",", $proxy_ext);
 $proxy_ext_arr = explode(",", $proxy_ext);
 $proxy_ext_arr = array_unique($proxy_ext_arr);
 $proxy_ext_arr = array_filter($proxy_ext_arr);
-$prxext = implode(",",$proxy_ext_arr);
+$prxext = implode(",",$proxy_ext_arr); }
+else { $prxext = ''; }
 
 // Check DNS option
 if (!empty($_POST['v_dnsenabled'])) {
@@ -70,7 +72,7 @@ if (!empty($_POST['v_mailenabled'])) {
     $v_mailx = 'no';
 }
 // Check Proxy option
-if (!empty($_POST['v_pryxyenabled'])) {
+if (isset($_POST['v_pryxyenabled']) && !empty($_POST['v_pryxyenabled'])) {
     $v_prxx = 'yes';
 } else {
     $v_prxx = 'no';
@@ -111,8 +113,12 @@ function ftp_file_put_contents($remote_file, $file_string) {
 if ((!isset($v_domain)) || ($v_domain == '')) { header('Location: ../add/domain.php?error=1');}
 elseif ((!isset($_POST['v_ip'])) || ($_POST['v_ip'] == '')) { header('Location: ../add/domain.php?error=1');}
 else {
+    if(checkService('nginx') !== false) {
     $postvars0 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_ip'], 'arg4' => 'no', 'arg5' => $alias, 'arg6' => $prxext);
-
+    }
+    else {
+        $postvars0 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_ip'], 'arg4' => 'no', 'arg5' => $alias); 
+    }
     $curl0 = curl_init();
     curl_setopt($curl0, CURLOPT_URL, $vst_url);
     curl_setopt($curl0, CURLOPT_RETURNTRANSFER,true);
@@ -121,56 +127,62 @@ else {
     curl_setopt($curl0, CURLOPT_POST, true);
     curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query($postvars0));
     $r0 = curl_exec($curl0);
+    
+    if(checkService('nginx') !== false) {
+        if ($v_prxx == 'no'){
+            $postvars1 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-web-domain-proxy','arg1' => $username,'arg2' => $v_domain, 'arg3' => 'no');
 
-    if ($v_prxx == 'no'){
-        $postvars1 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-web-domain-proxy','arg1' => $username,'arg2' => $v_domain, 'arg3' => 'no');
-
-        $curl1 = curl_init();
-        curl_setopt($curl1, CURLOPT_URL, $vst_url);
-        curl_setopt($curl1, CURLOPT_RETURNTRANSFER,true);
-        curl_setopt($curl1, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($curl1, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($curl1, CURLOPT_POST, true);
-        curl_setopt($curl1, CURLOPT_POSTFIELDS, http_build_query($postvars1));
-        $r1 = curl_exec($curl1);
+            $curl1 = curl_init();
+            curl_setopt($curl1, CURLOPT_URL, $vst_url);
+            curl_setopt($curl1, CURLOPT_RETURNTRANSFER,true);
+            curl_setopt($curl1, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($curl1, CURLOPT_SSL_VERIFYHOST, false);
+            curl_setopt($curl1, CURLOPT_POST, true);
+            curl_setopt($curl1, CURLOPT_POSTFIELDS, http_build_query($postvars1));
+            $r1 = curl_exec($curl1);
+        } else { $r1 = '0'; }
     } else { $r1 = '0'; }
-    if ($v_mailx == 'yes'){
-        $postvars2 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-domain','arg1' => $username,'arg2' => $v_domain);
+    if(checkService('exim') !== false) {
+        if (isset($_POST['v_mailenabled']) && $v_mailx == 'yes'){
+            $postvars2 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-domain','arg1' => $username,'arg2' => $v_domain);
 
-        $curl2 = curl_init();
-        curl_setopt($curl2, CURLOPT_URL, $vst_url);
-        curl_setopt($curl2, CURLOPT_RETURNTRANSFER,true);
-        curl_setopt($curl2, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($curl2, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($curl2, CURLOPT_POST, true);
-        curl_setopt($curl2, CURLOPT_POSTFIELDS, http_build_query($postvars2));
-        $r2 = curl_exec($curl2);
+            $curl2 = curl_init();
+            curl_setopt($curl2, CURLOPT_URL, $vst_url);
+            curl_setopt($curl2, CURLOPT_RETURNTRANSFER,true);
+            curl_setopt($curl2, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($curl2, CURLOPT_SSL_VERIFYHOST, false);
+            curl_setopt($curl2, CURLOPT_POST, true);
+            curl_setopt($curl2, CURLOPT_POSTFIELDS, http_build_query($postvars2));
+            $r2 = curl_exec($curl2);
+        } else { $r2 = '0'; } 
     } else { $r2 = '0'; }
-    if ($v_dnsx == 'yes'){
-        $postvars3 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-dns-domain','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_ip'], 'arg4' => '', 'arg5' => '', 'arg6' => '', 'arg7' => '', 'arg8' => '', 'arg9' => '', 'arg10' => '', 'arg11' => '', 'arg12' => 'no');
+    if(checkService('bind9') !== false) {
+        if (isset($_POST['v_dnsenabled']) && $v_dnsx == 'yes'){
+            $postvars3 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-dns-domain','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_ip'], 'arg4' => '', 'arg5' => '', 'arg6' => '', 'arg7' => '', 'arg8' => '', 'arg9' => '', 'arg10' => '', 'arg11' => '', 'arg12' => 'no');
 
-        $curl3 = curl_init();
-        curl_setopt($curl3, CURLOPT_URL, $vst_url);
-        curl_setopt($curl3, CURLOPT_RETURNTRANSFER,true);
-        curl_setopt($curl3, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($curl3, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($curl3, CURLOPT_POST, true);
-        curl_setopt($curl3, CURLOPT_POSTFIELDS, http_build_query($postvars3));
-        $r3 = curl_exec($curl3);
-        foreach ($aliases_arr as $dnsalias) {
-            if ($dnsalias != "www.".$_POST['v_domain']) {
-                $postvars4 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-dns-on-web-alias','arg1' => $username,'arg2' => $dnsalias, 'arg3' => $_POST['v_ip'], 'arg4' => 'no');
+            $curl3 = curl_init();
+            curl_setopt($curl3, CURLOPT_URL, $vst_url);
+            curl_setopt($curl3, CURLOPT_RETURNTRANSFER,true);
+            curl_setopt($curl3, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($curl3, CURLOPT_SSL_VERIFYHOST, false);
+            curl_setopt($curl3, CURLOPT_POST, true);
+            curl_setopt($curl3, CURLOPT_POSTFIELDS, http_build_query($postvars3));
+            $r3 = curl_exec($curl3);
+            foreach ($aliases_arr as $dnsalias) {
+                if ($dnsalias != "www.".$_POST['v_domain']) {
+                    $postvars4 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-dns-on-web-alias','arg1' => $username,'arg2' => $dnsalias, 'arg3' => $_POST['v_ip'], 'arg4' => 'no');
 
-                $curl4 = curl_init();
-                curl_setopt($curl4, CURLOPT_URL, $vst_url);
-                curl_setopt($curl4, CURLOPT_RETURNTRANSFER,true);
-                curl_setopt($curl4, CURLOPT_SSL_VERIFYPEER, false);
-                curl_setopt($curl4, CURLOPT_SSL_VERIFYHOST, false);
-                curl_setopt($curl4, CURLOPT_POST, true);
-                curl_setopt($curl4, CURLOPT_POSTFIELDS, http_build_query($postvars4));
-                $r4 = curl_exec($curl4);
-            } else {$r4 = '0';}
-        }
+                    $curl4 = curl_init();
+                    curl_setopt($curl4, CURLOPT_URL, $vst_url);
+                    curl_setopt($curl4, CURLOPT_RETURNTRANSFER,true);
+                    curl_setopt($curl4, CURLOPT_SSL_VERIFYPEER, false);
+                    curl_setopt($curl4, CURLOPT_SSL_VERIFYHOST, false);
+                    curl_setopt($curl4, CURLOPT_POST, true);
+                    curl_setopt($curl4, CURLOPT_POSTFIELDS, http_build_query($postvars4));
+                    $r4 = curl_exec($curl4);
+                } else {$r4 = '0';}
+            }
+        } else { $r3 = '0'; $r4 = '0';}
     } else { $r3 = '0'; $r4 = '0';}
     if ((!empty($_POST['v_webstats'])) && ($_POST['v_webstats'] != 'none' )){
         $postvars5 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain-stats','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_webstats']);
@@ -210,7 +222,7 @@ else {
 
     } 
     elseif ($v_sslx == 'yes'  && isset($_POST['v_ssldir']) && isset($_POST['v_sslcrt']) && isset($_POST['v_sslkey'])  && $apienabled != 'true') {
-        
+        if(checkService('vsftpd') !== false || checkService('proftpd') !== false) {
         $writestr1 = str_replace("\r\n", "\n",  $_POST['v_sslcrt']);
         $writestr2 = str_replace("\r\n", "\n",  $_POST['v_sslkey']);
         ftp_file_put_contents($v_domain . '.crt', $writestr1);
@@ -245,6 +257,8 @@ else {
         if(isset($_POST['v_sslca']) && $_POST['v_sslca'] != '') {
             ftp_delete($ftp_conn, $v_domain . '.ca');
         }
+        }
+        else { $r7 = '0';}
         
     }
     else { $r7 = '0';}

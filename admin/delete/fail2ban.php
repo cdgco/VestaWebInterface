@@ -30,7 +30,7 @@ else { header('Location: ../../login.php'); }
 if($username != 'admin') { header("Location: ../../"); }
 
 if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
-
+if(checkService('fail2ban') === false){ header("Location: ../../error-pages/403.html"); }
 $v_ip = $_GET['ip'];
 $v_chain = $_GET['chain'];
 

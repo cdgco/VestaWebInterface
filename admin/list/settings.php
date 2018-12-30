@@ -400,8 +400,7 @@ foreach ($plugins as $result) {
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("Footer Text"); ?></label>  
                                             <div class="col-md-12">
-                                                <input id="textinput" name="FOOTER" type="text" value="<?php echo $config["FOOTER"]; ?>" class="form-control input-md">
-
+                                                <input id="textinput" name="FOOTER" type="text" value="<?php echo htmlspecialchars($config["FOOTER"]); ?>" class="form-control input-md">
                                             </div>
                                     </div>
                                     </div>
@@ -994,7 +993,7 @@ foreach ($plugins as $result) {
             function pleaseDonate(){
                 Swal({
                   title: 'Please consider donating.',
-                  html: "<p>VWI is provided open source and free of charge, developed in my free time. Please consider supporting the project by donating before removing the VWI branding.<br><br>- Carter Roeser (Developer)</p>",
+                  html: "<p style='text-align: left;padding: 20px;'><br>VWI is provided open source and free of charge, developed in my free time. Please consider supporting the project by donating before removing the VWI branding.<br><br>- Carter Roeser (Developer)</p>",
                   type: 'warning',
                   showCancelButton: true,
                   confirmButtonColor: '#3085d6',

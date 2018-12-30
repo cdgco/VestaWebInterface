@@ -186,7 +186,8 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box">
-                                <form class="form-horizontal form-material" autocomplete="off" method="post" id="form" action="../create/package.php">
+                                <?php if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "Error: VestaCP FTP must be enabled to add packages."; } ?>
+                                <form class="form-horizontal form-material"<?php if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "style='display:none;"; } ?> autocomplete="off" method="post" id="form" action="../create/package.php">
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo _("Package Name"); ?></label>
                                         <div class="col-md-12">
