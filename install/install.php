@@ -165,9 +165,6 @@ $con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
 
 $sql4 = "ALTER TABLE `".$mysql_table."config` ADD PRIMARY KEY (`VARIABLE`);";
 
-ALTER TABLE `vwi_config`
-  ADD PRIMARY KEY (`VARIABLE`);
-
 if (mysqli_query($con, $sql4)) {} else { echo "Error altering table: " . mysqli_error($con); }
 
 mysqli_close($con);
