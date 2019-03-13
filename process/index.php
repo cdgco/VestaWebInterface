@@ -1,5 +1,5 @@
 <?php
 
-header('Location: ../error-pages/403.html');
+header('Location: ../error-pages/403.html'); exit(); 
 
 ?>

@@ -24,11 +24,11 @@
 
 session_start();
 $configlocation = "../includes/";
-if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
+if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' ); exit();};
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php'); }
+else { header('Location: ../login.php'); exit(); }
 
-if(isset($dbenabled) && $dbenabled != 'true'){ header("Location: ../error-pages/403.html"); }
+if(isset($dbenabled) && $dbenabled != 'true'){ header("Location: ../error-pages/403.html"); exit(); }
 require '../plugins/components/phpmailer/src/PHPMailer.php';
 require '../plugins/components/phpmailer/src/SMTP.php';
 require '../plugins/components/phpmailer/src/Exception.php';
@@ -42,12 +42,12 @@ $v_4 = $_POST['v_type'];
 $v_5 = $_POST['v_host'];
 $v_6 = $_POST['v_charset'];
 
-if ((!isset($_POST['v_database'])) || ($_POST['v_database'] == '')) { header('Location: ../add/db.php?error=1');}
-elseif ((!isset($_POST['v_dbuser'])) || ($_POST['v_dbuser'] == '')) { header('Location: ../add/db.php?error=1');}
-elseif ((!isset($_POST['password'])) || ($_POST['password'] == '')) { header('Location: ../add/db.php?error=1');}
-elseif ((!isset($_POST['v_type'])) || ($_POST['v_type'] == '')) { header('Location: ../add/db.php?error=1');}
-elseif ((!isset($_POST['v_host'])) || ($_POST['v_host'] == '')) { header('Location: ../add/db.php?error=1');}
-elseif ((!isset($_POST['v_charset'])) || ($_POST['v_charset'] == '')) { header('Location: ../add/db.php?error=1');}
+if ((!isset($_POST['v_database'])) || ($_POST['v_database'] == '')) { header('Location: ../add/db.php?error=1'); exit();}
+elseif ((!isset($_POST['v_dbuser'])) || ($_POST['v_dbuser'] == '')) { header('Location: ../add/db.php?error=1'); exit();}
+elseif ((!isset($_POST['password'])) || ($_POST['password'] == '')) { header('Location: ../add/db.php?error=1'); exit();}
+elseif ((!isset($_POST['v_type'])) || ($_POST['v_type'] == '')) { header('Location: ../add/db.php?error=1'); exit();}
+elseif ((!isset($_POST['v_host'])) || ($_POST['v_host'] == '')) { header('Location: ../add/db.php?error=1'); exit();}
+elseif ((!isset($_POST['v_charset'])) || ($_POST['v_charset'] == '')) { header('Location: ../add/db.php?error=1'); exit();}
 
 $postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-database','arg1' => $username,'arg2' => $v_1, 'arg3' => $v_2, 'arg4' => $v_3, 'arg5' => $v_4, 'arg6' => $v_5, 'arg7' => $v_6);
 

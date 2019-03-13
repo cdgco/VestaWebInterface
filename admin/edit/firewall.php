@@ -24,15 +24,15 @@
 
 session_start();
 $configlocation = "../../includes/";
-if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' );};
+if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' ); exit();};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../../login.php?to=admin/edit/firewall.php'.$urlquery.$_SERVER['QUERY_STRING']); }
-if($username != 'admin') { header("Location: ../../"); }
+else { header('Location: ../../login.php?to=admin/edit/firewall.php'.$urlquery.$_SERVER['QUERY_STRING']); exit(); }
+if($username != 'admin') { header("Location: ../../"); exit(); }
 
-if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
-if(checkService('iptables') === false){ header("Location: ../../error-pages/403.html"); }
-if(!isset($_GET['rule'])) { header("Location: ../list/firewall.php"); }
+if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); exit(); }
+if(checkService('iptables') === false){ header("Location: ../../error-pages/403.html"); exit(); }
+if(!isset($_GET['rule'])) { header("Location: ../list/firewall.php"); exit(); }
 $postvars = array(
     array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
     array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-firewall-rule','arg1' => $_GET['rule'],'arg2' => 'json')

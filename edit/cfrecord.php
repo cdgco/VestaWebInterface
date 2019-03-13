@@ -26,13 +26,13 @@ session_start();
 $configlocation = "../includes/";
 
 // Include settings & variables
-if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
+if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' ); exit();};
 
 // Check if cookie exists, decrypt, then redirect if not logged in
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php?to=edit/cfrecord.php'.$urlquery.$_SERVER['QUERY_STRING']); }
+else { header('Location: ../login.php?to=edit/cfrecord.php'.$urlquery.$_SERVER['QUERY_STRING']); exit(); }
 
-if(isset($dnsenabled) && $dnsenabled != 'true'){ header("Location: ../error-pages/403.html"); }
+if(isset($dnsenabled) && $dnsenabled != 'true'){ header("Location: ../error-pages/403.html"); exit(); }
 
 // Define request variables
 $requestdns = $_GET['domain'];
@@ -40,7 +40,7 @@ $requestrecord = $_GET['record'];
 
 // If request vars are unset, redirect
 if (isset($requestdns) && $requestdns != '' && isset($requestrecord) && $requestrecord != '') {}
-else { header('Location: ../list/dns.php'); }
+else { header('Location: ../list/dns.php'); exit(); }
 
 // API Call
 $postvars = array(

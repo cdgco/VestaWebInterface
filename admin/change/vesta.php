@@ -24,15 +24,15 @@
 
 session_start();
 $configlocation = "../../includes/";
-if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' );};
+if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' ); exit();};
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../../login.php'); }
-if($username != 'admin') { header("Location: ../../"); }
+else { header('Location: ../../login.php'); exit(); }
+if($username != 'admin') { header("Location: ../../"); exit(); }
 
-if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
-if(isset($apienabled) && $apienabled == 'true'){ header("Location: ../../error-pages/403.html"); }
+if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); exit(); }
+if(isset($apienabled) && $apienabled == 'true'){ header("Location: ../../error-pages/403.html"); exit(); }
 
-if ((!isset($_POST['v_hostname'])) || (!isset($_POST['v_hostname-x'])) || (!isset($_POST['v_timezone'])) || (!isset($_POST['v_timezone-x'])) || (!isset($_POST['v_language'])) || (!isset($_POST['v_language-x']))) { header('Location: ../server/vesta.php?error=1');}
+if ((!isset($_POST['v_hostname'])) || (!isset($_POST['v_hostname-x'])) || (!isset($_POST['v_timezone'])) || (!isset($_POST['v_timezone-x'])) || (!isset($_POST['v_language'])) || (!isset($_POST['v_language-x']))) { header('Location: ../server/vesta.php?error=1'); exit();}
 
 
 if($_POST['v_hostname'] != $_POST['v_hostname-x']) {

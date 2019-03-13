@@ -24,17 +24,17 @@
 
 session_start();
 $configlocation = "../includes/";
-if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
+if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' ); exit(); };
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php?to=add/cfrecord.php'.$urlquery.$_SERVER['QUERY_STRING']); }
+else { header('Location: ../login.php?to=add/cfrecord.php'.$urlquery.$_SERVER['QUERY_STRING']); exit();  }
 
-if(isset($dnsenabled) && $dnsenabled != 'true'){ header("Location: ../error-pages/403.html"); }
+if(isset($dnsenabled) && $dnsenabled != 'true'){ header("Location: ../error-pages/403.html"); exit(); }
 
 $requestdns = $_GET['domain'];
 
 if (isset($requestdns) && $requestdns != '') {}
-else { header('Location: ../list/dns.php'); }
+else { header('Location: ../list/dns.php'); exit(); }
 
 if (CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != ''){
     $cfenabled = curl_init();

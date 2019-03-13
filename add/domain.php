@@ -24,12 +24,12 @@
 
 session_start();
 $configlocation = "../includes/";
-if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
+if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' ); exit(); };
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php?to=add/domain.php'); }
+else { header('Location: ../login.php?to=add/domain.php'); exit();  }
 
-if(isset($webenabled) && $webenabled != 'true'){ header("Location: ../error-pages/403.html"); }
+if(isset($webenabled) && $webenabled != 'true'){ header("Location: ../error-pages/403.html"); exit(); }
 
 $postvars = array(
     array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),
@@ -342,10 +342,10 @@ foreach ($plugins as $result) {
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="v_statspassword" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword2(10)"> <?php echo _("Generate"); ?></a></label>
+                                                <label for="v_statspassword" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10, 'statspassword', 'tgstats')"> <?php echo _("Generate"); ?></a></label>
                                                 <div class="col-md-12 input-group" style="padding-left: 15px;">
-                                                    <input type="password" class="form-control form-control-line" autocomplete="new-password" name="v_statspassword" id="statspassword">                                    <span class="input-group-btn"> 
-                                                    <button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler2(this)" id="tg2" type="button"><i class="ti-eye"></i></button> 
+                                                    <input type="password" class="form-control form-control-line" autocomplete="new-password" name="v_statspassword" id="statspassword">         <span class="input-group-btn"> 
+                                                    <button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler(this, 'statspassword')" id="tgstats" type="button"><i class="ti-eye"></i></button> 
                                                     </span>  
                                                 </div>
                                             </div>
@@ -356,13 +356,13 @@ foreach ($plugins as $result) {
                                             <label class="col-md-12"><?php echo _("Additional FTP"); ?></label>
                                             <div class="col-md-12">
                                                 <div class="checkbox checkbox-info">
-                                                    <input id="checkbox9" type="checkbox" name="v_additionalftpenabled" disabled onclick="checkDiv4();">
+                                                    <input id="checkbox9" type="checkbox" name="v_additionalftpenabled" onclick="checkDiv4();">
                                                     <label for="checkbox9"> <?php echo _("Enabled"); ?> </label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div id="ftp-div" style="margin-left: 4%;">
-                                            <div class="ftp-account1" accnum="1">
+                                            <div class="ftp-account" accnum="1">
                                                 <div class="form-group">
                                                     <label class="col-md-12"><?php echo _("FTP Account"); ?> #1</label><hr>
                                                 </div>
@@ -376,29 +376,31 @@ foreach ($plugins as $result) {
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="password" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10)"> <?php echo _("Generate"); ?></a></label>
+                                                    <label for="password" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10, 'password1', 'tg1')"> <?php echo _("Generate"); ?></a></label>
                                                     <div class="col-md-12 input-group" style="padding-left: 15px;">
-                                                        <input type="password" class="form-control form-control-line" autocomplete="new-password" name="v_ftppw1" id="password">                                    <span class="input-group-btn"> 
-                                                        <button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler(this)" id="tg" type="button"><i class="ti-eye"></i></button> 
+                                                        <input type="password" class="form-control form-control-line" autocomplete="new-password" name="v_ftppw1" id="password1">                  <span class="input-group-btn"> 
+                                                        <button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler(this, 'password1')" id="tg1" type="button"><i class="ti-eye"></i></button> 
                                                         </span>  </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-12"><?php echo _("Path"); ?></label>
                                                     <div class="col-md-12">
                                                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                                                            <div class="input-group-addon" id="dirfill"></div>
+                                                            <div class="input-group-addon dirfill"></div>
                                                             <input type="text" class="form-control" name="v_ftpdir1" style="padding-left: 0.5%;">    
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <?php if($phpmailenabled == 'true') { echo ""; ?>
                                                 <div class="form-group">
                                                     <label class="col-md-12"><?php echo _("Send FTP Credentials to Email:"); ?></label>
                                                     <div class="col-md-12">
                                                         <input type="email" name="v_ftpnotif1" autocomplete="new-password" class="form-control"> 
                                                     </div>
                                                 </div>
+                                                <?php echo ""; } ?>
                                             </div>
-                                            <p>Add One / Remove One</p><br><br>
+                                            <p id="FtpControl"><a href="javascript:void(0);" onclick="addFtpAccount();">Add One</a><span id="removeFtpBtn"> / <a href="javascript:void(0);" onclick="removeFtpAccount();">Remove One</a></span></p><br><br>
                                         </div>
                                         <?php echo ""; } ?>
                                     </div>
@@ -453,8 +455,13 @@ foreach ($plugins as $result) {
             function checkwww() {
                 var domain = document.getElementById('domain').value;
                 document.getElementsByClassName("aliasfill")[0].innerHTML = 'www.' + domain;
-                var dirDomain = document.getElementById("dirfill");
-                dirDomain.innerHTML = '/home/<?php print_r($uname); ?>/web/' + domain + '/';
+                
+                divs = document.getElementsByClassName( 'dirfill' );
+
+                [].slice.call( divs ).forEach(function ( div ) {
+                    div.innerHTML = '/home/<?php print_r($uname); ?>/web/' + domain + '/';
+                });
+                
             }
             function csrlink() {
                 var domain = document.getElementById('domain').value;
@@ -493,6 +500,30 @@ foreach ($plugins as $result) {
                 }
                 else {document.getElementById('stats-div').style.display = 'none';}
             }
+
+            if($('.ftp-account').length >= 2) { $('#removeFtpBtn').show(); }
+            else { $('#removeFtpBtn').hide(); }
+            
+            function addFtpAccount(){
+                var startingAcc = $('#ftp-div').find('.ftp-account:last').attr('accnum');
+                startingAcc++;
+                var objTo = document.getElementById('FtpControl');
+                var newAcc = document.createElement("div");
+                newAcc.setAttribute("class", "ftp-account");
+                newAcc.setAttribute("accnum", startingAcc);
+                 newAcc.innerHTML = '<div class="form-group"><label class="col-md-12"><?php echo _("FTP Account"); ?> #'+startingAcc+'</label><hr></div><div class="form-group"><label class="col-md-12"><?php echo _("Username"); ?></label><br><div class="col-md-12"><div class="input-group mb-2 mr-sm-2 mb-sm-0"><div class="input-group-addon"><?php echo $uname; ?>_</div><input type="text" class="form-control" autocomplete="new-password" name="v_ftpuname'+startingAcc+'" style="padding-left: 0.5%;"></div></div></div><div class="form-group"><label for="password" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10, \'password'+startingAcc+'\', \'tg'+startingAcc+'\')"> <?php echo _("Generate"); ?></a></label><div class="col-md-12 input-group" style="padding-left: 15px;"><input type="password" class="form-control form-control-line" autocomplete="new-password" name="v_ftppw'+startingAcc+'" id="password'+startingAcc+'"><span class="input-group-btn"><button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler(this, \'password'+startingAcc+'\')" id="tg'+startingAcc+'" type="button"><i class="ti-eye"></i></button></span></div></div><div class="form-group"><label class="col-md-12"><?php echo _("Path"); ?></label><div class="col-md-12"><div class="input-group mb-2 mr-sm-2 mb-sm-0"><div class="input-group-addon dirfill"></div><input type="text" class="form-control" name="v_ftpdir'+startingAcc+'" style="padding-left: 0.5%;"></div></div></div><?php if($phpmailenabled == 'true') { echo ""; ?><div class="form-group"><label class="col-md-12"><?php echo _("Send FTP Credentials to Email:"); ?></label><div class="col-md-12"><input type="email" name="v_ftpnotif'+startingAcc+'" autocomplete="new-password" class="form-control"></div></div><?php echo ""; } ?>';
+                $('#ftp-div').find('.ftp-account:last').append(newAcc);
+                if($('.ftp-account').length >= 2) { $('#removeFtpBtn').show(); }
+                else { $('#removeFtpBtn').hide(); }
+                checkwww();
+            }
+           
+           function removeFtpAccount() {
+               $('#ftp-div').find('.ftp-account:last').remove();
+               if($('.ftp-account').length >= 2) { $('#removeFtpBtn').show(); }
+                else { $('#removeFtpBtn').hide(); }
+           }
+            
             function toggle_visibility(id) {
                 var e = document.getElementById(id);
                 if(e.style.display == 'block')
@@ -500,47 +531,25 @@ foreach ($plugins as $result) {
                 else
                     e.style.display = 'block';
             }
-            function toggler(e) {
+            function toggler(e, f) {
                 if( e.name == 'Hide' ) {
                     e.name = 'Show'
-                    document.getElementById('password').type="password";
+                    document.getElementById(f).type="password";
                 } else {
                     e.name = 'Hide'
-                    document.getElementById('password').type="text";
+                    document.getElementById(f).type="text";
                 }
             }
-            function toggler2(e) {
-                if( e.name == 'Hide' ) {
-                    e.name = 'Show'
-                    document.getElementById('statspassword').type="password";
-                } else {
-                    e.name = 'Hide'
-                    document.getElementById('statspassword').type="text";
-                }
-            }
-            function generatePassword(length) {
+            function generatePassword(length, g, h) {
                 var password = '', character; 
                 while (length > password.length) {
                     if (password.indexOf(character = String.fromCharCode(Math.floor(Math.random() * 94) + 33), Math.floor(password.length / 94) * 94) < 0) {
                         password += character;
                     }
                 }
-                document.getElementById('password').value = password;
-                document.getElementById('tg').name='Hide';
-                document.getElementById('password').type="text";
-                fillSpan();
-            }
-            function generatePassword2(length) {
-                var password = '', character; 
-                while (length > password.length) {
-                    if (password.indexOf(character = String.fromCharCode(Math.floor(Math.random() * 94) + 33), Math.floor(password.length / 94) * 94) < 0) {
-                        password += character;
-                    }
-                }
-                document.getElementById('statspassword').value = password;
-                document.getElementById('tg2').name='Hide';
-                document.getElementById('statspassword').type="text";
-                fillSpan();
+                document.getElementById(g).value = password;
+                document.getElementById(h).name='Hide';
+                document.getElementById(g).type="text";
             }
             function processLoader(){
                 swal({

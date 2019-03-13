@@ -22,7 +22,7 @@
 *
 */
 
-if (file_exists( '../includes/config.php' )) { header( 'Location: index.php' );}; 
+if (file_exists( '../includes/config.php' )) { header( 'Location: index.php' ); exit();}; 
 
 if((isset($_POST['MYSQL_HOST'])) && (isset($_POST['MYSQL_UNAME'])) && (isset($_POST['MYSQL_PW'])) && (isset($_POST['MYSQL_DB'])) && (isset($_POST['MYSQL_TABLE']))) {
 

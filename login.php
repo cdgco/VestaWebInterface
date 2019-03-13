@@ -24,9 +24,9 @@
 
 session_start();
 $configlocation = "includes/";
-if (file_exists( 'includes/config.php' )) { require( 'includes/includes.php'); }  else { header( 'Location: install' );};
+if (file_exists( 'includes/config.php' )) { require( 'includes/includes.php'); }  else { header( 'Location: install' ); exit(); };
 if(isset($_SESSION['loggedin'])) {
-    if(base64_decode($_SESSION['loggedin']) == 'true') { header('Location: index.php'); }
+    if(base64_decode($_SESSION['loggedin']) == 'true') { header('Location: index.php'); exit(); }
 }
 
 $postvars0 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-info','arg1' => 'json');

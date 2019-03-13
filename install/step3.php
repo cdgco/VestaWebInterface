@@ -22,7 +22,7 @@
 *
 */
 
-if (!file_exists( '../includes/config.php' )) { header('step2.php'); } 
+if (!file_exists( '../includes/config.php' )) { header('step2.php'); exit(); } 
 require '../includes/arrays.php'; include("../includes/version.php");
 ?>
 <!DOCTYPE html>
