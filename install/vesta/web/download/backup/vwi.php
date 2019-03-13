@@ -72,7 +72,7 @@ if (isset($_POST['user']) && isset($_POST['password'])) {
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v0.5.5-Beta/css/style.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v1.0.0/css/style.css" rel="stylesheet">
     </head>
     <body class="fix-header">
         <div class="preloader">

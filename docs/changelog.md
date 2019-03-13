@@ -1,5 +1,17 @@
 ## Changelog
 
+### v1.0.0
+Notification System<br>
+Custom Footers<br>
+Compatibility Checks<br>
+PHP-FPM Support<br>
+Sweetalert2 Toasts<br>
+Security Patches<br>
+FTP User System<br>
+Design Updates<br>
+Dependencies<br>
+Bug Fixes<br>
+
 ### v0.5.4-Beta
 Search Engine<br>
 AJAX Installation Analytics<br>
