@@ -395,7 +395,7 @@ function profileMenu($l3) {
         <li>
             <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu">' . $displayname . '<span class="fa arrow"></span></span>
             </a>
-            <ul class="nav nav-second-level collapse" id="appendaccount">
+            <ul class="nav nav-second-level" id="appendaccount">
                 <li> <a href="' . $l3 . 'profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu">' . _("My Account") . '</span></a></li>
                 <li> <a href="' . $l3 . 'profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu">' . _("Account Settings") . '</span></a></li>
                 <li> <a href="' . $l3 . 'log.php"><i class="ti-layout-list-post fa-fw"></i><span class="hide-menu">' . _("Log") . '</span></a> </li>

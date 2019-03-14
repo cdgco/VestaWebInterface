@@ -553,7 +553,7 @@ foreach ($plugins as $result) {
                                                 <div class="col-md-12">
                                                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                                         <div class="input-group-addon">/home/<?php echo $displayname . '/web/' . $requestdomain; ?>/</div>
-                                                        <input type="text" class="form-control" name="v_ftpdir<?php echo $x11; ?>" value="<?php echo $ftpdir[$x1]; ?>" style="padding-left: 0.5%;">    
+                                                        <input type="text" class="form-control" name="v_ftpdir<?php echo $x11; ?>" value="<?php echo ltrim($ftpdir[$x1], '/'); ?>" style="padding-left: 0.5%;">    
                                                     </div>
                                                 </div>
                                             </div>
