@@ -24,11 +24,11 @@
 
 session_start();
 $configlocation = "../includes/";
-if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
+if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' ); exit();};
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php'); }
+else { header('Location: ../login.php'); exit(); }
 
-if(isset($mailenabled) && $mailenabled != 'true'){ header("Location: ../error-pages/403.html"); }
+if(isset($mailenabled) && $mailenabled != 'true'){ header("Location: ../error-pages/403.html"); exit(); }
 
 $v_domain = $_POST['v_domain'];
 $v_account = $_POST['v_account'];
@@ -46,8 +46,8 @@ if (!empty($_POST['v_fwd_only_x'])) {
     $v_fwd_only_x = 'no';
 }
 
-if ((!isset($_POST['v_domain'])) || ($_POST['v_domain'] == '')) { header('Location: ../list/mail.php?error=1');}
-elseif ((!isset($_POST['v_account'])) || ($_POST['v_account'] == '')) { header('Location: ../edit/mail.php?error=1&domain=' . $v_domain);}
+if ((!isset($_POST['v_domain'])) || ($_POST['v_domain'] == '')) { header('Location: ../list/mail.php?error=1'); exit();}
+elseif ((!isset($_POST['v_account'])) || ($_POST['v_account'] == '')) { header('Location: ../edit/mail.php?error=1&domain=' . $v_domain); exit();}
 
 // Change account aliases
 $valiases = explode(",", $_POST['v_alias-x']);

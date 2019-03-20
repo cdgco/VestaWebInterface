@@ -24,11 +24,11 @@
 
 session_start();
 $configlocation = "../includes/";
-if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
+if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' ); exit();};
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php'); }
+else { header('Location: ../login.php'); exit(); }
 
-if(isset($dnsenabled) && $dnsenabled != 'true'){ header("Location: ../error-pages/403.html"); }
+if(isset($dnsenabled) && $dnsenabled != 'true'){ header("Location: ../error-pages/403.html"); exit(); }
 
 $v_1 = $_GET['domain'];
 
@@ -108,7 +108,7 @@ if (CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != ''){
             curl_setopt(${'add' . $val1}, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt(${'add' . $val1}, CURLOPT_SSL_VERIFYHOST, false);
             curl_setopt(${'add' . $val1}, CURLOPT_POST, true);
-            curl_setopt(${'add' . $val1}, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-add-dns-record','arg1' => $username,'arg2' => $v_1, 'arg3' => $val1['name'], 'arg4' => $val1['type'], 'arg5' => $val1['content'])));
+            curl_setopt(${'add' . $val1}, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-dns-record','arg1' => $username,'arg2' => $v_1, 'arg3' => $val1['name'], 'arg4' => $val1['type'], 'arg5' => $val1['content'])));
 
             curl_exec( ${'add' . $val1});
             curl_close( ${'add' . $val1});

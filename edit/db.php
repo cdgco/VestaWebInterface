@@ -24,17 +24,17 @@
 
 session_start();
 $configlocation = "../includes/";
-if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
+if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' ); exit();};
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php?to=edit/db.php'.$urlquery.$_SERVER['QUERY_STRING']); }
+else { header('Location: ../login.php?to=edit/db.php'.$urlquery.$_SERVER['QUERY_STRING']); exit(); }
 
-if(isset($dbenabled) && $dbenabled != 'true'){ header("Location: ../error-pages/403.html"); }
+if(isset($dbenabled) && $dbenabled != 'true'){ header("Location: ../error-pages/403.html"); exit(); }
 
 $requestdb = $_GET['db'];
 
 if (isset($requestdb) && $requestdb != '') {}
-else { header('Location: ../list/db.php'); }
+else { header('Location: ../list/db.php'); exit(); }
 
 $postvars = array(
     array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),

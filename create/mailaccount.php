@@ -24,11 +24,11 @@
 
 session_start();
 $configlocation = "../includes/";
-if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
+if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' ); exit();};
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php'); }
+else { header('Location: ../login.php'); exit(); }
 
-if(isset($mailenabled) && $mailenabled != 'true'){ header("Location: ../error-pages/403.html"); }
+if(isset($mailenabled) && $mailenabled != 'true'){ header("Location: ../error-pages/403.html"); exit(); }
 require '../plugins/components/phpmailer/src/PHPMailer.php';
 require '../plugins/components/phpmailer/src/SMTP.php';
 require '../plugins/components/phpmailer/src/Exception.php';
@@ -53,9 +53,9 @@ if (!empty($_POST['v_autoreply'])) {
     $v_autoreply = 'no';
 }
 
-if ((!isset($_POST['v_domain'])) || ($_POST['v_domain'] == '')) { header('Location: ../list/mail.php?error=1');}
-elseif ((!isset($_POST['v_account'])) || ($_POST['v_account'] == '')) { header('Location: ../add/mailaccount.php?error=1&domain=' . $v_domain);}
-elseif ((!isset($_POST['password'])) || ($_POST['password'] == '')) { header('Location: ../add/mailaccount.php?error=1&domain=' . $v_domain);}
+if ((!isset($_POST['v_domain'])) || ($_POST['v_domain'] == '')) { header('Location: ../list/mail.php?error=1'); exit();}
+elseif ((!isset($_POST['v_account'])) || ($_POST['v_account'] == '')) { header('Location: ../add/mailaccount.php?error=1&domain=' . $v_domain); exit();}
+elseif ((!isset($_POST['password'])) || ($_POST['password'] == '')) { header('Location: ../add/mailaccount.php?error=1&domain=' . $v_domain); exit();}
 else {
     $postvars0 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-mail-account','arg1' => $username,'arg2' => $_POST['v_domain'], 'arg3' => $_POST['v_account'], 'arg4' => $_POST['password'], 'arg5' => $_POST['v_quota']);
 

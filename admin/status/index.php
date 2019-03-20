@@ -1,5 +1,5 @@
 <?php
 
-header('Location: cpu.php');
+header('Location: cpu.php'); exit();
 
 ?>

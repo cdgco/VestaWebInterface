@@ -1,7 +1,5 @@
-# Vesta Web Interface v0.5.4-Beta
+# Vesta Web Interface v1.0.0
 <hr>
-
-!> Beta Pre Release: Vesta Web Interface is still in beta and is available as a pre-release. Therefore there may still be missing features and bugs. If you encounter an error or have suggestions, please tell us either through GitHub Issues or the support section
 
 ## About
 
@@ -19,10 +17,6 @@ Vesta Web Interface is a PHP Control Panel and Web Interface that integrates wit
 ## Demo
 
 Check out the [Demo](https://cdgtech.one/vwi/demo.php) to test out VWI before you download.
-
-## Tutorials
-
-The VWI Tutorials Series is now [availble on YouTube](https://www.youtube.com/watch?v=0BAzGkF5Y8Y&list=PL4JkcC_rCsyf9ha5OBrWqDS4xWC3hZgfz).
 
 ## Donate
 

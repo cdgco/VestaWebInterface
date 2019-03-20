@@ -24,13 +24,13 @@
 
 session_start();
 $configlocation = "../../includes/";
-if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' );};
+if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' ); exit();};
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../../login.php'); }
-if($username != 'admin') { header("Location: ../../"); }
+else { header('Location: ../../login.php'); exit(); }
+if($username != 'admin') { header("Location: ../../"); exit(); }
 
-if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
-if(checkService('iptables') === false){ header("Location: ../../error-pages/403.html"); }
+if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); exit(); }
+if(checkService('iptables') === false){ header("Location: ../../error-pages/403.html"); exit(); }
 $v_type = $_POST['v_type'];
 $v_protocol = $_POST['v_protocol'];
 $v_port = $_POST['v_port'];
@@ -38,10 +38,10 @@ $v_ip = $_POST['v_ip'];
 $v_comment = $_POST['v_comment'];
 $v_rule = $_POST['rule'];
 
-if ((!isset($_POST['rule'])) || ($_POST['rule'] == '')) { header('Location: ../list/firewall.php?error=1');}
-elseif ((!isset($_POST['v_type'])) || ($_POST['v_type'] == '')) { header('Location: ../edit/firewall.php?error=1&rule=' . $v_rule);}
-elseif ((!isset($_POST['v_ip'])) || ($_POST['v_ip'] == '')) { header('Location: ../edit/firewall.php?error=1&rule=' . $v_rule);}
-elseif ((!isset($_POST['v_port'])) || ($_POST['v_port'] == '')) { header('Location: ../edit/firewall.php?error=1&rule=' . $v_rule);}
+if ((!isset($_POST['rule'])) || ($_POST['rule'] == '')) { header('Location: ../list/firewall.php?error=1'); exit();}
+elseif ((!isset($_POST['v_type'])) || ($_POST['v_type'] == '')) { header('Location: ../edit/firewall.php?error=1&rule=' . $v_rule); exit();}
+elseif ((!isset($_POST['v_ip'])) || ($_POST['v_ip'] == '')) { header('Location: ../edit/firewall.php?error=1&rule=' . $v_rule); exit();}
+elseif ((!isset($_POST['v_port'])) || ($_POST['v_port'] == '')) { header('Location: ../edit/firewall.php?error=1&rule=' . $v_rule); exit();}
 
 $postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-firewall-rule','arg1' => $v_rule,'arg2' => $v_type, 'arg3' => $v_ip, 'arg4' => $v_port, 'arg5' => $v_protocol, 'arg6' => $v_comment);
 

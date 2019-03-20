@@ -24,10 +24,10 @@
 
 session_start();
 $configlocation = "../includes/";
-if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
-if(base64_decode($_SESSION['loggedin']) != 'true') { header('Location: ../login.php'); }
+if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' ); exit();};
+if(base64_decode($_SESSION['loggedin']) != 'true') { header('Location: ../login.php'); exit(); }
 
-if(isset($cronenabled) && $cronenabled != 'true'){ header("Location: ../error-pages/403.html"); }
+if(isset($cronenabled) && $cronenabled != 'true'){ header("Location: ../error-pages/403.html"); exit(); }
 
 if (isset($_POST['v_min'])) { $v_min = $_POST['v_min']; }
 elseif (isset($_POST['v_hour'])) { $v_hour = $_POST['v_hour']; }
@@ -36,13 +36,13 @@ elseif (isset($_POST['v_month'])) { $v_month = $_POST['v_month']; }
 elseif (isset($_POST['v_wday'])) { $v_wday = $_POST['v_wday']; }
 elseif (isset($_POST['v_cmd'])) { $v_cmd = $_POST['v_cmd']; }
 elseif (isset($_POST['v_job'])) { $v_job = $_POST['v_job']; }
-elseif (!isset($v_min)) { header('Location: ../edit/cron.php?error=1&job=' . $v_job);}
-elseif (!isset($v_hour)) { header('Location: ../edit/cron.php?error=1&job=' . $v_job);}
-elseif (!isset($v_day)) { header('Location: ../edit/cron.php?error=1&job=' . $v_job);}
-elseif (!isset($v_month)) { header('Location: ../edit/cron.php?error=1&job=' . $v_job);}
-elseif (!isset($v_wday)) { header('Location: ../edit/cron.php?error=1&job=' . $v_job);}
-elseif (!isset($v_cmd)) { header('Location: ../edit/cron.php?error=1&job=' . $v_job);}
-elseif (!isset($v_job)) { header('Location: ../list/cron.php?error=1');}
+elseif (!isset($v_min)) { header('Location: ../edit/cron.php?error=1&job=' . $v_job); exit();}
+elseif (!isset($v_hour)) { header('Location: ../edit/cron.php?error=1&job=' . $v_job); exit();}
+elseif (!isset($v_day)) { header('Location: ../edit/cron.php?error=1&job=' . $v_job); exit();}
+elseif (!isset($v_month)) { header('Location: ../edit/cron.php?error=1&job=' . $v_job); exit();}
+elseif (!isset($v_wday)) { header('Location: ../edit/cron.php?error=1&job=' . $v_job); exit();}
+elseif (!isset($v_cmd)) { header('Location: ../edit/cron.php?error=1&job=' . $v_job); exit();}
+elseif (!isset($v_job)) { header('Location: ../list/cron.php?error=1'); exit();}
 
 $postvars = array(
     'hash' => $vst_apikey, 'user' => $vst_username,

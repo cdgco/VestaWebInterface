@@ -24,11 +24,17 @@
 
 session_start();
 $configlocation = "../includes/";
-if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
+if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' ); exit();};
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php'); }
+else { header('Location: ../login.php'); exit(); }
 
-if(isset($webenabled) && $webenabled != 'true'){ header("Location: ../error-pages/403.html"); }
+if(isset($webenabled) && $webenabled != 'true'){ header("Location: ../error-pages/403.html"); exit(); }
+
+require '../plugins/components/phpmailer/src/PHPMailer.php';
+require '../plugins/components/phpmailer/src/SMTP.php';
+require '../plugins/components/phpmailer/src/Exception.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
 
 // Remove www. from domain and lowercase
 $v_domain = preg_replace("/^www\./i", "", $_POST['v_domain']);
@@ -90,7 +96,7 @@ if (!empty($_POST['v_leenabled'])) {
     $v_lex = 'no';
 }
 // Check FTP option
-if (!empty($_POST['v_ftpenabled'])) {
+if (!empty($_POST['v_additionalftpenabled'])) {
     $v_ftpx = 'yes';
 } else {
     $v_ftpx = 'no';
@@ -209,7 +215,7 @@ else {
         $r6 = curl_exec($curl6);
     } else { $r6 = '0'; }
     if ($v_lex == 'yes') {
-        $postvars7 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-schedule-letsencrypt-domain','arg1' => $username,'arg2' => $v_domain);
+        $postvars7 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-schedule-letsencrypt-domain','arg1' => $username,'arg2' => $v_domain);
 
         $curl7 = curl_init();
         curl_setopt($curl7, CURLOPT_URL, $vst_url);
@@ -263,7 +269,55 @@ else {
     }
     else { $r7 = '0';}
     if ($v_ftpx == 'yes') {
-        /* NEEDS TO BE INTEGRATED INTO BACKEND */
+        $r8 = 0;
+        if (isset($_POST['v_ftpuname1']) && $_POST['v_ftpuname1'] != '') {
+            $ftpstart = 1;
+            do {
+                if($_POST['v_ftpuname' . $ftpstart] != '' && $_POST['v_ftppw' . $ftpstart] != '') {
+
+                    ${'curlftp' . $ftpstart} = curl_init();
+                    curl_setopt(${'curlftp' . $ftpstart}, CURLOPT_URL, $vst_url);
+                    curl_setopt(${'curlftp' . $ftpstart}, CURLOPT_RETURNTRANSFER,true);
+                    curl_setopt(${'curlftp' . $ftpstart}, CURLOPT_SSL_VERIFYPEER, false);
+                    curl_setopt(${'curlftp' . $ftpstart}, CURLOPT_SSL_VERIFYHOST, false);
+                    curl_setopt(${'curlftp' . $ftpstart}, CURLOPT_POST, true);
+                    curl_setopt(${'curlftp' . $ftpstart}, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain-ftp','arg1' => $username,'arg2' => $v_domain,'arg3' => $_POST['v_ftpuname'.$ftpstart],'arg4' => $_POST['v_ftppw'.$ftpstart],'arg5' => $_POST['v_ftpdir'.$ftpstart])));
+                    $r8 = $r8 + curl_exec(${'curlftp' . $ftpstart});
+                    
+                    if($phpmailenabled == "true" && isset($_POST['v_ftpnotif'.$ftpstart]) && $_POST['v_ftpnotif'.$ftpstart] != '') {
+
+                        $mail = new PHPMailer;
+                        $mail->setFrom($mailfrom, $mailname);
+                        $mail->addAddress($_POST['v_ftpnotif'.$ftpstart]);
+                        $mail->Subject = 'FTP Credentials';
+                        $mail->Body = 'FTP Account has been created successfully.<br><br>Domain: ' . $v_domain . '<br>Username: ' . $username . '_' . $_POST['v_ftpuname'.$ftpstart] . '<br>Password: ' . $_POST['v_ftppw'.$ftpstart]; 
+                        $mail->AltBody = 'FTP Account has been created successfully.\n\n>Domain: ' . $v_domain . '\nUsername: ' . $username . '_' . $_POST['v_ftpuname'.$ftpstart] . '\nPassword: ' . $_POST['v_ftppw'.$ftpstart]; 
+
+                        if($smtpenabled == "true" && $smtphost != '' && $smtpport != '') {
+                            $mail->isSMTP();
+                            $mail->SMTPDebug = 0;
+                            $mail->Host = $smtphost;
+                            $mail->Port = $smtpport;
+                            if($smtpauth == "true") {
+                                $mail->SMTPAuth = true;
+                                $mail->Username = $smtpuname;
+                                $mail->Password = $smtppw;
+                            }
+                            if($smtpenc == 'tls') {
+                             $mail->SMTPSecure = 'tls';  
+                            }
+                            elseif($smtpenc == 'ssl') {
+                             $mail->SMTPSecure = 'ssl';  
+                            }
+                        }
+                        $mail->send();
+                    }
+                    
+                }
+                $ftpstart++;
+            }
+            while (isset($_POST['v_ftpuname' . $ftpstart]));
+        }
     }
 }
 

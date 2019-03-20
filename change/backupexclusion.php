@@ -24,15 +24,15 @@
 
 session_start();
 $configlocation = "../includes/";
-if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
-if(base64_decode($_SESSION['loggedin']) != 'true') { header('Location: ../login.php'); }
+if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' ); exit();};
+if(base64_decode($_SESSION['loggedin']) != 'true') { header('Location: ../login.php'); exit(); }
 
-if(isset($backupsenabled) && $backupsenabled != 'true'){ header("Location: ../error-pages/403.html"); }
-if(isset($apienabled) && $apienabled == 'true'){ header("Location: ../error-pages/403.html"); }
-if (!isset($_POST['v_dir'])) { header("Location: ../edit/backupexclusions.php?error=1");  }
-elseif (!isset($_POST['v_mail'])) { header("Location: ../edit/backupexclusions.php?error=1");  }
-elseif (!isset($_POST['v_db'])) { header("Location: ../edit/backupexclusions.php?error=1");  }
-elseif (!isset($_POST['v_userdir'])) { header("Location: ../edit/backupexclusions.php?error=1");  }
+if(isset($backupsenabled) && $backupsenabled != 'true'){ header("Location: ../error-pages/403.html"); exit(); }
+if(isset($apienabled) && $apienabled == 'true'){ header("Location: ../error-pages/403.html"); exit(); }
+if (!isset($_POST['v_dir'])) { header("Location: ../edit/backupexclusions.php?error=1"); exit();  }
+elseif (!isset($_POST['v_mail'])) { header("Location: ../edit/backupexclusions.php?error=1"); exit();  }
+elseif (!isset($_POST['v_db'])) { header("Location: ../edit/backupexclusions.php?error=1"); exit();  }
+elseif (!isset($_POST['v_userdir'])) { header("Location: ../edit/backupexclusions.php?error=1"); exit();  }
         
 $v_web = $_POST['v_dir'];
 $v_web_tmp = str_replace("\r\n", ",", $_POST['v_dir']);

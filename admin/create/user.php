@@ -24,12 +24,12 @@
 
 session_start();
 $configlocation = "../../includes/";
-if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' );};
+if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' ); exit();};
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../../login.php'); }
-if($username != 'admin') { header("Location: ../../"); }
+else { header('Location: ../../login.php'); exit(); }
+if($username != 'admin') { header("Location: ../../"); exit(); }
 
-if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
+if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); exit(); }
 
 $v_uname = $_POST['user'];
 $v_pass = $_POST['password'];
@@ -39,10 +39,10 @@ $v_fname = $_POST['fname'];
 $v_lname = $_POST['lname'];
 
 
-if ((!isset($_POST['user'])) || ($_POST['user'] == '')) { header('Location: ../add/user.php?error=1');}
-elseif ((!isset($_POST['password'])) || ($_POST['password'] == '')) { header('Location: ../add/user.php?error=1');}
-elseif ((!isset($_POST['email'])) || ($_POST['email'] == '')) { header('Location: ../add/user.php?error=1');}
-elseif ((!isset($_POST['package'])) || ($_POST['package'] == '')) { header('Location: ../add/user.php?error=1');}
+if ((!isset($_POST['user'])) || ($_POST['user'] == '')) { header('Location: ../add/user.php?error=1'); exit();}
+elseif ((!isset($_POST['password'])) || ($_POST['password'] == '')) { header('Location: ../add/user.php?error=1'); exit();}
+elseif ((!isset($_POST['email'])) || ($_POST['email'] == '')) { header('Location: ../add/user.php?error=1'); exit();}
+elseif ((!isset($_POST['package'])) || ($_POST['package'] == '')) { header('Location: ../add/user.php?error=1'); exit();}
 
 $postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-user','arg1' => $v_uname,'arg2' => $v_pass, 'arg3' => $v_email, 'arg4' => $v_package, 'arg5' => $v_fname, 'arg6' => $v_lname);
 

@@ -24,12 +24,12 @@
 
 session_start();
 $configlocation = "../../includes/";
-if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' );};
+if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' ); exit();};
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../../login.php'); }
-if($username != 'admin') { header("Location: ../../"); }
+else { header('Location: ../../login.php'); exit(); }
+if($username != 'admin') { header("Location: ../../"); exit(); }
 
-if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
+if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); exit(); }
 $r1 = 0;
 $extsAllowed = array( 'jpg', 'jpeg', 'png', 'gif' );
 $extsAllowed2 = array( 'ico' );

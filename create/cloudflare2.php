@@ -24,11 +24,11 @@
 
 session_start();
 $configlocation = "../includes/";
-if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
+if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' ); exit();};
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php'); }
+else { header('Location: ../login.php'); exit(); }
 
-if(isset($dnsenabled) && $dnsenabled != 'true'){ header("Location: ../error-pages/403.html"); }
+if(isset($dnsenabled) && $dnsenabled != 'true'){ header("Location: ../error-pages/403.html"); exit(); }
 
 $v_1 = $_POST['domain'];
 
@@ -66,7 +66,7 @@ curl_setopt($curl0, CURLOPT_RETURNTRANSFER,true);
 curl_setopt($curl0, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($curl0, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($curl0, CURLOPT_POST, true);
-curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query( array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-dns-records','arg1' => $username,'arg2' => $v_1, 'arg3' => 'json')));
+curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query( array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-list-dns-records','arg1' => $username,'arg2' => $v_1, 'arg3' => 'json')));
 
 $dnsdata = array_values(json_decode(curl_exec($curl0), true));
 $keys = array_keys(array_column(json_decode(curl_exec($curl0), true), 'TYPE'), 'NS');
@@ -123,7 +123,7 @@ curl_setopt($curl3, CURLOPT_RETURNTRANSFER,true);
 curl_setopt($curl3, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($curl3, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($curl3, CURLOPT_POST, true);
-curl_setopt($curl3, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-delete-dns-record','arg1' => $username,'arg2' => $v_1, 'arg3' => $dnsdata[$requestrecord]['ID'])));
+curl_setopt($curl3, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-dns-record','arg1' => $username,'arg2' => $v_1, 'arg3' => $dnsdata[$requestrecord]['ID'])));
 
 curl_exec($curl3);
 curl_close($curl3);

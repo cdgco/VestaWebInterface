@@ -24,11 +24,11 @@
 
 session_start();
 $configlocation = "../includes/";
-if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
+if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' ); exit();};
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php'); }
+else { header('Location: ../login.php'); exit(); }
 
-if(isset($webenabled) && $webenabled != 'true'){ header("Location: ../error-pages/403.html"); }
+if(isset($webenabled) && $webenabled != 'true'){ header("Location: ../error-pages/403.html"); exit(); }
 
 // Remove www. from domain and lowercase
 $v_domain = $_POST['v_domain'];
@@ -46,40 +46,43 @@ $proxy_ext_arr = array_filter($proxy_ext_arr);
 $prxext = implode(",",$proxy_ext_arr);
 
 // Check Proxy option
-if (!empty($_POST['v_prxenabled'])) {
+if (isset($_POST['v_prxenabled']) && !empty($_POST['v_prxenabled'])) {
     $v_prxx = 'yes';
 } else {
     $v_prxx = 'no';
 }
-if (!empty($_POST['v_prxenabled-x'])) {
-    $v_prxx_x = 'yes';
-} else {
-    $v_prxx_x = 'no';
+if (isset($_POST['v_prxenabled-x'])) {
+    $v_prxx_x = $_POST['v_prxenabled-x'];
 }
 // Check SSL option
-if (!empty($_POST['v_sslenabled'])) {
+if (isset($_POST['v_sslenabled']) && !empty($_POST['v_sslenabled'])) {
     $v_sslx = 'yes';
 } else {
     $v_sslx = 'no';
 }
 // Check Let's Encrypt option
-if (!empty($_POST['v_leenabled'])) {
+if (isset($_POST['v_leenabled']) && !empty($_POST['v_leenabled'])) {
     $v_lex = 'yes';
 } else {
     $v_lex = 'no';
 }
 // Check Stats Auth option
-if (!empty($_POST['v_statsuserenabled'])) {
+if (isset($_POST['v_statsuserenabled']) && !empty($_POST['v_statsuserenabled'])) {
     $v_statsuserenabled = 'yes';
 } else {
     $v_statsuserenabled = 'no';
 }
 // Check FTP option
-    if (!empty($_POST['v_ftpenabled'])) {
-        $v_ftpx = 'yes';
-    } else {
-        $v_ftpx = 'no';
-    }
+if (isset($_POST['v_additionalftpenabled']) && !empty($_POST['v_additionalftpenabled'])) {
+    $v_ftpx = 'yes';
+} else {
+    $v_ftpx = 'no';
+}
+if (isset($_POST['v_additionalftpenabled-x'])) {
+    $v_ftpx_x = $_POST['v_additionalftpenabled-x'];
+}
+
+
 function ftp_file_put_contents($remote_file, $file_string) {
 
     $ftp_server=VESTA_HOST_ADDRESS; 
@@ -185,7 +188,7 @@ else {
         $r3 = curl_exec($curl3);
         if ($r3 == '3') { $r3 = '0';}
     } else { $r3 = '0'; }
-    if (isset($_POST['v_prxenabled']) && $v_prxx == 'yes' && $_POST['v_prxtpl-x'] != $_POST['v_prxtpl'] || $_POST['v_prxext-x'] != $prxext ){
+    if (isset($_POST['v_prxenabled']) && $v_prxx == 'yes' && $_POST['v_prxtpl-x'] != $_POST['v_prxtpl'] || (isset($_POST['v_prxext-x']) && $_POST['v_prxext-x'] != '' && $_POST['v_prxext-x'] != $prxext) ){
         $postvars4 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-web-domain-proxy-tpl','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_prxtpl'], 'arg4' => $prxext, 'arg5' => 'no');
 
         $curl4 = curl_init();
@@ -259,8 +262,8 @@ else {
         curl_setopt($curl6, CURLOPT_POSTFIELDS, http_build_query($postvars6));
         $r6 = curl_exec($curl6);
     } else { $r6 = '0'; }
-    if ($v_lex == 'yes' && $_POST['v_leenabled'] != $_POST['v_leenabled-x']) {
-        $postvars7 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-schedule-letsencrypt-domain','arg1' => $username,'arg2' => $v_domain);
+    if ($v_lex == 'yes' && $v_lex != $_POST['v_leenabled-x']) {
+        $postvars7 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-schedule-letsencrypt-domain','arg1' => $username,'arg2' => $v_domain);
 
         $curl7 = curl_init();
         curl_setopt($curl7, CURLOPT_URL, $vst_url);
@@ -272,8 +275,8 @@ else {
         $r7 = curl_exec($curl7);
         if ($r7 == 'OK') { $r4 = '0';}   
     } 
-    elseif ($v_lex == 'no' && $_POST['v_leenabled'] != $_POST['v_leenabled-x']) {
-        $postvars7 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-delete-letsencrypt-domain','arg1' => $username,'arg2' => $v_domain, 'arg3' => 'no');
+    elseif ($v_lex == 'no' && $v_lex != $_POST['v_leenabled-x']) {
+        $postvars7 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-letsencrypt-domain','arg1' => $username,'arg2' => $v_domain, 'arg3' => 'no');
 
         $curl7 = curl_init();
         curl_setopt($curl7, CURLOPT_URL, $vst_url);
@@ -285,127 +288,358 @@ else {
         $r7 = curl_exec($curl7);
         if ($r7 == 'OK') { $r4 = '0';} 
     } else { $r7= '0'; }
-if(checkService('vsftpd') !== false || checkService('proftpd') !== false) {
-    if ($v_sslx == 'no' && $_POST['v_sslenabled'] != $_POST['v_sslenabled-x']) {
-        $postvars8 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-delete-web-domain-ssl','arg1' => $username,'arg2' => $v_domain, 'arg3' => 'no');
+    if(checkService('vsftpd') !== false || checkService('proftpd') !== false) {
+        if ($v_sslx == 'no' && $v_sslx != $_POST['v_sslenabled-x']) {
+            $postvars8 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-web-domain-ssl','arg1' => $username,'arg2' => $v_domain, 'arg3' => 'no');
 
-        $curl8 = curl_init();
-        curl_setopt($curl8, CURLOPT_URL, $vst_url);
-        curl_setopt($curl8, CURLOPT_RETURNTRANSFER,true);
-        curl_setopt($curl8, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($curl8, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($curl8, CURLOPT_POST, true);
-        curl_setopt($curl8, CURLOPT_POSTFIELDS, http_build_query($postvars8));
-        $r8 = curl_exec($curl8); 
-    } 
-    elseif ($v_sslx == 'yes' && $_POST['v_sslenabled'] == $_POST['v_sslenabled-x'] && ( $_POST['v_sslcrt'] != $_POST['v_sslcrt-x'] || $_POST['v_sslkey'] != $_POST['v_sslkey-x'] || $_POST['v_sslca'] != $_POST['v_sslca-x']) && $apienabled != 'true') {
-        
-        $writestr1 = str_replace("\r\n", "\n",  $_POST['v_sslcrt']);
-        $writestr2 = str_replace("\r\n", "\n",  $_POST['v_sslkey']);
-        ftp_file_put_contents($v_domain . '.crt', $writestr1);
-        ftp_file_put_contents($v_domain . '.key', $writestr2);
-        
-        if(isset($_POST['v_sslca'])) {
-            $writestr3 = str_replace("\r\n", "\n",  $_POST['v_sslca']);
-            ftp_file_put_contents($v_domain . '.ca', $writestr);
-        }
-        
-        $postvars8 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-web-domain-sslcert','arg1' => $username, 'arg2' => $v_domain, 'arg3'=> "/home/admin/");
-        
-        $curl8 = curl_init();
-        curl_setopt($curl8, CURLOPT_URL, $vst_url);
-        curl_setopt($curl8, CURLOPT_RETURNTRANSFER,true);
-        curl_setopt($curl8, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($curl8, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($curl8, CURLOPT_POST, true);
-        curl_setopt($curl8, CURLOPT_POSTFIELDS, http_build_query($postvars8));
-        $r8 = curl_exec($curl8);
+            $curl8 = curl_init();
+            curl_setopt($curl8, CURLOPT_URL, $vst_url);
+            curl_setopt($curl8, CURLOPT_RETURNTRANSFER,true);
+            curl_setopt($curl8, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($curl8, CURLOPT_SSL_VERIFYHOST, false);
+            curl_setopt($curl8, CURLOPT_POST, true);
+            curl_setopt($curl8, CURLOPT_POSTFIELDS, http_build_query($postvars8));
+            $r8 = curl_exec($curl8); 
+        } 
+        elseif ($v_sslx == 'yes' && $v_sslx == $_POST['v_sslenabled-x'] && ( $_POST['v_sslcrt'] != $_POST['v_sslcrt-x'] || $_POST['v_sslkey'] != $_POST['v_sslkey-x'] || $_POST['v_sslca'] != $_POST['v_sslca-x']) && $apienabled != 'true') {
 
-        sleep(5); // Give Vesta some time to process files before deleting.
-        
-        $ftp_server=VESTA_HOST_ADDRESS; 
-        $ftp_user_name=VESTA_ADMIN_UNAME; 
-        $ftp_user_pass=VESTA_ADMIN_PW;
-        $ftp_conn=ftp_connect($ftp_server); 
-        $login_result = ftp_login($ftp_conn, $ftp_user_name, $ftp_user_pass);
-        ftp_delete($ftp_conn, $v_domain . '.crt');
-        ftp_delete($ftp_conn, $v_domain . '.key');
-        
-        if(isset($_POST['v_sslca']) && $_POST['v_sslca'] != '') {
-            ftp_delete($ftp_conn, $v_domain . '.ca');
-        }   
-        
-        if($_POST['v_ssldir'] != $_POST['v_ssldir-x']) {
-            
-            $postvars9 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-web-domain-sslhome','arg1' => $username, 'arg2' => $v_domain, 'arg3'=> $_POST['v_ssldir']);
-        
-            $curl9 = curl_init();
-            curl_setopt($curl9, CURLOPT_URL, $vst_url);
-            curl_setopt($curl9, CURLOPT_RETURNTRANSFER,true);
-            curl_setopt($curl9, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($curl9, CURLOPT_SSL_VERIFYHOST, false);
-            curl_setopt($curl9, CURLOPT_POST, true);
-            curl_setopt($curl9, CURLOPT_POSTFIELDS, http_build_query($postvars9));
-            curl_exec($curl9);
-            
-        }
-    } 
-    elseif ($v_sslx == 'yes' && $_POST['v_sslenabled'] != $_POST['v_sslenabled-x'] && $apienabled != 'true') {
-        
-        $writestr1 = str_replace("\r\n", "\n",  $_POST['v_sslcrt']);
-        $writestr2 = str_replace("\r\n", "\n",  $_POST['v_sslkey']);
-        ftp_file_put_contents($v_domain . '.crt', $writestr1);
-        ftp_file_put_contents($v_domain . '.key', $writestr2);
-        
-        if(isset($_POST['v_sslca']) && $_POST['v_sslca'] != '') {
-            $writestr3 = str_replace("\r\n", "\n",  $_POST['v_sslca']);
-            ftp_file_put_contents($v_domain . '.ca', $writestr);
-        }
-        
-        $postvars8 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain-ssl','arg1' => $username, 'arg2' => $v_domain, 'arg3'=> "/home/admin/", 'arg4' => $_POST['v_ssldir']);
-        
-        $curl8 = curl_init();
-        curl_setopt($curl8, CURLOPT_URL, $vst_url);
-        curl_setopt($curl8, CURLOPT_RETURNTRANSFER,true);
-        curl_setopt($curl8, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($curl8, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($curl8, CURLOPT_POST, true);
-        curl_setopt($curl8, CURLOPT_POSTFIELDS, http_build_query($postvars8));
-        $r8 = curl_exec($curl8);
-    
-        sleep(5); // Give Vesta some time to process files before deleting.
-        
-        $ftp_server=VESTA_HOST_ADDRESS; 
-        $ftp_user_name=VESTA_ADMIN_UNAME; 
-        $ftp_user_pass=VESTA_ADMIN_PW;
-        $ftp_conn=ftp_connect($ftp_server); 
-        $login_result = ftp_login($ftp_conn, $ftp_user_name, $ftp_user_pass);
-        ftp_delete($ftp_conn, $v_domain . '.crt');
-        ftp_delete($ftp_conn, $v_domain . '.key');
-        
-        if(isset($_POST['v_sslca']) && $_POST['v_sslca'] != '') {
-            ftp_delete($ftp_conn, $v_domain . '.ca');
-        }  
+            $writestr1 = str_replace("\r\n", "\n",  $_POST['v_sslcrt']);
+            $writestr2 = str_replace("\r\n", "\n",  $_POST['v_sslkey']);
+            ftp_file_put_contents($v_domain . '.crt', $writestr1);
+            ftp_file_put_contents($v_domain . '.key', $writestr2);
 
-  
+            if(isset($_POST['v_sslca'])) {
+                $writestr3 = str_replace("\r\n", "\n",  $_POST['v_sslca']);
+                ftp_file_put_contents($v_domain . '.ca', $writestr);
+            }
+
+            $postvars8 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-web-domain-sslcert','arg1' => $username, 'arg2' => $v_domain, 'arg3'=> "/home/admin/");
+
+            $curl8 = curl_init();
+            curl_setopt($curl8, CURLOPT_URL, $vst_url);
+            curl_setopt($curl8, CURLOPT_RETURNTRANSFER,true);
+            curl_setopt($curl8, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($curl8, CURLOPT_SSL_VERIFYHOST, false);
+            curl_setopt($curl8, CURLOPT_POST, true);
+            curl_setopt($curl8, CURLOPT_POSTFIELDS, http_build_query($postvars8));
+            $r8 = curl_exec($curl8);
+
+            sleep(5); // Give Vesta some time to process files before deleting.
+
+            $ftp_server=VESTA_HOST_ADDRESS; 
+            $ftp_user_name=VESTA_ADMIN_UNAME; 
+            $ftp_user_pass=VESTA_ADMIN_PW;
+            $ftp_conn=ftp_connect($ftp_server); 
+            $login_result = ftp_login($ftp_conn, $ftp_user_name, $ftp_user_pass);
+            ftp_delete($ftp_conn, $v_domain . '.crt');
+            ftp_delete($ftp_conn, $v_domain . '.key');
+
+            if(isset($_POST['v_sslca']) && $_POST['v_sslca'] != '') {
+                ftp_delete($ftp_conn, $v_domain . '.ca');
+            }   
+
+            if($_POST['v_ssldir'] != $_POST['v_ssldir-x']) {
+
+                $postvars9 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-web-domain-sslhome','arg1' => $username, 'arg2' => $v_domain, 'arg3'=> $_POST['v_ssldir']);
+
+                $curl9 = curl_init();
+                curl_setopt($curl9, CURLOPT_URL, $vst_url);
+                curl_setopt($curl9, CURLOPT_RETURNTRANSFER,true);
+                curl_setopt($curl9, CURLOPT_SSL_VERIFYPEER, false);
+                curl_setopt($curl9, CURLOPT_SSL_VERIFYHOST, false);
+                curl_setopt($curl9, CURLOPT_POST, true);
+                curl_setopt($curl9, CURLOPT_POSTFIELDS, http_build_query($postvars9));
+                curl_exec($curl9);
+
+            }
+        } 
+        elseif ($v_sslx == 'yes' && $v_sslx != $_POST['v_sslenabled-x'] && $apienabled != 'true') {
+
+            $writestr1 = str_replace("\r\n", "\n",  $_POST['v_sslcrt']);
+            $writestr2 = str_replace("\r\n", "\n",  $_POST['v_sslkey']);
+            ftp_file_put_contents($v_domain . '.crt', $writestr1);
+            ftp_file_put_contents($v_domain . '.key', $writestr2);
+
+            if(isset($_POST['v_sslca']) && $_POST['v_sslca'] != '') {
+                $writestr3 = str_replace("\r\n", "\n",  $_POST['v_sslca']);
+                ftp_file_put_contents($v_domain . '.ca', $writestr);
+            }
+
+            $postvars8 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain-ssl','arg1' => $username, 'arg2' => $v_domain, 'arg3'=> "/home/admin/", 'arg4' => $_POST['v_ssldir']);
+
+            $curl8 = curl_init();
+            curl_setopt($curl8, CURLOPT_URL, $vst_url);
+            curl_setopt($curl8, CURLOPT_RETURNTRANSFER,true);
+            curl_setopt($curl8, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($curl8, CURLOPT_SSL_VERIFYHOST, false);
+            curl_setopt($curl8, CURLOPT_POST, true);
+            curl_setopt($curl8, CURLOPT_POSTFIELDS, http_build_query($postvars8));
+            $r8 = curl_exec($curl8);
+
+            sleep(5); // Give Vesta some time to process files before deleting.
+
+            $ftp_server=VESTA_HOST_ADDRESS; 
+            $ftp_user_name=VESTA_ADMIN_UNAME; 
+            $ftp_user_pass=VESTA_ADMIN_PW;
+            $ftp_conn=ftp_connect($ftp_server); 
+            $login_result = ftp_login($ftp_conn, $ftp_user_name, $ftp_user_pass);
+            ftp_delete($ftp_conn, $v_domain . '.crt');
+            ftp_delete($ftp_conn, $v_domain . '.key');
+
+            if(isset($_POST['v_sslca']) && $_POST['v_sslca'] != '') {
+                ftp_delete($ftp_conn, $v_domain . '.ca');
+            }  
+
+
+        } else { $r8= '0'; }
     } else { $r8= '0'; }
-} else { $r8= '0'; }
-}
+    
+    
+    // CREAETE: If Additional FTP was disabled and is now enabled, add all Additional FTP Users.
+    if($v_ftpx == 'yes' && $v_ftpx_x == 'no') {
+        $r9 = 0;
+        // Check if FTP user #1 is present, if so continue.
+        if (isset($_POST['v_ftpuname1']) && $_POST['v_ftpuname1'] != '')  {
+            $ftpstart = 1;
+            // For each FTP User present, add account and send email (if specified).
+            do {
+                if($_POST['v_ftpuname' . $ftpstart] != '' && $_POST['v_ftppw' . $ftpstart] != '' && !isset($_POST['v_ftpuname-x' . $ftpstart])) {
+                    ${'curlftp' . $ftpstart} = curl_init();
+                    curl_setopt(${'curlftp' . $ftpstart}, CURLOPT_URL, $vst_url);
+                    curl_setopt(${'curlftp' . $ftpstart}, CURLOPT_RETURNTRANSFER,true);
+                    curl_setopt(${'curlftp' . $ftpstart}, CURLOPT_SSL_VERIFYPEER, false);
+                    curl_setopt(${'curlftp' . $ftpstart}, CURLOPT_SSL_VERIFYHOST, false);
+                    curl_setopt(${'curlftp' . $ftpstart}, CURLOPT_POST, true);
+                    curl_setopt(${'curlftp' . $ftpstart}, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain-ftp','arg1' => $username,'arg2' => $v_domain,'arg3' => $_POST['v_ftpuname'.$ftpstart],'arg4' => $_POST['v_ftppw'.$ftpstart],'arg5' => $_POST['v_ftpdir'.$ftpstart])));
+                    $r9 = $r9 + curl_exec(${'curlftp' . $ftpstart});
+                    // If PHPMailer system is enabled and user requests email, continue.
+                    if($phpmailenabled == "true" && isset($_POST['v_ftpnotif'.$ftpstart]) && $_POST['v_ftpnotif'.$ftpstart] != '') {
 
+                        $mail = new PHPMailer;
+                        $mail->setFrom($mailfrom, $mailname);
+                        $mail->addAddress($_POST['v_ftpnotif'.$ftpstart]);
+                        $mail->Subject = 'FTP Credentials';
+                        $mail->Body = 'FTP Account has been created successfully.<br><br>Domain: ' . $v_domain . '<br>Username: ' . $username . '_' . $_POST['v_ftpuname'.$ftpstart] . '<br>Password: ' . $_POST['v_ftppw'.$ftpstart]; 
+                        $mail->AltBody = 'FTP Account has been created successfully.\n\n>Domain: ' . $v_domain . '\nUsername: ' . $username . '_' . $_POST['v_ftpuname'.$ftpstart] . '\nPassword: ' . $_POST['v_ftppw'.$ftpstart]; 
+
+                        if($smtpenabled == "true" && $smtphost != '' && $smtpport != '') {
+                            $mail->isSMTP();
+                            $mail->SMTPDebug = 0;
+                            $mail->Host = $smtphost;
+                            $mail->Port = $smtpport;
+                            if($smtpauth == "true") {
+                                $mail->SMTPAuth = true;
+                                $mail->Username = $smtpuname;
+                                $mail->Password = $smtppw;
+                            }
+                            if($smtpenc == 'tls') {
+                             $mail->SMTPSecure = 'tls';  
+                            }
+                            elseif($smtpenc == 'ssl') {
+                             $mail->SMTPSecure = 'ssl';  
+                            }
+                        }
+                        $mail->send();
+                    }
+                }
+                $ftpstart++;
+            }
+            while (isset($_POST['v_ftpuname' . $ftpstart]));
+        }
+    } else { $r9 = 0; }
+    // DELETE: If Additional FTP was enabled and is now disabled, delete all Additional FTP Users.
+    if($v_ftpx == 'no' && $v_ftpx_x == 'yes') {
+        $r10 = 0;
+        if (isset($_POST['v_ftpuname-x1']) && $_POST['v_ftpuname-x1'] != '')  {
+            $ftpstart = 1;
+            do {
+                if(isset($_POST['v_ftpuname-x' . $ftpstart]) && $_POST['v_ftpuname-x' . $ftpstart] != '') {
+                    ${'curlftp' . $ftpstart} = curl_init();
+                    curl_setopt(${'curlftp' . $ftpstart}, CURLOPT_URL, $vst_url);
+                    curl_setopt(${'curlftp' . $ftpstart}, CURLOPT_RETURNTRANSFER,true);
+                    curl_setopt(${'curlftp' . $ftpstart}, CURLOPT_SSL_VERIFYPEER, false);
+                    curl_setopt(${'curlftp' . $ftpstart}, CURLOPT_SSL_VERIFYHOST, false);
+                    curl_setopt(${'curlftp' . $ftpstart}, CURLOPT_POST, true);
+                    curl_setopt(${'curlftp' . $ftpstart}, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-web-domain-ftp','arg1' => $username,'arg2' => $v_domain,'arg3' => $username.'_'.$_POST['v_ftpuname-x'.$ftpstart])));
+                    $r10 = curl_exec(${'curlftp' . $ftpstart});
+
+                }
+                $ftpstart++;
+            }
+            while (isset($_POST['v_ftpuname-x' . $ftpstart]));
+        }
+    } else { $r10 = 0; }
+    // CHANGE: If Additional FTP was enabled and is still enabled, check all form values for changes.
+    if($v_ftpx == 'yes' && $v_ftpx_x == 'yes') {  
+        $r11 = 0;
+        $ftpstart = 1;
+        $SafeUsernameList = [];
+        // For each FTP User sent, evaulate the following 5 logic statements.
+        do {
+            // L1 (Change Password): If FTP Username is the same and password is set, continue.
+            if(isset($_POST['v_ftpuname' . $ftpstart]) && $_POST['v_ftpuname' . $ftpstart] != '' && isset($_POST['v_ftpuname-x' . $ftpstart]) && $_POST['v_ftpuname-x' . $ftpstart] != '' && $_POST['v_ftpuname' . $ftpstart] == $_POST['v_ftpuname-x' . $ftpstart] && isset($_POST['v_ftppw' . $ftpstart]) && $_POST['v_ftppw' . $ftpstart] != '') {
+                ${'curlftpa' . $ftpstart} = curl_init();
+                curl_setopt(${'curlftpa' . $ftpstart}, CURLOPT_URL, $vst_url);
+                curl_setopt(${'curlftpa' . $ftpstart}, CURLOPT_RETURNTRANSFER,true);
+                curl_setopt(${'curlftpa' . $ftpstart}, CURLOPT_SSL_VERIFYPEER, false);
+                curl_setopt(${'curlftpa' . $ftpstart}, CURLOPT_SSL_VERIFYHOST, false);
+                curl_setopt(${'curlftpa' . $ftpstart}, CURLOPT_POST, true);
+                curl_setopt(${'curlftpa' . $ftpstart}, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-web-domain-ftp-password','arg1' => $username,'arg2' => $v_domain,'arg3' => $username.'_'.$_POST['v_ftpuname'.$ftpstart],'arg4' => $_POST['v_ftppw'.$ftpstart])));
+                $r11 = $r11 + curl_exec(${'curlftpa' . $ftpstart});
+            }
+            // L2 (Change Directory): If FTP Username is the same and FTP Directory has changed, continue.
+            if(isset($_POST['v_ftpuname' . $ftpstart]) && $_POST['v_ftpuname' . $ftpstart] != '' && isset($_POST['v_ftpuname-x' . $ftpstart]) && $_POST['v_ftpuname-x' . $ftpstart] != '' && $_POST['v_ftpuname' . $ftpstart] == $_POST['v_ftpuname-x' . $ftpstart] && isset($_POST['v_ftpdir' . $ftpstart]) && $_POST['v_ftpdir' . $ftpstart] != ''  && isset($_POST['v_ftpdir-x' . $ftpstart]) && $_POST['v_ftpdir-x' . $ftpstart] != '' && $_POST['v_ftpdir' . $ftpstart] != $_POST['v_ftpdir-x' . $ftpstart]) {
+                ${'curlftpb' . $ftpstart} = curl_init();
+                curl_setopt(${'curlftpb' . $ftpstart}, CURLOPT_URL, $vst_url);
+                curl_setopt(${'curlftpb' . $ftpstart}, CURLOPT_RETURNTRANSFER,true);
+                curl_setopt(${'curlftpb' . $ftpstart}, CURLOPT_SSL_VERIFYPEER, false);
+                curl_setopt(${'curlftpb' . $ftpstart}, CURLOPT_SSL_VERIFYHOST, false);
+                curl_setopt(${'curlftpb' . $ftpstart}, CURLOPT_POST, true);
+                curl_setopt(${'curlftpb' . $ftpstart}, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-web-domain-ftp-path','arg1' => $username,'arg2' => $v_domain,'arg3' => $username.'_'.$_POST['v_ftpuname'.$ftpstart],'arg4' => $_POST['v_ftpdir'.$ftpstart])));
+                $r11 = $r11 + curl_exec(${'curlftpb' . $ftpstart});
+            }
+            // L3 (Change Account): If Username is different and password is set, continue.
+            if(isset($_POST['v_ftpuname' . $ftpstart]) && $_POST['v_ftpuname' . $ftpstart] != '' && isset($_POST['v_ftpuname-x' . $ftpstart]) && $_POST['v_ftpuname-x' . $ftpstart] != '' && $_POST['v_ftpuname-x' . $ftpstart] != $_POST['v_ftpuname' . $ftpstart] && isset($_POST['v_ftppw' . $ftpstart]) && $_POST['v_ftppw' . $ftpstart] != '') {
+                ${'curlftpc' . $ftpstart} = curl_init();
+                curl_setopt(${'curlftpc' . $ftpstart}, CURLOPT_URL, $vst_url);
+                curl_setopt(${'curlftpc' . $ftpstart}, CURLOPT_RETURNTRANSFER,true);
+                curl_setopt(${'curlftpc' . $ftpstart}, CURLOPT_SSL_VERIFYPEER, false);
+                curl_setopt(${'curlftpc' . $ftpstart}, CURLOPT_SSL_VERIFYHOST, false);
+                curl_setopt(${'curlftpc' . $ftpstart}, CURLOPT_POST, true);
+                curl_setopt(${'curlftpc' . $ftpstart}, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-web-domain-ftp','arg1' => $username,'arg2' => $v_domain,'arg3' => $username.'_'.$_POST['v_ftpuname-x'.$ftpstart])));
+                $r11 = $r11 + curl_exec(${'curlftpc' . $ftpstart});
+                
+                array_push($SafeUsernameList, $_POST['v_ftpuname'.$ftpstart]);
+                ${'curlftpd' . $ftpstart} = curl_init();
+                curl_setopt(${'curlftpd' . $ftpstart}, CURLOPT_URL, $vst_url);
+                curl_setopt(${'curlftpd' . $ftpstart}, CURLOPT_RETURNTRANSFER,true);
+                curl_setopt(${'curlftpd' . $ftpstart}, CURLOPT_SSL_VERIFYPEER, false);
+                curl_setopt(${'curlftpd' . $ftpstart}, CURLOPT_SSL_VERIFYHOST, false);
+                curl_setopt(${'curlftpd' . $ftpstart}, CURLOPT_POST, true);
+                curl_setopt(${'curlftpd' . $ftpstart}, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain-ftp','arg1' => $username,'arg2' => $v_domain,'arg3' => $_POST['v_ftpuname'.$ftpstart],'arg4' => $_POST['v_ftppw'.$ftpstart],'arg5' => $_POST['v_ftpdir'.$ftpstart])));
+                
+                $r11p1 = curl_exec(${'curlftpd' . $ftpstart});
+                if($r11p1 == '4') {
+                    ${'curlftpg' . $ftpstart} = curl_init();
+                    curl_setopt(${'curlftpg' . $ftpstart}, CURLOPT_URL, $vst_url);
+                    curl_setopt(${'curlftpg' . $ftpstart}, CURLOPT_RETURNTRANSFER,true);
+                    curl_setopt(${'curlftpg' . $ftpstart}, CURLOPT_SSL_VERIFYPEER, false);
+                    curl_setopt(${'curlftpg' . $ftpstart}, CURLOPT_SSL_VERIFYHOST, false);
+                    curl_setopt(${'curlftpg' . $ftpstart}, CURLOPT_POST, true);
+                    curl_setopt(${'curlftpg' . $ftpstart}, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-web-domain-ftp-password','arg1' => $username,'arg2' => $v_domain,'arg3' => $username.'_'.$_POST['v_ftpuname'.$ftpstart],'arg4' => $_POST['v_ftppw'.$ftpstart])));
+                    $r11p2 = curl_exec(${'curlftpg' . $ftpstart});
+                    
+                    ${'curlftph' . $ftpstart} = curl_init();
+                    curl_setopt(${'curlftph' . $ftpstart}, CURLOPT_URL, $vst_url);
+                    curl_setopt(${'curlftph' . $ftpstart}, CURLOPT_RETURNTRANSFER,true);
+                    curl_setopt(${'curlftph' . $ftpstart}, CURLOPT_SSL_VERIFYPEER, false);
+                    curl_setopt(${'curlftph' . $ftpstart}, CURLOPT_SSL_VERIFYHOST, false);
+                    curl_setopt(${'curlftph' . $ftpstart}, CURLOPT_POST, true);
+                    curl_setopt(${'curlftph' . $ftpstart}, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-web-domain-ftp-path','arg1' => $username,'arg2' => $v_domain,'arg3' => $username.'_'.$_POST['v_ftpuname'.$ftpstart],'arg4' => $_POST['v_ftpdir'.$ftpstart])));
+                    $r11p3 = curl_exec(${'curlftph' . $ftpstart});
+                    
+                    $r11 = $r11 + $r11p2 + $r11p3;
+                }
+                else { $r11 = $r11 + $r11p1; }
+                
+                if($phpmailenabled == "true" && isset($_POST['v_ftpnotif'.$ftpstart]) && $_POST['v_ftpnotif'.$ftpstart] != '') {
+
+                    $mail = new PHPMailer;
+                    $mail->setFrom($mailfrom, $mailname);
+                    $mail->addAddress($_POST['v_ftpnotif'.$ftpstart]);
+                    $mail->Subject = 'FTP Credentials';
+                    $mail->Body = 'FTP Account has been created successfully.<br><br>Domain: ' . $v_domain . '<br>Username: ' . $username . '_' . $_POST['v_ftpuname'.$ftpstart] . '<br>Password: ' . $_POST['v_ftppw'.$ftpstart]; 
+                    $mail->AltBody = 'FTP Account has been created successfully.\n\n>Domain: ' . $v_domain . '\nUsername: ' . $username . '_' . $_POST['v_ftpuname'.$ftpstart] . '\nPassword: ' . $_POST['v_ftppw'.$ftpstart]; 
+
+                    if($smtpenabled == "true" && $smtphost != '' && $smtpport != '') {
+                        $mail->isSMTP();
+                        $mail->SMTPDebug = 0;
+                        $mail->Host = $smtphost;
+                        $mail->Port = $smtpport;
+                        if($smtpauth == "true") {
+                            $mail->SMTPAuth = true;
+                            $mail->Username = $smtpuname;
+                            $mail->Password = $smtppw;
+                        }
+                        if($smtpenc == 'tls') {
+                         $mail->SMTPSecure = 'tls';  
+                        }
+                        elseif($smtpenc == 'ssl') {
+                         $mail->SMTPSecure = 'ssl';  
+                        }
+                    }
+                    $mail->send();
+                }
+            }
+            // L4 (Create Account): If account is set and did not previously exist, continue.
+            if((isset($_POST['v_ftpuname' . $ftpstart]) && $_POST['v_ftpuname' . $ftpstart] != '') && (!isset($_POST['v_ftpuname-x' . $ftpstart]) || $_POST['v_ftpuname-x' . $ftpstart] == '') && isset($_POST['v_ftppw' . $ftpstart]) && $_POST['v_ftppw' . $ftpstart] != '') {
+                array_push($SafeUsernameList, $_POST['v_ftpuname'.$ftpstart]);
+                ${'curlftpe' . $ftpstart} = curl_init();
+                curl_setopt(${'curlftpe' . $ftpstart}, CURLOPT_URL, $vst_url);
+                curl_setopt(${'curlftpe' . $ftpstart}, CURLOPT_RETURNTRANSFER,true);
+                curl_setopt(${'curlftpe' . $ftpstart}, CURLOPT_SSL_VERIFYPEER, false);
+                curl_setopt(${'curlftpe' . $ftpstart}, CURLOPT_SSL_VERIFYHOST, false);
+                curl_setopt(${'curlftpe' . $ftpstart}, CURLOPT_POST, true);
+                curl_setopt(${'curlftpe' . $ftpstart}, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain-ftp','arg1' => $username,'arg2' => $v_domain,'arg3' => $_POST['v_ftpuname'.$ftpstart],'arg4' => $_POST['v_ftppw'.$ftpstart],'arg5' => $_POST['v_ftpdir'.$ftpstart])));
+                $r11 = $r11 + curl_exec(${'curlftpe' . $ftpstart});
+
+                if($phpmailenabled == "true" && isset($_POST['v_ftpnotif'.$ftpstart]) && $_POST['v_ftpnotif'.$ftpstart] != '') {
+
+                    $mail = new PHPMailer;
+                    $mail->setFrom($mailfrom, $mailname);
+                    $mail->addAddress($_POST['v_ftpnotif'.$ftpstart]);
+                    $mail->Subject = 'FTP Credentials';
+                    $mail->Body = 'FTP Account has been created successfully.<br><br>Domain: ' . $v_domain . '<br>Username: ' . $username . '_' . $_POST['v_ftpuname'.$ftpstart] . '<br>Password: ' . $_POST['v_ftppw'.$ftpstart]; 
+                    $mail->AltBody = 'FTP Account has been created successfully.\n\n>Domain: ' . $v_domain . '\nUsername: ' . $username . '_' . $_POST['v_ftpuname'.$ftpstart] . '\nPassword: ' . $_POST['v_ftppw'.$ftpstart]; 
+
+                    if($smtpenabled == "true" && $smtphost != '' && $smtpport != '') {
+                        $mail->isSMTP();
+                        $mail->SMTPDebug = 0;
+                        $mail->Host = $smtphost;
+                        $mail->Port = $smtpport;
+                        if($smtpauth == "true") {
+                            $mail->SMTPAuth = true;
+                            $mail->Username = $smtpuname;
+                            $mail->Password = $smtppw;
+                        }
+                        if($smtpenc == 'tls') {
+                         $mail->SMTPSecure = 'tls';  
+                        }
+                        elseif($smtpenc == 'ssl') {
+                         $mail->SMTPSecure = 'ssl';  
+                        }
+                    }
+                    $mail->send();
+                }
+            }
+            // L5 (Delete Account): If account was present but is no longer, continue.
+            if(isset($_POST['v_ftpuname-x' . $ftpstart]) && $_POST['v_ftpuname-x' . $ftpstart] != '' && (!isset($_POST['v_ftpuname' . $ftpstart]) || $_POST['v_ftpuname' . $ftpstart] == '') && $SafeUsernameList['v_ftpuname' . $ftpstart] === false) {
+                ${'curlftpf' . $ftpstart} = curl_init();
+                curl_setopt(${'curlftpf' . $ftpstart}, CURLOPT_URL, $vst_url);
+                curl_setopt(${'curlftpf' . $ftpstart}, CURLOPT_RETURNTRANSFER,true);
+                curl_setopt(${'curlftpf' . $ftpstart}, CURLOPT_SSL_VERIFYPEER, false);
+                curl_setopt(${'curlftpf' . $ftpstart}, CURLOPT_SSL_VERIFYHOST, false);
+                curl_setopt(${'curlftpf' . $ftpstart}, CURLOPT_POST, true);
+                curl_setopt(${'curlftpf' . $ftpstart}, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-web-domain-ftp','arg1' => $username,'arg2' => $v_domain,'arg3' => $username.'_'.$_POST['v_ftpuname-x'.$ftpstart])));
+                $r11 = $r11 + curl_exec(${'curlftpf' . $ftpstart});
+            }            $ftpstart++;
+        }
+        while (isset($_POST['v_ftpuname' . $ftpstart]) || isset($_POST['v_ftpuname-x' . $ftpstart]));
+    } else { $r11 = 0; }
+}
 ?>
 
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
     <head>
         <link href="../css/style.css" rel="stylesheet">
     </head>
     <body class="fix-header">
-        <div class="preloader">
+       <div class="preloader">
             <svg class="circular" viewBox="25 25 50 50">
                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
             </svg>
         </div>
-
         <form id="form" action="../edit/domain.php?domain=<?php echo $v_domain; ?>" method="post">
             <?php 
             echo '<input type="hidden" name="r1" value="'.$r0.'">';
@@ -417,6 +651,9 @@ if(checkService('vsftpd') !== false || checkService('proftpd') !== false) {
             echo '<input type="hidden" name="r7" value="'.$r8.'">';
             echo '<input type="hidden" name="r8" value="'.$r7.'">';
             echo '<input type="hidden" name="r9" value="'.$r6.'">';
+            echo '<input type="hidden" name="r10" value="'.$r9.'">';
+            echo '<input type="hidden" name="r11" value="'.$r10.'">';
+            echo '<input type="hidden" name="r12" value="'.$r11.'">';
             ?>
         </form>
         <script type="text/javascript">

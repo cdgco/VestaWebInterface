@@ -24,18 +24,18 @@
 
 session_start();
 $configlocation = "../../includes/";
-if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' );};
+if (file_exists( '../../includes/config.php' )) { require( '../../includes/includes.php'); }  else { header( 'Location: ../../install' ); exit();};
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../../login.php'); }
-if($username != 'admin') { header("Location: ../../"); }
+else { header('Location: ../../login.php'); exit(); }
+if($username != 'admin') { header("Location: ../../"); exit(); }
 
-if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); }
-if(checkService('fail2ban') === false){ header("Location: ../../error-pages/403.html"); }
+if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); exit(); }
+if(checkService('fail2ban') === false){ header("Location: ../../error-pages/403.html"); exit(); }
 $v_ip = $_GET['ip'];
 $v_chain = $_GET['chain'];
 
-if ((!isset($_GET['ip'])) || ($_GET['ip'] == '')) { header('Location: ../list/fail2ban.php?error=1');}
-elseif ((!isset($_GET['chain'])) || ($_GET['chain'] == '')) { header('Location: ../list/fail2ban.php?error=1');}
+if ((!isset($_GET['ip'])) || ($_GET['ip'] == '')) { header('Location: ../list/fail2ban.php?error=1'); exit();}
+elseif ((!isset($_GET['chain'])) || ($_GET['chain'] == '')) { header('Location: ../list/fail2ban.php?error=1'); exit();}
 
 $postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-firewall-ban','arg1' => $v_ip,'arg2' => $v_chain);
 

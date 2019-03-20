@@ -23,7 +23,7 @@
 */
 
 $configlocation = "../includes/";
-if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
+if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' ); exit(); };
 
 $vst_returncode = 'yes';
 $vst_command = 'v-add-user';
@@ -82,7 +82,7 @@ if (INTERAKT_APP_ID != '' && INTERAKT_API_KEY != ''){
 header('Location: ../error-pages/403.html');
 
 if(isset($answer)) {
-    header("Location: ../login.php?code=".$answer);
+    header("Location: ../login.php?code=".$answer); exit();
 }
 
 ?>

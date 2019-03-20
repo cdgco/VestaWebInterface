@@ -24,17 +24,17 @@
 
 session_start();
 $configlocation = "../includes/";
-if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' );};
+if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' ); exit(); };
 
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
-else { header('Location: ../login.php'); }
+else { header('Location: ../login.php'); exit(); }
 
-if(isset($backupsenabled) && $backupsenabled != 'true'){ header("Location: ../error-pages/403.html"); }
+if(isset($backupsenabled) && $backupsenabled != 'true'){ header("Location: ../error-pages/403.html"); exit(); }
 
 $backup = $_GET['backup'];
 
 if (isset($backup) && $backup != '') {}
-else { header('Location: ../list/backups.php?error=1'); }
+else { header('Location: ../list/backups.php?error=1'); exit(); }
 
 $web = 'no';
 $dns = 'no';
