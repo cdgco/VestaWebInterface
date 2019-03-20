@@ -34,7 +34,7 @@ $username = $username;
 $verified = $_POST['verified'];
 
 $postvars = array(
-    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-delete-cron-reports','arg1' => $username)
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-cron-reports','arg1' => $username)
 );
 
 $curl0 = curl_init();

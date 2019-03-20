@@ -386,7 +386,7 @@ foreach ($plugins as $result) {
                                             <label class="col-md-12"><?php echo _("Let's Encrypt Support"); ?></label>
                                             <div class="col-md-12">
                                                 <div class="checkbox checkbox-info">
-                                                    <input type="hidden" name="v_leeanbled-x" value="<?php echo $domaindata[0]['LETSENCRYPT']; ?>">
+                                                    <input type="hidden" name="v_leenabled-x" value="<?php echo $domaindata[0]['LETSENCRYPT']; ?>">
                                                     <input id="checkbox6" name="v_leenabled" type="checkbox" <?php if($domaindata[0]['LETSENCRYPT'] == 'no') {} else {echo 'checked';} ?>>
                                                     <label for="checkbox6"> <?php echo _("Enabled"); ?> </label>
                                                 </div>
@@ -495,7 +495,7 @@ foreach ($plugins as $result) {
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
                                                 <input type="hidden" name="v_additionalftpenabled-x" value="<?php if($ftpuser[0]) {echo 'yes';} else { echo 'no'; } ?>">
-                                                <input id="checkbox9" type="checkbox" name="v_addittionalftpenabled" <?php if($ftpuser[0]) {echo 'checked';} ?> onclick="checkDiv3();">
+                                                <input id="checkbox9" type="checkbox" name="v_additionalftpenabled" <?php if($ftpuser[0]) {echo 'checked';} ?> onclick="checkDiv3();">
                                                 <label for="checkbox9"><?php echo _("Enabled"); ?></label>
                                             </div>
                                         </div>
@@ -516,7 +516,7 @@ foreach ($plugins as $result) {
                                                     $str = substr($str, strlen($prefix));
                                                 }
                                                 echo $str.'">
-                                                <input type="hidden" name="v_ftpdir-x'.$x11.'" value="'.$ftpdir[$x1].'">';
+                                                <input type="hidden" name="v_ftpdir-x'.$x11.'" value="'.ltrim($ftpdir[$x1], '/').'">';
                                                 
                                                 $x1++;$x11++;
                                             } while (isset($ftpuser[$x1]));
@@ -536,15 +536,15 @@ foreach ($plugins as $result) {
                                                 <div class="col-md-12">
                                                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                                         <div class="input-group-addon"><?php echo $displayname; ?>_</div>
-                                                        <input type="text" class="form-control" name="v_ftpuname1" disabled value="<?php $prefix = $uname . '_'; $str = $ftpuser[$x1]; if (substr($str, 0, strlen($prefix)) == $prefix) { $str = substr($str, strlen($prefix));}
-                                                        echo $str; ?>" style="padding-left: 0.5%;">    
+                                                        <input type="text" class="form-control" name="v_ftpuname<?php echo $x11; ?>" readonly value="<?php $prefix = $uname . '_'; $str = $ftpuser[$x1]; if (substr($str, 0, strlen($prefix)) == $prefix) { $str = substr($str, strlen($prefix));}
+                                                        echo $str; ?>" style="padding-left: 0.5%;cursor: not-allowed;">    
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="password" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10, 'password<?php echo $x11; ?>', 'tg<?php echo $x11; ?>')"> <?php echo _("Generate"); ?></a></label>
                                                 <div class="col-md-12 input-group" style="padding-left: 15px;">
-                                                    <input type="password" class="form-control form-control-line" name="password<?php echo $x11; ?>" id="password<?php echo $x11; ?>">           <span class="input-group-btn"> 
+                                                    <input type="password" class="form-control form-control-line" name="v_ftppw<?php echo $x11; ?>" id="password<?php echo $x11; ?>">           <span class="input-group-btn"> 
                                                     <button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler(this, 'password<?php echo $x11; ?>')" id="tg<?php echo $x11; ?>" type="button"><i class="ti-eye"></i></button> 
                                                     </span>  </div>
                                             </div>
@@ -560,7 +560,39 @@ foreach ($plugins as $result) {
                                         </div>
                                         <?php $x1++;$x11++;
                                             } while (isset($ftpuser[$x1])); }
-                                        ?>
+                                            else { echo ""; ?>
+                                        <div class="ftp-account" accnum="1">
+                                            <div class="form-group">
+                                                        <label class="col-md-12"><?php echo _("FTP Account"); ?> #1</label><hr>
+                                                    </div>
+                                            <div class="form-group">
+                                                <label class="col-md-12"><?php echo _("Username"); ?></label><br>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                                        <div class="input-group-addon"><?php echo $displayname; ?>_</div>
+                                                        <input type="text" class="form-control" name="v_ftpuname1" value="<?php $prefix = $uname . '_'; $str = $ftpuser[$x1]; if (substr($str, 0, strlen($prefix)) == $prefix) { $str = substr($str, strlen($prefix));}
+                                                        echo $str; ?>" style="padding-left: 0.5%;">    
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="password" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10, 'password1', 'tg1')"> <?php echo _("Generate"); ?></a></label>
+                                                <div class="col-md-12 input-group" style="padding-left: 15px;">
+                                                    <input type="password" class="form-control form-control-line" name="v_ftppw1" id="password1">           <span class="input-group-btn"> 
+                                                    <button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler(this, 'password1')" id="tg1" type="button"><i class="ti-eye"></i></button> 
+                                                    </span>  </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-12"><?php echo _("Path"); ?></label>
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                                        <div class="input-group-addon">/home/<?php echo $displayname . '/web/' . $requestdomain; ?>/</div>
+                                                        <input type="text" class="form-control" name="v_ftpdir1" value="<?php echo ltrim($ftpdir[$x1], '/'); ?>" style="padding-left: 0.5%;">    
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php } ?>
                                         <p id="FtpControl"><a href="javascript:void(0);" onclick="addFtpAccount();">Add One</a><span id="removeFtpBtn"> / <a href="javascript:void(0);" onclick="removeFtpAccount();">Remove One</a></span></p><br><br>
                                     </div>
                                     <?php echo ""; } ?>
@@ -647,7 +679,9 @@ foreach ($plugins as $result) {
                     document.getElementById("ftp-div").style.display = "block";
                 }
                 else {document.getElementById("ftp-div").style.display = "none";}
-                '; } ?>  }
+                '; } ?>  
+            }
+            
             function checkDiv4(){
                 if(document.getElementById("checkbox10").checked) {
                     document.getElementById('stats-div').style.display = 'block';

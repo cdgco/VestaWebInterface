@@ -31,7 +31,7 @@ else { header('Location: ../login.php'); exit(); }
 $num = $_POST['num'];
 
 $postvars = array(
-    array('hash' => $vst_apikey, 'returncode' => 'yes', 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-acknowledge-user-notification','arg1' => $username, 'arg2' => $num)
+    array('hash' => $vst_apikey, 'returncode' => 'yes', 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-acknowledge-user-notification','arg1' => $username, 'arg2' => $num)
 );
 
 $curl0 = curl_init();
