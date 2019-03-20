@@ -295,14 +295,15 @@ foreach ($plugins as $result) {
 
             includeScript();
             
-            if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
-            } 
+             if(isset($_GET['error']) && $_GET['error'] == "1") {
+                echo "swal({title:'" . $errorcode[1] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+            }
             if(isset($_POST['r1']) && $_POST['r1'] == "0") {
-                echo "swal({title:'" . _("Notification Sent!") . "', type:'success'});";
+                echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
             } 
-            if(isset($_POST['r1']) && $_POST['r1'] > "0") { echo "swal({title:'Error Sending Notification<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
-                                                                    }
+            if(isset($_POST['r1']) && $_POST['r1'] > "0") {
+                echo "swal({title:'" . $errorcode[$_POST['r1']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+            } 
             ?>
         </script>
     </body>

@@ -354,14 +354,14 @@ foreach ($plugins as $result) {
             includeScript();
             
             if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[1] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
             }
             if(isset($_POST['code']) && $_POST['code'] == "1") {
                 echo "swal({title:'" . _("Successfully Created!") . "', type:'success'});";
             }
             if(isset($_POST['code']) && $_POST['code'] == "0") {
-                echo "swal({title:'" . $errorcode[1] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
-            } 
+                echo "swal({title:'" . $errorcode[1] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+            }
 
             ?>
         </script>

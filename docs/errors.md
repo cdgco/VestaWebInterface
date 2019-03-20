@@ -78,7 +78,7 @@ Here are the services and commands that correspond to the error codes on the fol
  - E1: Change DNS Record
  - E2: Change DNS Record ID
  
-* edit/domain.php `E1.E2.E3.E4.E5.E6.E7.E8.E9`
+* edit/domain.php `E1.E2.E3.E4.E5.E6.E7.E8.E9.E10.E11.E12`
    - E1: Change Web Domain IP
    - E2: Delete / Add Web Domain Alias
    - E3: Change Web Domain Template
@@ -88,6 +88,9 @@ Here are the services and commands that correspond to the error codes on the fol
    - E7: Delete / Add Web Domain Stats User
    - E8: Schedule / Delete Let's Encrypt
    - E9: Delete / Add / Change Web Domain SSL & Change SSL Home
+   - E10: Enable Additional FTP (Add FTP Users)
+   - E11: Disable Additional FTP (Delete Users)
+   - E12: Change Additional FTP (Change Password, Change Directory, Create / Change / Delete Users)
    
 * edit/mail.php: `E1.E2.E3.E4`
  - E1: Add / Delete Mail Domain Antispam
@@ -95,7 +98,7 @@ Here are the services and commands that correspond to the error codes on the fol
  - E3: Add / Delete Mail Domain DKIM
  - E4: Change Mail Domain Catchall
  
-* edit/mail.php: `E1.E2.E3.E4.E5`
+* edit/mailaccount.php: `E1.E2.E3.E4.E5`
  - E1: Change Mail Account Password
  - E2: Add / Delete Mail Account Alias
  - E3: Add / Delete Mail Account Forward
@@ -122,5 +125,21 @@ Here are the services and commands that correspond to the error codes on the fol
   - E6: Change User Shell
   - E7: Change Default Nameservers
   
-
+#### Admin/Server
+* admin/server/vesta.php: `E1.E2.E3.E4.E5.E6.E7.E8.E9.E10.E11.E12.E13.E14`
+  - E1: Change System Hostname
+  - E2: Change System Timezone
+  - E3: Change System Language
+  - E4: Change MySQL Root Password
+  - E5: Change PostgreSQL Root Password
+  - E6: Change Remote Backup
+  - E7: Change Backup Compression Level
+  - E8: Change Backup Directory
+  - E9: Change Vesta SSL
+  - E10: Change System Quota
+  - E11: Change System Firewall
+  - E12: Activate / Deavtivate sFTP Jail
+  - E13: Activate / Deavtivate Filemanager
+  - E14: Activate / Deavtivate Softaculous
+  
  

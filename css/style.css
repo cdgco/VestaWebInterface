@@ -122,6 +122,13 @@ cursor: pointer;
 .shortcuts ul li span.bigger {
   font-size: 18px;
 }
+.swal-error-title {
+    cursor: pointer;
+}
+.swal-error-title:hover {
+    text-decoration: underline;
+    color:dodgerblue;
+}
 button.back-to-top{
   margin: 0 !important;
   padding: 0 !important;

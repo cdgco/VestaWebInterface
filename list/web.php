@@ -441,9 +441,8 @@ foreach ($plugins as $result) {
                 echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
             } 
             if(isset($_POST['r1']) && $deltotal != 0) {
-                echo "swal({title:'" . _("Error Deleting Web Domain") . "<br>" . "(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . ")" . _("Please try again or contact support.") . "<br><br>', type:'error'});";
+                echo "swal({title:'" . _("Error Deleting Web Domain") . "', html:'" . _("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . ")</span>', type:'error'});";
             }
-
             $addtotal = $_POST['a1'] + $_POST['a2'] + $_POST['a3'] + $_POST['a4'] + $_POST['a5'] + $_POST['a6'] + $_POST['a7'] + $_POST['a8'];
             if(isset($_POST['a1']) && $addtotal == 0) {
                 echo "swal({title:'" . _("Successfully Created!") . "', type:'success'});";
@@ -451,6 +450,10 @@ foreach ($plugins as $result) {
             if(isset($_POST['a1']) && $addtotal != 0) {
                 echo "swal({title:'" . _("Error Creating Web Domain") . "<br>"  . "(E: " . $_POST['a1'] . "." . $_POST['a2'] . "." . $_POST['a3'] . "." . $_POST['a4'] . "." . $_POST['a5'] . "." . $_POST['a6'] . "." . $_POST['a7'] . "." . $_POST['a8'] . ")" . _("Please try again or contact support.") . "<br><br>', type:'error'});";
             }
+            if(isset($_POST['a1']) && $addtotal != 0) {
+                echo "swal({title:'" . _("Error Creating Web Domain") . "', html:'" . _("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(E: " . $_POST['a1'] . "." . $_POST['a2'] . "." . $_POST['a3'] . "." . $_POST['a4'] . "." . $_POST['a5'] . "." . $_POST['a6'] . "." . $_POST['a7'] . "." . $_POST['a8'] . ")</span>', type:'error'});";
+            }
+            
             if(isset($_POST['u1']) && $_POST['u1'] == 0) {
                 echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
             } 

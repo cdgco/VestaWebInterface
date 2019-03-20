@@ -410,21 +410,24 @@ foreach ($plugins as $result) {
             if(isset($_POST['delcode']) && $_POST['delcode'] == "0") {
                 echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
             } 
-            if(isset($_POST['delcode']) && $_POST['delcode'] > "0") { echo "swal({title:'" . $errorcode[$_POST['delcode']] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
-                                                                    }
+            if(isset($_POST['delcode']) && $_POST['delcode'] > "0") {
+                echo "swal({title:'" . $errorcode[$_POST['delcode']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+            }
             $addtotal = $_POST['a1'] + $_POST['a2'] + $_POST['a3'] + $_POST['a4'] + $_POST['a5'];
             if(isset($_POST['a1']) && $addtotal == 0) {
                 echo "swal({title:'" . _("Successfully updated!") . "', type:'success'});";
             } 
+            
             if(isset($_POST['a1']) && $addtotal != 0) {
-                echo "swal({title:'" . _("Error Adding Mail Domain") . "<br>" . "(E: " . $_POST['a1'] . "." . $_POST['a2'] . "." . $_POST['a3'] . "." . $_POST['a4'] . "." . $_POST['a5'] . ") <br><br>" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . _("Error Adding Mail Domain") . "', html:'" . _("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(E: " . $_POST['a1'] . "." . $_POST['a2'] . "." . $_POST['a3'] . "." . $_POST['a4'] . "." . $_POST['a5'] . ")</span>', type:'error'});";
             }
+
             if(isset($_POST['u1']) && $_POST['u1'] == 0) {
                 echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
             } 
             if(isset($_POST['u1']) && $_POST['u1'] != 0) {
-                echo "swal({title:'" . $errorcode[$_POST['u1']] . "<br><br>" . _("Please try again or contact support.") . "', type:'error'});";
-            }
+                echo "swal({title:'" . $errorcode[$_POST['u1']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+            } 
             ?>
         </script>
     </body>
