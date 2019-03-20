@@ -1,4 +1,6 @@
 ## Branding
+
+#### Images
 VWI relys on three main images for branding, favicon, logo and icon.
 To replace these files from the control panel, go to the settings section of the admin panel and upload new images.
 
@@ -20,6 +22,11 @@ Favicon
 * File Type: .ico
 * Recommended 32x32 Pixels
 * MySQL Value: 'FAVICON'
+
+#### Footers
+VWI offers the ability to remove the default VWI branding from the page footer, or add your own custom branding.
+
+To change the footer, go to the settings section of the admin panel and enable custom footer.
 
 
 [Video Tutorial](https://www.youtube.com/watch?v=xCWJyRbRd8Q&list=PL4JkcC_rCsyf9ha5OBrWqDS4xWC3hZgfz)

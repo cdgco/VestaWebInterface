@@ -62,9 +62,13 @@ INSERT INTO `vwi_config` (`VARIABLE`, `VALUE`) VALUES
 ('PROFILE_ENABLED', 'true'),
 ('CRON_ENABLED', 'true'),
 ('BACKUPS_ENABLED', 'true'),
+('NOTIFICATIONS_ENABLED', 'true'),
 ('REGISTRATIONS_ENABLED', 'false'),
 ('SOFTACULOUS_URL', 'false'),
 ('OLD_CP_LINK', 'false'),
+('VWI_BRANDING', 'true'),
+('CUSTOM_FOOTER', 'false'),
+('FOOTER', ''),
 ('PHPMAIL_ENABLED', 'false'),
 ('MAIL_FROM', ''),
 ('MAIL_NAME', ''),
@@ -88,7 +92,12 @@ INSERT INTO `vwi_config` (`VARIABLE`, `VALUE`) VALUES
 ('CLOUDFLARE_EMAIL', ''),
 ('CUSTOM_THEME_PRIMARY', ''),
 ('CUSTOM_THEME_SECONDARY', '');
+COMMIT;
+```
 
+Set Primary Column
+
+```SQL
 ALTER TABLE `vwi_config`
   ADD PRIMARY KEY (`VARIABLE`);
 COMMIT;
@@ -156,11 +165,15 @@ Ex: 'mydomain.com' or '8.8.8.8'.
 * DB\_ENABLED: Enter 'true' or 'false'. If 'false', hides all databases, control to database settings and web based database access. Case sensitive.
 * ADMIN\_ENABLED: Enter 'true' or 'false'. If 'false', hides admin panel, and all admin specific control. Disables web based settings (settings must be configured from MySQL). Case sensitive.
 * PROFILE\_ENABLED: Enter 'true' or 'false'. If 'false', hides user profile and user settings page. Case sensitive.
-* CRON\_ENABLED: Enter 'true' or 'false'. If 'false', hides all cron jobs and control to cron job settings.
-* BACKUPS\_ENABLED: Enter 'true' or 'false'. If 'false', hides all backups and control to backup settings.
-* REGISTRATIONS\_ENABLED: Enter 'true' or 'false'. If 'false', hides link to sign up. See [Registrations section](registrations) to learn how to configure.
+* CRON\_ENABLED: Enter 'true' or 'false'. If 'false', hides all cron jobs and control to cron job settings. Case sensitive.
+* BACKUPS\_ENABLED: Enter 'true' or 'false'. If 'false', hides all backups and control to backup settings. Case sensitive.
+* NOTIFICATIONS\_ENABLED: Enter 'true' or 'false'. If 'false', disables dashboard notification system. Case sensitive.
+* REGISTRATIONS\_ENABLED: Enter 'true' or 'false'. If 'false', hides link to sign up. See [Registrations section](registrations) to learn how to configure. Case sensitive.
 * SOFTACULOUS\_LINK: Enter 'true' or 'false'. If 'false', hides link to old Softaculous. Case sensitive.
 * OLD\_CP\_LINK: Enter 'true' or 'false'. If 'false', hides link to old VestaCP interface. Case sensitive.
+* VWI_BRANDING: Enter 'true' or 'false'. If 'false', hides VWI bradning from page footers. Case sensitive. Read [Branding section](branding) for more info.
+* CUSTOM_FOOTER: Enter 'true' or 'false'. If 'false', uses default site name as branding in page footers. Case sensitive. Read [Branding section](branding) for more info.
+* FOOTER: Enter custom footer message if 'CUSTOM_FOOTER' setting is 'true'. Read [Branding section](branding) for more info.
 
 #### Mail Config
 * PHPMAIL\_ENABLED: Enter 'true' or 'false'. Allows emailing credentials once database or email account are created.
