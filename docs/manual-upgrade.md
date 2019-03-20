@@ -1,6 +1,6 @@
 ## If Manual Install was used
 
-NOTE: v0.5.0 requires a clean install and cannot be installed through upgrade.
+NOTE: v0.5.0 and v1.0.0 require a clean install and cannot be installed through upgrade.
 
 #### Step 1:
 Delete all files in your existing VWI web directory except includs/config.php. Ensure you delete any files starting with a period such as '.htaccess', '.git', or '.gitignore'.
