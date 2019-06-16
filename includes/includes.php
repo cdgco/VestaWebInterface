@@ -163,7 +163,7 @@ $cplogo = $config["LOGO"];
 $cpfavicon = $config["FAVICON"];
 
 // Enable / Disable Sections
-if(checkService('apache2') !== false || checkService('php-fpm') !== false) {
+if(checkService('apache2') !== false || checkService('/php(.*)-fpm/') !== false) {
     if($config["WEB_ENABLED"] != 'true'){
         $webenabled = '';
     }
@@ -678,9 +678,9 @@ function footer() {
 }
 function checkService($requestedService) {
     global $servicedata;
-    
+    if($requestedService[0] == '/') {return preg_match($requestedService, $servicedata);}
+
     if( strpos($servicedata, $requestedService) !== false ) { return true; }
     else { return false; }
-    
 }
 ?>
