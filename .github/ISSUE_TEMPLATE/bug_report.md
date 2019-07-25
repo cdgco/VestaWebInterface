@@ -10,7 +10,7 @@ assignees: ''
 <!-- Before submitting issues, ensure that you have the latest version of VWI and followed the instructions at https://cdgtech.one/vwi/docs.php -->
 
 **Server Environment**
-Run the command `lsb_release -a && uname -a` and put the output below
+Run the command `php -v && lsb_release -a && /usr/local/vesta/bin/v-list-sys-config` and put the output below
 
 ```
 PUT THE OUTPUT HERE
