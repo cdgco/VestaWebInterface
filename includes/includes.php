@@ -163,7 +163,7 @@ $cplogo = $config["LOGO"];
 $cpfavicon = $config["FAVICON"];
 
 // Enable / Disable Sections
-if(checkService('apache2') !== false || checkService('/php(.*)-fpm/') !== false) {
+if(checkService('apache2') !== false || checkService('httpd') !== false || checkService('/php(.*)-fpm/') !== false) {
     if($config["WEB_ENABLED"] != 'true'){
         $webenabled = '';
     }
@@ -172,7 +172,7 @@ if(checkService('apache2') !== false || checkService('/php(.*)-fpm/') !== false)
     }
 }
 else { $webenabled = ''; }
-if(checkService('bind9') !== false) {
+if(checkService('bind9') !== false || checkService('named') !== false) {
     if($config["DNS_ENABLED"] != 'true'){
         $dnsenabled = '';
     }
@@ -190,7 +190,7 @@ if(checkService('exim') !== false) {
     }
 }
 else { $mailenabled = ''; }
-if(checkService('mysql') !== false || checkService('postgresql') !== false) {
+if(checkService('mysql') !== false || checkService('mariadb') !== false || checkService('postgresql') !== false) {
     if($config["DB_ENABLED"] != 'true'){
         $dbenabled = '';
     }
