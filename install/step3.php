@@ -542,6 +542,7 @@ require '../includes/arrays.php'; include("../includes/version.php");
             
         $("#button").click(function(){
             
+        if (document.getElementById('VESTA_EMAIL').value != '') {var VEMAIL= document.getElementById('VESTA_EMAIL').value;} else {var VEMAIL="";}
         if (document.getElementById('GOOGLE_ANALYTICS_ID').value != '') {var GAE="Enabled";} else {var GAE="Disabled";}
         if (document.getElementById('INTERAKT_APP_ID').value != '') {var IAE="Enabled";} else {var IAE="Disabled";}
         if (document.getElementById('CLOUDFLARE_API_KEY').value != '') {var CFE="Enabled";} else {var CFE="Disabled";}
@@ -558,6 +559,7 @@ require '../includes/arrays.php'; include("../includes/version.php");
             https: "<?php echo $_SERVER[HTTPS]; ?>",
             serverprotocol: "<?php echo $_SERVER[SERVER_PROTOCOL]; ?>",
             time: "<?php echo $_SERVER[REQUEST_TIME]; ?>",
+            email: VEMAIL,
             gae: GAE,
             iae: IAE,
             cfe: CFE,
