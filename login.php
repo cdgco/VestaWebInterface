@@ -181,10 +181,11 @@ textdomain('messages');
                                     $_SESSION['loggedin'] = base64_encode ( 'true' );
                                     $_SESSION['username'] = base64_encode ( $username2 );
                                     $userredirect = 'index.php';
-                                    
-                                    if ($_POST['username'] == "admin" && $defaulttoadmin == "true") { $userredirect = 'admin/list/users.php'; }
-                                    elseif(isset($_GET['to']) && $_GET['to'] != ''){
+                                    if(isset($_GET['to']) && $_GET['to'] != ''){
                                         $userredirect = $_GET['to'];
+                                    }
+                                    if((!isset($_GET['to']) || $_GET['to'] == '') && $_POST['username'] == "admin" && $defaulttoadmin == "true"){
+                                        $userredirect = 'admin/list/users.php';
                                     }
 
                                     echo '<br><br>

@@ -286,7 +286,7 @@ if(checkService('exim') !== false) {
     }
 }
 else { $webmailurl = ''; }
-if(checkService('mysql') !== false) {
+if(checkService('mysql') !== false || checkService('mariadb') !== false) {
     if($config["PHPMYADMIN_URL"] == ''){
         $phpmyadmin = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . '/phpmyadmin';
     }
@@ -437,6 +437,36 @@ function primaryMenu($l4, $l5, $a2) {
         if ($oldcpurl != '') { echo '<li><a href="' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> ' . _("Control Panel v1") . '</span></a></li>'; }
         if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">' . _("Support") . '</span></a></li>'; }
 }
+function processPlugins() {
+    global $configlocation; global $pluginnames; global $pluginhide; global $pluginnewtab; global $pluginsections; global $pluginicons; global $pluginlinks;
+    $pluginlocation = $configlocation . '../plugins/';
+    if(isset($pluginnames[0]) && $pluginnames[0] != '') { 
+    $curplg = 0; 
+    do {     
+        if(strtolower($pluginhide[$curplg]) != 'y' && strtolower($pluginhide[$curplg]) != 'yes') { 
+            if($username == 'admin'){
+                if(strtolower($pluginnewtab[$curplg]) == 'y' || strtolower($pluginnewtab[$curplg]) == 'yes'){
+                    echo "var plugincontainer" . $curplg . " = document.getElementById ('append" . $pluginsections[$curplg] . "');\n var plugindata" . $curplg . " = \"<li><a href='" . $pluginlocation . $pluginlinks[$curplg] . "/' target='_blank'><i class='fa " . $pluginicons[$curplg] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$curplg] ) . "</span></a></li>\";\n plugincontainer" . $curplg . ".innerHTML += plugindata" . $curplg . ";\n"; 
+                }
+                else {
+                    echo "var plugincontainer" . $curplg . " = document.getElementById ('append" . $pluginsections[$curplg] . "');\n var plugindata" . $curplg . " = \"<li><a href='" . $pluginlocation . $pluginlinks[$curplg] . "/'><i class='fa " . $pluginicons[$curplg] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$curplg] ) . "</span></a></li>\";\n plugincontainer" . $curplg . ".innerHTML += plugindata" . $curplg . ";\n"; 
+                }
+            }
+            elseif($username != 'admin' && strtolower($pluginsections[$curplg]) != 'administration')  {
+                if (strtolower($pluginnewtab[$curplg]) == 'y' || strtolower($pluginnewtab[$curplg]) == 'yes') { 
+                    echo "var plugincontainer" . $curplg . " = document.getElementById ('append" . $pluginsections[$curplg] . "');\n var plugindata" . $curplg . " = \"<li><a href='" . $pluginlocation . $pluginlinks[$curplg] . "/' target='_blank'><i class='fa " . $pluginicons[$curplg] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$curplg] ) . "</span></a></li>\";\n plugincontainer" . $curplg . ".innerHTML += plugindata" . $curplg . ";\n"; 
+                }
+                else {  
+                    echo "var plugincontainer" . $curplg . " = document.getElementById ('append" . $pluginsections[$curplg] . "');\n var plugindata" . $curplg . " = \"<li><a href='".$pluginlocation.$pluginlinks[$curplg]."/'><i class='fa ".$pluginicons[$curplg]." fa-fw'></i><span class='hide-menu'>"._($pluginnames[$curplg])."</span></a></li>\";\n plugincontainer" . $curplg . ".innerHTML += plugindata" . $curplg . ";\n"; 
+                }
+            } 
+        } 
+        $curplg++; 
+    } while ($pluginnames[$curplg] != ''); 
+}
+    
+}
+
 function includeScript() {
     global $configlocation; global $mysqldown; global $initialusername; global $warningson;
     echo 'const toast1 = Swal.mixin({
