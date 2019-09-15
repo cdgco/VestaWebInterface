@@ -2,6 +2,8 @@ bower_components
 includes/config.php
 plugins/ftp
 plugins/vwi-billing
+plugins/billing
+plugins/billing-client
 plugins/vwi-softaculous
 tmp/config.json
 bfg.jar
