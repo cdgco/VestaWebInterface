@@ -31,6 +31,8 @@ if(isset($_SESSION['loggedin'])) {
 
 if(isset($regenabled) && $regenabled != 'true'){ header("Location: error-pages/403.html"); }
 
+if(in_array('billing', $plugins) && file_exists('plugins/billing')) { header( 'Location: plugins/billing/payment/register.php' ); exit(); }
+
 $postvars0 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-info','arg1' => 'json');
 
 $curl0 = curl_init();
