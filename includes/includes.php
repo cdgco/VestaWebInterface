@@ -286,7 +286,7 @@ if(checkService('exim') !== false) {
     }
 }
 else { $webmailurl = ''; }
-if(checkService('mysql') !== false) {
+if(checkService('mysql') !== false || checkService('mariadb') !== false) {
     if($config["PHPMYADMIN_URL"] == ''){
         $phpmyadmin = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . '/phpmyadmin';
     }
