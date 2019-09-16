@@ -4,7 +4,7 @@
 *
 * Vesta Web Interface
 *
-* Copyright (C) 2018 Carter Roeser <carter@cdgtech.one>
+* Copyright (C) 2019 Carter Roeser <carter@cdgtech.one>
 * https://cdgco.github.io/VestaWebInterface
 *
 * Vesta Web Interface is free software: you can redistribute it and/or modify
@@ -391,7 +391,7 @@ foreach ($plugins as $result) {
                                         <div class="col-md-12">
                                             <div class="radio-info">
                                             <label class="radio-inline"><input id="footerenabled" onclick="checkDiv4();" value="true" type="radio" name="CUSTOM_FOOTER" <?php if($config["CUSTOM_FOOTER"] == 'true'){ echo 'checked'; } ?>/><?php echo _("Enabled"); ?></label>
-                                            <label class="radio-inline"><input onclick="checkDiv4();" value="false" type="radio" name="CUSTOM_FOOTER" <?php if($config["CUSTOM_FOOTER"] != 'true'){ echo 'checked'; } ?>/><?php echo _("Disabled"); ?></label>
+                                            <label class="radio-inline"><input onclick="checkDiv4();" value="false" id="footerenabledfalse" type="radio" name="CUSTOM_FOOTER" <?php if($config["CUSTOM_FOOTER"] != 'true'){ echo 'checked'; } ?>/><?php echo _("Disabled"); ?></label>
                                             </div>
                                         </div>
                                     </div>
@@ -399,7 +399,7 @@ foreach ($plugins as $result) {
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo _("Footer Text"); ?></label>  
                                             <div class="col-md-12">
-                                                <input id="textinput" name="FOOTER" type="text" value="<?php echo htmlspecialchars($config["FOOTER"]); ?>" class="form-control input-md">
+                                                <input id="textinput2" name="FOOTER" type="text" value="<?php echo htmlspecialchars($config["FOOTER"]); ?>" class="form-control input-md">
                                             </div>
                                     </div>
                                     </div>
@@ -408,7 +408,7 @@ foreach ($plugins as $result) {
                                         <div class="col-md-12">
                                             <div class="radio-info">
                                             <label class="radio-inline"><input value="true" type="radio" name="VWI_BRANDING" <?php if($config["VWI_BRANDING"] == 'true'){ echo 'checked'; } ?>/><?php echo _("Enabled"); ?></label>
-                                            <label class="radio-inline"><input onclick="pleaseDonate();" value="false" type="radio" name="VWI_BRANDING" <?php if($config["VWI_BRANDING"] != 'true'){ echo 'checked'; } ?>/><?php echo _("Disabled"); ?></label>
+                                            <label class="radio-inline"><input onclick="pleaseDonate();" value="false" id="brandingenabledfalse" type="radio" name="VWI_BRANDING" <?php if($config["VWI_BRANDING"] != 'true'){ echo 'checked'; } ?>/><?php echo _("Disabled"); ?></label>
                                             </div>
                                         </div>
                                     </div>
@@ -835,10 +835,13 @@ foreach ($plugins as $result) {
 
                                         </div>
                                     </div>
+                                    <input type="hidden" name="resetdefault" id="resetdefault" value="no">
                                     <div class="form-group">
                                         <div class="col-sm-12">
                                             <?php if(isset($mysqldown) && $mysqldown = 'yes') { echo '<span class="d-inline-block" data-container="body" data-toggle="tooltip" title="MySQL Offline">'; } ?>
                                             <button type="submit" class="btn btn-success" <?php if(isset($mysqldown) && $mysqldown == 'yes') { echo 'disabled'; } ?>><?php echo _("Update Settings"); ?></button><?php if(isset($mysqldown) && $mysqldown == 'yes') { echo '</span>'; } ?> &nbsp;
+                                            <?php if(isset($mysqldown) && $mysqldown = 'yes') { echo '<span class="d-inline-block" data-container="body" data-toggle="tooltip" title="MySQL Offline">'; } ?>
+                                            <button type="button" id="resetdefault" onclick="resetDefault();" class="btn btn-danger" <?php if(isset($mysqldown) && $mysqldown == 'yes') { echo 'disabled'; } ?>><?php echo _("Reset to Defaults"); ?></button><?php if(isset($mysqldown) && $mysqldown == 'yes') { echo '</span>'; } ?> &nbsp;
                                             <a href="../list/users.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button" onclick="loadLoader();"><?php echo _("Back"); ?></button></a>
                                         </div>
                                     </div>
@@ -971,6 +974,22 @@ foreach ($plugins as $result) {
             });
             $('#color1').colorpicker();
             $('#color2').colorpicker();
+            function resetDefault(){
+               swal({
+                  title: 'Are you sure?',
+                  text: "All VWI settings other than your VestaCP credentials will be reset. You won't be able to revert this!",
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Yes, reset settings!'
+                }).then((result) => {
+                  if (result.value) {
+                    document.getElementById('resetdefault').value = 'yes';
+                    submitForm();
+                  }
+                });
+            }
             function processLoader(){
                 swal({
                     title: '<?php echo _("Processing"); ?>',
@@ -1017,7 +1036,7 @@ foreach ($plugins as $result) {
                 echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
             } 
             if(isset($_POST['r1']) && $_POST['r1'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['r1']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . _("Error Updating Settings") . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
             } 
             ?>
         </script>
