@@ -1,5 +1,12 @@
 ## Changelog
 
+### v1.0.1
+Bug Fixes<br>
+Dependencies<br>
+Locale Catalogs<br>
+Plugin System<br>
+Settings Defaults
+
 ### v1.0.0
 Notification System<br>
 Custom Footers<br>
