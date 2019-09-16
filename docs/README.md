@@ -1,4 +1,4 @@
-# Vesta Web Interface v1.0.0
+# Vesta Web Interface v1.0.1
 <hr>
 
 ## About
