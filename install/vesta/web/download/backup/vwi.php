@@ -4,7 +4,7 @@
 *
 * Vesta Web Interface
 *
-* Copyright (C) 2018 Carter Roeser <carter@cdgtech.one>
+* Copyright (C) 2019 Carter Roeser <carter@cdgtech.one>
 * https://cdgco.github.io/VestaWebInterface
 *
 * Vesta Web Interface is free software: you can redistribute it and/or modify
@@ -72,7 +72,7 @@ if (isset($_POST['user']) && isset($_POST['password'])) {
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v1.0.0/css/style.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@v1.0.1/css/style.css" rel="stylesheet">
     </head>
     <body class="fix-header">
         <div class="preloader">
