@@ -46,7 +46,7 @@ if(isset($_POST['username'])){
         $username2 = $_POST['username'];
         $password = $_POST['password'];
 
-        $postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-check-user-password','arg1' => $username2,'arg2' => $password);
+        $postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-check-user-password','arg1' => $username2,'arg2' => $password, 'arg3' => $_SERVER['REMOTE_ADDR']);
 
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $vst_url);
