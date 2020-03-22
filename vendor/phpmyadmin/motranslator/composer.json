@@ -1,0 +1,47 @@
+{
+    "name": "phpmyadmin/motranslator",
+    "description": "Translation API for PHP using Gettext MO files",
+    "license": "GPL-2.0-or-later",
+    "keywords": ["gettext", "mo", "translator", "i18n"],
+    "homepage": "https://github.com/phpmyadmin/motranslator",
+    "authors": [
+        {
+            "name": "The phpMyAdmin Team",
+            "email": "developers@phpmyadmin.net",
+            "homepage": "https://www.phpmyadmin.net/team/"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/phpmyadmin/motranslator/issues",
+        "source": "https://github.com/phpmyadmin/motranslator"
+    },
+    "scripts": {
+        "phpcbf": "phpcbf",
+        "phpcs": "phpcs",
+        "phpunit": "phpunit --color=always",
+        "test": [
+            "@phpcs",
+            "@phpunit"
+        ]
+    },
+    "require": {
+        "php": "^7.1",
+        "symfony/expression-language": "^4.0 || ^5.0"
+    },
+    "require-dev": {
+        "sami/sami": "^4.0",
+        "phpunit/php-code-coverage": "*",
+        "phpunit/phpunit": "^7.4 || ^8",
+        "phpmyadmin/coding-standard": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "PhpMyAdmin\\MoTranslator\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PhpMyAdmin\\MoTranslator\\Tests\\": "tests"
+        }
+    }
+}

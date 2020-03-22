@@ -61,9 +61,9 @@ $dbdata = array_values(json_decode(curl_exec($curl1), true));
 
 if ($dbname[0] == '') { header('Location: ../list/db.php'); }
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
-bindtextdomain('messages', '../locale');
-textdomain('messages');
+_setlocale(LC_CTYPE, $locale); _setlocale(LC_MESSAGES, $locale);
+_bindtextdomain('messages', '../locale');
+_textdomain('messages');
 
 foreach ($plugins as $result) {
     if (file_exists('../plugins/' . $result)) {
@@ -93,7 +93,7 @@ foreach ($plugins as $result) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/ico" href="../plugins/images/<?php echo $cpfavicon; ?>">
-        <title><?php echo $sitetitle; ?> - <?php echo _("Database"); ?></title>
+        <title><?php echo $sitetitle; ?> - <?php echo __("Database"); ?></title>
         <link href="../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../plugins/components/animate.css/animate.min.css" rel="stylesheet">
@@ -154,7 +154,7 @@ foreach ($plugins as $result) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="../process/search.php" method="get">
-                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo __("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -167,10 +167,10 @@ foreach ($plugins as $result) {
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
-                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
+                                <li><a href="../profile.php"><i class="ti-home"></i> <?php echo __("My Account"); ?></a></li>
+                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo __("Account Settings"); ?></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
+                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo __("Logout"); ?></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -184,7 +184,7 @@ foreach ($plugins as $result) {
                                 <i class="ti-menu hidden-xs"></i>
                                 <i class="ti-close visible-xs"></i>
                             </span> 
-                            <span class="hide-menu"><?php echo _("Navigation"); ?></span>
+                            <span class="hide-menu"><?php echo __("Navigation"); ?></span>
                         </h3>  
                     </div>
                     <ul class="nav" id="side-menu">
@@ -200,11 +200,11 @@ foreach ($plugins as $result) {
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title"><?php echo _("Edit Database"); ?></h4>
+                            <h4 class="page-title"><?php echo __("Edit Database"); ?></h4>
                         </div>
                         <ul class="side-icon-text pull-right">
                             <li style="position: relative;top: -3px;">
-                                <a onclick="confirmDelete();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span class="resfour"><wrapper class="restwo"><?php echo _("Delete"); ?> </wrapper><?php echo _("Database"); ?></span>
+                                <a onclick="confirmDelete();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span class="resfour"><wrapper class="restwo"><?php echo __("Delete"); ?> </wrapper><?php echo __("Database"); ?></span>
                                 </a>
                             </li>
                         </ul>
@@ -215,7 +215,7 @@ foreach ($plugins as $result) {
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">
                                         <div class="panel-heading">
-                                            <center><?php echo _("DATABASE"); ?></center>
+                                            <center><?php echo __("DATABASE"); ?></center>
                                         </div>
                                         <div class="panel-body">
                                             <center><h2><?php print_r($dbname[0]); ?></h2></center>
@@ -229,7 +229,7 @@ foreach ($plugins as $result) {
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">
                                         <div class="panel-heading">
-                                            <center><?php echo _("CREATED"); ?></center>
+                                            <center><?php echo __("CREATED"); ?></center>
                                         </div>
                                         <div class="panel-body">
                                             <center>
@@ -247,12 +247,12 @@ foreach ($plugins as $result) {
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">
                                         <div class="panel-heading">
-                                            <center><?php echo _("STATUS"); ?></center>
+                                            <center><?php echo __("STATUS"); ?></center>
                                         </div>
                                         <div class="panel-body">
                                             <center>
                                                 <h2>
-                                                    <?php if ($dbdata[0]['SUSPENDED'] == 'no') {echo _("Active");} else {echo _("Suspended");}?>
+                                                    <?php if ($dbdata[0]['SUSPENDED'] == 'no') {echo __("Active");} else {echo __("Suspended");}?>
                                                 </h2>
                                             </center>
                                         </div>
@@ -266,16 +266,16 @@ foreach ($plugins as $result) {
                             <div class="white-box">
                                 <form class="form-horizontal form-material" autocomplete="off" method="post" id="form" action="../change/database.php">
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Database"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Database"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" disabled value="<?php print_r($dbname[0]); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
                                             <input type="hidden" name="v_database" value="<?php print_r($dbname[0]); ?>"> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("User"); ?></label>
+                                        <label class="col-md-12"><?php echo __("User"); ?></label>
                                         <div class="col-md-12">
-                                            <label class="sr-only" for="inlineFormInputGroup"><?php echo _("Username"); ?></label>
+                                            <label class="sr-only" for="inlineFormInputGroup"><?php echo __("Username"); ?></label>
                                             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                                 <div class="input-group-addon"><?php print_r($displayname); ?>_</div>
                                                 <input type="text" class="form-control" autocomplete="new-password" name="v_dbuser" style="padding-left: 0.5%;" value="<?php $prefix = $uname . '_'; $str = $dbdata[0][DBUSER]; if (substr($str, 0, strlen($prefix)) == $prefix) { $str = substr($str, strlen($prefix));} print_r($str); ?>" required>
@@ -283,34 +283,34 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="password" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10)"> <?php echo _("Generate"); ?></a></label>
+                                        <label for="password" class="col-md-12"><?php echo __("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10)"> <?php echo __("Generate"); ?></a></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
                                             <input type="password" class="form-control form-control-line" autocomplete="new-password" name="password" id="password">                                    <span class="input-group-btn"> 
                                             <button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler(this)" id="tg" type="button"><i class="ti-eye"></i></button> 
                                             </span>  </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Host"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Host"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" disabled value="<?php print_r($dbdata[0]['HOST']); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Type"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Type"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" disabled value="<?php print_r($dbdata[0]['TYPE']); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Charset"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Charset"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" disabled value="<?php print_r($dbdata[0]['CHARSET']); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" type="submit"><?php echo _("Update Database"); ?></button> &nbsp;
-                                            <a href="../list/db.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
+                                            <button class="btn btn-success" type="submit"><?php echo __("Update Database"); ?></button> &nbsp;
+                                            <a href="../list/db.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo __("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </form>
@@ -366,17 +366,17 @@ foreach ($plugins as $result) {
             }
             function confirmDelete(){
                 Swal({
-                  title: '<?php echo _("Delete Database"); ?>:<br> <?php echo $requestdb; ?>' + ' ?',
-                    text: "<?php echo _("You won't be able to revert this!"); ?>",
+                  title: '<?php echo __("Delete Database"); ?>:<br> <?php echo $requestdb; ?>' + ' ?',
+                    text: "<?php echo __("You won't be able to revert this!"); ?>",
                   type: 'warning',
                   showCancelButton: true,
                   confirmButtonColor: '#3085d6',
                   cancelButtonColor: '#d33',
-                  confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
+                  confirmButtonText: '<?php echo __("Yes, delete it!"); ?>'
                 }).then((result) => {
                   if (result.value) {
                     swal({
-                        title: '<?php echo _("Processing"); ?>',
+                        title: '<?php echo __("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()
@@ -387,7 +387,7 @@ foreach ($plugins as $result) {
                 })}
             function processLoader(){
                 swal({
-                    title: '<?php echo _("Processing"); ?>',
+                    title: '<?php echo __("Processing"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()
@@ -395,7 +395,7 @@ foreach ($plugins as $result) {
                 })};
             function loadLoader(){
                 swal({
-                    title: '<?php echo _("Loading"); ?>',
+                    title: '<?php echo __("Loading"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()

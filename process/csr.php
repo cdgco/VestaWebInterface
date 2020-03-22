@@ -132,7 +132,7 @@ foreach ($plugins as $result) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="search.php" method="get">
-                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo __("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -186,13 +186,13 @@ foreach ($plugins as $result) {
                             <div class="white-box">
                                 <div class="form-horizontal form-material">
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Domain"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Domain"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" disabled value="<?php echo $ssldomain; ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Aliases"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Aliases"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" disabled value="<?php echo $sslalias; ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
                                         </div>
@@ -217,7 +217,7 @@ foreach ($plugins as $result) {
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <a href="../edit/domain.php?domain=<?php echo $ssldomain; ?>"><button class="btn btn-muted" onclick="loadLoader();" type="button"><?php echo _("Back"); ?></button></a>
+                                            <a href="../edit/domain.php?domain=<?php echo $ssldomain; ?>"><button class="btn btn-muted" onclick="loadLoader();" type="button"><?php echo __("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </div>
@@ -250,7 +250,7 @@ foreach ($plugins as $result) {
 
             function loadLoader(){
                 swal({
-                    title: '<?php echo _("Loading"); ?>',
+                    title: '<?php echo __("Loading"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()

@@ -55,9 +55,9 @@ $exclusionname = array_keys(json_decode(curl_exec($curl1), true));
 $exclusiondata = array_values(json_decode(curl_exec($curl1), true));
 $exclusion = curl_exec($curl1);
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
-bindtextdomain('messages', '../locale');
-textdomain('messages');
+_setlocale(LC_CTYPE, $locale); _setlocale(LC_MESSAGES, $locale);
+_bindtextdomain('messages', '../locale');
+_textdomain('messages');
 
 foreach ($plugins as $result) {
     if (file_exists('../plugins/' . $result)) {
@@ -87,7 +87,7 @@ foreach ($plugins as $result) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/ico" href="../plugins/images/<?php echo $cpfavicon; ?>">
-        <title><?php echo $sitetitle; ?> - <?php echo _("Backups"); ?></title>
+        <title><?php echo $sitetitle; ?> - <?php echo __("Backups"); ?></title>
         <link href="../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../plugins/components/animate.css/animate.min.css" rel="stylesheet">
@@ -125,7 +125,7 @@ foreach ($plugins as $result) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="../process/search.php" method="get">
-                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo __("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -138,10 +138,10 @@ foreach ($plugins as $result) {
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
-                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
+                                <li><a href="../profile.php"><i class="ti-home"></i> <?php echo __("My Account"); ?></a></li>
+                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo __("Account Settings"); ?></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
+                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo __("Logout"); ?></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -155,7 +155,7 @@ foreach ($plugins as $result) {
                                 <i class="ti-menu hidden-xs"></i>
                                 <i class="ti-close visible-xs"></i>
                             </span> 
-                            <span class="hide-menu"><?php echo _("Navigation"); ?></span>
+                            <span class="hide-menu"><?php echo __("Navigation"); ?></span>
                         </h3>  
                     </div>
                     <ul class="nav" id="side-menu">
@@ -171,7 +171,7 @@ foreach ($plugins as $result) {
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-12 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title"><?php echo _("Configure Backup Exclusions"); ?></h4>
+                            <h4 class="page-title"><?php echo __("Configure Backup Exclusions"); ?></h4>
                         </div>
                     </div>
                     <div class="row">
@@ -180,9 +180,9 @@ foreach ($plugins as $result) {
                                 <?php if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "Error: VestaCP FTP must be enabled to edit backup exclusions."; } ?>
                                 <form class="form-horizontal form-material" action="../change/backupexclusion.php"<?php if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "style='display:none;"; } ?> id="form" autocomplete="off" method="post">
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Web Domains"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Web Domains"); ?></label>
                                         <div class="col-md-12">
-                                            <textarea name="v_dir" class="form-control" rows="4" placeholder="<?php echo _("Type domain name, one per line. To exclude all domains use *. To exclude specific directories use the following format: domain.com:public_html/cache:public_html/tmp"); ?>"><?php
+                                            <textarea name="v_dir" class="form-control" rows="4" placeholder="<?php echo __("Type domain name, one per line. To exclude all domains use *. To exclude specific directories use the following format: domain.com:public_html/cache:public_html/tmp"); ?>"><?php
                                                 if(array_keys($exclusiondata[0])[0] != '') { 
                                                     $x7 = 0; 
 
@@ -195,9 +195,9 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Mail Domains"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Mail Domains"); ?></label>
                                         <div class="col-md-12">
-                                            <textarea name="v_mail" class="form-control" rows="4" placeholder="<?php echo _("Type domain name, one per line. To exclude all domains use *. To exclude specific accounts use following format: domain.com:info:support:postmaster"); ?>"><?php
+                                            <textarea name="v_mail" class="form-control" rows="4" placeholder="<?php echo __("Type domain name, one per line. To exclude all domains use *. To exclude specific accounts use following format: domain.com:info:support:postmaster"); ?>"><?php
                                                 if(array_keys($exclusiondata[1])[0] != '') { 
                                                     $x8 = 0; 
 
@@ -210,9 +210,9 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Databases"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Databases"); ?></label>
                                         <div class="col-md-12">
-                                            <textarea name="v_db" class="form-control" rows="4" placeholder="<?php echo _("Type full database name, one per line. To exclude all databases use *"); ?>"><?php
+                                            <textarea name="v_db" class="form-control" rows="4" placeholder="<?php echo __("Type full database name, one per line. To exclude all databases use *"); ?>"><?php
                                                 if(array_keys($exclusiondata[2])[0] != '') { 
                                                     $x9 = 0; 
 
@@ -225,9 +225,9 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("User Directories"); ?></label>
+                                        <label class="col-md-12"><?php echo __("User Directories"); ?></label>
                                         <div class="col-md-12">
-                                            <textarea name="v_userdir" class="form-control" rows="4" placeholder="<?php echo _("Type directory name, one per line. To exlude all dirs use *"); ?>"><?php
+                                            <textarea name="v_userdir" class="form-control" rows="4" placeholder="<?php echo __("Type directory name, one per line. To exlude all dirs use *"); ?>"><?php
                                                 if(array_keys($exclusiondata[3])[0] != '') { 
                                                     $x10 = 0; 
 
@@ -241,8 +241,8 @@ foreach ($plugins as $result) {
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" <?php if($apienabled == "true") { echo 'disabled'; } ?> type="submit"><?php echo _("Save"); ?></button> &nbsp;
-                                            <a href="../list/backups.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
+                                            <button class="btn btn-success" <?php if($apienabled == "true") { echo 'disabled'; } ?> type="submit"><?php echo __("Save"); ?></button> &nbsp;
+                                            <a href="../list/backups.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo __("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </form>
@@ -284,7 +284,7 @@ foreach ($plugins as $result) {
             });
             function processLoader(){
                 swal({
-                    title: '<?php echo _("Processing"); ?>',
+                    title: '<?php echo __("Processing"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()
@@ -292,7 +292,7 @@ foreach ($plugins as $result) {
                 })};
             function loadLoader(){
                 swal({
-                    title: '<?php echo _("Loading"); ?>',
+                    title: '<?php echo __("Loading"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()

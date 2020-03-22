@@ -58,11 +58,10 @@ if(isset($_POST['username'])){
         $answer = curl_exec($curl);
     }
 }
-
-setlocale(LC_CTYPE, $locale);
-setlocale(LC_MESSAGES, $locale);
-bindtextdomain('messages', 'locale');
-textdomain('messages');
+_setlocale(LC_CTYPE, $locale);
+_setlocale(LC_MESSAGES, $locale);
+_bindtextdomain('messages', 'locale');
+_textdomain('messages');
 
 ?>
 
@@ -115,45 +114,45 @@ textdomain('messages');
 
             echo "<script> swal({title: '";
             if($answer == 0) {
-                echo _("Account has been successfully created!") . "', type: 'success'})</script>";
+                echo __("Account has been successfully created!") . "', type: 'success'})</script>";
             } if($answer == 1) {
-                echo _("Please fill out all sections of the form.") . "', type: 'error'})</script>";
+                echo __("Please fill out all sections of the form.") . "', type: 'error'})</script>";
             }
             if($answer == 2) {
-                echo _("Invalid data entered in form. Please try again.") . "', type: 'error'})</script>";
+                echo __("Invalid data entered in form. Please try again.") . "', type: 'error'})</script>";
             }
             if($answer == 3) {
-                echo _("Server or form error (Code: 3). Please contact support.") . "', type: 'error'})</script>";
+                echo __("Server or form error (Code: 3). Please contact support.") . "', type: 'error'})</script>";
             }
             if($answer == 4) {
-                echo _("Account already exists under same username.") . "', type: 'error'})</script>";
+                echo __("Account already exists under same username.") . "', type: 'error'})</script>";
             }
             if($answer == 12) {
-                echo _("System Error (Code: 12). Please contact support.") . "', type: 'error'})</script>";
+                echo __("System Error (Code: 12). Please contact support.") . "', type: 'error'})</script>";
             }
             if($answer == 13) {
-                echo _("Server Error (Code: 13). Please contact support.") . "', type: 'error'})</script>";
+                echo __("Server Error (Code: 13). Please contact support.") . "', type: 'error'})</script>";
             }
             if($answer == 14) {
-                echo _("Server Error (Code: 14). Please contact support.") . "', type: 'error'})</script>";
+                echo __("Server Error (Code: 14). Please contact support.") . "', type: 'error'})</script>";
             }
             if($answer == 15) {
-                echo _("System Error (Code: 15). Please contact support.") . "', type: 'error'})</script>";
+                echo __("System Error (Code: 15). Please contact support.") . "', type: 'error'})</script>";
             }
             if($answer == 16) {
-                echo _("Server Error (Code: 16). Please contact support.") . "', type: 'error'})</script>";
+                echo __("Server Error (Code: 16). Please contact support.") . "', type: 'error'})</script>";
             }
             if($answer == 17) {
-                echo _("Server Error (Code: 17). Please contact support.") . "', type: 'error'})</script>";
+                echo __("Server Error (Code: 17). Please contact support.") . "', type: 'error'})</script>";
             }
             if($answer == 18) {
-                echo _("Process Error (Code: 18). Please contact support.") . "', type: 'error'})</script>";
+                echo __("Process Error (Code: 18). Please contact support.") . "', type: 'error'})</script>";
             }
             if($answer == 19) {
-                echo _("Process Error (Code: 19). Please contact support.") . "', type: 'error'})</script>";
+                echo __("Process Error (Code: 19). Please contact support.") . "', type: 'error'})</script>";
             }
             if($answer == 20) {
-                echo _("Fatal Error (Code: 20). Please contact support.") . "', type: 'error'})</script>";
+                echo __("Fatal Error (Code: 20). Please contact support.") . "', type: 'error'})</script>";
             }}
         ?>
         <div class="preloader">
@@ -171,8 +170,8 @@ textdomain('messages');
             <div class="new-login-box">
                 <div class="white-box">
                     <form class="form-horizontal new-lg-form" id="loginform" method="post" action="login.php<?php if(isset($_GET['to']) && $_GET['to'] != '') { echo '?to=' . $_GET['to']; } ?>">
-                        <h3 class="box-title m-b-0"><?php echo _("Sign In to") . ' ' . $sitetitle . ' ' . _("CP"); ?></h3>
-                        <small><?php echo _("Enter your details below"); ?></small>
+                        <h3 class="box-title m-b-0"><?php echo __("Sign In to") . ' ' . $sitetitle . ' ' . _("CP"); ?></h3>
+                        <small><?php echo __("Enter your details below"); ?></small>
 
                         <?php
                         if(isset($_POST['username'])){
@@ -203,24 +202,24 @@ textdomain('messages');
                         ?>
                         <div class="form-group m-t-20">
                             <div class="col-xs-12">
-                                <label><?php echo _("Username"); ?></label>
-                                <input class="form-control" name="username" type="text" required="" placeholder="<?php echo _('Username'); ?>">
+                                <label><?php echo __("Username"); ?></label>
+                                <input class="form-control" name="username" type="text" required="" placeholder="<?php echo __('Username'); ?>">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-xs-12">
-                                <label><?php echo _("Password"); ?></label>
-                                <input class="form-control" name="password" type="password" required="" placeholder="<?php echo _('Password'); ?>">
+                                <label><?php echo __("Password"); ?></label>
+                                <input class="form-control" name="password" type="password" required="" placeholder="<?php echo __('Password'); ?>">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
 
-                                <a href="javascript:void(0)" id="to-recover" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i> <?php echo _("Forgot pwd?"); ?></a> </div>
+                                <a href="javascript:void(0)" id="to-recover" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i> <?php echo __("Forgot pwd?"); ?></a> </div>
                         </div>
                         <div class="form-group text-center m-t-20">
                             <div class="col-xs-12">
-                                <button class="btn btn-info btn-lg btn-block btn-rounded text-uppercase waves-effect waves-light bg-theme" style="border: none;" type="submit"><?php echo _("Log in"); ?></button>
+                                <button class="btn btn-info btn-lg btn-block btn-rounded text-uppercase waves-effect waves-light bg-theme" style="border: none;" type="submit"><?php echo __("Log in"); ?></button>
                             </div>
                         </div>
                         <?php if($regenabled != '') {
@@ -234,24 +233,24 @@ textdomain('messages');
                     <form class="form-horizontal" id="recoverform" method="post" action="<?php echo $url8083; ?>/reset/reset.php">
                         <div class="form-group m-t-20">
                             <div class="col-xs-12">
-                                <h3 class="box-title m-b-0"><?php echo _("Recover Password"); ?></h3>
-                                <small><?php echo _("Enter your username and instructions will be sent to you."); ?></small>
+                                <h3 class="box-title m-b-0"><?php echo __("Recover Password"); ?></h3>
+                                <small><?php echo __("Enter your username and instructions will be sent to you."); ?></small>
                             </div>
                         </div>
                         <div class="form-group ">
                             <div class="col-xs-12">
-                                <input class="form-control" name="user" type="text" required="" placeholder="<?php echo _('Username'); ?>">
+                                <input class="form-control" name="user" type="text" required="" placeholder="<?php echo __('Username'); ?>">
                                 <?php echo '<input type="hidden" name="returnlink" value="'. substr("http://" . $_SERVER[HTTP_HOST] . $_SERVER[REQUEST_URI], 0, -9) . '">'; ?>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
-                                <a href="javascript:void(0)" id="to-login" class="text-dark pull-right"><i class="fa fa-sign-in m-r-5"></i> <?php echo _("Login"); ?></a> 
+                                <a href="javascript:void(0)" id="to-login" class="text-dark pull-right"><i class="fa fa-sign-in m-r-5"></i> <?php echo __("Login"); ?></a> 
                             </div>
                         </div>
                         <div class="form-group text-center m-t-20">
                             <div class="col-xs-12">
-                                <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light bg-theme" style="border: none;" type="submit"><?php echo _("Reset"); ?></button>
+                                <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light bg-theme" style="border: none;" type="submit"><?php echo __("Reset"); ?></button>
                             </div>
                         </div>
                     </form>

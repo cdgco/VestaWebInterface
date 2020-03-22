@@ -62,9 +62,9 @@ $proxytemplates = array_values(json_decode(curl_exec($curl2), true));
 $webstats = array_values(json_decode(curl_exec($curl3), true));
 $sysconfigdata = array_values(json_decode(curl_exec($curl4), true))[0];
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
-bindtextdomain('messages', '../locale');
-textdomain('messages');
+_setlocale(LC_CTYPE, $locale); _setlocale(LC_MESSAGES, $locale);
+_bindtextdomain('messages', '../locale');
+_textdomain('messages');
 
 foreach ($plugins as $result) {
     if (file_exists('../plugins/' . $result)) {
@@ -133,7 +133,7 @@ foreach ($plugins as $result) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="../process/search.php" method="get">
-                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo __("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -146,10 +146,10 @@ foreach ($plugins as $result) {
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
-                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
+                                <li><a href="../profile.php"><i class="ti-home"></i> <?php echo __("My Account"); ?></a></li>
+                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo __("Account Settings"); ?></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
+                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo __("Logout"); ?></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -163,7 +163,7 @@ foreach ($plugins as $result) {
                                 <i class="ti-menu hidden-xs"></i>
                                 <i class="ti-close visible-xs"></i>
                             </span> 
-                            <span class="hide-menu"><?php echo _("Navigation"); ?></span>
+                            <span class="hide-menu"><?php echo __("Navigation"); ?></span>
                         </h3>  
                     </div>
                     <ul class="nav" id="side-menu">
@@ -179,7 +179,7 @@ foreach ($plugins as $result) {
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-12 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title"><?php echo _("Add Domain"); ?></h4>
+                            <h4 class="page-title"><?php echo __("Add Domain"); ?></h4>
                         </div>
                     </div>
                     <div class="row">
@@ -187,13 +187,13 @@ foreach ($plugins as $result) {
                             <div class="white-box">
                                 <form class="form-horizontal form-material" autocomplete="off" method="post" id="form" action="../create/domain.php">
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Domain"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Domain"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="v_domain" autocomplete="new-password" id="domain" onkeyup="checkwww();csrlink();" class="form-control" required> 
                                         </div>
                                     </div>
                                     <div class="form-group" style="overflow: visible;">
-                                        <label class="col-md-12"><?php echo _("IP Address"); ?></label>
+                                        <label class="col-md-12"><?php echo __("IP Address"); ?></label>
                                         <div class="col-md-12">
                                             <select class="form-control select2" name="v_ip">
                                                 <?php
@@ -211,75 +211,75 @@ foreach ($plugins as $result) {
                                     </div>
                                     <?php if(checkService('bind9') !== false && $admindata['DNS_DOMAINS'] != '0') { echo ""; ?>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("DNS Support"); ?></label>
+                                        <label class="col-md-12"><?php echo __("DNS Support"); ?></label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
                                                 <input id="checkbox1" name="v_dnsenabled" type="checkbox" checked>
-                                                <label for="checkbox1"> <?php echo _("Enabled"); ?> </label>
+                                                <label for="checkbox1"> <?php echo __("Enabled"); ?> </label>
                                             </div>
                                         </div>
                                     </div>
                                     <?php echo ""; } 
                                     if(checkService('exim') !== false && $admindata['MAIL_DOMAINS'] != '0') { echo ""; ?>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Mail Support"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Mail Support"); ?></label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
                                                 <input id="checkbox2" name="v_mailenabled" type="checkbox" checked>
-                                                <label for="checkbox2"> <?php echo _("Enabled"); ?> </label>
+                                                <label for="checkbox2"> <?php echo __("Enabled"); ?> </label>
                                             </div>
                                         </div>
                                     </div>
                                     <?php echo ""; } ?>
                                     <div class="form-group">
-                                        <label class="col-md-12"><a style="cursor: pointer;" onclick="toggle_visibility('togglediv');"><?php echo _("Advanced Options"); ?></a></label>
+                                        <label class="col-md-12"><a style="cursor: pointer;" onclick="toggle_visibility('togglediv');"><?php echo __("Advanced Options"); ?></a></label>
                                     </div>
                                     <div id="togglediv" style="display:none;">
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Aliases"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Aliases"); ?></label>
                                             <div class="col-md-12">
                                                 <textarea class="form-control aliasfill" name="v_alias" rows="4"></textarea>
                                             </div>
                                         </div>
                                         <?php if($sysconfigdata['PROXY_SYSTEM'] != '') { echo ""; ?>
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Proxy Support"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Proxy Support"); ?></label>
                                             <div class="col-md-12">
                                                 <div class="checkbox checkbox-info">
                                                     <input id="checkbox4" type="checkbox" name="v_proxyenabled" onclick="checkDiv();" checked >
-                                                    <label for="checkbox4"> <?php echo _("Enabled"); ?> </label>
+                                                    <label for="checkbox4"> <?php echo __("Enabled"); ?> </label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group" id="prxextdiv" style="margin-left: 2%;">
-                                            <label class="col-md-12"><?php echo _("Proxy Extensions"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Proxy Extensions"); ?></label>
                                             <div class="col-md-12">
                                                 <textarea class="form-control" rows="4" name="v_prxext" id="prxTextArea">jpeg, jpg, png, gif, bmp, ico, svg, tif, tiff, css, js, htm, html, ttf, otf, webp, woff, txt, csv, rtf, doc, docx, xls, xlsx, ppt, pptx, odf, odp, ods, odt, pdf, psd, ai, eot, eps, ps, zip, tar, tgz, gz, rar, bz2, 7z, aac, m4a, mp3, mp4, ogg, wav, wma, 3gp, avi, flv, m4v, mkv, mov, mp4, mpeg, mpg, wmv, exe, iso, dmg, swf</textarea>
                                             </div>
                                         </div>
                                         <?php echo ""; }?>
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("SSL Support"); ?></label>
+                                            <label class="col-md-12"><?php echo __("SSL Support"); ?></label>
                                             <div class="col-md-12">
                                                 <div class="checkbox checkbox-info">
                                                     <input id="checkbox8" type="checkbox" name="v_sslenabled" onclick="checkDiv3();">
-                                                    <label for="checkbox8"> <?php echo _("Enabled"); ?> </label>
+                                                    <label for="checkbox8"> <?php echo __("Enabled"); ?> </label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div id="ssl-div" style="margin-left: 4%;">
                                             <div class="form-group">
-                                                <label class="col-md-12"><?php echo _("Let's Encrypt Support"); ?></label>
+                                                <label class="col-md-12"><?php echo __("Let's Encrypt Support"); ?></label>
                                                 <div class="col-md-12">
                                                     <div class="checkbox checkbox-info">
                                                         <input id="checkbox6" type="checkbox" name="v_leenabled">
-                                                        <label for="checkbox6"> <?php echo _("Enabled"); ?> </label>
+                                                        <label for="checkbox6"> <?php echo __("Enabled"); ?> </label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <br>
                                             <div class="form-group">
-                                                <label class="col-md-12"><?php echo _("SSL Directory"); ?></label>
+                                                <label class="col-md-12"><?php echo __("SSL Directory"); ?></label>
                                                 <div class="col-md-12">
                                                     <select name="v_ssldir" class="form-control form-control-static select2" <?php if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "disabled"; } ?> <?php if($apienabled == 'true'){ echo "disabled"; } ?>>
                                                         <option value="public_html" selected>public_html</option>
@@ -288,26 +288,26 @@ foreach ($plugins as $result) {
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-12"><?php echo _("SSL Certificate"); ?> / <a class="sslfill"  target="_blank"><?php echo _("Generate CSR"); ?></a></label>
+                                                <label class="col-md-12"><?php echo __("SSL Certificate"); ?> / <a class="sslfill"  target="_blank"><?php echo __("Generate CSR"); ?></a></label>
                                                 <div class="col-md-12">
                                                     <textarea class="form-control form-control-static" name="v_sslcrt" rows="4" <?php if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "disabled"; } ?> <?php if($apienabled == 'true'){ echo "disabled"; } ?>></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-12"><?php echo _("SSL Key"); ?></label>
+                                                <label class="col-md-12"><?php echo __("SSL Key"); ?></label>
                                                 <div class="col-md-12">
                                                     <textarea class="form-control form-control-static" name="v_sslkey" rows="4" <?php if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "disabled"; } ?> <?php if($apienabled == 'true'){ echo "disabled"; } ?>></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-12"><?php echo _("SSL Certificate Authority / Intermediate"); ?></label>
+                                                <label class="col-md-12"><?php echo __("SSL Certificate Authority / Intermediate"); ?></label>
                                                 <div class="col-md-12">
                                                     <textarea class="form-control form-control-static" name="v_sslca" rows="4" <?php if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "disabled"; } ?> <?php if($apienabled == 'true'){ echo "disabled"; } ?>></textarea>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Web Statistics"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Web Statistics"); ?></label>
                                             <div class="col-md-12">
                                                 <select class="form-control select7 select2" onchange="showauth()"name="v_webstats" id="select7">
                                                     <?php
@@ -325,24 +325,24 @@ foreach ($plugins as $result) {
                                         </div>
                                         <div id="statsauth" style="margin-left: 4%;">
                                             <div class="form-group">
-                                                <label class="col-md-12"><?php echo _("Statistics Authorization"); ?></label>
+                                                <label class="col-md-12"><?php echo __("Statistics Authorization"); ?></label>
                                                 <div class="col-md-12">
                                                     <div class="checkbox checkbox-info">
                                                         <input id="checkbox10" type="checkbox" name="v_statsuserenabled" onclick="checkDiv5();">
-                                                        <label for="checkbox10"> <?php echo _("Enabled"); ?> </label>
+                                                        <label for="checkbox10"> <?php echo __("Enabled"); ?> </label>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div id="stats-div" style="margin-left: 4%;">
                                             <div class="form-group">
-                                                <label class="col-md-12"><?php echo _("Username"); ?></label><br>
+                                                <label class="col-md-12"><?php echo __("Username"); ?></label><br>
                                                 <div class="col-md-12">
                                                     <input type="text" autocomplete="new-password" name="v_statsuname" class="form-control"> 
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="v_statspassword" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10, 'statspassword', 'tgstats')"> <?php echo _("Generate"); ?></a></label>
+                                                <label for="v_statspassword" class="col-md-12"><?php echo __("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10, 'statspassword', 'tgstats')"> <?php echo __("Generate"); ?></a></label>
                                                 <div class="col-md-12 input-group" style="padding-left: 15px;">
                                                     <input type="password" class="form-control form-control-line" autocomplete="new-password" name="v_statspassword" id="statspassword">         <span class="input-group-btn"> 
                                                     <button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler(this, 'statspassword')" id="tgstats" type="button"><i class="ti-eye"></i></button> 
@@ -353,21 +353,21 @@ foreach ($plugins as $result) {
                                         <?php if(checkService('vsftpd') !== false || checkService('proftpd') !== false) { echo ""; ?>
                                         
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Additional FTP"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Additional FTP"); ?></label>
                                             <div class="col-md-12">
                                                 <div class="checkbox checkbox-info">
                                                     <input id="checkbox9" type="checkbox" name="v_additionalftpenabled" onclick="checkDiv4();">
-                                                    <label for="checkbox9"> <?php echo _("Enabled"); ?> </label>
+                                                    <label for="checkbox9"> <?php echo __("Enabled"); ?> </label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div id="ftp-div" style="margin-left: 4%;">
                                             <div class="ftp-account" accnum="1">
                                                 <div class="form-group">
-                                                    <label class="col-md-12"><?php echo _("FTP Account"); ?> #1</label><hr>
+                                                    <label class="col-md-12"><?php echo __("FTP Account"); ?> #1</label><hr>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-md-12"><?php echo _("Username"); ?></label><br>
+                                                    <label class="col-md-12"><?php echo __("Username"); ?></label><br>
                                                     <div class="col-md-12">
                                                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                                             <div class="input-group-addon"><?php echo $uname; ?>_</div>
@@ -376,14 +376,14 @@ foreach ($plugins as $result) {
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="password" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10, 'password1', 'tg1')"> <?php echo _("Generate"); ?></a></label>
+                                                    <label for="password" class="col-md-12"><?php echo __("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10, 'password1', 'tg1')"> <?php echo __("Generate"); ?></a></label>
                                                     <div class="col-md-12 input-group" style="padding-left: 15px;">
                                                         <input type="password" class="form-control form-control-line" autocomplete="new-password" name="v_ftppw1" id="password1">                  <span class="input-group-btn"> 
                                                         <button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler(this, 'password1')" id="tg1" type="button"><i class="ti-eye"></i></button> 
                                                         </span>  </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-md-12"><?php echo _("Path"); ?></label>
+                                                    <label class="col-md-12"><?php echo __("Path"); ?></label>
                                                     <div class="col-md-12">
                                                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                                             <div class="input-group-addon dirfill"></div>
@@ -393,7 +393,7 @@ foreach ($plugins as $result) {
                                                 </div>
                                                 <?php if($phpmailenabled == 'true') { echo ""; ?>
                                                 <div class="form-group">
-                                                    <label class="col-md-12"><?php echo _("Send FTP Credentials to Email:"); ?></label>
+                                                    <label class="col-md-12"><?php echo __("Send FTP Credentials to Email:"); ?></label>
                                                     <div class="col-md-12">
                                                         <input type="email" name="v_ftpnotif1" autocomplete="new-password" class="form-control"> 
                                                     </div>
@@ -406,8 +406,8 @@ foreach ($plugins as $result) {
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" type="submit"><?php echo _("Add Domain"); ?></button> &nbsp;
-                                            <a href="../list/web.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
+                                            <button class="btn btn-success" type="submit"><?php echo __("Add Domain"); ?></button> &nbsp;
+                                            <a href="../list/web.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo __("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </form>
@@ -510,7 +510,7 @@ foreach ($plugins as $result) {
                 var newAcc = document.createElement("div");
                 newAcc.setAttribute("class", "ftp-account");
                 newAcc.setAttribute("accnum", startingAcc);
-                 newAcc.innerHTML = '<div class="form-group"><label class="col-md-12"><?php echo _("FTP Account"); ?> #'+startingAcc+'</label><hr></div><div class="form-group"><label class="col-md-12"><?php echo _("Username"); ?></label><br><div class="col-md-12"><div class="input-group mb-2 mr-sm-2 mb-sm-0"><div class="input-group-addon"><?php echo $uname; ?>_</div><input type="text" class="form-control" autocomplete="new-password" name="v_ftpuname'+startingAcc+'" style="padding-left: 0.5%;"></div></div></div><div class="form-group"><label for="password" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10, \'password'+startingAcc+'\', \'tg'+startingAcc+'\')"> <?php echo _("Generate"); ?></a></label><div class="col-md-12 input-group" style="padding-left: 15px;"><input type="password" class="form-control form-control-line" autocomplete="new-password" name="v_ftppw'+startingAcc+'" id="password'+startingAcc+'"><span class="input-group-btn"><button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler(this, \'password'+startingAcc+'\')" id="tg'+startingAcc+'" type="button"><i class="ti-eye"></i></button></span></div></div><div class="form-group"><label class="col-md-12"><?php echo _("Path"); ?></label><div class="col-md-12"><div class="input-group mb-2 mr-sm-2 mb-sm-0"><div class="input-group-addon dirfill"></div><input type="text" class="form-control" name="v_ftpdir'+startingAcc+'" style="padding-left: 0.5%;"></div></div></div><?php if($phpmailenabled == 'true') { echo ""; ?><div class="form-group"><label class="col-md-12"><?php echo _("Send FTP Credentials to Email:"); ?></label><div class="col-md-12"><input type="email" name="v_ftpnotif'+startingAcc+'" autocomplete="new-password" class="form-control"></div></div><?php echo ""; } ?>';
+                 newAcc.innerHTML = '<div class="form-group"><label class="col-md-12"><?php echo __("FTP Account"); ?> #'+startingAcc+'</label><hr></div><div class="form-group"><label class="col-md-12"><?php echo __("Username"); ?></label><br><div class="col-md-12"><div class="input-group mb-2 mr-sm-2 mb-sm-0"><div class="input-group-addon"><?php echo $uname; ?>_</div><input type="text" class="form-control" autocomplete="new-password" name="v_ftpuname'+startingAcc+'" style="padding-left: 0.5%;"></div></div></div><div class="form-group"><label for="password" class="col-md-12"><?php echo __("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10, \'password'+startingAcc+'\', \'tg'+startingAcc+'\')"> <?php echo __("Generate"); ?></a></label><div class="col-md-12 input-group" style="padding-left: 15px;"><input type="password" class="form-control form-control-line" autocomplete="new-password" name="v_ftppw'+startingAcc+'" id="password'+startingAcc+'"><span class="input-group-btn"><button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler(this, \'password'+startingAcc+'\')" id="tg'+startingAcc+'" type="button"><i class="ti-eye"></i></button></span></div></div><div class="form-group"><label class="col-md-12"><?php echo __("Path"); ?></label><div class="col-md-12"><div class="input-group mb-2 mr-sm-2 mb-sm-0"><div class="input-group-addon dirfill"></div><input type="text" class="form-control" name="v_ftpdir'+startingAcc+'" style="padding-left: 0.5%;"></div></div></div><?php if($phpmailenabled == 'true') { echo ""; ?><div class="form-group"><label class="col-md-12"><?php echo __("Send FTP Credentials to Email:"); ?></label><div class="col-md-12"><input type="email" name="v_ftpnotif'+startingAcc+'" autocomplete="new-password" class="form-control"></div></div><?php echo ""; } ?>';
                 $('#ftp-div').find('.ftp-account:last').append(newAcc);
                 if($('.ftp-account').length >= 2) { $('#removeFtpBtn').show(); }
                 else { $('#removeFtpBtn').hide(); }
@@ -552,7 +552,7 @@ foreach ($plugins as $result) {
             }
             function processLoader(){
                 swal({
-                    title: '<?php echo _("Processing"); ?>',
+                    title: '<?php echo __("Processing"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()
@@ -560,7 +560,7 @@ foreach ($plugins as $result) {
                 })};
             function loadLoader(){
                 swal({
-                    title: '<?php echo _("Loading"); ?>',
+                    title: '<?php echo __("Loading"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()

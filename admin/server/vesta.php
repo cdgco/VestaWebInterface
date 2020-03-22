@@ -70,9 +70,9 @@ $ftpconf = array_values(json_decode(curl_exec($curl5), true));
 $sftpconf = array_values(json_decode(curl_exec($curl6), true));
 $useremail = $admindata['CONTACT'];
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
-bindtextdomain('messages', '../../locale');
-textdomain('messages');
+_setlocale(LC_CTYPE, $locale); _setlocale(LC_MESSAGES, $locale);
+_bindtextdomain('messages', '../../locale');
+_textdomain('messages');
 
 foreach ($plugins as $result) {
     if (file_exists('../../plugins/' . $result)) {
@@ -126,7 +126,7 @@ if( checkService('postgresql') !== false ) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/ico" href="../../plugins/images/<?php echo $cpfavicon; ?>">
-        <title><?php echo $sitetitle; ?> - <?php echo _("Server"); ?></title>
+        <title><?php echo $sitetitle; ?> - <?php echo __("Server"); ?></title>
         <link href="../../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../../plugins/components/select2/select2.min.css" rel="stylesheet">
@@ -165,7 +165,7 @@ if( checkService('postgresql') !== false ) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="../../process/search.php" method="get">
-                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo __("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -178,10 +178,10 @@ if( checkService('postgresql') !== false ) {
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
-                                <li><a href="../../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
+                                <li><a href="../../profile.php"><i class="ti-home"></i> <?php echo __("My Account"); ?></a></li>
+                                <li><a href="../../profile.php?settings=open"><i class="ti-settings"></i> <?php echo __("Account Settings"); ?></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
+                                <li><a href="../../process/logout.php"><i class="fa fa-power-off"></i> <?php echo __("Logout"); ?></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -195,7 +195,7 @@ if( checkService('postgresql') !== false ) {
                                 <i class="ti-menu hidden-xs"></i>
                                 <i class="ti-close visible-xs"></i>
                             </span> 
-                            <span class="hide-menu"><?php echo _("Navigation"); ?></span>
+                            <span class="hide-menu"><?php echo __("Navigation"); ?></span>
                         </h3>  
                     </div>
                     <ul class="nav" id="side-menu">
@@ -211,7 +211,7 @@ if( checkService('postgresql') !== false ) {
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title"><?php echo _("Configure Server"); ?></h4>
+                            <h4 class="page-title"><?php echo __("Configure Server"); ?></h4>
                         </div>
                     </div>
                     <div class="row">
@@ -219,7 +219,7 @@ if( checkService('postgresql') !== false ) {
                             <div class="white-box">
                                 <form class="form-horizontal form-material" method="post" id="form" action="../change/vesta.php">
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Hostname"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Hostname"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="v_hostname" value="<?php echo $sysdata[0]['HOSTNAME']; ?>" class="form-control form-control-line" required>
                                             <input type="hidden" name="v_hostname-x" value="<?php echo $sysdata[0]['HOSTNAME']; ?>">
@@ -673,7 +673,7 @@ if( checkService('postgresql') !== false ) {
                                         </div>
                                     </div>
                                     <div class="form-group" style="overflow: visible;">
-                                        <label class="col-md-12"><?php echo _("Default Language"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Default Language"); ?></label>
                                         <div class="col-md-12">
                                             <input type="hidden" name="v_language-x" value="<?php print_r($sysconfig[0]["LANGUAGE"]); ?>">
                                             <select class="form-control select2" name="v_language" id="langselect">
@@ -710,40 +710,40 @@ if( checkService('postgresql') !== false ) {
                                         </div>
                                     </div>
                                     <div class="form-group" id="toggle1" style="overflow:visible;">
-                                        <a href="javascript:void(0);"><label class="col-md-12" style="cursor:pointer;"><?php echo _("Web"); ?> <span id="togglein1">&#9658;</span></label></a>
+                                        <a href="javascript:void(0);"><label class="col-md-12" style="cursor:pointer;"><?php echo __("Web"); ?> <span id="togglein1">&#9658;</span></label></a>
                                     </div>
                                     <div class="form-group" id="div1" style="margin-left: 4%;">
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Proxy Server"); ?><?php if($sysconfig[0]['PROXY_SYSTEM'] == 'nginx') { echo ' / <a href="nginx.php">' . _("Configure") . '</a>'; } ?></label>
+                                            <label class="col-md-12"><?php echo __("Proxy Server"); ?><?php if($sysconfig[0]['PROXY_SYSTEM'] == 'nginx') { echo ' / <a href="nginx.php">' . _("Configure") . '</a>'; } ?></label>
                                             <div class="col-md-12">
                                                 <input type="text" disabled value="<?php if($sysconfig[0]['PROXY_SYSTEM'] != '') { echo $sysconfig[0]['PROXY_SYSTEM']; } else { echo 'None'; } ?>" class="form-control form-control-line"> 
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Web Server"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Web Server"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="text" disabled value="<?php if($sysconfig[0]['WEB_SYSTEM'] != '') { echo $sysconfig[0]['WEB_SYSTEM']; } else { echo 'None'; } ?>" class="form-control form-control-line"> 
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Backend Server"); ?> </label>
+                                            <label class="col-md-12"><?php echo __("Backend Server"); ?> </label>
                                             <div class="col-md-12">
                                                 <input type="text" disabled value="<?php if($sysconfig[0]['WEB_BACKEND'] != '') { echo $sysconfig[0]['WEB_BACKEND']; } else { echo 'None'; } ?>" class="form-control form-control-line"> 
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group" id="toggle2" style="overflow:visible;cursor:pointer;">
-                                        <a href="javascript:void(0);"><label class="col-md-12" style="cursor:pointer;"><?php echo _("DNS"); ?> <span id="togglein2">&#9658;</span></label></a>
+                                        <a href="javascript:void(0);"><label class="col-md-12" style="cursor:pointer;"><?php echo __("DNS"); ?> <span id="togglein2">&#9658;</span></label></a>
                                     </div>
                                     <div class="form-group" id="div2" style="margin-left: 4%;">
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("DNS Server"); ?></label>
+                                            <label class="col-md-12"><?php echo __("DNS Server"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="text" disabled value="<?php if($sysconfig[0]['DNS_SYSTEM'] != '') { echo $sysconfig[0]['DNS_SYSTEM']; } else { echo 'None'; } ?>" class="form-control form-control-line"> 
                                             </div>
                                         </div>
                                         <div class="form-group" style="overflow: visible;">
-                                            <label class="col-md-12"><?php echo _("DNS Cluster"); ?></label>
+                                            <label class="col-md-12"><?php echo __("DNS Cluster"); ?></label>
                                             <div class="col-md-12">
                                                 <select class="form-control select2" disabled id="dns-clusterselect">
                                                     <option value="yes">Yes</option>
@@ -753,34 +753,34 @@ if( checkService('postgresql') !== false ) {
                                         </div>
                                     </div>
                                     <div class="form-group" id="toggle3" style="overflow:visible;cursor:pointer;">
-                                        <a href="javascript:void(0);"><label class="col-md-12" style="cursor:pointer;"><?php echo _("Mail"); ?> <span id="togglein3">&#9658;</span></label></a>
+                                        <a href="javascript:void(0);"><label class="col-md-12" style="cursor:pointer;"><?php echo __("Mail"); ?> <span id="togglein3">&#9658;</span></label></a>
                                     </div>
                                     <div class="form-group" id="div3" style="margin-left: 4%;">
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Mail Server"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Mail Server"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="text" disabled value="<?php if($sysconfig[0]['MAIL_SYSTEM'] != '') { echo $sysconfig[0]['MAIL_SYSTEM']; } else { echo "None"; } ?>" class="form-control form-control-line"> 
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Antivirus"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Antivirus"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="text" disabled value="<?php if($sysconfig[0]['ANTIVIRUS_SYSTEM'] != '') { echo $sysconfig[0]['ANTIVIRUS_SYSTEM']; } else { echo "None"; } ?>" class="form-control form-control-line"> 
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Antispam"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Antispam"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="text" disabled value="<?php if($sysconfig[0]['ANTISPAM_SYSTEM'] != '') { echo $sysconfig[0]['ANTISPAM_SYSTEM']; } else { echo "None"; } ?>" class="form-control form-control-line"> 
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group" id="toggle4" style="overflow:visible;cursor:pointer;">
-                                        <a href="javascript:void(0);"><label class="col-md-12" style="cursor:pointer;"><?php echo _("DB"); ?> <span id="togglein4">&#9658;</span></label></a>
+                                        <a href="javascript:void(0);"><label class="col-md-12" style="cursor:pointer;"><?php echo __("DB"); ?> <span id="togglein4">&#9658;</span></label></a>
                                     </div>
                                     <div class="form-group" id="div4" style="margin-left: 4%;">
                                         <div class="form-group" style="overflow: visible;">
-                                            <label class="col-md-12"><?php echo _("MySQL Support"); ?></label>
+                                            <label class="col-md-12"><?php echo __("MySQL Support"); ?></label>
                                             <div class="col-md-12">
                                                 <select class="form-control select2" disabled id="mysql">
                                                     <option value="no">No</option>
@@ -817,7 +817,7 @@ if( checkService('postgresql') !== false ) {
                                             </div>';
                             } ?>
                                         <div class="form-group" style="overflow: visible;">
-                                            <label class="col-md-12"><?php echo _("PostgreSQL Support"); ?></label>
+                                            <label class="col-md-12"><?php echo __("PostgreSQL Support"); ?></label>
                                             <div class="col-md-12">
                                                 <select class="form-control select2" disabled id="postgresql">
                                                     <option value="no">No</option>
@@ -854,11 +854,11 @@ if( checkService('postgresql') !== false ) {
                                             </div>'; } ?>
                                         </div>
                                     <div class="form-group" id="toggle5" style="overflow:visible;cursor:pointer;">
-                                        <a href="javascript:void(0);"><label class="col-md-12" style="cursor:pointer;"><?php echo _("Backup"); ?> <span id="togglein5">&#9658;</span></label></a>
+                                        <a href="javascript:void(0);"><label class="col-md-12" style="cursor:pointer;"><?php echo __("Backup"); ?> <span id="togglein5">&#9658;</span></label></a>
                                     </div>
                                     <div class="form-group" id="div5" style="margin-left: 4%;">
                                         <div class="form-group" style="overflow: visible;">
-                                            <label class="col-md-12"><?php echo _("Local Backup"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Local Backup"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_backupsystem-x" value="<?php if (strpos($sysconfig[0]["BACKUP_SYSTEM"], 'local') !== false) { echo 'yes'; } else { echo 'no'; } ?>">
                                                 <select class="form-control select2" name="v_backupsystem" id="backup-localselect">
@@ -868,7 +868,7 @@ if( checkService('postgresql') !== false ) {
                                             </div>
                                         </div>
                                         <div class="form-group" style="overflow: visible;">
-                                            <label class="col-md-12"><?php echo _("Compression Level"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Compression Level"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_backupgzip-x" value="<?php echo $sysconfig[0]["BACKUP_GZIP"]; ?>">
                                                 <select class="form-control select2" name="v_backupgzip" id="backup-compselect">
@@ -885,7 +885,7 @@ if( checkService('postgresql') !== false ) {
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Directory"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Directory"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_backupdir-x" value="<?php echo $sysconfig[0]["BACKUP"]; ?>">
                                                 <input type="text" name="v_backupdir" value="<?php if($sysconfig[0]['BACKUP'] != '') { echo $sysconfig[0]['BACKUP']; } else { echo '/backup'; } ?>" class="form-control form-control-line"> 
@@ -893,11 +893,11 @@ if( checkService('postgresql') !== false ) {
                                         </div>
                                         <?php /*
                                         <div class="form-group" id="toggle51" style="overflow:visible;cursor:pointer;">
-                                            <a href="javascript:void(0);"><label class="col-md-12" style="cursor:pointer;"><?php echo _("Remote Backup"); ?> <span id="togglein51">&#9658;</span></label></a>
+                                            <a href="javascript:void(0);"><label class="col-md-12" style="cursor:pointer;"><?php echo __("Remote Backup"); ?> <span id="togglein51">&#9658;</span></label></a>
                                         </div>
                                         <div class="form-group" id="div51" style="margin-left: 4%;">
                                             <div class="form-group" style="overflow: visible;">
-                                            <label class="col-md-12"><?php echo _("Protocol"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Protocol"); ?></label>
                                             <div class="col-md-12">
                                                 <select class="form-control select2" id="backup-remoteselect">
                                                     <option value="ftp">FTP</option>
@@ -906,25 +906,25 @@ if( checkService('postgresql') !== false ) {
                                             </div>
                                         </div>
                                             <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Host"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Host"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="text" value="<?php if (strpos($sysconfig[0]["BACKUP_SYSTEM"], 'sftp') !== false) { echo $sftpconf[0]["HOST"]; } else { echo $ftpconf[0]["HOST"]; } ?>" class="form-control form-control-line"> 
                                             </div>
                                         </div>
                                             <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Username"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Username"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="text" value="<?php if (strpos($sysconfig[0]["BACKUP_SYSTEM"], 'sftp') !== false) { echo $sftpconf[0]["USERNAME"]; } else { echo $ftpconf[0]["USERNAME"]; } ?>" class="form-control form-control-line"> 
                                             </div>
                                         </div>
                                             <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Password"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Password"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="text" value="" class="form-control form-control-line"> 
                                             </div>
                                         </div>
                                             <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Directory"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Directory"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="text" value="<?php if (strpos($sysconfig[0]["BACKUP_SYSTEM"], 'sftp') !== false) { echo $sftpconf[0]["BPATH"]; } else { echo $ftpconf[0]["BPATH"]; } ?>" class="form-control form-control-line"> 
                                             </div>
@@ -933,18 +933,18 @@ if( checkService('postgresql') !== false ) {
                                      */ ?>
                                         </div>
                                     <div class="form-group" id="toggle6" style="overflow:visible;cursor:pointer;">
-                                        <a href="javascript:void(0);"><label class="col-md-12" style="cursor:pointer;"><?php echo _("Vesta SSL"); ?> <span id="togglein6">&#9658;</span></label></a>
+                                        <a href="javascript:void(0);"><label class="col-md-12" style="cursor:pointer;"><?php echo __("Vesta SSL"); ?> <span id="togglein6">&#9658;</span></label></a>
                                     </div>
                                     <div class="form-group" id="div6" style="margin-left: 4%;">
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("SSL Certificate"); ?></label>
+                                            <label class="col-md-12"><?php echo __("SSL Certificate"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_sslcrt-x" value="<?php echo $sysssl[0]['CRT']; ?>">
                                                 <textarea class="form-control" rows="4" class="form-control form-control-static" name="v_sslcrt" <?php if($apienabled == 'true'){ echo "disabled"; } if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "disabled"; } ?>><?php print_r($sysssl[0]['CRT']); ?></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("SSL Key"); ?></label>
+                                            <label class="col-md-12"><?php echo __("SSL Key"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_sslkey-x" value="<?php echo $sysssl[0]['KEY']; ?>">
                                                 <textarea class="form-control" rows="4" class="form-control form-control-static" name="v_sslkey" <?php if($apienabled == 'true'){ echo "disabled"; } if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "disabled"; } ?>><?php print_r($sysssl[0]['KEY']); ?></textarea>
@@ -952,28 +952,28 @@ if( checkService('postgresql') !== false ) {
                                         </div>
                                         <div class="form-group" style="margin-left: 0.1%;display:<?php if($sysssl[0]['NOT_BEFORE'] != ''){echo 'block';} else { echo 'none';} ?>">
                                             <ul class="list-unstyled">
-                                                <li><?php echo _("Subject"); ?>:  <?php print_r($sysssl[0]['SUBJECT']); ?></li>
-                                                <li><?php echo _("Aliases"); ?>:  <?php print_r($sysssl[0]['ALIASES']); ?></li>
-                                                <li><?php echo _("Not Before"); ?>:  <?php print_r($sysssl[0]['NOT_BEFORE']); ?></li>
-                                                <li><?php echo _("Not After"); ?>:  <?php print_r($sysssl[0]['NOT_AFTER']); ?></li>
-                                                <li><?php echo _("Signature"); ?>:  <?php print_r($sysssl[0]['SIGNATURE']); ?></li>
-                                                <li><?php echo _("Pub Key"); ?>:  <?php print_r($sysssl[0]['PUB_KEY']); ?></li>
-                                                <li><?php echo _("Issuer"); ?>:  <?php print_r($sysssl[0]['ISSUER']); ?></li>
+                                                <li><?php echo __("Subject"); ?>:  <?php print_r($sysssl[0]['SUBJECT']); ?></li>
+                                                <li><?php echo __("Aliases"); ?>:  <?php print_r($sysssl[0]['ALIASES']); ?></li>
+                                                <li><?php echo __("Not Before"); ?>:  <?php print_r($sysssl[0]['NOT_BEFORE']); ?></li>
+                                                <li><?php echo __("Not After"); ?>:  <?php print_r($sysssl[0]['NOT_AFTER']); ?></li>
+                                                <li><?php echo __("Signature"); ?>:  <?php print_r($sysssl[0]['SIGNATURE']); ?></li>
+                                                <li><?php echo __("Pub Key"); ?>:  <?php print_r($sysssl[0]['PUB_KEY']); ?></li>
+                                                <li><?php echo __("Issuer"); ?>:  <?php print_r($sysssl[0]['ISSUER']); ?></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="form-group" id="toggle7" style="overflow:visible;cursor:pointer;">
-                                        <a href="javascript:void(0);"><label class="col-md-12" style="cursor:pointer;"><?php echo _("Vesta Control Panel Plugins"); ?> <span id="togglein7">&#9658;</span></label></a>
+                                        <a href="javascript:void(0);"><label class="col-md-12" style="cursor:pointer;"><?php echo __("Vesta Control Panel Plugins"); ?> <span id="togglein7">&#9658;</span></label></a>
                                     </div>
                                     <div class="form-group" id="div7" style="margin-left: 4%;">
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Version"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Version"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="text" disabled value="<?php echo $sysconfig[0]['VERSION']; ?>" class="form-control form-control-line"> 
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("FileSystem Disk Quota"); ?></label>
+                                            <label class="col-md-12"><?php echo __("FileSystem Disk Quota"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_quota-x" value="<?php print_r($sysconfig[0]["DISK_QUOTA"]); ?>">
                                                 <select class="form-control select2" name="v_quota" id="diskquota">
@@ -983,7 +983,7 @@ if( checkService('postgresql') !== false ) {
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Firewall"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Firewall"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_firewall-x" value="<?php if($sysconfig[0]["FIREWALL_SYSTEM"] != '' && $sysconfig[0]["FIREWALL_SYSTEM"] != 'no') { echo 'yes'; } else { echo 'no'; } ?>">
                                                 <select class="form-control select2" name="v_firewall" id="firewall">
@@ -993,7 +993,7 @@ if( checkService('postgresql') !== false ) {
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Reseller Role"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Reseller Role"); ?></label>
                                             <div class="col-md-12">
                                                 <select class="form-control select2" disabled id="resellerrole">
                                                     <option value="no">No</option>
@@ -1002,7 +1002,7 @@ if( checkService('postgresql') !== false ) {
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Backup Migration Manager"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Backup Migration Manager"); ?></label>
                                             <div class="col-md-12">
                                                 <select class="form-control select2" disabled id="backupmigration">
                                                     <option value="no">No</option>
@@ -1011,7 +1011,7 @@ if( checkService('postgresql') !== false ) {
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("SFTP Chroot"); ?></label>
+                                        <label class="col-md-12"><?php echo __("SFTP Chroot"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_sftpjail-x" value="<?php if($sysconfig[0]["SFTPJAIL_KEY"] != '') {echo 'yes'; } else { echo 'no'; } ?>">
                                                 <select class="form-control select2" name="v_sftpjail" id="sftpchroot">
@@ -1021,7 +1021,7 @@ if( checkService('postgresql') !== false ) {
                                             </div>
                                         </div>
                                         <div class="form-group" id="div10" style="margin-left: 4%;">
-                                            <p><?php echo _("Restrict users so that they cannot use SSH and access only their home directory. This is a commercial module, you would need to purchace license key to enable it."); ?></p>
+                                            <p><?php echo __("Restrict users so that they cannot use SSH and access only their home directory. This is a commercial module, you would need to purchace license key to enable it."); ?></p>
                                             <input type="hidden" name="v_sftpjail-key-x" value="<?php echo $sysconfig[0]["SFTPJAIL_KEY"]; ?>">
                                             <?php if($sysconfig[0]["SFTPJAIL_KEY"] != '') {echo '<div class="form-group">
                                                 <label class="col-md-12">' . _("License Key") . '</label>
@@ -1049,7 +1049,7 @@ if( checkService('postgresql') !== false ) {
                                             
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("File Manager"); ?></label>
+                                            <label class="col-md-12"><?php echo __("File Manager"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_filemanager-x" value="<?php echo $sysconfig[0]["FILEMANAGER_KEY"]; ?>">
                                                 <select class="form-control select2" name="v_filemanager" id="filemanager">
@@ -1059,7 +1059,7 @@ if( checkService('postgresql') !== false ) {
                                             </div>
                                         </div>
                                         <div class="form-group" id="div11" style="margin-left: 4%;">
-                                            <p><?php echo _("Browse, copy, edit, view, and retrieve all of your web domain files using fully featured File Manager. This is a commercial module, you would need to purchace license key to enable it."); ?></p>
+                                            <p><?php echo __("Browse, copy, edit, view, and retrieve all of your web domain files using fully featured File Manager. This is a commercial module, you would need to purchace license key to enable it."); ?></p>
                                             <input type="hidden" name="v_filemanager-key-x" value="<?php if($sysconfig[0]["FILEMANAGER_KEY"] != '') { echo 'yes'; } else { echo 'no'; } ?>">
                                             <?php if($sysconfig[0]["FILEMANAGER_KEY"] != '') { echo '<div class="form-group">
                                                 <label class="col-md-12">' . _("License Key") . '</label>
@@ -1087,7 +1087,7 @@ if( checkService('postgresql') !== false ) {
                                               
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Softaculous"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Softaculous"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_softaculous-x" value="<?php echo $sysconfig[0]["BACKUP"]; ?>">
                                                 <select class="form-control select2" name="v_softaculous" id="softaculous">
@@ -1097,18 +1097,18 @@ if( checkService('postgresql') !== false ) {
                                             </div>
                                         </div>
                                         <div class="form-group" id="div12" style="margin-left: 4%;">
-                                            <p>* <?php echo _("Plugin installation will run in background."); ?><br><br><?php echo _("Softaculous is a great Auto Installer having 426 great scripts, 1115 PHP Classes and we are still adding more. Softaculous is ideal for Web Hosting companies and it could give a significant boost to your sales. These scripts cover most of the uses a customer could ever have. We have covered a wide array of Categories so that everyone could find the required script one would need to power their Web Site."); ?></p>
+                                            <p>* <?php echo __("Plugin installation will run in background."); ?><br><br><?php echo __("Softaculous is a great Auto Installer having 426 great scripts, 1115 PHP Classes and we are still adding more. Softaculous is ideal for Web Hosting companies and it could give a significant boost to your sales. These scripts cover most of the uses a customer could ever have. We have covered a wide array of Categories so that everyone could find the required script one would need to power their Web Site."); ?></p>
                                             <div class="form-group">
                                                 <div class="col-sm-12">
-                                                      <a href="https://www.softaculous.com/softaculous/" style="color: inherit;text-decoration: inherit;"><button class="btn btn-success" type="button"><?php echo _("Get Premium License"); ?></button></a>
+                                                      <a href="https://www.softaculous.com/softaculous/" style="color: inherit;text-decoration: inherit;"><button class="btn btn-success" type="button"><?php echo __("Get Premium License"); ?></button></a>
                                                 </div>
                                             </div> 
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" type="submit"><?php echo _("Save"); ?></button> &nbsp;
-                                            <a href="../list/server.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
+                                            <button class="btn btn-success" type="submit"><?php echo __("Save"); ?></button> &nbsp;
+                                            <a href="../list/server.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo __("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </form>
@@ -1319,7 +1319,7 @@ if( checkService('postgresql') !== false ) {
             });
             function processLoader(){
                 swal({
-                    title: '<?php echo _("Processing"); ?>',
+                    title: '<?php echo __("Processing"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()
@@ -1327,7 +1327,7 @@ if( checkService('postgresql') !== false ) {
                 })};
             function loadLoader(){
                 swal({
-                    title: '<?php echo _("Loading"); ?>',
+                    title: '<?php echo __("Loading"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()

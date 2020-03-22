@@ -95,9 +95,9 @@ while($curlstart <= 0) {
 $admindata = json_decode(curl_exec($curl0), true)[$username];
 $useremail = $admindata['CONTACT'];
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
-bindtextdomain('messages', '../locale');
-textdomain('messages');
+_setlocale(LC_CTYPE, $locale); _setlocale(LC_MESSAGES, $locale);
+_bindtextdomain('messages', '../locale');
+_textdomain('messages');
 
 foreach ($plugins as $result) {
     if (file_exists('../plugins/' . $result)) {
@@ -127,7 +127,7 @@ foreach ($plugins as $result) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/ico" href="../plugins/images/<?php echo $cpfavicon; ?>">
-        <title><?php echo $sitetitle; ?> - <?php echo _("DNS"); ?></title>
+        <title><?php echo $sitetitle; ?> - <?php echo __("DNS"); ?></title>
         <link href="../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../plugins/components/select2/select2.min.css" rel="stylesheet">
@@ -166,7 +166,7 @@ foreach ($plugins as $result) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="../process/search.php" method="get">
-                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo __("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -179,10 +179,10 @@ foreach ($plugins as $result) {
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
-                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
+                                <li><a href="../profile.php"><i class="ti-home"></i> <?php echo __("My Account"); ?></a></li>
+                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo __("Account Settings"); ?></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
+                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo __("Logout"); ?></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -196,7 +196,7 @@ foreach ($plugins as $result) {
                                 <i class="ti-menu hidden-xs"></i>
                                 <i class="ti-close visible-xs"></i>
                             </span> 
-                            <span class="hide-menu"><?php echo _("Navigation"); ?></span>
+                            <span class="hide-menu"><?php echo __("Navigation"); ?></span>
                         </h3>  
                     </div>
                     <ul class="nav" id="side-menu">
@@ -212,7 +212,7 @@ foreach ($plugins as $result) {
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title"><?php echo _("Add DNS Record"); ?></h4>
+                            <h4 class="page-title"><?php echo __("Add DNS Record"); ?></h4>
                         </div>
                     </div>
                     <div class="row">
@@ -220,20 +220,20 @@ foreach ($plugins as $result) {
                             <div class="white-box">
                                 <form class="form-horizontal form-material" autocomplete="off" method="post" id="form" action="../create/dnsrecord.php">
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Domain"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Domain"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" disabled value="<?php print_r($requestdns); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;" class="form-control uneditable-input form-control-static"> 
                                             <input type="hidden" name="v_domain" value="<?php print_r($requestdns); ?>"> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Record"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Record"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="v_record" autocomplete="new-password" class="form-control form-control-line" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Type"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Type"); ?></label>
                                         <div class="col-md-12">
                                             <select class="form-control select2" name="v_type">
                                                 <option value="A">A</option>
@@ -253,12 +253,12 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="email" class="col-md-12"><?php echo _("IP or Value"); ?></label>
+                                        <label for="email" class="col-md-12"><?php echo __("IP or Value"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="v_value" autocomplete="new-password" class="form-control form-control-line" required> </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="email" class="col-md-12"><?php echo _("Priority"); ?></label>
+                                        <label for="email" class="col-md-12"><?php echo __("Priority"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="v_priority" autocomplete="new-password" class="form-control form-control-line"> 
                                             <small class="form-text text-muted">Optional</small>
@@ -266,8 +266,8 @@ foreach ($plugins as $result) {
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" type="submit"><?php echo _("Add Record"); ?></button> &nbsp;
-                                            <a href="../list/dnsdomain.php?domain=<?php echo $requestdns; ?>" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
+                                            <button class="btn btn-success" type="submit"><?php echo __("Add Record"); ?></button> &nbsp;
+                                            <a href="../list/dnsdomain.php?domain=<?php echo $requestdns; ?>" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo __("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </form>
@@ -305,7 +305,7 @@ foreach ($plugins as $result) {
             $('.select2').select2();
             function processLoader(){
                 swal({
-                    title: '<?php echo _("Processing"); ?>',
+                    title: '<?php echo __("Processing"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()
@@ -313,7 +313,7 @@ foreach ($plugins as $result) {
                 })};
             function loadLoader(){
                 swal({
-                    title: '<?php echo _("Loading"); ?>',
+                    title: '<?php echo __("Loading"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()

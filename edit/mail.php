@@ -60,9 +60,9 @@ $maildata = array_values(json_decode(curl_exec($curl1), true));
 $mailname = array_keys(json_decode(curl_exec($curl1), true));
 if ($mailname[0] == '') { header('Location: ../list/mail.php'); }
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
-bindtextdomain('messages', '../locale');
-textdomain('messages');
+_setlocale(LC_CTYPE, $locale); _setlocale(LC_MESSAGES, $locale);
+_bindtextdomain('messages', '../locale');
+_textdomain('messages');
 
 foreach ($plugins as $result) {
     if (file_exists('../plugins/' . $result)) {
@@ -92,7 +92,7 @@ foreach ($plugins as $result) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/ico" href="../plugins/images/<?php echo $cpfavicon; ?>">
-        <title><?php echo $sitetitle; ?> - <?php echo _("Mail"); ?></title>
+        <title><?php echo $sitetitle; ?> - <?php echo __("Mail"); ?></title>
         <link href="../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../plugins/components/animate.css/animate.min.css" rel="stylesheet">
@@ -153,7 +153,7 @@ foreach ($plugins as $result) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="../process/search.php" method="get">
-                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo __("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -166,10 +166,10 @@ foreach ($plugins as $result) {
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
-                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
+                                <li><a href="../profile.php"><i class="ti-home"></i> <?php echo __("My Account"); ?></a></li>
+                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo __("Account Settings"); ?></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
+                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo __("Logout"); ?></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -183,7 +183,7 @@ foreach ($plugins as $result) {
                                 <i class="ti-menu hidden-xs"></i>
                                 <i class="ti-close visible-xs"></i>
                             </span> 
-                            <span class="hide-menu"><?php echo _("Navigation"); ?></span>
+                            <span class="hide-menu"><?php echo __("Navigation"); ?></span>
                         </h3>  
                     </div>
                     <ul class="nav" id="side-menu">
@@ -199,11 +199,11 @@ foreach ($plugins as $result) {
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title"><?php echo _("Edit Mail Domain"); ?></h4>
+                            <h4 class="page-title"><?php echo __("Edit Mail Domain"); ?></h4>
                         </div>
                         <ul class="side-icon-text pull-right">
                             <li style="position: relative;top: -3px;">
-                                <a onclick="confirmDelete();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span class="resfour"><wrapper class="restwo"><?php echo _("Delete Mail"); ?> </wrapper><?php echo _("Domain"); ?></span>
+                                <a onclick="confirmDelete();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span class="resfour"><wrapper class="restwo"><?php echo __("Delete Mail"); ?> </wrapper><?php echo __("Domain"); ?></span>
                                 </a>
                             </li>
                         </ul>
@@ -214,7 +214,7 @@ foreach ($plugins as $result) {
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">
                                         <div class="panel-heading">
-                                            <center><?php echo _("DOMAIN"); ?></center>
+                                            <center><?php echo __("DOMAIN"); ?></center>
                                         </div>
                                         <div class="panel-body">
                                             <center><h2><?php print_r($mailname[0]); ?></h2></center>
@@ -228,7 +228,7 @@ foreach ($plugins as $result) {
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">
                                         <div class="panel-heading">
-                                            <center><?php echo _("CREATED"); ?></center>
+                                            <center><?php echo __("CREATED"); ?></center>
                                         </div>
                                         <div class="panel-body">
                                             <center>
@@ -246,12 +246,12 @@ foreach ($plugins as $result) {
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">
                                         <div class="panel-heading">
-                                            <center><?php echo _("STATUS"); ?></center>
+                                            <center><?php echo __("STATUS"); ?></center>
                                         </div>
                                         <div class="panel-body">
                                             <center>
                                                 <h2>
-                                                    <?php if ($maildata[0]['SUSPENDED'] == 'no') {echo _("Active");} else {echo _("Suspended");}?>
+                                                    <?php if ($maildata[0]['SUSPENDED'] == 'no') {echo __("Active");} else {echo __("Suspended");}?>
                                                 </h2>
                                             </center>
                                         </div>
@@ -265,7 +265,7 @@ foreach ($plugins as $result) {
                             <div class="white-box">
                                 <form class="form-horizontal form-material" autocomplete="off" method="post" id="form" action="../change/mail.php">
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Domain"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Domain"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" disabled value="<?php print_r($mailname[0]); ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
                                             <input type="hidden" name="v_domain" value="<?php print_r($mailname[0]); ?>"> 
@@ -300,25 +300,25 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>'; } ?>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("DKIM Support"); ?></label>
+                                        <label class="col-md-12"><?php echo __("DKIM Support"); ?></label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
                                                 <input id="checkbox7" type="checkbox" name="v_dkim" <?php if($maildata[0]['DKIM'] == 'no') {} else {echo 'checked';} ?> >
-                                                <label for="checkbox7"> <?php echo _("Enabled"); ?> </label>
+                                                <label for="checkbox7"> <?php echo __("Enabled"); ?> </label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="email" class="col-md-12"><?php echo _("Catchall Email"); ?></label>
+                                        <label for="email" class="col-md-12"><?php echo __("Catchall Email"); ?></label>
                                         <div class="col-md-12">
                                             <input type="email" name="v_catchall" value="<?php print_r($maildata[0]['CATCHALL']); ?>" class="form-control form-control-line" name="email" id="email"> 
-                                            <small class="form-text text-muted"><?php echo _("Optional"); ?></small>
+                                            <small class="form-text text-muted"><?php echo __("Optional"); ?></small>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" type="submit"><?php echo _("Update Domain"); ?></button> &nbsp;
-                                            <a href="../list/mail.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
+                                            <button class="btn btn-success" type="submit"><?php echo __("Update Domain"); ?></button> &nbsp;
+                                            <a href="../list/mail.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo __("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </form>
@@ -354,17 +354,17 @@ foreach ($plugins as $result) {
             });
             function confirmDelete(){
                 Swal({
-                  title: '<?php echo _("Delete Mail Domain"); ?>:<br> <?php echo $requestmail; ?>' + ' ?',
-                  text: "<?php echo _("You won't be able to revert this!"); ?>",
+                  title: '<?php echo __("Delete Mail Domain"); ?>:<br> <?php echo $requestmail; ?>' + ' ?',
+                  text: "<?php echo __("You won't be able to revert this!"); ?>",
                   type: 'warning',
                   showCancelButton: true,
                   confirmButtonColor: '#3085d6',
                   cancelButtonColor: '#d33',
-                  confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
+                  confirmButtonText: '<?php echo __("Yes, delete it!"); ?>'
                 }).then((result) => {
                   if (result.value) {
                     swal({
-                        title: '<?php echo _("Processing"); ?>',
+                        title: '<?php echo __("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()
@@ -375,7 +375,7 @@ foreach ($plugins as $result) {
                 })}
             function processLoader(){
                 swal({
-                    title: '<?php echo _("Processing"); ?>',
+                    title: '<?php echo __("Processing"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()
@@ -383,7 +383,7 @@ foreach ($plugins as $result) {
                 })};
             function loadLoader(){
                 swal({
-                    title: '<?php echo _("Loading"); ?>',
+                    title: '<?php echo __("Loading"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()

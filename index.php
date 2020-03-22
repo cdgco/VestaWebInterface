@@ -82,10 +82,10 @@ $notifications = array_values(json_decode(curl_exec($curl5), true));
 $notificationkeys = array_keys(json_decode(curl_exec($curl5), true));
 
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_CTYPE, $locale);
-setlocale(LC_MESSAGES, $locale);
-bindtextdomain('messages', 'locale');
-textdomain('messages');
+_setlocale(LC_CTYPE, $locale);
+_setlocale(LC_MESSAGES, $locale);
+_bindtextdomain('messages', 'locale');
+_textdomain('messages');
 
 $plugincustom = array();
 $plugincustomcontent = array();
@@ -116,7 +116,7 @@ foreach ($plugins as $result) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/ico" href="plugins/images/<?php echo $cpfavicon; ?>">
-        <title><?php echo $sitetitle; ?> - <?php echo _("Dashboard"); ?></title>
+        <title><?php echo $sitetitle; ?> - <?php echo __("Dashboard"); ?></title>
         <link href="plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="plugins/components/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet">
         <link href="plugins/components/footable/footable.bootstrap.css" rel="stylesheet">
@@ -197,7 +197,7 @@ foreach ($plugins as $result) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="process/search.php" method="get">
-                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo __("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -215,10 +215,10 @@ foreach ($plugins as $result) {
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
-                                <li><a href="profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
+                                <li><a href="profile.php"><i class="ti-home"></i> <?php echo __("My Account"); ?></a></li>
+                                <li><a href="profile.php?settings=open"><i class="ti-settings"></i> <?php echo __("Account Settings"); ?></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
+                                <li><a href="process/logout.php"><i class="fa fa-power-off"></i> <?php echo __("Logout"); ?></a></li>
                             </ul>
                         </li>
 
@@ -233,7 +233,7 @@ foreach ($plugins as $result) {
                                 <i class="ti-menu hidden-xs"></i>
                                 <i class="ti-close visible-xs"></i>
                             </span> 
-                            <span class="hide-menu"><?php echo _("Navigation"); ?></span>
+                            <span class="hide-menu"><?php echo __("Navigation"); ?></span>
                         </h3>
                     </div>
                     <ul class="nav" id="side-menu">
@@ -249,25 +249,25 @@ foreach ($plugins as $result) {
                 <div class="container-fluid">
                     <div class="row bg-title" style="overflow:visible;">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title"><?php echo _("Host Dashboard"); ?></h4>
+                            <h4 class="page-title"><?php echo __("Host Dashboard"); ?></h4>
                         </div>
                         <div class="col-lg-2 col-sm-8 col-md-8 col-xs-12 pull-right restwo">
                             <div class="btn-group bootstrap-select input-group-btn" style="margin-right:257px;width:220px;">
                                 <form id="rebuildform" action="process/rebuild.php" method="post">
                                     <select class="selectpicker pull-right m-l-20" name="action" data-style="form-control">
-                                        <option value="rebuild-user"><?php echo _("Rebuild Account"); ?></option>
+                                        <option value="rebuild-user"><?php echo __("Rebuild Account"); ?></option>
                                         <?php if ($webenabled == 'true') { echo '<option value="rebuild-web-domains">' . _("Rebuild Web") . '</option>'; } ?>
                                         <?php if ($dnsenabled == 'true') { echo '<option value="rebuild-dns-domains">' . _("Rebuild DNS") . '</option>'; } ?>
                                         <?php if ($mailenabled == 'true') { echo '<option value="rebuild-mail-domains">' . _("Rebuild Mail") . '</option>'; } ?>
                                         <?php if ($dbenabled == 'true') { echo '<option value="rebuild-databases">' . _("Rebuild DB") . '</option>'; } ?>
-                                        <option value="rebuild-cron-jobs"><?php echo _("Rebuild Cron"); ?></option>
-                                        <option value="update-user-counters"><?php echo _("Update Counters"); ?></option>
+                                        <option value="rebuild-cron-jobs"><?php echo __("Rebuild Cron"); ?></option>
+                                        <option value="update-user-counters"><?php echo __("Update Counters"); ?></option>
                                     </select>
                                     <input type="hidden" name="user" value="<?php echo $username; ?>" />
                                 </form>
                             </div>
                             <div class="input-group-btn">
-                                <button type="button" onclick='document.getElementById("rebuildform").submit();swal({title: "<?php echo _('Processing'); ?>", text: "",timer: 5000,onOpen: function () {swal.showLoading();}}).then(function () {},function (dismiss) {if (dismiss === "timer") {}})' class=" pull-right btn waves-effect waves-light color-button" style="left: -2px;"><i class="ti-angle-right"></i></button>
+                                <button type="button" onclick='document.getElementById("rebuildform").submit();swal({title: "<?php echo __('Processing'); ?>", text: "",timer: 5000,onOpen: function () {swal.showLoading();}}).then(function () {},function (dismiss) {if (dismiss === "timer") {}})' class=" pull-right btn waves-effect waves-light color-button" style="left: -2px;"><i class="ti-angle-right"></i></button>
                             </div>
                         </div>
                     </div>
@@ -287,7 +287,7 @@ foreach ($plugins as $result) {
                                             </li>
                                         </li><br><br>
                                         <li class="col-middle">
-                                            <h4><?php echo _("Bandwidth"); ?></h4>
+                                            <h4><?php echo __("Bandwidth"); ?></h4>
                                         </li>
                                     </ul>
                                 </div>
@@ -304,7 +304,7 @@ foreach ($plugins as $result) {
                                         </li>
                                         <br><br>
                                         <li class="col-middle">
-                                            <h4><?php echo _("Disk Space"); ?></h4>
+                                            <h4><?php echo __("Disk Space"); ?></h4>
                                         </li>
                                     </ul>
                                 </div>
@@ -320,7 +320,7 @@ foreach ($plugins as $result) {
                                             </h2>
                                         </li><br><br>
                                         <li class="col-middle">
-                                            <h4><?php echo _("Web Domains"); ?></h4>
+                                            <h4><?php echo __("Web Domains"); ?></h4>
                                         </li>
                                     </ul>
                                 </div>
@@ -336,7 +336,7 @@ foreach ($plugins as $result) {
                                             </h2>
                                         </li><br><br>
                                         <li class="col-middle">
-                                            <h4><?php echo _("Email Addresses"); ?></h4>
+                                            <h4><?php echo __("Email Addresses"); ?></h4>
 
                                         </li>
 
@@ -363,12 +363,12 @@ foreach ($plugins as $result) {
                                         <section id="section-iconbox-1">
                                             <div class="p-20 row">
                                                 <div class="col-sm-6">
-                                                    <h3 class="m-t-0"><?php echo _("Manage Web Domains"); ?></h3>
+                                                    <h3 class="m-t-0"><?php echo __("Manage Web Domains"); ?></h3>
                                                 </div>
                                                 <div class="col-sm-6 resone">
                                                     <ul class="side-icon-text pull-right">
-                                                        <li><a href="add/domain.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Domain"); ?></span></a></li>
-                                                        <li><a href="list/web.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span><?php echo _("Manage"); ?></span></a></li>
+                                                        <li><a href="add/domain.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo __("Add Domain"); ?></span></a></li>
+                                                        <li><a href="list/web.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span><?php echo __("Manage"); ?></span></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -376,11 +376,11 @@ foreach ($plugins as $result) {
                                                 <table class="table footable m-b-0" data-paging-size="5" data-paging="true" cellspacing="14"  data-page-size="5"  data-sorting="true">
                                                     <thead>
                                                         <tr>
-                                                            <th data-toggle="true"><?php echo _("DOMAIN"); ?></th>
-                                                            <th class="resthree" data-type="numeric"><?php echo _("DISK"); ?></th>
-                                                            <th class="resthree" data-type="numeric"><?php echo _("BANDWIDTH"); ?></th>
-                                                            <th class="resone"><?php echo _("SSL"); ?></th>
-                                                            <th class="resone"><?php echo _("STATUS"); ?></th>
+                                                            <th data-toggle="true"><?php echo __("DOMAIN"); ?></th>
+                                                            <th class="resthree" data-type="numeric"><?php echo __("DISK"); ?></th>
+                                                            <th class="resthree" data-type="numeric"><?php echo __("BANDWIDTH"); ?></th>
+                                                            <th class="resone"><?php echo __("SSL"); ?></th>
+                                                            <th class="resone"><?php echo __("STATUS"); ?></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody><?php
@@ -416,12 +416,12 @@ foreach ($plugins as $result) {
                                         <section id="section-iconbox-2">
                                             <div class="p-20 row">
                                                 <div class="col-sm-6">
-                                                    <h3 class="m-t-0"><?php echo _("Manage DNS Domains"); ?></h3>
+                                                    <h3 class="m-t-0"><?php echo __("Manage DNS Domains"); ?></h3>
                                                 </div>
                                                 <div class="col-sm-6 resone">
                                                     <ul class="side-icon-text pull-right">
-                                                        <li><a href="add/dns.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add DNS"); ?></span></a></li>
-                                                        <li><a href="list/dns.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span><?php echo _("Manage"); ?></span></a></li>
+                                                        <li><a href="add/dns.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo __("Add DNS"); ?></span></a></li>
+                                                        <li><a href="list/dns.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span><?php echo __("Manage"); ?></span></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -429,9 +429,9 @@ foreach ($plugins as $result) {
                                                 <table class="table footable m-b-0" data-paging-size="5" data-paging="true" cellspacing="14"  data-page-size="5"  data-sorting="true">
                                                     <thead>
                                                         <tr>
-                                                            <th data-toggle="true"><?php echo _("DOMAIN"); ?></th>
-                                                            <th class="resthree" data-type="numeric"><?php echo _("RECORDS"); ?></th>
-                                                            <th class="resone"><?php echo _("STATUS"); ?></th>
+                                                            <th data-toggle="true"><?php echo __("DOMAIN"); ?></th>
+                                                            <th class="resthree" data-type="numeric"><?php echo __("RECORDS"); ?></th>
+                                                            <th class="resone"><?php echo __("STATUS"); ?></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody><?php
@@ -529,12 +529,12 @@ foreach ($plugins as $result) {
                                         <section id="section-iconbox-3">
                                             <div class="p-20 row">
                                                 <div class="col-sm-6">
-                                                    <h3 class="m-t-0"><?php echo _("Manage Mail Domains"); ?></h3>
+                                                    <h3 class="m-t-0"><?php echo __("Manage Mail Domains"); ?></h3>
                                                 </div>
                                                 <div class="col-sm-6 resone">
                                                     <ul class="side-icon-text pull-right">
-                                                        <li><a href="add/mail.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Mail"); ?></span></a></li>
-                                                        <li><a href="list/mail.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span><?php echo _("Manage"); ?></span></a></li>
+                                                        <li><a href="add/mail.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo __("Add Mail"); ?></span></a></li>
+                                                        <li><a href="list/mail.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span><?php echo __("Manage"); ?></span></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -542,9 +542,9 @@ foreach ($plugins as $result) {
                                                 <table class="table footable m-b-0" data-paging-size="5" data-paging="true" cellspacing="14"  data-page-size="5"  data-sorting="true">
                                                     <thead>
                                                         <tr>
-                                                            <th data-toggle="true"><?php echo _("DOMAIN"); ?></th>
-                                                            <th class="resthree" data-type="numeric"><?php echo _("ACCOUNTS"); ?></th>
-                                                            <th class="resone"><?php echo _("STATUS"); ?></th>
+                                                            <th data-toggle="true"><?php echo __("DOMAIN"); ?></th>
+                                                            <th class="resthree" data-type="numeric"><?php echo __("ACCOUNTS"); ?></th>
+                                                            <th class="resone"><?php echo __("STATUS"); ?></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody><?php
@@ -573,12 +573,12 @@ foreach ($plugins as $result) {
                                         <section id="section-iconbox-4">
                                             <div class="p-20 row">
                                                 <div class="col-sm-6">
-                                                    <h3 class="m-t-0"><?php echo _("Manage Databases"); ?></h3>
+                                                    <h3 class="m-t-0"><?php echo __("Manage Databases"); ?></h3>
                                                 </div>
                                                 <div class="col-sm-6 resone">
                                                     <ul class="side-icon-text pull-right">
-                                                        <li><a href="add/db.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo _("Add Database"); ?></span></a></li>
-                                                        <li><a href="list/db.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span><?php echo _("Manage"); ?></span></a></li>
+                                                        <li><a href="add/db.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span><?php echo __("Add Database"); ?></span></a></li>
+                                                        <li><a href="list/db.php"><span class="circle circle-sm bg-danger di"><i class="ti-pencil-alt"></i></span><span><?php echo __("Manage"); ?></span></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -586,9 +586,9 @@ foreach ($plugins as $result) {
                                                 <table class="table footable m-b-0" data-paging-size="5" data-paging="true" cellspacing="14"  data-page-size="5"  data-sorting="true">
                                                     <thead>
                                                         <tr>
-                                                            <th data-toggle="true"><?php echo _("DATABASE"); ?></th>
-                                                            <th class="resthree"><?php echo _("USER"); ?></th>
-                                                            <th class="resone"><?php echo _("STATUS"); ?></th>
+                                                            <th data-toggle="true"><?php echo __("DATABASE"); ?></th>
+                                                            <th class="resthree"><?php echo __("USER"); ?></th>
+                                                            <th class="resone"><?php echo __("STATUS"); ?></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody><?php
@@ -619,12 +619,12 @@ foreach ($plugins as $result) {
                         </div> 
                         <div <?php if ($webenabled != 'true' && $dnsenabled != 'true' && $mailenabled != 'true' && $dbenabled != 'true') {echo 'style="display:none;"';} ?> class="col-lg-3 col-md-6">
                             <div class="white-box">
-                                <h3 class="box-title"><?php echo _("Disk Quota Used"); ?></h3>
+                                <h3 class="box-title"><?php echo __("Disk Quota Used"); ?></h3>
                                 <ul class="country-state  p-t-20">
 
                                     <li>
                                         <h2>
-                                            <?php echo formatMB($admindata['U_DISK']); ?></h2> <small><?php echo _("Total Disk Space"); ?></small>
+                                            <?php echo formatMB($admindata['U_DISK']); ?></h2> <small><?php echo __("Total Disk Space"); ?></small>
                                         <div class="pull-right"><?php 
                                             if ($admindata['DISK_QUOTA'] != 0) {
                                                 $diskpercent = (($admindata['U_DISK'] / $admindata['DISK_QUOTA']) * 100);
@@ -635,7 +635,7 @@ foreach ($plugins as $result) {
                                         </div>
                                     </li>
                                 </ul><br><br>
-                                <h3 class="box-title"><?php echo _("Disk Usage Breakdown"); ?></h3>
+                                <h3 class="box-title"><?php echo __("Disk Usage Breakdown"); ?></h3>
                                 <ul class="country-state  p-t-20">
                                     <li>
                                         <h2>
@@ -643,7 +643,7 @@ foreach ($plugins as $result) {
                                                 if ($admindata['U_DISK'] != 0) { $diskpercent1 = (($admindata['U_DISK_WEB'] / $admindata['U_DISK']) * 100); } 
                                                 else { $diskpercent1 = '0'; } 
                                                 echo formatMB($admindata['U_DISK_WEB']); 
-                                            ?></h2> <small><?php echo _("Web Data"); ?></small>
+                                            ?></h2> <small><?php echo __("Web Data"); ?></small>
                                         <div class="pull-right">
                                             <?php if($diskpercent1 == "INF"){ echo "0";}else{echo round($diskpercent1);} ?>%</div>
                                         <div class="progress">
@@ -655,7 +655,7 @@ foreach ($plugins as $result) {
                                                 if ($admindata['U_DISK'] != '0') { $diskpercent2 = (($admindata['U_DISK_MAIL'] / $admindata['U_DISK']) * 100); } 
                                                 else { $diskpercent2 = '0'; } 
                                                 echo formatMB($admindata['U_DISK_MAIL']); 
-                                            ?></h2> <small><?php echo _("Mail Data"); ?></small>
+                                            ?></h2> <small><?php echo __("Mail Data"); ?></small>
                                         <div class="pull-right">
                                             <?php if($diskpercent2 == "INF"){ echo "0";}else{echo round($diskpercent2);} ?>%</div>
                                         <div class="progress">
@@ -668,7 +668,7 @@ foreach ($plugins as $result) {
                                                 if ($admindata['U_DISK'] != '0') { $diskpercent3 = (($admindata['U_DISK_DB'] / $admindata['U_DISK']) * 100); } 
                                                 else {  $diskpercent3 = '0'; } 
                                                 echo formatMB($admindata['U_DISK_DB']); 
-                                            ?></h2> <small><?php echo _("Databases"); ?></small>
+                                            ?></h2> <small><?php echo __("Databases"); ?></small>
                                         <div class="pull-right">
                                             <?php if($diskpercent3 == "INF"){ echo "0";}else{echo round($diskpercent3);} ?>%</div>
                                         <div class="progress">
@@ -681,7 +681,7 @@ foreach ($plugins as $result) {
                                                 if ($admindata['U_DISK'] != '0') { $diskpercent4 = (($admindata['U_DISK_DIRS'] / $admindata['U_DISK']) * 100); } 
                                                 else { $diskpercent4 = '0'; } 
                                                 echo formatMB($admindata['U_DISK_DIRS']); 
-                                            ?></h2> <small><?php echo _("User Directories"); ?></small>
+                                            ?></h2> <small><?php echo __("User Directories"); ?></small>
                                         <div class="pull-right">
                                             <?php if($diskpercent4 == "INF"){ echo "0";}else{echo round($diskpercent4);} ?>%</div>
                                         <div class="progress">
@@ -696,7 +696,7 @@ foreach ($plugins as $result) {
                                 <div class="row">
                                     <div class="col-lg-6 col-sm-6 col-xs-12">
                                         <div class="white-box" style="margin:14px;">
-                                            <h3 class="box-title"><?php echo _("DNS Domains"); ?></h3>
+                                            <h3 class="box-title"><?php echo __("DNS Domains"); ?></h3>
                                             <ul class="list-inline two-part">
                                                 <li><i class="fa fa-list-alt text-danger"></i></li>
                                                 <li class="text-right">
@@ -710,7 +710,7 @@ foreach ($plugins as $result) {
                                     </div>
                                     <div class="col-lg-6 col-sm-6 col-xs-12">
                                         <div class="white-box" style="margin:14px;">
-                                            <h3 class="box-title"><?php echo _("DNS Records"); ?></h3>
+                                            <h3 class="box-title"><?php echo __("DNS Records"); ?></h3>
                                             <ul class="list-inline two-part">
                                                 <li><i class="fa fa-sitemap text-danger"></i></li>
                                                 <li class="text-right">
@@ -722,7 +722,7 @@ foreach ($plugins as $result) {
                                     </div>
                                     <div class="col-lg-6 col-sm-6 col-xs-12">
                                         <div class="white-box" style="margin:14px;">
-                                            <h3 class="box-title"><?php echo _("Mail Domains"); ?></h3>
+                                            <h3 class="box-title"><?php echo __("Mail Domains"); ?></h3>
                                             <ul class="list-inline two-part">
                                                 <li><i class="fa fa-envelope-square text-warning"></i></li>
                                                 <li class="text-right">
@@ -736,7 +736,7 @@ foreach ($plugins as $result) {
                                     </div>
                                     <div class="col-lg-6 col-sm-6 col-xs-12">
                                         <div class="white-box" style="margin:14px;">
-                                            <h3 class="box-title"><?php echo _("Backups"); ?></h3>
+                                            <h3 class="box-title"><?php echo __("Backups"); ?></h3>
                                             <ul class="list-inline two-part">
                                                 <li><i class="ti-cloud-up text-info"></i></li>
                                                 <li class="text-right">
@@ -756,14 +756,14 @@ foreach ($plugins as $result) {
                                         <div class="carousel-inner" style="height:415px;">
                                             <div class="active item">
                                                 <div class="overlaybg"><img src="plugins/images/profile-menu.png" /></div>
-                                                <div class="news-content"><span class="label label-danger label-rounded"><?php echo _("Account Details"); ?></span><br>
+                                                <div class="news-content"><span class="label label-danger label-rounded"><?php echo __("Account Details"); ?></span><br>
 
                                                     <div class="columnleft" style="margin-top:10px; float: left;">
-                                                        <h2 style="width: 200%;"><?php echo _("Username"); ?>:
-                                                            <?php print_r($username); ?><br><?php echo _("Email"); ?>:
-                                                            <?php print_r($admindata['CONTACT']); ?><br><br> <?php echo _("Plan"); ?>:
-                                                            <?php print_r($admindata['PACKAGE']); ?><br><?php echo _("Bandwidth"); ?>:
-                                                            <?php if($admindata['BANDWIDTH'] == "unlimited"){ echo "Unlimited";} else { print_r($admindata['BANDWIDTH'] . " mb");} ?> <br><?php echo _("Disk Quota"); ?>:
+                                                        <h2 style="width: 200%;"><?php echo __("Username"); ?>:
+                                                            <?php print_r($username); ?><br><?php echo __("Email"); ?>:
+                                                            <?php print_r($admindata['CONTACT']); ?><br><br> <?php echo __("Plan"); ?>:
+                                                            <?php print_r($admindata['PACKAGE']); ?><br><?php echo __("Bandwidth"); ?>:
+                                                            <?php if($admindata['BANDWIDTH'] == "unlimited"){ echo "Unlimited";} else { print_r($admindata['BANDWIDTH'] . " mb");} ?> <br><?php echo __("Disk Quota"); ?>:
                                                             <?php if($admindata['DISK_QUOTA'] == "unlimited"){ echo "Unlimited";} else { print_r($admindata['DISK_QUOTA'] . " mb");} ?>
                                                         </h2>
 
@@ -771,7 +771,7 @@ foreach ($plugins as $result) {
                                                     </div>
 
                                                     <div class="columnright" style="margin-top:10px; margin-right:80px;float: right;">
-                                                        <h2><?php echo _("Nameservers"); ?>: <br>
+                                                        <h2><?php echo __("Nameservers"); ?>: <br>
                                                             <ul class="dashed">
                                                                 <?php 
                                                                 $nsArray = explode(',', ($admindata['NS'])); 
@@ -796,7 +796,7 @@ foreach ($plugins as $result) {
                         <div class="row">
                             <div class="col-lg-3 col-sm-6 col-xs-12">
                                 <div class="white-box" style="margin:14px;">
-                                    <h3 class="box-title"><?php echo _("Databases"); ?></h3>
+                                    <h3 class="box-title"><?php echo __("Databases"); ?></h3>
                                     <ul class="list-inline two-part">
                                         <li><i class="fa fa-database text-purple"></i></li>
                                         <li class="text-right">
@@ -810,7 +810,7 @@ foreach ($plugins as $result) {
                             </div>
                             <div class="col-lg-3 col-sm-6 col-xs-12">
                                 <div class="white-box" style="margin:14px;">
-                                    <h3 class="box-title"><?php echo _("Cron Jobs"); ?></h3>
+                                    <h3 class="box-title"><?php echo __("Cron Jobs"); ?></h3>
                                     <ul class="list-inline two-part">
                                         <li><i class="ti-timer text-inverse"></i></li>
                                         <li class="text-right">
@@ -824,7 +824,7 @@ foreach ($plugins as $result) {
                             </div>
                             <div class="col-lg-6 col-sm-12 col-xs-12">
                                 <div class="white-box" style="margin:14px;">
-                                    <h3 class="box-title"><?php echo _("Web Aliases"); ?></h3>
+                                    <h3 class="box-title"><?php echo __("Web Aliases"); ?></h3>
                                     <ul class="list-inline two-part">
                                         <li><i class="ti-layers text-success"></i></li>
                                         <li class="text-right">

@@ -61,9 +61,9 @@ $servicename = array_keys(json_decode(curl_exec($curl2), true));
 $servicedata = array_values(json_decode(curl_exec($curl2), true));
 
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
-bindtextdomain('messages', '../../locale');
-textdomain('messages');
+_setlocale(LC_CTYPE, $locale); _setlocale(LC_MESSAGES, $locale);
+_bindtextdomain('messages', '../../locale');
+_textdomain('messages');
 
 foreach ($plugins as $result) {
     if (file_exists('../../plugins/' . $result)) {
@@ -99,7 +99,7 @@ function secondsToTime($seconds) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/ico" href="../../plugins/images/<?php echo $cpfavicon; ?>">
-        <title><?php echo $sitetitle; ?> - <?php echo _("Server"); ?></title>
+        <title><?php echo $sitetitle; ?> - <?php echo __("Server"); ?></title>
         <link href="../../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../../plugins/components/footable/footable.bootstrap.css" rel="stylesheet">
         <link href="../../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
@@ -155,7 +155,7 @@ function secondsToTime($seconds) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="../../process/search.php" method="get">
-                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo __("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -168,10 +168,10 @@ function secondsToTime($seconds) {
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
-                                <li><a href="../../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
+                                <li><a href="../../profile.php"><i class="ti-home"></i> <?php echo __("My Account"); ?></a></li>
+                                <li><a href="../../profile.php?settings=open"><i class="ti-settings"></i> <?php echo __("Account Settings"); ?></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
+                                <li><a href="../../process/logout.php"><i class="fa fa-power-off"></i> <?php echo __("Logout"); ?></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -185,7 +185,7 @@ function secondsToTime($seconds) {
                                 <i class="ti-menu hidden-xs"></i>
                                 <i class="ti-close visible-xs"></i>
                             </span> 
-                            <span class="hide-menu"><?php echo _("Navigation"); ?></span>
+                            <span class="hide-menu"><?php echo __("Navigation"); ?></span>
                         </h3>  
                     </div>
                     <ul class="nav" id="side-menu">
@@ -201,13 +201,13 @@ function secondsToTime($seconds) {
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title"><?php echo _("Server"); ?></h4> </div>
+                            <h4 class="page-title"><?php echo __("Server"); ?></h4> </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box">
                                 <ul class="side-icon-text pull-right">
-                                    <li><a href="../status/cpu.php"><span class="circle circle-sm bg-info di" style="padding-top: 11px;"><i class="ti-pulse"></i></span><span><wrapper class="resthree"><?php echo _("Show "); ?></wrapper><?php echo _("Status"); ?></span></a></li>
+                                    <li><a href="../status/cpu.php"><span class="circle circle-sm bg-info di" style="padding-top: 11px;"><i class="ti-pulse"></i></span><span><wrapper class="resthree"><?php echo __("Show "); ?></wrapper><?php echo __("Status"); ?></span></a></li>
                                 </ul><br><br><br>
                                 <div class="table-responsive">
                                 <table class="table footable m-b-0" data-sorting="true">
@@ -215,8 +215,8 @@ function secondsToTime($seconds) {
                                         <tr>
                                             <td></td>
                                             <td><h1><b><?php print_r($sysdata[0]['HOSTNAME']); ?></b></h1><br><b><?php print_r($sysdata[0]['OS'] . ' ' . $sysdata[0]['VERSION']); ?></b> (<?php print_r($sysdata[0]['ARCH']); ?>)</td>
-                                            <td><h1>&nbsp;</h1><br><?php echo _("Load Average:"); ?> <b><?php print_r($sysdata[0]['LOADAVERAGE']); ?></b></td>
-                                            <td class="restwo"><h1>&nbsp;</h1><br><?php echo _("Uptime:"); ?> <b><?php 
+                                            <td><h1>&nbsp;</h1><br><?php echo __("Load Average:"); ?> <b><?php print_r($sysdata[0]['LOADAVERAGE']); ?></b></td>
+                                            <td class="restwo"><h1>&nbsp;</h1><br><?php echo __("Uptime:"); ?> <b><?php 
                                                 if (strpos(secondsToTime($sysdata[0]['UPTIME'] * 60),'0 days') !== false) {
                                                             echo str_replace('0 days, ', '', secondsToTime($sysdata[0]['UPTIME'] * 60));
                                                     }
@@ -225,8 +225,8 @@ function secondsToTime($seconds) {
                                                     }
                                                 ?></b></td>
                                             <td><h2>&nbsp;</h2>
-                                                <a href="../server/vesta.php"><button type="button" data-toggle="tooltip" data-original-title="<?php echo _("Configure"); ?>" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-settings"></i></button></a>
-                                                <button type="button" onclick="confirmRestartSystem();" data-toggle="tooltip" data-original-title="<?php echo _("Restart"); ?>" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button>
+                                                <a href="../server/vesta.php"><button type="button" data-toggle="tooltip" data-original-title="<?php echo __("Configure"); ?>" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-settings"></i></button></a>
+                                                <button type="button" onclick="confirmRestartSystem();" data-toggle="tooltip" data-original-title="<?php echo __("Restart"); ?>" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -296,17 +296,17 @@ function secondsToTime($seconds) {
             function confirmRestart(e){
                 e1 = String(e)
                 Swal({
-                  title: '<?php echo _("Restart"); ?> ' + e1 +' ?',
-                  text: "<?php echo _("Please confirm action."); ?>",
+                  title: '<?php echo __("Restart"); ?> ' + e1 +' ?',
+                  text: "<?php echo __("Please confirm action."); ?>",
                   type: 'warning',
                   showCancelButton: true,
                   confirmButtonColor: '#3085d6',
                   cancelButtonColor: '#d33',
-                  confirmButtonText: '<?php echo _("Restart"); ?>'
+                  confirmButtonText: '<?php echo __("Restart"); ?>'
                 }).then((result) => {
                   if (result.value) {
                     swal({
-                        title: '<?php echo _("Processing"); ?>',
+                        title: '<?php echo __("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()
@@ -317,17 +317,17 @@ function secondsToTime($seconds) {
                 })}
             function confirmRestartSystem(){
                 Swal({
-                  title: '<?php echo _("Restart System?"); ?>',
-                  text: "<?php echo _("Please confirm action."); ?>",
+                  title: '<?php echo __("Restart System?"); ?>',
+                  text: "<?php echo __("Please confirm action."); ?>",
                   type: 'warning',
                   showCancelButton: true,
                   confirmButtonColor: '#3085d6',
                   cancelButtonColor: '#d33',
-                  confirmButtonText: '<?php echo _("Restart"); ?>'
+                  confirmButtonText: '<?php echo __("Restart"); ?>'
                 }).then((result) => {
                   if (result.value) {
                     swal({
-                        title: '<?php echo _("Processing"); ?>',
+                        title: '<?php echo __("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()
@@ -339,17 +339,17 @@ function secondsToTime($seconds) {
             function confirmStopService(f){
                 f1 = String(f)
                 Swal({
-                  title: '<?php echo _("Stop"); ?> ' + f1 +' ?',
-                  text: "<?php echo _("Please confirm action."); ?>",
+                  title: '<?php echo __("Stop"); ?> ' + f1 +' ?',
+                  text: "<?php echo __("Please confirm action."); ?>",
                   type: 'warning',
                   showCancelButton: true,
                   confirmButtonColor: '#3085d6',
                   cancelButtonColor: '#d33',
-                  confirmButtonText: '<?php echo _("Stop"); ?>'
+                  confirmButtonText: '<?php echo __("Stop"); ?>'
                 }).then((result) => {
                   if (result.value) {
                     swal({
-                        title: '<?php echo _("Processing"); ?>',
+                        title: '<?php echo __("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()
@@ -361,17 +361,17 @@ function secondsToTime($seconds) {
             function confirmStartService(g){
                 g1 = String(g)
                 Swal({
-                  title: '<?php echo _("Start"); ?> ' + g1 +' ?',
-                  text: "<?php echo _("Please confirm action."); ?>",
+                  title: '<?php echo __("Start"); ?> ' + g1 +' ?',
+                  text: "<?php echo __("Please confirm action."); ?>",
                   type: 'warning',
                   showCancelButton: true,
                   confirmButtonColor: '#3085d6',
                   cancelButtonColor: '#d33',
-                  confirmButtonText: '<?php echo _("Start"); ?>'
+                  confirmButtonText: '<?php echo __("Start"); ?>'
                 }).then((result) => {
                   if (result.value) {
                     swal({
-                        title: '<?php echo _("Processing"); ?>',
+                        title: '<?php echo __("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()

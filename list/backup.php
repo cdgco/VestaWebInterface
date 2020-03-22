@@ -59,10 +59,10 @@ $backupname = array_keys(json_decode(curl_exec($curl1), true));
 $backupdata = array_values(json_decode(curl_exec($curl1), true));
 if ($backupname[0] == '') { header('Location: ../list/backups.php'); }
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_CTYPE, $locale);
-setlocale(LC_MESSAGES, $locale);
-bindtextdomain('messages', '../locale');
-textdomain('messages');
+_setlocale(LC_CTYPE, $locale);
+_setlocale(LC_MESSAGES, $locale);
+_bindtextdomain('messages', '../locale');
+_textdomain('messages');
 
 foreach ($plugins as $result) {
     if (file_exists('../plugins/' . $result)) {
@@ -92,7 +92,7 @@ foreach ($plugins as $result) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/ico" href="../plugins/images/<?php echo $cpfavicon; ?>">
-        <title><?php echo $sitetitle; ?> - <?php echo _("Backups"); ?></title>
+        <title><?php echo $sitetitle; ?> - <?php echo __("Backups"); ?></title>
         <link href="../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../plugins/components/footable/footable.bootstrap.css" rel="stylesheet">
         <link href="../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
@@ -156,7 +156,7 @@ foreach ($plugins as $result) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="../process/search.php" method="get">
-                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo __("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -169,10 +169,10 @@ foreach ($plugins as $result) {
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
-                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
+                                <li><a href="../profile.php"><i class="ti-home"></i> <?php echo __("My Account"); ?></a></li>
+                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo __("Account Settings"); ?></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
+                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo __("Logout"); ?></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -186,7 +186,7 @@ foreach ($plugins as $result) {
                                 <i class="ti-menu hidden-xs"></i>
                                 <i class="ti-close visible-xs"></i>
                             </span> 
-                            <span class="hide-menu"><?php echo _("Navigation"); ?></span>
+                            <span class="hide-menu"><?php echo __("Navigation"); ?></span>
                         </h3>  
                     </div>
                     <ul class="nav" id="side-menu">
@@ -203,10 +203,10 @@ foreach ($plugins as $result) {
                     <div class="row bg-title">
 
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title"><?php echo _("Configure Backup"); ?><wrapper class="restwo"> <?php echo _("Restore"); ?></wrapper></h4> </div>
+                            <h4 class="page-title"><?php echo __("Configure Backup"); ?><wrapper class="restwo"> <?php echo __("Restore"); ?></wrapper></h4> </div>
                         <ul class="side-icon-text pull-right">
                             <li style="position: relative;top: -3px;">
-                                <a onclick="confirmDelete();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span class="resthree"><wrapper class="restwo"><?php echo _("Delete"); ?> </wrapper><?php echo _("Backup"); ?></span>
+                                <a onclick="confirmDelete();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span class="resthree"><wrapper class="restwo"><?php echo __("Delete"); ?> </wrapper><?php echo __("Backup"); ?></span>
                                 </a>
                             </li>
                         </ul>
@@ -217,7 +217,7 @@ foreach ($plugins as $result) {
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">
                                         <div class="panel-heading">
-                                            <center><?php echo _("BACKUP"); ?></center>
+                                            <center><?php echo __("BACKUP"); ?></center>
                                         </div>
                                         <div class="panel-body">
                                             <center><h2><?php print_r($requestbackup); ?></h2></center>
@@ -231,16 +231,16 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box"> <ul class="side-icon-text pull-right">
-                                <li><a href="../process/restore.php?backup=<?php echo $requestbackup; ?>"><span class="circle circle-sm bg-inverse di"><i class="ti-reload"></i></span><span class="resfour"><?php echo _("Restore All"); ?></span></a></li>
+                                <li><a href="../process/restore.php?backup=<?php echo $requestbackup; ?>"><span class="circle circle-sm bg-inverse di"><i class="ti-reload"></i></span><span class="resfour"><?php echo __("Restore All"); ?></span></a></li>
                                 </ul>
-                                <h3 class="box-title m-b-0"><wrapper class="restwo"><?php echo _("Backed Up"); ?> </wrapper><?php echo _("Data"); ?></h3><br>
+                                <h3 class="box-title m-b-0"><wrapper class="restwo"><?php echo __("Backed Up"); ?> </wrapper><?php echo __("Data"); ?></h3><br>
                                 <div class="table-responsive">
                                 <table class="table footable m-b-0" data-paging="false">
                                     <thead>
                                         <tr>
-                                            <th><?php echo _("Type"); ?></th>
-                                            <th><?php echo _("Data"); ?></th>
-                                            <th><?php echo _("Action"); ?></th>
+                                            <th><?php echo __("Type"); ?></th>
+                                            <th><?php echo __("Data"); ?></th>
+                                            <th><?php echo __("Action"); ?></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -321,17 +321,17 @@ foreach ($plugins as $result) {
             function confirmDelete(e){
                 e1 = String(e)
                 Swal({
-                  title: '<?php echo _("Delete Backup"); ?>:<br> <?php echo $requestbackup; ?>' + ' ?',
-                  text: "<?php echo _("You won't be able to revert this!"); ?>",
+                  title: '<?php echo __("Delete Backup"); ?>:<br> <?php echo $requestbackup; ?>' + ' ?',
+                  text: "<?php echo __("You won't be able to revert this!"); ?>",
                   type: 'warning',
                   showCancelButton: true,
                   confirmButtonColor: '#3085d6',
                   cancelButtonColor: '#d33',
-                  confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
+                  confirmButtonText: '<?php echo __("Yes, delete it!"); ?>'
                 }).then((result) => {
                   if (result.value) {
                     swal({
-                        title: '<?php echo _("Processing"); ?>',
+                        title: '<?php echo __("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()

@@ -125,7 +125,7 @@ foreach ($plugins as $result) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="search.php" method="get">
-                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo __("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -229,8 +229,8 @@ foreach ($plugins as $result) {
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success"  type="submit"><?php echo _("Process"); ?></button> &nbsp;
-                                            <a href="../edit/domain.php?domain=<?php echo $requestdomain; ?>"><button class="btn btn-muted" onclick="loadLoader();" type="button"><?php echo _("Back"); ?></button></a>
+                                            <button class="btn btn-success"  type="submit"><?php echo __("Process"); ?></button> &nbsp;
+                                            <a href="../edit/domain.php?domain=<?php echo $requestdomain; ?>"><button class="btn btn-muted" onclick="loadLoader();" type="button"><?php echo __("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </form>
@@ -265,7 +265,7 @@ foreach ($plugins as $result) {
             });
             function processLoader(){
                 swal({
-                    title: '<?php echo _("Processing"); ?>',
+                    title: '<?php echo __("Processing"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()

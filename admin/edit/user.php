@@ -61,9 +61,9 @@ $uxname = array_keys(json_decode(curl_exec($curl2), true));
 $uxdata = array_values(json_decode(curl_exec($curl2), true));
 $useremail = $admindata['CONTACT'];
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
-bindtextdomain('messages', '../../locale');
-textdomain('messages');
+_setlocale(LC_CTYPE, $locale); _setlocale(LC_MESSAGES, $locale);
+_bindtextdomain('messages', '../../locale');
+_textdomain('messages');
 
 foreach ($plugins as $result) {
     if (file_exists('../../plugins/' . $result)) {
@@ -94,7 +94,7 @@ foreach ($plugins as $result) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/ico" href="../../plugins/images/<?php echo $cpfavicon; ?>">
-        <title><?php echo $sitetitle; ?> - <?php echo _("Users"); ?></title>
+        <title><?php echo $sitetitle; ?> - <?php echo __("Users"); ?></title>
         <link href="../../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../../plugins/components/select2/select2.min.css" rel="stylesheet">
@@ -135,7 +135,7 @@ foreach ($plugins as $result) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="../../process/search.php" method="get">
-                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo __("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -148,10 +148,10 @@ foreach ($plugins as $result) {
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
-                                <li><a href="../../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
+                                <li><a href="../../profile.php"><i class="ti-home"></i> <?php echo __("My Account"); ?></a></li>
+                                <li><a href="../../profile.php?settings=open"><i class="ti-settings"></i> <?php echo __("Account Settings"); ?></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
+                                <li><a href="../../process/logout.php"><i class="fa fa-power-off"></i> <?php echo __("Logout"); ?></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -165,7 +165,7 @@ foreach ($plugins as $result) {
                                 <i class="ti-menu hidden-xs"></i>
                                 <i class="ti-close visible-xs"></i>
                             </span> 
-                            <span class="hide-menu"><?php echo _("Navigation"); ?></span>
+                            <span class="hide-menu"><?php echo __("Navigation"); ?></span>
                         </h3>  
                     </div>
                     <ul class="nav" id="side-menu">
@@ -181,7 +181,7 @@ foreach ($plugins as $result) {
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title"><?php echo _("Edit User"); ?></h4>
+                            <h4 class="page-title"><?php echo __("Edit User"); ?></h4>
                         </div>
                     </div>
                     <div class="row">
@@ -189,28 +189,28 @@ foreach ($plugins as $result) {
                             <div class="white-box">
                                 <form class="form-horizontal form-material" autocomplete="off" method="post" id="form" action="../change/user.php">
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Username"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Username"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" disabled value="<?php echo $uxname[0]; ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;" class="form-control uneditable-input form-control-static"> 
                                             <input type="hidden" name="v_username" value="<?php echo $uxname[0]; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="password" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10)"> <?php echo _("Generate"); ?></a></label>
+                                        <label for="password" class="col-md-12"><?php echo __("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10)"> <?php echo __("Generate"); ?></a></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
                                             <input type="password" style="padding-left: 0.5%;" autocomplete="new-password" class="form-control form-control-line" name="password" id="password">                                    <span class="input-group-btn"> 
                                             <button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler(this)" id="tg" type="button"><i class="ti-eye"></i></button> 
                                             </span>  </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Email"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Email"); ?></label>
                                         <div class="col-md-12">
                                             <input type="email" name="email" value="<?php echo $uxdata[0]["CONTACT"]; ?>" class="form-control form-control-line" required>
                                             <input type="hidden" name="email-x" value='<?php echo $uxdata[0]["CONTACT"]; ?>'>
                                         </div>
                                     </div>
                                     <div class="form-group" style="overflow: visible;">
-                                        <label class="col-md-12"><?php echo _("Package"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Package"); ?></label>
                                         <div class="col-md-12">
                                             <select class="form-control select2" name="package" id="packageselect">
                                                 <?php
@@ -228,7 +228,7 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>
                                     <div class="form-group" style="overflow: visible;">
-                                        <label class="col-md-12"><?php echo _("Language"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Language"); ?></label>
                                         <div class="col-md-12">
                                             <select class="form-control select2" name="language" id="langselect">
 
@@ -266,21 +266,21 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("First Name"); ?></label>
+                                        <label class="col-md-12"><?php echo __("First Name"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="fname" value="<?php echo $uxdata[0]["FNAME"]; ?>" class="form-control form-control-line" required>
                                             <input type="hidden" name="fname-x" value='<?php echo $uxdata[0]["FNAME"]; ?>'>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Last Name"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Last Name"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="lname" value="<?php echo $uxdata[0]["LNAME"]; ?>" class="form-control form-control-line" required>
                                             <input type="hidden" name="lname-x" value='<?php echo $uxdata[0]["LNAME"]; ?>'>
                                         </div>
                                     </div>
                                     <div class="form-group" style="overflow: visible;">
-                                        <label class="col-md-12"><?php echo _("SSH Access"); ?></label>
+                                        <label class="col-md-12"><?php echo __("SSH Access"); ?></label>
                                         <div class="col-md-12">
                                             <select class="form-control select2" name="ssh" id="sshselect">
                                                 <option value="bash">bash</option>
@@ -296,24 +296,24 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Default Nameservers"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Default Nameservers"); ?></label>
                                         <div class="col-md-12">
 
                                             <div><input type="text" value="<?php print_r(explode(',', ($uxdata[0]['NS']))[0]); ?>" class="form-control form-control-line" name="ns1" id="ns1x" required><br></div>
 
-                                            <div><input type="text" value="<?php print_r(explode(',', ($uxdata[0]['NS']))[1]); ?>" class="form-control form-control-line" name="ns2" id="ns2x" required><br><div id="ns2wrapper"><a style="cursor:pointer;" id="addmore" onclick="add1();"><?php echo _("Add One"); ?></a></div></div>
+                                            <div><input type="text" value="<?php print_r(explode(',', ($uxdata[0]['NS']))[1]); ?>" class="form-control form-control-line" name="ns2" id="ns2x" required><br><div id="ns2wrapper"><a style="cursor:pointer;" id="addmore" onclick="add1();"><?php echo __("Add One"); ?></a></div></div>
 
-                                            <div id="ns3" style="display:<?php if(explode(',', ($uxdata[0]['NS']))[2] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($uxdata[0]['NS']))[2]); ?>" class="form-control form-control-line" name="ns3" id="ns3x"><br><div id="ns3wrapper"><a style="cursor:pointer;" id="addmore1" onclick="add2();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove1" onclick="rem2();"><?php echo _("Remove One"); ?></a></div></div>
+                                            <div id="ns3" style="display:<?php if(explode(',', ($uxdata[0]['NS']))[2] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($uxdata[0]['NS']))[2]); ?>" class="form-control form-control-line" name="ns3" id="ns3x"><br><div id="ns3wrapper"><a style="cursor:pointer;" id="addmore1" onclick="add2();"><?php echo __("Add One"); ?></a> / <a style="cursor:pointer;" id="remove1" onclick="rem2();"><?php echo __("Remove One"); ?></a></div></div>
 
-                                            <div id="ns4" style="display:<?php if(explode(',', ($uxdata[0]['NS']))[3] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($uxdata[0]['NS']))[3]); ?>" class="form-control form-control-line" name="ns4" id="ns4x"><br><div id="ns4wrapper"><a style="cursor:pointer;" id="addmore2" onclick="add3();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove2" onclick="rem3();"><?php echo _("Remove One"); ?></a></div></div>
+                                            <div id="ns4" style="display:<?php if(explode(',', ($uxdata[0]['NS']))[3] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($uxdata[0]['NS']))[3]); ?>" class="form-control form-control-line" name="ns4" id="ns4x"><br><div id="ns4wrapper"><a style="cursor:pointer;" id="addmore2" onclick="add3();"><?php echo __("Add One"); ?></a> / <a style="cursor:pointer;" id="remove2" onclick="rem3();"><?php echo __("Remove One"); ?></a></div></div>
 
-                                            <div id="ns5" style="display:<?php if(explode(',', ($uxdata[0]['NS']))[4] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($uxdata[0]['NS']))[4]); ?>" class="form-control form-control-line" name="ns5" id="ns5x"><br><div id="ns5wrapper"><a style="cursor:pointer;" id="addmore3" onclick="add4();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove3" onclick="rem4();"><?php echo _("Remove One"); ?></a></div></div>
+                                            <div id="ns5" style="display:<?php if(explode(',', ($uxdata[0]['NS']))[4] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($uxdata[0]['NS']))[4]); ?>" class="form-control form-control-line" name="ns5" id="ns5x"><br><div id="ns5wrapper"><a style="cursor:pointer;" id="addmore3" onclick="add4();"><?php echo __("Add One"); ?></a> / <a style="cursor:pointer;" id="remove3" onclick="rem4();"><?php echo __("Remove One"); ?></a></div></div>
 
-                                            <div id="ns6" style="display:<?php if(explode(',', ($uxdata[0]['NS']))[5] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($uxdata[0]['NS']))[5]); ?>" class="form-control form-control-line" name="ns6" id="ns6x"><br><div id="ns6wrapper"><a style="cursor:pointer;" id="addmore4" onclick="add5();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove4" onclick="rem5();"><?php echo _("Remove One"); ?></a></div></div>
+                                            <div id="ns6" style="display:<?php if(explode(',', ($uxdata[0]['NS']))[5] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($uxdata[0]['NS']))[5]); ?>" class="form-control form-control-line" name="ns6" id="ns6x"><br><div id="ns6wrapper"><a style="cursor:pointer;" id="addmore4" onclick="add5();"><?php echo __("Add One"); ?></a> / <a style="cursor:pointer;" id="remove4" onclick="rem5();"><?php echo __("Remove One"); ?></a></div></div>
 
-                                            <div id="ns7" style="display:<?php if(explode(',', ($uxdata[0]['NS']))[6] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($uxdata[0]['NS']))[6]); ?>" class="form-control form-control-line" name="ns7" id="ns7x"><br><div id="ns7wrapper"><a style="cursor:pointer;" id="addmore5" onclick="add6();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove5" onclick="rem6();"><?php echo _("Remove One"); ?></a></div></div>
+                                            <div id="ns7" style="display:<?php if(explode(',', ($uxdata[0]['NS']))[6] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($uxdata[0]['NS']))[6]); ?>" class="form-control form-control-line" name="ns7" id="ns7x"><br><div id="ns7wrapper"><a style="cursor:pointer;" id="addmore5" onclick="add6();"><?php echo __("Add One"); ?></a> / <a style="cursor:pointer;" id="remove5" onclick="rem6();"><?php echo __("Remove One"); ?></a></div></div>
 
-                                            <div id="ns8" style="display:<?php if(explode(',', ($uxdata[0]['NS']))[7] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($uxdata[0]['NS']))[7]); ?>" class="form-control form-control-line" name="ns8" id="ns8x"><br><div id="ns8wrapper"><a style="cursor:pointer;" id="remove6" onclick="rem7();"><?php echo _("Remove One"); ?></a></div></div>
+                                            <div id="ns8" style="display:<?php if(explode(',', ($uxdata[0]['NS']))[7] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($uxdata[0]['NS']))[7]); ?>" class="form-control form-control-line" name="ns8" id="ns8x"><br><div id="ns8wrapper"><a style="cursor:pointer;" id="remove6" onclick="rem7();"><?php echo __("Remove One"); ?></a></div></div>
                                         </div>
                                         <input type="hidden" name="ns1-x" value='<?php echo explode(',', ($uxdata[0]['NS']))[0]; ?>'>
                                         <input type="hidden" name="ns2-x" value='<?php echo explode(',', ($uxdata[0]['NS']))[1]; ?>'>
@@ -326,8 +326,8 @@ foreach ($plugins as $result) {
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" type="submit"><?php echo _("Update User"); ?></button> &nbsp;
-                                            <a href="../list/users.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
+                                            <button class="btn btn-success" type="submit"><?php echo __("Update User"); ?></button> &nbsp;
+                                            <a href="../list/users.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo __("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </form>
@@ -390,7 +390,7 @@ foreach ($plugins as $result) {
             });
             function processLoader(){
                 swal({
-                    title: '<?php echo _("Processing"); ?>',
+                    title: '<?php echo __("Processing"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()
@@ -398,7 +398,7 @@ foreach ($plugins as $result) {
                 })};
             function loadLoader(){
                 swal({
-                    title: '<?php echo _("Loading"); ?>',
+                    title: '<?php echo __("Loading"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()

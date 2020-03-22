@@ -61,9 +61,9 @@ $statsname = array_keys(json_decode(curl_exec($curl1), true));
 $statsdata = array_values(json_decode(curl_exec($curl1), true));
 $sysusers = array_keys(json_decode(curl_exec($curl2), true));
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
-bindtextdomain('messages', '../../locale');
-textdomain('messages');
+_setlocale(LC_CTYPE, $locale); _setlocale(LC_MESSAGES, $locale);
+_bindtextdomain('messages', '../../locale');
+_textdomain('messages');
 
 foreach ($plugins as $result) {
     if (file_exists('../../plugins/' . $result)) {
@@ -93,7 +93,7 @@ foreach ($plugins as $result) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/ico" href="../../plugins/images/<?php echo $cpfavicon; ?>">
-        <title><?php echo $sitetitle; ?> - <?php echo _("Stats"); ?></title>
+        <title><?php echo $sitetitle; ?> - <?php echo __("Stats"); ?></title>
         <link href="../../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href='../../plugins/components/bootstrap-select/css/bootstrap-select.min.css' rel="stylesheet">
         <link href="../../plugins/components/footable/footable.bootstrap.css" rel="stylesheet">
@@ -152,7 +152,7 @@ foreach ($plugins as $result) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="../../process/search.php" method="get">
-                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo __("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -165,10 +165,10 @@ foreach ($plugins as $result) {
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
-                                <li><a href="../../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
+                                <li><a href="../../profile.php"><i class="ti-home"></i> <?php echo __("My Account"); ?></a></li>
+                                <li><a href="../../profile.php?settings=open"><i class="ti-settings"></i> <?php echo __("Account Settings"); ?></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
+                                <li><a href="../../process/logout.php"><i class="fa fa-power-off"></i> <?php echo __("Logout"); ?></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -182,7 +182,7 @@ foreach ($plugins as $result) {
                                 <i class="ti-menu hidden-xs"></i>
                                 <i class="ti-close visible-xs"></i>
                             </span> 
-                            <span class="hide-menu"><?php echo _("Navigation"); ?></span>
+                            <span class="hide-menu"><?php echo __("Navigation"); ?></span>
                         </h3>  
                     </div>
                     <ul class="nav" id="side-menu">
@@ -198,7 +198,7 @@ foreach ($plugins as $result) {
                 <div class="container-fluid">
                     <div class="row bg-title" style="overflow:visible;">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title"><?php echo _("User Stats"); ?></h4> 
+                            <h4 class="page-title"><?php echo __("User Stats"); ?></h4> 
                         </div>
                         <?php if($username == 'admin'){ echo 
                             '<div class="col-lg-2 col-sm-8 col-md-8 col-xs-12 pull-right">
@@ -227,17 +227,17 @@ foreach ($plugins as $result) {
                                 <table class="table footable m-b-0"  data-sorting="true">
                                     <thead>
                                         <tr>
-                                            <th data-type="date" data-format-string="MMMM YYYY" data-sorted="true" data-direction="DESC"> <?php echo _("Date"); ?> </th>
-                                            <th data-sortable="false"> <?php echo _("Bandwidth"); ?> </th>
-                                            <th data-sortable="false"> <?php echo _("Disk"); ?> </th>
-                                            <th data-breakpoints="all"><?php echo _("Disk"); ?></th>
-                                            <th data-breakpoints="all"><?php echo _("Web"); ?></th>
-                                            <th data-breakpoints="all"><?php echo _("DNS"); ?></th>
-                                            <th data-breakpoints="all"><?php echo _("Mail"); ?></th>
-                                            <th data-breakpoints="all"><?php echo _("Databases"); ?></th>
-                                            <th data-breakpoints="all"><?php echo _("Cron Jobs"); ?></th>
-                                            <th data-breakpoints="all"><?php echo _("IP Addresses"); ?></th>
-                                            <th data-breakpoints="all"><?php echo _("Backups"); ?></th>
+                                            <th data-type="date" data-format-string="MMMM YYYY" data-sorted="true" data-direction="DESC"> <?php echo __("Date"); ?> </th>
+                                            <th data-sortable="false"> <?php echo __("Bandwidth"); ?> </th>
+                                            <th data-sortable="false"> <?php echo __("Disk"); ?> </th>
+                                            <th data-breakpoints="all"><?php echo __("Disk"); ?></th>
+                                            <th data-breakpoints="all"><?php echo __("Web"); ?></th>
+                                            <th data-breakpoints="all"><?php echo __("DNS"); ?></th>
+                                            <th data-breakpoints="all"><?php echo __("Mail"); ?></th>
+                                            <th data-breakpoints="all"><?php echo __("Databases"); ?></th>
+                                            <th data-breakpoints="all"><?php echo __("Cron Jobs"); ?></th>
+                                            <th data-breakpoints="all"><?php echo __("IP Addresses"); ?></th>
+                                            <th data-breakpoints="all"><?php echo __("Backups"); ?></th>
                                         </tr>
                                     </thead>
                                     <tbody>

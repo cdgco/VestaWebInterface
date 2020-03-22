@@ -54,9 +54,9 @@ $useremail = $admindata['CONTACT'];
 $dbname = array_keys(json_decode(curl_exec($curl1), true));
 $dbdata = array_values(json_decode(curl_exec($curl1), true));
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
-bindtextdomain('messages', '../locale');
-textdomain('messages');
+_setlocale(LC_CTYPE, $locale); _setlocale(LC_MESSAGES, $locale);
+_bindtextdomain('messages', '../locale');
+_textdomain('messages');
 
 foreach ($plugins as $result) {
     if (file_exists('../plugins/' . $result)) {
@@ -86,7 +86,7 @@ foreach ($plugins as $result) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/ico" href="../plugins/images/<?php echo $cpfavicon; ?>">
-        <title><?php echo $sitetitle; ?> - <?php echo _("Databases"); ?></title>
+        <title><?php echo $sitetitle; ?> - <?php echo __("Databases"); ?></title>
         <link href="../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../plugins/components/footable/footable.bootstrap.css" rel="stylesheet">
         <link href="../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
@@ -139,7 +139,7 @@ foreach ($plugins as $result) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="../process/search.php" method="get">
-                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo __("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -153,10 +153,10 @@ foreach ($plugins as $result) {
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
-                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
+                                <li><a href="../profile.php"><i class="ti-home"></i> <?php echo __("My Account"); ?></a></li>
+                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo __("Account Settings"); ?></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
+                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo __("Logout"); ?></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -170,7 +170,7 @@ foreach ($plugins as $result) {
                                 <i class="ti-menu hidden-xs"></i>
                                 <i class="ti-close visible-xs"></i>
                             </span> 
-                            <span class="hide-menu"><?php echo _("Navigation"); ?></span>
+                            <span class="hide-menu"><?php echo __("Navigation"); ?></span>
                         </h3>  
                     </div>
                     <ul class="nav" id="side-menu">
@@ -186,7 +186,7 @@ foreach ($plugins as $result) {
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title"><?php echo _("Manage Databases"); ?></h4> </div>
+                            <h4 class="page-title"><?php echo __("Manage Databases"); ?></h4> </div>
                     </div>
                     <div class="row restwo">
                         <div class="col-lg-6 col-md-6 col-sm-12">
@@ -194,7 +194,7 @@ foreach ($plugins as $result) {
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">
                                         <div class="panel-heading">
-                                            <center><?php echo _("DATABASES"); ?></center>
+                                            <center><?php echo __("DATABASES"); ?></center>
                                         </div>
                                         <div class="panel-body">
                                             <center><h2><?php print_r($admindata['U_DATABASES']); ?></h2></center>
@@ -209,7 +209,7 @@ foreach ($plugins as $result) {
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">
                                         <div class="panel-heading">
-                                            <center><?php echo _("SUSPENDED"); ?></center>
+                                            <center><?php echo __("SUSPENDED"); ?></center>
                                         </div>
                                         <div class="panel-body">
                                             <center><h2><?php print_r($admindata['SUSPENDED_DB']); ?></h2></center>
@@ -223,23 +223,23 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box"> <ul class="side-icon-text pull-right">
-                                <li><a href="../add/db.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span class="resfour"><wrapper class="restwo"><?php echo _("Add "); ?></wrapper><?php echo _("Database"); ?></span></a></li>
+                                <li><a href="../add/db.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span class="resfour"><wrapper class="restwo"><?php echo __("Add "); ?></wrapper><?php echo __("Database"); ?></span></a></li>
                                 <?php if($phpmyadmin != '') { echo '<li class="restwo"><a href="' . $phpmyadmin .'" target="_blank"><span class="circle circle-sm bg-warning di"><i class="fa fa-database"></i></span><span>' . _("phpMyAdmin") . '</span></a></li>';} if($phppgadmin != '') { echo '<li class="restwo"><a href="' . $phppgadmin .'" target="_blank"><span class="circle circle-sm bg-purple di"><i class="fa fa-database"></i></span><span>' . _("phpPgAdmin") . '</span></a></li>';} ?>
                                 </ul>
-                                <h3 class="box-title m-b-0"><?php echo _("Databases"); ?></h3><br>
+                                <h3 class="box-title m-b-0"><?php echo __("Databases"); ?></h3><br>
                                 <div class="table-responsive">
                                 <table class="table footable m-b-0" data-sorting="true">
                                     <thead>
                                         <tr>
-                                            <th data-toggle="true"> <?php echo _("Database"); ?> </th>
-                                            <th> <?php echo _("Username"); ?> </th>
-                                            <th class="restwo" data-type="numeric"> <?php echo _("Disk Usage"); ?> </th>
-                                            <th class="restwo"> <?php echo _("Status"); ?> </th>
-                                            <th class="restwo" data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo _("Created"); ?> </th>
-                                            <th data-sortable="false"> <?php echo _("Action"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("Host"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("Type"); ?> </th>
-                                            <th data-breakpoints="all"> <?php echo _("Character Set"); ?> </th>
+                                            <th data-toggle="true"> <?php echo __("Database"); ?> </th>
+                                            <th> <?php echo __("Username"); ?> </th>
+                                            <th class="restwo" data-type="numeric"> <?php echo __("Disk Usage"); ?> </th>
+                                            <th class="restwo"> <?php echo __("Status"); ?> </th>
+                                            <th class="restwo" data-type="date" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo __("Created"); ?> </th>
+                                            <th data-sortable="false"> <?php echo __("Action"); ?> </th>
+                                            <th data-breakpoints="all"> <?php echo __("Host"); ?> </th>
+                                            <th data-breakpoints="all"> <?php echo __("Type"); ?> </th>
+                                            <th data-breakpoints="all"> <?php echo __("Character Set"); ?> </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -306,17 +306,17 @@ foreach ($plugins as $result) {
             function confirmDelete(e){
                 e1 = String(e)
                 Swal({
-                  title: '<?php echo _("Delete Database"); ?>:<br> ' + e1 +' ?',
-                  text: "<?php echo _("You won't be able to revert this!"); ?>",
+                  title: '<?php echo __("Delete Database"); ?>:<br> ' + e1 +' ?',
+                  text: "<?php echo __("You won't be able to revert this!"); ?>",
                   type: 'warning',
                   showCancelButton: true,
                   confirmButtonColor: '#3085d6',
                   cancelButtonColor: '#d33',
-                  confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
+                  confirmButtonText: '<?php echo __("Yes, delete it!"); ?>'
                 }).then((result) => {
                   if (result.value) {
                     swal({
-                        title: '<?php echo _("Processing"); ?>',
+                        title: '<?php echo __("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()
@@ -328,16 +328,16 @@ foreach ($plugins as $result) {
             function confirmSuspend(f){
                 f1 = String(f)
                 Swal({
-                  title: '<?php echo _("Suspend Database"); ?>:<br> ' + f1 +' ?',
+                  title: '<?php echo __("Suspend Database"); ?>:<br> ' + f1 +' ?',
                   type: 'warning',
                   showCancelButton: true,
                   confirmButtonColor: '#3085d6',
                   cancelButtonColor: '#d33',
-                  confirmButtonText: '<?php echo _("Confirm"); ?>'
+                  confirmButtonText: '<?php echo __("Confirm"); ?>'
                 }).then((result) => {
                   if (result.value) {
                     swal({
-                        title: '<?php echo _("Processing"); ?>',
+                        title: '<?php echo __("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()
@@ -349,16 +349,16 @@ foreach ($plugins as $result) {
             function confirmUnsuspend(f2){
                 f2 = String(f2)
                 Swal({
-                  title: '<?php echo _("Unsuspend Database"); ?>:<br> ' + f2 +' ?',
+                  title: '<?php echo __("Unsuspend Database"); ?>:<br> ' + f2 +' ?',
                   type: 'warning',
                   showCancelButton: true,
                   confirmButtonColor: '#3085d6',
                   cancelButtonColor: '#d33',
-                  confirmButtonText: '<?php echo _("Confirm"); ?>'
+                  confirmButtonText: '<?php echo __("Confirm"); ?>'
                 }).then((result) => {
                   if (result.value) {
                     swal({
-                        title: '<?php echo _("Processing"); ?>',
+                        title: '<?php echo __("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()

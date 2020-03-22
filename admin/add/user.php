@@ -56,9 +56,9 @@ $admindata = json_decode(curl_exec($curl0), true)[$username];
 $packname = array_keys(json_decode(curl_exec($curl1), true));
 $useremail = $admindata['CONTACT'];
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
-bindtextdomain('messages', '../../locale');
-textdomain('messages');
+_setlocale(LC_CTYPE, $locale); _setlocale(LC_MESSAGES, $locale);
+_bindtextdomain('messages', '../../locale');
+_textdomain('messages');
 
 foreach ($plugins as $result) {
     if (file_exists('../../plugins/' . $result)) {
@@ -88,7 +88,7 @@ foreach ($plugins as $result) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/ico" href="../../plugins/images/<?php echo $cpfavicon; ?>">
-        <title><?php echo $sitetitle; ?> - <?php echo _("Users"); ?></title>
+        <title><?php echo $sitetitle; ?> - <?php echo __("Users"); ?></title>
         <link href="../../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../../plugins/components/select2/select2.min.css" rel="stylesheet">
@@ -127,7 +127,7 @@ foreach ($plugins as $result) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="../../process/search.php" method="get">
-                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo __("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -141,10 +141,10 @@ foreach ($plugins as $result) {
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
-                                <li><a href="../../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
+                                <li><a href="../../profile.php"><i class="ti-home"></i> <?php echo __("My Account"); ?></a></li>
+                                <li><a href="../../profile.php?settings=open"><i class="ti-settings"></i> <?php echo __("Account Settings"); ?></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
+                                <li><a href="../../process/logout.php"><i class="fa fa-power-off"></i> <?php echo __("Logout"); ?></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -158,7 +158,7 @@ foreach ($plugins as $result) {
                                 <i class="ti-menu hidden-xs"></i>
                                 <i class="ti-close visible-xs"></i>
                             </span> 
-                            <span class="hide-menu"><?php echo _("Navigation"); ?></span>
+                            <span class="hide-menu"><?php echo __("Navigation"); ?></span>
                         </h3>  
                     </div>
                     <ul class="nav" id="side-menu">
@@ -174,7 +174,7 @@ foreach ($plugins as $result) {
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title"><?php echo _("Add User"); ?></h4>
+                            <h4 class="page-title"><?php echo __("Add User"); ?></h4>
                         </div>
                     </div>
                     <div class="row">
@@ -182,26 +182,26 @@ foreach ($plugins as $result) {
                             <div class="white-box">
                                 <form class="form-horizontal form-material" autocomplete="off" method="post" id="form" action="../create/user.php">
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Username"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Username"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="user" autocomplete="new-password" class="form-control form-control-line" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="password" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10)"> <?php echo _("Generate"); ?></a></label>
+                                        <label for="password" class="col-md-12"><?php echo __("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10)"> <?php echo __("Generate"); ?></a></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
                                             <input type="password" style="padding-left: 0.5%;" autocomplete="new-password" class="form-control form-control-line" name="password" id="password" required>                                    <span class="input-group-btn"> 
                                             <button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler(this)" id="tg" type="button"><i class="ti-eye"></i></button> 
                                             </span>  </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Email"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Email"); ?></label>
                                         <div class="col-md-12">
                                             <input type="email" name="email" autocomplete="new-password" class="form-control form-control-line" required>
                                         </div>
                                     </div>
                                     <div class="form-group" style="overflow: visible;">
-                                        <label class="col-md-12"><?php echo _("Package"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Package"); ?></label>
                                         <div class="col-md-12">
                                             <select class="form-control select2" name="package">
                                                 <?php
@@ -218,21 +218,21 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("First Name"); ?></label>
+                                        <label class="col-md-12"><?php echo __("First Name"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="fname" autocomplete="new-password" class="form-control form-control-line" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Last Name"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Last Name"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="lname" autocomplete="new-password" class="form-control form-control-line" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" type="submit"><?php echo _("Add User"); ?></button> &nbsp;
-                                            <a href="../list/users.php" onclick="loadLoader();" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
+                                            <button class="btn btn-success" type="submit"><?php echo __("Add User"); ?></button> &nbsp;
+                                            <a href="../list/users.php" onclick="loadLoader();" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button"><?php echo __("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </form>
@@ -292,7 +292,7 @@ foreach ($plugins as $result) {
             });
             function processLoader(){
                 swal({
-                    title: '<?php echo _("Processing"); ?>',
+                    title: '<?php echo __("Processing"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()
@@ -300,7 +300,7 @@ foreach ($plugins as $result) {
                 })};
             function loadLoader(){
                 swal({
-                    title: '<?php echo _("Loading"); ?>',
+                    title: '<?php echo __("Loading"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()

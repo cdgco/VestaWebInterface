@@ -50,9 +50,9 @@ while($curlstart <= 0) {
 $admindata = json_decode(curl_exec($curl0), true)[$username];
 $useremail = $admindata['CONTACT'];
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
-bindtextdomain('messages', '../locale');
-textdomain('messages');
+_setlocale(LC_CTYPE, $locale); _setlocale(LC_MESSAGES, $locale);
+_bindtextdomain('messages', '../locale');
+_textdomain('messages');
 
 foreach ($plugins as $result) {
     if (file_exists('../plugins/' . $result)) {
@@ -82,7 +82,7 @@ foreach ($plugins as $result) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/ico" href="../plugins/images/<?php echo $cpfavicon; ?>">
-        <title><?php echo $sitetitle; ?> - <?php echo _("Cron Jobs"); ?></title>
+        <title><?php echo $sitetitle; ?> - <?php echo __("Cron Jobs"); ?></title>
         <link href="../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../plugins/components/select2/select2.min.css" rel="stylesheet">
@@ -126,7 +126,7 @@ foreach ($plugins as $result) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="../process/search.php" method="get">
-                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo __("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -139,10 +139,10 @@ foreach ($plugins as $result) {
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
-                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
+                                <li><a href="../profile.php"><i class="ti-home"></i> <?php echo __("My Account"); ?></a></li>
+                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo __("Account Settings"); ?></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
+                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo __("Logout"); ?></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -156,7 +156,7 @@ foreach ($plugins as $result) {
                                 <i class="ti-menu hidden-xs"></i>
                                 <i class="ti-close visible-xs"></i>
                             </span> 
-                            <span class="hide-menu"><?php echo _("Navigation"); ?></span>
+                            <span class="hide-menu"><?php echo __("Navigation"); ?></span>
                         </h3>  
                     </div>
                     <ul class="nav" id="side-menu">
@@ -172,7 +172,7 @@ foreach ($plugins as $result) {
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-12 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title"><?php echo _("Add Cron Job"); ?></h4>
+                            <h4 class="page-title"><?php echo __("Add Cron Job"); ?></h4>
                         </div>
                     </div>
                     <div class="row">
@@ -180,7 +180,7 @@ foreach ($plugins as $result) {
                             <div class="col-md-12 col-xs-12">
                                 <div class="white-box">
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Command"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Command"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" form="vstobjects" name="v_cmd" class="form-control" required> 
                                         </div>
@@ -194,39 +194,39 @@ foreach ($plugins as $result) {
                             <div class="col-md-8 col-xs-12">
                                 <div class="white-box">
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Minute"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Minute"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="v_min" class="form-control" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Hour"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Hour"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="v_hour" class="form-control" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Day"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Day"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="v_day" class="form-control" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Month"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Month"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="v_month" class="form-control" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Day of Week"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Day of Week"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="v_wday" class="form-control" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" type="submit"><?php echo _("Add Cron"); ?></button> &nbsp;
-                                            <a href="../list/cron.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
+                                            <button class="btn btn-success" type="submit"><?php echo __("Add Cron"); ?></button> &nbsp;
+                                            <a href="../list/cron.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo __("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </div>
@@ -236,35 +236,35 @@ foreach ($plugins as $result) {
                                 <div> 
                                     <center>
                                         <h3>
-                                            <?php echo _("Cron Generator"); ?>
+                                            <?php echo __("Cron Generator"); ?>
                                         </h3>
                                     </center><br>
                                     <div class="overlay-box" style="background: #fff;">
                                         <ul class="nav nav-tabs">
-                                            <li class="active"><a  href="#1" data-toggle="tab"><?php echo _("Minutes"); ?></a>
+                                            <li class="active"><a  href="#1" data-toggle="tab"><?php echo __("Minutes"); ?></a>
                                             </li>
-                                            <li><a href="#2" data-toggle="tab"><?php echo _("Hourly"); ?></a>
+                                            <li><a href="#2" data-toggle="tab"><?php echo __("Hourly"); ?></a>
                                             </li>
-                                            <li><a href="#3" data-toggle="tab"><?php echo _("Daily"); ?></a>
+                                            <li><a href="#3" data-toggle="tab"><?php echo __("Daily"); ?></a>
                                             </li>
-                                            <li><a href="#4" data-toggle="tab"><?php echo _("Weekly"); ?></a>
+                                            <li><a href="#4" data-toggle="tab"><?php echo __("Weekly"); ?></a>
                                             </li>
-                                            <li><a href="#5" data-toggle="tab"><?php echo _("Monthly"); ?></a>
+                                            <li><a href="#5" data-toggle="tab"><?php echo __("Monthly"); ?></a>
                                             </li>
                                         </ul>
                                         <div class="tab-content  generator">
                                             <div class="tab-pane active" id="1">
                                                 <form class="form-horizontal form-material" autocomplete="off" action="javascript:void(0);">
                                                     <div class="form-group">
-                                                        <label class="col-md-12"><?php echo _("Run Command"); ?></label>
+                                                        <label class="col-md-12"><?php echo __("Run Command"); ?></label>
                                                         <div class="col-md-12">
                                                             <select class="form-control select2" name="h_min" >
-                                                                <option value="*" selected="selected"><?php echo _("every minute"); ?></option>
-                                                                <option value="*/2"><?php echo _("every two minutes"); ?></option>
-                                                                <option value="*/5"><?php echo _("every"); ?> 5</option>
-                                                                <option value="*/10"><?php echo _("every"); ?> 10</option>
-                                                                <option value="*/15"><?php echo _("every"); ?> 15</option>
-                                                                <option value="*/30"><?php echo _("every"); ?> 30</option>
+                                                                <option value="*" selected="selected"><?php echo __("every minute"); ?></option>
+                                                                <option value="*/2"><?php echo __("every two minutes"); ?></option>
+                                                                <option value="*/5"><?php echo __("every"); ?> 5</option>
+                                                                <option value="*/10"><?php echo __("every"); ?> 10</option>
+                                                                <option value="*/15"><?php echo __("every"); ?> 15</option>
+                                                                <option value="*/30"><?php echo __("every"); ?> 30</option>
                                                             </select>
                                                             <input type="hidden" name="h_hour" value="*">
                                                             <input type="hidden" name="h_day" value="*">
@@ -274,7 +274,7 @@ foreach ($plugins as $result) {
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-sm-12">
-                                                            <button class="btn btn-success"><?php echo _("Generate"); ?></button>
+                                                            <button class="btn btn-success"><?php echo __("Generate"); ?></button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -288,15 +288,15 @@ foreach ($plugins as $result) {
                                                         <label class="col-md-12">Run Command</label>
                                                         <div class="col-md-12">
                                                             <select class="form-control select2" name="h_hour">
-                                                                <option value="*" selected="selected"><?php echo _("every hour"); ?></option>
-                                                                <option value="*/2"><?php echo _("every two hours"); ?></option>
-                                                                <option value="*/6"><?php echo _("every"); ?> 6</option>
-                                                                <option value="*/12"><?php echo _("every"); ?> 12</option>
+                                                                <option value="*" selected="selected"><?php echo __("every hour"); ?></option>
+                                                                <option value="*/2"><?php echo __("every two hours"); ?></option>
+                                                                <option value="*/6"><?php echo __("every"); ?> 6</option>
+                                                                <option value="*/12"><?php echo __("every"); ?> 12</option>
                                                             </select>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-md-12"><?php echo _("Minute"); ?></label>
+                                                        <label class="col-md-12"><?php echo __("Minute"); ?></label>
                                                         <div class="col-md-12">
                                                             <select class="form-control select2" name="h_min">
                                                                 <option value="0" selected="selected">00</option>
@@ -308,7 +308,7 @@ foreach ($plugins as $result) {
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-sm-12">
-                                                            <button class="btn btn-success"><?php echo _("Generate"); ?></button>
+                                                            <button class="btn btn-success"><?php echo __("Generate"); ?></button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -318,22 +318,22 @@ foreach ($plugins as $result) {
                                                     <input type="hidden" name="h_month" value="*">
                                                     <input type="hidden" name="h_wday" value="*">
                                                     <div class="form-group">
-                                                        <label class="col-md-12"><?php echo _("Run Command"); ?></label>
+                                                        <label class="col-md-12"><?php echo __("Run Command"); ?></label>
                                                         <div class="col-md-12">
                                                             <select class="form-control select2" name="h_day">
-                                                                <option value="*" selected="selected"><?php echo _("every day"); ?></option>
-                                                                <option value="1-31/2"><?php echo _("every odd day"); ?></option>
-                                                                <option value="*/2"><?php echo _("every even day"); ?></option>
-                                                                <option value="*/3"><?php echo _("every"); ?> 3</option>
-                                                                <option value="*/5"><?php echo _("every"); ?> 5</option>
-                                                                <option value="*/10"><?php echo _("every"); ?> 10</option>
-                                                                <option value="*/15"><?php echo _("every"); ?> 15</option>
+                                                                <option value="*" selected="selected"><?php echo __("every day"); ?></option>
+                                                                <option value="1-31/2"><?php echo __("every odd day"); ?></option>
+                                                                <option value="*/2"><?php echo __("every even day"); ?></option>
+                                                                <option value="*/3"><?php echo __("every"); ?> 3</option>
+                                                                <option value="*/5"><?php echo __("every"); ?> 5</option>
+                                                                <option value="*/10"><?php echo __("every"); ?> 10</option>
+                                                                <option value="*/15"><?php echo __("every"); ?> 15</option>
                                                             </select>
                                                         </div>
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label class="col-sm-6 pull-left"><?php echo _("Hour"); ?></label><label class="col-sm-6 pull-right"><?php echo _("Minute"); ?></label>
+                                                        <label class="col-sm-6 pull-left"><?php echo __("Hour"); ?></label><label class="col-sm-6 pull-right"><?php echo __("Minute"); ?></label>
                                                         <div class="col-sm-6 pull-left">
                                                             <select class="form-control select2" name="h_hour">
                                                                 <option value="0">00</option>
@@ -383,7 +383,7 @@ foreach ($plugins as $result) {
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-sm-12">
-                                                            <button class="btn btn-success"><?php echo _("Generate"); ?></button>
+                                                            <button class="btn btn-success"><?php echo __("Generate"); ?></button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -393,24 +393,24 @@ foreach ($plugins as $result) {
                                                     <input type="hidden" name="h_month" value="*">
                                                     <input type="hidden" name="h_day" value="*">
                                                     <div class="form-group">
-                                                        <label class="col-md-12"><?php echo _("Run Command"); ?></label>
+                                                        <label class="col-md-12"><?php echo __("Run Command"); ?></label>
                                                         <div class="col-md-12">
                                                             <select class="form-control select2" name="h_wday">
-                                                                <option value="*" selected="selected"><?php echo _("every day"); ?></option>
-                                                                <option value="1,2,3,4,5"><?php echo _("weekdays (5 days)"); ?></option>
-                                                                <option value="0,6"><?php echo _("weekend (2 days)"); ?></option>
-                                                                <option value="1"><?php echo _("Monday"); ?></option>
-                                                                <option value="2"><?php echo _("Tuesday"); ?></option>
-                                                                <option value="3"><?php echo _("Wednesday"); ?></option>
-                                                                <option value="4"><?php echo _("Thursday"); ?></option>
-                                                                <option value="5"><?php echo _("Friday"); ?></option>
-                                                                <option value="6"><?php echo _("Saturday"); ?></option>
-                                                                <option value="0"><?php echo _("Sunday"); ?></option>
+                                                                <option value="*" selected="selected"><?php echo __("every day"); ?></option>
+                                                                <option value="1,2,3,4,5"><?php echo __("weekdays (5 days)"); ?></option>
+                                                                <option value="0,6"><?php echo __("weekend (2 days)"); ?></option>
+                                                                <option value="1"><?php echo __("Monday"); ?></option>
+                                                                <option value="2"><?php echo __("Tuesday"); ?></option>
+                                                                <option value="3"><?php echo __("Wednesday"); ?></option>
+                                                                <option value="4"><?php echo __("Thursday"); ?></option>
+                                                                <option value="5"><?php echo __("Friday"); ?></option>
+                                                                <option value="6"><?php echo __("Saturday"); ?></option>
+                                                                <option value="0"><?php echo __("Sunday"); ?></option>
                                                             </select>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-sm-6 pull-left"><?php echo _("Hour"); ?></label><label class="col-sm-6 pull-right"><?php echo _("Minute"); ?></label>
+                                                        <label class="col-sm-6 pull-left"><?php echo __("Hour"); ?></label><label class="col-sm-6 pull-right"><?php echo __("Minute"); ?></label>
                                                         <div class="col-sm-6 pull-left">
                                                             <select class="form-control select2" name="h_hour">
                                                                 <option value="0">00</option>
@@ -460,7 +460,7 @@ foreach ($plugins as $result) {
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-sm-12">
-                                                            <button class="btn btn-success"><?php echo _("Generate"); ?></button>
+                                                            <button class="btn btn-success"><?php echo __("Generate"); ?></button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -469,31 +469,31 @@ foreach ($plugins as $result) {
                                                 <form class="form-horizontal form-material" autocomplete="off" action="javascript:void(0);">
                                                     <input type="hidden" name="h_wday" value="*">
                                                     <div class="form-group">
-                                                        <label class="col-md-12"><?php echo _("Run Command"); ?></label>
+                                                        <label class="col-md-12"><?php echo __("Run Command"); ?></label>
                                                         <div class="col-md-12">
                                                             <select class="form-control select2" name="h_month">
-                                                                <option value="*" selected="selected"><?php echo _("every month"); ?></option>
-                                                                <option value="1-11/2"><?php echo _("every odd month"); ?></option>
-                                                                <option value="*/2"><?php echo _("every even month"); ?></option>
-                                                                <option value="*/3"><?php echo _("every"); ?> 3</option>
-                                                                <option value="*/6"><?php echo _("every"); ?> 6</option>
-                                                                <option value="1"><?php echo _("January"); ?></option>
-                                                                <option value="2"><?php echo _("February"); ?></option>
-                                                                <option value="3"><?php echo _("March"); ?></option>
-                                                                <option value="4"><?php echo _("April"); ?></option>
-                                                                <option value="5"><?php echo _("May"); ?></option>
-                                                                <option value="6"><?php echo _("June"); ?></option>
-                                                                <option value="7"><?php echo _("July"); ?></option>
-                                                                <option value="8"><?php echo _("August"); ?></option>
-                                                                <option value="9"><?php echo _("September"); ?></option>
-                                                                <option value="10"><?php echo _("October"); ?></option>
-                                                                <option value="11"><?php echo _("November"); ?></option>
-                                                                <option value="12"><?php echo _("December"); ?></option>
+                                                                <option value="*" selected="selected"><?php echo __("every month"); ?></option>
+                                                                <option value="1-11/2"><?php echo __("every odd month"); ?></option>
+                                                                <option value="*/2"><?php echo __("every even month"); ?></option>
+                                                                <option value="*/3"><?php echo __("every"); ?> 3</option>
+                                                                <option value="*/6"><?php echo __("every"); ?> 6</option>
+                                                                <option value="1"><?php echo __("January"); ?></option>
+                                                                <option value="2"><?php echo __("February"); ?></option>
+                                                                <option value="3"><?php echo __("March"); ?></option>
+                                                                <option value="4"><?php echo __("April"); ?></option>
+                                                                <option value="5"><?php echo __("May"); ?></option>
+                                                                <option value="6"><?php echo __("June"); ?></option>
+                                                                <option value="7"><?php echo __("July"); ?></option>
+                                                                <option value="8"><?php echo __("August"); ?></option>
+                                                                <option value="9"><?php echo __("September"); ?></option>
+                                                                <option value="10"><?php echo __("October"); ?></option>
+                                                                <option value="11"><?php echo __("November"); ?></option>
+                                                                <option value="12"><?php echo __("December"); ?></option>
                                                             </select>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-md-12"><?php echo _("Date"); ?></label>
+                                                        <label class="col-md-12"><?php echo __("Date"); ?></label>
                                                         <div class="col-md-12">
                                                             <select class="form-control select2" name="h_day">
                                                                 <option value="1" selected="selected">1</option>
@@ -531,7 +531,7 @@ foreach ($plugins as $result) {
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-sm-6 pull-left"><?php echo _("Hour"); ?></label><label class="col-sm-6 pull-right"><?php echo _("Minute"); ?></label>
+                                                        <label class="col-sm-6 pull-left"><?php echo __("Hour"); ?></label><label class="col-sm-6 pull-right"><?php echo __("Minute"); ?></label>
                                                         <div class="col-sm-6 pull-left">
                                                             <select class="form-control select2" name="h_hour">
                                                                 <option value="0">00</option>
@@ -581,7 +581,7 @@ foreach ($plugins as $result) {
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-sm-12">
-                                                            <button class="btn btn-success"><?php echo _("Generate"); ?></button>
+                                                            <button class="btn btn-success"><?php echo __("Generate"); ?></button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -638,7 +638,7 @@ foreach ($plugins as $result) {
             $('.select2').select2();
             function processLoader(){
                 swal({
-                    title: '<?php echo _("Processing"); ?>',
+                    title: '<?php echo __("Processing"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()
@@ -646,7 +646,7 @@ foreach ($plugins as $result) {
                 })};
             function loadLoader(){
                 swal({
-                    title: '<?php echo _("Loading"); ?>',
+                    title: '<?php echo __("Loading"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()

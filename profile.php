@@ -50,10 +50,10 @@ while($curlstart <= 0) {
 
 $admindata = json_decode(curl_exec($curl0), true)[$username];
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_CTYPE, $locale);
-setlocale(LC_MESSAGES, $locale);
-bindtextdomain('messages', 'locale');
-textdomain('messages');
+_setlocale(LC_CTYPE, $locale);
+_setlocale(LC_MESSAGES, $locale);
+_bindtextdomain('messages', 'locale');
+_textdomain('messages');
 
 foreach ($plugins as $result) {
     if (file_exists('plugins/' . $result)) {
@@ -83,7 +83,7 @@ foreach ($plugins as $result) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/ico" href="plugins/images/<?php echo $cpfavicon; ?>">
-        <title><?php echo $sitetitle; ?> - <?php echo _("Account"); ?></title>
+        <title><?php echo $sitetitle; ?> - <?php echo __("Account"); ?></title>
         <link href="plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="plugins/components/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet">
         <link href="plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
@@ -173,7 +173,7 @@ foreach ($plugins as $result) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="process/search.php" method="get">
-                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo __("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -191,10 +191,10 @@ foreach ($plugins as $result) {
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
-                                <li><a href="profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
+                                <li><a href="profile.php"><i class="ti-home"></i> <?php echo __("My Account"); ?></a></li>
+                                <li><a href="profile.php?settings=open"><i class="ti-settings"></i> <?php echo __("Account Settings"); ?></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
+                                <li><a href="process/logout.php"><i class="fa fa-power-off"></i> <?php echo __("Logout"); ?></a></li>
                             </ul>
                         </li>
 
@@ -209,7 +209,7 @@ foreach ($plugins as $result) {
                                 <i class="ti-menu hidden-xs"></i>
                                 <i class="ti-close visible-xs"></i>
                             </span> 
-                            <span class="hide-menu"><?php echo _("Navigation"); ?></span>
+                            <span class="hide-menu"><?php echo __("Navigation"); ?></span>
                         </h3>
                     </div>
                     <ul class="nav" id="side-menu">
@@ -221,9 +221,9 @@ foreach ($plugins as $result) {
                             <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> <?php print_r($displayname); ?><span class="fa arrow"></span></span>
                             </a>
                             <ul class="nav nav-second-level collapse" >
-                                <li> <a href="profile.php" id="profileactive"><i class="ti-home fa-fw <?php if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo 'text-inverse';} ?>"></i> <span style="<?php if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo 'color:#54667a;font-weight:300;';} ?>" class="hide-menu"> <?php echo _("My Account"); ?></span></a></li>
-                                <li> <a href="profile.php?settings=open" id="settingsactive"><i class="ti-settings fa-fw "></i> <span class="hide-menu"> <?php echo _("Account Settings"); ?></span></a></li>
-                                <li> <a href="log.php"><i class="ti-layout-list-post fa-fw"></i><span class="hide-menu"><?php echo _("Log"); ?></span></a> </li>
+                                <li> <a href="profile.php" id="profileactive"><i class="ti-home fa-fw <?php if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo 'text-inverse';} ?>"></i> <span style="<?php if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo 'color:#54667a;font-weight:300;';} ?>" class="hide-menu"> <?php echo __("My Account"); ?></span></a></li>
+                                <li> <a href="profile.php?settings=open" id="settingsactive"><i class="ti-settings fa-fw "></i> <span class="hide-menu"> <?php echo __("Account Settings"); ?></span></a></li>
+                                <li> <a href="log.php"><i class="ti-layout-list-post fa-fw"></i><span class="hide-menu"><?php echo __("Log"); ?></span></a> </li>
                             </ul>
                         </li>
                         <?php primaryMenu("list/", "process/", ""); ?>
@@ -234,7 +234,7 @@ foreach ($plugins as $result) {
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title"><?php echo _("My Account"); ?></h4> 
+                            <h4 class="page-title"><?php echo __("My Account"); ?></h4> 
                         </div>
                     </div>
                     <div class="row">
@@ -254,35 +254,35 @@ foreach ($plugins as $result) {
                             <div class="white-box">
                                 <ul class="nav nav-tabs tabs customtab">
                                     <li class="<?php if(!isset($_GET['settings']) || isset($_GET['settings']) && $_GET['settings'] != "open") { echo "active tab"; } else { echo "tab"; } ?>" >
-                                        <a href="profile.php"> <span class="visible-xs"><i class="fa fa-user"></i></span> <span class="hidden-xs"><?php echo _("Account"); ?></span> </a>
+                                        <a href="profile.php"> <span class="visible-xs"><i class="fa fa-user"></i></span> <span class="hidden-xs"><?php echo __("Account"); ?></span> </a>
                                     </li>
                                     <li class="<?php if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo "active tab"; } else { echo "tab"; } ?>">
-                                        <a href="profile.php?settings=open"> <span class="visible-xs"><i class="fa fa-cog"></i></span> <span class="hidden-xs"><?php echo _("Settings"); ?></span> </a>
+                                        <a href="profile.php?settings=open"> <span class="visible-xs"><i class="fa fa-cog"></i></span> <span class="hidden-xs"><?php echo __("Settings"); ?></span> </a>
                                     </li>
                                 </ul>
                                 <div class="tab-content ">
                                     <div class="tab-pane <?php if(!isset($_GET['settings']) || isset($_GET['settings']) && $_GET['settings'] != "open") { echo "active"; } ?>" id="profile">
                                         <div class="row">
-                                            <div class="col-md-3 col-xs-6 b-r"> <strong><?php echo _("Name"); ?></strong>
+                                            <div class="col-md-3 col-xs-6 b-r"> <strong><?php echo __("Name"); ?></strong>
                                                 <br>
                                                 <p class="text-muted"><?php print_r($admindata['FNAME'] . ' ' . $admindata['LNAME']); ?></p>
                                             </div>
-                                            <div class="col-md-3 col-xs-6 b-r"> <strong><?php echo _("Joined"); ?></strong>
+                                            <div class="col-md-3 col-xs-6 b-r"> <strong><?php echo __("Joined"); ?></strong>
                                                 <br>
                                                 <p class="text-muted"><?php $date=date_create($admindata['DATE'] . ' ' . $admindata['TIME']);
                                                     echo date_format($date,"F j, Y - g:i A"); ?></p>
                                             </div>
-                                            <div class="col-md-3 col-xs-6 b-r"> <strong><?php echo _("Plan"); ?></strong>
+                                            <div class="col-md-3 col-xs-6 b-r"> <strong><?php echo __("Plan"); ?></strong>
                                                 <br>
                                                 <p class="text-muted"><?php print_r(ucfirst($admindata['PACKAGE'])); ?></p>
                                             </div>
-                                            <div class="col-md-3 col-xs-6"> <strong><?php echo _("Language"); ?></strong>
+                                            <div class="col-md-3 col-xs-6"> <strong><?php echo __("Language"); ?></strong>
                                                 <br>
                                                 <p class="text-muted"><?php if($admindata['LANGUAGE'] == ""){echo "Not Set";} else{ print_r($countries[$admindata['LANGUAGE']]);} ?></p>
                                             </div>
                                         </div>
                                         <hr>
-                                        <strong><?php echo _("Nameservers"); ?>:</strong>
+                                        <strong><?php echo __("Nameservers"); ?>:</strong>
                                         <p class="m-t-30">
                                             <ul class="dashed">
                                         <?php 
@@ -315,13 +315,13 @@ foreach ($plugins as $result) {
                                         <input type="hidden" name="ns8-x" value="<?php print_r(explode(',', ($admindata['NS']))[7]); ?>"/>
 
                                         <div class="form-group">
-                                            <label for="username" class="col-md-12"><?php echo _("Username"); ?></label>
+                                            <label for="username" class="col-md-12"><?php echo __("Username"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="text" disabled value="<?php print_r($username); ?>" class="form-control form-control-line" name="username" id="username"> 
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="password" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10)"> <?php echo _("Generate"); ?></a></label>
+                                            <label for="password" class="col-md-12"><?php echo __("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10)"> <?php echo __("Generate"); ?></a></label>
                                             <div class="col-md-12 input-group" style="padding-left: 15px;">
                                                 <input type="password" class="form-control form-control-line" autocomplete="new-password" name="password" id="password">                                    <span class="input-group-btn"> 
                                                 <button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler(this)" id="tg" type="button"><i class="ti-eye"></i></button> 
@@ -329,25 +329,25 @@ foreach ($plugins as $result) {
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-12"><?php echo _("First Name"); ?></label>
+                                            <label class="col-sm-12"><?php echo __("First Name"); ?></label>
                                             <div class="col-sm-12">
                                                 <input type="text" name="fname" value="<?php print_r($admindata['FNAME']); ?>" class="form-control form-control-line"> 
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-12"><?php echo _("Last Name"); ?></label>
+                                            <label class="col-sm-12"><?php echo __("Last Name"); ?></label>
                                             <div class="col-sm-12">
                                                 <input type="text" name="lname" value="<?php print_r($admindata['LNAME']); ?>" class="form-control form-control-line"> 
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="email" class="col-md-12"><?php echo _("Email"); ?></label>
+                                            <label for="email" class="col-md-12"><?php echo __("Email"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="email" value="<?php print_r($admindata['CONTACT']); ?>" class="form-control form-control-line" name="email" id="email"> 
                                             </div>
                                         </div>
                                         <div class="form-group" style="overflow: visible;">
-                                            <label class="col-md-12"><?php echo _("Language"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Language"); ?></label>
                                             <div class="col-md-12">
                                                 <select class="form-control select2" name="language" id="select2">
                                                     <option value="ar"><?php print_r($countries['ar']); ?></option>
@@ -383,16 +383,16 @@ foreach ($plugins as $result) {
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Default Nameservers"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Default Nameservers"); ?></label>
                                             <div class="col-md-12">
                                                 <div><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[0]); ?>" class="form-control form-control-line" name="ns1" id="ns1x"><br></div>
-                                                <div><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[1]); ?>" class="form-control form-control-line" name="ns2" id="ns2x"><br><div id="ns2wrapper"><a style="cursor:pointer;" id="addmore" onclick="add1();"><?php echo _("Add One"); ?></a></div></div>
-                                                <div id="ns3" style="display:<?php if(explode(',', ($admindata['NS']))[2] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[2]); ?>" class="form-control form-control-line" name="ns3" id="ns3x"><br><div id="ns3wrapper"><a style="cursor:pointer;" id="addmore1" onclick="add2();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove1" onclick="rem2();"><?php echo _("Remove One"); ?></a></div></div>
-                                                <div id="ns4" style="display:<?php if(explode(',', ($admindata['NS']))[3] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[3]); ?>" class="form-control form-control-line" name="ns4" id="ns4x"><br><div id="ns4wrapper"><a style="cursor:pointer;" id="addmore2" onclick="add3();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove2" onclick="rem3();"><?php echo _("Remove One"); ?></a></div></div>
-                                                <div id="ns5" style="display:<?php if(explode(',', ($admindata['NS']))[4] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[4]); ?>" class="form-control form-control-line" name="ns5" id="ns5x"><br><div id="ns5wrapper"><a style="cursor:pointer;" id="addmore3" onclick="add4();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove3" onclick="rem4();"><?php echo _("Remove One"); ?></a></div></div>
-                                                <div id="ns6" style="display:<?php if(explode(',', ($admindata['NS']))[5] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[5]); ?>" class="form-control form-control-line" name="ns6" id="ns6x"><br><div id="ns6wrapper"><a style="cursor:pointer;" id="addmore4" onclick="add5();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove4" onclick="rem5();"><?php echo _("Remove One"); ?></a></div></div>
-                                                <div id="ns7" style="display:<?php if(explode(',', ($admindata['NS']))[6] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[6]); ?>" class="form-control form-control-line" name="ns7" id="ns7x"><br><div id="ns7wrapper"><a style="cursor:pointer;" id="addmore5" onclick="add6();"><?php echo _("Add One"); ?></a> / <a style="cursor:pointer;" id="remove5" onclick="rem6();"><?php echo _("Remove One"); ?></a></div></div>
-                                                <div id="ns8" style="display:<?php if(explode(',', ($admindata['NS']))[7] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[7]); ?>" class="form-control form-control-line" name="ns8" id="ns8x"><br><div id="ns8wrapper"><a style="cursor:pointer;" id="remove6" onclick="rem7();"><?php echo _("Remove One"); ?></a></div></div>
+                                                <div><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[1]); ?>" class="form-control form-control-line" name="ns2" id="ns2x"><br><div id="ns2wrapper"><a style="cursor:pointer;" id="addmore" onclick="add1();"><?php echo __("Add One"); ?></a></div></div>
+                                                <div id="ns3" style="display:<?php if(explode(',', ($admindata['NS']))[2] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[2]); ?>" class="form-control form-control-line" name="ns3" id="ns3x"><br><div id="ns3wrapper"><a style="cursor:pointer;" id="addmore1" onclick="add2();"><?php echo __("Add One"); ?></a> / <a style="cursor:pointer;" id="remove1" onclick="rem2();"><?php echo __("Remove One"); ?></a></div></div>
+                                                <div id="ns4" style="display:<?php if(explode(',', ($admindata['NS']))[3] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[3]); ?>" class="form-control form-control-line" name="ns4" id="ns4x"><br><div id="ns4wrapper"><a style="cursor:pointer;" id="addmore2" onclick="add3();"><?php echo __("Add One"); ?></a> / <a style="cursor:pointer;" id="remove2" onclick="rem3();"><?php echo __("Remove One"); ?></a></div></div>
+                                                <div id="ns5" style="display:<?php if(explode(',', ($admindata['NS']))[4] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[4]); ?>" class="form-control form-control-line" name="ns5" id="ns5x"><br><div id="ns5wrapper"><a style="cursor:pointer;" id="addmore3" onclick="add4();"><?php echo __("Add One"); ?></a> / <a style="cursor:pointer;" id="remove3" onclick="rem4();"><?php echo __("Remove One"); ?></a></div></div>
+                                                <div id="ns6" style="display:<?php if(explode(',', ($admindata['NS']))[5] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[5]); ?>" class="form-control form-control-line" name="ns6" id="ns6x"><br><div id="ns6wrapper"><a style="cursor:pointer;" id="addmore4" onclick="add5();"><?php echo __("Add One"); ?></a> / <a style="cursor:pointer;" id="remove4" onclick="rem5();"><?php echo __("Remove One"); ?></a></div></div>
+                                                <div id="ns7" style="display:<?php if(explode(',', ($admindata['NS']))[6] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[6]); ?>" class="form-control form-control-line" name="ns7" id="ns7x"><br><div id="ns7wrapper"><a style="cursor:pointer;" id="addmore5" onclick="add6();"><?php echo __("Add One"); ?></a> / <a style="cursor:pointer;" id="remove5" onclick="rem6();"><?php echo __("Remove One"); ?></a></div></div>
+                                                <div id="ns8" style="display:<?php if(explode(',', ($admindata['NS']))[7] == ''){ echo "none"; } else { echo "block"; } ?>"><input type="text" value="<?php print_r(explode(',', ($admindata['NS']))[7]); ?>" class="form-control form-control-line" name="ns8" id="ns8x"><br><div id="ns8wrapper"><a style="cursor:pointer;" id="remove6" onclick="rem7();"><?php echo __("Remove One"); ?></a></div></div>
                                             </div>
                                         </div>
                                         <?php if($themecolor != 'custom.css') { echo '
@@ -410,8 +410,8 @@ foreach ($plugins as $result) {
                                         </div>'; } ?>
                                         <div class="form-group">
                                             <div class="col-sm-12">
-                                                <button class="btn btn-success" type="submit"><?php echo _("Update Profile"); ?></button> &nbsp;
-                                                <a href="profile.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button" onclick="loadLoader();"><?php echo _("Back"); ?></button></a>
+                                                <button class="btn btn-success" type="submit"><?php echo __("Update Profile"); ?></button> &nbsp;
+                                                <a href="profile.php" style="color: inherit;text-decoration: inherit;"><button class="btn btn-muted" type="button" onclick="loadLoader();"><?php echo __("Back"); ?></button></a>
                                             </div>
                                         </div>
                                     </form>
@@ -449,7 +449,7 @@ foreach ($plugins as $result) {
             });
         function processLoader(){
                 swal({
-                    title: '<?php echo _("Processing"); ?>',
+                    title: '<?php echo __("Processing"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()
@@ -457,7 +457,7 @@ foreach ($plugins as $result) {
                 })};
             function loadLoader(){
                 swal({
-                    title: '<?php echo _("Loading"); ?>',
+                    title: '<?php echo __("Loading"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()

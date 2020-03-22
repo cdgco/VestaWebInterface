@@ -55,9 +55,9 @@ $admindata = json_decode(curl_exec($curl0), true)[$username];
 $confdata = array_values(json_decode(curl_exec($curl1), true));
 $useremail = $admindata['CONTACT'];
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
-bindtextdomain('messages', '../../locale');
-textdomain('messages');
+_setlocale(LC_CTYPE, $locale); _setlocale(LC_MESSAGES, $locale);
+_bindtextdomain('messages', '../../locale');
+_textdomain('messages');
 
 foreach ($plugins as $result) {
     if (file_exists('../../plugins/' . $result)) {
@@ -87,7 +87,7 @@ foreach ($plugins as $result) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/ico" href="../../plugins/images/<?php echo $cpfavicon; ?>">
-        <title><?php echo $sitetitle; ?> - <?php echo _("Server"); ?></title>
+        <title><?php echo $sitetitle; ?> - <?php echo __("Server"); ?></title>
         <link href="../../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../../plugins/components/select2/select2.min.css" rel="stylesheet">
@@ -126,7 +126,7 @@ foreach ($plugins as $result) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="../../process/search.php" method="get">
-                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo __("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -139,10 +139,10 @@ foreach ($plugins as $result) {
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
-                                <li><a href="../../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
+                                <li><a href="../../profile.php"><i class="ti-home"></i> <?php echo __("My Account"); ?></a></li>
+                                <li><a href="../../profile.php?settings=open"><i class="ti-settings"></i> <?php echo __("Account Settings"); ?></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
+                                <li><a href="../../process/logout.php"><i class="fa fa-power-off"></i> <?php echo __("Logout"); ?></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -156,7 +156,7 @@ foreach ($plugins as $result) {
                                 <i class="ti-menu hidden-xs"></i>
                                 <i class="ti-close visible-xs"></i>
                             </span> 
-                            <span class="hide-menu"><?php echo _("Navigation"); ?></span>
+                            <span class="hide-menu"><?php echo __("Navigation"); ?></span>
                         </h3>  
                     </div>
                     <ul class="nav" id="side-menu">
@@ -172,7 +172,7 @@ foreach ($plugins as $result) {
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title"><?php echo _("View Configuration / NGINX"); ?></h4>
+                            <h4 class="page-title"><?php echo __("View Configuration / NGINX"); ?></h4>
                         </div>
                     </div>
                     <div class="row">
@@ -185,68 +185,68 @@ foreach ($plugins as $result) {
                                 
                                 <form class="form-horizontal form-material" method="post" id="form">
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Worker Processes"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Worker Processes"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" disabled name="worker_processes" value="<?php echo $confdata[0]['worker_processes']; ?>" class="form-control form-control-line" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Worker Connections"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Worker Connections"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" disabled name="worker_connections" value="<?php echo $confdata[0]['worker_connections']; ?>" class="form-control form-control-line" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Client Max Body Size"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Client Max Body Size"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" disabled name="client_max_body_size" value="<?php echo $confdata[0]['client_max_body_size']; ?>" class="form-control form-control-line" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Send Timeout"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Send Timeout"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" disabled name="send_timeout" value="<?php echo $confdata[0]['send_timeout']; ?>" class="form-control form-control-line" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Proxy Connect Timeout"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Proxy Connect Timeout"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" disabled name="proxy_connect_timeout" value="<?php echo $confdata[0]['proxy_connect_timeout']; ?>" class="form-control form-control-line" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Proxy Send Timeout"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Proxy Send Timeout"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" disabled name="proxy_send_timeout" value="<?php echo $confdata[0]['proxy_send_timeout']; ?>" class="form-control form-control-line" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Proxy Read Timeout"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Proxy Read Timeout"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" disabled name="proxy_read_timeout" value="<?php echo $confdata[0]['proxy_read_timeout']; ?>" class="form-control form-control-line" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("GZip"); ?></label>
+                                        <label class="col-md-12"><?php echo __("GZip"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" disabled name="gzip" value="<?php echo $confdata[0]['gzip']; ?>" class="form-control form-control-line" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("GZip Compression Level"); ?></label>
+                                        <label class="col-md-12"><?php echo __("GZip Compression Level"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" disabled name="gzip_comp_level" value="<?php echo $confdata[0]['gzip_comp_level']; ?>" class="form-control form-control-line" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Charset"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Charset"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" disabled name="charset" value="<?php echo $confdata[0]['charset']; ?>" class="form-control form-control-line" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                             <a href="../list/server.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
+                                             <a href="../list/server.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo __("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </form>
@@ -280,7 +280,7 @@ foreach ($plugins as $result) {
             });
             function processLoader(){
                 swal({
-                    title: '<?php echo _("Processing"); ?>',
+                    title: '<?php echo __("Processing"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()
@@ -288,7 +288,7 @@ foreach ($plugins as $result) {
                 })};
             function loadLoader(){
                 swal({
-                    title: '<?php echo _("Loading"); ?>',
+                    title: '<?php echo __("Loading"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()

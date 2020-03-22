@@ -77,9 +77,9 @@ $webstats = array_values(json_decode(curl_exec($curl6), true));
 $sysconfigdata = array_values(json_decode(curl_exec($curl7), true))[0];
 if ($domainname[0] == '') { header('Location: ../list/web.php'); }
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
-bindtextdomain('messages', '../locale');
-textdomain('messages');
+_setlocale(LC_CTYPE, $locale); _setlocale(LC_MESSAGES, $locale);
+_bindtextdomain('messages', '../locale');
+_textdomain('messages');
 
 foreach ($plugins as $result) {
     if (file_exists('../plugins/' . $result)) {
@@ -109,7 +109,7 @@ foreach ($plugins as $result) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/ico" href="../plugins/images/<?php echo $cpfavicon; ?>">
-        <title><?php echo $sitetitle; ?> - <?php echo _("Web"); ?></title>
+        <title><?php echo $sitetitle; ?> - <?php echo __("Web"); ?></title>
         <link href="../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../plugins/components/select2/select2.min.css" rel="stylesheet">
@@ -171,7 +171,7 @@ foreach ($plugins as $result) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="../process/search.php" method="get">
-                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo __("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -184,10 +184,10 @@ foreach ($plugins as $result) {
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
-                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
+                                <li><a href="../profile.php"><i class="ti-home"></i> <?php echo __("My Account"); ?></a></li>
+                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo __("Account Settings"); ?></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
+                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo __("Logout"); ?></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -201,7 +201,7 @@ foreach ($plugins as $result) {
                                 <i class="ti-menu hidden-xs"></i>
                                 <i class="ti-close visible-xs"></i>
                             </span> 
-                            <span class="hide-menu"><?php echo _("Navigation"); ?></span>
+                            <span class="hide-menu"><?php echo __("Navigation"); ?></span>
                         </h3>  
                     </div>
                     <ul class="nav" id="side-menu">
@@ -217,11 +217,11 @@ foreach ($plugins as $result) {
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title"><?php echo _("Edit Web Domain"); ?></h4>
+                            <h4 class="page-title"><?php echo __("Edit Web Domain"); ?></h4>
                         </div>
                         <ul class="side-icon-text pull-right">
                             <li style="position: relative;top: -3px;">
-                                <a onclick="confirmDelete();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span class="resfour"><wrapper class="restwo"><?php echo _("Delete"); ?> </wrapper><?php echo _("Domain"); ?></span>
+                                <a onclick="confirmDelete();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span class="resfour"><wrapper class="restwo"><?php echo __("Delete"); ?> </wrapper><?php echo __("Domain"); ?></span>
                                 </a>
                             </li>
                         </ul>
@@ -232,7 +232,7 @@ foreach ($plugins as $result) {
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">
                                         <div class="panel-heading">
-                                            <center><?php echo _("DOMAIN"); ?></center>
+                                            <center><?php echo __("DOMAIN"); ?></center>
                                         </div>
                                         <div class="panel-body">
                                             <center><h2><?php print_r($domainname[0]); ?></h2></center>
@@ -246,7 +246,7 @@ foreach ($plugins as $result) {
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">
                                         <div class="panel-heading">
-                                            <center><?php echo _("CREATED"); ?></center>
+                                            <center><?php echo __("CREATED"); ?></center>
                                         </div>
                                         <div class="panel-body">
                                             <center>
@@ -264,12 +264,12 @@ foreach ($plugins as $result) {
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">
                                         <div class="panel-heading">
-                                            <center><?php echo _("STATUS"); ?></center>
+                                            <center><?php echo __("STATUS"); ?></center>
                                         </div>
                                         <div class="panel-body">
                                             <center>
                                                 <h2>
-                                                    <?php if ($domaindata[0]['SUSPENDED'] == 'no') {echo _("Active");} else {echo _("Suspended");}?>
+                                                    <?php if ($domaindata[0]['SUSPENDED'] == 'no') {echo __("Active");} else {echo __("Suspended");}?>
                                                 </h2>
                                             </center>
                                         </div>
@@ -283,7 +283,7 @@ foreach ($plugins as $result) {
                             <div class="white-box">
                                 <form class="form-horizontal form-material" autocomplete="off" id="form" method="post" action="../change/domain.php">
                                     <div class="form-group" style="overflow: visible;">
-                                        <label class="col-md-12"><?php echo _("IP Address"); ?></label>
+                                        <label class="col-md-12"><?php echo __("IP Address"); ?></label>
                                         <div class="col-md-12">
                                             <input type="hidden" name="v_domain" value="<?php echo $requestdomain; ?>">
                                             <input type="hidden" name="v_ip-x" value="<?php echo $domaindata[0]['IP']; ?>">
@@ -302,7 +302,7 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Aliases"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Aliases"); ?></label>
                                         <div class="col-md-12">
                                             <input type="hidden" name="v_alias-x" value="<?php echo $domaindata[0]['ALIAS']; ?>"> 
                                             <textarea class="form-control" rows="4" name="v_alias"><?php 
@@ -317,7 +317,7 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Web Template"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Web Template"); ?></label>
                                         <div class="col-md-12">
                                             <input type="hidden" name="v_tpl-x" value="<?php echo $domaindata[0]['TPL']; ?>">
                                             <select class="form-control select2" name="v_tpl" id="select2"><?php
@@ -334,18 +334,18 @@ foreach ($plugins as $result) {
                                     </div>
                                     <?php if($sysconfigdata['PROXY_SYSTEM'] != '') { echo ""; ?>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Proxy Support"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Proxy Support"); ?></label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
                                                 <input type="hidden" name="v_prxenabled-x" value="<?php if($domaindata[0]['PROXY'] != '') {echo 'yes';} else { echo 'no'; } ?>">
                                                 <input id="checkbox4" type="checkbox" name="v_prxenabled" onclick="checkDiv();" <?php if($domaindata[0]['PROXY'] != '') {echo 'checked';} ?> >
-                                                <label for="checkbox4"> <?php echo _("Enabled"); ?> </label>
+                                                <label for="checkbox4"> <?php echo __("Enabled"); ?> </label>
                                             </div>
                                         </div>
                                     </div>
                                     <div id="prxy-div" style="margin-left: 4%;">
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Proxy Template"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Proxy Template"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_prxtpl-x" value="<?php echo $domaindata[0]['PROXY']; ?>">
                                                 <select class="form-control select3 select2" name="v_prxtpl" id="select3">
@@ -363,7 +363,7 @@ foreach ($plugins as $result) {
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Proxy Extensions"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Proxy Extensions"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_prxext-x" value="<?php echo $domaindata[0]['PROXY_EXT']; ?>">
                                                 <textarea class="form-control" rows="2" id="prxext" name="v_prxext"><?php echo $domaindata[0]['PROXY_EXT']; ?></textarea>
@@ -372,29 +372,29 @@ foreach ($plugins as $result) {
                                     </div>
                                     <?php echo ""; }?>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("SSL Support"); ?></label>
+                                        <label class="col-md-12"><?php echo __("SSL Support"); ?></label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
                                                 <input type="hidden" name="v_sslenabled-x" value="<?php echo $domaindata[0]['SSL']; ?>">
                                                 <input id="checkbox5" type="checkbox" name="v_sslenabled" onclick="checkDiv2();" <?php if($domaindata[0]['SSL'] == 'no') {} else {echo 'checked';} ?> >
-                                                <label for="checkbox5"> <?php echo _("Enabled"); ?> </label>
+                                                <label for="checkbox5"> <?php echo __("Enabled"); ?> </label>
                                             </div>
                                         </div>
                                     </div>
                                     <div id="ssl-div" style="margin-left: 4%;">
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Let's Encrypt Support"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Let's Encrypt Support"); ?></label>
                                             <div class="col-md-12">
                                                 <div class="checkbox checkbox-info">
                                                     <input type="hidden" name="v_leenabled-x" value="<?php echo $domaindata[0]['LETSENCRYPT']; ?>">
                                                     <input id="checkbox6" name="v_leenabled" type="checkbox" <?php if($domaindata[0]['LETSENCRYPT'] == 'no') {} else {echo 'checked';} ?>>
-                                                    <label for="checkbox6"> <?php echo _("Enabled"); ?> </label>
+                                                    <label for="checkbox6"> <?php echo __("Enabled"); ?> </label>
                                                 </div>
                                             </div>
                                         </div>
                                         <br>
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("SSL Directory"); ?></label>
+                                            <label class="col-md-12"><?php echo __("SSL Directory"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_ssldir-x" value="<?php echo $domaindata[0]['SSL_HOME']; ?>" >
                                                 <select class="form-control form-control-static select2" name="v_ssldir" <?php if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "disabled"; } ?> <?php if($apienabled == 'true'){ echo "disabled"; } ?>>
@@ -404,21 +404,21 @@ foreach ($plugins as $result) {
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("SSL Certificate"); ?> / <a href="../process/generatecsr.php?domain=<?php echo $requestdomain; ?>" target="_blank"><?php echo _("Generate CSR"); ?></a></label>
+                                            <label class="col-md-12"><?php echo __("SSL Certificate"); ?> / <a href="../process/generatecsr.php?domain=<?php echo $requestdomain; ?>" target="_blank"><?php echo __("Generate CSR"); ?></a></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_sslcrt-x" value="<?php echo $domaindata[0]['CRT']; ?>">
                                                 <textarea class="form-control" rows="4" class="form-control form-control-static" name="v_sslcrt" <?php if($apienabled == 'true'){ echo "disabled"; } ?> <?php if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "disabled"; } ?>><?php print_r($domainssl[0]['CRT']); ?></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("SSL Key"); ?></label>
+                                            <label class="col-md-12"><?php echo __("SSL Key"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_sslkey-x" value="<?php echo $domaindata[0]['KEY']; ?>">
                                                 <textarea class="form-control" rows="4" class="form-control form-control-static" name="v_sslkey" <?php if($apienabled == 'true'){ echo "disabled"; } ?> <?php if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "disabled"; } ?>><?php print_r($domainssl[0]['KEY']); ?></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("SSL Certificate Authority / Intermediate"); ?></label>
+                                            <label class="col-md-12"><?php echo __("SSL Certificate Authority / Intermediate"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_sslca-x" value="<?php echo $domaindata[0]['CA']; ?>">
                                                 <textarea class="form-control" rows="4" class="form-control form-control-static" name="v_sslca" <?php if($apienabled == 'true'){ echo "disabled"; } ?> <?php if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "disabled"; } ?>><?php print_r($domainssl[0]['CA']); ?></textarea>
@@ -426,18 +426,18 @@ foreach ($plugins as $result) {
                                         </div>
                                         <div class="form-group" style="margin-left: 0.1%;display:<?php if($domainssl[0]['NOT_BEFORE'] != ''){echo 'block';} else { echo 'none';} ?>">
                                             <ul class="list-unstyled">
-                                                <li><?php echo _("Subject"); ?>:  <?php print_r($domainssl[0]['SUBJECT']); ?></li>
-                                                <li><?php echo _("Aliases"); ?>:  <?php print_r($domainssl[0]['ALIASES']); ?></li>
-                                                <li><?php echo _("Not Before"); ?>:  <?php print_r($domainssl[0]['NOT_BEFORE']); ?></li>
-                                                <li><?php echo _("Not After"); ?>:  <?php print_r($domainssl[0]['NOT_AFTER']); ?></li>
-                                                <li><?php echo _("Signature"); ?>:  <?php print_r($domainssl[0]['SIGNATURE']); ?></li>
-                                                <li><?php echo _("Pub Key"); ?>:  <?php print_r($domainssl[0]['PUB_KEY']); ?></li>
-                                                <li><?php echo _("Issuer"); ?>:  <?php print_r($domainssl[0]['ISSUER']); ?></li>
+                                                <li><?php echo __("Subject"); ?>:  <?php print_r($domainssl[0]['SUBJECT']); ?></li>
+                                                <li><?php echo __("Aliases"); ?>:  <?php print_r($domainssl[0]['ALIASES']); ?></li>
+                                                <li><?php echo __("Not Before"); ?>:  <?php print_r($domainssl[0]['NOT_BEFORE']); ?></li>
+                                                <li><?php echo __("Not After"); ?>:  <?php print_r($domainssl[0]['NOT_AFTER']); ?></li>
+                                                <li><?php echo __("Signature"); ?>:  <?php print_r($domainssl[0]['SIGNATURE']); ?></li>
+                                                <li><?php echo __("Pub Key"); ?>:  <?php print_r($domainssl[0]['PUB_KEY']); ?></li>
+                                                <li><?php echo __("Issuer"); ?>:  <?php print_r($domainssl[0]['ISSUER']); ?></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Web Statistics"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Web Statistics"); ?></label>
                                         <div class="col-md-12">
                                             <input type="hidden" name="v_webstats-x" value="<?php if ($domaindata[0]['STATS'] == '') {echo 'none'; } else { echo $domaindata[0]['STATS']; } ?>">
                                             <select class="form-control select6 select2" name="v_webstats" onchange="showauth()" id="select6">
@@ -456,26 +456,26 @@ foreach ($plugins as $result) {
                                     </div>
                                     <div id="statsauth" style="margin-left: 4%;">
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Statistics Authorization"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Statistics Authorization"); ?></label>
                                             <div class="col-md-12">
                                                 <div class="checkbox checkbox-info">
                                                     <input type="hidden" name="v_statsuserenabled-x" value="<?php if($domaindata[0]['STATS_USER'] == '') {echo '';} else {echo 'yes';} ?>">
                                                     <input id="checkbox10" type="checkbox" name="v_statsuserenabled" <?php if($domaindata[0]['STATS_USER'] != '') {echo 'checked';} ?> onclick="checkDiv4();">
-                                                    <label for="checkbox10"> <?php echo _("Enabled"); ?> </label>
+                                                    <label for="checkbox10"> <?php echo __("Enabled"); ?> </label>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div id="stats-div" style="margin-left: 4%;">
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Username"); ?></label><br>
+                                            <label class="col-md-12"><?php echo __("Username"); ?></label><br>
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_statsuname-x" value="<?php echo $domaindata[0]['STATS_USER']; ?>">
                                                 <input type="text" name="v_statsuname" autocomplete="new-password" class="form-control" value="<?php echo $domaindata[0]['STATS_USER']; ?>"> 
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="v_statspassword" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10, 'statspassword', 'tgstats')"> <?php echo _("Generate"); ?></a></label>
+                                            <label for="v_statspassword" class="col-md-12"><?php echo __("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10, 'statspassword', 'tgstats')"> <?php echo __("Generate"); ?></a></label>
                                             <div class="col-md-12 input-group" style="padding-left: 15px;">
                                                 <input type="password" autocomplete="new-password" class="form-control form-control-line" name="v_statspassword" id="statspassword">                                    <span class="input-group-btn"> 
                                                 <button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler(this, 'statspassword')" id="tgstats" type="button"><i class="ti-eye"></i></button> 
@@ -491,12 +491,12 @@ foreach ($plugins as $result) {
                                     if(checkService('vsftpd') !== false || checkService('proftpd') !== false) { echo ""; ?> 
 
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Additional FTP"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Additional FTP"); ?></label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
                                                 <input type="hidden" name="v_additionalftpenabled-x" value="<?php if($ftpuser[0]) {echo 'yes';} else { echo 'no'; } ?>">
                                                 <input id="checkbox9" type="checkbox" name="v_additionalftpenabled" <?php if($ftpuser[0]) {echo 'checked';} ?> onclick="checkDiv3();">
-                                                <label for="checkbox9"><?php echo _("Enabled"); ?></label>
+                                                <label for="checkbox9"><?php echo __("Enabled"); ?></label>
                                             </div>
                                         </div>
                                     </div>
@@ -529,10 +529,10 @@ foreach ($plugins as $result) {
                                             do { echo ""; ?>
                                         <div class="ftp-account" accnum="<?php echo $x11; ?>">
                                             <div class="form-group">
-                                                        <label class="col-md-12"><?php echo _("FTP Account"); ?> #<?php echo $x11; ?></label><hr>
+                                                        <label class="col-md-12"><?php echo __("FTP Account"); ?> #<?php echo $x11; ?></label><hr>
                                                     </div>
                                             <div class="form-group">
-                                                <label class="col-md-12"><?php echo _("Username"); ?></label><br>
+                                                <label class="col-md-12"><?php echo __("Username"); ?></label><br>
                                                 <div class="col-md-12">
                                                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                                         <div class="input-group-addon"><?php echo $displayname; ?>_</div>
@@ -542,14 +542,14 @@ foreach ($plugins as $result) {
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="password" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10, 'password<?php echo $x11; ?>', 'tg<?php echo $x11; ?>')"> <?php echo _("Generate"); ?></a></label>
+                                                <label for="password" class="col-md-12"><?php echo __("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10, 'password<?php echo $x11; ?>', 'tg<?php echo $x11; ?>')"> <?php echo __("Generate"); ?></a></label>
                                                 <div class="col-md-12 input-group" style="padding-left: 15px;">
                                                     <input type="password" class="form-control form-control-line" name="v_ftppw<?php echo $x11; ?>" id="password<?php echo $x11; ?>">           <span class="input-group-btn"> 
                                                     <button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler(this, 'password<?php echo $x11; ?>')" id="tg<?php echo $x11; ?>" type="button"><i class="ti-eye"></i></button> 
                                                     </span>  </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-12"><?php echo _("Path"); ?></label>
+                                                <label class="col-md-12"><?php echo __("Path"); ?></label>
                                                 <div class="col-md-12">
                                                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                                         <div class="input-group-addon">/home/<?php echo $displayname . '/web/' . $requestdomain; ?>/</div>
@@ -563,10 +563,10 @@ foreach ($plugins as $result) {
                                             else { echo ""; ?>
                                         <div class="ftp-account" accnum="1">
                                             <div class="form-group">
-                                                        <label class="col-md-12"><?php echo _("FTP Account"); ?> #1</label><hr>
+                                                        <label class="col-md-12"><?php echo __("FTP Account"); ?> #1</label><hr>
                                                     </div>
                                             <div class="form-group">
-                                                <label class="col-md-12"><?php echo _("Username"); ?></label><br>
+                                                <label class="col-md-12"><?php echo __("Username"); ?></label><br>
                                                 <div class="col-md-12">
                                                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                                         <div class="input-group-addon"><?php echo $displayname; ?>_</div>
@@ -576,14 +576,14 @@ foreach ($plugins as $result) {
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="password" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10, 'password1', 'tg1')"> <?php echo _("Generate"); ?></a></label>
+                                                <label for="password" class="col-md-12"><?php echo __("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10, 'password1', 'tg1')"> <?php echo __("Generate"); ?></a></label>
                                                 <div class="col-md-12 input-group" style="padding-left: 15px;">
                                                     <input type="password" class="form-control form-control-line" name="v_ftppw1" id="password1">           <span class="input-group-btn"> 
                                                     <button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler(this, 'password1')" id="tg1" type="button"><i class="ti-eye"></i></button> 
                                                     </span>  </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-12"><?php echo _("Path"); ?></label>
+                                                <label class="col-md-12"><?php echo __("Path"); ?></label>
                                                 <div class="col-md-12">
                                                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                                         <div class="input-group-addon">/home/<?php echo $displayname . '/web/' . $requestdomain; ?>/</div>
@@ -598,8 +598,8 @@ foreach ($plugins as $result) {
                                     <?php echo ""; } ?>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" type="submit" type="submit"><?php echo _("Update Domain"); ?></button> &nbsp;
-                                            <a href="../list/web.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
+                                            <button class="btn btn-success" type="submit" type="submit"><?php echo __("Update Domain"); ?></button> &nbsp;
+                                            <a href="../list/web.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo __("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </form>
@@ -696,7 +696,7 @@ foreach ($plugins as $result) {
                 var newAcc = document.createElement("div");
                 newAcc.setAttribute("class", "ftp-account");
                 newAcc.setAttribute("accnum", startingAcc);
-                 newAcc.innerHTML = '<div class="form-group"><label class="col-md-12"><?php echo _("FTP Account"); ?> #'+startingAcc+'</label><hr></div><div class="form-group"><label class="col-md-12"><?php echo _("Username"); ?></label><br><div class="col-md-12"><div class="input-group mb-2 mr-sm-2 mb-sm-0"><div class="input-group-addon"><?php echo $uname; ?>_</div><input type="text" class="form-control" autocomplete="new-password" name="v_ftpuname'+startingAcc+'" style="padding-left: 0.5%;"></div></div></div><div class="form-group"><label for="password" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10, \'password'+startingAcc+'\', \'tg'+startingAcc+'\')"> <?php echo _("Generate"); ?></a></label><div class="col-md-12 input-group" style="padding-left: 15px;"><input type="password" class="form-control form-control-line" autocomplete="new-password" name="v_ftppw'+startingAcc+'" id="password'+startingAcc+'"><span class="input-group-btn"><button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler(this, \'password'+startingAcc+'\')" id="tg'+startingAcc+'" type="button"><i class="ti-eye"></i></button></span></div></div><div class="form-group"><label class="col-md-12"><?php echo _("Path"); ?></label><div class="col-md-12"><div class="input-group mb-2 mr-sm-2 mb-sm-0"><div class="input-group-addon">/home/<?php echo $displayname . '/web/' . $requestdomain; ?>/</div><input type="text" class="form-control" name="v_ftpdir'+startingAcc+'" style="padding-left: 0.5%;"></div></div></div><?php if($phpmailenabled == 'true') { echo ""; ?><div class="form-group"><label class="col-md-12"><?php echo _("Send FTP Credentials to Email:"); ?></label><div class="col-md-12"><input type="email" name="v_ftpnotif'+startingAcc+'" autocomplete="new-password" class="form-control"></div></div><?php echo ""; } ?>';
+                 newAcc.innerHTML = '<div class="form-group"><label class="col-md-12"><?php echo __("FTP Account"); ?> #'+startingAcc+'</label><hr></div><div class="form-group"><label class="col-md-12"><?php echo __("Username"); ?></label><br><div class="col-md-12"><div class="input-group mb-2 mr-sm-2 mb-sm-0"><div class="input-group-addon"><?php echo $uname; ?>_</div><input type="text" class="form-control" autocomplete="new-password" name="v_ftpuname'+startingAcc+'" style="padding-left: 0.5%;"></div></div></div><div class="form-group"><label for="password" class="col-md-12"><?php echo __("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10, \'password'+startingAcc+'\', \'tg'+startingAcc+'\')"> <?php echo __("Generate"); ?></a></label><div class="col-md-12 input-group" style="padding-left: 15px;"><input type="password" class="form-control form-control-line" autocomplete="new-password" name="v_ftppw'+startingAcc+'" id="password'+startingAcc+'"><span class="input-group-btn"><button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler(this, \'password'+startingAcc+'\')" id="tg'+startingAcc+'" type="button"><i class="ti-eye"></i></button></span></div></div><div class="form-group"><label class="col-md-12"><?php echo __("Path"); ?></label><div class="col-md-12"><div class="input-group mb-2 mr-sm-2 mb-sm-0"><div class="input-group-addon">/home/<?php echo $displayname . '/web/' . $requestdomain; ?>/</div><input type="text" class="form-control" name="v_ftpdir'+startingAcc+'" style="padding-left: 0.5%;"></div></div></div><?php if($phpmailenabled == 'true') { echo ""; ?><div class="form-group"><label class="col-md-12"><?php echo __("Send FTP Credentials to Email:"); ?></label><div class="col-md-12"><input type="email" name="v_ftpnotif'+startingAcc+'" autocomplete="new-password" class="form-control"></div></div><?php echo ""; } ?>';
                 $('#ftp-div').find('.ftp-account:last').append(newAcc);
                 if($('.ftp-account').length >= 2) { $('#removeFtpBtn').show(); }
                 else { $('#removeFtpBtn').hide(); }
@@ -737,17 +737,17 @@ foreach ($plugins as $result) {
             }
             function confirmDelete(){
                 Swal({
-                  title: '<?php echo _("Delete Domain"); ?>:<br> <?php echo $requestdomain; ?>' + ' ?',
-                  text: "<?php echo _("You won't be able to revert this!"); ?>",
+                  title: '<?php echo __("Delete Domain"); ?>:<br> <?php echo $requestdomain; ?>' + ' ?',
+                  text: "<?php echo __("You won't be able to revert this!"); ?>",
                   type: 'warning',
                   showCancelButton: true,
                   confirmButtonColor: '#3085d6',
                   cancelButtonColor: '#d33',
-                  confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
+                  confirmButtonText: '<?php echo __("Yes, delete it!"); ?>'
                 }).then((result) => {
                   if (result.value) {
                     swal({
-                        title: '<?php echo _("Processing"); ?>',
+                        title: '<?php echo __("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()
@@ -758,7 +758,7 @@ foreach ($plugins as $result) {
                 })}
             function processLoader(){
                 swal({
-                    title: '<?php echo _("Processing"); ?>',
+                    title: '<?php echo __("Processing"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()
@@ -766,7 +766,7 @@ foreach ($plugins as $result) {
                 })};
             function loadLoader(){
                 swal({
-                    title: '<?php echo _("Loading"); ?>',
+                    title: '<?php echo __("Loading"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()

@@ -57,9 +57,9 @@ $useremail = $admindata['CONTACT'];
 $firename = array_keys(json_decode(curl_exec($curl1), true));
 $firedata = array_values(json_decode(curl_exec($curl1), true));
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
-bindtextdomain('messages', '../../locale');
-textdomain('messages');
+_setlocale(LC_CTYPE, $locale); _setlocale(LC_MESSAGES, $locale);
+_bindtextdomain('messages', '../../locale');
+_textdomain('messages');
 
 foreach ($plugins as $result) {
     if (file_exists('../../plugins/' . $result)) {
@@ -89,7 +89,7 @@ foreach ($plugins as $result) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/ico" href="../../plugins/images/<?php echo $cpfavicon; ?>">
-        <title><?php echo $sitetitle; ?> - <?php echo _("Firewall"); ?></title>
+        <title><?php echo $sitetitle; ?> - <?php echo __("Firewall"); ?></title>
         <link href="../../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../../plugins/components/footable/footable.bootstrap.css" rel="stylesheet">
         <link href="../../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
@@ -142,7 +142,7 @@ foreach ($plugins as $result) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="../../process/search.php" method="get">
-                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo __("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -155,10 +155,10 @@ foreach ($plugins as $result) {
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
-                                <li><a href="../../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
+                                <li><a href="../../profile.php"><i class="ti-home"></i> <?php echo __("My Account"); ?></a></li>
+                                <li><a href="../../profile.php?settings=open"><i class="ti-settings"></i> <?php echo __("Account Settings"); ?></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
+                                <li><a href="../../process/logout.php"><i class="fa fa-power-off"></i> <?php echo __("Logout"); ?></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -172,7 +172,7 @@ foreach ($plugins as $result) {
                                 <i class="ti-menu hidden-xs"></i>
                                 <i class="ti-close visible-xs"></i>
                             </span> 
-                            <span class="hide-menu"><?php echo _("Navigation"); ?></span>
+                            <span class="hide-menu"><?php echo __("Navigation"); ?></span>
                         </h3>  
                     </div>
                     <ul class="nav" id="side-menu">
@@ -188,23 +188,23 @@ foreach ($plugins as $result) {
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title"><?php echo _("Manage Fail2Ban"); ?></h4>
+                            <h4 class="page-title"><?php echo __("Manage Fail2Ban"); ?></h4>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box"> <ul class="side-icon-text pull-right">
-                                <li><a href="../add/fail2ban.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span class="resfour"><wrapper class="resthree"><?php echo _("Add") ?> </wrapper><?php echo _("Ban"); ?></span></a></li>
+                                <li><a href="../add/fail2ban.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span class="resfour"><wrapper class="resthree"><?php echo __("Add") ?> </wrapper><?php echo __("Ban"); ?></span></a></li>
                                 </ul>
-                                <h3 class="box-title m-b-0"><?php echo _("Banned IPs"); ?></h3><br>
+                                <h3 class="box-title m-b-0"><?php echo __("Banned IPs"); ?></h3><br>
                                 <div class="table-responsive">
                                 <table class="table footable m-b-0" data-paging="false" data-sorting="true">
                                     <thead>
                                         <tr>
-                                            <th class="resone"><?php echo _("Date"); ?></th>
-                                            <th><?php echo _("Ban"); ?></th>
-                                            <th> <span class="resthree"><?php echo _("IP"); ?></span> <?php echo _("Address"); ?></th>
-                                            <th data-sortable="false"><?php echo _("Action"); ?></th>
+                                            <th class="resone"><?php echo __("Date"); ?></th>
+                                            <th><?php echo __("Ban"); ?></th>
+                                            <th> <span class="resthree"><?php echo __("IP"); ?></span> <?php echo __("Address"); ?></th>
+                                            <th data-sortable="false"><?php echo __("Action"); ?></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -259,17 +259,17 @@ foreach ($plugins as $result) {
                 e1 = String(e)
                 e2 = String(f)
                 Swal({
-                  title: '<?php echo _("Delete"); ?> ' + e1 + ' <?php echo _("ban for IP"); ?>:<br>' + e2 +' ?',
-                    text: "<?php echo _("You won't be able to revert this!"); ?>",
+                  title: '<?php echo __("Delete"); ?> ' + e1 + ' <?php echo __("ban for IP"); ?>:<br>' + e2 +' ?',
+                    text: "<?php echo __("You won't be able to revert this!"); ?>",
                   type: 'warning',
                   showCancelButton: true,
                   confirmButtonColor: '#3085d6',
                   cancelButtonColor: '#d33',
-                  confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
+                  confirmButtonText: '<?php echo __("Yes, delete it!"); ?>'
                 }).then((result) => {
                   if (result.value) {
                     swal({
-                        title: '<?php echo _("Processing"); ?>',
+                        title: '<?php echo __("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()

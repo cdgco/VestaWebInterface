@@ -109,10 +109,10 @@ $recorddata = array_values(json_decode(curl_exec($cfrecords), true));
 $records = $recorddata[0];
 
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_CTYPE, $locale);
-setlocale(LC_MESSAGES, $locale);
-bindtextdomain('messages', '../locale');
-textdomain('messages');
+_setlocale(LC_CTYPE, $locale);
+_setlocale(LC_MESSAGES, $locale);
+_bindtextdomain('messages', '../locale');
+_textdomain('messages');
 
 foreach ($plugins as $result) {
     if (file_exists('../plugins/' . $result)) {
@@ -143,7 +143,7 @@ foreach ($plugins as $result) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/ico" href="../plugins/images/<?php echo $cpfavicon; ?>">
-        <title><?php echo $sitetitle; ?> - <?php echo _("DNS"); ?></title>
+        <title><?php echo $sitetitle; ?> - <?php echo __("DNS"); ?></title>
         <link href="../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../plugins/components/footable/footable.bootstrap.css" rel="stylesheet">
         <link href="../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
@@ -202,7 +202,7 @@ foreach ($plugins as $result) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="../process/search.php" method="get">
-                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo __("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -216,10 +216,10 @@ foreach ($plugins as $result) {
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
-                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
+                                <li><a href="../profile.php"><i class="ti-home"></i> <?php echo __("My Account"); ?></a></li>
+                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo __("Account Settings"); ?></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
+                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo __("Logout"); ?></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -233,7 +233,7 @@ foreach ($plugins as $result) {
                                 <i class="ti-menu hidden-xs"></i>
                                 <i class="ti-close visible-xs"></i>
                             </span> 
-                            <span class="hide-menu"><?php echo _("Navigation"); ?></span>
+                            <span class="hide-menu"><?php echo __("Navigation"); ?></span>
                         </h3>  
                     </div>
                     <ul class="nav" id="side-menu">
@@ -249,15 +249,15 @@ foreach ($plugins as $result) {
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title"><?php echo _("Manage DNS"); ?><wrapper class="restwo"> <?php echo _("Domain"); ?></wrapper></h4>
+                            <h4 class="page-title"><?php echo __("Manage DNS"); ?><wrapper class="restwo"> <?php echo __("Domain"); ?></wrapper></h4>
                         </div>
                         <ul class="side-icon-text pull-right">
                             <li style="position: relative;top: -8px;">
-                                <a onclick="confirmDelete2();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span class="resthree"><wrapper class="restwo"><?php echo _("Delete DNS"); ?> </wrapper><?php echo _("Domain"); ?></span>
+                                <a onclick="confirmDelete2();" style="cursor: pointer;"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span><span class="resthree"><wrapper class="restwo"><?php echo __("Delete DNS"); ?> </wrapper><?php echo __("Domain"); ?></span>
                                 </a>
                             </li>
                             <li style="position: relative;top: -8px;">
-                                <a href="../delete/cloudflare.php?domain=<?php echo $requestdns; ?>"><span style="top: 8px;position: relative;"class="circle circle-sm bg-danger di"><i class="icon-cloudflare">&#xe800;</i></span><span class="resthree"><wrapper class="restwo"><?php echo _("Disable"); ?> </wrapper><?php echo _("Cloudflare"); ?></span>
+                                <a href="../delete/cloudflare.php?domain=<?php echo $requestdns; ?>"><span style="top: 8px;position: relative;"class="circle circle-sm bg-danger di"><i class="icon-cloudflare">&#xe800;</i></span><span class="resthree"><wrapper class="restwo"><?php echo __("Disable"); ?> </wrapper><?php echo __("Cloudflare"); ?></span>
                                 </a>
                             </li>
                         </ul>
@@ -268,7 +268,7 @@ foreach ($plugins as $result) {
                                 <div class="sk-chat-widgets">
                                     <div class="panel panel-themecolor">
                                         <div class="panel-heading">
-                                            <center><?php echo _("DOMAIN"); ?></center>
+                                            <center><?php echo __("DOMAIN"); ?></center>
                                         </div>
                                         <div class="panel-body">
                                             <center><h2><?php print_r($requestdns); ?></h2></center>
@@ -282,19 +282,19 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box"> <ul class="side-icon-text pull-right">
-                                <li><a href="../add/cfrecord.php?domain=<?php echo $requestdns; ?>"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span class="resthree"><wrapper class="restwo"><?php echo _("Add"); ?> </wrapper><?php echo _("Record"); ?></span></a></li>
+                                <li><a href="../add/cfrecord.php?domain=<?php echo $requestdns; ?>"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span class="resthree"><wrapper class="restwo"><?php echo __("Add"); ?> </wrapper><?php echo __("Record"); ?></span></a></li>
                                 </ul>
-                                <h3 class="box-title m-b-0"><wrapper class="restwo"><?php echo _("DNS"); ?> </wrapper><?php echo _("Records"); ?></h3><br>
+                                <h3 class="box-title m-b-0"><wrapper class="restwo"><?php echo __("DNS"); ?> </wrapper><?php echo __("Records"); ?></h3><br>
                                 <div class="table-responsive">
                                     <table class="table footable m-b-0" data-sorting="true">
                                         <thead>
                                             <tr>
-                                                <th data-toggle="true"> <?php echo _("Record"); ?> </th>
-                                                <th> <?php echo _("Type"); ?> </th>
-                                                <th> <?php echo _("Value"); ?> </th>
-                                                <th> <?php echo _("Proxy"); ?> </th>
-                                                <th data-sortable="false"> <?php echo _("Action"); ?> </th>
-                                                <th data-breakpoints="all" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo _("Created"); ?> </th>
+                                                <th data-toggle="true"> <?php echo __("Record"); ?> </th>
+                                                <th> <?php echo __("Type"); ?> </th>
+                                                <th> <?php echo __("Value"); ?> </th>
+                                                <th> <?php echo __("Proxy"); ?> </th>
+                                                <th data-sortable="false"> <?php echo __("Action"); ?> </th>
+                                                <th data-breakpoints="all" data-format-string="YYYY-MM-DD" data-sorted="true" data-direction="DESC"> <?php echo __("Created"); ?> </th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -356,17 +356,17 @@ foreach ($plugins as $result) {
             function confirmDelete(e){
                 e1 = String(e)
                 Swal({
-                  title: '<?php echo _("Delete DNS Record?"); ?>',
-                  text: "<?php echo _("You won't be able to revert this!"); ?>",
+                  title: '<?php echo __("Delete DNS Record?"); ?>',
+                  text: "<?php echo __("You won't be able to revert this!"); ?>",
                   type: 'warning',
                   showCancelButton: true,
                   confirmButtonColor: '#3085d6',
                   cancelButtonColor: '#d33',
-                  confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
+                  confirmButtonText: '<?php echo __("Yes, delete it!"); ?>'
                 }).then((result) => {
                   if (result.value) {
                     swal({
-                        title: '<?php echo _("Processing"); ?>',
+                        title: '<?php echo __("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()
@@ -378,17 +378,17 @@ foreach ($plugins as $result) {
             function confirmDelete2(e){
                 e1 = String(e)
                 Swal({
-                  title: '<?php echo _("Delete DNS Domain"); ?>:<br> <?php echo $cfname; ?>' + ' ?',
-                  text: "<?php echo _("You won't be able to revert this!"); ?>",
+                  title: '<?php echo __("Delete DNS Domain"); ?>:<br> <?php echo $cfname; ?>' + ' ?',
+                  text: "<?php echo __("You won't be able to revert this!"); ?>",
                   type: 'warning',
                   showCancelButton: true,
                   confirmButtonColor: '#3085d6',
                   cancelButtonColor: '#d33',
-                  confirmButtonText: '<?php echo _("Yes, delete it!"); ?>'
+                  confirmButtonText: '<?php echo __("Yes, delete it!"); ?>'
                 }).then((result) => {
                   if (result.value) {
                     swal({
-                        title: '<?php echo _("Processing"); ?>',
+                        title: '<?php echo __("Processing"); ?>',
                         text: '',
                         onOpen: function () {
                             swal.showLoading()

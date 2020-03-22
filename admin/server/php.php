@@ -55,9 +55,9 @@ $admindata = json_decode(curl_exec($curl0), true)[$username];
 $confdata = array_values(json_decode(curl_exec($curl1), true));
 $useremail = $admindata['CONTACT'];
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
-bindtextdomain('messages', '../../locale');
-textdomain('messages');
+_setlocale(LC_CTYPE, $locale); _setlocale(LC_MESSAGES, $locale);
+_bindtextdomain('messages', '../../locale');
+_textdomain('messages');
 
 foreach ($plugins as $result) {
     if (file_exists('../../plugins/' . $result)) {
@@ -87,7 +87,7 @@ foreach ($plugins as $result) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/ico" href="../../plugins/images/<?php echo $cpfavicon; ?>">
-        <title><?php echo $sitetitle; ?> - <?php echo _("Server"); ?></title>
+        <title><?php echo $sitetitle; ?> - <?php echo __("Server"); ?></title>
         <link href="../../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../../plugins/components/select2/select2.min.css" rel="stylesheet">
@@ -126,7 +126,7 @@ foreach ($plugins as $result) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="../../process/search.php" method="get">
-                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo __("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -139,10 +139,10 @@ foreach ($plugins as $result) {
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
-                                <li><a href="../../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
+                                <li><a href="../../profile.php"><i class="ti-home"></i> <?php echo __("My Account"); ?></a></li>
+                                <li><a href="../../profile.php?settings=open"><i class="ti-settings"></i> <?php echo __("Account Settings"); ?></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
+                                <li><a href="../../process/logout.php"><i class="fa fa-power-off"></i> <?php echo __("Logout"); ?></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -156,7 +156,7 @@ foreach ($plugins as $result) {
                                 <i class="ti-menu hidden-xs"></i>
                                 <i class="ti-close visible-xs"></i>
                             </span> 
-                            <span class="hide-menu"><?php echo _("Navigation"); ?></span>
+                            <span class="hide-menu"><?php echo __("Navigation"); ?></span>
                         </h3>  
                     </div>
                     <ul class="nav" id="side-menu">
@@ -172,7 +172,7 @@ foreach ($plugins as $result) {
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title"><?php echo _("View Configuration / PHP"); ?></h4>
+                            <h4 class="page-title"><?php echo __("View Configuration / PHP"); ?></h4>
                         </div>
                     </div>
                     <div class="row">
@@ -180,50 +180,50 @@ foreach ($plugins as $result) {
                             <div class="white-box">
                                 <form class="form-horizontal form-material" method="post" id="form">
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Max Execution Time"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Max Execution Time"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" disabled name="max_execution_time" value="<?php echo $confdata[0]['max_execution_time']; ?>" class="form-control form-control-line" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Max Input Time"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Max Input Time"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" disabled name="max_input_time" value="<?php echo $confdata[0]['max_input_time']; ?>" class="form-control form-control-line" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Memory Limit"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Memory Limit"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" disabled name="memory_limit" value="<?php echo $confdata[0]['memory_limit']; ?>" class="form-control form-control-line" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Error Reporting"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Error Reporting"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" disabled name="error_reporting" value="<?php echo $confdata[0]['error_reporting']; ?>" class="form-control form-control-line" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Display Errors"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Display Errors"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" disabled name="display_errors" value="<?php echo $confdata[0]['display_errors']; ?>" class="form-control form-control-line" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Post Max Size"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Post Max Size"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" disabled name="post_max_size" value="<?php echo $confdata[0]['post_max_size']; ?>" class="form-control form-control-line" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Upload Max Filesize"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Upload Max Filesize"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" disabled name="upload_max_filesize" value="<?php echo $confdata[0]['upload_max_filesize']; ?>" class="form-control form-control-line" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <a href="../list/server.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
+                                            <a href="../list/server.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo __("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </form>
@@ -257,7 +257,7 @@ foreach ($plugins as $result) {
             });
             function processLoader(){
                 swal({
-                    title: '<?php echo _("Processing"); ?>',
+                    title: '<?php echo __("Processing"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()
@@ -265,7 +265,7 @@ foreach ($plugins as $result) {
                 })};
             function loadLoader(){
                 swal({
-                    title: '<?php echo _("Loading"); ?>',
+                    title: '<?php echo __("Loading"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()

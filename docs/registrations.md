@@ -7,7 +7,7 @@ Within the register.php file on line 136, list the allowed plans within HTML 'op
 Example:
 
 ```html
-<option value="default"><?php echo _('Default'); ?></option>
+<option value="default"><?php echo __('Default'); ?></option>
 ```
 
 The above example has the case sensitive plan name in the value option, and the display name within the PHP echo tag. Repeat for all allowed plans.

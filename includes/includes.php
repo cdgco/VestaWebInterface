@@ -29,6 +29,8 @@
 
 // Require MySQL Credentials & Arrays of Countries, Languages and Error Codes in all pages
 require("config.php"); require("arrays.php");
+require __DIR__ . '/../vendor/autoload.php';
+PhpMyAdmin\MoTranslator\Loader::loadFunctions();
 
 $configstyle = '1';
 

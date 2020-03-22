@@ -44,10 +44,10 @@ curl_setopt($curl0, CURLOPT_POST, true);
 curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query($postvars0));
 $serverconnection = array_values(json_decode(curl_exec($curl0), true))[0]['OS'];
 
-setlocale(LC_CTYPE, $locale);
-setlocale(LC_MESSAGES, $locale);
-bindtextdomain('messages', 'locale');
-textdomain('messages');
+_setlocale(LC_CTYPE, $locale);
+_setlocale(LC_MESSAGES, $locale);
+_bindtextdomain('messages', 'locale');
+_textdomain('messages');
 
 ?>
 
@@ -59,7 +59,7 @@ textdomain('messages');
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
-        <title><?php echo $sitetitle; ?> - <?php echo _('Register'); ?></title>
+        <title><?php echo $sitetitle; ?> - <?php echo __('Register'); ?></title>
         <link href="plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="plugins/components/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet">
         <link href="plugins/components/sweetalert2/sweetalert2.min.css" rel="stylesheet">
@@ -104,48 +104,48 @@ textdomain('messages');
                 <div class="inner-panel">
                     <a href="javascript:void(0)" class="p-20 di"><img src="plugins/images/<?php echo $cpicon; ?>" class="logo-1"></a>
                     <div class="lg-content">
-                        <h2><?php echo $sitetitle; ?> <?php echo _('Control Panel'); ?> <br></h2><p><?php require 'includes/versioncheck.php'; ?></p>
+                        <h2><?php echo $sitetitle; ?> <?php echo __('Control Panel'); ?> <br></h2><p><?php require 'includes/versioncheck.php'; ?></p>
                     </div>
                 </div>
             </div>
 
             <div class="new-login-box">
                 <div class="white-box">
-                    <h3 class="box-title m-b-0"><?php echo _('Sign up for'); ?> <?php echo $sitetitle; ?></h3> <small><?php echo _('Enter your details below'); ?></small>
+                    <h3 class="box-title m-b-0"><?php echo __('Sign up for'); ?> <?php echo $sitetitle; ?></h3> <small><?php echo __('Enter your details below'); ?></small>
                     <form class="form-horizontal new-lg-form" method="post" id="loginform" action="process/process.php">
                         <div class="form-group ">
                             <div class="col-xs-12">
-                                <input class="form-control" type="text" style="width:49%; float:left;" required="" name="fname" required x-autocompletetype="given-name" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,27}$" placeholder="<?php echo _('First Name'); ?>" title="<?php echo _('2 to 28 Letters Only. Apostrophes and hyphens allowed.'); ?>" autocomplete="on"> 
-                                <input class="form-control" type="text" style="width:49%; float:right;" required="" name="lname" required x-autocompletetype="family-name" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,27}$" placeholder="<?php echo _('Last Name'); ?>" title="<?php echo _('2 to 28 Letters Only. Apostrophes and hyphens allowed.'); ?>" autocomplete="on"></div>
+                                <input class="form-control" type="text" style="width:49%; float:left;" required="" name="fname" required x-autocompletetype="given-name" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,27}$" placeholder="<?php echo __('First Name'); ?>" title="<?php echo __('2 to 28 Letters Only. Apostrophes and hyphens allowed.'); ?>" autocomplete="on"> 
+                                <input class="form-control" type="text" style="width:49%; float:right;" required="" name="lname" required x-autocompletetype="family-name" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,27}$" placeholder="<?php echo __('Last Name'); ?>" title="<?php echo __('2 to 28 Letters Only. Apostrophes and hyphens allowed.'); ?>" autocomplete="on"></div>
                         </div>
                         <div class="form-group ">
                             <div class="col-xs-12">
-                                <input class="form-control" type="text" name="email" x-autocompletetype="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$" title="<?php echo _('Invalid Email Address'); ?>" autocomplete="on" required="" placeholder="<?php echo _('Email'); ?>"> </div>
+                                <input class="form-control" type="text" name="email" x-autocompletetype="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$" title="<?php echo __('Invalid Email Address'); ?>" autocomplete="on" required="" placeholder="<?php echo __('Email'); ?>"> </div>
                         </div>   
                         <div class="form-group ">
                             <div class="col-xs-12">
-                                <input class="form-control" type="text" name="username" required autocomplete="on" pattern="^[a-zA-Z][a-zA-Z0-9-_.]{1,27}$" title="<?php echo _('2 to 28 Characters A-Z, 0-9, \'-\' \'.\' and \'_\' Only.'); ?>" placeholder="<?php echo _('Username'); ?>" /> </div>
+                                <input class="form-control" type="text" name="username" required autocomplete="on" pattern="^[a-zA-Z][a-zA-Z0-9-_.]{1,27}$" title="<?php echo __('2 to 28 Characters A-Z, 0-9, \'-\' \'.\' and \'_\' Only.'); ?>" placeholder="<?php echo __('Username'); ?>" /> </div>
                         </div>       
                         <div class="form-group ">
                             <div class="col-xs-12">
-                                <input class="form-control" type="password" name="password" title="<?php echo _('Minimum 6 Characters: One uppercade letter, lowercase letter and number reuired.'); ?>" id="pass" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$" autocomplete="new-password" required="" placeholder="<?php echo _('Password'); ?>" style="width:49%; float:left;">
+                                <input class="form-control" type="password" name="password" title="<?php echo __('Minimum 6 Characters: One uppercade letter, lowercase letter and number reuired.'); ?>" id="pass" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$" autocomplete="new-password" required="" placeholder="<?php echo __('Password'); ?>" style="width:49%; float:left;">
 
-                                <input class="form-control" type="password" id="cpass" autocomplete="new-password" required="" placeholder="<?php echo _('Confirm Pass'); ?>" style="width:49%; float:right;"></div>
+                                <input class="form-control" type="password" id="cpass" autocomplete="new-password" required="" placeholder="<?php echo __('Confirm Pass'); ?>" style="width:49%; float:right;"></div>
                         </div>
                         <div class="form-group ">
                             <div class="col-xs-12">
                                 <select class="selectpicker m-b-20 m-r-10" name="plan" data-style="btn color-button bg-theme" style="border:none;">
-                                    <option value="default"><?php echo _('Default'); ?></option>
+                                    <option value="default"><?php echo __('Default'); ?></option>
                                 </select>
                             </div></div>
                         <div class="form-group text-center m-t-20">
                             <div class="col-xs-12">
-                                <button class="btn color-button btn-lg btn-block text-uppercase waves-effect waves-light bg-theme" style="border:none;" type="submit"><?php echo _('Sign Up'); ?></button>
+                                <button class="btn color-button btn-lg btn-block text-uppercase waves-effect waves-light bg-theme" style="border:none;" type="submit"><?php echo __('Sign Up'); ?></button>
                             </div>
                         </div>
                         <div class="form-group m-b-0">
                             <div class="col-sm-12 text-center">
-                                <p><?php echo _('Already have an account?'); ?> <a href="login.php" class="text-danger m-l-5"><b><?php echo _('Sign in'); ?></b></a></p>
+                                <p><?php echo __('Already have an account?'); ?> <a href="login.php" class="text-danger m-l-5"><b><?php echo __('Sign in'); ?></b></a></p>
                             </div>
                         </div>
                     </form>
@@ -158,7 +158,7 @@ textdomain('messages');
 
             function validatePassword(){
                 if(password.value != confirm_password.value) {
-                    confirm_password.setCustomValidity("<?php echo _('Passwords do not match'); ?>");
+                    confirm_password.setCustomValidity("<?php echo __('Passwords do not match'); ?>");
                 } else {
                     confirm_password.setCustomValidity('');
                 }

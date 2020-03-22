@@ -59,9 +59,9 @@ $useremail = $admindata['CONTACT'];
 $mailname = array_keys(json_decode(curl_exec($curl1), true));
 /* if ($mailname[0] == '') { header('Location: ../list/mail.php'); } */
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
-bindtextdomain('messages', '../locale');
-textdomain('messages');
+_setlocale(LC_CTYPE, $locale); _setlocale(LC_MESSAGES, $locale);
+_bindtextdomain('messages', '../locale');
+_textdomain('messages');
 
 foreach ($plugins as $result) {
     if (file_exists('../plugins/' . $result)) {
@@ -91,7 +91,7 @@ foreach ($plugins as $result) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/ico" href="../plugins/images/<?php echo $cpfavicon; ?>">
-        <title><?php echo $sitetitle; ?> - <?php echo _("Mail"); ?></title>
+        <title><?php echo $sitetitle; ?> - <?php echo __("Mail"); ?></title>
         <link href="../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../plugins/components/animate.css/animate.min.css" rel="stylesheet">
@@ -140,7 +140,7 @@ foreach ($plugins as $result) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="../process/search.php" method="get">
-                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo __("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -153,10 +153,10 @@ foreach ($plugins as $result) {
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
-                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
+                                <li><a href="../profile.php"><i class="ti-home"></i> <?php echo __("My Account"); ?></a></li>
+                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo __("Account Settings"); ?></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
+                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo __("Logout"); ?></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -170,7 +170,7 @@ foreach ($plugins as $result) {
                                 <i class="ti-menu hidden-xs"></i>
                                 <i class="ti-close visible-xs"></i>
                             </span> 
-                            <span class="hide-menu"><?php echo _("Navigation"); ?></span>
+                            <span class="hide-menu"><?php echo __("Navigation"); ?></span>
                         </h3>  
                     </div>
                     <ul class="nav" id="side-menu">
@@ -186,7 +186,7 @@ foreach ($plugins as $result) {
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-12 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title"><?php echo _("Add Mail Account"); ?></h4>
+                            <h4 class="page-title"><?php echo __("Add Mail Account"); ?></h4>
                         </div>
                     </div>
                     <div class="row">
@@ -194,14 +194,14 @@ foreach ($plugins as $result) {
                             <div class="white-box">
                                 <form class="form-horizontal form-material" autocomplete="off" method="post" id="form" action="../create/mailaccount.php">
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Domain"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Domain"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" disabled value="<?php echo $requestdomain; ?>" style="background-color: #eee;padding-left: 0.6%;border-radius: 2px;border: 1px solid rgba(120, 130, 140, 0.13);bottom: 19px;background-image: none;"class="form-control uneditable-input form-control-static"> 
                                             <input type="hidden" name="v_domain" value="<?php echo $requestdomain; ?>"> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Account"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Account"); ?></label>
                                         <div class="col-md-12">
                                             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                                 <input type="text" name="v_account" onkeyup="fillSpan2()" autocomplete="new-password" class="form-control" id="accountname" style="padding-left: 0.5%;" required>
@@ -210,59 +210,59 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="password" class="col-md-12"><?php echo _("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10)"> <?php echo _("Generate"); ?></a></label>
+                                        <label for="password" class="col-md-12"><?php echo __("Password"); ?> / <a style="cursor:pointer" onclick="generatePassword(10)"> <?php echo __("Generate"); ?></a></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
                                             <input type="password" style="padding-left: 0.5%;" autocomplete="new-password" onkeyup="fillSpan()" class="form-control form-control-line" name="password" id="password" required><span class="input-group-btn"> 
                                             <button class="btn btn-inverse" style="margin-right: 15px;" name="Show" onclick="toggler(this)" id="tg" type="button"><i class="ti-eye"></i></button> 
                                             </span>  </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><a style="cursor: pointer;" onclick="toggle_visibility('togglediv');"><?php echo _("Advanced Options"); ?></a></label>
+                                        <label class="col-md-12"><a style="cursor: pointer;" onclick="toggle_visibility('togglediv');"><?php echo __("Advanced Options"); ?></a></label>
                                     </div>
                                     <div id="togglediv" style="display:none;">
                                         <div class="form-group">
-                                            <label for="email" class="col-md-12"><?php echo _("Quota"); ?></label>
+                                            <label for="email" class="col-md-12"><?php echo __("Quota"); ?></label>
                                             <div class="col-md-12">
                                                 <input type="text" name="v_quota" class="form-control"> 
-                                                <small class="form-text text-muted"><?php echo _("In Megabytes"); ?></small>
+                                                <small class="form-text text-muted"><?php echo __("In Megabytes"); ?></small>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Aliases"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Aliases"); ?></label>
                                             <div class="col-md-12">
                                                 <textarea class="form-control"  name="v_alias" rows="4"></textarea>
-                                                <small class="form-text text-muted"><?php echo _("Use Local-Part"); ?></small>
+                                                <small class="form-text text-muted"><?php echo __("Use Local-Part"); ?></small>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Forward To"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Forward To"); ?></label>
                                             <div class="col-md-12">
                                                 <textarea class="form-control" id="fwdto" name="v_fwd" rows="4"></textarea>
-                                                <small class="form-text text-muted"><?php echo _("One Or More Email Addresses"); ?></small>
+                                                <small class="form-text text-muted"><?php echo __("One Or More Email Addresses"); ?></small>
                                             </div>
                                         </div>
                                         <div id="togglediv2" style="display:none;">
                                             <div class="form-group">
-                                                <label class="col-md-12"><?php echo _("Don't Store Forwarded Mail"); ?></label>
+                                                <label class="col-md-12"><?php echo __("Don't Store Forwarded Mail"); ?></label>
                                                 <div class="col-md-12">
                                                     <div class="checkbox checkbox-info">
                                                         <input id="checkbox4"  name="v_fwd_only" type="checkbox">
-                                                        <label for="checkbox4"> <?php echo _("Enabled"); ?> </label>
+                                                        <label for="checkbox4"> <?php echo __("Enabled"); ?> </label>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo _("Autoreply"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Autoreply"); ?></label>
                                             <div class="col-md-12">
                                                 <div class="checkbox checkbox-info">
                                                     <input id="checkbox5" type="checkbox"  name="v_autoreply" onclick="checkDiv();">
-                                                    <label for="checkbox5"> <?php echo _("Enabled"); ?> </label>
+                                                    <label for="checkbox5"> <?php echo __("Enabled"); ?> </label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group" id="msg-div" style="margin-left: 4%;">
-                                            <label class="col-md-12"><?php echo _("Message"); ?></label>
+                                            <label class="col-md-12"><?php echo __("Message"); ?></label>
                                             <div class="col-md-12">
                                                 <textarea class="form-control"  name="v_message" rows="4"> </textarea>
                                             </div>
@@ -278,8 +278,8 @@ foreach ($plugins as $result) {
                                     } ?>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" type="submit"><?php echo _("Add Account"); ?></button> &nbsp;
-                                            <a href="../list/maildomain.php?domain=<?php echo $requestdomain; ?>" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
+                                            <button class="btn btn-success" type="submit"><?php echo __("Add Account"); ?></button> &nbsp;
+                                            <a href="../list/maildomain.php?domain=<?php echo $requestdomain; ?>" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo __("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </form>
@@ -289,14 +289,14 @@ foreach ($plugins as $result) {
                             <div class="white-box">
                                 <div> 
                                     <center> <h3>
-                                        <?php echo _("Authentication Settings"); ?>
+                                        <?php echo __("Authentication Settings"); ?>
                                         </h3></center><br>
                                     <div class="overlay-box" style="background: #fff;">
                                         <ul class="nav nav-tabs">
                                             <li class="active">
-                                                <a  href="#1" data-toggle="tab"><?php echo _("Use Server Hostname"); ?></a>
+                                                <a  href="#1" data-toggle="tab"><?php echo __("Use Server Hostname"); ?></a>
                                             </li>
-                                            <li><a href="#2" data-toggle="tab"><?php echo _("Use Domain Hostname"); ?> </a>
+                                            <li><a href="#2" data-toggle="tab"><?php echo __("Use Domain Hostname"); ?> </a>
                                             </li>
                                         </ul>
                                         <div class="tab-content ">
@@ -307,7 +307,7 @@ foreach ($plugins as $result) {
                                                     </li>
                                                     <li><a href="#4" data-toggle="tab">SSL</a>
                                                     </li>
-                                                    <li><a href="#5" data-toggle="tab"><?php echo _("No Authentication"); ?></a>
+                                                    <li><a href="#5" data-toggle="tab"><?php echo __("No Authentication"); ?></a>
                                                     </li>
                                                 </ul>
                                                 <div class="tab-content ">
@@ -315,17 +315,17 @@ foreach ($plugins as $result) {
                                                         <div class="row">
                                                             <div class="col-sm-5">
                                                                 <p>
-                                                                    <?php echo _("Username"); ?>:	<br>   
-                                                                    <?php echo _("Password"); ?>:	<br>
-                                                                    IMAP <?php echo _("hostname"); ?>:	<br>
-                                                                    IMAP <?php echo _("port"); ?>:	<br>
-                                                                    IMAP <?php echo _("security"); ?>:	<br>
-                                                                    IMAP <?php echo _("auth method"); ?>:<br>
-                                                                    SMTP <?php echo _("hostname"); ?>:<br>
-                                                                    SMTP <?php echo _("port"); ?>:	<br>
-                                                                    SMTP <?php echo _("security"); ?>:<br>	
-                                                                    SMTP <?php echo _("auth method"); ?>:	<br>
-                                                                    <?php echo _("Webmail"); ?> URL:	<br>
+                                                                    <?php echo __("Username"); ?>:	<br>   
+                                                                    <?php echo __("Password"); ?>:	<br>
+                                                                    IMAP <?php echo __("hostname"); ?>:	<br>
+                                                                    IMAP <?php echo __("port"); ?>:	<br>
+                                                                    IMAP <?php echo __("security"); ?>:	<br>
+                                                                    IMAP <?php echo __("auth method"); ?>:<br>
+                                                                    SMTP <?php echo __("hostname"); ?>:<br>
+                                                                    SMTP <?php echo __("port"); ?>:	<br>
+                                                                    SMTP <?php echo __("security"); ?>:<br>	
+                                                                    SMTP <?php echo __("auth method"); ?>:	<br>
+                                                                    <?php echo __("Webmail"); ?> URL:	<br>
                                                                 </p>
                                                             </div>
                                                             <div class="col-sm-7">
@@ -335,11 +335,11 @@ foreach ($plugins as $result) {
                                                                     <?php echo VESTA_HOST_ADDRESS; ?><br>
                                                                     143<br>
                                                                     STARTTLS<br>
-                                                                    <?php echo _("Normal Password"); ?><br>
+                                                                    <?php echo __("Normal Password"); ?><br>
                                                                     <?php echo VESTA_HOST_ADDRESS; ?><br>
                                                                     587<br>
                                                                     STARTTLS<br>	
-                                                                    <?php echo _("Normal Password"); ?>	<br>
+                                                                    <?php echo __("Normal Password"); ?>	<br>
                                                                     <a href="<?php echo $webmailurl; ?>"><?php echo $webmailurl; ?></a><br>
                                                                 </p>
                                                             </div>
@@ -349,17 +349,17 @@ foreach ($plugins as $result) {
                                                         <div class="row">
                                                             <div class="col-sm-5">
                                                                 <p>
-                                                                    <?php echo _("Username"); ?>:	<br>   
-                                                                    <?php echo _("Password"); ?>:	<br>
-                                                                    IMAP <?php echo _("hostname"); ?>:	<br>
-                                                                    IMAP <?php echo _("port"); ?>:	<br>
-                                                                    IMAP <?php echo _("security"); ?>:	<br>
-                                                                    IMAP <?php echo _("auth method"); ?>:<br>
-                                                                    SMTP <?php echo _("hostname"); ?>:<br>
-                                                                    SMTP <?php echo _("port"); ?>:	<br>
-                                                                    SMTP <?php echo _("security"); ?>:<br>	
-                                                                    SMTP <?php echo _("auth method"); ?>:	<br>
-                                                                    <?php echo _("Webmail"); ?> URL:	<br>
+                                                                    <?php echo __("Username"); ?>:	<br>   
+                                                                    <?php echo __("Password"); ?>:	<br>
+                                                                    IMAP <?php echo __("hostname"); ?>:	<br>
+                                                                    IMAP <?php echo __("port"); ?>:	<br>
+                                                                    IMAP <?php echo __("security"); ?>:	<br>
+                                                                    IMAP <?php echo __("auth method"); ?>:<br>
+                                                                    SMTP <?php echo __("hostname"); ?>:<br>
+                                                                    SMTP <?php echo __("port"); ?>:	<br>
+                                                                    SMTP <?php echo __("security"); ?>:<br>	
+                                                                    SMTP <?php echo __("auth method"); ?>:	<br>
+                                                                    <?php echo __("Webmail"); ?> URL:	<br>
                                                                 </p>
                                                             </div>
                                                             <div class="col-sm-7">
@@ -369,11 +369,11 @@ foreach ($plugins as $result) {
                                                                     <?php echo VESTA_HOST_ADDRESS; ?><br>
                                                                     993<br>
                                                                     SSL<br>
-                                                                    <?php echo _("Normal Password"); ?><br>
+                                                                    <?php echo __("Normal Password"); ?><br>
                                                                     <?php echo VESTA_HOST_ADDRESS; ?><br>
                                                                     465<br>
                                                                     SSL<br>	
-                                                                    <?php echo _("Normal Password"); ?><br>
+                                                                    <?php echo __("Normal Password"); ?><br>
                                                                     <a href="<?php echo $webmailurl; ?>"><?php echo $webmailurl; ?></a><br>
                                                                 </p>
                                                             </div>
@@ -383,17 +383,17 @@ foreach ($plugins as $result) {
                                                         <div class="row">
                                                             <div class="col-sm-5">
                                                                 <p>
-                                                                    <?php echo _("Username"); ?>:	<br>   
-                                                                    <?php echo _("Password"); ?>:	<br>
-                                                                    IMAP <?php echo _("hostname"); ?>:	<br>
-                                                                    IMAP <?php echo _("port"); ?>:	<br>
-                                                                    IMAP <?php echo _("security"); ?>:	<br>
-                                                                    IMAP <?php echo _("auth method"); ?>:<br>
-                                                                    SMTP <?php echo _("hostname"); ?>:<br>
-                                                                    SMTP <?php echo _("port"); ?>:	<br>
-                                                                    SMTP <?php echo _("security"); ?>:<br>	
-                                                                    SMTP <?php echo _("auth method"); ?>:	<br>
-                                                                    <?php echo _("Webmail"); ?> URL:	<br>
+                                                                    <?php echo __("Username"); ?>:	<br>   
+                                                                    <?php echo __("Password"); ?>:	<br>
+                                                                    IMAP <?php echo __("hostname"); ?>:	<br>
+                                                                    IMAP <?php echo __("port"); ?>:	<br>
+                                                                    IMAP <?php echo __("security"); ?>:	<br>
+                                                                    IMAP <?php echo __("auth method"); ?>:<br>
+                                                                    SMTP <?php echo __("hostname"); ?>:<br>
+                                                                    SMTP <?php echo __("port"); ?>:	<br>
+                                                                    SMTP <?php echo __("security"); ?>:<br>	
+                                                                    SMTP <?php echo __("auth method"); ?>:	<br>
+                                                                    <?php echo __("Webmail"); ?> URL:	<br>
                                                                 </p>
                                                             </div>
                                                             <div class="col-sm-7">
@@ -402,12 +402,12 @@ foreach ($plugins as $result) {
                                                                     <span class="mailPW"></span><br>
                                                                     <?php echo VESTA_HOST_ADDRESS; ?><br>
                                                                     143<br>
-                                                                    <?php echo _("No Encryption"); ?><br>
-                                                                    <?php echo _("Normal Password"); ?><br>
+                                                                    <?php echo __("No Encryption"); ?><br>
+                                                                    <?php echo __("Normal Password"); ?><br>
                                                                     <?php echo VESTA_HOST_ADDRESS; ?><br>
                                                                     25<br>
-                                                                    <?php echo _("No Encryption"); ?><br>	
-                                                                    <?php echo _("Normal Password"); ?><br>
+                                                                    <?php echo __("No Encryption"); ?><br>	
+                                                                    <?php echo __("Normal Password"); ?><br>
                                                                     <a href="<?php echo $webmailurl; ?>"><?php echo $webmailurl; ?></a><br>
                                                                 </p>
                                                             </div>
@@ -422,7 +422,7 @@ foreach ($plugins as $result) {
                                                     </li>
                                                     <li><a href="#7" data-toggle="tab">SSL</a>
                                                     </li>
-                                                    <li><a href="#8" data-toggle="tab"><?php echo _("No Authentication"); ?></a>
+                                                    <li><a href="#8" data-toggle="tab"><?php echo __("No Authentication"); ?></a>
                                                     </li>
                                                 </ul>
                                                 <div class="tab-content ">
@@ -430,17 +430,17 @@ foreach ($plugins as $result) {
                                                         <div class="row">
                                                             <div class="col-sm-5">
                                                                 <p>
-                                                                    <?php echo _("Username"); ?>:	<br>   
-                                                                    <?php echo _("Password"); ?>:	<br>
-                                                                    IMAP <?php echo _("hostname"); ?>:	<br>
-                                                                    IMAP <?php echo _("port"); ?>:	<br>
-                                                                    IMAP <?php echo _("security"); ?>:	<br>
-                                                                    IMAP <?php echo _("auth method"); ?>:<br>
-                                                                    SMTP <?php echo _("hostname"); ?>:<br>
-                                                                    SMTP <?php echo _("port"); ?>:	<br>
-                                                                    SMTP <?php echo _("security"); ?>:<br>	
-                                                                    SMTP <?php echo _("auth method"); ?>:	<br>
-                                                                    <?php echo _("Webmail"); ?> URL:	<br>
+                                                                    <?php echo __("Username"); ?>:	<br>   
+                                                                    <?php echo __("Password"); ?>:	<br>
+                                                                    IMAP <?php echo __("hostname"); ?>:	<br>
+                                                                    IMAP <?php echo __("port"); ?>:	<br>
+                                                                    IMAP <?php echo __("security"); ?>:	<br>
+                                                                    IMAP <?php echo __("auth method"); ?>:<br>
+                                                                    SMTP <?php echo __("hostname"); ?>:<br>
+                                                                    SMTP <?php echo __("port"); ?>:	<br>
+                                                                    SMTP <?php echo __("security"); ?>:<br>	
+                                                                    SMTP <?php echo __("auth method"); ?>:	<br>
+                                                                    <?php echo __("Webmail"); ?> URL:	<br>
                                                                 </p>
                                                             </div>
                                                             <div class="col-sm-7">
@@ -450,11 +450,11 @@ foreach ($plugins as $result) {
                                                                     <?php echo $requestdomain; ?><br>
                                                                     143<br>
                                                                     STARTTLS<br>
-                                                                    <?php echo _("Normal Password"); ?><br>
+                                                                    <?php echo __("Normal Password"); ?><br>
                                                                     <?php echo $requestdomain; ?><br>
                                                                     587<br>
                                                                     STARTTLS<br>	
-                                                                    <?php echo _("Normal Password"); ?><br>
+                                                                    <?php echo __("Normal Password"); ?><br>
                                                                     <a href="<?php echo $webmailurl; ?>"><?php echo $webmailurl; ?></a><br>
                                                                 </p>
                                                             </div>
@@ -464,17 +464,17 @@ foreach ($plugins as $result) {
                                                         <div class="row">
                                                             <div class="col-sm-5">
                                                                 <p>
-                                                                    <?php echo _("Username"); ?>:	<br>   
-                                                                    <?php echo _("Password"); ?>:	<br>
-                                                                    IMAP <?php echo _("hostname"); ?>:	<br>
-                                                                    IMAP <?php echo _("port"); ?>:	<br>
-                                                                    IMAP <?php echo _("security"); ?>:	<br>
-                                                                    IMAP <?php echo _("auth method"); ?>:<br>
-                                                                    SMTP <?php echo _("hostname"); ?>:<br>
-                                                                    SMTP <?php echo _("port"); ?>:	<br>
-                                                                    SMTP <?php echo _("security"); ?>:<br>	
-                                                                    SMTP <?php echo _("auth method"); ?>:	<br>
-                                                                    <?php echo _("Webmail"); ?> URL:	<br>
+                                                                    <?php echo __("Username"); ?>:	<br>   
+                                                                    <?php echo __("Password"); ?>:	<br>
+                                                                    IMAP <?php echo __("hostname"); ?>:	<br>
+                                                                    IMAP <?php echo __("port"); ?>:	<br>
+                                                                    IMAP <?php echo __("security"); ?>:	<br>
+                                                                    IMAP <?php echo __("auth method"); ?>:<br>
+                                                                    SMTP <?php echo __("hostname"); ?>:<br>
+                                                                    SMTP <?php echo __("port"); ?>:	<br>
+                                                                    SMTP <?php echo __("security"); ?>:<br>	
+                                                                    SMTP <?php echo __("auth method"); ?>:	<br>
+                                                                    <?php echo __("Webmail"); ?> URL:	<br>
                                                                 </p>
                                                             </div>
                                                             <div class="col-sm-7">
@@ -484,11 +484,11 @@ foreach ($plugins as $result) {
                                                                     <?php echo $requestdomain; ?><br>
                                                                     993<br>
                                                                     SSL<br>
-                                                                    <?php echo _("Normal Password"); ?><br>
+                                                                    <?php echo __("Normal Password"); ?><br>
                                                                     <?php echo $requestdomain; ?><br>
                                                                     465<br>
                                                                     SSL<br>	
-                                                                    <?php echo _("Normal Password"); ?><br>
+                                                                    <?php echo __("Normal Password"); ?><br>
                                                                     <a href="<?php echo $webmailurl; ?>"><?php echo $webmailurl; ?></a><br>
                                                                 </p>
                                                             </div>
@@ -498,17 +498,17 @@ foreach ($plugins as $result) {
                                                         <div class="row">
                                                             <div class="col-sm-5">
                                                                 <p>
-                                                                    <?php echo _("Username"); ?>:	<br>   
-                                                                    <?php echo _("Password"); ?>:	<br>
-                                                                    IMAP <?php echo _("hostname"); ?>:	<br>
-                                                                    IMAP <?php echo _("port"); ?>:	<br>
-                                                                    IMAP <?php echo _("security"); ?>:	<br>
-                                                                    IMAP <?php echo _("auth method"); ?>:<br>
-                                                                    SMTP <?php echo _("hostname"); ?>:<br>
-                                                                    SMTP <?php echo _("port"); ?>:	<br>
-                                                                    SMTP <?php echo _("security"); ?>:<br>	
-                                                                    SMTP <?php echo _("auth method"); ?>:	<br>
-                                                                    <?php echo _("Webmail"); ?> URL:	<br>
+                                                                    <?php echo __("Username"); ?>:	<br>   
+                                                                    <?php echo __("Password"); ?>:	<br>
+                                                                    IMAP <?php echo __("hostname"); ?>:	<br>
+                                                                    IMAP <?php echo __("port"); ?>:	<br>
+                                                                    IMAP <?php echo __("security"); ?>:	<br>
+                                                                    IMAP <?php echo __("auth method"); ?>:<br>
+                                                                    SMTP <?php echo __("hostname"); ?>:<br>
+                                                                    SMTP <?php echo __("port"); ?>:	<br>
+                                                                    SMTP <?php echo __("security"); ?>:<br>	
+                                                                    SMTP <?php echo __("auth method"); ?>:	<br>
+                                                                    <?php echo __("Webmail"); ?> URL:	<br>
                                                                 </p>
                                                             </div>
                                                             <div class="col-sm-7">
@@ -517,12 +517,12 @@ foreach ($plugins as $result) {
                                                                     <span class="mailPW"></span><br>
                                                                     <?php echo $requestdomain; ?><br>
                                                                     143<br>
-                                                                    <?php echo _("No Encryption"); ?><br>
-                                                                    <?php echo _("Normal Password"); ?><br>
+                                                                    <?php echo __("No Encryption"); ?><br>
+                                                                    <?php echo __("Normal Password"); ?><br>
                                                                     <?php echo $requestdomain; ?><br>
                                                                     25<br>
-                                                                    <?php echo _("No Encryption"); ?><br>	
-                                                                    <?php echo _("Normal Password"); ?><br>
+                                                                    <?php echo __("No Encryption"); ?><br>	
+                                                                    <?php echo __("Normal Password"); ?><br>
                                                                     <a href="<?php echo $webmailurl; ?>"><?php echo $webmailurl; ?></a><br>
                                                                 </p>
                                                             </div>
@@ -625,7 +625,7 @@ foreach ($plugins as $result) {
             }
             function processLoader(){
                 swal({
-                    title: '<?php echo _("Processing"); ?>',
+                    title: '<?php echo __("Processing"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()
@@ -633,7 +633,7 @@ foreach ($plugins as $result) {
                 })};
             function loadLoader(){
                 swal({
-                    title: '<?php echo _("Loading"); ?>',
+                    title: '<?php echo __("Loading"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()

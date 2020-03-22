@@ -54,9 +54,9 @@ while($curlstart <= 1) {
 $admindata = json_decode(curl_exec($curl0), true)[$username];
 $useremail = $admindata['CONTACT'];
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-setlocale(LC_CTYPE, $locale); setlocale(LC_MESSAGES, $locale);
-bindtextdomain('messages', '../../locale');
-textdomain('messages');
+_setlocale(LC_CTYPE, $locale); _setlocale(LC_MESSAGES, $locale);
+_bindtextdomain('messages', '../../locale');
+_textdomain('messages');
 
 foreach ($plugins as $result) {
     if (file_exists('../../plugins/' . $result)) {
@@ -86,7 +86,7 @@ foreach ($plugins as $result) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/ico" href="../../plugins/images/<?php echo $cpfavicon; ?>">
-        <title><?php echo $sitetitle; ?> - <?php echo _("Firewall"); ?></title>
+        <title><?php echo $sitetitle; ?> - <?php echo __("Firewall"); ?></title>
         <link href="../../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../../plugins/components/select2/select2.min.css" rel="stylesheet">
@@ -125,7 +125,7 @@ foreach ($plugins as $result) {
                     <ul class="nav navbar-top-links navbar-right pull-right">
                         <li>
                             <form class="app-search m-r-10" id="searchform" action="../../process/search.php" method="get">
-                                <input type="text" placeholder="<?php echo _("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
+                                <input type="text" placeholder="<?php echo __("Search..."); ?>" class="form-control" name="q"> <a href="javascript:void(0);" onclick="document.getElementById('searchform').submit();"><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php print_r($displayname); ?></b><span class="caret"></span> </a>
@@ -139,10 +139,10 @@ foreach ($plugins as $result) {
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../../profile.php"><i class="ti-home"></i> <?php echo _("My Account"); ?></a></li>
-                                <li><a href="../../profile.php?settings=open"><i class="ti-settings"></i> <?php echo _("Account Settings"); ?></a></li>
+                                <li><a href="../../profile.php"><i class="ti-home"></i> <?php echo __("My Account"); ?></a></li>
+                                <li><a href="../../profile.php?settings=open"><i class="ti-settings"></i> <?php echo __("Account Settings"); ?></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../../process/logout.php"><i class="fa fa-power-off"></i> <?php echo _("Logout"); ?></a></li>
+                                <li><a href="../../process/logout.php"><i class="fa fa-power-off"></i> <?php echo __("Logout"); ?></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -156,7 +156,7 @@ foreach ($plugins as $result) {
                                 <i class="ti-menu hidden-xs"></i>
                                 <i class="ti-close visible-xs"></i>
                             </span> 
-                            <span class="hide-menu"><?php echo _("Navigation"); ?></span>
+                            <span class="hide-menu"><?php echo __("Navigation"); ?></span>
                         </h3>  
                     </div>
                     <ul class="nav" id="side-menu">
@@ -172,7 +172,7 @@ foreach ($plugins as $result) {
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title"><?php echo _("Add Banned IP"); ?></h4>
+                            <h4 class="page-title"><?php echo __("Add Banned IP"); ?></h4>
                         </div>
                     </div>
                     <div class="row">
@@ -180,30 +180,30 @@ foreach ($plugins as $result) {
                             <div class="white-box">
                                 <form class="form-horizontal form-material" autocomplete="off" method="post" id="form" action="../create/fail2ban.php">
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("Banlist"); ?></label>
+                                        <label class="col-md-12"><?php echo __("Banlist"); ?></label>
                                         <div class="col-md-12">
                                             <select class="form-control select2" name="v_chain">
-                                                <option value="SSH"><?php echo _("SSH"); ?></option>
-                                                <option value="WEB"><?php echo _("WEB"); ?></option>
-                                                <option value="FTP"><?php echo _("FTP"); ?></option>
-                                                <option value="DNS"><?php echo _("DNS"); ?></option>
-                                                <option value="MAIL"><?php echo _("MAIL"); ?></option>
-                                                <option value="DB"><?php echo _("DB"); ?></option>
-                                                <option value="VESTA"><?php echo _("VESTA"); ?></option>
+                                                <option value="SSH"><?php echo __("SSH"); ?></option>
+                                                <option value="WEB"><?php echo __("WEB"); ?></option>
+                                                <option value="FTP"><?php echo __("FTP"); ?></option>
+                                                <option value="DNS"><?php echo __("DNS"); ?></option>
+                                                <option value="MAIL"><?php echo __("MAIL"); ?></option>
+                                                <option value="DB"><?php echo __("DB"); ?></option>
+                                                <option value="VESTA"><?php echo __("VESTA"); ?></option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12"><?php echo _("IP Address"); ?></label>
+                                        <label class="col-md-12"><?php echo __("IP Address"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="v_ip" autocomplete="new-password" class="form-control form-control-line" required> 
-                                            <small class="form-text text-muted"><?php echo _("CIDR format is supported"); ?></small>
+                                            <small class="form-text text-muted"><?php echo __("CIDR format is supported"); ?></small>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" type="submit"><?php echo _("Add Ban"); ?></button> &nbsp;
-                                            <a href="../list/fail2ban.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo _("Back"); ?></button></a>
+                                            <button class="btn btn-success" type="submit"><?php echo __("Add Ban"); ?></button> &nbsp;
+                                            <a href="../list/fail2ban.php" style="color: inherit;text-decoration: inherit;"><button onclick="loadLoader();" class="btn btn-muted" type="button"><?php echo __("Back"); ?></button></a>
                                         </div>
                                     </div>
                                 </form>
@@ -243,7 +243,7 @@ foreach ($plugins as $result) {
             });
             function processLoader(){
                 swal({
-                    title: '<?php echo _("Processing"); ?>',
+                    title: '<?php echo __("Processing"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()
@@ -251,7 +251,7 @@ foreach ($plugins as $result) {
                 })};
             function loadLoader(){
                 swal({
-                    title: '<?php echo _("Loading"); ?>',
+                    title: '<?php echo __("Loading"); ?>',
                     text: '',
                     onOpen: function () {
                         swal.showLoading()
