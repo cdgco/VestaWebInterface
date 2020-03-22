@@ -2,7 +2,7 @@
 *
 * Vesta Web Interface
 *
-* Copyright (C) 2019 Carter Roeser <carter@cdgtech.one>
+* Copyright (C) 2020 Carter Roeser <carter@cdgtech.one>
 * https://cdgco.github.io/VestaWebInterface
 *
 * Vesta Web Interface is free software: you can redistribute it and/or modify
