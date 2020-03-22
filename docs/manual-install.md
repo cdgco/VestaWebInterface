@@ -14,12 +14,6 @@ Copy the contents of the 'install/vesta' folder in the release to the '/usr/loca
 Edit the /usr/local/vesta/web/vwi/config.php file and enter the URL where Vesta Web Interface will be accessed from, including the "http(s)://" and the following "/".
 
 #### Step 5:
-Install the optional language packs on your frontend server (required for translation support).
-```shell
-bash <(curl -s https://cdgco.github.io/lang)
-```
-
-#### Step 6:
 Configure Vesta Web Interface through the web based configurator or manual configuration.
 
 * Web Based Configuration:
