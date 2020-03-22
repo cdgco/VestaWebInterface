@@ -307,15 +307,15 @@ foreach ($plugins as $result) {
                                                         <td>';                                                                   
                                                 if($val1['proxiable'] === true){ 
                                                     if($val1['proxied'] === true){
-                                                        echo '<span class="label label-table label-success">' . _("On") . '</span>';} 
+                                                        echo '<span class="label label-table label-success">' . __("On") . '</span>';} 
                                                     else{ 
-                                                        echo '<span class="label label-table label-danger">' . _("Off") . '</span>';} } 
+                                                        echo '<span class="label label-table label-danger">' . __("Off") . '</span>';} } 
                                                 else{ 
-                                                    echo '<span class="label label-table label-inverse">' . _("N/A") . '</span>';} 
+                                                    echo '<span class="label label-table label-inverse">' . __("N/A") . '</span>';} 
                                                 echo '</td>
                                                       <td>
-                                                            <a href="../edit/cfrecord.php?domain=' . $cfid . '&record=' . $val1['id'] . '"><button type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button></a>
-                                                            <button type="button" onclick="confirmDelete(\'' . $val1['id'] . '\')" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="fa fa-trash-o" ></i></button>
+                                                            <a href="../edit/cfrecord.php?domain=' . $cfid . '&record=' . $val1['id'] . '"><button type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . __("Edit") . '"><i class="ti-pencil-alt"></i></button></a>
+                                                            <button type="button" onclick="confirmDelete(\'' . $val1['id'] . '\')" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . __("Delete") . '"><i class="fa fa-trash-o" ></i></button>
                                                      </td>
                                                      <td>' . date("Y-m-d", strtotime($val1['created_on'])) . '</td>
                                                      </tr>';
@@ -403,19 +403,19 @@ foreach ($plugins as $result) {
             includeScript();
             
             if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             if(isset($_POST['delcode']) && $_POST['delcode'] == "0") {
-                echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully Deleted!") . "', type:'success'});";
             } 
             if(isset($_POST['addcode']) && $_POST['addcode'] == "1") {
-                echo "swal({title:'" . _("Successfully Created!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully Created!") . "', type:'success'});";
             }
             if(isset($_POST['addcode']) && $_POST['addcode'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['addcode']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[$_POST['addcode']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             if(isset($_POST['delcode']) && $_POST['delcode'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['delcode']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[$_POST['delcode']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             ?>
         </script>

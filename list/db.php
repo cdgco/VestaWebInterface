@@ -224,7 +224,7 @@ foreach ($plugins as $result) {
                         <div class="col-lg-12">
                             <div class="white-box"> <ul class="side-icon-text pull-right">
                                 <li><a href="../add/db.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span class="resfour"><wrapper class="restwo"><?php echo __("Add "); ?></wrapper><?php echo __("Database"); ?></span></a></li>
-                                <?php if($phpmyadmin != '') { echo '<li class="restwo"><a href="' . $phpmyadmin .'" target="_blank"><span class="circle circle-sm bg-warning di"><i class="fa fa-database"></i></span><span>' . _("phpMyAdmin") . '</span></a></li>';} if($phppgadmin != '') { echo '<li class="restwo"><a href="' . $phppgadmin .'" target="_blank"><span class="circle circle-sm bg-purple di"><i class="fa fa-database"></i></span><span>' . _("phpPgAdmin") . '</span></a></li>';} ?>
+                                <?php if($phpmyadmin != '') { echo '<li class="restwo"><a href="' . $phpmyadmin .'" target="_blank"><span class="circle circle-sm bg-warning di"><i class="fa fa-database"></i></span><span>' . __("phpMyAdmin") . '</span></a></li>';} if($phppgadmin != '') { echo '<li class="restwo"><a href="' . $phppgadmin .'" target="_blank"><span class="circle circle-sm bg-purple di"><i class="fa fa-database"></i></span><span>' . __("phpPgAdmin") . '</span></a></li>';} ?>
                                 </ul>
                                 <h3 class="box-title m-b-0"><?php echo __("Databases"); ?></h3><br>
                                 <div class="table-responsive">
@@ -254,15 +254,15 @@ foreach ($plugins as $result) {
                                                         <td class="restwo" data-sort-value="' . $dbdata[$x1]['U_DISK'] . '">' . formatMB($dbdata[$x1]['U_DISK']) . '</td>
                                                         <td class="restwo">';                                                                   
                                                 if($dbdata[$x1]['SUSPENDED'] == "no"){ 
-                                                    echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
+                                                    echo '<span class="label label-table label-success">' . __("Active") . '</span>';} 
                                                 else{ 
-                                                    echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
+                                                    echo '<span class="label label-table label-danger">' . __("Suspended") . '</span>';} 
                                                 echo '</td>
                                                         <td class="restwo" data-sort-value="' . $dbdata[$x1]['DATE'] . '">' . $dbdata[$x1]['DATE'] . '</td><td>
-                                                        <a href="../edit/db.php?db=' . $dbname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button></a>';
-                                                        if ($initialusername == "admin" && $dbdata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $dbname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
-                                                        elseif ($initialusername == "admin" && $dbdata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="confirmUnsuspend(\'' . $dbname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }   
-                                                        echo '<button onclick="confirmDelete(\'' . $dbname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-trash-o"></i></button>
+                                                        <a href="../edit/db.php?db=' . $dbname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . __("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button></a>';
+                                                        if ($initialusername == "admin" && $dbdata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $dbname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . __("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
+                                                        elseif ($initialusername == "admin" && $dbdata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="confirmUnsuspend(\'' . $dbname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . __("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }   
+                                                        echo '<button onclick="confirmDelete(\'' . $dbname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . __("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-trash-o"></i></button>
                                                       </td>
                                                       <td>' . $dbdata[$x1]['HOST'] . '</td>
                                                       <td>' . $dbdata[$x1]['TYPE'] . '</td>
@@ -372,25 +372,25 @@ foreach ($plugins as $result) {
             includeScript();
             
             if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             if(isset($_POST['delcode']) && $_POST['delcode'] == "0") {
-                echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully Deleted!") . "', type:'success'});";
             } 
             if(isset($_POST['addcode']) && $_POST['addcode'] == "0") {
-                echo "swal({title:'" . _("Successfully Created!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully Created!") . "', type:'success'});";
             } 
             if(isset($_POST['delcode']) && $_POST['delcode'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['delcode']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[$_POST['delcode']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             if(isset($_POST['addcode']) && $_POST['addcode'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['addcode']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[$_POST['addcode']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             if(isset($_POST['u1']) && $_POST['u1'] == 0) {
-                echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully Updated!") . "', type:'success'});";
             } 
             if(isset($_POST['u1']) && $_POST['u1'] != 0) {
-                echo "swal({title:'" . $errorcode[$_POST['u1']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[$_POST['u1']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             } 
             ?>
         </script>

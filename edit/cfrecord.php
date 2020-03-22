@@ -264,11 +264,11 @@ foreach ($plugins as $result) {
                                     <?php if ($recorddata["proxiable"] === true) { echo '
                                     <div id="cf-div">
                                         <div class="form-group">
-                                        <label class="col-md-12">' . _("Cloudflare Proxy") . '</label>
+                                        <label class="col-md-12">' . __("Cloudflare Proxy") . '</label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
                                                 <input id="checkbox4" type="checkbox"'; if ($recorddata["proxied"] === true) { echo ' checked';} echo ' name="v_cf">
-                                                <label for="checkbox4">' . _("Enabled") . '</label>
+                                                <label for="checkbox4">' . __("Enabled") . '</label>
                                             </div>
                                         </div>
                                     </div>'; } ?>
@@ -353,13 +353,13 @@ foreach ($plugins as $result) {
             includeScript();
             
             if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             if(isset($_POST['code']) && $_POST['code'] == "1") {
-                echo "swal({title:'" . _("Successfully Created!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully Created!") . "', type:'success'});";
             }
             if(isset($_POST['code']) && $_POST['code'] == "0") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
 
             ?>

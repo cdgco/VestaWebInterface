@@ -302,8 +302,8 @@ foreach ($plugins as $result) {
             if($warningson == "all"){
                 if(isset($apienabled) && $apienabled == 'true') {
                     echo "toast2({
-                            title: '" . _("Feature Disabled") . "',
-                            text: '" . _("Backup Exclusions are incompatible with API Key Authentication.") . "',
+                            title: '" . __("Feature Disabled") . "',
+                            text: '" . __("Backup Exclusions are incompatible with API Key Authentication.") . "',
                             type: 'error'
                         });";
                 } 
@@ -311,8 +311,8 @@ foreach ($plugins as $result) {
             elseif($warningson == "admin" && $initialusername == "admin"){
                 if(isset($apienabled) && $apienabled == 'true') {
                     echo "toast2({
-                            title: '" . _("Feature Disabled") . "',
-                            text: '" . _("Backup Exclusions are incompatible with API Key Authentication.") . "',
+                            title: '" . __("Feature Disabled") . "',
+                            text: '" . __("Backup Exclusions are incompatible with API Key Authentication.") . "',
                             type: 'error'
                         });";
 

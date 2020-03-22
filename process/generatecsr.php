@@ -88,7 +88,7 @@ foreach ($plugins as $result) {
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="icon" type="image/ico" href="../plugins/images/<?php echo $cpfavicon; ?>">
-        <title><?php echo $sitetitle . ' - ' . _("SSL"); ?></title>
+        <title><?php echo $sitetitle . ' - ' . __("SSL"); ?></title>
         <link href="../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../plugins/components/animate.css/animate.min.css" rel="stylesheet">
@@ -273,7 +273,7 @@ foreach ($plugins as $result) {
                 })};
             <?php
             if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             processPlugins();
             includeScript(); ?>

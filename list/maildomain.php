@@ -254,27 +254,27 @@ foreach ($plugins as $result) {
                                                         <td class="restwo" data-sort-value="' . $maildata[$x1]['U_DISK'] . '">' . formatMB($maildata[$x1]['U_DISK']) . '</td>
                                                         <td class="resone">';                                                                   
                                                         if($maildata[$x1]['SUSPENDED'] == "no"){ 
-                                                            echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
+                                                            echo '<span class="label label-table label-success">' . __("Active") . '</span>';} 
                                                         else{ 
-                                                            echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
+                                                            echo '<span class="label label-table label-danger">' . __("Suspended") . '</span>';} 
                                                         echo '</td>
                                                         <td class="resone" data-sort-value="' . $maildata[$x1]['DATE'] . '">' . $maildata[$x1]['DATE'] . '</td><td>
-                                                            <a href="../edit/mailaccount.php?domain=' . $requestmail . '&account=' . $mailname[$x1] . '"><button type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button></a>';
+                                                            <a href="../edit/mailaccount.php?domain=' . $requestmail . '&account=' . $mailname[$x1] . '"><button type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . __("Edit") . '"><i class="ti-pencil-alt"></i></button></a>';
 
-                                                            if ($initialusername == "admin" && $maildata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $mailname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
-                                                            elseif ($initialusername == "admin" && $maildata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="confirmUnsuspend(\'' . $mailname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }   
+                                                            if ($initialusername == "admin" && $maildata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $mailname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . __("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
+                                                            elseif ($initialusername == "admin" && $maildata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="confirmUnsuspend(\'' . $mailname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . __("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }   
 
-                                                            echo '<button type="button" onclick="confirmDelete(\'' . $mailname[$x1] . '\')" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="fa fa-trash-o" ></i></button>
+                                                            echo '<button type="button" onclick="confirmDelete(\'' . $mailname[$x1] . '\')" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . __("Delete") . '"><i class="fa fa-trash-o" ></i></button>
                                                         </td>
                                                         <td>' . formatMB($maildata[$x1]['QUOTA']) . '</td>
                                                         <td>'; if(implode(', ', explode(",", $maildata[$x1]['ALIAS'])) == "") { echo __("None"); } else{ echo implode(', ', explode(",", $maildata[$x1]['ALIAS']));} echo '</td>
-                                                        <td>'; if($maildata[$x1]['FWD'] == ""){ echo '<span class="label label-table label-danger">' . _("Disabled") . '</span>';} 
+                                                        <td>'; if($maildata[$x1]['FWD'] == ""){ echo '<span class="label label-table label-danger">' . __("Disabled") . '</span>';} 
                                                         else {  echo implode(', ', explode(",", $maildata[$x1]['FWD']));} 
                                                         echo '</td>
                                                         <td>'; if($maildata[$x1]['AUTOREPLY'] == "no"){ 
-                                                            echo '<span class="label label-table label-danger">' . _("Disabled") . '</span>';} 
+                                                            echo '<span class="label label-table label-danger">' . __("Disabled") . '</span>';} 
                                                         else{ 
-                                                            echo '<span class="label label-table label-success">' . _("Enabled") . '</span>';} 
+                                                            echo '<span class="label label-table label-success">' . __("Enabled") . '</span>';} 
                                                         echo '</td>
                                                     </tr>';
                                                 $x1++;
@@ -406,25 +406,25 @@ foreach ($plugins as $result) {
             includeScript();
             
             if(isset($_POST['delcode']) && $_POST['delcode'] == "0") {
-                echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully Deleted!") . "', type:'success'});";
             } 
             if(isset($_POST['delcode']) && $_POST['delcode'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['delcode']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[$_POST['delcode']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             $addtotal = $_POST['a1'] + $_POST['a2'] + $_POST['a3'] + $_POST['a4'] + $_POST['a5'];
             if(isset($_POST['a1']) && $addtotal == 0) {
-                echo "swal({title:'" . _("Successfully updated!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully updated!") . "', type:'success'});";
             } 
             
             if(isset($_POST['a1']) && $addtotal != 0) {
-                echo "swal({title:'" . _("Error Adding Mail Domain") . "', html:'" . _("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(E: " . $_POST['a1'] . "." . $_POST['a2'] . "." . $_POST['a3'] . "." . $_POST['a4'] . "." . $_POST['a5'] . ")</span>', type:'error'});";
+                echo "swal({title:'" . __("Error Adding Mail Domain") . "', html:'" . __("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(E: " . $_POST['a1'] . "." . $_POST['a2'] . "." . $_POST['a3'] . "." . $_POST['a4'] . "." . $_POST['a5'] . ")</span>', type:'error'});";
             }
 
             if(isset($_POST['u1']) && $_POST['u1'] == 0) {
-                echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully Updated!") . "', type:'success'});";
             } 
             if(isset($_POST['u1']) && $_POST['u1'] != 0) {
-                echo "swal({title:'" . $errorcode[$_POST['u1']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[$_POST['u1']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             } 
             ?>
         </script>

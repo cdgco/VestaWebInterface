@@ -72,7 +72,7 @@ _textdomain('messages');
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/ico" href="plugins/images/<?php echo $cpfavicon; ?>">
-        <title><?php echo $sitetitle . ' - ' . _("Login"); ?></title>
+        <title><?php echo $sitetitle . ' - ' . __("Login"); ?></title>
         <link href="plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="plugins/components/sweetalert2/sweetalert2.min.css" rel="stylesheet">
         <link href="plugins/components/animate.css/animate.min.css" rel="stylesheet">
@@ -163,14 +163,14 @@ _textdomain('messages');
                 <div class="inner-panel">
                     <a href="javascript:void(0)" class="p-20 di"><img src="plugins/images/<?php echo $cpicon; ?>" class="logo-1"></a>
                     <div class="lg-content">
-                        <h2><?php echo $sitetitle . ' ' . _("Control Panel"); ?> <br></h2><p><?php require 'includes/versioncheck.php'; ?></p>
+                        <h2><?php echo $sitetitle . ' ' . __("Control Panel"); ?> <br></h2><p><?php require 'includes/versioncheck.php'; ?></p>
                     </div>
                 </div>
             </div>
             <div class="new-login-box">
                 <div class="white-box">
                     <form class="form-horizontal new-lg-form" id="loginform" method="post" action="login.php<?php if(isset($_GET['to']) && $_GET['to'] != '') { echo '?to=' . $_GET['to']; } ?>">
-                        <h3 class="box-title m-b-0"><?php echo __("Sign In to") . ' ' . $sitetitle . ' ' . _("CP"); ?></h3>
+                        <h3 class="box-title m-b-0"><?php echo __("Sign In to") . ' ' . $sitetitle . ' ' . __("CP"); ?></h3>
                         <small><?php echo __("Enter your details below"); ?></small>
 
                         <?php
@@ -192,11 +192,11 @@ _textdomain('messages');
                                             <button type="button" style="color: #000;" class="close text-inverse" aria-hidden="true">
                                                 <i class="fa fa-circle-o-notch fa-spin" style="font-size:18px"></i>
                                             </button>
-                                            <span style="opacity: 0.7;">' . _("Loading Dashboard") . '...</span>
+                                            <span style="opacity: 0.7;">' . __("Loading Dashboard") . '...</span>
                                         </div>
                                         <script>setTimeout(function(){ window.location = "' . $userredirect . '";}, 100);</script>';
                                 } else {
-                                    echo '<br><br><div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' . _("Error: Incorrect Login.") . '</div>';
+                                    echo '<br><br><div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' . __("Error: Incorrect Login.") . '</div>';
                                 }}}
 
                         ?>
@@ -226,7 +226,7 @@ _textdomain('messages');
                         echo '<br>
                         <div class="form-group m-b-0">
                             <div class="col-sm-12 text-center">
-                                <p>' . _("Don't have an account?") . '<a href="register.php" class="text-primary m-l-5"><b>' . _("Sign Up") . '</b></a></p>
+                                <p>' . __("Don't have an account?") . '<a href="register.php" class="text-primary m-l-5"><b>' . __("Sign Up") . '</b></a></p>
                             </div>
                         </div>'; } ?>
                     </form>
@@ -283,15 +283,15 @@ _textdomain('messages');
                 if($warningson == "all"){
                     if(substr(sprintf('%o', fileperms($configlocation)), -4) == '0777') {
                         echo "toast1({ 
-                                text: '"._("Includes folder has not been secured")."',
+                                text: '".__("Includes folder has not been secured")."',
                                 type: 'warning'
                             });";
 
                     } 
                     if(isset($mysqldown) && $mysqldown == 'yes') {
                         echo "toast2({
-                                title: '" . _("Database Error") . "',
-                                text: '" . _("MySQL Server Failed To Connect") . "',
+                                title: '" . __("Database Error") . "',
+                                text: '" . __("MySQL Server Failed To Connect") . "',
                                 type: 'error'
                             });";
                     } 
@@ -300,15 +300,15 @@ _textdomain('messages');
             else {
                 if(substr(sprintf('%o', fileperms($configlocation)), -4) == '0777') {
                     echo "toast1({ 
-                            text: '"._("Includes folder has not been secured")."',
+                            text: '".__("Includes folder has not been secured")."',
                             type: 'warning'
                         });";
 
                 } 
                 if(isset($mysqldown) && $mysqldown == 'yes') {
                     echo "toast2({
-                           title: '" . _("Database Error") . "',
-                            text: '" . _("MySQL Server Failed To Connect") . "',
+                           title: '" . __("Database Error") . "',
+                            text: '" . __("MySQL Server Failed To Connect") . "',
                             type: 'error'
                         });";
 
@@ -316,7 +316,7 @@ _textdomain('messages');
             }
             if(!isset($serverconnection)){
             echo "toast2({
-                    text: '" . _("Failed to connect to server. Please check config.") . "',
+                    text: '" . __("Failed to connect to server. Please check config.") . "',
                     type: 'error'
             });"; }
             ?>

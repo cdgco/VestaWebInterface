@@ -1030,13 +1030,13 @@ foreach ($plugins as $result) {
             includeScript();
             
             if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             if(isset($_POST['r1']) && $_POST['r1'] == "0") {
-                echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully Updated!") . "', type:'success'});";
             } 
             if(isset($_POST['r1']) && $_POST['r1'] > "0") {
-                echo "swal({title:'" . _("Error Updating Settings") . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . __("Error Updating Settings") . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             } 
             ?>
         </script>

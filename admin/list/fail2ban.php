@@ -217,7 +217,7 @@ foreach ($plugins as $result) {
                                                     <td class="resone"><b>' . $firedata[$x1]['DATE'] . '</b><br>' . $firedata[$x1]['TIME'] . '</td>
                                                     <td>' . $firedata[$x1]['CHAIN'] . '</td>
                                                     <td>' . $firedata[$x1]['IP'] . '</td><td>
-                                                    <button onclick="confirmDelete(\'' . $firedata[$x1]['CHAIN'] . '\', \'' . $firename[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-trash-o"></i></button>
+                                                    <button onclick="confirmDelete(\'' . $firedata[$x1]['CHAIN'] . '\', \'' . $firename[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . __("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-trash-o"></i></button>
                                                     </td>
                                                 </tr>';
                                                 $x1++;
@@ -285,25 +285,25 @@ foreach ($plugins as $result) {
             includeScript();
             
             if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             if(isset($_POST['delcode']) && $_POST['delcode'] == "0") {
-                echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully Deleted!") . "', type:'success'});";
             } 
             if(isset($_POST['addcode']) && $_POST['addcode'] == "0") {
-                echo "swal({title:'" . _("Successfully Created!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully Created!") . "', type:'success'});";
             } 
             if(isset($_POST['r1']) && $_POST['r1'] == "0") {
-                echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully Updated!") . "', type:'success'});";
             } 
             if(isset($_POST['r1']) && $_POST['r1'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['r1']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[$_POST['r1']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             } 
             if(isset($_POST['delcode']) && $_POST['delcode'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['delcode']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[$_POST['delcode']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             if(isset($_POST['addcode']) && $_POST['addcode'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['addcode']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[$_POST['addcode']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             ?>
         </script>

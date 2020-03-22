@@ -224,9 +224,9 @@ foreach ($plugins as $result) {
                                                         <td>' . $searchresults[$x1]['KEY'] . '</td>
                                                         <td>' . $searchresults[$x1]['PARENT'] . '</td>
                                                         <td>'; if($searchresults[$x1]['SUSPENDED'] == "no"){ 
-                                                            echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
+                                                            echo '<span class="label label-table label-success">' . __("Active") . '</span>';} 
                                                         else{ 
-                                                            echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
+                                                            echo '<span class="label label-table label-danger">' . __("Suspended") . '</span>';} 
                                                         echo '</td>
                                                         <td>' . $searchresults[$x1]['DATE'] . '</td>
                                                         

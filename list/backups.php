@@ -266,9 +266,9 @@ foreach ($plugins as $result) {
                                                         <td>' . $backupname[$x1] . '</td>
                                                         <td data-sort-value="' . $backupdata[$x1]['SIZE'] . '">' . formatMB($backupdata[$x1]['SIZE']) . '</td>
                                                         <td>
-                                                            <button onclick="document.getElementById(\'formurl\').value = \'' . $url8083 . '/download/backup/vwi.php?backup=' . $backupname[$x1] . '\';getPassword();" type="button" data-toggle="tooltip" data-original-title="' . _("Download") .'" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-download"></i></button>
-                                                            <a href="../list/backup.php?backup=' . $backupname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Configure Restore") .'" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-cog"></i></button></a>
-                                                            <button onclick="confirmDelete(\'' . $backupname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") .'" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-trash-o"></i></button>
+                                                            <button onclick="document.getElementById(\'formurl\').value = \'' . $url8083 . '/download/backup/vwi.php?backup=' . $backupname[$x1] . '\';getPassword();" type="button" data-toggle="tooltip" data-original-title="' . __("Download") .'" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-download"></i></button>
+                                                            <a href="../list/backup.php?backup=' . $backupname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . __("Configure Restore") .'" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-cog"></i></button></a>
+                                                            <button onclick="confirmDelete(\'' . $backupname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . __("Delete") .'" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-trash-o"></i></button>
                                                         </td>
                                                         <td>'; if(implode(', ', explode(",", $backupdata[$x1]['WEB'])) == "") { echo __("Not Backed Up");} else{ print_r(implode(', ', explode(",", $backupdata[$x1]['WEB']))); } echo '<br><br></td>
                                                         <td>'; if(implode(', ', explode(",", $backupdata[$x1]['DNS'])) == "") { echo __("Not Backed Up");} else{ print_r(implode(', ', explode(",", $backupdata[$x1]['DNS']))); } echo '<br><br></td>
@@ -347,25 +347,25 @@ foreach ($plugins as $result) {
             includeScript();
             
             if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             if(isset($_POST['delcode']) && $_POST['delcode'] == "0") {
-                echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully Deleted!") . "', type:'success'});";
             } 
             if(isset($_POST['addcode']) && $_POST['addcode'] == "0") {
-                echo "swal({title:'" . _("Backup Scheduled!") . "', type:'success'});";
+                echo "swal({title:'" . __("Backup Scheduled!") . "', type:'success'});";
             } 
             if(isset($_POST['restore']) && $_POST['restore'] == "0") {
-                echo "swal({title:'" . _("Restore Scheduled!") . "', type:'success'});";
+                echo "swal({title:'" . __("Restore Scheduled!") . "', type:'success'});";
             } 
             if(isset($_POST['delcode']) && $_POST['delcode'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['delcode']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[$_POST['delcode']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             if(isset($_POST['addcode']) && $_POST['addcode'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['addcode']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[$_POST['addcode']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             if(isset($_POST['restore']) && $_POST['restore'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['restore']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[$_POST['restore']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             ?>
             <?php if(isset($_POST['download']) && $_POST['download'] == "yes") {    

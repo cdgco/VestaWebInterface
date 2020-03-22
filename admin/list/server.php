@@ -255,10 +255,10 @@ function secondsToTime($seconds) {
                                                         }
                                                         echo '</td>
                                                         <td><h4>&nbsp;</h4>';
-                                                        if($servicename[$x1] == "nginx" || $servicename[$x1] == "php" || $servicename[$x1] == "mysql") { echo '<a href="../server/'.$servicename[$x1].'.php"><button type="button" data-toggle="tooltip" data-original-title="' . _("Configure") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-settings"></i></button></a>';  }
-                                                        if ($servicedata[$x1]['STATE'] != 'running') { echo '<button type="button" onclick="confirmStartService(\'' . $servicename[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Start") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-control-play"></i></button>'; } else { echo '<button type="button" onclick="confirmStopService(\'' . $servicename[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Stop") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-control-stop"></i></button>'; }
+                                                        if($servicename[$x1] == "nginx" || $servicename[$x1] == "php" || $servicename[$x1] == "mysql") { echo '<a href="../server/'.$servicename[$x1].'.php"><button type="button" data-toggle="tooltip" data-original-title="' . __("Configure") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-settings"></i></button></a>';  }
+                                                        if ($servicedata[$x1]['STATE'] != 'running') { echo '<button type="button" onclick="confirmStartService(\'' . $servicename[$x1] . '\')" data-toggle="tooltip" data-original-title="' . __("Start") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-control-play"></i></button>'; } else { echo '<button type="button" onclick="confirmStopService(\'' . $servicename[$x1] . '\')" data-toggle="tooltip" data-original-title="' . __("Stop") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-control-stop"></i></button>'; }
                                                         echo '<button onclick="confirmRestart(\'' . $servicename[$x1] . '\')" type="button" data-t
-                                                        oggle="tooltip" data-original-title="' . _("Restart") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></td>';
+                                                        oggle="tooltip" data-original-title="' . __("Restart") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></td>';
                                                     echo '</tr>';
                                                     $x1++;
                                                 } while (isset($servicename[$x1])); }
@@ -386,13 +386,13 @@ function secondsToTime($seconds) {
             includeScript();
 
             if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             if(isset($_POST['r1']) && $_POST['r1'] == "0") {
-                echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully Updated!") . "', type:'success'});";
             } 
             if(isset($_POST['r1']) && $_POST['r1'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['r1']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[$_POST['r1']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             } 
             ?>
         </script>

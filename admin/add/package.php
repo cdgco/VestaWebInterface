@@ -512,19 +512,19 @@ foreach ($plugins as $result) {
             includeScript();
             
             if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             } 
             if(isset($_POST['r1']) && $_POST['r1'] == "0") {
-                echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully Updated!") . "', type:'success'});";
             } 
             if(isset($_POST['r1']) && $_POST['r1'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['r1']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[$_POST['r1']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             if($warningson == "all"){
                 if(isset($apienabled) && $apienabled == 'true') {
                     echo "toast2({
-                            title: '" . _("Feature Disabled") . "',
-                            text: '" . _("Packages are incompatible with API Key Authentication.") . "',
+                            title: '" . __("Feature Disabled") . "',
+                            text: '" . __("Packages are incompatible with API Key Authentication.") . "',
                             type: 'error'
                         });";
                 } 
@@ -532,8 +532,8 @@ foreach ($plugins as $result) {
             elseif($warningson == "admin" && $initialusername == "admin"){
                 if(isset($apienabled) && $apienabled == 'true') {
                     echo "toast2({
-                            title: '" . _("Feature Disabled") . "',
-                            text: '" . _("Packages are incompatible with API Key Authentication.") . "',
+                            title: '" . __("Feature Disabled") . "',
+                            text: '" . __("Packages are incompatible with API Key Authentication.") . "',
                             type: 'error'
                         });";
 

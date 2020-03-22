@@ -197,7 +197,7 @@ foreach ($plugins as $result) {
                                     echo '
                                     <form class="form-horizontal form-material" autocomplete="off" method="post" id="form" action="../process/send-notification.php">
                                         <div class="form-group">
-                                            <label class="col-md-12">' . _("Send To:") . '</label>
+                                            <label class="col-md-12">' . __("Send To:") . '</label>
                                             <div class="col-md-12">
                                                 <select class="form-control select2" name="to-user">
                                                     <option value="*vwi-value-all-users*">All Users</option>';
@@ -214,20 +214,20 @@ foreach ($plugins as $result) {
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12">' . _("Title") . '</label>
+                                            <label class="col-md-12">' . __("Title") . '</label>
                                             <div class="col-md-12">
                                                 <input type="text" name="title" class="form-control form-control-line" required> 
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12">' . _("Message") . '</label>
+                                            <label class="col-md-12">' . __("Message") . '</label>
                                             <div class="col-md-12">
                                                 <textarea class="form-control form-control-line" name="message" required rows="3"></textarea>
                                             </div>
                                           </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" type="submit">' . _("Send Notification") . '</button> &nbsp;
+                                            <button class="btn btn-success" type="submit">' . __("Send Notification") . '</button> &nbsp;
                                         </div>
                                     </div>
                                 </form>';
@@ -295,13 +295,13 @@ foreach ($plugins as $result) {
             includeScript();
             
              if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             if(isset($_POST['r1']) && $_POST['r1'] == "0") {
-                echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully Updated!") . "', type:'success'});";
             } 
             if(isset($_POST['r1']) && $_POST['r1'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['r1']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[$_POST['r1']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             } 
             ?>
         </script>

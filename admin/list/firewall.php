@@ -195,7 +195,7 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box"> <ul class="side-icon-text pull-right">
-                                <?php if(checkService('fail2ban') !== false) { echo '<li><a href="fail2ban.php"><span class="circle circle-sm bg-danger di"><i class="ti-list"></i></span><span class="resfour"><wrapper class="resthree">' . _("List").' </wrapper>' . _("Fail2Ban") . '</span></a></li>'; } ?>
+                                <?php if(checkService('fail2ban') !== false) { echo '<li><a href="fail2ban.php"><span class="circle circle-sm bg-danger di"><i class="ti-list"></i></span><span class="resfour"><wrapper class="resthree">' . __("List").' </wrapper>' . __("Fail2Ban") . '</span></a></li>'; } ?>
                                 <li><a href="../add/firewall.php"><span class="circle circle-sm bg-success di"><i class="ti-plus"></i></span><span class="resfour"><wrapper class="resthree"><?php echo __("Add"); ?> </wrapper><?php echo __("Rule"); ?></span></a></li>
                                 </ul>
                                 <h3 class="box-title m-b-0"><?php echo __("Rules"); ?></h3><br>
@@ -226,12 +226,12 @@ foreach ($plugins as $result) {
                                                     <td class="resone">' . $firedata[$x1]['COMMENT'] . '</td>
                                                     <td>' . $firedata[$x1]['PORT'] . '</td>
                                                     <td class="restwo">' . $firedata[$x1]['IP'] . '</td><td>
-                                                        <a href="../edit/firewall.php?rule=' . $firename[$x1] . '"><button type="button"  data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button></a>';
+                                                        <a href="../edit/firewall.php?rule=' . $firename[$x1] . '"><button type="button"  data-toggle="tooltip" data-original-title="' . __("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button></a>';
 
-                                                        if ($firedata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $firename[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
-                                                        else { echo '<button type="button" onclick="confirmUnsuspend(\'' . $firename[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }
+                                                        if ($firedata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $firename[$x1] . '\')" data-toggle="tooltip" data-original-title="' . __("Suspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
+                                                        else { echo '<button type="button" onclick="confirmUnsuspend(\'' . $firename[$x1] . '\')" data-toggle="tooltip" data-original-title="' . __("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }
 
-                                                        echo '<button onclick="confirmDelete(\'' . $firename[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-trash-o"></i></button>
+                                                        echo '<button onclick="confirmDelete(\'' . $firename[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . __("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-trash-o"></i></button>
                                                     </td>
                                                 </tr>';
                                                 $x1++;
@@ -340,25 +340,25 @@ foreach ($plugins as $result) {
             includeScript();
 
             if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             if(isset($_POST['delcode']) && $_POST['delcode'] == "0") {
-                echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully Deleted!") . "', type:'success'});";
             } 
             if(isset($_POST['addcode']) && $_POST['addcode'] == "0") {
-                echo "swal({title:'" . _("Successfully Created!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully Created!") . "', type:'success'});";
             } 
             if(isset($_POST['r1']) && $_POST['r1'] == "0") {
-                echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully Updated!") . "', type:'success'});";
             } 
             if(isset($_POST['r1']) && $_POST['r1'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['r1']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[$_POST['r1']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             } 
             if(isset($_POST['delcode']) && $_POST['delcode'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['delcode']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[$_POST['delcode']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             if(isset($_POST['addcode']) && $_POST['addcode'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['addcode']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[$_POST['addcode']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             ?>
         </script>

@@ -359,7 +359,7 @@ function vwicrypt($cs,$ca='e') {
 function indexMenu($l1) {
     echo '<li> 
             <a href="' . $l1 . 'index.php" class="waves-effect">
-                <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu">' . _("Home") . '</span>
+                <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu">' . __("Home") . '</span>
             </a> 
         </li>';
 }
@@ -368,23 +368,23 @@ function adminMenu($l2, $a1) {
     global $initialusername;
     if($initialusername == "admin" && isset($adminenabled) && $adminenabled != ''){
     echo '<li class="devider"></li>
-            <li> <a href="#" class="waves-effect"><i class="mdi mdi-wrench fa-fw" data-icon="v"></i> <span class="hide-menu">' . _("Administration") . '<span class="fa arrow"></span> </span></a>
+            <li> <a href="#" class="waves-effect"><i class="mdi mdi-wrench fa-fw" data-icon="v"></i> <span class="hide-menu">' . __("Administration") . '<span class="fa arrow"></span> </span></a>
                 <ul class="nav nav-second-level'; if(isset($a1) && $a1 != '') { echo ' in'; } echo '" id="appendadministration">
-                    <li> <a href="' . $l2 . 'users.php"'; if($a1 == 'users') { echo ' class="active"'; } echo '><i class="ti-user fa-fw"></i><span class="hide-menu">' . _("Users") . '</span></a> </li>
-                    <li> <a href="' . $l2 . 'packages.php"'; if($a1 == 'packages') { echo ' class="active"'; } echo '><i class="ti-package fa-fw"></i><span class="hide-menu">' . _("Packages") . '</span></a> </li>
-                    <li> <a href="' . $l2 . 'ip.php"'; if($a1 == 'ip') { echo ' class="active"'; } echo '><i class="fa fa-sliders fa-fw"></i><span class="hide-menu">' . _("IP") . '</span></a> </li>
-                    <li> <a href="' . $l2 . 'graphs.php"'; if($a1 == 'graph') { echo ' class="active"'; } echo '><i class="ti-pie-chart fa-fw"></i><span class="hide-menu">' . _("Graphs") . '</span></a> </li>
-                    <li> <a href="' . $l2 . 'stats.php"'; if($a1 == 'stats') { echo ' class="active"'; } echo '><i class="ti-stats-up fa-fw"></i><span class="hide-menu">' . _("Statistics") . '</span></a> </li>
-                    <li> <a href="' . $l2 . 'updates.php"'; if($a1 == 'updates') { echo ' class="active"'; } echo '><i class="mdi mdi-weather-cloudy fa-fw"></i><span class="hide-menu">' . _("Updates") . '</span></a> </li>';
+                    <li> <a href="' . $l2 . 'users.php"'; if($a1 == 'users') { echo ' class="active"'; } echo '><i class="ti-user fa-fw"></i><span class="hide-menu">' . __("Users") . '</span></a> </li>
+                    <li> <a href="' . $l2 . 'packages.php"'; if($a1 == 'packages') { echo ' class="active"'; } echo '><i class="ti-package fa-fw"></i><span class="hide-menu">' . __("Packages") . '</span></a> </li>
+                    <li> <a href="' . $l2 . 'ip.php"'; if($a1 == 'ip') { echo ' class="active"'; } echo '><i class="fa fa-sliders fa-fw"></i><span class="hide-menu">' . __("IP") . '</span></a> </li>
+                    <li> <a href="' . $l2 . 'graphs.php"'; if($a1 == 'graph') { echo ' class="active"'; } echo '><i class="ti-pie-chart fa-fw"></i><span class="hide-menu">' . __("Graphs") . '</span></a> </li>
+                    <li> <a href="' . $l2 . 'stats.php"'; if($a1 == 'stats') { echo ' class="active"'; } echo '><i class="ti-stats-up fa-fw"></i><span class="hide-menu">' . __("Statistics") . '</span></a> </li>
+                    <li> <a href="' . $l2 . 'updates.php"'; if($a1 == 'updates') { echo ' class="active"'; } echo '><i class="mdi mdi-weather-cloudy fa-fw"></i><span class="hide-menu">' . __("Updates") . '</span></a> </li>';
         
                     if(checkService('iptables') !== false){ echo '
-                    <li> <a href="' . $l2 . 'firewall.php"'; if($a1 == 'firewall') { echo ' class="active"'; } echo '><i class="fa fa-shield fa-fw"></i><span class="hide-menu">' . _("Firewall") . '</span></a> </li>';
+                    <li> <a href="' . $l2 . 'firewall.php"'; if($a1 == 'firewall') { echo ' class="active"'; } echo '><i class="fa fa-shield fa-fw"></i><span class="hide-menu">' . __("Firewall") . '</span></a> </li>';
                     }
                     echo '
-                    <li> <a href="' . $l2 . 'server.php"'; if($a1 == 'server') { echo ' class="active"'; } echo '><i class="fa fa-server fa-fw"></i><span class="hide-menu">' . _("Server") . '</span></a> </li>
-                    <li> <a href="' . $l2 . 'settings.php"'; if($a1 == 'settings') { echo ' class="active"'; } echo '><i class="fa fa-cogs fa-fw"></i><span class="hide-menu">' . _("Settings") . '</span></a> </li>
-                    <li> <a href="' . $l2 . 'plugins.php"'; if($a1 == 'plugins') { echo ' class="active"'; } echo '><i class="fa fa-puzzle-piece fa-fw"></i><span class="hide-menu">' . _("Plugins") . '</span></a> </li>
-                    <li> <a href="' . $l2 . 'notifications.php"'; if($a1 == 'notifications') { echo ' class="active"'; } echo '><i class="fa fa-bell fa-fw"></i><span class="hide-menu">' . _("Notifications") . '</span></a> </li>
+                    <li> <a href="' . $l2 . 'server.php"'; if($a1 == 'server') { echo ' class="active"'; } echo '><i class="fa fa-server fa-fw"></i><span class="hide-menu">' . __("Server") . '</span></a> </li>
+                    <li> <a href="' . $l2 . 'settings.php"'; if($a1 == 'settings') { echo ' class="active"'; } echo '><i class="fa fa-cogs fa-fw"></i><span class="hide-menu">' . __("Settings") . '</span></a> </li>
+                    <li> <a href="' . $l2 . 'plugins.php"'; if($a1 == 'plugins') { echo ' class="active"'; } echo '><i class="fa fa-puzzle-piece fa-fw"></i><span class="hide-menu">' . __("Plugins") . '</span></a> </li>
+                    <li> <a href="' . $l2 . 'notifications.php"'; if($a1 == 'notifications') { echo ' class="active"'; } echo '><i class="fa fa-bell fa-fw"></i><span class="hide-menu">' . __("Notifications") . '</span></a> </li>
                 </ul>
             </li>';
     } 
@@ -398,9 +398,9 @@ function profileMenu($l3) {
             <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu">' . $displayname . '<span class="fa arrow"></span></span>
             </a>
             <ul class="nav nav-second-level" id="appendaccount">
-                <li> <a href="' . $l3 . 'profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu">' . _("My Account") . '</span></a></li>
-                <li> <a href="' . $l3 . 'profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu">' . _("Account Settings") . '</span></a></li>
-                <li> <a href="' . $l3 . 'log.php"><i class="ti-layout-list-post fa-fw"></i><span class="hide-menu">' . _("Log") . '</span></a> </li>
+                <li> <a href="' . $l3 . 'profile.php"><i class="ti-home fa-fw"></i> <span class="hide-menu">' . __("My Account") . '</span></a></li>
+                <li> <a href="' . $l3 . 'profile.php?settings=open"><i class="ti-settings fa-fw"></i> <span class="hide-menu">' . __("Account Settings") . '</span></a></li>
+                <li> <a href="' . $l3 . 'log.php"><i class="ti-layout-list-post fa-fw"></i><span class="hide-menu">' . __("Log") . '</span></a> </li>
             </ul>
         </li>';
     }
@@ -412,32 +412,32 @@ function primaryMenu($l4, $l5, $a2) {
         if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '<li class="devider"></li>'; }
     
     
-        if ($webenabled == 'true') { echo '<li> <a href="' . $l4 . 'web.php" class="waves-effect'; if($a2 == 'web') { echo ' active'; } echo '"><i class="ti-world fa-fw"></i><span class="hide-menu">' . _("Web") . '</span></a> </li>'; }
-        if ($dnsenabled == 'true') { echo '<li> <a href="' . $l4 . 'dns.php" class="waves-effect'; if($a2 == 'dns') { echo ' active'; } echo '"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">' . _("DNS") . '</span></a> </li>'; }
-        if ($mailenabled == 'true') { echo '<li> <a href="' . $l4 . 'mail.php" class="waves-effect'; if($a2 == 'mail') { echo ' active'; } echo '"><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">' . _("Mail") . '</span></a> </li>'; }
-        if ($dbenabled == 'true') { echo '<li> <a href="' . $l4 . 'db.php" class="waves-effect'; if($a2 == 'db') { echo ' active'; } echo '"><i class="fa fa-database fa-fw"></i><span class="hide-menu">' . _("Database") . '</span></a> </li>'; }
+        if ($webenabled == 'true') { echo '<li> <a href="' . $l4 . 'web.php" class="waves-effect'; if($a2 == 'web') { echo ' active'; } echo '"><i class="ti-world fa-fw"></i><span class="hide-menu">' . __("Web") . '</span></a> </li>'; }
+        if ($dnsenabled == 'true') { echo '<li> <a href="' . $l4 . 'dns.php" class="waves-effect'; if($a2 == 'dns') { echo ' active'; } echo '"><i class="fa fa-sitemap fa-fw"></i><span class="hide-menu">' . __("DNS") . '</span></a> </li>'; }
+        if ($mailenabled == 'true') { echo '<li> <a href="' . $l4 . 'mail.php" class="waves-effect'; if($a2 == 'mail') { echo ' active'; } echo '"><i class="fa fa-envelope fa-fw"></i><span class="hide-menu">' . __("Mail") . '</span></a> </li>'; }
+        if ($dbenabled == 'true') { echo '<li> <a href="' . $l4 . 'db.php" class="waves-effect'; if($a2 == 'db') { echo ' active'; } echo '"><i class="fa fa-database fa-fw"></i><span class="hide-menu">' . __("Database") . '</span></a> </li>'; }
     
     
         if(isset($cronenabled) && $cronenabled != ''){
-        echo '<li> <a href="' . $l4 . 'cron.php" class="waves-effect'; if($a2 == 'cron') { echo ' active'; } echo '"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">' . _("Cron Jobs") . '</span></a> </li>'; }
+        echo '<li> <a href="' . $l4 . 'cron.php" class="waves-effect'; if($a2 == 'cron') { echo ' active'; } echo '"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">' . __("Cron Jobs") . '</span></a> </li>'; }
         if(isset($backupsenabled) && $backupsenabled != ''){
-        echo '<li> <a href="' . $l4 . 'backups.php" class="waves-effect'; if($a2 == 'backups') { echo ' active'; } echo '"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu">' . _("Backups") . '</span></a> </li>'; }
+        echo '<li> <a href="' . $l4 . 'backups.php" class="waves-effect'; if($a2 == 'backups') { echo ' active'; } echo '"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu">' . __("Backups") . '</span></a> </li>'; }
         
     
         if ($ftpurl != '' || $webmailurl != '' || $phpmyadmin != '' || $phppgadmin != '' || $softaculousurl != '') { echo '<li class="devider"></li>    
-        <li><a href="#" class="waves-effect"><i class="mdi mdi-apps fa-fw"></i> <span class="hide-menu">' . _("Apps") . '<span class="fa arrow"></span></span></a>
+        <li><a href="#" class="waves-effect"><i class="mdi mdi-apps fa-fw"></i> <span class="hide-menu">' . __("Apps") . '<span class="fa arrow"></span></span></a>
                 <ul class="nav nav-second-level" id="appendapps">'; }
-        if ($ftpurl != '') { echo '<li><a href="' . $ftpurl . '" target="_blank"><i class="fa fa-file-code-o fa-fw"></i><span class="hide-menu">' . _("FTP") . '</span></a></li>';}
-        if ($webmailurl != '') { echo '<li><a href="' . $webmailurl . '" target="_blank"><i class="fa fa-envelope-o fa-fw"></i><span class="hide-menu">' . _("Webmail") . '</span></a></li>';}
-        if ($phpmyadmin != '') { echo '<li><a href="' . $phpmyadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . _("phpMyAdmin") . '</span></a></li>';}
-        if ($phppgadmin != '') { echo '<li><a href="' . $phppgadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . _("phpPgAdmin") . '</span></a></li>';}
-        if ($softaculousurl != '') { echo '<li><a href="' . $softaculousurl . '" target="_blank"><i class="icon-softaculous">&#xe801;</i><span class="hide-menu">' . _("Softaculous") . '</span></a></li>';}
+        if ($ftpurl != '') { echo '<li><a href="' . $ftpurl . '" target="_blank"><i class="fa fa-file-code-o fa-fw"></i><span class="hide-menu">' . __("FTP") . '</span></a></li>';}
+        if ($webmailurl != '') { echo '<li><a href="' . $webmailurl . '" target="_blank"><i class="fa fa-envelope-o fa-fw"></i><span class="hide-menu">' . __("Webmail") . '</span></a></li>';}
+        if ($phpmyadmin != '') { echo '<li><a href="' . $phpmyadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . __("phpMyAdmin") . '</span></a></li>';}
+        if ($phppgadmin != '') { echo '<li><a href="' . $phppgadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . __("phpPgAdmin") . '</span></a></li>';}
+        if ($softaculousurl != '') { echo '<li><a href="' . $softaculousurl . '" target="_blank"><i class="icon-softaculous">&#xe801;</i><span class="hide-menu">' . __("Softaculous") . '</span></a></li>';}
         if ($ftpurl != '' || $webmailurl != '' || $phpmyadmin != '' || $phppgadmin != '' || $softaculousurl != '') { echo '</ul></li>';}
         echo '<li class="devider"></li>
-        <li><a href="' . $l5 . 'logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu">' . _("Log out") . '</span></a></li>';
+        <li><a href="' . $l5 . 'logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu">' . __("Log out") . '</span></a></li>';
         if ($oldcpurl != '' || $supporturl != '') { echo '<li class="devider"></li>'; }
-        if ($oldcpurl != '') { echo '<li><a href="' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> ' . _("Control Panel v1") . '</span></a></li>'; }
-        if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">' . _("Support") . '</span></a></li>'; }
+        if ($oldcpurl != '') { echo '<li><a href="' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> ' . __("Control Panel v1") . '</span></a></li>'; }
+        if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">' . __("Support") . '</span></a></li>'; }
 }
 function processPlugins() {
     global $configlocation; global $pluginnames; global $pluginhide; global $pluginnewtab; global $pluginsections; global $pluginicons; global $pluginlinks;
@@ -448,18 +448,18 @@ function processPlugins() {
         if(strtolower($pluginhide[$curplg]) != 'y' && strtolower($pluginhide[$curplg]) != 'yes') { 
             if($username == 'admin'){
                 if(strtolower($pluginnewtab[$curplg]) == 'y' || strtolower($pluginnewtab[$curplg]) == 'yes'){
-                    echo "var plugincontainer" . $curplg . " = document.getElementById ('append" . $pluginsections[$curplg] . "');\n var plugindata" . $curplg . " = \"<li><a href='" . $pluginlocation . $pluginlinks[$curplg] . "/' target='_blank'><i class='fa " . $pluginicons[$curplg] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$curplg] ) . "</span></a></li>\";\n plugincontainer" . $curplg . ".innerHTML += plugindata" . $curplg . ";\n"; 
+                    echo "var plugincontainer" . $curplg . " = document.getElementById ('append" . $pluginsections[$curplg] . "');\n var plugindata" . $curplg . " = \"<li><a href='" . $pluginlocation . $pluginlinks[$curplg] . "/' target='_blank'><i class='fa " . $pluginicons[$curplg] . " fa-fw'></i><span class='hide-menu'>" . __($pluginnames[$curplg] ) . "</span></a></li>\";\n plugincontainer" . $curplg . ".innerHTML += plugindata" . $curplg . ";\n"; 
                 }
                 else {
-                    echo "var plugincontainer" . $curplg . " = document.getElementById ('append" . $pluginsections[$curplg] . "');\n var plugindata" . $curplg . " = \"<li><a href='" . $pluginlocation . $pluginlinks[$curplg] . "/'><i class='fa " . $pluginicons[$curplg] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$curplg] ) . "</span></a></li>\";\n plugincontainer" . $curplg . ".innerHTML += plugindata" . $curplg . ";\n"; 
+                    echo "var plugincontainer" . $curplg . " = document.getElementById ('append" . $pluginsections[$curplg] . "');\n var plugindata" . $curplg . " = \"<li><a href='" . $pluginlocation . $pluginlinks[$curplg] . "/'><i class='fa " . $pluginicons[$curplg] . " fa-fw'></i><span class='hide-menu'>" . __($pluginnames[$curplg] ) . "</span></a></li>\";\n plugincontainer" . $curplg . ".innerHTML += plugindata" . $curplg . ";\n"; 
                 }
             }
             elseif($username != 'admin' && strtolower($pluginsections[$curplg]) != 'administration')  {
                 if (strtolower($pluginnewtab[$curplg]) == 'y' || strtolower($pluginnewtab[$curplg]) == 'yes') { 
-                    echo "var plugincontainer" . $curplg . " = document.getElementById ('append" . $pluginsections[$curplg] . "');\n var plugindata" . $curplg . " = \"<li><a href='" . $pluginlocation . $pluginlinks[$curplg] . "/' target='_blank'><i class='fa " . $pluginicons[$curplg] . " fa-fw'></i><span class='hide-menu'>" . _($pluginnames[$curplg] ) . "</span></a></li>\";\n plugincontainer" . $curplg . ".innerHTML += plugindata" . $curplg . ";\n"; 
+                    echo "var plugincontainer" . $curplg . " = document.getElementById ('append" . $pluginsections[$curplg] . "');\n var plugindata" . $curplg . " = \"<li><a href='" . $pluginlocation . $pluginlinks[$curplg] . "/' target='_blank'><i class='fa " . $pluginicons[$curplg] . " fa-fw'></i><span class='hide-menu'>" . __($pluginnames[$curplg] ) . "</span></a></li>\";\n plugincontainer" . $curplg . ".innerHTML += plugindata" . $curplg . ";\n"; 
                 }
                 else {  
-                    echo "var plugincontainer" . $curplg . " = document.getElementById ('append" . $pluginsections[$curplg] . "');\n var plugindata" . $curplg . " = \"<li><a href='".$pluginlocation.$pluginlinks[$curplg]."/'><i class='fa ".$pluginicons[$curplg]." fa-fw'></i><span class='hide-menu'>"._($pluginnames[$curplg])."</span></a></li>\";\n plugincontainer" . $curplg . ".innerHTML += plugindata" . $curplg . ";\n"; 
+                    echo "var plugincontainer" . $curplg . " = document.getElementById ('append" . $pluginsections[$curplg] . "');\n var plugindata" . $curplg . " = \"<li><a href='".$pluginlocation.$pluginlinks[$curplg]."/'><i class='fa ".$pluginicons[$curplg]." fa-fw'></i><span class='hide-menu'>".__($pluginnames[$curplg])."</span></a></li>\";\n plugincontainer" . $curplg . ".innerHTML += plugindata" . $curplg . ";\n"; 
                 }
             } 
         } 
@@ -488,15 +488,15 @@ function includeScript() {
         if(substr(sprintf('%o', fileperms($configlocation)), -4) == '0777') {
             echo "toast1({
                     type: 'warning',
-                    text: '"._("Includes folder has not been secured")."'
+                    text: '".__("Includes folder has not been secured")."'
                 });";
 
         } 
         if(isset($mysqldown) && $mysqldown == 'yes') {
             echo "toast2({
                     type: 'error',
-                    title: '" . _("Database Error") . "',
-                    text: '" . _("MySQL Server Failed To Connect") . "'
+                    title: '" . __("Database Error") . "',
+                    text: '" . __("MySQL Server Failed To Connect") . "'
                 });";
 
         } 
@@ -505,15 +505,15 @@ function includeScript() {
         if(substr(sprintf('%o', fileperms($configlocation)), -4) == '0777') {
             echo "toast1({
                     type: 'warning',
-                    text: '"._("Includes folder has not been secured")."'
+                    text: '".__("Includes folder has not been secured")."'
                 });";
 
         } 
         if(isset($mysqldown) && $mysqldown == 'yes') {
             echo "toast2({
                     type: 'error',
-                    title: '" . _("Database Error:") . "',
-                    text: '" . _("MySQL Server Failed To Connect") . "'
+                    title: '" . __("Database Error:") . "',
+                    text: '" . __("MySQL Server Failed To Connect") . "'
                 });";
 
         } 
@@ -703,9 +703,9 @@ function footer() {
     }
     else { echo $config["FOOTER"]; }
     if($config["VWI_BRANDING"] != 'false') {  
-        echo ' ' . _("Vesta Web Interface") . ' ';
+        echo ' ' . __("Vesta Web Interface") . ' ';
         require $configlocation . 'versioncheck.php';
-        echo ' ' . _("by Carter Roeser") . '.';
+        echo ' ' . __("by Carter Roeser") . '.';
     }
 }
 function checkService($requestedService) {

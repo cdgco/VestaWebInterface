@@ -277,25 +277,25 @@ foreach ($plugins as $result) {
                                     </div>
                                     <?php if(checkService('spamassassin') !== false) { echo '
                                     <div class="form-group">
-                                        <label class="col-md-12">'._("AntiSpam Support").'</label>
+                                        <label class="col-md-12">'.__("AntiSpam Support").'</label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
                                                 <input id="checkbox5" type="checkbox" name="v_antispam" ';
                                                 if($maildata[0]['ANTISPAM'] == 'no') {} else {echo 'checked';}
                                                 echo ' >
-                                                <label for="checkbox5"> '._("Enabled").'</label>
+                                                <label for="checkbox5"> '.__("Enabled").'</label>
                                             </div>
                                         </div>
                                     </div>'; } 
                                      if(checkService('clamav') !== false) { echo '
                                     <div class="form-group">
-                                        <label class="col-md-12">'._("AntiVirus Support").'</label>
+                                        <label class="col-md-12">'.__("AntiVirus Support").'</label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
                                                 <input id="checkbox6" type="checkbox" name="v_antivirus" ';
                                                 if($maildata[0]['ANTIVIRUS'] == 'no') {} else {echo 'checked';}
                                                 echo ' >
-                                                <label for="checkbox6"> '._("Enabled").' </label>
+                                                <label for="checkbox6"> '.__("Enabled").' </label>
                                             </div>
                                         </div>
                                     </div>'; } ?>
@@ -395,14 +395,14 @@ foreach ($plugins as $result) {
             includeScript();
             
             if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             $returntotal = $_POST['r0'] + $_POST['r1'] + $_POST['r2'] + $_POST['r3'];
             if(isset($_POST['r1']) && $returntotal == 0) {
-                echo "swal({title:'" . _("Successfully updated!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully updated!") . "', type:'success'});";
             } 
             if(isset($_POST['r0']) && $returntotal != 0) {
-                echo "swal({title:'" . _("Error Updating Mail Domain") . "', html:'" . _("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(E: " . $_POST['r0'] . "." . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . ")</span>', type:'error'});";
+                echo "swal({title:'" . __("Error Updating Mail Domain") . "', html:'" . __("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(E: " . $_POST['r0'] . "." . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . ")</span>', type:'error'});";
             }
 
             ?>

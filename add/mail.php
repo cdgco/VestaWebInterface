@@ -181,22 +181,22 @@ foreach ($plugins as $result) {
                                     </div>
                                     <?php if(checkService('clamav') !== false) { echo '
                                     <div class="form-group">
-                                        <label class="col-md-12">'._("AntiSpam Support").'</label>
+                                        <label class="col-md-12">'.__("AntiSpam Support").'</label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
                                                 <input id="checkbox5" name="v_antispam" type="checkbox" checked>
-                                                <label for="checkbox5"> '._("Enabled").' </label>
+                                                <label for="checkbox5"> '.__("Enabled").' </label>
                                             </div>
                                         </div>
                                     </div>';
                                     }
                                     if(checkService('spamassassin') !== false) { echo '
                                     <div class="form-group">
-                                        <label class="col-md-12">'._("AntiVirus Support").'</label>
+                                        <label class="col-md-12">'.__("AntiVirus Support").'</label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
                                                 <input id="checkbox6" name="v_antivirus" type="checkbox" checked>
-                                                <label for="checkbox6"> '._("Enabled").' </label>
+                                                <label for="checkbox6"> '.__("Enabled").' </label>
                                             </div>
                                         </div>
                                     </div>'; } ?>
@@ -269,7 +269,7 @@ foreach ($plugins as $result) {
             includeScript();
             
             if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             } 
             ?>
         </script>

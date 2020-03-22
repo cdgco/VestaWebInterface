@@ -714,7 +714,7 @@ if( checkService('postgresql') !== false ) {
                                     </div>
                                     <div class="form-group" id="div1" style="margin-left: 4%;">
                                         <div class="form-group">
-                                            <label class="col-md-12"><?php echo __("Proxy Server"); ?><?php if($sysconfig[0]['PROXY_SYSTEM'] == 'nginx') { echo ' / <a href="nginx.php">' . _("Configure") . '</a>'; } ?></label>
+                                            <label class="col-md-12"><?php echo __("Proxy Server"); ?><?php if($sysconfig[0]['PROXY_SYSTEM'] == 'nginx') { echo ' / <a href="nginx.php">' . __("Configure") . '</a>'; } ?></label>
                                             <div class="col-md-12">
                                                 <input type="text" disabled value="<?php if($sysconfig[0]['PROXY_SYSTEM'] != '') { echo $sysconfig[0]['PROXY_SYSTEM']; } else { echo 'None'; } ?>" class="form-control form-control-line"> 
                                             </div>
@@ -791,25 +791,25 @@ if( checkService('postgresql') !== false ) {
                                         <?php if( checkService('mysql') !== false ) { echo '
                                         <div class="form-group" id="div13" style="margin-left: 4%;">
                                                 <div class="form-group">
-                                                    <label class="col-md-12">' .  _("Host") . '</label>
+                                                    <label class="col-md-12">' .  __("Host") . '</label>
                                                     <div class="col-md-12">
                                                         <input type="text" disabled value="' . $mysqldata["HOST"]. '" class="form-control form-control-line"> 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-md-12">' . _("Password") . '</label>
+                                                    <label class="col-md-12">' . __("Password") . '</label>
                                                     <div class="col-md-12">
                                                         <input type="text" name="v_mysql_root_pw" value="" class="form-control form-control-line"> 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-md-12">' ._("Maximum Number of Databases").'</label>
+                                                    <label class="col-md-12">' .__("Maximum Number of Databases").'</label>
                                                     <div class="col-md-12">
                                                         <input type="text" disabled value="'.$mysqldata["MAX_DB"].'" class="form-control form-control-line"> 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-md-12">' . _("Current Number of Databases") . '</label>
+                                                    <label class="col-md-12">' . __("Current Number of Databases") . '</label>
                                                     <div class="col-md-12">
                                                         <input type="text" disabled value="'. $mysqldata["U_DB_BASES"].'" class="form-control form-control-line"> 
                                                     </div>
@@ -827,25 +827,25 @@ if( checkService('postgresql') !== false ) {
                                         </div>
                                         <?php if(checkService('postgresql') !== false ) { echo '<div class="form-group" id="div14" style="margin-left: 4%;">
                                                 <div class="form-group">
-                                                    <label class="col-md-12">' . _("Host") . '</label>
+                                                    <label class="col-md-12">' . __("Host") . '</label>
                                                     <div class="col-md-12">
                                                         <input type="text" disabled value="'.$pgsqldata["HOST"].'" class="form-control form-control-line"> 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-md-12">' . _("Password") . '</label>
+                                                    <label class="col-md-12">' . __("Password") . '</label>
                                                     <div class="col-md-12">
                                                         <input type="text" name="v_pgsql_root_pw" value="" class="form-control form-control-line"> 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-md-12">' ._("Maximum Number of Databases"). '</label>
+                                                    <label class="col-md-12">' .__("Maximum Number of Databases"). '</label>
                                                     <div class="col-md-12">
                                                         <input type="text" disabled value="'. $pgsqldata["MAX_DB"].'" class="form-control form-control-line"> 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-md-12">'._("Current Number of Databases").'</label>
+                                                    <label class="col-md-12">'.__("Current Number of Databases").'</label>
                                                     <div class="col-md-12">
                                                         <input type="text" disabled value="'. $pgsqldata["U_DB_BASES"].'" class="form-control form-control-line"> 
                                                     </div>
@@ -1024,28 +1024,28 @@ if( checkService('postgresql') !== false ) {
                                             <p><?php echo __("Restrict users so that they cannot use SSH and access only their home directory. This is a commercial module, you would need to purchace license key to enable it."); ?></p>
                                             <input type="hidden" name="v_sftpjail-key-x" value="<?php echo $sysconfig[0]["SFTPJAIL_KEY"]; ?>">
                                             <?php if($sysconfig[0]["SFTPJAIL_KEY"] != '') {echo '<div class="form-group">
-                                                <label class="col-md-12">' . _("License Key") . '</label>
+                                                <label class="col-md-12">' . __("License Key") . '</label>
                                                 <div class="col-md-12">
                                                     <input type="text" name="v_sftpjail-key" value="' . $sysconfig[0]["SFTPJAIL_KEY"] . '" class="form-control form-control-line"> 
                                                 </div>
                                             </div>'; }
                                             else { echo '<div class="form-group">
-                                                <label class="col-md-12">' . _("Enter License Key") . '</label>
+                                                <label class="col-md-12">' . __("Enter License Key") . '</label>
                                                 <div class="col-md-12">
                                                     <input type="text" value="" name="v_sftpjail-key" class="form-control form-control-line"> 
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-sm-12">
-                                                    <a href="https://vestacp.com/checkout/2co.php?product_id=6&referer=' . $_SERVER['HTTP_HOST'] . '" style="color: inherit;text-decoration: inherit;"><button class="btn btn-success" type="button">' . _("Buy License $3/Month") . '</button></a>
+                                                    <a href="https://vestacp.com/checkout/2co.php?product_id=6&referer=' . $_SERVER['HTTP_HOST'] . '" style="color: inherit;text-decoration: inherit;"><button class="btn btn-success" type="button">' . __("Buy License $3/Month") . '</button></a>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-sm-12">
-                                                      <a href="https://vestacp.com/checkout/2co.php?product_id=9&referer=' . $_SERVER['HTTP_HOST'] . '" style="color: inherit;text-decoration: inherit;"><button class="btn btn-success" type="button">' . _("Buy Lifetime License $18") . '</button></a>
+                                                      <a href="https://vestacp.com/checkout/2co.php?product_id=9&referer=' . $_SERVER['HTTP_HOST'] . '" style="color: inherit;text-decoration: inherit;"><button class="btn btn-success" type="button">' . __("Buy Lifetime License $18") . '</button></a>
                                                 </div>
                                             </div>
-                                            <span class="help-block">' . _("2Checkout.com Inc. (Ohio, USA) is a payment facilitator for goods and services provided by vestacp.com.") . '</span>'; } ?>
+                                            <span class="help-block">' . __("2Checkout.com Inc. (Ohio, USA) is a payment facilitator for goods and services provided by vestacp.com.") . '</span>'; } ?>
                                             
                                         </div>
                                         <div class="form-group">
@@ -1062,28 +1062,28 @@ if( checkService('postgresql') !== false ) {
                                             <p><?php echo __("Browse, copy, edit, view, and retrieve all of your web domain files using fully featured File Manager. This is a commercial module, you would need to purchace license key to enable it."); ?></p>
                                             <input type="hidden" name="v_filemanager-key-x" value="<?php if($sysconfig[0]["FILEMANAGER_KEY"] != '') { echo 'yes'; } else { echo 'no'; } ?>">
                                             <?php if($sysconfig[0]["FILEMANAGER_KEY"] != '') { echo '<div class="form-group">
-                                                <label class="col-md-12">' . _("License Key") . '</label>
+                                                <label class="col-md-12">' . __("License Key") . '</label>
                                                 <div class="col-md-12">
                                                     <input type="text" name="v_filemanager-key" value="' . $sysconfig[0]["FILEMANAGER_KEY"] . '" class="form-control form-control-line"> 
                                                 </div>
                                             </div>'; }
                                             else { echo '<div class="form-group">
-                                                <label class="col-md-12">' . _("Enter License Key") . '</label>
+                                                <label class="col-md-12">' . __("Enter License Key") . '</label>
                                                 <div class="col-md-12">
                                                     <input type="text" value="" name="v_filemanager-key" class="form-control form-control-line"> 
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-sm-12">
-                                                    <a href="https://vestacp.com/checkout/2co.php?product_id=7&referer=' . $_SERVER['HTTP_HOST'] . '" style="color: inherit;text-decoration: inherit;"><button class="btn btn-success" type="button">' . _("Buy License $5/Month") . '</button></a>
+                                                    <a href="https://vestacp.com/checkout/2co.php?product_id=7&referer=' . $_SERVER['HTTP_HOST'] . '" style="color: inherit;text-decoration: inherit;"><button class="btn btn-success" type="button">' . __("Buy License $5/Month") . '</button></a>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-sm-12">
-                                                      <a href="https://vestacp.com/checkout/2co.php?product_id=8&referer=' . $_SERVER['HTTP_HOST'] . '" style="color: inherit;text-decoration: inherit;"><button class="btn btn-success" type="button">' . _("Buy Lifetime License $50") . '</button></a>
+                                                      <a href="https://vestacp.com/checkout/2co.php?product_id=8&referer=' . $_SERVER['HTTP_HOST'] . '" style="color: inherit;text-decoration: inherit;"><button class="btn btn-success" type="button">' . __("Buy Lifetime License $50") . '</button></a>
                                                 </div>
                                             </div>
-                                            <span class="help-block">' . _("2Checkout.com Inc. (Ohio, USA) is a payment facilitator for goods and services provided by vestacp.com.") . '</span>'; } ?>
+                                            <span class="help-block">' . __("2Checkout.com Inc. (Ohio, USA) is a payment facilitator for goods and services provided by vestacp.com.") . '</span>'; } ?>
                                               
                                         </div>
                                         <div class="form-group">
@@ -1339,15 +1339,15 @@ if( checkService('postgresql') !== false ) {
             includeScript();
             
            if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             } 
             $returntotal = $_POST['r1'] + $_POST['r2'] + $_POST['r3'] + $_POST['r4'] + $_POST['r5'] + $_POST['r6'] + $_POST['r7'] + $_POST['r8'] + $_POST['r9'] + $_POST['r10'] + $_POST['r11'] + $_POST['r12'] + $_POST['r13'] + $_POST['r14'];
             
             if(isset($_POST['r1']) && $returntotal == 0) {
-                echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully Updated!") . "', type:'success'});";
             } 
             if(isset($_POST['r1']) && $returntotal != 0) {
-                echo "swal({title:'" . _("Error Updating Server") . "', html:'" . _("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3']] . "." . $_POST['r4']] . "." . $_POST['r5']] . "." . $_POST['r6']] . "." . $_POST['r7']] . "." . $_POST['r8']] . "." . $_POST['r9']] . "." . $_POST['r10']] . "." . $_POST['r11']] . "." . $_POST['r12']] . "." . $_POST['r13']] . "." . $_POST['r14'] . ")</span>', type:'error'});";
+                echo "swal({title:'" . __("Error Updating Server") . "', html:'" . __("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3']] . "." . $_POST['r4']] . "." . $_POST['r5']] . "." . $_POST['r6']] . "." . $_POST['r7']] . "." . $_POST['r8']] . "." . $_POST['r9']] . "." . $_POST['r10']] . "." . $_POST['r11']] . "." . $_POST['r12']] . "." . $_POST['r13']] . "." . $_POST['r14'] . ")</span>', type:'error'});";
             }
 
             ?>

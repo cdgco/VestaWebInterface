@@ -94,7 +94,7 @@ foreach ($plugins as $result) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/ico" href="../plugins/images/<?php echo $cpfavicon; ?>">
-        <title><?php echo $sitetitle . ' - ' . _("Web"); ?></title>
+        <title><?php echo $sitetitle . ' - ' . __("Web"); ?></title>
         <link href="../plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="../plugins/components/select2/select2.min.css" rel="stylesheet">
@@ -573,8 +573,8 @@ foreach ($plugins as $result) {
             if($warningson == "all"){
                 if(isset($apienabled) && $apienabled == 'true') {
                     echo "toast2({
-                            title: '" . _("Feature Disabled") . "',
-                            text: '" . _("Custom SSL Certificates are incompatible with API Key Authentication.") . "',
+                            title: '" . __("Feature Disabled") . "',
+                            text: '" . __("Custom SSL Certificates are incompatible with API Key Authentication.") . "',
                             type: 'error'
                         });";
                 } 
@@ -582,8 +582,8 @@ foreach ($plugins as $result) {
             elseif($warningson == "admin" && $initialusername == "admin"){
                 if(isset($apienabled) && $apienabled == 'true') {
                     echo "toast2({
-                            title: '" . _("Feature Disabled") . "',
-                            text: '" . _("Custom SSL Certificates are incompatible with API Key Authentication.") . "',
+                            title: '" . __("Feature Disabled") . "',
+                            text: '" . __("Custom SSL Certificates are incompatible with API Key Authentication.") . "',
                             type: 'error'
                         });";
 
@@ -591,7 +591,7 @@ foreach ($plugins as $result) {
             }
             
             if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             } 
             ?>
         </script>

@@ -190,17 +190,17 @@ if (CLOUDFLARE_EMAIL == '' || CLOUDFLARE_API_KEY == ''){ $cfenabled = 'off'; }
                                     <div id="cloudflare">
                                         <?php if ($cfenabled != "off") { echo ' 
                                     <div class="form-group">
-                                        <label class="col-md-12">' . _("Cloudflare Support") . '</label>
+                                        <label class="col-md-12">' . __("Cloudflare Support") . '</label>
                                         <div class="col-md-12">
                                             <div class="checkbox checkbox-info">
                                                 <input id="checkbox4" type="checkbox" name="v_cf" onclick="checkDiv();">
-                                                <label for="checkbox4">' . _("Enabled") . '</label>
+                                                <label for="checkbox4">' . __("Enabled") . '</label>
                                             </div>
                                         </div>
                                     </div>
                                     <div id="cf-div" style="margin-left: 4%;">
                                         <div class="form-group">
-                                            <label class="col-md-12">' . _("Security Level") . '</label>
+                                            <label class="col-md-12">' . __("Security Level") . '</label>
                                             <div class="col-md-12">
                                                 <select class="form-control select3 select2" name="v_cf_level" id="select3">
                                                     <option value="essentially_off">Essentially Off</option>
@@ -212,7 +212,7 @@ if (CLOUDFLARE_EMAIL == '' || CLOUDFLARE_API_KEY == ''){ $cfenabled = 'off'; }
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-12">' . _("SSL Setting") . '</label>
+                                            <label class="col-md-12">' . __("SSL Setting") . '</label>
                                             <div class="col-md-12">
                                                 <select class="form-control select4 select2" name="v_cf_ssl" id="select4">
                                                     <option value="off" selected>Off</option>
@@ -404,7 +404,7 @@ if (CLOUDFLARE_EMAIL == '' || CLOUDFLARE_API_KEY == ''){ $cfenabled = 'off'; }
             includeScript();
             
             if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             ?>
         </script>

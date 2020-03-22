@@ -256,10 +256,10 @@ foreach ($plugins as $result) {
                                 <form id="rebuildform" action="process/rebuild.php" method="post">
                                     <select class="selectpicker pull-right m-l-20" name="action" data-style="form-control">
                                         <option value="rebuild-user"><?php echo __("Rebuild Account"); ?></option>
-                                        <?php if ($webenabled == 'true') { echo '<option value="rebuild-web-domains">' . _("Rebuild Web") . '</option>'; } ?>
-                                        <?php if ($dnsenabled == 'true') { echo '<option value="rebuild-dns-domains">' . _("Rebuild DNS") . '</option>'; } ?>
-                                        <?php if ($mailenabled == 'true') { echo '<option value="rebuild-mail-domains">' . _("Rebuild Mail") . '</option>'; } ?>
-                                        <?php if ($dbenabled == 'true') { echo '<option value="rebuild-databases">' . _("Rebuild DB") . '</option>'; } ?>
+                                        <?php if ($webenabled == 'true') { echo '<option value="rebuild-web-domains">' . __("Rebuild Web") . '</option>'; } ?>
+                                        <?php if ($dnsenabled == 'true') { echo '<option value="rebuild-dns-domains">' . __("Rebuild DNS") . '</option>'; } ?>
+                                        <?php if ($mailenabled == 'true') { echo '<option value="rebuild-mail-domains">' . __("Rebuild Mail") . '</option>'; } ?>
+                                        <?php if ($dbenabled == 'true') { echo '<option value="rebuild-databases">' . __("Rebuild DB") . '</option>'; } ?>
                                         <option value="rebuild-cron-jobs"><?php echo __("Rebuild Cron"); ?></option>
                                         <option value="update-user-counters"><?php echo __("Update Counters"); ?></option>
                                     </select>
@@ -352,10 +352,10 @@ foreach ($plugins as $result) {
                                 <div class="sttabs tabs-style-iconbox">
                                     <nav>
                                         <ul>
-                                            <?php if ($webenabled == 'true') { echo '<li><a href="#section-iconbox-1" class="sticon ti-world"><span>' . _("Web") . '</span></a></li>'; } ?>
-                                            <?php if ($dnsenabled == 'true') { echo '<li><a href="#section-iconbox-2" class="sticon fa fa-sitemap"><span>' . _("DNS") . '</span></a></li>'; } ?>
-                                            <?php if ($mailenabled == 'true') { echo '<li><a href="#section-iconbox-3" class="sticon fa fa-envelope"><span>' . _("Mail") . '</span></a></li>'; } ?>
-                                            <?php if ($dbenabled == 'true') { echo '<li><a href="#section-iconbox-4" class="sticon fa fa-database"><span>' . _("Database") . '</span></a></li>'; } ?>
+                                            <?php if ($webenabled == 'true') { echo '<li><a href="#section-iconbox-1" class="sticon ti-world"><span>' . __("Web") . '</span></a></li>'; } ?>
+                                            <?php if ($dnsenabled == 'true') { echo '<li><a href="#section-iconbox-2" class="sticon fa fa-sitemap"><span>' . __("DNS") . '</span></a></li>'; } ?>
+                                            <?php if ($mailenabled == 'true') { echo '<li><a href="#section-iconbox-3" class="sticon fa fa-envelope"><span>' . __("Mail") . '</span></a></li>'; } ?>
+                                            <?php if ($dbenabled == 'true') { echo '<li><a href="#section-iconbox-4" class="sticon fa fa-database"><span>' . __("Database") . '</span></a></li>'; } ?>
                                         </ul>
                                     </nav>
                                     <div class="content-wrap">
@@ -394,14 +394,14 @@ foreach ($plugins as $result) {
                                                                         <td class="resthree" data-sort-value="' . $domaindata[$x1]['U_BANDWIDTH'] . '">' . formatMB($domaindata[$x1]['U_BANDWIDTH']) . '</td>
                                                                         <td class="resone">';                                                                   
                                                                 if($domaindata[$x1]['SSL'] == "yes"){ 
-                                                                    echo '<span class="label label-table label-success">' . _("Enabled") . '</span>';} 
+                                                                    echo '<span class="label label-table label-success">' . __("Enabled") . '</span>';} 
                                                                 else{ 
-                                                                    echo '<span class="label label-table label-danger">' . _("Disabled") . '</span>';} 
+                                                                    echo '<span class="label label-table label-danger">' . __("Disabled") . '</span>';} 
                                                                 echo '</td><td class="resone">';                                                                   
                                                                 if($domaindata[$x1]['SUSPENDED'] == "no"){ 
-                                                                    echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
+                                                                    echo '<span class="label label-table label-success">' . __("Active") . '</span>';} 
                                                                 else{ 
-                                                                    echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
+                                                                    echo '<span class="label label-table label-danger">' . __("Suspended") . '</span>';} 
                                                                 echo '</td>
                                                                     </tr>';
                                                                 $x1++;
@@ -513,9 +513,9 @@ foreach ($plugins as $result) {
                                                                       $recordcount = $recordcount + $dnsdata[$x2]['RECORDS']; }
                                                                 echo '<td class="resone">';                                                                   
                                                                 if($dnsdata[$x2]['SUSPENDED'] == "no"){ 
-                                                                    echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
+                                                                    echo '<span class="label label-table label-success">' . __("Active") . '</span>';} 
                                                                 else{ 
-                                                                    echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
+                                                                    echo '<span class="label label-table label-danger">' . __("Suspended") . '</span>';} 
                                                                 echo '</td>
                                                                                     </tr>';
                                                                 $x2++;
@@ -557,9 +557,9 @@ foreach ($plugins as $result) {
                                                                     <td class="resthree" data-sort-value="' . $maildata[$x3]['ACCOUNTS'] . '">' . $maildata[$x3]['ACCOUNTS'] . '</td>
                                                                     <td class="resone">';                                                                   
                                                                     if($maildata[$x3]['SUSPENDED'] == "no"){ 
-                                                                        echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
+                                                                        echo '<span class="label label-table label-success">' . __("Active") . '</span>';} 
                                                                     else{ 
-                                                                        echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
+                                                                        echo '<span class="label label-table label-danger">' . __("Suspended") . '</span>';} 
                                                                     echo '</td>
                                                                 </tr>';
                                                                 $x3++;

@@ -202,9 +202,9 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box"> <ul class="side-icon-text pull-right">
-                                <?php if(isset($updatetest) || $updatetest != ''){ echo '<li><a href="../procss/updateall.php"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="ti-reload"></i></span><span>' . _("Update All") . '</span></a></li>';} 
+                                <?php if(isset($updatetest) || $updatetest != ''){ echo '<li><a href="../procss/updateall.php"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="ti-reload"></i></span><span>' . __("Update All") . '</span></a></li>';} 
 
-                                if($autoupdatename[0] == "Enabled"){ echo '<li><a href="../delete/autoupdate.php"><span class="circle circle-sm bg-danger di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><wrapper class="resfour">' . _("Disable ") . '</wrapper><span>' . _("Autoupdate") . '</span></a></li>';} if($autoupdatename[0] != "Enabled"){ echo '<li><a href="../create/autoupdate.php"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><wrapper class="resfour">' . _("Enable ") . '</wrapper><span>' . _("Autoupdate") . '</span></a></li>';} ?>
+                                if($autoupdatename[0] == "Enabled"){ echo '<li><a href="../delete/autoupdate.php"><span class="circle circle-sm bg-danger di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><wrapper class="resfour">' . __("Disable ") . '</wrapper><span>' . __("Autoupdate") . '</span></a></li>';} if($autoupdatename[0] != "Enabled"){ echo '<li><a href="../create/autoupdate.php"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><wrapper class="resfour">' . __("Enable ") . '</wrapper><span>' . __("Autoupdate") . '</span></a></li>';} ?>
                                 </ul><br><br><br>
                                 <div class="table-responsive">
                                 <table class="table footable m-b-0" data-paging="false" data-sorting="true">
@@ -221,7 +221,7 @@ foreach ($plugins as $result) {
                                                     <td><br>Version: <b>' . $updatedata[$x1]['VERSION'] . '</b><wrapper class="restwo"> (' . $updatedata[$x1]['ARCH'] . ')</wrapper><br></td>
                                                     <td class="resthree"><br>Release: ' . $updatedata[$x1]['RELEASE'] . '<br></td><td><p style="line-height: 1.7;">&nbsp;</p>';
 
-                                                    if ($updatedata[$x1]['UPDATED'] != 'yes') { echo '<a href="../process/update.php?package=' . $updatename[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Update") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a>'; }
+                                                    if ($updatedata[$x1]['UPDATED'] != 'yes') { echo '<a href="../process/update.php?package=' . $updatename[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . __("Update") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a>'; }
 
                                                     echo '</td>
                                                 </tr>';
@@ -264,25 +264,25 @@ foreach ($plugins as $result) {
             includeScript();
             
             if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             if(isset($_POST['delcode']) && $_POST['delcode'] == "0") {
-                echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully Deleted!") . "', type:'success'});";
             } 
             if(isset($_POST['addcode']) && $_POST['addcode'] == "0") {
-                echo "swal({title:'" . _("Successfully Created!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully Created!") . "', type:'success'});";
             } 
             if(isset($_POST['r1']) && $_POST['r1'] == "0") {
-                echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully Updated!") . "', type:'success'});";
             } 
             if(isset($_POST['r1']) && $_POST['r1'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['r1']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[$_POST['r1']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             } 
             if(isset($_POST['delcode']) && $_POST['delcode'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['delcode']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[$_POST['delcode']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             if(isset($_POST['addcode']) && $_POST['addcode'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['addcode']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[$_POST['addcode']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             ?>
         </script>

@@ -521,21 +521,21 @@ foreach ($plugins as $result) {
             includeScript();
             
            if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             } 
             $returntotal = $_POST['r1'] + $_POST['r2'];
             if(isset($_POST['r1']) && $returntotal == 0) {
-                echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully Updated!") . "', type:'success'});";
             } 
 
             if(isset($_POST['r1']) && $returntotal != 0) {
-                echo "swal({title:'" . _("Error Updating Package") . "', html:'" . _("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(E: " . $_POST['r1'] . "." . $_POST['r2'] . ")</span>', type:'error'});";
+                echo "swal({title:'" . __("Error Updating Package") . "', html:'" . __("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(E: " . $_POST['r1'] . "." . $_POST['r2'] . ")</span>', type:'error'});";
             }
            if($warningson == "all"){
                 if(isset($apienabled) && $apienabled == 'true') {
                     echo "toast2({
-                            title: '" . _("Feature Disabled") . "',
-                            text: '" . _("Packages are incompatible with API Key Authentication.") . "',
+                            title: '" . __("Feature Disabled") . "',
+                            text: '" . __("Packages are incompatible with API Key Authentication.") . "',
                             type: 'error'
                         });";
                 } 
@@ -543,8 +543,8 @@ foreach ($plugins as $result) {
             elseif($warningson == "admin" && $initialusername == "admin"){
                 if(isset($apienabled) && $apienabled == 'true') {
                     echo "toast2({
-                            title: '" . _("Feature Disabled") . "',
-                            text: '" . _("Packages are incompatible with API Key Authentication.") . "',
+                            title: '" . __("Feature Disabled") . "',
+                            text: '" . __("Packages are incompatible with API Key Authentication.") . "',
                             type: 'error'
                         });";
 

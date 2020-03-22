@@ -222,7 +222,7 @@ foreach ($plugins as $result) {
                             <div class="white-box">
                                 <ul class="side-icon-text pull-right">
                                     <li><a href="../add/cron.php"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="fa fa-plus"></i></span><span class="resthree"><wrapper class="restwo"><?php echo __("Add "); ?></wrapper><?php echo __("Cron Job"); ?></span></a></li>
-                                    <?php if($admindata['CRON_REPORTS'] == "yes"){ echo '<li class="resthree"><a href="#" onclick="notifyOff()"><span class="circle circle-sm bg-danger di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><span><wrapper class="restwo">' . _("Disable Cron ") . '</wrapper>' . _("Notifications") . '</span></a></li>';} if($admindata['CRON_REPORTS'] == "no"){ echo '<li class="resthree"><a href="#" onclick="notifyOn()"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><span><wrapper class="restwo">' . _("Enable Cron ") . '</wrapper>' . _("Enable Cron Notifications") . '</span></a></li>';} ?>
+                                    <?php if($admindata['CRON_REPORTS'] == "yes"){ echo '<li class="resthree"><a href="#" onclick="notifyOff()"><span class="circle circle-sm bg-danger di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><span><wrapper class="restwo">' . __("Disable Cron ") . '</wrapper>' . __("Notifications") . '</span></a></li>';} if($admindata['CRON_REPORTS'] == "no"){ echo '<li class="resthree"><a href="#" onclick="notifyOn()"><span class="circle circle-sm bg-success di" style="padding-top: 11px;"><i class="fa fa-power-off"></i></span><span><wrapper class="restwo">' . __("Enable Cron ") . '</wrapper>' . __("Enable Cron Notifications") . '</span></a></li>';} ?>
                                 </ul>
                                 <h3 class="box-title m-b-0"><?php echo __("Cron Jobs"); ?></h3><br>
                                 <div class="table-responsive">
@@ -255,15 +255,15 @@ foreach ($plugins as $result) {
                                                     <td>' . $crondata[$x1]['CMD'] . '</td>
                                                     <td class="resone">';                                                                   
                                                 if($crondata[$x1]['SUSPENDED'] == "no"){ 
-                                                    echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
+                                                    echo '<span class="label label-table label-success">' . __("Active") . '</span>';} 
                                                 else{ 
-                                                    echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
+                                                    echo '<span class="label label-table label-danger">' . __("Suspended") . '</span>';} 
                                                 echo '</td>
                                                       <td class="resone" data-sort-value="' . $crondata[$x1]['DATE'] . '">' . $crondata[$x1]['DATE'] . '</td><td>
-                                                          <a href="../edit/cron.php?job=' . $cronname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . _("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button></a>';
-                                                          if ($initialusername == "admin" && $crondata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $cronname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Suspend") . '" class="restwo btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
-                                                          elseif ($initialusername == "admin" && $crondata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="confirmUnsuspend(\'' . $cronname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . _("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }   
-                                                          echo '<button onclick="confirmDelete(\'' . $cronname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . _("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-trash-o"></i></button>
+                                                          <a href="../edit/cron.php?job=' . $cronname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . __("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button></a>';
+                                                          if ($initialusername == "admin" && $crondata[$x1]['SUSPENDED'] == 'no') { echo '<button type="button" onclick="confirmSuspend(\'' . $cronname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . __("Suspend") . '" class="restwo btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-lock"></i></button>'; }
+                                                          elseif ($initialusername == "admin" && $crondata[$x1]['SUSPENDED'] == 'yes') { echo '<button type="button" onclick="confirmUnsuspend(\'' . $cronname[$x1] . '\')" data-toggle="tooltip" data-original-title="' . __("Unsuspend") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-unlock"></i></button>'; }   
+                                                          echo '<button onclick="confirmDelete(\'' . $cronname[$x1] . '\')" type="button" data-toggle="tooltip" data-original-title="' . __("Delete") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="fa fa-trash-o"></i></button>
                                                       </td>
                                                       <td>'; echo $schedule->asNaturalLanguage() . ' ( ' . $crontime . ' )</td>                        
                                                     </tr>';
@@ -443,25 +443,25 @@ foreach ($plugins as $result) {
             includeScript();
             
             if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             if(isset($_POST['delcode']) && $_POST['delcode'] == "0") {
-                echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully Deleted!") . "', type:'success'});";
             } 
             if(isset($_POST['addcode']) && $_POST['addcode'] == "0") {
-                echo "swal({title:'" . _("Successfully Created!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully Created!") . "', type:'success'});";
             } 
             if(isset($_POST['delcode']) && $_POST['delcode'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['delcode']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[$_POST['delcode']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             if(isset($_POST['addcode']) && $_POST['addcode'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['addcode']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[$_POST['addcode']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             if(isset($_POST['u1']) && $_POST['u1'] == 0) {
-                echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully Updated!") . "', type:'success'});";
             } 
             if(isset($_POST['u1']) && $_POST['u1'] != 0) {
-                echo "swal({title:'" . $errorcode[$_POST['u1']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[$_POST['u1']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }  
 
             ?>

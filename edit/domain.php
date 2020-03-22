@@ -778,8 +778,8 @@ foreach ($plugins as $result) {
             if($warningson == "all"){
                 if(isset($apienabled) && $apienabled == 'true') {
                     echo "toast2({
-                            title: '" . _("Feature Disabled") . "',
-                            text: '" . _("Custom SSL Certificates are incompatible with API Key Authentication.") . "',
+                            title: '" . __("Feature Disabled") . "',
+                            text: '" . __("Custom SSL Certificates are incompatible with API Key Authentication.") . "',
                             type: 'error'
                         });";
                 } 
@@ -787,8 +787,8 @@ foreach ($plugins as $result) {
             elseif($warningson == "admin" && $initialusername == "admin"){
                 if(isset($apienabled) && $apienabled == 'true') {
                     echo "toast2({
-                            type: '" . _("Feature Disabled") . "',
-                            text: '" . _("Custom SSL Certificates are incompatible with API Key Authentication.") . "',
+                            type: '" . __("Feature Disabled") . "',
+                            text: '" . __("Custom SSL Certificates are incompatible with API Key Authentication.") . "',
                             type: 'error'
                         });";
 
@@ -796,14 +796,14 @@ foreach ($plugins as $result) {
             }
             
             if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             $returntotal = $_POST['r1'] + $_POST['r2'] + $_POST['r3'] + $_POST['r4'] + $_POST['r5'] + $_POST['r6'] + $_POST['r7'] + $_POST['r8'] + $_POST['r9'] + $_POST['r10'] + $_POST['r11'] + $_POST['r12'];
             if(isset($_POST['r1']) && $returntotal == 0) {
-                echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
+                echo "swal({title:'" . __("Successfully Updated!") . "', type:'success'});";
             } 
             if(isset($_POST['r1']) && $returntotal != 0) {
-                echo "swal({title:'" . _("Error Updating Web Domain") . "', html:'" . _("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . "." . $_POST['r4'] . "." . $_POST['r5'] . "." . $_POST['r6'] . "." . $_POST['r7'] . "." . $_POST['r8'] . "." . $_POST['r9'] . "." . $_POST['r10'] . "." . $_POST['r11'] . "." . $_POST['r12'] . ")</span>', type:'error'});";
+                echo "swal({title:'" . __("Error Updating Web Domain") . "', html:'" . __("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . "." . $_POST['r4'] . "." . $_POST['r5'] . "." . $_POST['r6'] . "." . $_POST['r7'] . "." . $_POST['r8'] . "." . $_POST['r9'] . "." . $_POST['r10'] . "." . $_POST['r11'] . "." . $_POST['r12'] . ")</span>', type:'error'});";
             }
 
             ?>

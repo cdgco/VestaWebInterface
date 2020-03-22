@@ -138,16 +138,16 @@ foreach ($plugins as $result) {
         if(isset($answer1)) { $answer = (int)$answer1; }
         if(isset($pwcode) || isset($emailcode) || isset($langcode) || isset($nscode) || isset($namecode)){
         if($answer == "0") {
-        echo "<script> swal({title:'" . _("Successfully Updated!") . "', type:'success'})</script>";
+        echo "<script> swal({title:'" . __("Successfully Updated!") . "', type:'success'})</script>";
         } 
-        if(isset($answer) && $answer == "1" || isset($answer) && $answer == "2") { echo "<script> swal('" . _("Invalid data entered in form.") . "<br>" .  _("Please try again.") . "', '<br>"; 
+        if(isset($answer) && $answer == "1" || isset($answer) && $answer == "2") { echo "<script> swal('" . __("Invalid data entered in form.") . "<br>" .  __("Please try again.") . "', '<br>"; 
         if(isset($pwcode) && $pwcode != "0"){ echo " P: " . $pwcode;}
         if(isset($emailcode) && $emailcode != "0"){ echo " E: " . $emailcode;}
         if(isset($langcode) && $langcode != "0"){ echo " L: " . $langcode;}
         if(isset($nscode) && $nscode != "0"){ echo " NS: " . $nscode;}
         if(isset($namecode) && $namecode != "0"){ echo " N: " . $namecode;}
         echo "', 'error')</script>";}
-        if(isset($answer) && $answer > "2") { echo "<script> swal('" . _("Please try again or contact support.") . "', '<br>"; 
+        if(isset($answer) && $answer > "2") { echo "<script> swal('" . __("Please try again or contact support.") . "', '<br>"; 
          if(isset($pwcode) && $pwcode != "0"){ echo " P: " . $pwcode;}
          if(isset($emailcode) && $emailcode != "0"){ echo " E: " . $emailcode;}
          if(isset($langcode) && $langcode != "0"){ echo " L: " . $langcode;}
@@ -397,14 +397,14 @@ foreach ($plugins as $result) {
                                         </div>
                                         <?php if($themecolor != 'custom.css') { echo '
                                         <div class="form-group" style="overflow: visible;">
-                                            <label class="col-md-12">' . _("Theme") . '</label>
+                                            <label class="col-md-12">' . __("Theme") . '</label>
                                             <div class="col-md-12">
                                                 <select class="form-control" name="cookie">
-                                                    <option value="default" '; if(base64_decode($_COOKIE["theme"]) == "default.css") { echo "selected"; } echo '>' . _("Default") . '</option>
-                                                    <option value="blue" '; if(base64_decode($_COOKIE["theme"]) == "blue.css") { echo "selected"; } echo '>' . _("Blue") . '</option>
-                                                    <option value="purple" '; if(base64_decode($_COOKIE["theme"]) == "purple.css") { echo "selected"; } echo '>' . _("Purple") . '</option>
-                                                    <option value="orange" '; if(base64_decode($_COOKIE["theme"]) == "orange.css") { echo "selected"; } echo '>' . _("Orange") . '</option>
-                                                    <option value="dark" '; if(base64_decode($_COOKIE["theme"]) == "dark.css") { echo "selected"; } echo '>' . _("Dark") . '</option>
+                                                    <option value="default" '; if(base64_decode($_COOKIE["theme"]) == "default.css") { echo "selected"; } echo '>' . __("Default") . '</option>
+                                                    <option value="blue" '; if(base64_decode($_COOKIE["theme"]) == "blue.css") { echo "selected"; } echo '>' . __("Blue") . '</option>
+                                                    <option value="purple" '; if(base64_decode($_COOKIE["theme"]) == "purple.css") { echo "selected"; } echo '>' . __("Purple") . '</option>
+                                                    <option value="orange" '; if(base64_decode($_COOKIE["theme"]) == "orange.css") { echo "selected"; } echo '>' . __("Orange") . '</option>
+                                                    <option value="dark" '; if(base64_decode($_COOKIE["theme"]) == "dark.css") { echo "selected"; } echo '>' . __("Dark") . '</option>
                                                 </select>
                                             </div>
                                         </div>'; } ?>
@@ -542,11 +542,11 @@ foreach ($plugins as $result) {
 
         $returntotal = $_POST['r1'] + $_POST['r2'] + $_POST['r3'] + $_POST['r4'] + $_POST['r5'];
         if(isset($_POST['r1']) && $returntotal == 0) {
-            echo "swal({title:'" . _("Successfully Updated!") . "', type:'success'});";
+            echo "swal({title:'" . __("Successfully Updated!") . "', type:'success'});";
         } 
         
         if(isset($_POST['r1']) && $returntotal != 0) {
-                echo "swal({title:'" . _("Error Updating Profile") . "', html:'" . _("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . "." . $_POST['r4'] . "." . $_POST['r5'] . ")</span>', type:'error'});";
+                echo "swal({title:'" . __("Error Updating Profile") . "', html:'" . __("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . "." . $_POST['r4'] . "." . $_POST['r5'] . ")</span>', type:'error'});";
             }
         
         ?>

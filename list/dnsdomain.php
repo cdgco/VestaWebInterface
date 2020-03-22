@@ -298,14 +298,14 @@ foreach ($plugins as $result) {
                                                             <td>' . $dnsdata[$x1]['RECORD'] . '</td>
                                                             <td>' . $dnsdata[$x1]['TYPE'] . '</td>
                                                             <td style="max-width: 240px;overflow-wrap: break-word;overflow: auto;">' . $dnsdata[$x1]['VALUE'] . '</td>
-                                                            <td><a href="../edit/dnsrecord.php?domain=' . $requestdns . '&record=' . $dnsname[$x1] . '"><button type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Edit") . '"><i class="ti-pencil-alt"></i></button></a>
+                                                            <td><a href="../edit/dnsrecord.php?domain=' . $requestdns . '&record=' . $dnsname[$x1] . '"><button type="button" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . __("Edit") . '"><i class="ti-pencil-alt"></i></button></a>
                                                                 
-                                                                <button type="button" onclick="confirmDelete(\'' . $dnsname[$x1] . '\');" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . _("Delete") . '"><i class="fa fa-trash-o" ></i></button>
+                                                                <button type="button" onclick="confirmDelete(\'' . $dnsname[$x1] . '\');" class="btn color-button btn-outline btn-circle btn-md m-r-5" data-toggle="tooltip" data-original-title="' . __("Delete") . '"><i class="fa fa-trash-o" ></i></button>
                                                             </td><td>';                                                                   
                                                     if($dnsdata[$x1]['SUSPENDED'] == "no"){ 
-                                                        echo '<span class="label label-table label-success">' . _("Active") . '</span>';} 
+                                                        echo '<span class="label label-table label-success">' . __("Active") . '</span>';} 
                                                     else{ 
-                                                        echo '<span class="label label-table label-danger">' . _("Suspended") . '</span>';} 
+                                                        echo '<span class="label label-table label-danger">' . __("Suspended") . '</span>';} 
                                                     echo '</td>
                                                             <td>' . $dnsdata[$x1]['DATE'] . '</td></tr>';
                                                     $x1++;
@@ -419,19 +419,19 @@ foreach ($plugins as $result) {
             includeScript();
             
                 if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
                 if(isset($_POST['delcode']) && $_POST['delcode'] == "0") {
-                    echo "swal({title:'" . _("Successfully Deleted!") . "', type:'success'});";
+                    echo "swal({title:'" . __("Successfully Deleted!") . "', type:'success'});";
                 } 
                 if(isset($_POST['addcode']) && $_POST['addcode'] == "0") {
-                    echo "swal({title:'" . _("Successfully Created!") . "', type:'success'});";
+                    echo "swal({title:'" . __("Successfully Created!") . "', type:'success'});";
                 } 
                 if(isset($_POST['delcode']) && $_POST['delcode'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['delcode']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[$_POST['delcode']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             if(isset($_POST['addcode']) && $_POST['addcode'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['addcode']] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[$_POST['addcode']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
 
                 ?>

@@ -194,15 +194,15 @@ _textdomain('messages');
                 if($warningson == "all"){
                     if(substr(sprintf('%o', fileperms($configlocation)), -4) == '0777') {
                         echo "toast1({ 
-                                text: '"._("Includes folder has not been secured")."',
+                                text: '".__("Includes folder has not been secured")."',
                                 type: 'warning'
                             });";
 
                     } 
                     if(isset($mysqldown) && $mysqldown == 'yes') {
                         echo "toast2({
-                                title: '" . _("Database Error") . "',
-                                text: '" . _("MySQL Server Failed To Connect") . "',
+                                title: '" . __("Database Error") . "',
+                                text: '" . __("MySQL Server Failed To Connect") . "',
                                 type: 'error'
                             });";
                     } 
@@ -211,15 +211,15 @@ _textdomain('messages');
             else {
                 if(substr(sprintf('%o', fileperms($configlocation)), -4) == '0777') {
                     echo "toast1({ 
-                            text: '"._("Includes folder has not been secured")."',
+                            text: '".__("Includes folder has not been secured")."',
                             type: 'warning'
                         });";
 
                 } 
                 if(isset($mysqldown) && $mysqldown == 'yes') {
                     echo "toast2({
-                           title: '" . _("Database Error") . "',
-                            text: '" . _("MySQL Server Failed To Connect") . "',
+                           title: '" . __("Database Error") . "',
+                            text: '" . __("MySQL Server Failed To Connect") . "',
                             type: 'error'
                         });";
 
@@ -227,7 +227,7 @@ _textdomain('messages');
             }
             if(!isset($serverconnection)){
             echo "toast2({
-                    text: '" . _("Failed to connect to server. Please check config.") . "',
+                    text: '" . __("Failed to connect to server. Please check config.") . "',
                     type: 'error'
             });"; }
             ?>

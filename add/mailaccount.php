@@ -270,7 +270,7 @@ foreach ($plugins as $result) {
                                     <?php if($phpmailenabled == 'true') {
                                         echo '
                                         <div class="form-group">
-                                            <label class="col-md-12">' . _("Send Credentials To Email") . '</label>
+                                            <label class="col-md-12">' . __("Send Credentials To Email") . '</label>
                                             <div class="col-md-12">
                                                 <input type="text" class="form-control form-control-line" name="v_sendemail">    
                                             </div>
@@ -645,7 +645,7 @@ foreach ($plugins as $result) {
             includeScript();
             
             if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . _("Please try again or contact support.") . "', type:'error'});";
+                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
             }
             ?>
         </script>
