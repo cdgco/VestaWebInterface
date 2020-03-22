@@ -17,11 +17,6 @@ bash <(curl -s https://cdgco.github.io/backend)
 When promted during the automatic installer to "Enter the full web address of your installation", enter the URL where Vesta Web Interface will be accessed from, including the "http(s)://" and the following "/".
 
 #### Step 4:
-Install the optional language packs on your frontend server (required for translation support).
-```shell
-bash <(curl -s https://cdgco.github.io/lang)
-```
-#### Step 5:
 Configure Vesta Web Interface through the web based configurator or manual configuration.
 
 * Web Based Configuration:
