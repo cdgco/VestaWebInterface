@@ -1,5 +1,12 @@
 ## Changelog
 
+### v2.0.0
+Bug Fixes<br>
+Dependencies<br>
+Locale System Upgrade<br>
+Translations<br>
+Encrypt Credentials
+
 ### v1.0.1
 Bug Fixes<br>
 Dependencies<br>
