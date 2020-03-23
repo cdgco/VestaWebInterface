@@ -419,7 +419,7 @@ function primaryMenu($l4, $l5, $a2) {
     
     
         if(isset($cronenabled) && $cronenabled != ''){
-        echo '<li> <a href="' . $l4 . 'cron.php" class="waves-effect'; if($a2 == 'cron') { echo ' active'; } echo '"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">' . __("Cron Jobs") . '</span></a> </li>'; }
+        echo '<li> <a href="' . $l4 . 'cron.php" class="waves-effect'; if($a2 == 'cron') { echo ' active'; } echo '"><i  class="mdi mdi-calendar-arrow-right fa-fw"></i> <span class="hide-menu">' . __("Cron Jobs") . '</span></a> </li>'; }
         if(isset($backupsenabled) && $backupsenabled != ''){
         echo '<li> <a href="' . $l4 . 'backups.php" class="waves-effect'; if($a2 == 'backups') { echo ' active'; } echo '"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu">' . __("Backups") . '</span></a> </li>'; }
         
