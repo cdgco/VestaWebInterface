@@ -3285,31 +3285,3 @@ msgstr "Anmelden"
 msgid "Passwords do not match"
 msgstr "Passwörter stimmen nicht überein"
 
-#: bower_components/moment/min/locales.min.js:1
-msgid "s"
-msgstr "s"
-
-#: bower_components/moment/min/locales.min.js:1
-msgid "m"
-msgstr "m"
-
-#: bower_components/moment/min/locales.min.js:1
-msgid "h"
-msgstr "h"
-
-#: bower_components/moment/min/locales.min.js:1
-msgid "d"
-msgstr "d"
-
-#: bower_components/moment/min/locales.min.js:1
-msgid "M"
-msgstr "M."
-
-#: bower_components/moment/min/locales.min.js:1
-msgid "y"
-msgstr "y"
-
-#: bower_components/moment/min/moment.min.js:1
-msgid ": "
-msgstr ":: "
-
