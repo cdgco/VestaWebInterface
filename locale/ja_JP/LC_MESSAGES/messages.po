@@ -9,8 +9,11 @@ msgstr ""
 
 #: add/cfrecord.php:130 add/dns.php:87 add/dnsrecord.php:130
 #: admin/add/fail2ban.php:189 admin/list/stats.php:235
-#: admin/server/vesta.php:736 admin/status/dns.php:211 edit/cfrecord.php:110
-#: edit/dns.php:159 edit/dnsrecord.php:106 includes/includes.php:414
+#: admin/server/vesta.php:736 admin/status/cpu.php:195 admin/status/db.php:195
+#: admin/status/disk.php:195 admin/status/dns.php:195 admin/status/dns.php:211
+#: admin/status/mail.php:195 admin/status/memory.php:195
+#: admin/status/network.php:195 admin/status/web.php:194 edit/cfrecord.php:110
+#: edit/dns.php:159 edit/dnsrecord.php:106 includes/includes.php:416
 #: index.php:356 list/backup.php:258 list/backups.php:250 list/cfdomain.php:146
 #: list/cfdomain.php:287 list/dns.php:89 list/dnsdomain.php:132
 #: list/dnsdomain.php:278
@@ -40,8 +43,8 @@ msgstr "DNS"
 #: list/backups.php:168 list/cfdomain.php:205 list/cron.php:140 list/db.php:142
 #: list/dns.php:143 list/dnsdomain.php:192 list/mail.php:139
 #: list/maildomain.php:152 list/web.php:152 log.php:135 log/access.php:144
-#: log/error.php:144 process/csr.php:135 process/generatecsr.php:128
-#: process/search.php:147 profile.php:176
+#: log/error.php:144 plugins/example-plugin/index.php:101 process/csr.php:135
+#: process/generatecsr.php:128 process/search.php:147 profile.php:176
 msgid "Search..."
 msgstr "探す..."
 
@@ -64,12 +67,14 @@ msgstr "探す..."
 #: admin/status/network.php:154 admin/status/web.php:153
 #: edit/backupexclusions.php:141 edit/cfrecord.php:183 edit/cron.php:169
 #: edit/db.php:170 edit/dns.php:235 edit/dnsrecord.php:179 edit/domain.php:187
-#: edit/mail.php:169 edit/mailaccount.php:174 includes/includes.php:399
+#: edit/mail.php:169 edit/mailaccount.php:174 includes/includes.php:401
 #: index.php:218 list/backup.php:172 list/backups.php:182 list/cfdomain.php:219
 #: list/cron.php:154 list/db.php:156 list/dns.php:157 list/dnsdomain.php:205
 #: list/mail.php:153 list/maildomain.php:166 list/web.php:166 log.php:148
-#: log.php:179 log/access.php:157 log/error.php:157 process/search.php:161
-#: profile.php:194 profile.php:224 profile.php:237
+#: log.php:179 log/access.php:157 log/error.php:157
+#: plugins/example-plugin/index.php:114 process/csr.php:148
+#: process/generatecsr.php:141 process/search.php:161 profile.php:194
+#: profile.php:224 profile.php:237
 msgid "My Account"
 msgstr "マイアカウント"
 
@@ -92,12 +97,13 @@ msgstr "マイアカウント"
 #: admin/status/network.php:155 admin/status/web.php:154
 #: edit/backupexclusions.php:142 edit/cfrecord.php:184 edit/cron.php:170
 #: edit/db.php:171 edit/dns.php:236 edit/dnsrecord.php:180 edit/domain.php:188
-#: edit/mail.php:170 edit/mailaccount.php:175 includes/includes.php:400
+#: edit/mail.php:170 edit/mailaccount.php:175 includes/includes.php:402
 #: index.php:219 list/backup.php:173 list/backups.php:183 list/cfdomain.php:220
 #: list/cron.php:155 list/db.php:157 list/dns.php:158 list/dnsdomain.php:206
 #: list/mail.php:154 list/maildomain.php:167 list/web.php:167 log.php:149
-#: log.php:180 log/access.php:158 log/error.php:158 process/search.php:162
-#: profile.php:195 profile.php:225
+#: log.php:180 log/access.php:158 log/error.php:158
+#: plugins/example-plugin/index.php:115 process/search.php:162 profile.php:195
+#: profile.php:225
 msgid "Account Settings"
 msgstr "アカウント設定"
 
@@ -120,11 +126,13 @@ msgstr "アカウント設定"
 #: admin/status/network.php:157 admin/status/web.php:156
 #: edit/backupexclusions.php:144 edit/cfrecord.php:186 edit/cron.php:172
 #: edit/db.php:173 edit/dns.php:238 edit/dnsrecord.php:182 edit/domain.php:190
-#: edit/mail.php:172 edit/mailaccount.php:177 index.php:221 list/backup.php:175
-#: list/backups.php:185 list/cfdomain.php:222 list/cron.php:157 list/db.php:159
-#: list/dns.php:160 list/dnsdomain.php:208 list/mail.php:156
-#: list/maildomain.php:169 list/web.php:169 log.php:151 log/access.php:160
-#: log/error.php:160 process/search.php:164 profile.php:197
+#: edit/mail.php:172 edit/mailaccount.php:177 includes/includes.php:576
+#: index.php:221 list/backup.php:175 list/backups.php:185 list/cfdomain.php:222
+#: list/cron.php:157 list/db.php:159 list/dns.php:160 list/dnsdomain.php:208
+#: list/mail.php:156 list/maildomain.php:169 list/web.php:169 log.php:151
+#: log/access.php:160 log/error.php:160 plugins/example-plugin/index.php:117
+#: process/csr.php:151 process/generatecsr.php:144 process/search.php:164
+#: profile.php:197
 msgid "Logout"
 msgstr "ログアウト"
 
@@ -151,7 +159,8 @@ msgstr "ログアウト"
 #: list/backups.php:199 list/cfdomain.php:236 list/cron.php:171 list/db.php:173
 #: list/dns.php:174 list/dnsdomain.php:222 list/mail.php:170
 #: list/maildomain.php:183 list/web.php:183 log.php:165 log/access.php:174
-#: log/error.php:174 process/search.php:178 profile.php:212
+#: log/error.php:174 plugins/example-plugin/index.php:131 process/csr.php:165
+#: process/generatecsr.php:158 process/search.php:178 profile.php:212
 msgid "Navigation"
 msgstr "ナビゲーション"
 
@@ -167,7 +176,7 @@ msgstr "DNSレコードを追加"
 #: list/cfdomain.php:256 list/dns.php:243 list/dnsdomain.php:242
 #: list/dnsdomain.php:248 list/mail.php:238 list/mail.php:245
 #: list/maildomain.php:203 list/web.php:252 list/web.php:259
-#: process/csr.php:189
+#: process/csr.php:189 process/generatecsr.php:182
 msgid "Domain"
 msgstr "ドメイン"
 
@@ -180,8 +189,9 @@ msgstr "記録"
 #: add/cfrecord.php:236 add/db.php:215 add/dnsrecord.php:236
 #: admin/add/firewall.php:182 admin/edit/firewall.php:187
 #: admin/list/firewall.php:207 edit/cfrecord.php:246 edit/db.php:299
-#: edit/dnsrecord.php:292 list/backup.php:241 list/cfdomain.php:293
-#: list/db.php:241 list/dnsdomain.php:284 process/search.php:205
+#: edit/dnsrecord.php:292 list/backup.php:241 list/backups.php:255
+#: list/cfdomain.php:293 list/db.php:241 list/dnsdomain.php:284
+#: process/search.php:205
 msgid "Type"
 msgstr "タイプ"
 
@@ -194,10 +204,10 @@ msgstr "IPまたは値"
 msgid "TTL (Time-To-Live)"
 msgstr "TTL（存続時間）"
 
-#: add/cfrecord.php:260 admin/add/firewall.php:218 admin/add/ip.php:245
-#: admin/add/ip.php:252 admin/edit/firewall.php:224 admin/edit/ip.php:242
-#: admin/edit/ip.php:250 edit/cfrecord.php:261 edit/dnsrecord.php:307
-#: edit/dnsrecord.php:315 edit/mail.php:315
+#: add/cfrecord.php:260 add/dnsrecord.php:264 admin/add/firewall.php:218
+#: admin/add/ip.php:245 admin/add/ip.php:252 admin/edit/firewall.php:224
+#: admin/edit/ip.php:242 admin/edit/ip.php:250 edit/cfrecord.php:261
+#: edit/dnsrecord.php:307 edit/dnsrecord.php:315 edit/mail.php:315
 msgid "Optional"
 msgstr "オプショナル"
 
@@ -327,7 +337,7 @@ msgstr "読み込み中"
 #: admin/list/users.php:449 admin/server/mysql.php:268
 #: admin/server/mysql.php:274 admin/server/nginx.php:303
 #: admin/server/nginx.php:309 admin/server/php.php:280 admin/server/php.php:286
-#: admin/server/vesta.php:1342 admin/server/vesta.php:1350
+#: admin/server/vesta.php:1342 admin/server/vesta.php:1353
 #: edit/cfrecord.php:356 edit/cfrecord.php:362 edit/cron.php:754
 #: edit/cron.php:760 edit/db.php:410 edit/db.php:416 edit/dns.php:523
 #: edit/dns.php:530 edit/dnsrecord.php:398 edit/dnsrecord.php:406
@@ -348,7 +358,8 @@ msgid "Please try again or contact support."
 msgstr "再試行するか、サポートにお問い合わせください。"
 
 #: add/cron.php:85 admin/add/package.php:322 admin/edit/package.php:336
-#: admin/list/stats.php:238 edit/cron.php:95 includes/includes.php:420
+#: admin/list/packages.php:242 admin/list/stats.php:238
+#: admin/list/users.php:281 edit/cron.php:95 includes/includes.php:422
 #: index.php:813 list/cron.php:90 list/cron.php:227
 msgid "Cron Jobs"
 msgstr "Cron Jobs"
@@ -412,8 +423,9 @@ msgstr "毎週"
 msgid "Monthly"
 msgstr "毎月"
 
-#: add/cron.php:259 add/cron.php:321 add/cron.php:396 add/cron.php:472
-#: edit/cron.php:331 edit/cron.php:393 edit/cron.php:469 edit/cron.php:547
+#: add/cron.php:259 add/cron.php:288 add/cron.php:321 add/cron.php:396
+#: add/cron.php:472 edit/cron.php:331 edit/cron.php:360 edit/cron.php:393
+#: edit/cron.php:469 edit/cron.php:547
 msgid "Run Command"
 msgstr "コマンドを実行"
 
@@ -565,9 +577,13 @@ msgstr "12月"
 msgid "Date"
 msgstr "日付"
 
-#: add/db.php:96 add/db.php:189 admin/status/db.php:211 edit/db.php:96
-#: edit/db.php:207 edit/db.php:269 includes/includes.php:416 index.php:358
-#: list/backup.php:272 list/db.php:226 list/db.php:234
+#: add/db.php:96 add/db.php:189 admin/status/cpu.php:193
+#: admin/status/db.php:193 admin/status/db.php:211 admin/status/disk.php:193
+#: admin/status/dns.php:193 admin/status/mail.php:193
+#: admin/status/memory.php:193 admin/status/network.php:193
+#: admin/status/web.php:192 edit/db.php:96 edit/db.php:207 edit/db.php:269
+#: includes/includes.php:418 index.php:358 list/backup.php:272 list/db.php:226
+#: list/db.php:234
 msgid "Database"
 msgstr "データベース"
 
@@ -582,8 +598,8 @@ msgstr "データベースを追加"
 #: edit/domain.php:471 edit/domain.php:535 edit/domain.php:569
 #: edit/domain.php:699 edit/mailaccount.php:368 edit/mailaccount.php:402
 #: edit/mailaccount.php:436 edit/mailaccount.php:483 edit/mailaccount.php:517
-#: edit/mailaccount.php:551 index.php:762 list/db.php:235 login.php:206
-#: login.php:207 login.php:243 profile.php:318 register.php:127
+#: edit/mailaccount.php:551 index.php:762 list/db.php:235 login.php:205
+#: login.php:206 login.php:242 profile.php:318 register.php:127
 msgid "Username"
 msgstr "ユーザー名"
 
@@ -600,7 +616,7 @@ msgstr "プレフィックスを含む最大長16文字"
 #: edit/domain.php:699 edit/mailaccount.php:267 edit/mailaccount.php:369
 #: edit/mailaccount.php:403 edit/mailaccount.php:437 edit/mailaccount.php:484
 #: edit/mailaccount.php:518 edit/mailaccount.php:552 list/backups.php:140
-#: login.php:212 login.php:213 profile.php:324 register.php:131
+#: login.php:211 login.php:212 profile.php:324 register.php:131
 msgid "Password"
 msgstr "パスワード"
 
@@ -643,12 +659,13 @@ msgstr "SSL設定"
 msgid "Advanced Options"
 msgstr "高度なオプション"
 
-#: add/dns.php:232 index.php:774 profile.php:285
+#: add/dns.php:232 admin/list/packages.php:248 admin/list/users.php:299
+#: index.php:774 profile.php:285
 msgid "Nameservers"
 msgstr "ネームサーバー"
 
 #: add/dns.php:237 add/dns.php:239 add/dns.php:241 add/dns.php:243
-#: add/dns.php:245 add/dns.php:247 admin/add/package.php:381
+#: add/dns.php:245 add/dns.php:247 add/domain.php:403 admin/add/package.php:381
 #: admin/add/package.php:382 admin/add/package.php:383
 #: admin/add/package.php:384 admin/add/package.php:385
 #: admin/add/package.php:386 admin/edit/package.php:397
@@ -662,7 +679,7 @@ msgid "Add One"
 msgstr "1つ追加"
 
 #: add/dns.php:239 add/dns.php:241 add/dns.php:243 add/dns.php:245
-#: add/dns.php:247 add/dns.php:249 admin/add/package.php:382
+#: add/dns.php:247 add/dns.php:249 add/domain.php:403 admin/add/package.php:382
 #: admin/add/package.php:383 admin/add/package.php:384
 #: admin/add/package.php:385 admin/add/package.php:386
 #: admin/add/package.php:387 admin/edit/package.php:399
@@ -684,8 +701,12 @@ msgstr "ドメインを追加"
 msgid "Priority"
 msgstr "優先度"
 
-#: add/domain.php:97 admin/list/stats.php:234 admin/server/vesta.php:713
-#: admin/status/web.php:210 edit/domain.php:112 includes/includes.php:413
+#: add/domain.php:97 admin/list/stats.php:234 admin/list/stats.php:255
+#: admin/list/users.php:272 admin/server/vesta.php:713 admin/status/cpu.php:199
+#: admin/status/db.php:199 admin/status/disk.php:199 admin/status/dns.php:199
+#: admin/status/mail.php:199 admin/status/memory.php:199
+#: admin/status/network.php:199 admin/status/web.php:198
+#: admin/status/web.php:210 edit/domain.php:112 includes/includes.php:415
 #: index.php:355 list/backup.php:251 list/backups.php:249 list/web.php:93
 msgid "Web"
 msgstr "ウェブ"
@@ -698,9 +719,10 @@ msgstr "DNSサポート"
 msgid "Mail Support"
 msgstr "メールサポート"
 
-#: add/domain.php:239 add/mailaccount.php:231 admin/server/vesta.php:956
-#: edit/domain.php:305 edit/domain.php:430 edit/mailaccount.php:281
-#: list/maildomain.php:241 list/web.php:265 process/csr.php:195
+#: add/domain.php:239 add/mailaccount.php:231 admin/list/stats.php:256
+#: admin/server/vesta.php:956 edit/domain.php:305 edit/domain.php:430
+#: edit/mailaccount.php:281 list/maildomain.php:241 list/web.php:265
+#: process/csr.php:195 process/generatecsr.php:188
 msgid "Aliases"
 msgstr "エイリアス"
 
@@ -725,6 +747,7 @@ msgid "SSL Directory"
 msgstr "SSLディレクトリ"
 
 #: add/domain.php:291 admin/server/vesta.php:940 edit/domain.php:407
+#: process/csr.php:207
 msgid "SSL Certificate"
 msgstr "SSL証明書"
 
@@ -733,6 +756,7 @@ msgid "Generate CSR"
 msgstr "CSRを生成する"
 
 #: add/domain.php:297 admin/server/vesta.php:947 edit/domain.php:414
+#: process/csr.php:213
 msgid "SSL Key"
 msgstr "SSLキー"
 
@@ -779,10 +803,14 @@ msgid "Custom SSL Certificates are incompatible with API Key Authentication."
 msgstr "カスタムSSL証明書はAPIキー認証と互換性がありません。"
 
 #: add/mail.php:85 add/mailaccount.php:94 admin/list/stats.php:236
-#: admin/server/vesta.php:756 admin/status/mail.php:211 edit/mail.php:95
-#: edit/mailaccount.php:101 includes/includes.php:415 index.php:357
-#: list/backup.php:265 list/backups.php:251 list/mail.php:89
-#: list/maildomain.php:93 list/maildomain.php:230
+#: admin/list/stats.php:255 admin/list/users.php:272 admin/server/vesta.php:756
+#: admin/status/cpu.php:196 admin/status/db.php:196 admin/status/disk.php:196
+#: admin/status/dns.php:196 admin/status/mail.php:196 admin/status/mail.php:211
+#: admin/status/memory.php:196 admin/status/network.php:196
+#: admin/status/web.php:195 edit/mail.php:95 edit/mailaccount.php:101
+#: includes/includes.php:417 index.php:357 list/backup.php:265
+#: list/backups.php:251 list/mail.php:89 list/maildomain.php:93
+#: list/maildomain.php:230
 msgid "Mail"
 msgstr "郵便物"
 
@@ -816,8 +844,9 @@ msgstr "アカウント"
 msgid "Quota"
 msgstr "クォータ"
 
-#: add/mailaccount.php:227 admin/edit/package.php:363
-#: admin/edit/package.php:375 edit/mailaccount.php:277
+#: add/mailaccount.php:227 admin/add/package.php:349 admin/add/package.php:361
+#: admin/edit/package.php:363 admin/edit/package.php:375
+#: edit/mailaccount.php:277
 msgid "In Megabytes"
 msgstr "メガバイト単位"
 
@@ -911,11 +940,7 @@ msgstr "保安"
 msgid "auth method"
 msgstr "認証方法"
 
-#: add/mailaccount.php:328 add/mailaccount.php:362 add/mailaccount.php:396
-#: add/mailaccount.php:443 add/mailaccount.php:477 add/mailaccount.php:511
-#: edit/mailaccount.php:378 edit/mailaccount.php:412 edit/mailaccount.php:446
-#: edit/mailaccount.php:493 edit/mailaccount.php:527 edit/mailaccount.php:561
-#: includes/includes.php:429
+#: includes/includes.php:431
 msgid "Webmail"
 msgstr "ウェブメール"
 
@@ -939,7 +964,7 @@ msgstr "暗号化なし"
 #: admin/add/fail2ban.php:89 admin/add/firewall.php:88
 #: admin/edit/firewall.php:93 admin/list/fail2ban.php:92
 #: admin/list/firewall.php:90 admin/server/vesta.php:986
-#: includes/includes.php:379
+#: includes/includes.php:381
 msgid "Firewall"
 msgstr "ファイアウォール"
 
@@ -959,7 +984,7 @@ msgstr "SSH"
 msgid "WEB"
 msgstr "ウェブ"
 
-#: admin/add/fail2ban.php:188 includes/includes.php:428 list/web.php:270
+#: admin/add/fail2ban.php:188 includes/includes.php:430 list/web.php:270
 msgid "FTP"
 msgstr "FTP"
 
@@ -1020,7 +1045,7 @@ msgid "Add Rule"
 msgstr "ルールを追加"
 
 #: admin/add/ip.php:94 admin/edit/ip.php:96 admin/list/fail2ban.php:206
-#: admin/list/ip.php:90 includes/includes.php:373 list/dns.php:255
+#: admin/list/ip.php:90 includes/includes.php:375 list/dns.php:255
 #: list/web.php:272
 msgid "IP"
 msgstr "IP"
@@ -1059,7 +1084,7 @@ msgstr "IPを追加"
 
 #: admin/add/package.php:97 admin/edit/package.php:102
 #: admin/list/packages.php:90 admin/list/packages.php:210
-#: includes/includes.php:372
+#: includes/includes.php:374
 msgid "Packages"
 msgstr "パッケージ"
 
@@ -1071,66 +1096,78 @@ msgstr "パッケージを追加"
 msgid "Package Name"
 msgstr "パッケージ名"
 
-#: admin/add/package.php:197 admin/edit/package.php:205 edit/domain.php:320
+#: admin/add/package.php:197 admin/edit/package.php:205
+#: admin/list/packages.php:236 edit/domain.php:320
 msgid "Web Template"
 msgstr "Webテンプレート"
 
-#: admin/add/package.php:212 admin/edit/package.php:222 edit/domain.php:348
-#: list/web.php:267
+#: admin/add/package.php:212 admin/edit/package.php:222
+#: admin/list/packages.php:236 edit/domain.php:348 list/web.php:267
 msgid "Proxy Template"
 msgstr "プロキシテンプレート"
 
-#: admin/add/package.php:227 admin/edit/package.php:239 edit/dns.php:346
-#: list/dns.php:258
+#: admin/add/package.php:227 admin/edit/package.php:239
+#: admin/list/packages.php:236 edit/dns.php:346 list/dns.php:258
 msgid "DNS Template"
 msgstr "DNSテンプレート"
 
 #: admin/add/package.php:242 admin/edit/package.php:256
+#: admin/list/packages.php:236 admin/list/users.php:281
 #: edit/backupexclusions.php:183 index.php:323 list/web.php:254
 msgid "Web Domains"
 msgstr "Webドメイン"
 
-#: admin/add/package.php:253 admin/edit/package.php:267 index.php:827
+#: admin/add/package.php:253 admin/edit/package.php:267
+#: admin/list/packages.php:236 index.php:827
 msgid "Web Aliases"
 msgstr "Webエイリアス"
 
-#: admin/add/package.php:265 admin/edit/package.php:279 index.php:699
+#: admin/add/package.php:265 admin/edit/package.php:279
+#: admin/list/packages.php:242 admin/list/users.php:281 index.php:699
 #: list/dns.php:245
 msgid "DNS Domains"
 msgstr "DNSドメイン"
 
-#: admin/add/package.php:276 admin/edit/package.php:290 index.php:713
+#: admin/add/package.php:276 admin/edit/package.php:290
+#: admin/list/packages.php:242 index.php:713
 msgid "DNS Records"
 msgstr "DNSレコード"
 
 #: admin/add/package.php:288 admin/edit/package.php:302
+#: admin/list/packages.php:242 admin/list/users.php:281
 #: edit/backupexclusions.php:198 index.php:725 list/mail.php:240
 msgid "Mail Domains"
 msgstr "メールドメイン"
 
 #: admin/add/package.php:299 admin/edit/package.php:313
+#: admin/list/packages.php:242
 msgid "Mail Accounts"
 msgstr "メールアカウント"
 
 #: admin/add/package.php:311 admin/edit/package.php:325
-#: admin/list/stats.php:237 edit/backupexclusions.php:213 index.php:671
-#: index.php:799 list/backups.php:252 list/db.php:89 list/db.php:229
+#: admin/list/packages.php:242 admin/list/stats.php:237
+#: admin/list/stats.php:255 admin/list/users.php:274 admin/list/users.php:281
+#: edit/backupexclusions.php:213 index.php:671 index.php:799
+#: list/backups.php:252 list/db.php:89 list/db.php:229
 msgid "Databases"
 msgstr "データベース"
 
 #: admin/add/package.php:333 admin/edit/package.php:347
-#: admin/list/stats.php:240 edit/backupexclusions.php:90
-#: includes/includes.php:422 index.php:739 list/backup.php:95
+#: admin/list/packages.php:248 admin/list/stats.php:240
+#: admin/list/users.php:281 edit/backupexclusions.php:90
+#: includes/includes.php:424 index.php:739 list/backup.php:95
 #: list/backups.php:90 list/backups.php:241
 msgid "Backups"
 msgstr "バックアップ"
 
 #: admin/add/package.php:351 admin/edit/package.php:365
-#: admin/list/stats.php:231 index.php:290 index.php:765 list/web.php:261
+#: admin/list/packages.php:248 admin/list/stats.php:231
+#: admin/list/users.php:254 index.php:290 index.php:765 list/web.php:261
 msgid "Bandwidth"
 msgstr "帯域幅"
 
 #: admin/add/package.php:363 admin/edit/package.php:377 admin/edit/user.php:283
+#: admin/list/packages.php:236 admin/list/users.php:299
 msgid "SSH Access"
 msgstr "SSHアクセス"
 
@@ -1160,7 +1197,7 @@ msgid "Packages are incompatible with API Key Authentication."
 msgstr "パッケージはAPIキー認証と互換性がありません。"
 
 #: admin/add/user.php:91 admin/edit/user.php:97 admin/list/ip.php:210
-#: admin/list/users.php:90 admin/list/users.php:220 includes/includes.php:371
+#: admin/list/users.php:90 admin/list/users.php:220 includes/includes.php:373
 msgid "Users"
 msgstr "ユーザー"
 
@@ -1168,12 +1205,14 @@ msgstr "ユーザー"
 msgid "Add User"
 msgstr "ユーザーを追加する"
 
-#: admin/add/user.php:198 admin/edit/user.php:206 index.php:763
-#: list/maildomain.php:235 profile.php:344 register.php:123
+#: admin/add/user.php:198 admin/edit/user.php:206 admin/list/users.php:299
+#: index.php:763 list/maildomain.php:235 process/generatecsr.php:194
+#: profile.php:344 register.php:123
 msgid "Email"
 msgstr "Eメール"
 
 #: admin/add/user.php:204 admin/edit/user.php:213 admin/list/packages.php:208
+#: admin/list/users.php:299
 msgid "Package"
 msgstr "パッケージ"
 
@@ -1211,8 +1250,9 @@ msgstr "IPアドレスの更新エラー"
 msgid "Edit Package"
 msgstr "パッケージを編集"
 
-#: admin/edit/package.php:277 admin/edit/package.php:300
-#: admin/edit/package.php:323
+#: admin/add/package.php:263 admin/add/package.php:286
+#: admin/add/package.php:309 admin/edit/package.php:277
+#: admin/edit/package.php:300 admin/edit/package.php:323
 msgid "Per Domain"
 msgstr "ドメインごと"
 
@@ -1389,7 +1429,7 @@ msgstr "確認"
 msgid "Unsuspend Rule"
 msgstr "一時停止解除ルール"
 
-#: admin/list/graphs.php:93 includes/includes.php:374
+#: admin/list/graphs.php:93 includes/includes.php:376
 msgid "Graphs"
 msgstr "グラフ"
 
@@ -1414,7 +1454,8 @@ msgstr "IPアドレスを管理する"
 msgid "IPs"
 msgstr "IP"
 
-#: admin/list/ip.php:203
+#: admin/list/ip.php:203 admin/list/stats.php:256 admin/list/stats.php:257
+#: admin/list/stats.php:258
 msgid "Domains"
 msgstr "ドメイン"
 
@@ -1439,7 +1480,7 @@ msgid "Delete IP Address"
 msgstr "IPアドレスを削除"
 
 #: admin/list/notifications.php:88 admin/list/notifications.php:185
-#: includes/includes.php:385 list/cron.php:225
+#: includes/includes.php:387 list/cron.php:225
 msgid "Notifications"
 msgstr "通知"
 
@@ -1472,7 +1513,7 @@ msgid "Delete package:"
 msgstr "パッケージを削除："
 
 #: admin/list/plugins.php:85 admin/list/plugins.php:181
-#: includes/includes.php:384
+#: admin/list/settings.php:797 includes/includes.php:386
 msgid "Plugins"
 msgstr "プラグイン"
 
@@ -1481,7 +1522,8 @@ msgstr "プラグイン"
 msgid "Name"
 msgstr "名前"
 
-#: admin/list/plugins.php:192 admin/server/vesta.php:970
+#: admin/list/plugins.php:192 admin/list/updates.php:221
+#: admin/server/vesta.php:970
 msgid "Version"
 msgstr "バージョン"
 
@@ -1495,7 +1537,7 @@ msgstr "ディスクリプタ"
 
 #: admin/list/server.php:102 admin/list/server.php:204
 #: admin/server/mysql.php:90 admin/server/nginx.php:90 admin/server/php.php:90
-#: admin/server/vesta.php:129 includes/includes.php:382
+#: admin/server/vesta.php:129 includes/includes.php:384
 msgid "Server"
 msgstr "サーバ"
 
@@ -1541,7 +1583,7 @@ msgstr "アクションを確認してください。"
 msgid "Restart System?"
 msgstr "システムを再起動しますか？"
 
-#: admin/list/settings.php:88 includes/includes.php:383 profile.php:260
+#: admin/list/settings.php:88 includes/includes.php:385 profile.php:260
 msgid "Settings"
 msgstr "設定"
 
@@ -1846,7 +1888,11 @@ msgstr "FTPクライアントURL"
 msgid "Leave blank for default or enter 'disabled' to disable."
 msgstr "デフォルトでは空白のままにするか、「disabled」と入力して無効にします。"
 
-#: admin/list/settings.php:768
+#: add/mailaccount.php:328 add/mailaccount.php:362 add/mailaccount.php:396
+#: add/mailaccount.php:443 add/mailaccount.php:477 add/mailaccount.php:511
+#: admin/list/settings.php:768 edit/mailaccount.php:378
+#: edit/mailaccount.php:412 edit/mailaccount.php:446 edit/mailaccount.php:493
+#: edit/mailaccount.php:527 edit/mailaccount.php:561
 msgid "Webmail URL"
 msgstr "ウェブメールのURL"
 
@@ -1914,16 +1960,20 @@ msgstr "統計"
 msgid "User Stats"
 msgstr "ユーザー統計"
 
-#: admin/list/stats.php:232 admin/list/stats.php:233 admin/status/disk.php:211
+#: admin/list/stats.php:232 admin/list/stats.php:233 admin/list/users.php:263
+#: admin/status/cpu.php:194 admin/status/db.php:194 admin/status/disk.php:194
+#: admin/status/disk.php:211 admin/status/dns.php:194 admin/status/mail.php:194
+#: admin/status/memory.php:194 admin/status/network.php:194
+#: admin/status/web.php:193
 msgid "Disk"
 msgstr "ディスク"
 
-#: admin/list/stats.php:239
+#: admin/list/stats.php:239 admin/list/users.php:299
 msgid "IP Addresses"
 msgstr "IPアドレス"
 
 #: admin/list/updates.php:97 admin/list/updates.php:199
-#: includes/includes.php:376
+#: includes/includes.php:378
 msgid "Updates"
 msgstr "更新情報"
 
@@ -2224,7 +2274,7 @@ msgstr "ライセンス購入$ 5 /月"
 msgid "Buy Lifetime License $50"
 msgstr "Lifetime Licenseを50ドルで購入"
 
-#: admin/server/vesta.php:1090 includes/includes.php:432
+#: admin/server/vesta.php:1090 includes/includes.php:434
 msgid "Softaculous"
 msgstr "やわらかい"
 
@@ -2244,7 +2294,7 @@ msgstr "プレミアムライセンスを取得"
 msgid "Save"
 msgstr "セーブ"
 
-#: admin/server/vesta.php:1350
+#: admin/server/vesta.php:1352
 msgid "Error Updating Server"
 msgstr "サーバーの更新エラー"
 
@@ -2258,15 +2308,24 @@ msgstr "サーバーの更新エラー"
 msgid "Server Status"
 msgstr "サーバーの状態"
 
-#: admin/status/cpu.php:211
+#: admin/list/server.php:247 admin/status/cpu.php:192 admin/status/cpu.php:211
+#: admin/status/db.php:192 admin/status/disk.php:192 admin/status/dns.php:192
+#: admin/status/mail.php:192 admin/status/memory.php:192
+#: admin/status/network.php:192 admin/status/web.php:191
 msgid "CPU"
 msgstr "CPU"
 
-#: admin/status/memory.php:211
+#: admin/list/server.php:248 admin/status/cpu.php:197 admin/status/db.php:197
+#: admin/status/disk.php:197 admin/status/dns.php:197 admin/status/mail.php:197
+#: admin/status/memory.php:197 admin/status/memory.php:211
+#: admin/status/network.php:197 admin/status/web.php:196
 msgid "Memory"
 msgstr "記憶"
 
-#: admin/status/network.php:211
+#: admin/status/cpu.php:198 admin/status/db.php:198 admin/status/disk.php:198
+#: admin/status/dns.php:198 admin/status/mail.php:198
+#: admin/status/memory.php:198 admin/status/network.php:198
+#: admin/status/network.php:211 admin/status/web.php:197
 msgid "Network"
 msgstr "通信網"
 
@@ -2286,7 +2345,8 @@ msgstr "ドメイン名を1行に1つずつ入力します。すべてのドメ�
 msgid "Type full database name, one per line. To exclude all databases use *"
 msgstr "完全なデータベース名を1行に1つずつ入力します。すべてのデータベースを除外するには、*を使用します"
 
-#: edit/backupexclusions.php:228 index.php:684 list/backups.php:254
+#: admin/list/stats.php:255 edit/backupexclusions.php:228 index.php:684
+#: list/backups.php:254
 msgid "User Directories"
 msgstr "ユーザーディレクトリ"
 
@@ -2352,15 +2412,16 @@ msgstr "データベース"
 
 #: edit/db.php:255 edit/dns.php:320 edit/dnsrecord.php:264 edit/domain.php:272
 #: edit/mail.php:254 edit/mailaccount.php:245 index.php:402 index.php:516
-#: index.php:560 list/cron.php:258 list/db.php:257 list/dns.php:355
-#: list/dnsdomain.php:306 list/mail.php:271 list/maildomain.php:257
-#: list/web.php:288 process/search.php:227
+#: index.php:560 index.php:604 list/cron.php:258 list/db.php:257
+#: list/dns.php:355 list/dnsdomain.php:306 list/mail.php:271
+#: list/maildomain.php:257 list/web.php:288 process/search.php:227
 msgid "Active"
 msgstr "アクティブ"
 
-#: edit/db.php:255 edit/dns.php:320 edit/dnsrecord.php:264 edit/domain.php:272
-#: edit/mail.php:254 edit/mailaccount.php:245 index.php:404 index.php:518
-#: index.php:562 list/cron.php:260 list/db.php:259 list/dns.php:357
+#: admin/list/users.php:249 edit/db.php:255 edit/dns.php:320
+#: edit/dnsrecord.php:264 edit/domain.php:272 edit/mail.php:254
+#: edit/mailaccount.php:245 index.php:404 index.php:518 index.php:562
+#: index.php:606 list/cron.php:260 list/db.php:259 list/dns.php:357
 #: list/dnsdomain.php:308 list/mail.php:273 list/maildomain.php:259
 #: list/web.php:290 process/search.php:208 process/search.php:229
 msgid "Suspended"
@@ -2486,70 +2547,70 @@ msgstr "メールアカウントを削除"
 msgid "Error Updating Mail Account"
 msgstr "メールアカウントの更新エラー"
 
-#: includes/includes.php:360
+#: includes/includes.php:362
 msgid "Home"
 msgstr "ホーム"
 
-#: includes/includes.php:369
+#: includes/includes.php:371
 msgid "Administration"
 msgstr "運営管理"
 
-#: includes/includes.php:375
+#: includes/includes.php:377
 msgid "Statistics"
 msgstr "統計"
 
-#: includes/includes.php:401 log.php:95 log.php:181 log.php:222 profile.php:226
+#: includes/includes.php:403 log.php:95 log.php:181 log.php:222 profile.php:226
 msgid "Log"
 msgstr "ログ"
 
-#: includes/includes.php:426
+#: includes/includes.php:428
 msgid "Apps"
 msgstr "アプリ"
 
-#: includes/includes.php:430 list/db.php:227
+#: includes/includes.php:432 list/db.php:227
 msgid "phpMyAdmin"
 msgstr "phpMyAdmin"
 
-#: includes/includes.php:431 list/db.php:227
+#: includes/includes.php:433 list/db.php:227
 msgid "phpPgAdmin"
 msgstr "phpPgAdmin"
 
-#: includes/includes.php:435
+#: includes/includes.php:437
 msgid "Log out"
 msgstr "ログアウト"
 
-#: includes/includes.php:437
+#: includes/includes.php:439
 msgid "Control Panel v1"
 msgstr "コントロールパネルv1"
 
-#: includes/includes.php:438
+#: includes/includes.php:440
 msgid "Support"
 msgstr "サポート"
 
-#: includes/includes.php:489 includes/includes.php:506 login.php:287
-#: login.php:304 register.php:197 register.php:214
+#: includes/includes.php:491 includes/includes.php:508 login.php:286
+#: login.php:303 register.php:197 register.php:214
 msgid "Includes folder has not been secured"
 msgstr "インクルードフォルダーは保護されていません"
 
-#: includes/includes.php:496 login.php:294 login.php:311 register.php:204
+#: includes/includes.php:498 login.php:293 login.php:310 register.php:204
 #: register.php:221
 msgid "Database Error"
 msgstr "データベースエラー"
 
-#: includes/includes.php:497 includes/includes.php:514 login.php:295
-#: login.php:312 register.php:205 register.php:222
+#: includes/includes.php:499 includes/includes.php:516 login.php:294
+#: login.php:311 register.php:205 register.php:222
 msgid "MySQL Server Failed To Connect"
 msgstr "MySQLサーバーが接続できませんでした"
 
-#: includes/includes.php:513
+#: includes/includes.php:515
 msgid "Database Error:"
 msgstr "データベースエラー："
 
-#: includes/includes.php:704
+#: includes/includes.php:706
 msgid "Vesta Web Interface"
 msgstr "Vesta Webインターフェイス"
 
-#: includes/includes.php:706
+#: includes/includes.php:708
 msgid "by Carter Roeser"
 msgstr "カーター・ローザー"
 
@@ -2589,7 +2650,7 @@ msgstr "クロンを再構築"
 msgid "Update Counters"
 msgstr "カウンターを更新する"
 
-#: index.php:307
+#: admin/list/packages.php:248 index.php:307
 msgid "Disk Space"
 msgstr "ディスクスペース"
 
@@ -2792,7 +2853,8 @@ msgstr "無効にする"
 msgid "Cloudflare"
 msgstr "クラウドフレア"
 
-#: list/cfdomain.php:287 list/dns.php:251 list/dnsdomain.php:278
+#: admin/list/stats.php:257 list/cfdomain.php:287 list/dns.php:251
+#: list/dnsdomain.php:278
 msgid "Records"
 msgstr "記録"
 
@@ -2808,7 +2870,7 @@ msgstr "プロキシ"
 msgid "On"
 msgstr "オン"
 
-#: list/cfdomain.php:312
+#: add/dns.php:218 edit/dns.php:416 list/cfdomain.php:312
 msgid "Off"
 msgstr "オフ"
 
@@ -2961,7 +3023,7 @@ msgstr "DNSドメインを管理する"
 msgid "Enable"
 msgstr "有効にする"
 
-#: list/mail.php:246 list/maildomain.php:230
+#: admin/list/stats.php:258 list/mail.php:246 list/maildomain.php:230
 msgid "Accounts"
 msgstr "アカウント"
 
@@ -3061,7 +3123,7 @@ msgstr "ユーザーログ"
 msgid "Time"
 msgstr "時間"
 
-#: log/access.php:94 log/access.php:199
+#: log/access.php:94 log/access.php:199 log/access.php:204 log/error.php:204
 msgid "Access Log"
 msgstr "アクセスログ"
 
@@ -3073,7 +3135,7 @@ msgstr "アクセスログ"
 msgid "ErrorLog"
 msgstr "エラーログ"
 
-#: log/error.php:94 log/error.php:199
+#: log/access.php:205 log/error.php:94 log/error.php:199 log/error.php:205
 msgid "Error Log"
 msgstr "エラーログ"
 
@@ -3085,119 +3147,119 @@ msgstr "Accesslogをダウンロード"
 msgid "Download Errorlog"
 msgstr "エラーログをダウンロード"
 
-#: login.php:76 login.php:249
+#: login.php:75 login.php:248
 msgid "Login"
 msgstr "ログインする"
 
-#: login.php:118
+#: login.php:117
 msgid "Account has been successfully created!"
 msgstr "アカウントが正常に作成されました！"
 
-#: login.php:120
+#: login.php:119
 msgid "Please fill out all sections of the form."
 msgstr "フォームのすべてのセクションに記入してください。"
 
-#: login.php:123
+#: login.php:122
 msgid "Invalid data entered in form. Please try again."
 msgstr "フォームに無効なデータが入力されました。もう一度やり直してください。"
 
-#: login.php:126
+#: login.php:125
 msgid "Server or form error (Code: 3). Please contact support."
 msgstr "サーバーまたはフォームのエラー（コード：3）。サポートに連絡してください。"
 
-#: login.php:129
+#: login.php:128
 msgid "Account already exists under same username."
 msgstr "アカウントは既に同じユーザー名で存在しています。"
 
-#: login.php:132
+#: login.php:131
 msgid "System Error (Code: 12). Please contact support."
 msgstr "システムエラー（コード：12）。サポートに連絡してください。"
 
-#: login.php:135
+#: login.php:134
 msgid "Server Error (Code: 13). Please contact support."
 msgstr "サーバーエラー（コード：13）。サポートに連絡してください。"
 
-#: login.php:138
+#: login.php:137
 msgid "Server Error (Code: 14). Please contact support."
 msgstr "サーバーエラー（コード：14）。サポートに連絡してください。"
 
-#: login.php:141
+#: login.php:140
 msgid "System Error (Code: 15). Please contact support."
 msgstr "システムエラー（コード：15）。サポートに連絡してください。"
 
-#: login.php:144
+#: login.php:143
 msgid "Server Error (Code: 16). Please contact support."
 msgstr "サーバーエラー（コード：16）。サポートに連絡してください。"
 
-#: login.php:147
+#: login.php:146
 msgid "Server Error (Code: 17). Please contact support."
 msgstr "サーバーエラー（コード：17）。サポートに連絡してください。"
 
-#: login.php:150
+#: login.php:149
 msgid "Process Error (Code: 18). Please contact support."
 msgstr "プロセスエラー（コード：18）。サポートに連絡してください。"
 
-#: login.php:153
+#: login.php:152
 msgid "Process Error (Code: 19). Please contact support."
 msgstr "プロセスエラー（コード：19）。サポートに連絡してください。"
 
-#: login.php:156
+#: login.php:155
 msgid "Fatal Error (Code: 20). Please contact support."
 msgstr "致命的エラー（コード：20）。サポートに連絡してください。"
 
-#: login.php:167 register.php:107
+#: login.php:166 register.php:107
 msgid "Control Panel"
 msgstr "コントロールパネル"
 
-#: login.php:174
+#: login.php:173
 msgid "Sign In to"
 msgstr "にサインイン"
 
-#: login.php:174
+#: login.php:173
 msgid "CP"
 msgstr "CP"
 
-#: login.php:175 register.php:114
+#: login.php:174 register.php:114
 msgid "Enter your details below"
 msgstr "以下に詳細を入力してください"
 
-#: login.php:196
+#: login.php:195
 msgid "Loading Dashboard"
 msgstr "ダッシュボードの読み込み"
 
-#: login.php:200
+#: login.php:199
 msgid "Error: Incorrect Login."
 msgstr "エラー：不正なログイン。"
 
-#: login.php:219
+#: login.php:218
 msgid "Forgot pwd?"
 msgstr "pwdを忘れましたか？"
 
-#: login.php:223
+#: login.php:222
 msgid "Log in"
 msgstr "ログインする"
 
-#: login.php:230
+#: login.php:229
 msgid "Don't have an account?"
 msgstr "アカウントを持っていないのですか？"
 
-#: login.php:230 register.php:143
+#: login.php:229 register.php:143
 msgid "Sign Up"
 msgstr "サインアップ"
 
-#: login.php:237
+#: login.php:236
 msgid "Recover Password"
 msgstr "パスワードを回復"
 
-#: login.php:238
+#: login.php:237
 msgid "Enter your username and instructions will be sent to you."
 msgstr "ユーザー名を入力すると、指示が送信されます。"
 
-#: login.php:254
+#: login.php:253
 msgid "Reset"
 msgstr "リセットする"
 
-#: login.php:320 register.php:230
+#: login.php:319 register.php:230
 msgid "Failed to connect to server. Please check config."
 msgstr "サーバーへの接続に失敗しました。設定を確認してください。"
 
@@ -3265,10 +3327,6 @@ msgstr "無効な電子メールアドレス"
 msgid "2 to 28 Characters A-Z, 0-9, '-' '.' and '_' Only."
 msgstr "2〜28文字、A〜Z、0〜9、「-」、「。」および「_」のみ。"
 
-#: register.php:131
-msgid "Minimum 6 Characters: One uppercade letter, lowercase letter and number reuired."
-msgstr "最低6文字：大文字、小文字、数字が1つずつ必要です。"
-
 #: register.php:133
 msgid "Confirm Pass"
 msgstr "パスを確認"
@@ -3284,4 +3342,242 @@ msgstr "サインイン"
 #: register.php:161
 msgid "Passwords do not match"
 msgstr "パスワードが一致していません"
+
+#: add/dns.php:206 edit/dns.php:403
+msgid "Essentially Off"
+msgstr "基本的にオフ"
+
+#: add/dns.php:207 edit/dns.php:404
+msgid "Low"
+msgstr "低い"
+
+#: add/dns.php:208 edit/dns.php:405
+msgid "Medium"
+msgstr "中"
+
+#: add/dns.php:209 edit/dns.php:406
+msgid "High"
+msgstr "高い"
+
+#: add/dns.php:210 edit/dns.php:407
+msgid "I'm Under Attack!"
+msgstr "私は攻撃を受けています！"
+
+#: add/dns.php:219 edit/dns.php:417
+msgid "Flexible"
+msgstr "フレキシブル"
+
+#: add/dns.php:220 edit/dns.php:418
+msgid "Full"
+msgstr "いっぱい"
+
+#: add/dns.php:221 edit/dns.php:419
+msgid "Full (Strict)"
+msgstr "完全（厳密）"
+
+#: admin/list/plugins.php:219 admin/list/plugins.php:224
+#: admin/list/plugins.php:230
+msgid "Not Provided"
+msgstr "提供されていない"
+
+#: admin/list/server.php:90
+msgid "days"
+msgstr "日々"
+
+#: admin/list/server.php:90
+msgid "hours"
+msgstr "時間"
+
+#: admin/list/server.php:249
+msgid "Uptime"
+msgstr "稼働時間"
+
+#: admin/list/settings.php:520
+msgid "All Users"
+msgstr "すべてのユーザー"
+
+#: admin/list/settings.php:521
+msgid "Admin Only"
+msgstr "管理者のみ"
+
+#: admin/list/stats.php:256
+msgid "SSL Domains"
+msgstr "SSLドメイン"
+
+#: admin/list/updates.php:218
+msgid "OUTDATED"
+msgstr "時代遅れ"
+
+#: admin/list/updates.php:219
+msgid "updated"
+msgstr "更新しました"
+
+#: admin/list/updates.php:222
+msgid "Release"
+msgstr "リリース"
+
+#: admin/list/users.php:275
+msgid "Directories"
+msgstr "ディレクトリ"
+
+#: admin/server/vesta.php:229
+msgid "Timezone"
+msgstr "タイムゾーン"
+
+#: admin/server/vesta.php:980 admin/server/vesta.php:990
+#: admin/server/vesta.php:999 admin/server/vesta.php:1008
+#: admin/server/vesta.php:1018 admin/server/vesta.php:1056
+msgid "No"
+msgstr "番号"
+
+#: admin/server/vesta.php:981 admin/server/vesta.php:991
+#: admin/server/vesta.php:1000 admin/server/vesta.php:1009
+#: admin/server/vesta.php:1019 admin/server/vesta.php:1057
+msgid "Yes"
+msgstr "はい"
+
+#: create/cloudflare.php:205 create/cloudflare2.php:222
+msgid "CHECKING DOMAIN ..."
+msgstr "ドメインの確認..."
+
+#: create/cloudflare.php:220 create/cloudflare2.php:237
+msgid "ADDING DOMAIN ..."
+msgstr "ドメインの追加..."
+
+#: create/cloudflare.php:223 create/cloudflare2.php:240
+msgid "UPDATING SETTINGS ..."
+msgstr "設定の更新..."
+
+#: create/cloudflare.php:226 create/cloudflare3.php:127
+#: delete/cloudflare.php:303
+msgid "PROCESSING ..."
+msgstr "処理中..."
+
+#: delete/cloudflare.php:291
+msgid "EXPORTING RECORDS ..."
+msgstr "レコードのエクスポート..."
+
+#: delete/cloudflare.php:294
+msgid "UPDATING NS ..."
+msgstr "NSの更新..."
+
+#: delete/cloudflare.php:297
+msgid "IMPORTING RECORDS ..."
+msgstr "レコードのインポート..."
+
+#: delete/cloudflare.php:300
+msgid "DELETING CLOUDFLARE ..."
+msgstr "クラウドフレアの削除..."
+
+#: includes/includes.php:553
+msgid "Shortcuts"
+msgstr "ショートカット"
+
+#: includes/includes.php:558
+msgid "Go to DASHBOARD"
+msgstr "ダッシュボードに進め"
+
+#: includes/includes.php:559
+msgid "Go to WEB"
+msgstr "WEBに行く"
+
+#: includes/includes.php:560
+msgid "Go to DNS"
+msgstr "DNSに移動"
+
+#: includes/includes.php:561
+msgid "Go to MAIL"
+msgstr "メールに行く"
+
+#: includes/includes.php:562
+msgid "Go to DATABASE"
+msgstr "データベースに移動"
+
+#: includes/includes.php:563
+msgid "Go to CRON JOBS"
+msgstr "CRON JOBSに移動"
+
+#: includes/includes.php:564
+msgid "Go to BACKUPS"
+msgstr "バックアップに移動"
+
+#: includes/includes.php:565
+msgid "Go to PROFILE"
+msgstr "プロフィールはこちら"
+
+#: includes/includes.php:568
+msgid "Display/Close shortcuts"
+msgstr "ショートカットを表示/閉じる"
+
+#: includes/includes.php:570
+msgid "Add New object"
+msgstr "新しいオブジェクトを追加"
+
+#: includes/includes.php:571
+msgid "Save Form"
+msgstr "フォームを保存"
+
+#: includes/includes.php:572
+msgid "Exit form"
+msgstr "終了フォーム"
+
+#: includes/includes.php:574
+msgid "Hide Notifications"
+msgstr "通知を非表示"
+
+#: includes/includes.php:575
+msgid "Go back"
+msgstr "戻る"
+
+#: includes/includes.php:676
+msgid "No Notifications"
+msgstr "通知なし"
+
+#: index.php:766 index.php:767
+msgid "Unlimited"
+msgstr "無制限"
+
+#: plugins/example-plugin/index.php:62 plugins/example-plugin/index.php:147
+msgid "Example Plugin"
+msgstr "プラグインの例"
+
+#: plugins/example-plugin/index.php:153
+msgid "This is an example plugin."
+msgstr "これはプラグインの例です。"
+
+#: process/csr.php:149 process/generatecsr.php:142
+msgid "Account Setting"
+msgstr "アカウントの設定"
+
+#: process/csr.php:181 process/generatecsr.php:174
+msgid "Generate CSR / SSL Cert"
+msgstr "CSR / SSL証明書を生成する"
+
+#: process/csr.php:201
+msgid "SSL CSR"
+msgstr "SSL CSR"
+
+#: process/generatecsr.php:200
+msgid "Country"
+msgstr "国"
+
+#: process/generatecsr.php:207
+msgid "State / Province"
+msgstr "州/県"
+
+#: process/generatecsr.php:213
+msgid "City / Locality"
+msgstr "市/地域"
+
+#: process/generatecsr.php:219
+msgid "Organization"
+msgstr "組織"
+
+#: process/generatecsr.php:225
+msgid "Unit"
+msgstr "単位"
+
+#: register.php:131
+msgid "Minimum 6 Characters: One uppercade letter, lowercase letter and number required."
+msgstr "最小6文字：大文字1文字、小文字1文字、数字が必要です。"
 
