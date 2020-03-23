@@ -1,21 +1,11 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"POT-Creation-Date: 2019-09-15 21:33-0700\n"
-"PO-Revision-Date: 2019-09-15 21:33-0700\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.3\n"
-"X-Poedit-Basepath: ../../../../VestaWebInterface\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: plugins\n"
-"X-Poedit-SearchPathExcluded-1: install/web\n"
-"X-Poedit-SearchPathExcluded-2: bootstrap\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Vesta Web Interface\n"
+"Language: bs\n"
 
 #: add/cfrecord.php:130 add/dns.php:87 add/dnsrecord.php:130
 #: admin/add/fail2ban.php:189 admin/list/stats.php:235
@@ -25,7 +15,7 @@ msgstr ""
 #: list/cfdomain.php:287 list/dns.php:89 list/dnsdomain.php:132
 #: list/dnsdomain.php:278
 msgid "DNS"
-msgstr ""
+msgstr "DNS"
 
 #: add/cfrecord.php:169 add/cron.php:129 add/db.php:135 add/dns.php:126
 #: add/dnsrecord.php:169 add/domain.php:136 add/mail.php:123
@@ -53,7 +43,7 @@ msgstr ""
 #: log/error.php:144 process/csr.php:135 process/generatecsr.php:128
 #: process/search.php:147 profile.php:176
 msgid "Search..."
-msgstr ""
+msgstr "Traži ..."
 
 #: add/cfrecord.php:182 add/cron.php:142 add/db.php:148 add/dns.php:139
 #: add/dnsrecord.php:182 add/domain.php:149 add/mail.php:136
@@ -81,7 +71,7 @@ msgstr ""
 #: log.php:179 log/access.php:157 log/error.php:157 process/search.php:161
 #: profile.php:194 profile.php:224 profile.php:237
 msgid "My Account"
-msgstr ""
+msgstr "Moj račun"
 
 #: add/cfrecord.php:183 add/cron.php:143 add/db.php:149 add/dns.php:140
 #: add/dnsrecord.php:183 add/domain.php:150 add/mail.php:137
@@ -109,7 +99,7 @@ msgstr ""
 #: log.php:180 log/access.php:158 log/error.php:158 process/search.php:162
 #: profile.php:195 profile.php:225
 msgid "Account Settings"
-msgstr ""
+msgstr "Postavke računa"
 
 #: add/cfrecord.php:185 add/cron.php:145 add/db.php:151 add/dns.php:142
 #: add/dnsrecord.php:185 add/domain.php:152 add/mail.php:139
@@ -136,7 +126,7 @@ msgstr ""
 #: list/maildomain.php:169 list/web.php:169 log.php:151 log/access.php:160
 #: log/error.php:160 process/search.php:164 profile.php:197
 msgid "Logout"
-msgstr ""
+msgstr "Odjaviti se"
 
 #: add/cfrecord.php:199 add/cron.php:159 add/db.php:165 add/dns.php:156
 #: add/dnsrecord.php:199 add/domain.php:166 add/mail.php:153
@@ -163,11 +153,11 @@ msgstr ""
 #: list/maildomain.php:183 list/web.php:183 log.php:165 log/access.php:174
 #: log/error.php:174 process/search.php:178 profile.php:212
 msgid "Navigation"
-msgstr ""
+msgstr "Navigacija"
 
 #: add/cfrecord.php:215 add/dnsrecord.php:215
 msgid "Add DNS Record"
-msgstr ""
+msgstr "Dodajte DNS zapis"
 
 #: add/cfrecord.php:223 add/dns.php:180 add/dnsrecord.php:223
 #: add/domain.php:190 add/mail.php:177 add/mailaccount.php:197
@@ -179,13 +169,13 @@ msgstr ""
 #: list/maildomain.php:203 list/web.php:252 list/web.php:259
 #: process/csr.php:189
 msgid "Domain"
-msgstr ""
+msgstr "Domena"
 
 #: add/cfrecord.php:230 add/dnsrecord.php:230 edit/cfrecord.php:240
 #: edit/dnsrecord.php:216 edit/dnsrecord.php:286 list/cfdomain.php:285
 #: list/cfdomain.php:292 list/dnsdomain.php:276 list/dnsdomain.php:283
 msgid "Record"
-msgstr ""
+msgstr "Zapis"
 
 #: add/cfrecord.php:236 add/db.php:215 add/dnsrecord.php:236
 #: admin/add/firewall.php:182 admin/edit/firewall.php:187
@@ -193,27 +183,27 @@ msgstr ""
 #: edit/dnsrecord.php:292 list/backup.php:241 list/cfdomain.php:293
 #: list/db.php:241 list/dnsdomain.php:284 process/search.php:205
 msgid "Type"
-msgstr ""
+msgstr "Tip"
 
 #: add/cfrecord.php:252 add/dnsrecord.php:256 edit/cfrecord.php:252
 #: edit/dnsrecord.php:298
 msgid "IP or Value"
-msgstr ""
+msgstr "IP ili vrednost"
 
 #: add/cfrecord.php:257 edit/cfrecord.php:258 list/dns.php:257
 msgid "TTL (Time-To-Live)"
-msgstr ""
+msgstr "TTL (Vrijeme za život)"
 
 #: add/cfrecord.php:260 admin/add/firewall.php:218 admin/add/ip.php:245
 #: admin/add/ip.php:252 admin/edit/firewall.php:224 admin/edit/ip.php:242
 #: admin/edit/ip.php:250 edit/cfrecord.php:261 edit/dnsrecord.php:307
 #: edit/dnsrecord.php:315 edit/mail.php:315
 msgid "Optional"
-msgstr ""
+msgstr "Neobavezno"
 
 #: add/cfrecord.php:265 edit/cfrecord.php:267
 msgid "Cloudflare Proxy"
-msgstr ""
+msgstr "Cloudflare proxy"
 
 #: add/cfrecord.php:269 add/dns.php:197 add/domain.php:218 add/domain.php:229
 #: add/domain.php:250 add/domain.php:266 add/domain.php:276 add/domain.php:332
@@ -235,11 +225,11 @@ msgstr ""
 #: index.php:397 list/dns.php:390 list/mail.php:289 list/mail.php:296
 #: list/mail.php:302 list/maildomain.php:277 list/web.php:328
 msgid "Enabled"
-msgstr ""
+msgstr "Omogućeno"
 
 #: add/cfrecord.php:276 add/dnsrecord.php:269 list/dns.php:361 list/dns.php:364
 msgid "Add Record"
-msgstr ""
+msgstr "Dodaj zapis"
 
 #: add/cfrecord.php:277 add/cron.php:229 add/db.php:303 add/dns.php:257
 #: add/dnsrecord.php:270 add/domain.php:410 add/mail.php:215
@@ -255,7 +245,7 @@ msgstr ""
 #: edit/mailaccount.php:332 process/csr.php:220 process/generatecsr.php:233
 #: profile.php:414
 msgid "Back"
-msgstr ""
+msgstr "Povratak"
 
 #: add/cfrecord.php:331 add/cron.php:641 add/db.php:361 add/dns.php:387
 #: add/dnsrecord.php:308 add/domain.php:555 add/mail.php:252
@@ -292,7 +282,7 @@ msgstr ""
 #: log/access.php:210 log/error.php:210 process/generatecsr.php:268
 #: profile.php:452
 msgid "Processing"
-msgstr ""
+msgstr "Obrada"
 
 #: add/cfrecord.php:339 add/cron.php:649 add/db.php:369 add/dns.php:395
 #: add/dnsrecord.php:316 add/domain.php:563 add/mail.php:260
@@ -308,7 +298,7 @@ msgstr ""
 #: edit/mail.php:386 edit/mailaccount.php:685 process/csr.php:253
 #: profile.php:460
 msgid "Loading"
-msgstr ""
+msgstr "Učitavanje"
 
 #: add/cfrecord.php:347 add/cron.php:657 add/db.php:381 add/dns.php:407
 #: add/dnsrecord.php:328 add/domain.php:594 add/mail.php:272
@@ -355,85 +345,85 @@ msgstr ""
 #: list/web.php:442 list/web.php:449 list/web.php:452 list/web.php:459
 #: process/generatecsr.php:276 profile.php:150 profile.php:549
 msgid "Please try again or contact support."
-msgstr ""
+msgstr "Pokušajte ponovo ili kontaktirajte podršku."
 
 #: add/cron.php:85 admin/add/package.php:322 admin/edit/package.php:336
 #: admin/list/stats.php:238 edit/cron.php:95 includes/includes.php:420
 #: index.php:813 list/cron.php:90 list/cron.php:227
 msgid "Cron Jobs"
-msgstr ""
+msgstr "Cron Jobs"
 
 #: add/cron.php:175
 msgid "Add Cron Job"
-msgstr ""
+msgstr "Dodajte Cron Job"
 
 #: add/cron.php:183 edit/cron.php:254 list/cron.php:233
 msgid "Command"
-msgstr ""
+msgstr "Komanda"
 
 #: add/cron.php:197 add/cron.php:299 add/cron.php:336 add/cron.php:413
 #: add/cron.php:534 edit/cron.php:269 edit/cron.php:371 edit/cron.php:409
 #: edit/cron.php:488 edit/cron.php:609
 msgid "Minute"
-msgstr ""
+msgstr "Minut"
 
 #: add/cron.php:203 add/cron.php:336 add/cron.php:413 add/cron.php:534
 #: edit/cron.php:275 edit/cron.php:409 edit/cron.php:488 edit/cron.php:609
 msgid "Hour"
-msgstr ""
+msgstr "Sat"
 
 #: add/cron.php:209 edit/cron.php:281
 msgid "Day"
-msgstr ""
+msgstr "Dan"
 
 #: add/cron.php:215 edit/cron.php:287
 msgid "Month"
-msgstr ""
+msgstr "Mesec"
 
 #: add/cron.php:221 edit/cron.php:293
 msgid "Day of Week"
-msgstr ""
+msgstr "Dan u sedmici"
 
 #: add/cron.php:228
 msgid "Add Cron"
-msgstr ""
+msgstr "Dodaj Cron"
 
 #: add/cron.php:239 edit/cron.php:311
 msgid "Cron Generator"
-msgstr ""
+msgstr "Cron Generator"
 
 #: add/cron.php:244 edit/cron.php:316
 msgid "Minutes"
-msgstr ""
+msgstr "Minute"
 
 #: add/cron.php:246 edit/cron.php:318
 msgid "Hourly"
-msgstr ""
+msgstr "Svakog sata"
 
 #: add/cron.php:248 admin/list/graphs.php:203 edit/cron.php:320
 msgid "Daily"
-msgstr ""
+msgstr "Svakodnevno"
 
 #: add/cron.php:250 admin/list/graphs.php:204 edit/cron.php:322
 msgid "Weekly"
-msgstr ""
+msgstr "Nedeljno"
 
 #: add/cron.php:252 admin/list/graphs.php:205 edit/cron.php:324
 msgid "Monthly"
-msgstr ""
+msgstr "Mesečno"
 
 #: add/cron.php:259 add/cron.php:321 add/cron.php:396 add/cron.php:472
 #: edit/cron.php:331 edit/cron.php:393 edit/cron.php:469 edit/cron.php:547
 msgid "Run Command"
-msgstr ""
+msgstr "Pokrenite naredbu"
 
 #: add/cron.php:262 edit/cron.php:334
 msgid "every minute"
-msgstr ""
+msgstr "svakog minuta"
 
 #: add/cron.php:263 edit/cron.php:335
 msgid "every two minutes"
-msgstr ""
+msgstr "svake dve minute"
 
 #: add/cron.php:264 add/cron.php:265 add/cron.php:266 add/cron.php:267
 #: add/cron.php:293 add/cron.php:294 add/cron.php:327 add/cron.php:328
@@ -442,7 +432,7 @@ msgstr ""
 #: edit/cron.php:365 edit/cron.php:366 edit/cron.php:400 edit/cron.php:401
 #: edit/cron.php:402 edit/cron.php:403 edit/cron.php:553 edit/cron.php:554
 msgid "every"
-msgstr ""
+msgstr "svaki"
 
 #: add/cron.php:277 add/cron.php:311 add/cron.php:386 add/cron.php:463
 #: add/cron.php:584 add/db.php:208 add/domain.php:345 add/domain.php:379
@@ -452,138 +442,138 @@ msgstr ""
 #: edit/domain.php:478 edit/domain.php:545 edit/domain.php:579
 #: edit/domain.php:699 edit/mailaccount.php:267 profile.php:324
 msgid "Generate"
-msgstr ""
+msgstr "Generirajte"
 
 #: add/cron.php:291 edit/cron.php:363
 msgid "every hour"
-msgstr ""
+msgstr "svaki sat"
 
 #: add/cron.php:292 edit/cron.php:364
 msgid "every two hours"
-msgstr ""
+msgstr "svaka dva sata"
 
 #: add/cron.php:324 add/cron.php:399 edit/cron.php:397 edit/cron.php:473
 msgid "every day"
-msgstr ""
+msgstr "svaki dan"
 
 #: add/cron.php:325 edit/cron.php:398
 msgid "every odd day"
-msgstr ""
+msgstr "svakog neobičnog dana"
 
 #: add/cron.php:326 edit/cron.php:399
 msgid "every even day"
-msgstr ""
+msgstr "svaki ceo dan"
 
 #: add/cron.php:400 edit/cron.php:474
 msgid "weekdays (5 days)"
-msgstr ""
+msgstr "radnim danima (5 dana)"
 
 #: add/cron.php:401 edit/cron.php:475
 msgid "weekend (2 days)"
-msgstr ""
+msgstr "vikend (2 dana)"
 
 #: add/cron.php:402 edit/cron.php:476
 msgid "Monday"
-msgstr ""
+msgstr "Ponedeljak"
 
 #: add/cron.php:403 edit/cron.php:477
 msgid "Tuesday"
-msgstr ""
+msgstr "Utorak"
 
 #: add/cron.php:404 edit/cron.php:478
 msgid "Wednesday"
-msgstr ""
+msgstr "Srijeda"
 
 #: add/cron.php:405 edit/cron.php:479
 msgid "Thursday"
-msgstr ""
+msgstr "Četvrtak"
 
 #: add/cron.php:406 edit/cron.php:480
 msgid "Friday"
-msgstr ""
+msgstr "Petak"
 
 #: add/cron.php:407 edit/cron.php:481
 msgid "Saturday"
-msgstr ""
+msgstr "Subota"
 
 #: add/cron.php:408 edit/cron.php:482
 msgid "Sunday"
-msgstr ""
+msgstr "Nedjelja"
 
 #: add/cron.php:475 edit/cron.php:550
 msgid "every month"
-msgstr ""
+msgstr "svaki mjesec"
 
 #: add/cron.php:476 edit/cron.php:551
 msgid "every odd month"
-msgstr ""
+msgstr "svaki neobičan mjesec"
 
 #: add/cron.php:477 edit/cron.php:552
 msgid "every even month"
-msgstr ""
+msgstr "svaki parova mesec"
 
 #: add/cron.php:480 edit/cron.php:555
 msgid "January"
-msgstr ""
+msgstr "Januar"
 
 #: add/cron.php:481 edit/cron.php:556
 msgid "February"
-msgstr ""
+msgstr "februar"
 
 #: add/cron.php:482 edit/cron.php:557
 msgid "March"
-msgstr ""
+msgstr "Marta"
 
 #: add/cron.php:483 edit/cron.php:558
 msgid "April"
-msgstr ""
+msgstr "Aprila"
 
 #: add/cron.php:484 edit/cron.php:559
 msgid "May"
-msgstr ""
+msgstr "Maja"
 
 #: add/cron.php:485 edit/cron.php:560
 msgid "June"
-msgstr ""
+msgstr "Juna"
 
 #: add/cron.php:486 edit/cron.php:561
 msgid "July"
-msgstr ""
+msgstr "Jula"
 
 #: add/cron.php:487 edit/cron.php:562
 msgid "August"
-msgstr ""
+msgstr "Avgusta"
 
 #: add/cron.php:488 edit/cron.php:563
 msgid "September"
-msgstr ""
+msgstr "Septembra"
 
 #: add/cron.php:489 edit/cron.php:564
 msgid "October"
-msgstr ""
+msgstr "Oktobar"
 
 #: add/cron.php:490 edit/cron.php:565
 msgid "November"
-msgstr ""
+msgstr "Novembra"
 
 #: add/cron.php:491 edit/cron.php:566
 msgid "December"
-msgstr ""
+msgstr "Prosinca"
 
 #: add/cron.php:496 admin/list/fail2ban.php:204 admin/list/stats.php:230
 #: edit/cron.php:571 log.php:220
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 #: add/db.php:96 add/db.php:189 admin/status/db.php:211 edit/db.php:96
 #: edit/db.php:207 edit/db.php:269 includes/includes.php:416 index.php:358
 #: list/backup.php:272 list/db.php:226 list/db.php:234
 msgid "Database"
-msgstr ""
+msgstr "Baza podataka"
 
 #: add/db.php:181 add/db.php:302 index.php:580
 msgid "Add Database"
-msgstr ""
+msgstr "Dodajte bazu podataka"
 
 #: add/db.php:198 add/domain.php:339 add/domain.php:370 add/domain.php:513
 #: add/mailaccount.php:318 add/mailaccount.php:352 add/mailaccount.php:386
@@ -595,11 +585,11 @@ msgstr ""
 #: edit/mailaccount.php:551 index.php:762 list/db.php:235 login.php:206
 #: login.php:207 login.php:243 profile.php:318 register.php:127
 msgid "Username"
-msgstr "Username"
+msgstr "Korisničko ime"
 
 #: add/db.php:204
 msgid "Max Length 16 Characters Including Prefix"
-msgstr ""
+msgstr "Maksimalna dužina 16 karaktera sa prefiksom"
 
 #: add/db.php:208 add/domain.php:345 add/domain.php:379 add/domain.php:513
 #: add/mailaccount.php:213 add/mailaccount.php:319 add/mailaccount.php:353
@@ -612,50 +602,50 @@ msgstr ""
 #: edit/mailaccount.php:518 edit/mailaccount.php:552 list/backups.php:140
 #: login.php:212 login.php:213 profile.php:324 register.php:131
 msgid "Password"
-msgstr "Password"
+msgstr "Lozinka"
 
 #: add/db.php:232
 msgid "Hosts"
-msgstr ""
+msgstr "Domaćini"
 
 #: add/db.php:249 admin/server/nginx.php:242 edit/db.php:305
 msgid "Charset"
-msgstr ""
+msgstr "Charset"
 
 #: add/db.php:294 add/mailaccount.php:273
 msgid "Send Credentials To Email"
-msgstr ""
+msgstr "Pošaljite vjerodajnice na e-poštu"
 
 #: add/dns.php:172
 msgid "Add DNS Domain"
-msgstr ""
+msgstr "Dodajte DNS domen"
 
 #: add/dns.php:186 add/domain.php:196 admin/add/fail2ban.php:197
 #: admin/add/firewall.php:208 admin/add/ip.php:187 admin/edit/firewall.php:214
 #: admin/edit/ip.php:189 admin/list/firewall.php:211 edit/dns.php:341
 #: edit/domain.php:286
 msgid "IP Address"
-msgstr ""
+msgstr "IP adresa"
 
 #: add/dns.php:193 edit/dns.php:388
 msgid "Cloudflare Support"
-msgstr ""
+msgstr "Podrška za Cloudflare"
 
 #: add/dns.php:203 edit/dns.php:399
 msgid "Security Level"
-msgstr ""
+msgstr "Nivo sigurnosti"
 
 #: add/dns.php:215 edit/dns.php:412
 msgid "SSL Setting"
-msgstr ""
+msgstr "SSL podešavanje"
 
 #: add/dns.php:228 add/domain.php:235 add/mailaccount.php:220
 msgid "Advanced Options"
-msgstr ""
+msgstr "Napredne opcije"
 
 #: add/dns.php:232 index.php:774 profile.php:285
 msgid "Nameservers"
-msgstr ""
+msgstr "Poslužitelji imena"
 
 #: add/dns.php:237 add/dns.php:239 add/dns.php:241 add/dns.php:243
 #: add/dns.php:245 add/dns.php:247 admin/add/package.php:381
@@ -669,7 +659,7 @@ msgstr ""
 #: admin/edit/user.php:314 profile.php:389 profile.php:390 profile.php:391
 #: profile.php:392 profile.php:393 profile.php:394
 msgid "Add One"
-msgstr ""
+msgstr "Dodajte jedan"
 
 #: add/dns.php:239 add/dns.php:241 add/dns.php:243 add/dns.php:245
 #: add/dns.php:247 add/dns.php:249 admin/add/package.php:382
@@ -683,110 +673,110 @@ msgstr ""
 #: admin/edit/user.php:316 profile.php:390 profile.php:391 profile.php:392
 #: profile.php:393 profile.php:394 profile.php:395
 msgid "Remove One"
-msgstr ""
+msgstr "Uklonite jedan"
 
 #: add/dns.php:256 add/domain.php:182 add/domain.php:409 add/mail.php:214
 #: index.php:370
 msgid "Add Domain"
-msgstr ""
+msgstr "Dodajte domen"
 
 #: add/dnsrecord.php:261 edit/dnsrecord.php:304
 msgid "Priority"
-msgstr ""
+msgstr "Prioritet"
 
 #: add/domain.php:97 admin/list/stats.php:234 admin/server/vesta.php:713
 #: admin/status/web.php:210 edit/domain.php:112 includes/includes.php:413
 #: index.php:355 list/backup.php:251 list/backups.php:249 list/web.php:93
 msgid "Web"
-msgstr ""
+msgstr "Web"
 
 #: add/domain.php:214
 msgid "DNS Support"
-msgstr ""
+msgstr "DNS podrška"
 
 #: add/domain.php:225
 msgid "Mail Support"
-msgstr ""
+msgstr "Podrška putem pošte"
 
 #: add/domain.php:239 add/mailaccount.php:231 admin/server/vesta.php:956
 #: edit/domain.php:305 edit/domain.php:430 edit/mailaccount.php:281
 #: list/maildomain.php:241 list/web.php:265 process/csr.php:195
 msgid "Aliases"
-msgstr ""
+msgstr "Aliases"
 
 #: add/domain.php:246 edit/domain.php:337
 msgid "Proxy Support"
-msgstr ""
+msgstr "Podrška za proxy"
 
 #: add/domain.php:255 edit/domain.php:366
 msgid "Proxy Extensions"
-msgstr ""
+msgstr "Proxy Extensions"
 
 #: add/domain.php:262 edit/domain.php:375
 msgid "SSL Support"
-msgstr ""
+msgstr "SSL podrška"
 
 #: add/domain.php:272 edit/domain.php:386
 msgid "Let's Encrypt Support"
-msgstr ""
+msgstr "Šifrirajmo podršku"
 
 #: add/domain.php:282 edit/domain.php:397
 msgid "SSL Directory"
-msgstr ""
+msgstr "SSL direktorij"
 
 #: add/domain.php:291 admin/server/vesta.php:940 edit/domain.php:407
 msgid "SSL Certificate"
-msgstr ""
+msgstr "SSL certifikat"
 
 #: add/domain.php:291 edit/domain.php:407
 msgid "Generate CSR"
-msgstr ""
+msgstr "Generirajte CSR"
 
 #: add/domain.php:297 admin/server/vesta.php:947 edit/domain.php:414
 msgid "SSL Key"
-msgstr ""
+msgstr "SSL ključ"
 
 #: add/domain.php:303 edit/domain.php:421
 msgid "SSL Certificate Authority / Intermediate"
-msgstr ""
+msgstr "SSL certifikat / Intermediate"
 
 #: add/domain.php:310 edit/domain.php:440 list/web.php:271
 msgid "Web Statistics"
-msgstr ""
+msgstr "Web statistika"
 
 #: add/domain.php:328 edit/domain.php:459
 msgid "Statistics Authorization"
-msgstr ""
+msgstr "Autorizacija statistike"
 
 #: add/domain.php:356 edit/domain.php:494 list/web.php:270
 msgid "Additional FTP"
-msgstr ""
+msgstr "Dodatni FTP"
 
 #: add/domain.php:367 add/domain.php:513 edit/domain.php:532
 #: edit/domain.php:566 edit/domain.php:699
 msgid "FTP Account"
-msgstr ""
+msgstr "FTP račun"
 
 #: add/domain.php:386 add/domain.php:513 edit/domain.php:552
 #: edit/domain.php:586 edit/domain.php:699
 msgid "Path"
-msgstr ""
+msgstr "Put"
 
 #: add/domain.php:396 add/domain.php:513 edit/domain.php:699
 msgid "Send FTP Credentials to Email:"
-msgstr ""
+msgstr "Pošaljite FTP vjerodajnice na e-mail:"
 
 #: add/domain.php:576 add/domain.php:585 admin/add/package.php:526
 #: admin/add/package.php:535 admin/edit/package.php:537
 #: admin/edit/package.php:546 edit/backupexclusions.php:305
 #: edit/backupexclusions.php:314 edit/domain.php:781 edit/domain.php:790
 msgid "Feature Disabled"
-msgstr ""
+msgstr "Značajka onemogućena"
 
 #: add/domain.php:577 add/domain.php:586 edit/domain.php:782
 #: edit/domain.php:791
 msgid "Custom SSL Certificates are incompatible with API Key Authentication."
-msgstr ""
+msgstr "Prilagođeni SSL certifikati nisu kompatibilni s provjerom autentičnosti API ključa."
 
 #: add/mail.php:85 add/mailaccount.php:94 admin/list/stats.php:236
 #: admin/server/vesta.php:756 admin/status/mail.php:211 edit/mail.php:95
@@ -794,88 +784,88 @@ msgstr ""
 #: list/backup.php:265 list/backups.php:251 list/mail.php:89
 #: list/maildomain.php:93 list/maildomain.php:230
 msgid "Mail"
-msgstr ""
+msgstr "Pošta"
 
 #: add/mail.php:169
 msgid "Add Mail Domain"
-msgstr ""
+msgstr "Dodajte poštanski domen"
 
 #: add/mail.php:184 edit/mail.php:280
 msgid "AntiSpam Support"
-msgstr ""
+msgstr "Podrška za AntiSpam"
 
 #: add/mail.php:195 edit/mail.php:292
 msgid "AntiVirus Support"
-msgstr ""
+msgstr "Podrška za AntiVirus"
 
 #: add/mail.php:204 edit/mail.php:303
 msgid "DKIM Support"
-msgstr ""
+msgstr "Podrška za DKIM"
 
 #: add/mailaccount.php:189
 msgid "Add Mail Account"
-msgstr ""
+msgstr "Dodajte račun za poštu"
 
 #: add/mailaccount.php:204 edit/mailaccount.php:211 list/maildomain.php:228
 #: profile.php:86 profile.php:257
 msgid "Account"
-msgstr ""
+msgstr "Račun"
 
 #: add/mailaccount.php:224 admin/add/package.php:339 admin/edit/package.php:353
 #: edit/mailaccount.php:274 list/maildomain.php:240
 msgid "Quota"
-msgstr ""
+msgstr "Kvota"
 
 #: add/mailaccount.php:227 admin/edit/package.php:363
 #: admin/edit/package.php:375 edit/mailaccount.php:277
 msgid "In Megabytes"
-msgstr ""
+msgstr "U megabajtima"
 
 #: add/mailaccount.php:234 edit/mailaccount.php:285
 msgid "Use Local-Part"
-msgstr ""
+msgstr "Koristite lokalni dio"
 
 #: add/mailaccount.php:238 edit/mailaccount.php:289 list/maildomain.php:242
 msgid "Forward To"
-msgstr ""
+msgstr "Proslijediti"
 
 #: add/mailaccount.php:241
 msgid "One Or More Email Addresses"
-msgstr ""
+msgstr "Jedna ili više adresa e-pošte"
 
 #: add/mailaccount.php:246 edit/mailaccount.php:297
 msgid "Don't Store Forwarded Mail"
-msgstr ""
+msgstr "Ne čuvajte prosleđenu poštu"
 
 #: add/mailaccount.php:256 edit/mailaccount.php:307 list/maildomain.php:243
 msgid "Autoreply"
-msgstr ""
+msgstr "Automatski odgovor"
 
 #: add/mailaccount.php:265 admin/list/notifications.php:223
 #: edit/mailaccount.php:317
 msgid "Message"
-msgstr ""
+msgstr "Poruka"
 
 #: add/mailaccount.php:281
 msgid "Add Account"
-msgstr ""
+msgstr "Dodaj račun"
 
 #: add/mailaccount.php:292 edit/mailaccount.php:342
 msgid "Authentication Settings"
-msgstr ""
+msgstr "Postavke provjere autentičnosti"
 
 #: add/mailaccount.php:297 edit/mailaccount.php:347
 msgid "Use Server Hostname"
-msgstr ""
+msgstr "Koristite ime hosta servera"
 
 #: add/mailaccount.php:299 edit/mailaccount.php:349
 msgid "Use Domain Hostname"
-msgstr ""
+msgstr "Koristite Ime hosta domena"
 
 #: add/mailaccount.php:310 add/mailaccount.php:425 edit/mailaccount.php:360
 #: edit/mailaccount.php:475
 msgid "No Authentication"
-msgstr ""
+msgstr "Nema autentifikacije"
 
 #: add/mailaccount.php:320 add/mailaccount.php:324 add/mailaccount.php:354
 #: add/mailaccount.php:358 add/mailaccount.php:388 add/mailaccount.php:392
@@ -886,7 +876,7 @@ msgstr ""
 #: edit/mailaccount.php:485 edit/mailaccount.php:489 edit/mailaccount.php:519
 #: edit/mailaccount.php:523 edit/mailaccount.php:553 edit/mailaccount.php:557
 msgid "hostname"
-msgstr ""
+msgstr "ime domaćina"
 
 #: add/mailaccount.php:321 add/mailaccount.php:325 add/mailaccount.php:355
 #: add/mailaccount.php:359 add/mailaccount.php:389 add/mailaccount.php:393
@@ -897,7 +887,7 @@ msgstr ""
 #: edit/mailaccount.php:486 edit/mailaccount.php:490 edit/mailaccount.php:520
 #: edit/mailaccount.php:524 edit/mailaccount.php:554 edit/mailaccount.php:558
 msgid "port"
-msgstr ""
+msgstr "luka"
 
 #: add/mailaccount.php:322 add/mailaccount.php:326 add/mailaccount.php:356
 #: add/mailaccount.php:360 add/mailaccount.php:390 add/mailaccount.php:394
@@ -908,7 +898,7 @@ msgstr ""
 #: edit/mailaccount.php:487 edit/mailaccount.php:491 edit/mailaccount.php:521
 #: edit/mailaccount.php:525 edit/mailaccount.php:555 edit/mailaccount.php:559
 msgid "security"
-msgstr ""
+msgstr "sigurnost"
 
 #: add/mailaccount.php:323 add/mailaccount.php:327 add/mailaccount.php:357
 #: add/mailaccount.php:361 add/mailaccount.php:391 add/mailaccount.php:395
@@ -919,7 +909,7 @@ msgstr ""
 #: edit/mailaccount.php:488 edit/mailaccount.php:492 edit/mailaccount.php:522
 #: edit/mailaccount.php:526 edit/mailaccount.php:556 edit/mailaccount.php:560
 msgid "auth method"
-msgstr ""
+msgstr "auth metoda"
 
 #: add/mailaccount.php:328 add/mailaccount.php:362 add/mailaccount.php:396
 #: add/mailaccount.php:443 add/mailaccount.php:477 add/mailaccount.php:511
@@ -927,7 +917,7 @@ msgstr ""
 #: edit/mailaccount.php:493 edit/mailaccount.php:527 edit/mailaccount.php:561
 #: includes/includes.php:429
 msgid "Webmail"
-msgstr ""
+msgstr "Webmail"
 
 #: add/mailaccount.php:338 add/mailaccount.php:342 add/mailaccount.php:372
 #: add/mailaccount.php:376 add/mailaccount.php:406 add/mailaccount.php:410
@@ -938,216 +928,216 @@ msgstr ""
 #: edit/mailaccount.php:503 edit/mailaccount.php:507 edit/mailaccount.php:537
 #: edit/mailaccount.php:541 edit/mailaccount.php:571 edit/mailaccount.php:575
 msgid "Normal Password"
-msgstr ""
+msgstr "Normalna lozinka"
 
 #: add/mailaccount.php:405 add/mailaccount.php:409 add/mailaccount.php:520
 #: add/mailaccount.php:524 edit/mailaccount.php:455 edit/mailaccount.php:459
 #: edit/mailaccount.php:570 edit/mailaccount.php:574
 msgid "No Encryption"
-msgstr ""
+msgstr "Nema šifriranja"
 
 #: admin/add/fail2ban.php:89 admin/add/firewall.php:88
 #: admin/edit/firewall.php:93 admin/list/fail2ban.php:92
 #: admin/list/firewall.php:90 admin/server/vesta.php:986
 #: includes/includes.php:379
 msgid "Firewall"
-msgstr ""
+msgstr "Vatrozid"
 
 #: admin/add/fail2ban.php:175
 msgid "Add Banned IP"
-msgstr ""
+msgstr "Dodaj zabranjeni IP"
 
 #: admin/add/fail2ban.php:183
 msgid "Banlist"
-msgstr ""
+msgstr "Spisak banaka"
 
 #: admin/add/fail2ban.php:186
 msgid "SSH"
-msgstr ""
+msgstr "SSH"
 
 #: admin/add/fail2ban.php:187
 msgid "WEB"
-msgstr ""
+msgstr "WEB"
 
 #: admin/add/fail2ban.php:188 includes/includes.php:428 list/web.php:270
 msgid "FTP"
-msgstr ""
+msgstr "FTP"
 
 #: admin/add/fail2ban.php:190
 msgid "MAIL"
-msgstr ""
+msgstr "POŠTA"
 
 #: admin/add/fail2ban.php:191 admin/server/vesta.php:779
 msgid "DB"
-msgstr ""
+msgstr "DB"
 
 #: admin/add/fail2ban.php:192
 msgid "VESTA"
-msgstr ""
+msgstr "VESTA"
 
 #: admin/add/fail2ban.php:200 admin/add/firewall.php:211
 #: admin/edit/firewall.php:217
 msgid "CIDR format is supported"
-msgstr ""
+msgstr "CIDR format je podržan"
 
 #: admin/add/fail2ban.php:205
 msgid "Add Ban"
-msgstr ""
+msgstr "Dodajte ban"
 
 #: admin/add/firewall.php:174
 msgid "Add Firewall Rule"
-msgstr ""
+msgstr "Dodajte pravilo vatrozida"
 
 #: admin/add/firewall.php:185 admin/edit/firewall.php:190
 msgid "Accept"
-msgstr ""
+msgstr "Prihvati"
 
 #: admin/add/firewall.php:186 admin/edit/firewall.php:191
 msgid "Drop"
-msgstr ""
+msgstr "Spusti"
 
 #: admin/add/firewall.php:191 admin/edit/firewall.php:197
 #: admin/list/firewall.php:208
 msgid "Protocol"
-msgstr ""
+msgstr "Protokol"
 
 #: admin/add/firewall.php:201 admin/edit/firewall.php:207
 #: admin/list/firewall.php:210
 msgid "Port"
-msgstr ""
+msgstr "Luka"
 
 #: admin/add/firewall.php:204 admin/edit/firewall.php:210
 msgid "Ranges are acceptable"
-msgstr ""
+msgstr "Raspon je prihvatljiv"
 
 #: admin/add/firewall.php:215 admin/edit/firewall.php:221
 #: admin/list/firewall.php:209
 msgid "Comment"
-msgstr ""
+msgstr "Komentiraj"
 
 #: admin/add/firewall.php:223
 msgid "Add Rule"
-msgstr ""
+msgstr "Dodajte pravilo"
 
 #: admin/add/ip.php:94 admin/edit/ip.php:96 admin/list/fail2ban.php:206
 #: admin/list/ip.php:90 includes/includes.php:373 list/dns.php:255
 #: list/web.php:272
 msgid "IP"
-msgstr ""
+msgstr "IP"
 
 #: admin/add/ip.php:179
 msgid "Add IP Address"
-msgstr ""
+msgstr "Dodajte IP adresu"
 
 #: admin/add/ip.php:193 admin/edit/ip.php:197 admin/list/ip.php:208
 msgid "Netmask"
-msgstr ""
+msgstr "Mrežna maska"
 
 #: admin/add/ip.php:199 admin/edit/ip.php:203 admin/list/ip.php:209
 msgid "Interface"
-msgstr ""
+msgstr "Interfejs"
 
 #: admin/add/ip.php:215 admin/edit/ip.php:209
 msgid "Shared"
-msgstr ""
+msgstr "Deljeno"
 
 #: admin/add/ip.php:225 admin/edit/ip.php:220
 msgid "Assigned User"
-msgstr ""
+msgstr "Dodijeljeni korisnik"
 
 #: admin/add/ip.php:242 admin/edit/ip.php:239
 msgid "Assigned Domain"
-msgstr ""
+msgstr "Dodijeljeni domen"
 
 #: admin/add/ip.php:249 admin/edit/ip.php:247
 msgid "NAT IP Association"
-msgstr ""
+msgstr "NAT IP Udruženje"
 
 #: admin/add/ip.php:257 admin/list/ip.php:195
 msgid "Add IP"
-msgstr ""
+msgstr "Dodajte IP"
 
 #: admin/add/package.php:97 admin/edit/package.php:102
 #: admin/list/packages.php:90 admin/list/packages.php:210
 #: includes/includes.php:372
 msgid "Packages"
-msgstr ""
+msgstr "Paketi"
 
 #: admin/add/package.php:182 admin/add/package.php:392
 msgid "Add Package"
-msgstr ""
+msgstr "Dodajte paket"
 
 #: admin/add/package.php:191 admin/edit/package.php:197
 msgid "Package Name"
-msgstr ""
+msgstr "Naziv paketa"
 
 #: admin/add/package.php:197 admin/edit/package.php:205 edit/domain.php:320
 msgid "Web Template"
-msgstr ""
+msgstr "Web predložak"
 
 #: admin/add/package.php:212 admin/edit/package.php:222 edit/domain.php:348
 #: list/web.php:267
 msgid "Proxy Template"
-msgstr ""
+msgstr "Predložak proxyja"
 
 #: admin/add/package.php:227 admin/edit/package.php:239 edit/dns.php:346
 #: list/dns.php:258
 msgid "DNS Template"
-msgstr ""
+msgstr "DNS predložak"
 
 #: admin/add/package.php:242 admin/edit/package.php:256
 #: edit/backupexclusions.php:183 index.php:323 list/web.php:254
 msgid "Web Domains"
-msgstr ""
+msgstr "Web domene"
 
 #: admin/add/package.php:253 admin/edit/package.php:267 index.php:827
 msgid "Web Aliases"
-msgstr ""
+msgstr "Web Aliases"
 
 #: admin/add/package.php:265 admin/edit/package.php:279 index.php:699
 #: list/dns.php:245
 msgid "DNS Domains"
-msgstr ""
+msgstr "DNS domeni"
 
 #: admin/add/package.php:276 admin/edit/package.php:290 index.php:713
 msgid "DNS Records"
-msgstr ""
+msgstr "DNS Records"
 
 #: admin/add/package.php:288 admin/edit/package.php:302
 #: edit/backupexclusions.php:198 index.php:725 list/mail.php:240
 msgid "Mail Domains"
-msgstr ""
+msgstr "Domene pošte"
 
 #: admin/add/package.php:299 admin/edit/package.php:313
 msgid "Mail Accounts"
-msgstr ""
+msgstr "Računi za poštu"
 
 #: admin/add/package.php:311 admin/edit/package.php:325
 #: admin/list/stats.php:237 edit/backupexclusions.php:213 index.php:671
 #: index.php:799 list/backups.php:252 list/db.php:89 list/db.php:229
 msgid "Databases"
-msgstr ""
+msgstr "Baze podataka"
 
 #: admin/add/package.php:333 admin/edit/package.php:347
 #: admin/list/stats.php:240 edit/backupexclusions.php:90
 #: includes/includes.php:422 index.php:739 list/backup.php:95
 #: list/backups.php:90 list/backups.php:241
 msgid "Backups"
-msgstr ""
+msgstr "Sigurnosne kopije"
 
 #: admin/add/package.php:351 admin/edit/package.php:365
 #: admin/list/stats.php:231 index.php:290 index.php:765 list/web.php:261
 msgid "Bandwidth"
-msgstr ""
+msgstr "Širina pojasa"
 
 #: admin/add/package.php:363 admin/edit/package.php:377 admin/edit/user.php:283
 msgid "SSH Access"
-msgstr ""
+msgstr "SSH pristup"
 
 #: admin/add/package.php:378 admin/edit/package.php:392 admin/edit/user.php:299
 #: profile.php:386
 msgid "Default Nameservers"
-msgstr ""
+msgstr "Default Nameservers"
 
 #: admin/add/package.php:518 admin/edit/firewall.php:296 admin/edit/ip.php:327
 #: admin/edit/package.php:528 admin/edit/user.php:462
@@ -1162,23 +1152,21 @@ msgstr ""
 #: list/mail.php:428 list/maildomain.php:424 list/web.php:456 profile.php:141
 #: profile.php:545
 msgid "Successfully Updated!"
-msgstr ""
+msgstr "Uspješno ažurirano!"
 
 #: admin/add/package.php:527 admin/add/package.php:536
 #: admin/edit/package.php:538 admin/edit/package.php:547
 msgid "Packages are incompatible with API Key Authentication."
-msgstr ""
+msgstr "Paketi nisu kompatibilni s provjerom autentičnosti API ključa."
 
 #: admin/add/user.php:91 admin/edit/user.php:97 admin/list/ip.php:210
 #: admin/list/users.php:90 admin/list/users.php:220 includes/includes.php:371
-#, fuzzy
-#| msgid "Username"
 msgid "Users"
-msgstr "Username"
+msgstr "Korisnici"
 
 #: admin/add/user.php:177 admin/add/user.php:234
 msgid "Add User"
-msgstr ""
+msgstr "Dodaj korisnika"
 
 #: admin/add/user.php:198 admin/edit/user.php:206 index.php:763
 #: list/maildomain.php:235 profile.php:344 register.php:123
@@ -1187,94 +1175,94 @@ msgstr "Email"
 
 #: admin/add/user.php:204 admin/edit/user.php:213 admin/list/packages.php:208
 msgid "Package"
-msgstr ""
+msgstr "Paket"
 
 #: admin/add/user.php:221 admin/edit/user.php:269 profile.php:332
 #: register.php:118
 msgid "First Name"
-msgstr "First Name"
+msgstr "Ime"
 
 #: admin/add/user.php:227 admin/edit/user.php:276 profile.php:338
 #: register.php:119
 msgid "Last Name"
-msgstr "Last Name"
+msgstr "Prezime"
 
 #: admin/edit/firewall.php:179
 msgid "Edit Firewall Rule"
-msgstr ""
+msgstr "Uredi pravilo vatrozida"
 
 #: admin/edit/firewall.php:229
 msgid "Update Rule"
-msgstr ""
+msgstr "Ažuriraj pravilo"
 
 #: admin/edit/ip.php:181
 msgid "Edit IP Address"
-msgstr ""
+msgstr "Uređivanje IP adrese"
 
 #: admin/edit/ip.php:256
 msgid "Update IP"
-msgstr ""
+msgstr "Ažuriraj IP"
 
 #: admin/edit/ip.php:331
 msgid "Error Updating IP Address"
-msgstr ""
+msgstr "Pogreška prilikom ažuriranja IP adrese"
 
 #: admin/edit/package.php:189
 msgid "Edit Package"
-msgstr ""
+msgstr "Uredi paket"
 
 #: admin/edit/package.php:277 admin/edit/package.php:300
 #: admin/edit/package.php:323
 msgid "Per Domain"
-msgstr ""
+msgstr "Po domenu"
 
 #: admin/edit/package.php:414
 msgid "Update Package"
-msgstr ""
+msgstr "Ažuriraj paket"
 
 #: admin/edit/package.php:532
 msgid "Error Updating Package"
-msgstr ""
+msgstr "Pogreška prilikom ažuriranja paketa"
 
 #: admin/edit/user.php:184
 msgid "Edit User"
-msgstr ""
+msgstr "Uređivanje korisnika"
 
 #: admin/edit/user.php:231 admin/list/settings.php:416 profile.php:279
 #: profile.php:350
 msgid "Language"
-msgstr ""
+msgstr "Jezik"
 
 #: admin/edit/user.php:329
 msgid "Update User"
-msgstr ""
+msgstr "Ažuriraj korisnika"
 
 #: admin/edit/user.php:466
 msgid "Error Updating User"
-msgstr ""
+msgstr "Pogreška prilikom ažuriranja korisnika"
 
 #: admin/list/fail2ban.php:191
 msgid "Manage Fail2Ban"
-msgstr ""
+msgstr "Upravljanje Fail2Ban"
 
 #: admin/list/fail2ban.php:197 admin/list/firewall.php:199
 #: admin/list/packages.php:208 admin/list/users.php:218 list/cfdomain.php:285
 #: list/dnsdomain.php:276 list/mail.php:238 list/maildomain.php:228
 msgid "Add"
-msgstr ""
+msgstr "Dodati"
 
 #: admin/list/fail2ban.php:197 admin/list/fail2ban.php:205
 msgid "Ban"
-msgstr ""
+msgstr "Ban"
 
 #: admin/list/fail2ban.php:199
 msgid "Banned IPs"
-msgstr ""
+msgstr "Zabranjeni IP-ovi"
 
 #: admin/list/fail2ban.php:206 admin/list/ip.php:195 admin/list/ip.php:202
 #: list/maildomain.php:235
 msgid "Address"
-msgstr ""
+msgstr "Adresa"
 
 #: admin/list/fail2ban.php:207 admin/list/firewall.php:212
 #: admin/list/ip.php:207 list/backup.php:243 list/backups.php:248
@@ -1282,7 +1270,7 @@ msgstr ""
 #: list/dnsdomain.php:286 list/mail.php:250 list/maildomain.php:239
 #: list/web.php:264
 msgid "Action"
-msgstr ""
+msgstr "Akcija"
 
 #: admin/list/fail2ban.php:220 admin/list/fail2ban.php:262
 #: admin/list/firewall.php:234 admin/list/ip.php:225
@@ -1293,11 +1281,11 @@ msgstr ""
 #: list/dnsdomain.php:303 list/mail.php:284 list/maildomain.php:267
 #: list/web.php:298
 msgid "Delete"
-msgstr ""
+msgstr "Izbriši"
 
 #: admin/list/fail2ban.php:262
 msgid "ban for IP"
-msgstr ""
+msgstr "zabrana za IP"
 
 #: admin/list/fail2ban.php:263 admin/list/firewall.php:276
 #: admin/list/ip.php:270 admin/list/packages.php:308 admin/list/users.php:363
@@ -1309,7 +1297,7 @@ msgstr ""
 #: list/dnsdomain.php:398 list/mail.php:346 list/maildomain.php:320
 #: list/maildomain.php:341 list/web.php:371
 msgid "You won't be able to revert this!"
-msgstr ""
+msgstr "To nećete moći vratiti!"
 
 #: admin/list/fail2ban.php:268 admin/list/firewall.php:281
 #: admin/list/ip.php:275 admin/list/packages.php:313 admin/list/users.php:368
@@ -1321,7 +1309,7 @@ msgstr ""
 #: list/dnsdomain.php:403 list/mail.php:351 list/maildomain.php:325
 #: list/maildomain.php:346 list/web.php:376
 msgid "Yes, delete it!"
-msgstr ""
+msgstr "Da, izbrišite ga!"
 
 #: admin/list/fail2ban.php:291 admin/list/firewall.php:346
 #: admin/list/graphs.php:278 admin/list/ip.php:298 admin/list/packages.php:336
@@ -1331,7 +1319,7 @@ msgstr ""
 #: list/dns.php:519 list/dnsdomain.php:425 list/mail.php:416
 #: list/maildomain.php:409 list/web.php:439
 msgid "Successfully Deleted!"
-msgstr ""
+msgstr "Uspješno izbrisano!"
 
 #: admin/list/fail2ban.php:294 admin/list/firewall.php:349
 #: admin/list/graphs.php:281 admin/list/ip.php:301 admin/list/packages.php:339
@@ -1340,292 +1328,282 @@ msgstr ""
 #: list/cfdomain.php:412 list/cron.php:452 list/db.php:381 list/dns.php:522
 #: list/dnsdomain.php:428 list/mail.php:419 list/web.php:446
 msgid "Successfully Created!"
-msgstr ""
+msgstr "Uspješno kreirano!"
 
 #: admin/list/firewall.php:192
 msgid "Manage Firewall"
-msgstr ""
+msgstr "Upravljanje zaštitnim zidom"
 
 #: admin/list/firewall.php:198
 msgid "List"
-msgstr ""
+msgstr "Lista"
 
 #: admin/list/firewall.php:198
 msgid "Fail2Ban"
-msgstr ""
+msgstr "Fail2Ban"
 
 #: admin/list/firewall.php:199
 msgid "Rule"
-msgstr ""
+msgstr "Pravilo"
 
 #: admin/list/firewall.php:201
 msgid "Rules"
-msgstr ""
+msgstr "Pravila"
 
 #: admin/list/firewall.php:229 admin/list/ip.php:225
 #: admin/list/packages.php:264 admin/list/users.php:317 list/cfdomain.php:317
 #: list/cron.php:263 list/db.php:262 list/dns.php:370 list/dnsdomain.php:301
 #: list/mail.php:279 list/maildomain.php:262 list/web.php:293
 msgid "Edit"
-msgstr ""
+msgstr "Uredi"
 
 #: admin/list/firewall.php:231 admin/list/users.php:318
 #: admin/list/users.php:385 list/cron.php:264 list/db.php:263 list/dns.php:372
 #: list/mail.php:281 list/maildomain.php:264 list/web.php:296
 msgid "Suspend"
-msgstr ""
+msgstr "Suspend"
 
 #: admin/list/firewall.php:232 admin/list/users.php:319
 #: admin/list/users.php:406 list/cron.php:265 list/db.php:264 list/dns.php:373
 #: list/mail.php:282 list/maildomain.php:265 list/web.php:297
 msgid "Unsuspend"
-msgstr ""
+msgstr "Nepotrebno"
 
 #: admin/list/firewall.php:275
 msgid "Delete Rule"
-msgstr ""
+msgstr "Izbriši pravilo"
 
 #: admin/list/firewall.php:297
 msgid "Suspend Rule"
-msgstr ""
+msgstr "Obustavi pravilo"
 
 #: admin/list/firewall.php:302 admin/list/firewall.php:323
 #: admin/list/users.php:390 admin/list/users.php:411 list/cron.php:405
 #: list/cron.php:426 list/db.php:336 list/db.php:357 list/dns.php:470
 #: list/dns.php:491 list/mail.php:372 list/mail.php:393 list/maildomain.php:368
 #: list/maildomain.php:390 list/web.php:397 list/web.php:418
-#, fuzzy
-#| msgid "Confirm Pass"
 msgid "Confirm"
-msgstr "Confirm Pass"
+msgstr "Potvrdite"
 
 #: admin/list/firewall.php:318
 msgid "Unsuspend Rule"
-msgstr ""
+msgstr "Unsuspend Pravilo"
 
 #: admin/list/graphs.php:93 includes/includes.php:374
 msgid "Graphs"
-msgstr ""
+msgstr "Grafovi"
 
 #: admin/list/graphs.php:195
 msgid "RRD Graphs"
-msgstr ""
+msgstr "RRD Graphs"
 
 #: admin/list/graphs.php:206
 msgid "Yearly"
-msgstr ""
+msgstr "Godišnje"
 
 #: admin/list/graphs.php:231 list/backups.php:269 log/access.php:218
 #: log/access.php:219
 msgid "Download"
-msgstr ""
+msgstr "Skinuti"
 
 #: admin/list/ip.php:189
 msgid "Manage IP Addresses"
-msgstr ""
+msgstr "Upravljanje IP adresama"
 
 #: admin/list/ip.php:197
 msgid "IPs"
-msgstr ""
+msgstr "IP adrese"
 
 #: admin/list/ip.php:203
 msgid "Domains"
-msgstr ""
+msgstr "Domene"
 
 #: admin/list/ip.php:204
 msgid "Owner"
-msgstr ""
+msgstr "Vlasnik"
 
 #: admin/list/ip.php:205 admin/list/server.php:210 list/cron.php:234
 #: list/db.php:237 list/dns.php:252 list/dnsdomain.php:287 list/mail.php:248
 #: list/maildomain.php:237 list/web.php:262
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: admin/list/ip.php:206 list/cfdomain.php:297 list/cron.php:235
 #: list/db.php:238 list/dns.php:253 list/dnsdomain.php:288 list/mail.php:249
 #: list/maildomain.php:238 list/web.php:263 process/search.php:209
 msgid "Created"
-msgstr ""
+msgstr "Napravljeno"
 
 #: admin/list/ip.php:269
 msgid "Delete IP Address"
-msgstr ""
+msgstr "Izbriši IP adresu"
 
 #: admin/list/notifications.php:88 admin/list/notifications.php:185
 #: includes/includes.php:385 list/cron.php:225
 msgid "Notifications"
-msgstr ""
+msgstr "Obavijesti"
 
 #: admin/list/notifications.php:191
 msgid "Send Notifications"
-msgstr ""
+msgstr "Pošaljite Obavijesti"
 
 #: admin/list/notifications.php:194
-msgid ""
-"Notification System Disabled. Please enable the notification system from the "
-"VWI settings menu to send notifications."
-msgstr ""
+msgid "Notification System Disabled. Please enable the notification system from the VWI settings menu to send notifications."
+msgstr "Sustav notifikacije je onemogućen. Omogućite sustav za obavijesti iz izbornika postavki VWI da biste mogli slati obavijesti."
 
 #: admin/list/notifications.php:200
 msgid "Send To:"
-msgstr ""
+msgstr "Poslati:"
 
 #: admin/list/notifications.php:217
 msgid "Title"
-msgstr ""
+msgstr "Naslov"
 
 #: admin/list/notifications.php:230
 msgid "Send Notification"
-msgstr ""
+msgstr "Pošalji obavijest"
 
 #: admin/list/packages.php:203
 msgid "Manage Packages"
-msgstr ""
+msgstr "Upravljanje paketima"
 
 #: admin/list/packages.php:307
 msgid "Delete package:"
-msgstr ""
+msgstr "Izbriši paket:"
 
 #: admin/list/plugins.php:85 admin/list/plugins.php:181
 #: includes/includes.php:384
 msgid "Plugins"
-msgstr ""
+msgstr "Dodaci"
 
 #: admin/list/plugins.php:191 list/mail.php:245 list/web.php:259
 #: profile.php:266
 msgid "Name"
-msgstr ""
+msgstr "Ime"
 
 #: admin/list/plugins.php:192 admin/server/vesta.php:970
 msgid "Version"
-msgstr ""
+msgstr "Verzija"
 
 #: admin/list/plugins.php:193
 msgid "Developer"
-msgstr ""
+msgstr "Programer"
 
 #: admin/list/plugins.php:194
 msgid "Descriptor"
-msgstr ""
+msgstr "Deskriptor"
 
 #: admin/list/server.php:102 admin/list/server.php:204
 #: admin/server/mysql.php:90 admin/server/nginx.php:90 admin/server/php.php:90
 #: admin/server/vesta.php:129 includes/includes.php:382
 msgid "Server"
-msgstr ""
+msgstr "Server"
 
 #: admin/list/server.php:210
 msgid "Show "
-msgstr ""
+msgstr "Pokaži "
 
 #: admin/list/server.php:218
 msgid "Load Average:"
-msgstr ""
+msgstr "Prosjek opterećenja:"
 
 #: admin/list/server.php:219
 msgid "Uptime:"
-msgstr ""
+msgstr "Uptime:"
 
 #: admin/list/server.php:228 admin/list/server.php:258
 #: admin/server/vesta.php:717
 msgid "Configure"
-msgstr ""
+msgstr "Konfigurišite"
 
 #: admin/list/server.php:229 admin/list/server.php:261
 #: admin/list/server.php:299 admin/list/server.php:305
 #: admin/list/server.php:326
 msgid "Restart"
-msgstr ""
+msgstr "Ponovo pokreni"
 
 #: admin/list/server.php:259 admin/list/server.php:364
 #: admin/list/server.php:370
 msgid "Start"
-msgstr ""
+msgstr "Početak"
 
 #: admin/list/server.php:259 admin/list/server.php:342
 #: admin/list/server.php:348
 msgid "Stop"
-msgstr ""
+msgstr "Stani"
 
 #: admin/list/server.php:300 admin/list/server.php:321
 #: admin/list/server.php:343 admin/list/server.php:365
-#, fuzzy
-#| msgid "Please check config.php"
 msgid "Please confirm action."
-msgstr "Please check config.php"
+msgstr "Molimo potvrdite akciju."
 
 #: admin/list/server.php:320
 msgid "Restart System?"
-msgstr ""
+msgstr "Ponovo pokrenete sistem?"
 
 #: admin/list/settings.php:88 includes/includes.php:383 profile.php:260
 msgid "Settings"
-msgstr ""
+msgstr "Podešavanja"
 
 #: admin/list/settings.php:192
 msgid "Edit Panel Settings"
-msgstr ""
+msgstr "Uređivanje postavki ploče"
 
 #: admin/list/settings.php:199
-#, fuzzy
-#| msgid "Please check config.php"
 msgid "Server Configuration"
-msgstr "Please check config.php"
+msgstr "Konfiguracija servera"
 
 #: admin/list/settings.php:201
 msgid "Server Timezone"
-msgstr ""
+msgstr "Vremenska zona servera"
 
 #: admin/list/settings.php:353
-#, fuzzy
-#| msgid "First Name"
 msgid "Site Name"
-msgstr "First Name"
+msgstr "Naziv stranice"
 
 #: admin/list/settings.php:360 profile.php:400
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 #: admin/list/settings.php:363 profile.php:403 register.php:138
 msgid "Default"
-msgstr "Default"
+msgstr "Podrazumevano"
 
 #: admin/list/settings.php:364 profile.php:404
 msgid "Blue"
-msgstr ""
+msgstr "Plava"
 
 #: admin/list/settings.php:365 profile.php:405
 msgid "Purple"
-msgstr ""
+msgstr "Ljubičasta"
 
 #: admin/list/settings.php:366 profile.php:406
 msgid "Orange"
-msgstr ""
+msgstr "Narandžasta"
 
 #: admin/list/settings.php:367 profile.php:407
 msgid "Dark"
-msgstr ""
+msgstr "Mračno"
 
 #: admin/list/settings.php:368
 msgid "Custom"
-msgstr ""
+msgstr "Custom"
 
 #: admin/list/settings.php:374
 msgid "Custom Theme Colors"
-msgstr ""
+msgstr "Prilagođene boje teme"
 
 #: admin/list/settings.php:380
 msgid "Primary Color (Header, Active Buttons / Text, Etc.)"
-msgstr ""
+msgstr "Primarna boja (zaglavlje, aktivni gumbi / tekst i dr.)"
 
 #: admin/list/settings.php:385
 msgid "Secondary Color (Buttons / Text)"
-msgstr ""
+msgstr "Sekundarna boja (tipke / tekst)"
 
 #: admin/list/settings.php:390
 msgid "Custom Footer"
-msgstr ""
+msgstr "Prilagođeno podnožje"
 
 #: admin/list/settings.php:394 admin/list/settings.php:411
 #: admin/list/settings.php:456 admin/list/settings.php:473
@@ -1640,685 +1618,635 @@ msgstr ""
 #: list/mail.php:298 list/mail.php:304 list/maildomain.php:271
 #: list/maildomain.php:275 list/web.php:326
 msgid "Disabled"
-msgstr ""
+msgstr "Onemogućeno"
 
 #: admin/list/settings.php:400
 msgid "Footer Text"
-msgstr ""
+msgstr "Tekst podnožja"
 
 #: admin/list/settings.php:407
 msgid "VWI Branding in Footer"
-msgstr ""
+msgstr "VWI brendiranje u podnožju"
 
 #: admin/list/settings.php:452
-#, fuzzy
-#| msgid "Default"
 msgid "Default To Admin"
-msgstr "Default"
+msgstr "Standardno za administratora"
 
 #: admin/list/settings.php:458
-msgid ""
-"Choose whether or not the admin should go to the admin panel or home after "
-"login."
-msgstr ""
+msgid "Choose whether or not the admin should go to the admin panel or home after login."
+msgstr "Odaberite hoće li administrator nakon prijave prijaviti ili ne na administratorski panel ili dom."
 
 #: admin/list/settings.php:462
 msgid "Vesta Host Address"
-msgstr ""
+msgstr "Adresa domaćina Vesta"
 
 #: admin/list/settings.php:465
 msgid "VestaCP Host URL or IP Address"
-msgstr ""
+msgstr "VestaCP Host URL ili IP adresa"
 
 #: admin/list/settings.php:469 admin/server/vesta.php:936
 msgid "Vesta SSL"
-msgstr ""
+msgstr "Vesta SSL"
 
 #: admin/list/settings.php:478
 msgid "Vesta Port"
-msgstr ""
+msgstr "Vesta Port"
 
 #: admin/list/settings.php:484
 msgid "API Method"
-msgstr ""
+msgstr "API metoda"
 
 #: admin/list/settings.php:487
-#, fuzzy
-#| msgid "Recover Password"
 msgid "Username / Password"
-msgstr "Recover Password"
+msgstr "Korisnicko ime lozinka"
 
 #: admin/list/settings.php:488
 msgid "API Key"
-msgstr ""
+msgstr "API ključ"
 
 #: admin/list/settings.php:494
 msgid "Vesta API Key"
-msgstr ""
+msgstr "Vesta API ključ"
 
 #: admin/list/settings.php:497
-msgid ""
-"Adding & editing custom SSL certificates and backup exclusions does not Work "
-"with API key. Features will be disabled."
-msgstr ""
+msgid "Adding & editing custom SSL certificates and backup exclusions does not Work with API key. Features will be disabled."
+msgstr "Dodavanje i uređivanje prilagođenih SSL certifikata i izrada sigurnosnih kopija ne rade s API ključem. Značajke će biti onemogućene."
 
 #: admin/list/settings.php:503
 msgid "Vesta Admin Username"
-msgstr ""
+msgstr "Korisničko ime Vesta Admin"
 
 #: admin/list/settings.php:510
 msgid "Vesta Admin Password"
-msgstr ""
+msgstr "Vesta Admin lozinka"
 
 #: admin/list/settings.php:517
-#, fuzzy
-#| msgid "Warning"
 msgid "Warnings Enabled"
-msgstr "Warning"
+msgstr "Upozorenja su omogućena"
 
 #: admin/list/settings.php:524
 msgid "Display messages for installation warnings and connection errors."
-msgstr ""
+msgstr "Prikažite poruke za upozorenja o instalaciji i greške u vezi."
 
 #: admin/list/settings.php:528
 msgid "Encryption Key 1"
-msgstr ""
+msgstr "Šifriranje ključ 1"
 
 #: admin/list/settings.php:534
 msgid "Encryption Key 2"
-msgstr ""
+msgstr "Šifriranje ključ 2"
 
 #: admin/list/settings.php:540
 msgid "Current Favicon:"
-msgstr ""
+msgstr "Trenutni favicon:"
 
 #: admin/list/settings.php:542
 msgid "New Favicon:"
-msgstr ""
+msgstr "New Favicon:"
 
 #: admin/list/settings.php:545
 msgid "Recommended 32x32px .ico"
-msgstr ""
+msgstr "Preporučuje se 32x32px .ico"
 
 #: admin/list/settings.php:549
 msgid "Current Icon:"
-msgstr ""
+msgstr "Trenutna ikona:"
 
 #: admin/list/settings.php:551
 msgid "New Icon:"
-msgstr ""
+msgstr "Nova ikona:"
 
 #: admin/list/settings.php:554
-msgid ""
-"Recommended 40x40px .png or .gif. (.png, .gif, .jpg, and .jpeg up to 1MB "
-"allowed.)"
-msgstr ""
+msgid "Recommended 40x40px .png or .gif. (.png, .gif, .jpg, and .jpeg up to 1MB allowed.)"
+msgstr "Preporučuje se 40x40px .png ili .gif. (.png, .gif, .jpg i .jpeg do 1 MB dopušteno.)"
 
 #: admin/list/settings.php:559
 msgid "Current Logo:"
-msgstr ""
+msgstr "Trenutni logo:"
 
 #: admin/list/settings.php:561
 msgid "New Logo:"
-msgstr ""
+msgstr "Novi logo:"
 
 #: admin/list/settings.php:564
-msgid ""
-"Recommended 134x24px .png or .gif. (.png, .gif, .jpg, and .jpeg up to 1MB "
-"allowed.)"
-msgstr ""
+msgid "Recommended 134x24px .png or .gif. (.png, .gif, .jpg, and .jpeg up to 1MB allowed.)"
+msgstr "Preporučuje se 134x24px .png ili .gif. (.png, .gif, .jpg i .jpeg do 1 MB dopušteno.)"
 
 #: admin/list/settings.php:568
 msgid "Enable / Disable Sections"
-msgstr ""
+msgstr "Omogući / onemogući sekcije"
 
 #: admin/list/settings.php:570
 msgid "Web Enabled"
-msgstr ""
+msgstr "Web omogućen"
 
 #: admin/list/settings.php:579
 msgid "DNS Enabled"
-msgstr ""
+msgstr "DNS omogućen"
 
 #: admin/list/settings.php:588
 msgid "Mail Enabled"
-msgstr ""
+msgstr "Pošta je omogućena"
 
 #: admin/list/settings.php:597
 msgid "Database Enabled"
-msgstr ""
+msgstr "Omogućena je baza podataka"
 
 #: admin/list/settings.php:606
 msgid "Admin Panel Enabled"
-msgstr ""
+msgstr "Omogućena je Admin ploča"
 
 #: admin/list/settings.php:615
 msgid "Profile Page Enabled"
-msgstr ""
+msgstr "Stranica profila je omogućena"
 
 #: admin/list/settings.php:624
 msgid "Cron Enabled"
-msgstr ""
+msgstr "Cron Enabled"
 
 #: admin/list/settings.php:633
 msgid "Backups Enabled"
-msgstr ""
+msgstr "Sigurnosne kopije su omogućene"
 
 #: admin/list/settings.php:642
 msgid "Notification System Enabled"
-msgstr ""
+msgstr "Omogućen je sistem notifikacije"
 
 #: admin/list/settings.php:651
 msgid "Registrations Enabled"
-msgstr ""
+msgstr "Registracije su omogućene"
 
 #: admin/list/settings.php:660
 msgid "Softaculous Enabled"
-msgstr ""
+msgstr "Softaculous Enabled"
 
 #: admin/list/settings.php:669
 msgid "Link to Old CP Enabled"
-msgstr ""
+msgstr "Omogućena je veza na stari CP"
 
 #: admin/list/settings.php:680
 msgid "PHP Mail Enabled"
-msgstr ""
+msgstr "PHP pošta omogućena"
 
 #: admin/list/settings.php:690
 msgid "From Address"
-msgstr ""
+msgstr "From Address"
 
 #: admin/list/settings.php:696
-#, fuzzy
-#| msgid "First Name"
 msgid "From Name"
-msgstr "First Name"
+msgstr "Iz imena"
 
 #: admin/list/settings.php:702
 msgid "Mail Method"
-msgstr ""
+msgstr "Metoda pošte"
 
 #: admin/list/settings.php:706
 msgid "PHP Mail"
-msgstr ""
+msgstr "PHP pošta"
 
 #: admin/list/settings.php:712
 msgid "SMTP Host"
-msgstr ""
+msgstr "SMTP domaćin"
 
 #: admin/list/settings.php:718
 msgid "SMTP Port"
-msgstr ""
+msgstr "SMTP port"
 
 #: admin/list/settings.php:724
 msgid "SMTP Encryption"
-msgstr ""
+msgstr "Šifriranje SMTP-a"
 
 #: admin/list/settings.php:729 list/mail.php:286 list/maildomain.php:270
 #: list/web.php:300 list/web.php:316 list/web.php:321
 msgid "None"
-msgstr ""
+msgstr "Nijedan"
 
 #: admin/list/settings.php:734
 msgid "Authentication Enabled"
-msgstr ""
+msgstr "Autentifikacija je omogućena"
 
 #: admin/list/settings.php:744
-#, fuzzy
-#| msgid "Username"
 msgid "SMTP Username"
-msgstr "Username"
+msgstr "SMTP korisničko ime"
 
 #: admin/list/settings.php:750
-#, fuzzy
-#| msgid "Password"
 msgid "SMTP Password"
-msgstr "Password"
+msgstr "SMTP Lozinka"
 
 #: admin/list/settings.php:759
 msgid "Optional Links"
-msgstr ""
+msgstr "Neobvezni linkovi"
 
 #: admin/list/settings.php:761
 msgid "FTP Client URL"
-msgstr ""
+msgstr "URL FTP klijenta"
 
 #: admin/list/settings.php:764 admin/list/settings.php:771
 #: admin/list/settings.php:778 admin/list/settings.php:785
 msgid "Leave blank for default or enter 'disabled' to disable."
-msgstr ""
+msgstr "Ostavite prazno za podrazumevano ili unesite 'disabled' da biste ga onemogućili."
 
 #: admin/list/settings.php:768
 msgid "Webmail URL"
-msgstr ""
+msgstr "URL adresa Webmail"
 
 #: admin/list/settings.php:775
 msgid "phpMyAdmin URL"
-msgstr ""
+msgstr "phpMyAdmin URL"
 
 #: admin/list/settings.php:782
 msgid "phpPgAdmin URL"
-msgstr ""
+msgstr "phpPgAdmin URL"
 
 #: admin/list/settings.php:789
 msgid "Support URL"
-msgstr ""
+msgstr "URL za podršku"
 
 #: admin/list/settings.php:792
 msgid "Leave blank or enter 'disabled' to disable."
-msgstr ""
+msgstr "Ostavite prazno ili unesite 'disabled' da biste je onemogućili."
 
 #: admin/list/settings.php:795
 msgid "Optional Integrations"
-msgstr ""
+msgstr "Neobvezna integracija"
 
 #: admin/list/settings.php:800
 msgid "Comma seperated list of installed plugins."
-msgstr ""
+msgstr "Lista instaliranih dodataka odvojena zarezom."
 
 #: admin/list/settings.php:804
 msgid "Google Analytics ID"
-msgstr ""
+msgstr "Google Analytics ID"
 
 #: admin/list/settings.php:811
 msgid "Interakt App ID"
-msgstr ""
+msgstr "ID aplikacije Interakt"
 
 #: admin/list/settings.php:818
 msgid "Interakt API Key"
-msgstr ""
+msgstr "Interakt API ključ"
 
 #: admin/list/settings.php:825
 msgid "Cloudflare API Key"
-msgstr ""
+msgstr "Cloudflare API ključ"
 
 #: admin/list/settings.php:832
-#, fuzzy
-#| msgid "Invalid Email Address"
 msgid "Cloudflare Account Email Address"
-msgstr "Invalid Email Address"
+msgstr "Cloudflare račun e-pošte"
 
 #: admin/list/settings.php:842
 msgid "Update Settings"
-msgstr ""
+msgstr "Ažurirajte postavke"
 
 #: admin/list/settings.php:844
 msgid "Reset to Defaults"
-msgstr ""
+msgstr "Vrati na zadane vrijednosti"
 
 #: admin/list/settings.php:1039
 msgid "Error Updating Settings"
-msgstr ""
+msgstr "Pogreška prilikom ažuriranja postavki"
 
 #: admin/list/stats.php:96 list/web.php:271
 msgid "Stats"
-msgstr ""
+msgstr "Statistika"
 
 #: admin/list/stats.php:201
 msgid "User Stats"
-msgstr ""
+msgstr "Statistika korisnika"
 
 #: admin/list/stats.php:232 admin/list/stats.php:233 admin/status/disk.php:211
 msgid "Disk"
-msgstr ""
+msgstr "Disk"
 
 #: admin/list/stats.php:239
 msgid "IP Addresses"
-msgstr ""
+msgstr "IP adrese"
 
 #: admin/list/updates.php:97 admin/list/updates.php:199
 #: includes/includes.php:376
 msgid "Updates"
-msgstr ""
+msgstr "Ažuriranja"
 
 #: admin/list/updates.php:205
 msgid "Update All"
-msgstr ""
+msgstr "Ažuriraj sve"
 
 #: admin/list/updates.php:207
 msgid "Disable "
-msgstr ""
+msgstr "Onemogući "
 
 #: admin/list/updates.php:207
 msgid "Autoupdate"
-msgstr ""
+msgstr "Automatsko ažuriranje"
 
 #: admin/list/updates.php:207
 msgid "Enable "
-msgstr ""
+msgstr "Omogući "
 
 #: admin/list/updates.php:224
 msgid "Update"
-msgstr ""
+msgstr "Ažuriraj"
 
 #: admin/list/users.php:212
 msgid "Manage Users"
-msgstr ""
+msgstr "Upravljanje korisnicima"
 
 #: admin/list/users.php:218 edit/db.php:276
 msgid "User"
-msgstr ""
+msgstr "Korisnik"
 
 #: admin/list/users.php:316
-#, fuzzy
-#| msgid "Login"
 msgid "Login as"
-msgstr "Login"
+msgstr "Prijavite se kao"
 
 #: admin/server/mysql.php:175
 msgid "View Configuration / MySQL"
-msgstr ""
+msgstr "Pogledajte Konfiguracija / MySQL"
 
 #: admin/server/mysql.php:183
 msgid "Max Connections"
-msgstr ""
+msgstr "Max Connections"
 
 #: admin/server/mysql.php:189
 msgid "Max User Connections"
-msgstr ""
+msgstr "Maksimalne veze korisnika"
 
 #: admin/server/mysql.php:195
 msgid "Wait Timeout"
-msgstr ""
+msgstr "Čekajte istek vremena"
 
 #: admin/server/mysql.php:201
 msgid "Interactive Timeout"
-msgstr ""
+msgstr "Interactive timeout"
 
 #: admin/server/mysql.php:207
 msgid "Max Allowed Packet"
-msgstr ""
+msgstr "Maksimalno dozvoljeni paket"
 
 #: admin/server/nginx.php:175
 msgid "View Configuration / NGINX"
-msgstr ""
+msgstr "Pogledajte Konfiguracija / NGINX"
 
 #: admin/server/nginx.php:183
-#, fuzzy
-#| msgid "Confirm Pass"
 msgid "Configure PHP"
-msgstr "Confirm Pass"
+msgstr "Konfigurišite PHP"
 
 #: admin/server/nginx.php:188
 msgid "Worker Processes"
-msgstr ""
+msgstr "Radni procesi"
 
 #: admin/server/nginx.php:194
 msgid "Worker Connections"
-msgstr ""
+msgstr "Veze radnika"
 
 #: admin/server/nginx.php:200
 msgid "Client Max Body Size"
-msgstr ""
+msgstr "Maksimalna veličina tijela klijenta"
 
 #: admin/server/nginx.php:206
 msgid "Send Timeout"
-msgstr ""
+msgstr "Pošalji istek vremena"
 
 #: admin/server/nginx.php:212
 msgid "Proxy Connect Timeout"
-msgstr ""
+msgstr "Istek proxy povezivanja"
 
 #: admin/server/nginx.php:218
 msgid "Proxy Send Timeout"
-msgstr ""
+msgstr "Istek slanja proxyja"
 
 #: admin/server/nginx.php:224
 msgid "Proxy Read Timeout"
-msgstr ""
+msgstr "Istek pročitanja proxyja"
 
 #: admin/server/nginx.php:230
 msgid "GZip"
-msgstr ""
+msgstr "GZip"
 
 #: admin/server/nginx.php:236
 msgid "GZip Compression Level"
-msgstr ""
+msgstr "GZip nivo kompresije"
 
 #: admin/server/php.php:175
 msgid "View Configuration / PHP"
-msgstr ""
+msgstr "Pogledajte Konfiguracija / PHP"
 
 #: admin/server/php.php:183
 msgid "Max Execution Time"
-msgstr ""
+msgstr "Maks. Vreme izvršenja"
 
 #: admin/server/php.php:189
 msgid "Max Input Time"
-msgstr ""
+msgstr "Maks. Vreme unosa"
 
 #: admin/server/php.php:195
 msgid "Memory Limit"
-msgstr ""
+msgstr "Ograničenje memorije"
 
 #: admin/server/php.php:201
-#, fuzzy
-#| msgid "Error"
 msgid "Error Reporting"
-msgstr "Error"
+msgstr "Izvještavanje o pogreškama"
 
 #: admin/server/php.php:207
 msgid "Display Errors"
-msgstr ""
+msgstr "Greške na zaslonu"
 
 #: admin/server/php.php:213
 msgid "Post Max Size"
-msgstr ""
+msgstr "Veličina maks. Posta"
 
 #: admin/server/php.php:219
 msgid "Upload Max Filesize"
-msgstr ""
+msgstr "Učitaj maksimalnu veličinu datoteke"
 
 #: admin/server/vesta.php:214
 msgid "Configure Server"
-msgstr ""
+msgstr "Konfigurišite server"
 
 #: admin/server/vesta.php:222
-#, fuzzy
-#| msgid "Username"
 msgid "Hostname"
-msgstr "Username"
+msgstr "Ime domaćina"
 
 #: admin/server/vesta.php:676
-#, fuzzy
-#| msgid "Default"
 msgid "Default Language"
-msgstr "Default"
+msgstr "Podrazumevani jezik"
 
 #: admin/server/vesta.php:717
 msgid "Proxy Server"
-msgstr ""
+msgstr "Proxy server"
 
 #: admin/server/vesta.php:723
 msgid "Web Server"
-msgstr ""
+msgstr "Web server"
 
 #: admin/server/vesta.php:729
 msgid "Backend Server"
-msgstr ""
+msgstr "Backend Server"
 
 #: admin/server/vesta.php:740
 msgid "DNS Server"
-msgstr ""
+msgstr "DNS server"
 
 #: admin/server/vesta.php:746
 msgid "DNS Cluster"
-msgstr ""
+msgstr "DNS klaster"
 
 #: admin/server/vesta.php:760
 msgid "Mail Server"
-msgstr ""
+msgstr "Poslužitelj pošte"
 
 #: admin/server/vesta.php:766 list/mail.php:253
 msgid "Antivirus"
-msgstr ""
+msgstr "Antivirus"
 
 #: admin/server/vesta.php:772 list/mail.php:255
 msgid "Antispam"
-msgstr ""
+msgstr "Antispam"
 
 #: admin/server/vesta.php:783
 msgid "MySQL Support"
-msgstr ""
+msgstr "Podrška za MySQL"
 
 #: admin/server/vesta.php:794 admin/server/vesta.php:830 edit/db.php:293
 #: list/db.php:240
 msgid "Host"
-msgstr ""
+msgstr "Domaćin"
 
 #: admin/server/vesta.php:806 admin/server/vesta.php:842
 msgid "Maximum Number of Databases"
-msgstr ""
+msgstr "Maksimalni broj baza podataka"
 
 #: admin/server/vesta.php:812 admin/server/vesta.php:848
 msgid "Current Number of Databases"
-msgstr ""
+msgstr "Trenutni broj baza podataka"
 
 #: admin/server/vesta.php:820
 msgid "PostgreSQL Support"
-msgstr ""
+msgstr "PostgreSQL podrška"
 
 #: admin/server/vesta.php:857 list/backup.php:209 list/backups.php:238
 msgid "Backup"
-msgstr ""
+msgstr "Rezervna kopija"
 
 #: admin/server/vesta.php:861
 msgid "Local Backup"
-msgstr ""
+msgstr "Lokalna izrada sigurnosnih kopija"
 
 #: admin/server/vesta.php:871
 msgid "Compression Level"
-msgstr ""
+msgstr "Nivo kompresije"
 
 #: admin/server/vesta.php:888
 msgid "Directory"
-msgstr ""
+msgstr "Imenik"
 
 #: admin/server/vesta.php:955 edit/domain.php:429
 msgid "Subject"
-msgstr ""
+msgstr "Predmet"
 
 #: admin/server/vesta.php:957 edit/domain.php:431
 msgid "Not Before"
-msgstr ""
+msgstr "Ne prije"
 
 #: admin/server/vesta.php:958 edit/domain.php:432
 msgid "Not After"
-msgstr ""
+msgstr "Not After"
 
 #: admin/server/vesta.php:959 edit/domain.php:433
 msgid "Signature"
-msgstr ""
+msgstr "Potpis"
 
 #: admin/server/vesta.php:960 edit/domain.php:434
 msgid "Pub Key"
-msgstr ""
+msgstr "Pub Key"
 
 #: admin/server/vesta.php:961 edit/domain.php:435
 msgid "Issuer"
-msgstr ""
+msgstr "Izdavalac"
 
 #: admin/server/vesta.php:966
-#, fuzzy
-#| msgid "Control Panel"
 msgid "Vesta Control Panel Plugins"
-msgstr "Control Panel"
+msgstr "Dodaci upravljačke ploče Vesta"
 
 #: admin/server/vesta.php:976
 msgid "FileSystem Disk Quota"
-msgstr ""
+msgstr "Kvota diskovnih datoteka FileSystem"
 
 #: admin/server/vesta.php:996
 msgid "Reseller Role"
-msgstr ""
+msgstr "Uloga prodavača"
 
 #: admin/server/vesta.php:1005
 msgid "Backup Migration Manager"
-msgstr ""
+msgstr "Backup Migration Manager"
 
 #: admin/server/vesta.php:1014
 msgid "SFTP Chroot"
-msgstr ""
+msgstr "SFTP Chroot"
 
 #: admin/server/vesta.php:1024
-msgid ""
-"Restrict users so that they cannot use SSH and access only their home "
-"directory. This is a commercial module, you would need to purchace license "
-"key to enable it."
-msgstr ""
+msgid "Restrict users so that they cannot use SSH and access only their home directory. This is a commercial module, you would need to purchace license key to enable it."
+msgstr "Ograničite korisnike tako da ne mogu koristiti SSH i pristupati samo njihovom matičnom direktoriju. Ovo je komercijalni modul, trebate kupiti ključ licence da biste ga omogućili."
 
 #: admin/server/vesta.php:1027 admin/server/vesta.php:1065
 msgid "License Key"
-msgstr ""
+msgstr "Licenčni ključ"
 
 #: admin/server/vesta.php:1033 admin/server/vesta.php:1071
 msgid "Enter License Key"
-msgstr ""
+msgstr "Unesite licenčni ključ"
 
 #: admin/server/vesta.php:1040
 msgid "Buy License $3/Month"
-msgstr ""
+msgstr "Kupite licencu 3 USD / mjesečno"
 
 #: admin/server/vesta.php:1045
 msgid "Buy Lifetime License $18"
-msgstr ""
+msgstr "Kupite doživotnu licencu 18 USD"
 
 #: admin/server/vesta.php:1048 admin/server/vesta.php:1086
-msgid ""
-"2Checkout.com Inc. (Ohio, USA) is a payment facilitator for goods and "
-"services provided by vestacp.com."
-msgstr ""
+msgid "2Checkout.com Inc. (Ohio, USA) is a payment facilitator for goods and services provided by vestacp.com."
+msgstr "2Checkout.com Inc. (Ohio, SAD) je sredstvo plaćanja roba i usluga koje pruža vestacp.com."
 
 #: admin/server/vesta.php:1052
 msgid "File Manager"
-msgstr ""
+msgstr "File Manager"
 
 #: admin/server/vesta.php:1062
-msgid ""
-"Browse, copy, edit, view, and retrieve all of your web domain files using "
-"fully featured File Manager. This is a commercial module, you would need to "
-"purchace license key to enable it."
-msgstr ""
+msgid "Browse, copy, edit, view, and retrieve all of your web domain files using fully featured File Manager. This is a commercial module, you would need to purchace license key to enable it."
+msgstr "Pregledajte, kopirajte, uređujte, pregledajte i dohvatite sve datoteke vašeg web domena koristeći potpuno opremljeni File Manager. Ovo je komercijalni modul, trebate kupiti ključ licence da biste ga omogućili."
 
 #: admin/server/vesta.php:1078
 msgid "Buy License $5/Month"
-msgstr ""
+msgstr "Kupite licencu 5 USD / mjesečno"
 
 #: admin/server/vesta.php:1083
 msgid "Buy Lifetime License $50"
-msgstr ""
+msgstr "Kupite doživotnu licencu za 50 USD"
 
 #: admin/server/vesta.php:1090 includes/includes.php:432
 msgid "Softaculous"
-msgstr ""
+msgstr "Softaculous"
 
 #: admin/server/vesta.php:1100
 msgid "Plugin installation will run in background."
-msgstr ""
+msgstr "Instalacija dodatka izvest će se u pozadini."
 
 #: admin/server/vesta.php:1100
-msgid ""
-"Softaculous is a great Auto Installer having 426 great scripts, 1115 PHP "
-"Classes and we are still adding more. Softaculous is ideal for Web Hosting "
-"companies and it could give a significant boost to your sales. These scripts "
-"cover most of the uses a customer could ever have. We have covered a wide "
-"array of Categories so that everyone could find the required script one "
-"would need to power their Web Site."
-msgstr ""
+msgid "Softaculous is a great Auto Installer having 426 great scripts, 1115 PHP Classes and we are still adding more. Softaculous is ideal for Web Hosting companies and it could give a significant boost to your sales. These scripts cover most of the uses a customer could ever have. We have covered a wide array of Categories so that everyone could find the required script one would need to power their Web Site."
+msgstr "Softaculous je sjajni Autoinstalater koji ima 426 sjajnih skripti, 1115 klase PHP-a, a mi još dodajemo više. Softaculous je idealan za web hosting kompanije i mogao bi dati značajan podsticaj vašoj prodaji. Ove skripte pokrivaju većinu načina na koje bi kupac ikada mogao imati. Obuhvatili smo širok spektar kategorija kako bi svi mogli pronaći potrebnu skriptu za napajanje na svom web mjestu."
 
 #: admin/server/vesta.php:1103
 msgid "Get Premium License"
-msgstr ""
+msgstr "Nabavite Premium licencu"
 
 #: admin/server/vesta.php:1110 edit/backupexclusions.php:244
 msgid "Save"
-msgstr ""
+msgstr "Spremi"
 
 #: admin/server/vesta.php:1350
-#, fuzzy
-#| msgid "Error"
 msgid "Error Updating Server"
-msgstr "Error"
+msgstr "Pogreška prilikom ažuriranja servera"
 
 #: admin/status/cpu.php:89 admin/status/cpu.php:187 admin/status/db.php:89
 #: admin/status/db.php:187 admin/status/disk.php:89 admin/status/disk.php:187
@@ -2328,134 +2256,99 @@ msgstr "Error"
 #: admin/status/network.php:187 admin/status/web.php:89
 #: admin/status/web.php:186
 msgid "Server Status"
-msgstr ""
+msgstr "Status servera"
 
 #: admin/status/cpu.php:211
-#, fuzzy
-#| msgid "CP"
 msgid "CPU"
-msgstr "CP"
+msgstr "CPU"
 
 #: admin/status/memory.php:211
 msgid "Memory"
-msgstr ""
+msgstr "Memorija"
 
 #: admin/status/network.php:211
 msgid "Network"
-msgstr ""
-
-#: bower_components/moment/min/locales.min.js:1
-msgid "s"
-msgstr ""
-
-#: bower_components/moment/min/locales.min.js:1
-msgid "m"
-msgstr ""
-
-#: bower_components/moment/min/locales.min.js:1
-msgid "h"
-msgstr ""
-
-#: bower_components/moment/min/locales.min.js:1
-msgid "d"
-msgstr ""
-
-#: bower_components/moment/min/locales.min.js:1
-msgid "M"
-msgstr ""
-
-#: bower_components/moment/min/locales.min.js:1
-msgid "y"
-msgstr ""
-
-#: bower_components/moment/min/moment.min.js:1
-msgid ": "
-msgstr ""
+msgstr "Mreža"
 
 #: edit/backupexclusions.php:174
 msgid "Configure Backup Exclusions"
-msgstr ""
+msgstr "Konfiguriranje sigurnosnih kopija izuzetaka"
 
 #: edit/backupexclusions.php:185
-msgid ""
-"Type domain name, one per line. To exclude all domains use *. To exclude "
-"specific directories use the following format: domain.com:public_html/cache:"
-"public_html/tmp"
-msgstr ""
+msgid "Type domain name, one per line. To exclude all domains use *. To exclude specific directories use the following format: domain.com:public_html/cache:public_html/tmp"
+msgstr "Unesite ime domene, jedno po retku. Da biste isključili sve domene, koristite *. Za izuzeće određenih direktorija koristite sljedeći format: domain.com:public_html/cache:public_html/tmp"
 
 #: edit/backupexclusions.php:200
-msgid ""
-"Type domain name, one per line. To exclude all domains use *. To exclude "
-"specific accounts use following format: domain.com:info:support:postmaster"
-msgstr ""
+msgid "Type domain name, one per line. To exclude all domains use *. To exclude specific accounts use following format: domain.com:info:support:postmaster"
+msgstr "Unesite ime domene, jedno po retku. Da biste isključili sve domene, koristite *. Da biste izuzeli određene račune, koristite sljedeći format: domain.com:info:support:postmaster"
 
 #: edit/backupexclusions.php:215
 msgid "Type full database name, one per line. To exclude all databases use *"
-msgstr ""
+msgstr "Unesite puno ime baze podataka, jedno po retku. Da biste isključili sve baze podataka, koristite *"
 
 #: edit/backupexclusions.php:228 index.php:684 list/backups.php:254
 msgid "User Directories"
-msgstr ""
+msgstr "Korisnički imenici"
 
 #: edit/backupexclusions.php:230
 msgid "Type directory name, one per line. To exlude all dirs use *"
-msgstr ""
+msgstr "Upišite naziv direktorija, po jedan u retku. Za izuzeće svih dirs koristite *"
 
 #: edit/backupexclusions.php:306 edit/backupexclusions.php:315
 msgid "Backup Exclusions are incompatible with API Key Authentication."
-msgstr ""
+msgstr "Izuzeci sigurnosnih kopija nisu kompatibilni s provjerom identiteta ključa API-ja."
 
 #: edit/cfrecord.php:216 edit/dnsrecord.php:212
 msgid "Edit DNS Record"
-msgstr ""
+msgstr "Uređivanje DNS zapisa"
 
 #: edit/cfrecord.php:220 edit/dns.php:272 edit/dnsrecord.php:216
 #: list/cfdomain.php:256 list/dnsdomain.php:242 list/dnsdomain.php:248
 msgid "Delete DNS"
-msgstr ""
+msgstr "Izbriši DNS"
 
 #: edit/cfrecord.php:277 edit/dnsrecord.php:320
 msgid "Update Record"
-msgstr ""
+msgstr "Ažuriraj zapis"
 
 #: edit/cfrecord.php:314 list/cfdomain.php:359
 msgid "Delete DNS Record?"
-msgstr ""
+msgstr "Izbrisati DNS zapis?"
 
 #: edit/cron.php:202
 msgid "Edit Cron Job"
-msgstr ""
+msgstr "Uredi Cron Job"
 
 #: edit/cron.php:206 list/backup.php:279 list/cron.php:224
 msgid "Cron Job"
-msgstr ""
+msgstr "Cron Job"
 
 #: edit/cron.php:217 edit/db.php:232 edit/dns.php:297 edit/dnsrecord.php:241
 #: edit/domain.php:249 edit/mail.php:231 edit/mailaccount.php:222
 msgid "CREATED"
-msgstr ""
+msgstr "KREIRANO"
 
 #: edit/cron.php:235 edit/db.php:250 edit/dns.php:315 edit/dnsrecord.php:259
 #: edit/domain.php:267 edit/mail.php:249 edit/mailaccount.php:240 index.php:383
 #: index.php:434 index.php:547 index.php:591
 msgid "STATUS"
-msgstr ""
+msgstr "STATUS"
 
 #: edit/cron.php:300
 msgid "Update Cron"
-msgstr ""
+msgstr "Ažuriraj Cron"
 
 #: edit/cron.php:712 list/cron.php:378
 msgid "Delete Cron Job"
-msgstr ""
+msgstr "Izbriši Cron Job"
 
 #: edit/db.php:203
 msgid "Edit Database"
-msgstr ""
+msgstr "Uređivanje baze podataka"
 
 #: edit/db.php:218 index.php:589
 msgid "DATABASE"
-msgstr ""
+msgstr "BAZA BAZE"
 
 #: edit/db.php:255 edit/dns.php:320 edit/dnsrecord.php:264 edit/domain.php:272
 #: edit/mail.php:254 edit/mailaccount.php:245 index.php:402 index.php:516
@@ -2463,7 +2356,7 @@ msgstr ""
 #: list/dnsdomain.php:306 list/mail.php:271 list/maildomain.php:257
 #: list/web.php:288 process/search.php:227
 msgid "Active"
-msgstr ""
+msgstr "Aktivno"
 
 #: edit/db.php:255 edit/dns.php:320 edit/dnsrecord.php:264 edit/domain.php:272
 #: edit/mail.php:254 edit/mailaccount.php:245 index.php:404 index.php:518
@@ -2471,800 +2364,794 @@ msgstr ""
 #: list/dnsdomain.php:308 list/mail.php:273 list/maildomain.php:259
 #: list/web.php:290 process/search.php:208 process/search.php:229
 msgid "Suspended"
-msgstr ""
+msgstr "Suspendirano"
 
 #: edit/db.php:312
 msgid "Update Database"
-msgstr ""
+msgstr "Ažuriraj bazu podataka"
 
 #: edit/db.php:369 list/db.php:309
 msgid "Delete Database"
-msgstr ""
+msgstr "Izbriši bazu podataka"
 
 #: edit/dns.php:268
 msgid "Edit DNS Domain"
-msgstr ""
+msgstr "Uređivanje DNS domena"
 
 #: edit/dns.php:283 edit/domain.php:235 edit/mail.php:217 index.php:379
 #: index.php:432 index.php:545 list/cfdomain.php:271 list/dnsdomain.php:263
 #: list/maildomain.php:214
 msgid "DOMAIN"
-msgstr ""
+msgstr "DOMAIN"
 
 #: edit/dns.php:363
 msgid "Expiration Date"
-msgstr ""
+msgstr "Datum isteka"
 
 #: edit/dns.php:376 list/dns.php:256
 msgid "SOA (Start of Authority)"
-msgstr ""
+msgstr "SOA (početak vlasti)"
 
 #: edit/dns.php:381
 msgid "TTL (Time To Live)"
-msgstr ""
+msgstr "TTL (Vrijeme za život)"
 
 #: edit/dns.php:426 edit/domain.php:601 edit/mail.php:320
 msgid "Update Domain"
-msgstr ""
+msgstr "Ažuriraj domen"
 
 #: edit/dns.php:469 list/cfdomain.php:381 list/dns.php:443
 #: list/dnsdomain.php:397
 msgid "Delete DNS Domain"
-msgstr ""
+msgstr "Izbrišite DNS domen"
 
 #: edit/dns.php:530
 msgid "Error Updating DNS Domain"
-msgstr ""
+msgstr "Pogreška prilikom ažuriranja DNS domene"
 
 #: edit/dnsrecord.php:227
 msgid "RECORD"
-msgstr ""
+msgstr "RECORD"
 
 #: edit/dnsrecord.php:312
 msgid "Order"
-msgstr ""
+msgstr "Naredba"
 
 #: edit/dnsrecord.php:357 list/dnsdomain.php:376
 msgid "Delete DNS Record"
-msgstr ""
+msgstr "Izbriši DNS zapis"
 
 #: edit/dnsrecord.php:402 edit/mail.php:402 edit/mailaccount.php:700
 #: list/maildomain.php:416
 msgid "Successfully updated!"
-msgstr ""
+msgstr "Uspješno ažurirano!"
 
 #: edit/dnsrecord.php:406
 msgid "Error Updating DNS Record"
-msgstr ""
+msgstr "Pogreška prilikom ažuriranja DNS zapisa"
 
 #: edit/domain.php:220
 msgid "Edit Web Domain"
-msgstr ""
+msgstr "Uređivanje web domena"
 
 #: edit/domain.php:740
 msgid "Delete Domain"
-msgstr ""
+msgstr "Izbriši domen"
 
 #: edit/domain.php:806
 msgid "Error Updating Web Domain"
-msgstr ""
+msgstr "Pogreška prilikom ažuriranja web domena"
 
 #: edit/mail.php:202
 msgid "Edit Mail Domain"
-msgstr ""
+msgstr "Uređivanje domena pošte"
 
 #: edit/mail.php:206 edit/mailaccount.php:211 list/maildomain.php:203
 msgid "Delete Mail"
-msgstr ""
+msgstr "Izbriši poštu"
 
 #: edit/mail.php:312
 msgid "Catchall Email"
-msgstr ""
+msgstr "Catchall Email"
 
 #: edit/mail.php:357 list/mail.php:345 list/maildomain.php:340
 msgid "Delete Mail Domain"
-msgstr ""
+msgstr "Brisanje domena pošte"
 
 #: edit/mail.php:405
 msgid "Error Updating Mail Domain"
-msgstr ""
+msgstr "Pogreška prilikom ažuriranja domene pošte"
 
 #: edit/mailaccount.php:207
 msgid "Edit Mail Account"
-msgstr ""
+msgstr "Uređivanje računa za poštu"
 
 #: edit/mailaccount.php:259
 msgid "Email Addresss"
-msgstr ""
+msgstr "Adresa e-pošte"
 
 #: edit/mailaccount.php:293
 msgid "One or more email addresses"
-msgstr ""
+msgstr "Jedna ili više adresa e-pošte"
 
 #: edit/mailaccount.php:331
 msgid "Update Account"
-msgstr ""
+msgstr "Ažurirajte račun"
 
 #: edit/mailaccount.php:656 list/maildomain.php:319
 msgid "Delete Mail Account"
-msgstr ""
+msgstr "Izbriši račun za poštu"
 
 #: edit/mailaccount.php:703
 msgid "Error Updating Mail Account"
-msgstr ""
+msgstr "Pogreška prilikom ažuriranja računa pošte"
 
 #: includes/includes.php:360
 msgid "Home"
-msgstr ""
+msgstr "Dom"
 
 #: includes/includes.php:369
 msgid "Administration"
-msgstr ""
+msgstr "Administracija"
 
 #: includes/includes.php:375
 msgid "Statistics"
-msgstr ""
+msgstr "Statistika"
 
 #: includes/includes.php:401 log.php:95 log.php:181 log.php:222 profile.php:226
-#, fuzzy
-#| msgid "Login"
 msgid "Log"
-msgstr "Login"
+msgstr "Prijavite se"
 
 #: includes/includes.php:426
 msgid "Apps"
-msgstr ""
+msgstr "Aplikacije"
 
 #: includes/includes.php:430 list/db.php:227
 msgid "phpMyAdmin"
-msgstr ""
+msgstr "phpMyAdmin"
 
 #: includes/includes.php:431 list/db.php:227
 msgid "phpPgAdmin"
-msgstr ""
+msgstr "phpPgAdmin"
 
 #: includes/includes.php:435
 msgid "Log out"
-msgstr ""
+msgstr "Odjaviti se"
 
 #: includes/includes.php:437
 msgid "Control Panel v1"
-msgstr ""
+msgstr "Upravljačka ploča v1"
 
 #: includes/includes.php:438
 msgid "Support"
-msgstr ""
+msgstr "Podrška"
 
 #: includes/includes.php:489 includes/includes.php:506 login.php:287
 #: login.php:304 register.php:197 register.php:214
 msgid "Includes folder has not been secured"
-msgstr "Includes folder has not been secured"
+msgstr "Uključuje mapu nije osigurana"
 
 #: includes/includes.php:496 login.php:294 login.php:311 register.php:204
 #: register.php:221
 msgid "Database Error"
-msgstr ""
+msgstr "Pogreška baze podataka"
 
 #: includes/includes.php:497 includes/includes.php:514 login.php:295
 #: login.php:312 register.php:205 register.php:222
 msgid "MySQL Server Failed To Connect"
-msgstr ""
+msgstr "Povezivanje MySQL servera nije uspjelo"
 
 #: includes/includes.php:513
 msgid "Database Error:"
-msgstr ""
+msgstr "Pogreška baze podataka:"
 
 #: includes/includes.php:704
 msgid "Vesta Web Interface"
-msgstr ""
+msgstr "Vesta interfejs"
 
 #: includes/includes.php:706
 msgid "by Carter Roeser"
-msgstr ""
+msgstr "Carter Roeser"
 
 #: index.php:119
 msgid "Dashboard"
-msgstr ""
+msgstr "Nadzorna ploča"
 
 #: index.php:252
 msgid "Host Dashboard"
-msgstr ""
+msgstr "Nadzorna ploča domaćina"
 
 #: index.php:258
 msgid "Rebuild Account"
-msgstr ""
+msgstr "Obnovi račun"
 
 #: index.php:259
 msgid "Rebuild Web"
-msgstr ""
+msgstr "Obnovi Web"
 
 #: index.php:260
 msgid "Rebuild DNS"
-msgstr ""
+msgstr "Ponovo izgradite DNS"
 
 #: index.php:261
 msgid "Rebuild Mail"
-msgstr ""
+msgstr "Obnovi poštu"
 
 #: index.php:262
 msgid "Rebuild DB"
-msgstr ""
+msgstr "Obnovite DB"
 
 #: index.php:263
 msgid "Rebuild Cron"
-msgstr ""
+msgstr "Obnovi Cron"
 
 #: index.php:264
 msgid "Update Counters"
-msgstr ""
+msgstr "Ažurirajte brojila"
 
 #: index.php:307
 msgid "Disk Space"
-msgstr ""
+msgstr "Prostor na disku"
 
 #: index.php:339
 msgid "Email Addresses"
-msgstr ""
+msgstr "E-adrese"
 
 #: index.php:366 list/web.php:199
 msgid "Manage Web Domains"
-msgstr ""
+msgstr "Upravljanje web domenama"
 
 #: index.php:371 index.php:424 index.php:537 index.php:581
 msgid "Manage"
-msgstr ""
+msgstr "Upravljajte"
 
 #: index.php:380
 msgid "DISK"
-msgstr ""
+msgstr "DISK"
 
 #: index.php:381
 msgid "BANDWIDTH"
-msgstr ""
+msgstr "BANDWIDTH"
 
 #: index.php:382 list/web.php:273 process/csr.php:97 process/generatecsr.php:91
 msgid "SSL"
-msgstr ""
+msgstr "SSL"
 
 #: index.php:419 list/dns.php:190
 msgid "Manage DNS Domains"
-msgstr ""
+msgstr "Upravljanje DNS domenama"
 
 #: index.php:423
 msgid "Add DNS"
-msgstr ""
+msgstr "Dodajte DNS"
 
 #: index.php:433 list/dns.php:214
 msgid "RECORDS"
-msgstr ""
+msgstr "ZAPISOVI"
 
 #: index.php:532 list/mail.php:186
 msgid "Manage Mail Domains"
-msgstr ""
+msgstr "Upravljanje domenama pošte"
 
 #: index.php:536
 msgid "Add Mail"
-msgstr ""
+msgstr "Dodajte poštu"
 
 #: index.php:546 list/mail.php:209
 msgid "ACCOUNTS"
-msgstr ""
+msgstr "RAČUNI"
 
 #: index.php:576 list/db.php:189
 msgid "Manage Databases"
-msgstr ""
+msgstr "Upravljanje bazama podataka"
 
 #: index.php:590
 msgid "USER"
-msgstr ""
+msgstr "KORISNIK"
 
 #: index.php:622
 msgid "Disk Quota Used"
-msgstr ""
+msgstr "Kvota diska korištena"
 
 #: index.php:627
 msgid "Total Disk Space"
-msgstr ""
+msgstr "Ukupan prostor na disku"
 
 #: index.php:638
 msgid "Disk Usage Breakdown"
-msgstr ""
+msgstr "Podjela upotrebe diska"
 
 #: index.php:646
 msgid "Web Data"
-msgstr ""
+msgstr "Web podaci"
 
 #: index.php:658
 msgid "Mail Data"
-msgstr ""
+msgstr "Podaci o pošti"
 
 #: index.php:759
 msgid "Account Details"
-msgstr ""
+msgstr "Detalji računa"
 
 #: index.php:764 profile.php:275
 msgid "Plan"
-msgstr ""
+msgstr "Plan"
 
 #: index.php:766
 msgid "Disk Quota"
-msgstr ""
+msgstr "Kvota diska"
 
 #: list/backup.php:206
 msgid "Configure Backup"
-msgstr ""
+msgstr "Konfigurirajte sigurnosnu kopiju"
 
 #: list/backup.php:206 list/backup.php:253 list/backup.php:260
 #: list/backup.php:267 list/backup.php:274 list/backup.php:281
 #: list/backup.php:288
 msgid "Restore"
-msgstr ""
+msgstr "Vrati"
 
 #: list/backup.php:220
 msgid "BACKUP"
-msgstr ""
+msgstr "BACKUP"
 
 #: list/backup.php:234
 msgid "Restore All"
-msgstr ""
+msgstr "Vrati sve"
 
 #: list/backup.php:236
 msgid "Backed Up"
-msgstr ""
+msgstr "Podupirač gore"
 
 #: list/backup.php:236 list/backup.php:242
 msgid "Data"
-msgstr ""
+msgstr "Podaci"
 
 #: list/backup.php:286
 msgid "User Dir"
-msgstr ""
+msgstr "Korisnik Dir"
 
 #: list/backup.php:324 list/backups.php:326
 msgid "Delete Backup"
-msgstr ""
+msgstr "Izbriši sigurnosnu kopiju"
 
 #: list/backup.php:353 list/backup.php:360 list/cron.php:331 list/cron.php:366
 msgid "Please try again later or contact support."
-msgstr ""
+msgstr "Pokušajte ponovo kasnije ili se obratite podršci."
 
 #: list/backup.php:358 list/backups.php:356
 msgid "Backup Scheduled!"
-msgstr ""
+msgstr "Backup Scheduled!"
 
 #: list/backups.php:137
 msgid "Confirm Password"
-msgstr ""
+msgstr "Potvrdi šifru"
 
 #: list/backups.php:140
 msgid "Submit"
-msgstr ""
+msgstr "Pošaljite"
 
 #: list/backups.php:215
 msgid "Manage Backups"
-msgstr ""
+msgstr "Upravljanje sigurnosnim kopijama"
 
 #: list/backups.php:224
 msgid "BACKUPS"
-msgstr ""
+msgstr "BACKUPS"
 
 #: list/backups.php:238
 msgid "Schedule "
-msgstr ""
+msgstr "Raspored "
 
 #: list/backups.php:239
 msgid "Backup "
-msgstr ""
+msgstr "Rezervna kopija "
 
 #: list/backups.php:239
 msgid "Exclusions"
-msgstr ""
+msgstr "Izuzeci"
 
 #: list/backups.php:246
 msgid "Backup Name"
-msgstr ""
+msgstr "Backup Name"
 
 #: list/backups.php:247
 msgid "Size"
-msgstr ""
+msgstr "Veličina"
 
 #: list/backups.php:253
 msgid "Cron"
-msgstr ""
+msgstr "Cron"
 
 #: list/backups.php:256
 msgid "Runtime"
-msgstr ""
+msgstr "Runtime"
 
 #: list/backups.php:270
 msgid "Configure Restore"
-msgstr ""
+msgstr "Konfiguriši vraćanje"
 
 #: list/backups.php:273 list/backups.php:274 list/backups.php:275
 #: list/backups.php:276 list/backups.php:277 list/backups.php:278
 msgid "Not Backed Up"
-msgstr ""
+msgstr "Nije poduprt"
 
 #: list/backups.php:359
 msgid "Restore Scheduled!"
-msgstr ""
+msgstr "Vrati po rasporedu!"
 
 #: list/cfdomain.php:252
 msgid "Manage DNS"
-msgstr ""
+msgstr "Upravljanje DNS-om"
 
 #: list/cfdomain.php:260
 msgid "Disable"
-msgstr ""
+msgstr "Onemogući"
 
 #: list/cfdomain.php:260 list/dns.php:261 list/dnsdomain.php:252
 msgid "Cloudflare"
-msgstr ""
+msgstr "Cloudflare"
 
 #: list/cfdomain.php:287 list/dns.php:251 list/dnsdomain.php:278
 msgid "Records"
-msgstr ""
+msgstr "Zapisi"
 
 #: list/cfdomain.php:294 list/dnsdomain.php:285
 msgid "Value"
-msgstr ""
+msgstr "Vrijednost"
 
 #: list/cfdomain.php:295 list/web.php:267
 msgid "Proxy"
-msgstr ""
+msgstr "Proxy"
 
 #: list/cfdomain.php:310
 msgid "On"
-msgstr ""
+msgstr "On"
 
 #: list/cfdomain.php:312
 msgid "Off"
-msgstr ""
+msgstr "Isključeno"
 
 #: list/cfdomain.php:314
 msgid "N/A"
-msgstr ""
+msgstr "N / A"
 
 #: list/cron.php:187
 msgid "Manage Cron Jobs"
-msgstr ""
+msgstr "Upravljanje Cron poslovima"
 
 #: list/cron.php:196
 msgid "CRON JOBS"
-msgstr ""
+msgstr "CRON JOBS"
 
 #: list/cron.php:210 list/db.php:212 list/dns.php:229 list/mail.php:224
 #: list/web.php:238
 msgid "SUSPENDED"
-msgstr ""
+msgstr "OSUĐENO"
 
 #: list/cron.php:224 list/db.php:226 list/dns.php:243 list/web.php:252
 msgid "Add "
-msgstr ""
+msgstr "Dodati "
 
 #: list/cron.php:225
 msgid "Disable Cron "
-msgstr ""
+msgstr "Onemogući Cron "
 
 #: list/cron.php:225
 msgid "Enable Cron "
-msgstr ""
+msgstr "Omogući Cron "
 
 #: list/cron.php:225
 msgid "Enable Cron Notifications"
-msgstr ""
+msgstr "Omogući Cron Obavijesti"
 
 #: list/cron.php:232
 msgid "Job"
-msgstr ""
+msgstr "Posao"
 
 #: list/cron.php:237
 msgid "Frequency"
-msgstr ""
+msgstr "Učestalost"
 
 #: list/cron.php:326
 msgid "Error Disabling Notifications"
-msgstr ""
+msgstr "Pogreška onemogućavanja obavijesti"
 
 #: list/cron.php:361
 msgid "Error Enabling Notifications"
-msgstr ""
+msgstr "Pogreška prilikom omogućavanja obavijesti"
 
 #: list/cron.php:400
 msgid "Suspend Cron Job"
-msgstr ""
+msgstr "Obustavi posao Cron"
 
 #: list/cron.php:421
 msgid "Unsuspend Cron Job"
-msgstr ""
+msgstr "Unsuspend Cron Job"
 
 #: list/db.php:197
 msgid "DATABASES"
-msgstr ""
+msgstr "BAZE PODATAKA"
 
 #: list/db.php:236 list/mail.php:247 list/maildomain.php:236 list/web.php:260
 msgid "Disk Usage"
-msgstr ""
+msgstr "Upotreba diska"
 
 #: list/db.php:242
 msgid "Character Set"
-msgstr ""
+msgstr "Set znakova"
 
 #: list/db.php:331
 msgid "Suspend Database"
-msgstr ""
+msgstr "Obustavi bazu podataka"
 
 #: list/db.php:352
 msgid "Unsuspend Database"
-msgstr ""
+msgstr "Neponovna baza podataka"
 
 #: list/dns.php:199 list/mail.php:194 list/web.php:208
 msgid "DOMAINS"
-msgstr ""
+msgstr "DOMENE"
 
 #: list/dns.php:250
 msgid "Domain Name"
-msgstr ""
+msgstr "Ime domena"
 
 #: list/dns.php:259
 msgid "Expiration"
-msgstr ""
+msgstr "Istek"
 
 #: list/dns.php:260
 msgid "Serial"
-msgstr ""
+msgstr "Serijski"
 
 #: list/dns.php:262
 msgid "Cloudflare Level"
-msgstr ""
+msgstr "Nivo oblaka"
 
 #: list/dns.php:263
 msgid "Cloudflare SSL"
-msgstr ""
+msgstr "Cloudflare SSL"
 
 #: list/dns.php:367 list/dns.php:368
 msgid "List Records"
-msgstr ""
+msgstr "Lista zapisa"
 
 #: list/dns.php:378
 msgid "Disable Cloudflare"
-msgstr ""
+msgstr "Onemogući Cloudflare"
 
 #: list/dns.php:380
 msgid "Enable Cloudflare"
-msgstr ""
+msgstr "Omogući Cloudflare"
 
 #: list/dns.php:391
 msgid "Unavailable"
-msgstr ""
+msgstr "Nedostupno"
 
 #: list/dns.php:394 list/dns.php:395
 msgid "Cloudflare Disabled"
-msgstr ""
+msgstr "Cloudflare Disabled"
 
 #: list/dns.php:394 list/dns.php:395
 msgid "Cloudflare Unavailable"
-msgstr ""
+msgstr "Cloudflare nije dostupan"
 
 #: list/dns.php:465
 msgid "Suspend DNS Domain"
-msgstr ""
+msgstr "Obustavi DNS domen"
 
 #: list/dns.php:486
 msgid "Unsuspend DNS Domain"
-msgstr ""
+msgstr "Poništavanje DNS domena"
 
 #: list/dns.php:513
 msgid "Cloudflare Enabled!"
-msgstr ""
+msgstr "Cloudflare omogućeno!"
 
 #: list/dns.php:516
 msgid "Cloudflare Disabled!"
-msgstr ""
+msgstr "Cloudflare je onemogućen!"
 
 #: list/dnsdomain.php:238
 msgid "Manage DNS Domain"
-msgstr ""
+msgstr "Upravljanje DNS domenom"
 
 #: list/dnsdomain.php:252
 msgid "Enable"
-msgstr ""
+msgstr "Omogući"
 
 #: list/mail.php:246 list/maildomain.php:230
 msgid "Accounts"
-msgstr ""
+msgstr "Računi"
 
 #: list/mail.php:251
 msgid "CatchAll"
-msgstr ""
+msgstr "CatchAll"
 
 #: list/mail.php:256
 msgid "DKIM"
-msgstr ""
+msgstr "DKIM"
 
 #: list/mail.php:277
 msgid "Add Accounts"
-msgstr ""
+msgstr "Dodajte račune"
 
 #: list/mail.php:278
 msgid "List Accounts"
-msgstr ""
+msgstr "Lista računa"
 
 #: list/mail.php:367
 msgid "Suspend Mail Domain"
-msgstr ""
+msgstr "Obustavi domenu pošte"
 
 #: list/mail.php:388
 msgid "Unsuspend Mail Domain"
-msgstr ""
+msgstr "Poništavanje domene pošte"
 
 #: list/maildomain.php:199
 msgid "Manage Mail Accounts"
-msgstr ""
+msgstr "Upravljanje računima pošte"
 
 #: list/maildomain.php:363
 msgid "Suspend Mail Account"
-msgstr ""
+msgstr "Obustavi račun pošte"
 
 #: list/maildomain.php:385
 msgid "Unsuspend Mail Account"
-msgstr ""
+msgstr "Poništi račun računa"
 
 #: list/maildomain.php:420
 msgid "Error Adding Mail Domain"
-msgstr ""
+msgstr "Pogreška prilikom dodavanja domene pošte"
 
 #: list/web.php:223
 msgid "ALIASES"
-msgstr ""
+msgstr "ALIASES"
 
 #: list/web.php:266
 msgid "Web "
-msgstr ""
+msgstr "Web "
 
 #: list/web.php:266
 msgid "Template"
-msgstr ""
+msgstr "Šablon"
 
 #: list/web.php:268
 msgid "Backend Template"
-msgstr ""
+msgstr "Predložak pozadine"
 
 #: list/web.php:268
 msgid "Backend"
-msgstr ""
+msgstr "Backend"
 
 #: list/web.php:294
 msgid "View Logs"
-msgstr ""
+msgstr "Pregled zapisa"
 
 #: list/web.php:298
 msgid "View Stats"
-msgstr ""
+msgstr "Pogledaj statistiku"
 
 #: list/web.php:370
 msgid "Delete Web Domain"
-msgstr ""
+msgstr "Brisanje web domena"
 
 #: list/web.php:392
 msgid "Suspend Web Domain"
-msgstr ""
+msgstr "Obustavi web domen"
 
 #: list/web.php:413
 msgid "Unsuspend Web Domain"
-msgstr ""
+msgstr "Poništavanje web domena"
 
 #: list/web.php:442
 msgid "Error Deleting Web Domain"
-msgstr ""
+msgstr "Pogreška pri brisanju web domena"
 
 #: list/web.php:449 list/web.php:452
 msgid "Error Creating Web Domain"
-msgstr ""
+msgstr "Pogreška prilikom kreiranja web domena"
 
 #: log.php:192
 msgid "User Log"
-msgstr ""
+msgstr "Korisnički dnevnik"
 
 #: log.php:221
 msgid "Time"
-msgstr ""
+msgstr "Vreme"
 
 #: log/access.php:94 log/access.php:199
 msgid "Access Log"
-msgstr ""
+msgstr "Dnevnik pristupa"
 
 #: log/access.php:218
 msgid "AccessLog"
-msgstr ""
+msgstr "AccessLog"
 
 #: log/access.php:219
-#, fuzzy
-#| msgid "Error"
 msgid "ErrorLog"
-msgstr "Error"
+msgstr "ErrorLog"
 
 #: log/error.php:94 log/error.php:199
-#, fuzzy
-#| msgid "Error"
 msgid "Error Log"
-msgstr "Error"
+msgstr "Dnevnik grešaka"
 
 #: log/error.php:218
 msgid "Download Accesslog"
-msgstr ""
+msgstr "Preuzmite Accesslog"
 
 #: log/error.php:219
 msgid "Download Errorlog"
-msgstr ""
+msgstr "Preuzmite pogrešku"
 
 #: login.php:76 login.php:249
 msgid "Login"
-msgstr "Login"
+msgstr "Ulogovati se"
 
 #: login.php:118
 msgid "Account has been successfully created!"
-msgstr "Account has been successfully created!"
+msgstr "Nalog je uspješno kreiran!"
 
 #: login.php:120
 msgid "Please fill out all sections of the form."
-msgstr "Please fill out all sections of the form."
+msgstr "Molimo ispunite sve odjeljke obrasca."
 
 #: login.php:123
 msgid "Invalid data entered in form. Please try again."
-msgstr "Invalid data entered in form. Please try again."
+msgstr "Nevažeći podaci uneseni u obrazac. Molimo pokušajte ponovo."
 
 #: login.php:126
 msgid "Server or form error (Code: 3). Please contact support."
-msgstr "Server or form error (Code: 3). Please contact support."
+msgstr "Pogreška poslužitelja ili obrasca (Kod: 3). Molimo kontaktirajte podršku."
 
 #: login.php:129
 msgid "Account already exists under same username."
-msgstr "Account already exists under same username."
+msgstr "Račun već postoji pod istim korisničkim imenom."
 
 #: login.php:132
 msgid "System Error (Code: 12). Please contact support."
-msgstr "System Error (Code: 12). Please contact support."
+msgstr "Greška sistema (Kod: 12). Molimo kontaktirajte podršku."
 
 #: login.php:135
 msgid "Server Error (Code: 13). Please contact support."
-msgstr "Server Error (Code: 13). Please contact support."
+msgstr "Greška servera (kod: 13). Molimo kontaktirajte podršku."
 
 #: login.php:138
 msgid "Server Error (Code: 14). Please contact support."
-msgstr "Server Error (Code: 14). Please contact support."
+msgstr "Greška servera (kod: 14). Molimo kontaktirajte podršku."
 
 #: login.php:141
 msgid "System Error (Code: 15). Please contact support."
-msgstr "System Error (Code: 15). Please contact support."
+msgstr "Greška sistema (kod: 15). Molimo kontaktirajte podršku."
 
 #: login.php:144
 msgid "Server Error (Code: 16). Please contact support."
-msgstr "Server Error (Code: 16). Please contact support."
+msgstr "Greška servera (kod: 16). Molimo kontaktirajte podršku."
 
 #: login.php:147
 msgid "Server Error (Code: 17). Please contact support."
-msgstr "Server Error (Code: 17). Please contact support."
+msgstr "Greška u poslužitelju (Kod: 17). Molimo kontaktirajte podršku."
 
 #: login.php:150
 msgid "Process Error (Code: 18). Please contact support."
-msgstr "Process Error (Code: 18). Please contact support."
+msgstr "Pogreška u procesu (Kod: 18). Molimo kontaktirajte podršku."
 
 #: login.php:153
 msgid "Process Error (Code: 19). Please contact support."
-msgstr "Process Error (Code: 19). Please contact support."
+msgstr "Pogreška u procesu (Kod: 19). Molimo kontaktirajte podršku."
 
 #: login.php:156
 msgid "Fatal Error (Code: 20). Please contact support."
-msgstr "Fatal Error (Code: 20). Please contact support."
+msgstr "Fatalna greška (šifra: 20). Molimo kontaktirajte podršku."
 
 #: login.php:167 register.php:107
 msgid "Control Panel"
-msgstr "Control Panel"
+msgstr "Kontrolna tabla"
 
 #: login.php:174
 msgid "Sign In to"
-msgstr "Sign In to"
+msgstr "Prijavite se na"
 
 #: login.php:174
 msgid "CP"
@@ -3272,145 +3159,129 @@ msgstr "CP"
 
 #: login.php:175 register.php:114
 msgid "Enter your details below"
-msgstr "Enter your details below"
+msgstr "Unesite svoje podatke u nastavku"
 
 #: login.php:196
 msgid "Loading Dashboard"
-msgstr "Loading Dashboard"
+msgstr "Učitavanje nadzorne ploče"
 
 #: login.php:200
 msgid "Error: Incorrect Login."
-msgstr "Error: Incorrect Login."
+msgstr "Greška: Netačno prijavljivanje."
 
 #: login.php:219
 msgid "Forgot pwd?"
-msgstr "Forgot pwd?"
+msgstr "Zaboravio pwd?"
 
 #: login.php:223
 msgid "Log in"
-msgstr "Log in"
+msgstr "Ulogovati se"
 
 #: login.php:230
 msgid "Don't have an account?"
-msgstr "Don't have an account?"
+msgstr "Nemate račun?"
 
 #: login.php:230 register.php:143
 msgid "Sign Up"
-msgstr "Sign Up"
+msgstr "Prijaviti se"
 
 #: login.php:237
 msgid "Recover Password"
-msgstr "Recover Password"
+msgstr "Oporavi lozinku"
 
 #: login.php:238
 msgid "Enter your username and instructions will be sent to you."
-msgstr "Enter your username and instructions will be sent to you."
+msgstr "Unesite svoje korisničko ime i uputstva će vam biti poslana."
 
 #: login.php:254
 msgid "Reset"
-msgstr "Reset"
+msgstr "Resetovati"
 
 #: login.php:320 register.php:230
-#, fuzzy
-#| msgid "Failed to connect to server."
 msgid "Failed to connect to server. Please check config."
-msgstr "Failed to connect to server."
+msgstr "Neuspjelo povezivanje na server. Molimo provjerite config."
 
 #: process/generatecsr.php:232
 msgid "Process"
-msgstr ""
+msgstr "Proces"
 
 #: process/search.php:89
 msgid "Search"
-msgstr ""
+msgstr "Traži"
 
 #: process/search.php:194
 msgid "Search Results"
-msgstr ""
+msgstr "Rezultati pretrage"
 
 #: process/search.php:204
 msgid "Result"
-msgstr ""
+msgstr "Rezultat"
 
 #: process/search.php:206
 msgid "Key"
-msgstr ""
+msgstr "Ključ"
 
 #: process/search.php:207
 msgid "Parent"
-msgstr ""
+msgstr "Roditelj"
 
 #: profile.php:143
 msgid "Invalid data entered in form."
-msgstr ""
+msgstr "Nevažeći podaci uneseni u obrazac."
 
 #: profile.php:143
 msgid "Please try again."
-msgstr ""
+msgstr "Molimo pokušajte ponovo."
 
 #: profile.php:270
 msgid "Joined"
-msgstr ""
+msgstr "Pridružio"
 
 #: profile.php:413
 msgid "Update Profile"
-msgstr ""
+msgstr "Ažuriraj profil"
 
 #: profile.php:549
 msgid "Error Updating Profile"
-msgstr ""
+msgstr "Pogreška prilikom ažuriranja profila"
 
 #: register.php:62
 msgid "Register"
-msgstr "Register"
+msgstr "Registrujte se"
 
 #: register.php:114
 msgid "Sign up for"
-msgstr "Sign up for"
+msgstr "Prijavi se za"
 
 #: register.php:118 register.php:119
 msgid "2 to 28 Letters Only. Apostrophes and hyphens allowed."
-msgstr "2 to 28 Letters Only. Apostrophes and hyphens allowed."
+msgstr "2 do 28 slova. Dopušteni su apostrofi i crtice."
 
 #: register.php:123
 msgid "Invalid Email Address"
-msgstr "Invalid Email Address"
+msgstr "Pogrešna email adresa"
 
 #: register.php:127
 msgid "2 to 28 Characters A-Z, 0-9, '-' '.' and '_' Only."
-msgstr "2 to 28 Characters A-Z, 0-9, '-' '.' and '_' Only."
+msgstr "2 do 28 znakova A-Z, 0-9, '-' '.' i samo '_'."
 
 #: register.php:131
-msgid ""
-"Minimum 6 Characters: One uppercade letter, lowercase letter and number "
-"reuired."
-msgstr ""
-"Minimum 6 Characters: One uppercade letter, lowercase letter and number "
-"reuired."
+msgid "Minimum 6 Characters: One uppercade letter, lowercase letter and number reuired."
+msgstr "Minimalno 6 znakova: Jedno veliko slovo, malo slovo i ponovno uneti broj."
 
 #: register.php:133
 msgid "Confirm Pass"
-msgstr "Confirm Pass"
+msgstr "Potvrdi prolaz"
 
 #: register.php:148
 msgid "Already have an account?"
-msgstr "Already have an account?"
+msgstr "Već imate račun?"
 
 #: register.php:148
 msgid "Sign in"
-msgstr "Sign in"
+msgstr "Prijavite se"
 
 #: register.php:161
 msgid "Passwords do not match"
-msgstr "Passwords do not match"
+msgstr "Lozinke se ne podudaraju"
 
-#~ msgid "Warning"
-#~ msgstr "Warning"
-
-#~ msgid "Error"
-#~ msgstr "Error"
-
-#, fuzzy
-#~| msgid "Please check config.php"
-#~ msgid "Please check config."
-#~ msgstr "Please check config.php"
