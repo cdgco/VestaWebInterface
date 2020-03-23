@@ -22,20 +22,19 @@
 *
 */
 
-include("version.php");
+include("includes/version.php");
 
 $ch = curl_init();
 
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_URL, "https://api.github.com/repos/cdgco/VestaWebInterface/tags?access_token=7925793d9426bdd79702dfb6b6de936af7560e74");
+curl_setopt($ch, CURLOPT_URL, "https://api.github.com/repos/cdgco/VestaWebInterface/releases/latest?access_token=7925793d9426bdd79702dfb6b6de936af7560e74");
 curl_setopt($ch,CURLOPT_USERAGENT,'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
 
 $data = curl_exec($ch);
 curl_close($ch);
-
 $data2 = json_decode($data, true);
-$ghversion = $data2[0]['name'];
+$ghversion = $data2[0]['tag_name'];
 
 $ghsimplified = preg_replace("/[^0-9]/", "", $ghversion );
 $currentsimplified = preg_replace("/[^0-9]/", "", $currentversion );
