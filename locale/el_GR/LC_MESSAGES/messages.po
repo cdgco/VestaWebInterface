@@ -1,21 +1,11 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"POT-Creation-Date: 2019-09-15 21:33-0700\n"
-"PO-Revision-Date: 2019-09-15 21:33-0700\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.3\n"
-"X-Poedit-Basepath: ../../../../VestaWebInterface\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: plugins\n"
-"X-Poedit-SearchPathExcluded-1: install/web\n"
-"X-Poedit-SearchPathExcluded-2: bootstrap\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Vesta Web Interface\n"
+"Language: el\n"
 
 #: add/cfrecord.php:130 add/dns.php:87 add/dnsrecord.php:130
 #: admin/add/fail2ban.php:189 admin/list/stats.php:235
@@ -595,7 +585,7 @@ msgstr ""
 #: edit/mailaccount.php:551 index.php:762 list/db.php:235 login.php:206
 #: login.php:207 login.php:243 profile.php:318 register.php:127
 msgid "Username"
-msgstr "Username"
+msgstr ""
 
 #: add/db.php:204
 msgid "Max Length 16 Characters Including Prefix"
@@ -612,7 +602,7 @@ msgstr ""
 #: edit/mailaccount.php:518 edit/mailaccount.php:552 list/backups.php:140
 #: login.php:212 login.php:213 profile.php:324 register.php:131
 msgid "Password"
-msgstr "Password"
+msgstr ""
 
 #: add/db.php:232
 msgid "Hosts"
@@ -1171,10 +1161,8 @@ msgstr ""
 
 #: admin/add/user.php:91 admin/edit/user.php:97 admin/list/ip.php:210
 #: admin/list/users.php:90 admin/list/users.php:220 includes/includes.php:371
-#, fuzzy
-#| msgid "Username"
 msgid "Users"
-msgstr "Username"
+msgstr ""
 
 #: admin/add/user.php:177 admin/add/user.php:234
 msgid "Add User"
@@ -1183,7 +1171,7 @@ msgstr ""
 #: admin/add/user.php:198 admin/edit/user.php:206 index.php:763
 #: list/maildomain.php:235 profile.php:344 register.php:123
 msgid "Email"
-msgstr "Email"
+msgstr ""
 
 #: admin/add/user.php:204 admin/edit/user.php:213 admin/list/packages.php:208
 msgid "Package"
@@ -1192,12 +1180,12 @@ msgstr ""
 #: admin/add/user.php:221 admin/edit/user.php:269 profile.php:332
 #: register.php:118
 msgid "First Name"
-msgstr "First Name"
+msgstr ""
 
 #: admin/add/user.php:227 admin/edit/user.php:276 profile.php:338
 #: register.php:119
 msgid "Last Name"
-msgstr "Last Name"
+msgstr ""
 
 #: admin/edit/firewall.php:179
 msgid "Edit Firewall Rule"
@@ -1394,10 +1382,8 @@ msgstr ""
 #: list/cron.php:426 list/db.php:336 list/db.php:357 list/dns.php:470
 #: list/dns.php:491 list/mail.php:372 list/mail.php:393 list/maildomain.php:368
 #: list/maildomain.php:390 list/web.php:397 list/web.php:418
-#, fuzzy
-#| msgid "Confirm Pass"
 msgid "Confirm"
-msgstr "Confirm Pass"
+msgstr ""
 
 #: admin/list/firewall.php:318
 msgid "Unsuspend Rule"
@@ -1462,9 +1448,7 @@ msgid "Send Notifications"
 msgstr ""
 
 #: admin/list/notifications.php:194
-msgid ""
-"Notification System Disabled. Please enable the notification system from the "
-"VWI settings menu to send notifications."
+msgid "Notification System Disabled. Please enable the notification system from the VWI settings menu to send notifications."
 msgstr ""
 
 #: admin/list/notifications.php:200
@@ -1550,10 +1534,8 @@ msgstr ""
 
 #: admin/list/server.php:300 admin/list/server.php:321
 #: admin/list/server.php:343 admin/list/server.php:365
-#, fuzzy
-#| msgid "Please check config.php"
 msgid "Please confirm action."
-msgstr "Please check config.php"
+msgstr ""
 
 #: admin/list/server.php:320
 msgid "Restart System?"
@@ -1568,20 +1550,16 @@ msgid "Edit Panel Settings"
 msgstr ""
 
 #: admin/list/settings.php:199
-#, fuzzy
-#| msgid "Please check config.php"
 msgid "Server Configuration"
-msgstr "Please check config.php"
+msgstr ""
 
 #: admin/list/settings.php:201
 msgid "Server Timezone"
 msgstr ""
 
 #: admin/list/settings.php:353
-#, fuzzy
-#| msgid "First Name"
 msgid "Site Name"
-msgstr "First Name"
+msgstr ""
 
 #: admin/list/settings.php:360 profile.php:400
 msgid "Theme"
@@ -1589,7 +1567,7 @@ msgstr ""
 
 #: admin/list/settings.php:363 profile.php:403 register.php:138
 msgid "Default"
-msgstr "Default"
+msgstr ""
 
 #: admin/list/settings.php:364 profile.php:404
 msgid "Blue"
@@ -1651,15 +1629,11 @@ msgid "VWI Branding in Footer"
 msgstr ""
 
 #: admin/list/settings.php:452
-#, fuzzy
-#| msgid "Default"
 msgid "Default To Admin"
-msgstr "Default"
+msgstr ""
 
 #: admin/list/settings.php:458
-msgid ""
-"Choose whether or not the admin should go to the admin panel or home after "
-"login."
+msgid "Choose whether or not the admin should go to the admin panel or home after login."
 msgstr ""
 
 #: admin/list/settings.php:462
@@ -1683,10 +1657,8 @@ msgid "API Method"
 msgstr ""
 
 #: admin/list/settings.php:487
-#, fuzzy
-#| msgid "Recover Password"
 msgid "Username / Password"
-msgstr "Recover Password"
+msgstr ""
 
 #: admin/list/settings.php:488
 msgid "API Key"
@@ -1697,9 +1669,7 @@ msgid "Vesta API Key"
 msgstr ""
 
 #: admin/list/settings.php:497
-msgid ""
-"Adding & editing custom SSL certificates and backup exclusions does not Work "
-"with API key. Features will be disabled."
+msgid "Adding & editing custom SSL certificates and backup exclusions does not Work with API key. Features will be disabled."
 msgstr ""
 
 #: admin/list/settings.php:503
@@ -1711,10 +1681,8 @@ msgid "Vesta Admin Password"
 msgstr ""
 
 #: admin/list/settings.php:517
-#, fuzzy
-#| msgid "Warning"
 msgid "Warnings Enabled"
-msgstr "Warning"
+msgstr ""
 
 #: admin/list/settings.php:524
 msgid "Display messages for installation warnings and connection errors."
@@ -1749,9 +1717,7 @@ msgid "New Icon:"
 msgstr ""
 
 #: admin/list/settings.php:554
-msgid ""
-"Recommended 40x40px .png or .gif. (.png, .gif, .jpg, and .jpeg up to 1MB "
-"allowed.)"
+msgid "Recommended 40x40px .png or .gif. (.png, .gif, .jpg, and .jpeg up to 1MB allowed.)"
 msgstr ""
 
 #: admin/list/settings.php:559
@@ -1763,9 +1729,7 @@ msgid "New Logo:"
 msgstr ""
 
 #: admin/list/settings.php:564
-msgid ""
-"Recommended 134x24px .png or .gif. (.png, .gif, .jpg, and .jpeg up to 1MB "
-"allowed.)"
+msgid "Recommended 134x24px .png or .gif. (.png, .gif, .jpg, and .jpeg up to 1MB allowed.)"
 msgstr ""
 
 #: admin/list/settings.php:568
@@ -1829,10 +1793,8 @@ msgid "From Address"
 msgstr ""
 
 #: admin/list/settings.php:696
-#, fuzzy
-#| msgid "First Name"
 msgid "From Name"
-msgstr "First Name"
+msgstr ""
 
 #: admin/list/settings.php:702
 msgid "Mail Method"
@@ -1864,16 +1826,12 @@ msgid "Authentication Enabled"
 msgstr ""
 
 #: admin/list/settings.php:744
-#, fuzzy
-#| msgid "Username"
 msgid "SMTP Username"
-msgstr "Username"
+msgstr ""
 
 #: admin/list/settings.php:750
-#, fuzzy
-#| msgid "Password"
 msgid "SMTP Password"
-msgstr "Password"
+msgstr ""
 
 #: admin/list/settings.php:759
 msgid "Optional Links"
@@ -1933,10 +1891,8 @@ msgid "Cloudflare API Key"
 msgstr ""
 
 #: admin/list/settings.php:832
-#, fuzzy
-#| msgid "Invalid Email Address"
 msgid "Cloudflare Account Email Address"
-msgstr "Invalid Email Address"
+msgstr ""
 
 #: admin/list/settings.php:842
 msgid "Update Settings"
@@ -2000,10 +1956,8 @@ msgid "User"
 msgstr ""
 
 #: admin/list/users.php:316
-#, fuzzy
-#| msgid "Login"
 msgid "Login as"
-msgstr "Login"
+msgstr ""
 
 #: admin/server/mysql.php:175
 msgid "View Configuration / MySQL"
@@ -2034,10 +1988,8 @@ msgid "View Configuration / NGINX"
 msgstr ""
 
 #: admin/server/nginx.php:183
-#, fuzzy
-#| msgid "Confirm Pass"
 msgid "Configure PHP"
-msgstr "Confirm Pass"
+msgstr ""
 
 #: admin/server/nginx.php:188
 msgid "Worker Processes"
@@ -2092,10 +2044,8 @@ msgid "Memory Limit"
 msgstr ""
 
 #: admin/server/php.php:201
-#, fuzzy
-#| msgid "Error"
 msgid "Error Reporting"
-msgstr "Error"
+msgstr ""
 
 #: admin/server/php.php:207
 msgid "Display Errors"
@@ -2114,16 +2064,12 @@ msgid "Configure Server"
 msgstr ""
 
 #: admin/server/vesta.php:222
-#, fuzzy
-#| msgid "Username"
 msgid "Hostname"
-msgstr "Username"
+msgstr ""
 
 #: admin/server/vesta.php:676
-#, fuzzy
-#| msgid "Default"
 msgid "Default Language"
-msgstr "Default"
+msgstr ""
 
 #: admin/server/vesta.php:717
 msgid "Proxy Server"
@@ -2219,10 +2165,8 @@ msgid "Issuer"
 msgstr ""
 
 #: admin/server/vesta.php:966
-#, fuzzy
-#| msgid "Control Panel"
 msgid "Vesta Control Panel Plugins"
-msgstr "Control Panel"
+msgstr ""
 
 #: admin/server/vesta.php:976
 msgid "FileSystem Disk Quota"
@@ -2241,10 +2185,7 @@ msgid "SFTP Chroot"
 msgstr ""
 
 #: admin/server/vesta.php:1024
-msgid ""
-"Restrict users so that they cannot use SSH and access only their home "
-"directory. This is a commercial module, you would need to purchace license "
-"key to enable it."
+msgid "Restrict users so that they cannot use SSH and access only their home directory. This is a commercial module, you would need to purchace license key to enable it."
 msgstr ""
 
 #: admin/server/vesta.php:1027 admin/server/vesta.php:1065
@@ -2264,9 +2205,7 @@ msgid "Buy Lifetime License $18"
 msgstr ""
 
 #: admin/server/vesta.php:1048 admin/server/vesta.php:1086
-msgid ""
-"2Checkout.com Inc. (Ohio, USA) is a payment facilitator for goods and "
-"services provided by vestacp.com."
+msgid "2Checkout.com Inc. (Ohio, USA) is a payment facilitator for goods and services provided by vestacp.com."
 msgstr ""
 
 #: admin/server/vesta.php:1052
@@ -2274,10 +2213,7 @@ msgid "File Manager"
 msgstr ""
 
 #: admin/server/vesta.php:1062
-msgid ""
-"Browse, copy, edit, view, and retrieve all of your web domain files using "
-"fully featured File Manager. This is a commercial module, you would need to "
-"purchace license key to enable it."
+msgid "Browse, copy, edit, view, and retrieve all of your web domain files using fully featured File Manager. This is a commercial module, you would need to purchace license key to enable it."
 msgstr ""
 
 #: admin/server/vesta.php:1078
@@ -2297,13 +2233,7 @@ msgid "Plugin installation will run in background."
 msgstr ""
 
 #: admin/server/vesta.php:1100
-msgid ""
-"Softaculous is a great Auto Installer having 426 great scripts, 1115 PHP "
-"Classes and we are still adding more. Softaculous is ideal for Web Hosting "
-"companies and it could give a significant boost to your sales. These scripts "
-"cover most of the uses a customer could ever have. We have covered a wide "
-"array of Categories so that everyone could find the required script one "
-"would need to power their Web Site."
+msgid "Softaculous is a great Auto Installer having 426 great scripts, 1115 PHP Classes and we are still adding more. Softaculous is ideal for Web Hosting companies and it could give a significant boost to your sales. These scripts cover most of the uses a customer could ever have. We have covered a wide array of Categories so that everyone could find the required script one would need to power their Web Site."
 msgstr ""
 
 #: admin/server/vesta.php:1103
@@ -2315,10 +2245,8 @@ msgid "Save"
 msgstr ""
 
 #: admin/server/vesta.php:1350
-#, fuzzy
-#| msgid "Error"
 msgid "Error Updating Server"
-msgstr "Error"
+msgstr ""
 
 #: admin/status/cpu.php:89 admin/status/cpu.php:187 admin/status/db.php:89
 #: admin/status/db.php:187 admin/status/disk.php:89 admin/status/disk.php:187
@@ -2331,10 +2259,8 @@ msgid "Server Status"
 msgstr ""
 
 #: admin/status/cpu.php:211
-#, fuzzy
-#| msgid "CP"
 msgid "CPU"
-msgstr "CP"
+msgstr ""
 
 #: admin/status/memory.php:211
 msgid "Memory"
@@ -2344,49 +2270,16 @@ msgstr ""
 msgid "Network"
 msgstr ""
 
-#: bower_components/moment/min/locales.min.js:1
-msgid "s"
-msgstr ""
-
-#: bower_components/moment/min/locales.min.js:1
-msgid "m"
-msgstr ""
-
-#: bower_components/moment/min/locales.min.js:1
-msgid "h"
-msgstr ""
-
-#: bower_components/moment/min/locales.min.js:1
-msgid "d"
-msgstr ""
-
-#: bower_components/moment/min/locales.min.js:1
-msgid "M"
-msgstr ""
-
-#: bower_components/moment/min/locales.min.js:1
-msgid "y"
-msgstr ""
-
-#: bower_components/moment/min/moment.min.js:1
-msgid ": "
-msgstr ""
-
 #: edit/backupexclusions.php:174
 msgid "Configure Backup Exclusions"
 msgstr ""
 
 #: edit/backupexclusions.php:185
-msgid ""
-"Type domain name, one per line. To exclude all domains use *. To exclude "
-"specific directories use the following format: domain.com:public_html/cache:"
-"public_html/tmp"
+msgid "Type domain name, one per line. To exclude all domains use *. To exclude specific directories use the following format: domain.com:public_html/cache:public_html/tmp"
 msgstr ""
 
 #: edit/backupexclusions.php:200
-msgid ""
-"Type domain name, one per line. To exclude all domains use *. To exclude "
-"specific accounts use following format: domain.com:info:support:postmaster"
+msgid "Type domain name, one per line. To exclude all domains use *. To exclude specific accounts use following format: domain.com:info:support:postmaster"
 msgstr ""
 
 #: edit/backupexclusions.php:215
@@ -2606,10 +2499,8 @@ msgid "Statistics"
 msgstr ""
 
 #: includes/includes.php:401 log.php:95 log.php:181 log.php:222 profile.php:226
-#, fuzzy
-#| msgid "Login"
 msgid "Log"
-msgstr "Login"
+msgstr ""
 
 #: includes/includes.php:426
 msgid "Apps"
@@ -2638,7 +2529,7 @@ msgstr ""
 #: includes/includes.php:489 includes/includes.php:506 login.php:287
 #: login.php:304 register.php:197 register.php:214
 msgid "Includes folder has not been secured"
-msgstr "Includes folder has not been secured"
+msgstr ""
 
 #: includes/includes.php:496 login.php:294 login.php:311 register.php:204
 #: register.php:221
@@ -3179,16 +3070,12 @@ msgid "AccessLog"
 msgstr ""
 
 #: log/access.php:219
-#, fuzzy
-#| msgid "Error"
 msgid "ErrorLog"
-msgstr "Error"
+msgstr ""
 
 #: log/error.php:94 log/error.php:199
-#, fuzzy
-#| msgid "Error"
 msgid "Error Log"
-msgstr "Error"
+msgstr ""
 
 #: log/error.php:218
 msgid "Download Accesslog"
@@ -3200,121 +3087,119 @@ msgstr ""
 
 #: login.php:76 login.php:249
 msgid "Login"
-msgstr "Login"
+msgstr ""
 
 #: login.php:118
 msgid "Account has been successfully created!"
-msgstr "Account has been successfully created!"
+msgstr ""
 
 #: login.php:120
 msgid "Please fill out all sections of the form."
-msgstr "Please fill out all sections of the form."
+msgstr ""
 
 #: login.php:123
 msgid "Invalid data entered in form. Please try again."
-msgstr "Invalid data entered in form. Please try again."
+msgstr ""
 
 #: login.php:126
 msgid "Server or form error (Code: 3). Please contact support."
-msgstr "Server or form error (Code: 3). Please contact support."
+msgstr ""
 
 #: login.php:129
 msgid "Account already exists under same username."
-msgstr "Account already exists under same username."
+msgstr ""
 
 #: login.php:132
 msgid "System Error (Code: 12). Please contact support."
-msgstr "System Error (Code: 12). Please contact support."
+msgstr ""
 
 #: login.php:135
 msgid "Server Error (Code: 13). Please contact support."
-msgstr "Server Error (Code: 13). Please contact support."
+msgstr ""
 
 #: login.php:138
 msgid "Server Error (Code: 14). Please contact support."
-msgstr "Server Error (Code: 14). Please contact support."
+msgstr ""
 
 #: login.php:141
 msgid "System Error (Code: 15). Please contact support."
-msgstr "System Error (Code: 15). Please contact support."
+msgstr ""
 
 #: login.php:144
 msgid "Server Error (Code: 16). Please contact support."
-msgstr "Server Error (Code: 16). Please contact support."
+msgstr ""
 
 #: login.php:147
 msgid "Server Error (Code: 17). Please contact support."
-msgstr "Server Error (Code: 17). Please contact support."
+msgstr ""
 
 #: login.php:150
 msgid "Process Error (Code: 18). Please contact support."
-msgstr "Process Error (Code: 18). Please contact support."
+msgstr ""
 
 #: login.php:153
 msgid "Process Error (Code: 19). Please contact support."
-msgstr "Process Error (Code: 19). Please contact support."
+msgstr ""
 
 #: login.php:156
 msgid "Fatal Error (Code: 20). Please contact support."
-msgstr "Fatal Error (Code: 20). Please contact support."
+msgstr ""
 
 #: login.php:167 register.php:107
 msgid "Control Panel"
-msgstr "Control Panel"
+msgstr ""
 
 #: login.php:174
 msgid "Sign In to"
-msgstr "Sign In to"
+msgstr ""
 
 #: login.php:174
 msgid "CP"
-msgstr "CP"
+msgstr ""
 
 #: login.php:175 register.php:114
 msgid "Enter your details below"
-msgstr "Enter your details below"
+msgstr ""
 
 #: login.php:196
 msgid "Loading Dashboard"
-msgstr "Loading Dashboard"
+msgstr ""
 
 #: login.php:200
 msgid "Error: Incorrect Login."
-msgstr "Error: Incorrect Login."
+msgstr ""
 
 #: login.php:219
 msgid "Forgot pwd?"
-msgstr "Forgot pwd?"
+msgstr ""
 
 #: login.php:223
 msgid "Log in"
-msgstr "Log in"
+msgstr ""
 
 #: login.php:230
 msgid "Don't have an account?"
-msgstr "Don't have an account?"
+msgstr ""
 
 #: login.php:230 register.php:143
 msgid "Sign Up"
-msgstr "Sign Up"
+msgstr ""
 
 #: login.php:237
 msgid "Recover Password"
-msgstr "Recover Password"
+msgstr ""
 
 #: login.php:238
 msgid "Enter your username and instructions will be sent to you."
-msgstr "Enter your username and instructions will be sent to you."
+msgstr ""
 
 #: login.php:254
 msgid "Reset"
-msgstr "Reset"
+msgstr ""
 
 #: login.php:320 register.php:230
-#, fuzzy
-#| msgid "Failed to connect to server."
 msgid "Failed to connect to server. Please check config."
-msgstr "Failed to connect to server."
+msgstr ""
 
 #: process/generatecsr.php:232
 msgid "Process"
@@ -3362,55 +3247,41 @@ msgstr ""
 
 #: register.php:62
 msgid "Register"
-msgstr "Register"
+msgstr ""
 
 #: register.php:114
 msgid "Sign up for"
-msgstr "Sign up for"
+msgstr ""
 
 #: register.php:118 register.php:119
 msgid "2 to 28 Letters Only. Apostrophes and hyphens allowed."
-msgstr "2 to 28 Letters Only. Apostrophes and hyphens allowed."
+msgstr ""
 
 #: register.php:123
 msgid "Invalid Email Address"
-msgstr "Invalid Email Address"
+msgstr ""
 
 #: register.php:127
 msgid "2 to 28 Characters A-Z, 0-9, '-' '.' and '_' Only."
-msgstr "2 to 28 Characters A-Z, 0-9, '-' '.' and '_' Only."
+msgstr ""
 
 #: register.php:131
-msgid ""
-"Minimum 6 Characters: One uppercade letter, lowercase letter and number "
-"reuired."
+msgid "Minimum 6 Characters: One uppercade letter, lowercase letter and number reuired."
 msgstr ""
-"Minimum 6 Characters: One uppercade letter, lowercase letter and number "
-"reuired."
 
 #: register.php:133
 msgid "Confirm Pass"
-msgstr "Confirm Pass"
+msgstr ""
 
 #: register.php:148
 msgid "Already have an account?"
-msgstr "Already have an account?"
+msgstr ""
 
 #: register.php:148
 msgid "Sign in"
-msgstr "Sign in"
+msgstr ""
 
 #: register.php:161
 msgid "Passwords do not match"
-msgstr "Passwords do not match"
+msgstr ""
 
-#~ msgid "Warning"
-#~ msgstr "Warning"
-
-#~ msgid "Error"
-#~ msgstr "Error"
-
-#, fuzzy
-#~| msgid "Please check config.php"
-#~ msgid "Please check config."
-#~ msgstr "Please check config.php"
