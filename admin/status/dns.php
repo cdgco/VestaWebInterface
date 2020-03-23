@@ -189,14 +189,14 @@ foreach ($plugins as $result) {
                             <div style="margin-right:257px;width:220px;" class="btn-group bootstrap-select input-group-btn" onclick="changeAction();">
                                 <form id="statusform" method="post">
                                     <select class="selectpicker pull-right m-l-20" id="statuschange" data-style="form-control">';
-                                        <option value="cpu">CPU</option>
-                                        <option value="db">Database</option>
-                                        <option value="disk">Disk</option>
-                                        <option value="dns" selected>DNS</option>
-                                        <option value="mail">Mail</option>
-                                        <option value="memory">Memory</option>
-                                        <option value="network">Network</option>
-                                        <option value="web">Web</option>
+                                        <option value="cpu"><?php echo __("CPU"); ?></option>
+                                        <option value="db"><?php echo __("Database"); ?></option>
+                                        <option value="disk"><?php echo __("Disk"); ?></option>
+                                        <option value="dns" selected><?php echo __("DNS"); ?></option>
+                                        <option value="mail"><?php echo __("Mail"); ?></option>
+                                        <option value="memory"><?php echo __("Memory"); ?></option>
+                                        <option value="network"><?php echo __("Network"); ?></option>
+                                        <option value="web"><?php echo __("Web"); ?></option>
                                     </select>
                                 </form>
                             </div>

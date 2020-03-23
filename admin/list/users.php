@@ -246,12 +246,12 @@ foreach ($plugins as $result) {
                                                 } else { $bwpercent = '0'; }
                                                 echo '<tr'; if($uxdata[$x1]['SUSPENDED'] != 'no') { echo ' style="background: #efefef"'; } echo '>
                                                     <td class="resone" style="padding-top: 32px;" data-sort-value="' . strtotime($uxdata[$x1]['DATE'] . ' ' . $uxdata[$x1]['TIME']) . '">' . $uxdata[$x1]['DATE'];  
-                                                    if($uxdata[$x1]['SUSPENDED'] != 'no') { echo '<br><br><b>Suspended</b>'; } echo '</td>
+                                                    if($uxdata[$x1]['SUSPENDED'] != 'no') { echo '<br><br><b>'.__("Suspended").'</b>'; } echo '</td>
                                                     <td>
                                                         <h2>' . $uxname[$x1] . '</h2>
                                                         <h5>' . $uxdata[$x1]['FNAME'] . ' ' . $uxdata[$x1]['LNAME'] . '</h5><br>
                                                         <div class="tworow" style="line-height: 30px;">
-                                                            <div class="column">Bandwidth:</div>
+                                                            <div class="column">'.__("Bandwidth").':</div>
                                                             <div class="column">' . formatMB($uxdata[$x1]['U_BANDWIDTH']) . '</div>
                                                         </div>
                                                         <div class="progress">
@@ -260,7 +260,7 @@ foreach ($plugins as $result) {
                                                             </div>
                                                         </div>
                                                         <div class="tworow" style="line-height: 30px;">
-                                                            <div class="column">Disk:</div>
+                                                            <div class="column">'.__("Disk").':</div>
                                                             <div class="column">' . formatMB($uxdata[$x1]['U_DISK']) . '</div>
                                                         </div>
                                                         <div class="progress">
@@ -269,16 +269,16 @@ foreach ($plugins as $result) {
                                                             </div>
                                                         </div>
                                                         <div class="tworow" style="line-height: 30px;">
-                                                              <div class="column">Web: ' . formatMB($uxdata[$x1]['U_DISK_WEB']) . '<br>Mail: ' . formatMB($uxdata[$x1]['U_DISK_MAIL']) . '</div>
+                                                              <div class="column">'.__("Web").': ' . formatMB($uxdata[$x1]['U_DISK_WEB']) . '<br>'.__("Mail").': ' . formatMB($uxdata[$x1]['U_DISK_MAIL']) . '</div>
                                                               <div class="column">
-                                                                Databases: ' . formatMB($uxdata[$x1]['U_DISK_DB']) . '<br>
-                                                                Directories: ' . formatMB($uxdata[$x1]['U_DISK_DIRS']) . '
+                                                                '.__("Databases").': ' . formatMB($uxdata[$x1]['U_DISK_DB']) . '<br>
+                                                                '.__("Directories").': ' . formatMB($uxdata[$x1]['U_DISK_DIRS']) . '
                                                             </div>
                                                         </div>
                                                     </td>
                                                     <td class="resthree">
                                                         <div class="resthree tworow" style="padding-top:110px; line-height: 30px;">
-                                                              <div class="column">Web Domains:<br>DNS Domains:<br>Mail Domains:<br>Databases:<br>Cron Jobs:<br>Backups:</div>
+                                                              <div class="column">'.__("Web Domains").':<br>'.__("DNS Domains").':<br>'.__("Mail Domains").':<br>'.__("Databases").':<br>'.__("Cron Jobs").':<br>'.__("Backups").':</div>
                                                               <div class="column">' . $uxdata[$x1]['U_WEB_DOMAINS'] . ' / ';
                                                                     if($uxdata[$x1]['WEB_DOMAINS'] == "unlimited"){echo "<i class='ti-infinite'></i>";} else{ print_r($uxdata[$x1]['WEB_DOMAINS']); } 
                                                                     echo '<br>' . $uxdata[$x1]['U_DNS_DOMAINS'] . ' / ';
@@ -296,7 +296,7 @@ foreach ($plugins as $result) {
                                                       </td>
                                                       <td class="restwo">
                                                             <div class="restwo tworow" style="padding-top:110px;line-height: 30px;">
-                                                                  <div class="column">Email:<br>Package:<br>SSH Access:<br>IP Addresses:<br>Name Servers:</div>
+                                                                  <div class="column">'.__("Email").':<br>'.__("Package").':<br>'.__("SSH Access").':<br>'.__("IP Addresses").':<br>'.__("Nameservers").':</div>
                                                                   <div class="column">' . $uxdata[$x1]['CONTACT'] . '<br>' . $uxdata[$x1]['PACKAGE'] . '<br>' . $uxdata[$x1]['SHELL'] . '<br>' . $uxdata[$x1]['IP_OWNED'] . '<br>
                                                                     <ul style="list-style: none;padding-left:0;line-height: 25px;">';
                                                                         $nsArray = explode(',', ($uxdata[$x1]['NS'])); 

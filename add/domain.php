@@ -400,7 +400,7 @@ foreach ($plugins as $result) {
                                                 </div>
                                                 <?php echo ""; } ?>
                                             </div>
-                                            <p id="FtpControl"><a href="javascript:void(0);" onclick="addFtpAccount();">Add One</a><span id="removeFtpBtn"> / <a href="javascript:void(0);" onclick="removeFtpAccount();">Remove One</a></span></p><br><br>
+                                            <p id="FtpControl"><a href="javascript:void(0);" onclick="addFtpAccount();"><?php echo __("Add One"); ?></a><span id="removeFtpBtn"> / <a href="javascript:void(0);" onclick="removeFtpAccount();"><?php echo __("Remove One"); ?></a></span></p><br><br>
                                         </div>
                                         <?php echo ""; } ?>
                                     </div>

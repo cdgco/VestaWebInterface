@@ -517,8 +517,8 @@ foreach ($plugins as $result) {
                                         <label class="col-md-12"><?php echo __("Warnings Enabled"); ?></label>
                                         <div class="col-md-12">
                                             <div class="radio-info">
-                                            <label class="radio-inline"><input value="all" type="radio" name="ENABLE_WARNINGS" <?php if($config["WARNINGS_ENABLED"] == 'all'){ echo 'checked'; } ?>/>All Users</label>
-                                            <label class="radio-inline"><input value="admin" type="radio" name="ENABLE_WARNINGS" <?php if($config["WARNINGS_ENABLED"] == 'admin'){ echo 'checked'; } ?>/>Admin Only</label>  
+                                            <label class="radio-inline"><input value="all" type="radio" name="ENABLE_WARNINGS" <?php if($config["WARNINGS_ENABLED"] == 'all'){ echo 'checked'; } ?>/><?php echo __("All Users"); ?></label>
+                                            <label class="radio-inline"><input value="admin" type="radio" name="ENABLE_WARNINGS" <?php if($config["WARNINGS_ENABLED"] == 'admin'){ echo 'checked'; } ?>/><?php echo __("Admin Only"); ?></label>  
                                             <label class="radio-inline"><input value="false" type="radio" name="ENABLE_WARNINGS" <?php if($config["WARNINGS_ENABLED"] != 'all' && $config["WARNINGS_ENABLED"] != 'admin'){ echo 'checked'; } ?>/><?php echo __("Disabled"); ?></label>
                                             </div>
                                             <span class="help-block"><?php echo __("Display messages for installation warnings and connection errors."); ?></span>  
@@ -794,7 +794,7 @@ foreach ($plugins as $result) {
                                     </div>
                                     <br><h3><?php echo __("Optional Integrations"); ?></h3><br><hr><br>
                                     <div class="form-group">
-                                        <label class="col-md-12" for="PLUGINS">Plugins</label>  
+                                        <label class="col-md-12" for="PLUGINS"><?php echo __("Plugins"); ?></label>  
                                         <div class="col-md-12">
                                             <input id="PLUGINS" name="PLUGINS" type="text" value="<?php echo $config["PLUGINS"]; ?>" class="form-control input-md">
                                             <span class="help-block"><?php echo __("Comma seperated list of installed plugins."); ?></span>  

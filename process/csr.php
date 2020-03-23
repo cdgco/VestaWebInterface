@@ -145,10 +145,10 @@ foreach ($plugins as $result) {
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../profile.php"><i class="ti-home"></i> My Account</a></li>
-                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> Account Setting</a></li>
+                                <li><a href="../profile.php"><i class="ti-home"></i> <?php echo __("My Account"); ?></a></li>
+                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo __("Account Setting"); ?></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
+                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo __("Logout"); ?></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -162,7 +162,7 @@ foreach ($plugins as $result) {
                                 <i class="ti-menu hidden-xs"></i>
                                 <i class="ti-close visible-xs"></i>
                             </span> 
-                            <span class="hide-menu">Navigation</span>
+                            <span class="hide-menu"><?php echo __("Navigation"); ?></span>
                         </h3>  
                     </div>
                     <ul class="nav" id="side-menu">
@@ -178,7 +178,7 @@ foreach ($plugins as $result) {
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title">Generate CSR / SSL Cert</h4>
+                            <h4 class="page-title"><?php echo __("Generate CSR / SSL Cert"); ?></h4>
                         </div>
                     </div>
                     <div class="row">
@@ -198,19 +198,19 @@ foreach ($plugins as $result) {
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">SSL CSR</label>
+                                        <label class="col-md-12"><?php echo __("SSL CSR"); ?></label>
                                         <div class="col-md-12">
                                             <textarea class="form-control" rows="5"><?php echo $ssldata[0]['CSR']; ?></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">SSL Certificate</label>
+                                        <label class="col-md-12"><?php echo __("SSL Certificate"); ?></label>
                                         <div class="col-md-12">
                                             <textarea class="form-control" rows="5"><?php echo $ssldata[0]['CRT']; ?></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">SSL Key</label>
+                                        <label class="col-md-12"><?php echo __("SSL Key"); ?></label>
                                         <div class="col-md-12">
                                             <textarea class="form-control" rows="5"><?php echo $ssldata[0]['KEY']; ?></textarea>
                                         </div>

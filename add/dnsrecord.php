@@ -261,7 +261,7 @@ foreach ($plugins as $result) {
                                         <label for="email" class="col-md-12"><?php echo __("Priority"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="v_priority" autocomplete="new-password" class="form-control form-control-line"> 
-                                            <small class="form-text text-muted">Optional</small>
+                                            <small class="form-text text-muted"><?php echo __("Optional"); ?></small>
                                         </div>
                                     </div>
                                     <div class="form-group">

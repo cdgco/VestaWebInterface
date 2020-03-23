@@ -87,7 +87,7 @@ foreach ($plugins as $result) {
 function secondsToTime($seconds) {
     $dtF = new \DateTime('@0');
     $dtT = new \DateTime("@$seconds");
-    return $dtF->diff($dtT)->format('%a days, %h hours');
+    return $dtF->diff($dtT)->format('%a ' . __("days") . ', %h ' . __("hours"));
 }
 ?>
 
@@ -244,9 +244,9 @@ function secondsToTime($seconds) {
                                                         echo '<td></td>
                                                         <td></td>
                                                         <td><h2>' . $servicename[$x1] . '</h2><br>' . $servicedata[$x1]['SYSTEM'] . '<br>&nbsp;</td>
-                                                        <td data-sort-value="' . $servicedata[$x1]['CPU'] . '"><h2>&nbsp;</h2><br>CPU: ' . $servicedata[$x1]['CPU'] . '</td>
-                                                        <td data-sort-value="' . $servicedata[$x1]['MEM'] . '"><h2>&nbsp;</h2><br>Memory: ' . $servicedata[$x1]['MEM'] . '</td>
-                                                        <td class="restwo" data-sort-value="' . $servicedata[$x1]['RTIME'] . '"><h2>&nbsp;</h2><br>Uptime: ';
+                                                        <td data-sort-value="' . $servicedata[$x1]['CPU'] . '"><h2>&nbsp;</h2><br>'.__("CPU").': ' . $servicedata[$x1]['CPU'] . '</td>
+                                                        <td data-sort-value="' . $servicedata[$x1]['MEM'] . '"><h2>&nbsp;</h2><br>'.__("Memory").': ' . $servicedata[$x1]['MEM'] . '</td>
+                                                        <td class="restwo" data-sort-value="' . $servicedata[$x1]['RTIME'] . '"><h2>&nbsp;</h2><br>'.__("Uptime").': ';
                                                         if (strpos(secondsToTime($servicedata[$x1]['RTIME'] * 60),'0 days') !== false) {
                                                                 echo str_replace('0 days, ', '', secondsToTime($servicedata[$x1]['RTIME'] * 60));
                                                         }

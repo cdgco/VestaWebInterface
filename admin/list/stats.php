@@ -252,10 +252,10 @@ foreach ($plugins as $result) {
                                                     <td>' . formatMB($statsdata[$x1]['U_DISK']) . '</td>
                                                     
                                                     
-                                                    <td><br><b>Web:</b> ' . formatMB($statsdata[$x1]['U_DISK_WEB']) . '<br><b>Mail:</b> ' . formatMB($statsdata[$x1]['U_DISK_MAIL']) . '<br><b>Databases:</b> ' . formatMB($statsdata[$x1]['U_DISK_DB']) . '<br><b>User Directories:</b> ' . formatMB($statsdata[$x1]['U_DISK_DIRS']) . '</td>
-                                                    <td><br><b>Domains:</b> ' . $statsdata[$x1]['U_WEB_DOMAINS'] . '<br><b>SSL Domains:</b> ' . $statsdata[$x1]['U_WEB_SSL'] . '<br><b>Aliases:</b> ' . $statsdata[$x1]['U_WEB_ALIASES'] . '</td>
-                                                    <td><br><b>Domains:</b> ' . $statsdata[$x1]['U_DNS_DOMAINS'] . '<br><b>Records:</b> ' . $statsdata[$x1]['U_DNS_RECORDS'] . '</td>
-                                                    <td><br><b>Domains:</b> ' . $statsdata[$x1]['U_MAIL_DOMAINS'] . '<br><b>Accounts:</b> ' . $statsdata[$x1]['U_MAIL_ACCOUNTS'] . '</td>
+                                                    <td><br><b>'.__("Web").':</b> ' . formatMB($statsdata[$x1]['U_DISK_WEB']) . '<br><b>'.__("Mail").':</b> ' . formatMB($statsdata[$x1]['U_DISK_MAIL']) . '<br><b>'.__("Databases").':</b> ' . formatMB($statsdata[$x1]['U_DISK_DB']) . '<br><b>'.__("User Directories").':</b> ' . formatMB($statsdata[$x1]['U_DISK_DIRS']) . '</td>
+                                                    <td><br><b>'.__("Domains").':</b> ' . $statsdata[$x1]['U_WEB_DOMAINS'] . '<br><b>'.__("SSL Domains").':</b> ' . $statsdata[$x1]['U_WEB_SSL'] . '<br><b>'.__("Aliases").':</b> ' . $statsdata[$x1]['U_WEB_ALIASES'] . '</td>
+                                                    <td><br><b>'.__("Domains").':</b> ' . $statsdata[$x1]['U_DNS_DOMAINS'] . '<br><b>'.__("Records").':</b> ' . $statsdata[$x1]['U_DNS_RECORDS'] . '</td>
+                                                    <td><br><b>'.__("Domains").':</b> ' . $statsdata[$x1]['U_MAIL_DOMAINS'] . '<br><b>'.__("Accounts").':</b> ' . $statsdata[$x1]['U_MAIL_ACCOUNTS'] . '</td>
                                                     
                                                     
                                                     <td>' . $statsdata[$x1]['U_DATABASES'] . '</td>

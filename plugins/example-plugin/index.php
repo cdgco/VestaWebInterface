@@ -150,7 +150,7 @@ foreach ($plugins as $result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box">
-                                <p>This is an example plugin.</p>
+                                <p><?php echo __("This is an example plugin."); ?></p>
                             </div>
                         </div>
                     </div>

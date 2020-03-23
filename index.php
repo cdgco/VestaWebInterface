@@ -601,9 +601,9 @@ foreach ($plugins as $result) {
                                                                     <td class="resthree">' . $dbdata[$x4]['DBUSER'] . '</td>
                                                                     <td class="resone">';                                                                   
                                                                     if($dbdata[$x4]['SUSPENDED'] == "no"){ 
-                                                                        echo '<span class="label label-table label-success">Active</span>';} 
+                                                                        echo '<span class="label label-table label-success">' . __("Active") . '</span>';} 
                                                                     else{ 
-                                                                        echo '<span class="label label-table label-danger">Suspended</span>';} 
+                                                                        echo '<span class="label label-table label-danger">' . __("Suspended") . '</span>';} 
                                                                     echo '</td>
                                                                 </tr>';
                                                                 $x4++;
@@ -763,8 +763,8 @@ foreach ($plugins as $result) {
                                                             <?php print_r($username); ?><br><?php echo __("Email"); ?>:
                                                             <?php print_r($admindata['CONTACT']); ?><br><br> <?php echo __("Plan"); ?>:
                                                             <?php print_r($admindata['PACKAGE']); ?><br><?php echo __("Bandwidth"); ?>:
-                                                            <?php if($admindata['BANDWIDTH'] == "unlimited"){ echo "Unlimited";} else { print_r($admindata['BANDWIDTH'] . " mb");} ?> <br><?php echo __("Disk Quota"); ?>:
-                                                            <?php if($admindata['DISK_QUOTA'] == "unlimited"){ echo "Unlimited";} else { print_r($admindata['DISK_QUOTA'] . " mb");} ?>
+                                                            <?php if($admindata['BANDWIDTH'] == "unlimited"){ echo __("Unlimited");} else { print_r($admindata['BANDWIDTH'] . " mb");} ?> <br><?php echo __("Disk Quota"); ?>:
+                                                            <?php if($admindata['DISK_QUOTA'] == "unlimited"){ echo __("Unlimited");} else { print_r($admindata['DISK_QUOTA'] . " mb");} ?>
                                                         </h2>
 
 

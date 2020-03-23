@@ -550,30 +550,30 @@ function hotKeys($conflocation) {
     echo 
         '<div class="shortcuts" id="shortcuts" style="display:none;">
                         <div class="header">
-                          <div class="title">Shortcuts</div>
+                          <div class="title">'.__("Shortcuts").'</div>
                           <div class="close-s" onclick="toggleShortcuts()">x</div>
 
                         </div>
                             <ul>
-                              <li><span class="key">1</span>Go to DASHBOARD</li>
-                              <li><span class="key">2</span>Go to WEB</li>
-                              <li><span class="key">3</span>Go to DNS</li>
-                              <li><span class="key">4</span>Go to MAIL</li>
-                              <li><span class="key">5</span>Go to DATABASE</li>
-                              <li><span class="key">6</span>Go to CRON JOBS</li>
-                              <li><span class="key">7</span>Go to BACKUPS</li>
-                              <li><span class="key">8</span>Go to PROFILE</li>
+                              <li><span class="key">1</span>'.__("Go to DASHBOARD").'</li>
+                              <li><span class="key">2</span>'.__("Go to WEB").'</li>
+                              <li><span class="key">3</span>'.__("Go to DNS").'</li>
+                              <li><span class="key">4</span>'.__("Go to MAIL").'</li>
+                              <li><span class="key">5</span>'.__("Go to DATABASE").'</li>
+                              <li><span class="key">6</span>'.__("Go to CRON JOBS").'</li>
+                              <li><span class="key">7</span>'.__("Go to BACKUPS").'</li>
+                              <li><span class="key">8</span>'.__("Go to PROFILE").'</li>
                             </ul>
                             <ul>
-                          <li><span class="key">H</span>Display/Close shortcuts</li>
+                          <li><span class="key">H</span>'.__("Display/Close shortcuts").'</li>
 
-                          <li class="step-top"><span class="key">A</span>Add New object</li>
-                          <li><span class="key">Ctrl + Enter</span>Save Form</li>
-                          <li><span class="key">Ctrl + Backspace</span>Exit form</li>
+                          <li class="step-top"><span class="key">A</span>'.__("Add New object").'</li>
+                          <li><span class="key">Ctrl + Enter</span>'.__("Save Form").'</li>
+                          <li><span class="key">Ctrl + Backspace</span>'.__("Exit form").'</li>
                           
-                          <li class="step-top"><span class="key">Esc</span>Hide Notifications</li>
-                          <li><span class="key">Backspace</span>Go back</li>
-                          <li><span class="key">Ctrl + L</span>Logout</li>
+                          <li class="step-top"><span class="key">Esc</span>'.__("Hide Notifications").'</li>
+                          <li><span class="key">Backspace</span>'.__("Go back").'</li>
+                          <li><span class="key">Ctrl + L</span>'.__("Logout").'</li>
                         
                         </ul>
                         
@@ -673,7 +673,7 @@ function notifications() {
                 <ul class="dropdown-menu mailbox" style="position: absolute;width: 36vw;padding: 15px;">
                     <li>
                         <div class="message-center">
-                            <div class="mail-content" id="nonotifications"><hr><h5>No Notifications</h5></div>';
+                            <div class="mail-content" id="nonotifications"><hr><h5>' . __("No Notifications") . '</h5></div>';
                                 if($notifications[0] != '') {
                                     $x1 = 0;
                                     do {

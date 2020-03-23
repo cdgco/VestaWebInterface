@@ -233,19 +233,19 @@ foreach ($plugins as $result) {
                                                         <td>
                                                             <h2>' . $packname[$x1] . '</h2><br>
                                                             <div class="resfour tworow" style="line-height: 30px;">
-                                                                <div class="column">Web Template:<br>Proxy Template:<br>DNS Template:<br>SSH Access:<br>Web Domains:<br>Web Aliases</div>
+                                                                <div class="column">' . __("Web Template") . ':<br>' . __("Proxy Template") . ':<br>' . __("DNS Template") . ':<br>' . __("SSH Access") . ':<br>' . __("Web Domains") . ':<br>' . __("Web Aliases") . ':</div>
                                                                 <div class="column">' . $packdata[$x1]['WEB_TEMPLATE'] . '<br>' . $packdata[$x1]['PROXY_TEMPLATE'] . '<br>' . $packdata[$x1]['DNS_TEMPLATE'] . '<br>' . $packdata[$x1]['SHELL'] . '<br>' . $packdata[$x1]['WEB_DOMAINS'] . '<br>' . $packdata[$x1]['WEB_ALIASES'] . '</div>
                                                             </div>
                                                         </td>
                                                         <td>
                                                             <div class="resthree tworow" style="padding-top:72px; line-height: 30px;">
-                                                                <div class="column">DNS Domains:<br>DNS Records:<br>Mail Domains:<br>Mail Accounts:<br>Databases:<br>Cron Jobs</div>
+                                                                <div class="column">' . __("DNS Domains") . ':<br>' . __("DNS Records") . ':<br>' . __("Mail Domains") . ':<br>' . __("Mail Accounts") . ':<br>' . __("Databases") . ':<br>' . __("Cron Jobs") . ':</div>
                                                                 <div class="column">' . $packdata[$x1]['DNS_DOMAINS'] . '<br>' . $packdata[$x1]['DNS_RECORDS'] . '<br>' . $packdata[$x1]['MAIL_DOMAINS'] . '<br>' . $packdata[$x1]['MAIL_ACCOUNTS'] . '<br>' . $packdata[$x1]['DATABASES'] . '<br>' . $packdata[$x1]['CRON_JOBS'] . '</div>
                                                             </div>
                                                         </td>
                                                         <td>
                                                             <div class="restwo tworow" style="padding-top:72px; line-height: 30px;">
-                                                                <div class="column">Backups:<br>Bandwidth:<br>Disk Space:<br>Nameservers:</div>
+                                                                <div class="column">' . __("Backups") . ':<br>' . __("Bandwidth") . ':<br>' . __("Disk Space") . ':<br>' . __("Nameservers") . ':</div>
                                                                 <div class="column">' . $packdata[$x1]['BACKUPS'] . '<br>' . $packdata[$x1]['BANDWIDTH'] . '<br>' . $packdata[$x1]['DISK_QUOTA'] . '<br>
                                                                     <ul style="list-style: none;padding-left:0;line-height: 25px;">';
                                                                         $nsArray = explode(',', ($packdata[$x1]['NS'])); 

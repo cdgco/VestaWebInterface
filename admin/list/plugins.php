@@ -216,18 +216,18 @@ foreach ($plugins as $result) {
                                                     if (isset($arr['version']) && !empty($arr['version'])) {
                                                         echo $arr['version'];
                                                     }
-                                                    else { echo 'Not Provided'; }
+                                                    else { echo __('Not Provided'); }
                                                     echo '</td><td class="restwo">';
                                                     if (isset($arr['developer']) && !empty($arr['developer'])) {
                                                         echo $arr['developer'];
                                                     }
-                                                    else { echo 'Not Provided'; }
+                                                    else { echo __('Not Provided'); }
                                                     echo '</td>
                                                     <td class="restwo">';
                                                     if (isset($arr['descriptor']) && !empty($arr['descriptor'])) {
                                                         echo $arr['descriptor'];
                                                     }
-                                                    else { echo 'Not Provided'; }
+                                                    else { echo __('Not Provided'); }
                                                     echo '</td></tr>';
                                                 }    
                                             }

@@ -288,19 +288,19 @@ if (CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != ''){
                 z-index: 1;
             }
             .special:after{
-                content: "EXPORTING RECORDS ...";
+                content: "<?php echo __('EXPORTING RECORDS ...'); ?>";
             }
             .update:after{
-                content: "UPDATING NS ...";
+                content: "<?php echo __('UPDATING NS ...'); ?>";
             }
             .update1:after{
-                content: "IMPORTING RECORDS ...";
+                content: "<?php echo __('IMPORTING RECORDS ...'); ?>";
             }
             .update2:after{
-                content: "DELETING CLOUDFLARE ...";
+                content: "<?php echo __('DELETING CLOUDFLARE ...'); ?>";
             }
             .process:after{
-                content: "PROCESSING ...";
+                content: "<?php echo __('PROCESSING ...'); ?>";
             }
             .loader:before{
                 content: "";

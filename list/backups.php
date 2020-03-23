@@ -252,7 +252,7 @@ foreach ($plugins as $result) {
                                             <th data-breakpoints="all"> <?php echo __("Databases"); ?> </th>
                                             <th data-breakpoints="all"> <?php echo __("Cron"); ?> </th>
                                             <th data-breakpoints="all"> <?php echo __("User Directories"); ?> </th>
-                                            <th data-breakpoints="all"> Type </th>
+                                            <th data-breakpoints="all"> <?php echo __("Type"); ?> </th>
                                             <th data-breakpoints="all" data-type="numeric"> <?php echo __("Runtime"); ?> </th>
                                         </tr>
                                     </thead>

@@ -325,7 +325,7 @@ foreach ($plugins as $result) {
                                                                     SMTP <?php echo __("port"); ?>:	<br>
                                                                     SMTP <?php echo __("security"); ?>:<br>	
                                                                     SMTP <?php echo __("auth method"); ?>:	<br>
-                                                                    <?php echo __("Webmail"); ?> URL:	<br>
+                                                                    <?php echo __("Webmail URL"); ?>:	<br>
                                                                 </p>
                                                             </div>
                                                             <div class="col-sm-7">
@@ -359,7 +359,7 @@ foreach ($plugins as $result) {
                                                                     SMTP <?php echo __("port"); ?>:	<br>
                                                                     SMTP <?php echo __("security"); ?>:<br>	
                                                                     SMTP <?php echo __("auth method"); ?>:	<br>
-                                                                    <?php echo __("Webmail"); ?> URL:	<br>
+                                                                    <?php echo __("Webmail URL"); ?>:	<br>
                                                                 </p>
                                                             </div>
                                                             <div class="col-sm-7">
@@ -393,7 +393,7 @@ foreach ($plugins as $result) {
                                                                     SMTP <?php echo __("port"); ?>:	<br>
                                                                     SMTP <?php echo __("security"); ?>:<br>	
                                                                     SMTP <?php echo __("auth method"); ?>:	<br>
-                                                                    <?php echo __("Webmail"); ?> URL:	<br>
+                                                                    <?php echo __("Webmail URL"); ?>:	<br>
                                                                 </p>
                                                             </div>
                                                             <div class="col-sm-7">
@@ -440,7 +440,7 @@ foreach ($plugins as $result) {
                                                                     SMTP <?php echo __("port"); ?>:	<br>
                                                                     SMTP <?php echo __("security"); ?>:<br>	
                                                                     SMTP <?php echo __("auth method"); ?>:	<br>
-                                                                    <?php echo __("Webmail"); ?> URL:	<br>
+                                                                    <?php echo __("Webmail URL"); ?>:	<br>
                                                                 </p>
                                                             </div>
                                                             <div class="col-sm-7">
@@ -474,7 +474,7 @@ foreach ($plugins as $result) {
                                                                     SMTP <?php echo __("port"); ?>:	<br>
                                                                     SMTP <?php echo __("security"); ?>:<br>	
                                                                     SMTP <?php echo __("auth method"); ?>:	<br>
-                                                                    <?php echo __("Webmail"); ?> URL:	<br>
+                                                                    <?php echo __("Webmail URL"); ?>:	<br>
                                                                 </p>
                                                             </div>
                                                             <div class="col-sm-7">
@@ -508,7 +508,7 @@ foreach ($plugins as $result) {
                                                                     SMTP <?php echo __("port"); ?>:	<br>
                                                                     SMTP <?php echo __("security"); ?>:<br>	
                                                                     SMTP <?php echo __("auth method"); ?>:	<br>
-                                                                    <?php echo __("Webmail"); ?> URL:	<br>
+                                                                    <?php echo __("Webmail URL"); ?>:	<br>
                                                                 </p>
                                                             </div>
                                                             <div class="col-sm-7">

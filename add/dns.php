@@ -203,11 +203,11 @@ if (CLOUDFLARE_EMAIL == '' || CLOUDFLARE_API_KEY == ''){ $cfenabled = 'off'; }
                                             <label class="col-md-12">' . __("Security Level") . '</label>
                                             <div class="col-md-12">
                                                 <select class="form-control select3 select2" name="v_cf_level" id="select3">
-                                                    <option value="essentially_off">Essentially Off</option>
-                                                    <option value="low">Low</option>
-                                                    <option value="medium">Medium</option>
-                                                    <option value="high">High</option>
-                                                    <option value="Under Attack">I\'m Under Attack!</option>
+                                                    <option value="essentially_off">' . __("Essentially Off") . '</option>
+                                                    <option value="low">' . __("Low") . '</option>
+                                                    <option value="medium">' . __("Medium") . '</option>
+                                                    <option value="high">' . __("High") . '</option>
+                                                    <option value="Under Attack">' . __('I\'m Under Attack!') . '</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -215,10 +215,10 @@ if (CLOUDFLARE_EMAIL == '' || CLOUDFLARE_API_KEY == ''){ $cfenabled = 'off'; }
                                             <label class="col-md-12">' . __("SSL Setting") . '</label>
                                             <div class="col-md-12">
                                                 <select class="form-control select4 select2" name="v_cf_ssl" id="select4">
-                                                    <option value="off" selected>Off</option>
-                                                    <option value="flexible">Flexible</option>
-                                                    <option value="full">Full</option>
-                                                    <option value="strict">Full (Strict)</option>
+                                                    <option value="off" selected>' . __("Off") . '</option>
+                                                    <option value="flexible">' . __("Flexible") . '</option>
+                                                    <option value="full">' . __("Full") . '</option>
+                                                    <option value="strict">' . __("Full (Strict)") . '</option>
                                                 </select>
                                             </div>
                                         </div>

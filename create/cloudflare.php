@@ -202,7 +202,7 @@ if (CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != ''){
             }
 
             .loader:after{
-                content: "CHECKING DOMAIN ...";
+                content: "<?php echo __('CHECKING DOMAIN ...'); ?>";
                 color: #fff;
                 font-family:  Lato,"Helvetica Neue" ;
                 font-weight: 200;
@@ -217,13 +217,13 @@ if (CLOUDFLARE_EMAIL != '' && CLOUDFLARE_API_KEY != ''){
                 z-index: 1;
             }
             .special:after{
-                content: "ADDING DOMAIN ...";
+                content: "<?php echo __('ADDING DOMAIN ...'); ?>";
             }
             .update:after{
-                content: "UPDATING SETTINGS ...";
+                content: "<?php echo __('UPDATING SETTINGS ...'); ?>";
             }
             .process:after{
-                content: "PROCESSING ...";
+                content: "<?php echo __('PROCESSING ...'); ?>";
             }
             .loader:before{
                 content: "";

@@ -357,7 +357,7 @@ foreach ($plugins as $result) {
                                                     <input type="hidden" name="h_month" value="*">
                                                     <input type="hidden" name="h_wday" value="*">
                                                     <div class="form-group">
-                                                        <label class="col-md-12">Run Command</label>
+                                                        <label class="col-md-12"><?php echo __("Run Command"); ?></label>
                                                         <div class="col-md-12">
                                                             <select class="form-control select2" name="h_hour">
                                                                 <option value="*" selected="selected"><?php echo __("every hour"); ?></option>

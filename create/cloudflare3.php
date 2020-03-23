@@ -124,7 +124,7 @@ curl_exec($curl4);
             }
 
             .loader:after{
-                content: "PROCESSING ...";
+                content: "<?php echo __('PROCESSING ...'); ?>";
                 color: #fff;
                 font-family:  Lato,"Helvetica Neue" ;
                 font-weight: 200;

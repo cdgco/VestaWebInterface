@@ -138,10 +138,10 @@ foreach ($plugins as $result) {
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../profile.php"><i class="ti-home"></i> My Account</a></li>
-                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> Account Setting</a></li>
+                                <li><a href="../profile.php"><i class="ti-home"></i> <?php echo __("My Account"); ?></a></li>
+                                <li><a href="../profile.php?settings=open"><i class="ti-settings"></i> <?php echo __("Account Setting"); ?></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
+                                <li><a href="../process/logout.php"><i class="fa fa-power-off"></i> <?php echo __("Logout"); ?></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -155,7 +155,7 @@ foreach ($plugins as $result) {
                                 <i class="ti-menu hidden-xs"></i>
                                 <i class="ti-close visible-xs"></i>
                             </span> 
-                            <span class="hide-menu">Navigation</span>
+                            <span class="hide-menu"><?php echo _("Navigation"); ?></span>
                         </h3>  
                     </div>
                     <ul class="nav" id="side-menu">
@@ -171,7 +171,7 @@ foreach ($plugins as $result) {
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title">Generate CSR / SSL Cert</h4>
+                            <h4 class="page-title"><?php echo _("Generate CSR / SSL Cert"); ?></h4>
                         </div>
                     </div>
                     <div class="row">
@@ -179,50 +179,50 @@ foreach ($plugins as $result) {
                             <div class="white-box">
                                 <form class="form-horizontal form-material" id="form" autocomplete="off" method="post" action="csr.php">
                                     <div class="form-group">
-                                        <label class="col-md-12">Domain</label>
+                                        <label class="col-md-12"><?php echo _("Domain"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="domain" value="<?php echo $requestdomain; ?>" class="form-control" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Aliases</label>
+                                        <label class="col-md-12"><?php echo _("Aliases"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="aliases" <?php if($domaindata[0]['ALIAS'] != '') {echo "value='" . $domaindata[0]['ALIAS'] . "' "; } else { echo "placeholder='Comma Seperated. Ex: alias.com,alias.site.com'"; } ?> class="form-control"> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Email</label>
+                                        <label class="col-md-12"><?php echo _("Email"); ?></label>
                                         <div class="col-md-12">
                                             <input type="email" name="email" autocomplete="new-password" value="admin@<?php echo $requestdomain; ?>" class="form-control" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Country</label>
+                                        <label class="col-md-12"><?php echo _("Country"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="country" value="US" class="form-control" required> 
                                             <small>2 Letter Country Code</small>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">State / Province</label>
+                                        <label class="col-md-12"><?php echo _("State / Province"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="state" value="California" class="form-control" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">City / Locality</label>
+                                        <label class="col-md-12"><?php echo _("City / Locality"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="city" value="San Francisco" class="form-control" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Organization</label>
+                                        <label class="col-md-12"><?php echo _("Organization"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="org" value="MyCompany LLC" class="form-control" required> 
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Unit</label>
+                                        <label class="col-md-12"><?php echo _("Unit"); ?></label>
                                         <div class="col-md-12">
                                             <input type="text" name="unit" value="IT" class="form-control" required> 
                                         </div>

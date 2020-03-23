@@ -201,8 +201,8 @@ foreach ($plugins as $result) {
                             <div style="margin-right:257px;width:220px;" class="btn-group bootstrap-select input-group-btn" onclick="changeAction();">
                                 <form id="pageform" method="post">
                                     <select class="selectpicker pull-right m-l-20" id="pagechange" data-style="form-control">';
-                                        <option value="access" selected>Access Log</option>
-                                        <option value="error">Error Log</option>
+                                        <option value="access" selected><?php echo __("Access Log"); ?></option>
+                                        <option value="error"><?php echo __("Error Log"); ?></option>
                                     </select>
                                 </form>
                             </div>

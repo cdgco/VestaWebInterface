@@ -226,7 +226,7 @@ if( checkService('postgresql') !== false ) {
                                         </div>
                                     </div>
                                     <div class="form-group"  style="overflow: visible;">
-                                        <label class="col-md-12">Timezone</label>
+                                        <label class="col-md-12"><?php echo __("Timezone"); ?></label>
                                         <div class="col-md-12">
                                             <input type="hidden" name="v_timezone-x" value="<?php echo preg_replace('/\s+/', '', $systimezone); ?>">
                                             <select id="timeselect" name="v_timezone" class="form-control select2">
@@ -977,8 +977,8 @@ if( checkService('postgresql') !== false ) {
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_quota-x" value="<?php print_r($sysconfig[0]["DISK_QUOTA"]); ?>">
                                                 <select class="form-control select2" name="v_quota" id="diskquota">
-                                                    <option value="no">No</option>
-                                                    <option value="yes">Yes</option>
+                                                    <option value="no"><?php echo __("No"); ?></option>
+                                                    <option value="yes"><?php echo __("Yes"); ?></option>
                                                 </select>
                                             </div>
                                         </div>
@@ -987,8 +987,8 @@ if( checkService('postgresql') !== false ) {
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_firewall-x" value="<?php if($sysconfig[0]["FIREWALL_SYSTEM"] != '' && $sysconfig[0]["FIREWALL_SYSTEM"] != 'no') { echo 'yes'; } else { echo 'no'; } ?>">
                                                 <select class="form-control select2" name="v_firewall" id="firewall">
-                                                    <option value="no">No</option>
-                                                    <option value="yes">Yes</option>
+                                                    <option value="no"><?php echo __("No"); ?></option>
+                                                    <option value="yes"><?php echo __("Yes"); ?></option>
                                                 </select>
                                             </div>
                                         </div>
@@ -996,8 +996,8 @@ if( checkService('postgresql') !== false ) {
                                             <label class="col-md-12"><?php echo __("Reseller Role"); ?></label>
                                             <div class="col-md-12">
                                                 <select class="form-control select2" disabled id="resellerrole">
-                                                    <option value="no">No</option>
-                                                    <option value="yes">Yes</option>
+                                                    <option value="no"><?php echo __("No"); ?></option>
+                                                    <option value="yes"><?php echo __("Yes"); ?></option>
                                                 </select>
                                             </div>
                                         </div>
@@ -1005,8 +1005,8 @@ if( checkService('postgresql') !== false ) {
                                             <label class="col-md-12"><?php echo __("Backup Migration Manager"); ?></label>
                                             <div class="col-md-12">
                                                 <select class="form-control select2" disabled id="backupmigration">
-                                                    <option value="no">No</option>
-                                                    <option value="yes">Yes</option>
+                                                    <option value="no"><?php echo __("No"); ?></option>
+                                                    <option value="yes"><?php echo __("Yes"); ?></option>
                                                 </select>
                                             </div>
                                         </div>
@@ -1015,8 +1015,8 @@ if( checkService('postgresql') !== false ) {
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_sftpjail-x" value="<?php if($sysconfig[0]["SFTPJAIL_KEY"] != '') {echo 'yes'; } else { echo 'no'; } ?>">
                                                 <select class="form-control select2" name="v_sftpjail" id="sftpchroot">
-                                                    <option value="no">No</option>
-                                                    <option value="yes">Yes</option>
+                                                    <option value="no"><?php echo __("No"); ?></option>
+                                                    <option value="yes"><?php echo __("Yes"); ?></option>
                                                 </select>
                                             </div>
                                         </div>
@@ -1053,8 +1053,8 @@ if( checkService('postgresql') !== false ) {
                                             <div class="col-md-12">
                                                 <input type="hidden" name="v_filemanager-x" value="<?php echo $sysconfig[0]["FILEMANAGER_KEY"]; ?>">
                                                 <select class="form-control select2" name="v_filemanager" id="filemanager">
-                                                    <option value="no">No</option>
-                                                    <option value="yes">Yes</option>
+                                                    <option value="no"><?php echo __("No"); ?></option>
+                                                    <option value="yes"><?php echo __("Yes"); ?></option>
                                                 </select>
                                             </div>
                                         </div>
@@ -1347,7 +1347,13 @@ if( checkService('postgresql') !== false ) {
                 echo "swal({title:'" . __("Successfully Updated!") . "', type:'success'});";
             } 
             if(isset($_POST['r1']) && $returntotal != 0) {
-                echo "swal({title:'" . __("Error Updating Server") . "', html:'" . __("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3']] . "." . $_POST['r4']] . "." . $_POST['r5']] . "." . $_POST['r6']] . "." . $_POST['r7']] . "." . $_POST['r8']] . "." . $_POST['r9']] . "." . $_POST['r10']] . "." . $_POST['r11']] . "." . $_POST['r12']] . "." . $_POST['r13']] . "." . $_POST['r14'] . ")</span>', type:'error'});";
+                echo "
+                    swal({
+                        title:'" . __("Error Updating Server") . "', 
+                        html:'" . __("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . "." . $_POST['r4'] . "." . $_POST['r5'] . "." . $_POST['r6'] . "." . $_POST['r7'] . "." . $_POST['r8'] . "." . $_POST['r9'] . "." . $_POST['r10'] . "." . $_POST['r11'] . "." . $_POST['r12'] . "." . $_POST['r13'] . "." . $_POST['r14'] . ")</span>',
+                        type:'error'
+                      });
+                    ";
             }
 
             ?>

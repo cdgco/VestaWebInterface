@@ -215,11 +215,11 @@ foreach ($plugins as $result) {
 
                                             do {
                                                 echo '<tr'; if($updatedata[$x1]['UPDATED'] != 'yes') { echo ' style="background: rgba(255, 192, 188, 0.8)"'; } echo '>';
-                                                    if($updatedata[$x1]['UPDATED'] != 'yes') { echo '<td class="resthree"><b>OUTDATED</b></td>'; }
-                                                    else { echo '<td><br>updated</td>'; }
+                                                    if($updatedata[$x1]['UPDATED'] != 'yes') { echo '<td class="resthree"><b>'.__("OUTDATED").'</b></td>'; }
+                                                    else { echo '<td><br>'.__("updated").'</td>'; }
                                                     echo '<td><h2>' . $updatename[$x1] . '</h2><br>' . $updatedata[$x1]['DESCR'] . '<br></td>
-                                                    <td><br>Version: <b>' . $updatedata[$x1]['VERSION'] . '</b><wrapper class="restwo"> (' . $updatedata[$x1]['ARCH'] . ')</wrapper><br></td>
-                                                    <td class="resthree"><br>Release: ' . $updatedata[$x1]['RELEASE'] . '<br></td><td><p style="line-height: 1.7;">&nbsp;</p>';
+                                                    <td><br>'.__("Version").': <b>' . $updatedata[$x1]['VERSION'] . '</b><wrapper class="restwo"> (' . $updatedata[$x1]['ARCH'] . ')</wrapper><br></td>
+                                                    <td class="resthree"><br>'.__("Release").': ' . $updatedata[$x1]['RELEASE'] . '<br></td><td><p style="line-height: 1.7;">&nbsp;</p>';
 
                                                     if ($updatedata[$x1]['UPDATED'] != 'yes') { echo '<a href="../process/update.php?package=' . $updatename[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . __("Update") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-reload"></i></button></a>'; }
 

@@ -219,7 +219,7 @@ curl_exec($curl4);
             }
 
             .loader:after{
-                content: "CHECKING DOMAIN ...";
+                content: "<?php echo __('CHECKING DOMAIN ...'); ?>";
                 color: #fff;
                 font-family:  Lato,"Helvetica Neue" ;
                 font-weight: 200;
@@ -234,10 +234,10 @@ curl_exec($curl4);
                 z-index: 1;
             }
             .special:after{
-                content: "ADDING DOMAIN ...";
+                content: "<?php echo __('ADDING DOMAIN ...'); ?>";
             }
             .update:after{
-                content: "UPDATING SETTINGS ...";
+                content: "<?php echo __('UPDATING SETTINGS ...'); ?>";
             }
             .loader:before{
                 content: "";

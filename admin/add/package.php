@@ -260,7 +260,7 @@ foreach ($plugins as $result) {
                                             </span>
                                         </div>
                                     </div>
-                                    <small class="form-text text-muted" style="top: -20px;position: relative;">Per Domain</small>
+                                    <small class="form-text text-muted" style="top: -20px;position: relative;"><?php echo __("Per Domain"); ?></small>
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo __("DNS Domains"); ?></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
@@ -283,7 +283,7 @@ foreach ($plugins as $result) {
                                             </span>
                                         </div>
                                     </div>
-                                    <small class="form-text text-muted" style="top: -20px;position: relative;">Per Domain</small>
+                                    <small class="form-text text-muted" style="top: -20px;position: relative;"><?php echo __("Per Domain"); ?></small>
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo __("Mail Domains"); ?></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
@@ -306,7 +306,7 @@ foreach ($plugins as $result) {
                                             </span>
                                         </div>
                                     </div>
-                                    <small class="form-text text-muted" style="top: -20px;position: relative;">Per Domain</small>
+                                    <small class="form-text text-muted" style="top: -20px;position: relative;"><?php echo __("Per Domain"); ?></small>
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo __("Databases"); ?></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
@@ -346,7 +346,7 @@ foreach ($plugins as $result) {
                                             </span>
                                         </div>
                                     </div>
-                                    <small class="form-text text-muted" style="top: -20px;position: relative;">In Megabytes</small>
+                                    <small class="form-text text-muted" style="top: -20px;position: relative;"><?php echo __("In Megabytes"); ?></small>
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo __("Bandwidth"); ?></label>
                                         <div class="col-md-12 input-group" style="padding-left: 15px;">
@@ -358,7 +358,7 @@ foreach ($plugins as $result) {
                                             </span>
                                         </div>
                                     </div>
-                                    <small class="form-text text-muted" style="top: -20px;position: relative;">In Megabytes</small>
+                                    <small class="form-text text-muted" style="top: -20px;position: relative;"><?php echo __("In Megabytes"); ?></small>
                                     <div class="form-group" style="overflow: visible;">
                                         <label class="col-md-12"><?php echo __("SSH Access"); ?></label>
                                         <div class="col-md-12">
