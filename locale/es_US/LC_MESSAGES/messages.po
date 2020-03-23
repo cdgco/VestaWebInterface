@@ -1,21 +1,11 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"POT-Creation-Date: 2019-09-15 21:33-0700\n"
-"PO-Revision-Date: 2019-09-15 21:33-0700\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.3\n"
-"X-Poedit-Basepath: ../../../../VestaWebInterface\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: plugins\n"
-"X-Poedit-SearchPathExcluded-1: install/web\n"
-"X-Poedit-SearchPathExcluded-2: bootstrap\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Vesta Web Interface\n"
+"Language: es\n"
 
 #: add/cfrecord.php:130 add/dns.php:87 add/dnsrecord.php:130
 #: admin/add/fail2ban.php:189 admin/list/stats.php:235
@@ -52,10 +42,8 @@ msgstr "DNS"
 #: list/maildomain.php:152 list/web.php:152 log.php:135 log/access.php:144
 #: log/error.php:144 process/csr.php:135 process/generatecsr.php:128
 #: process/search.php:147 profile.php:176
-#, fuzzy
-#| msgid "March"
 msgid "Search..."
-msgstr "Marzo"
+msgstr "Buscar..."
 
 #: add/cfrecord.php:182 add/cron.php:142 add/db.php:148 add/dns.php:139
 #: add/dnsrecord.php:182 add/domain.php:149 add/mail.php:136
@@ -469,10 +457,8 @@ msgid "every day"
 msgstr "cada día"
 
 #: add/cron.php:325 edit/cron.php:398
-#, fuzzy
-#| msgid "every day"
 msgid "every odd day"
-msgstr "cada día"
+msgstr "todos los dias impares"
 
 #: add/cron.php:326 edit/cron.php:399
 msgid "every even day"
@@ -480,7 +466,7 @@ msgstr "cada día par"
 
 #: add/cron.php:400 edit/cron.php:474
 msgid "weekdays (5 days)"
-msgstr ""
+msgstr "días laborables (5 días)"
 
 #: add/cron.php:401 edit/cron.php:475
 msgid "weekend (2 days)"
@@ -768,10 +754,8 @@ msgstr "FTP Adicional"
 
 #: add/domain.php:367 add/domain.php:513 edit/domain.php:532
 #: edit/domain.php:566 edit/domain.php:699
-#, fuzzy
-#| msgid "Account"
 msgid "FTP Account"
-msgstr "Cuenta"
+msgstr "Cuenta FTP"
 
 #: add/domain.php:386 add/domain.php:513 edit/domain.php:552
 #: edit/domain.php:586 edit/domain.php:699
@@ -792,9 +776,7 @@ msgstr "Característica Desactivada"
 #: add/domain.php:577 add/domain.php:586 edit/domain.php:782
 #: edit/domain.php:791
 msgid "Custom SSL Certificates are incompatible with API Key Authentication."
-msgstr ""
-"Certiicados SSL Personalizados son incompatibles con Autenticación de Llave "
-"API"
+msgstr "Certiicados SSL Personalizados son incompatibles con Autenticación de Llave API"
 
 #: add/mail.php:85 add/mailaccount.php:94 admin/list/stats.php:236
 #: admin/server/vesta.php:756 admin/status/mail.php:211 edit/mail.php:95
@@ -970,14 +952,12 @@ msgid "Banlist"
 msgstr "Banlist"
 
 #: admin/add/fail2ban.php:186
-#, fuzzy
-#| msgid "SSL"
 msgid "SSH"
-msgstr "SSL"
+msgstr "SSH"
 
 #: admin/add/fail2ban.php:187
 msgid "WEB"
-msgstr ""
+msgstr "Web"
 
 #: admin/add/fail2ban.php:188 includes/includes.php:428 list/web.php:270
 msgid "FTP"
@@ -985,15 +965,15 @@ msgstr "FTP"
 
 #: admin/add/fail2ban.php:190
 msgid "MAIL"
-msgstr ""
+msgstr "CORREO"
 
 #: admin/add/fail2ban.php:191 admin/server/vesta.php:779
 msgid "DB"
-msgstr ""
+msgstr "BD"
 
 #: admin/add/fail2ban.php:192
 msgid "VESTA"
-msgstr ""
+msgstr "VESTA"
 
 #: admin/add/fail2ban.php:200 admin/add/firewall.php:211
 #: admin/edit/firewall.php:217
@@ -1010,11 +990,11 @@ msgstr "Agregar Regla de Firewall"
 
 #: admin/add/firewall.php:185 admin/edit/firewall.php:190
 msgid "Accept"
-msgstr ""
+msgstr "Aceptar"
 
 #: admin/add/firewall.php:186 admin/edit/firewall.php:191
 msgid "Drop"
-msgstr ""
+msgstr "Denegar"
 
 #: admin/add/firewall.php:191 admin/edit/firewall.php:197
 #: admin/list/firewall.php:208
@@ -1181,10 +1161,8 @@ msgstr "Paquetes son incompatibles con autenticación de Llave API"
 
 #: admin/add/user.php:91 admin/edit/user.php:97 admin/list/ip.php:210
 #: admin/list/users.php:90 admin/list/users.php:220 includes/includes.php:371
-#, fuzzy
-#| msgid "Username"
 msgid "Users"
-msgstr "Usuario"
+msgstr "Usuarios"
 
 #: admin/add/user.php:177 admin/add/user.php:234
 msgid "Add User"
@@ -1235,10 +1213,8 @@ msgstr "Editar Paquete"
 
 #: admin/edit/package.php:277 admin/edit/package.php:300
 #: admin/edit/package.php:323
-#, fuzzy
-#| msgid "Web Domains"
 msgid "Per Domain"
-msgstr "Dominios Web"
+msgstr "Por Dominio"
 
 #: admin/edit/package.php:414
 msgid "Update Package"
@@ -1406,8 +1382,6 @@ msgstr "Suspender Regla"
 #: list/cron.php:426 list/db.php:336 list/db.php:357 list/dns.php:470
 #: list/dns.php:491 list/mail.php:372 list/mail.php:393 list/maildomain.php:368
 #: list/maildomain.php:390 list/web.php:397 list/web.php:418
-#, fuzzy
-#| msgid "Confirm Pass"
 msgid "Confirm"
 msgstr "Confirmar"
 
@@ -1425,7 +1399,7 @@ msgstr "Gráficos RRD"
 
 #: admin/list/graphs.php:206
 msgid "Yearly"
-msgstr ""
+msgstr "Anual"
 
 #: admin/list/graphs.php:231 list/backups.php:269 log/access.php:218
 #: log/access.php:219
@@ -1470,30 +1444,24 @@ msgid "Notifications"
 msgstr "Notificaciones"
 
 #: admin/list/notifications.php:191
-#, fuzzy
-#| msgid "Notifications"
 msgid "Send Notifications"
-msgstr "Notificaciones"
+msgstr "Enviar notificaciones"
 
 #: admin/list/notifications.php:194
-msgid ""
-"Notification System Disabled. Please enable the notification system from the "
-"VWI settings menu to send notifications."
-msgstr ""
+msgid "Notification System Disabled. Please enable the notification system from the VWI settings menu to send notifications."
+msgstr "Sistema de notificación deshabilitado. Habilite el sistema de notificaciones desde el menú de configuración de VWI para enviar notificaciones."
 
 #: admin/list/notifications.php:200
 msgid "Send To:"
-msgstr ""
+msgstr "Enviar a:"
 
 #: admin/list/notifications.php:217
 msgid "Title"
-msgstr ""
+msgstr "Título"
 
 #: admin/list/notifications.php:230
-#, fuzzy
-#| msgid "Notifications"
 msgid "Send Notification"
-msgstr "Notificaciones"
+msgstr "Enviar notificación"
 
 #: admin/list/packages.php:203
 msgid "Manage Packages"
@@ -1523,7 +1491,7 @@ msgstr "Desarrollador"
 
 #: admin/list/plugins.php:194
 msgid "Descriptor"
-msgstr ""
+msgstr "Descriptor"
 
 #: admin/list/server.php:102 admin/list/server.php:204
 #: admin/server/mysql.php:90 admin/server/nginx.php:90 admin/server/php.php:90
@@ -1537,11 +1505,11 @@ msgstr "Mostrar "
 
 #: admin/list/server.php:218
 msgid "Load Average:"
-msgstr ""
+msgstr "Promedio de carga:"
 
 #: admin/list/server.php:219
 msgid "Uptime:"
-msgstr ""
+msgstr "Tiempo Activo:"
 
 #: admin/list/server.php:228 admin/list/server.php:258
 #: admin/server/vesta.php:717
@@ -1556,28 +1524,22 @@ msgstr "Reiniciar"
 
 #: admin/list/server.php:259 admin/list/server.php:364
 #: admin/list/server.php:370
-#, fuzzy
-#| msgid "Restart"
 msgid "Start"
-msgstr "Reiniciar"
+msgstr "Iniciar"
 
 #: admin/list/server.php:259 admin/list/server.php:342
 #: admin/list/server.php:348
 msgid "Stop"
-msgstr ""
+msgstr "Detener"
 
 #: admin/list/server.php:300 admin/list/server.php:321
 #: admin/list/server.php:343 admin/list/server.php:365
-#, fuzzy
-#| msgid "Please try again."
 msgid "Please confirm action."
-msgstr "Por favor intentar nuevamente."
+msgstr "Por favor confirme la acción."
 
 #: admin/list/server.php:320
-#, fuzzy
-#| msgid "Restart"
 msgid "Restart System?"
-msgstr "Reiniciar"
+msgstr "Reiniciar el sistema?"
 
 #: admin/list/settings.php:88 includes/includes.php:383 profile.php:260
 msgid "Settings"
@@ -1588,20 +1550,16 @@ msgid "Edit Panel Settings"
 msgstr "Editar Configuración de Panel"
 
 #: admin/list/settings.php:199
-#, fuzzy
-#| msgid "Please try again."
 msgid "Server Configuration"
-msgstr "Por favor intentar nuevamente."
+msgstr "Configuración del servidor"
 
 #: admin/list/settings.php:201
 msgid "Server Timezone"
-msgstr ""
+msgstr "Zona horaria del servidor"
 
 #: admin/list/settings.php:353
-#, fuzzy
-#| msgid "First Name"
 msgid "Site Name"
-msgstr "Nombre"
+msgstr "Nombre del sitio"
 
 #: admin/list/settings.php:360 profile.php:400
 msgid "Theme"
@@ -1629,23 +1587,23 @@ msgstr "Oscuro"
 
 #: admin/list/settings.php:368
 msgid "Custom"
-msgstr ""
+msgstr "Personalizado"
 
 #: admin/list/settings.php:374
 msgid "Custom Theme Colors"
-msgstr ""
+msgstr "Colores Temáticos Personalizados"
 
 #: admin/list/settings.php:380
 msgid "Primary Color (Header, Active Buttons / Text, Etc.)"
-msgstr ""
+msgstr "Color primario (encabezado, botones activos / texto, etc.)"
 
 #: admin/list/settings.php:385
 msgid "Secondary Color (Buttons / Text)"
-msgstr ""
+msgstr "Color secundario (botones / texto)"
 
 #: admin/list/settings.php:390
 msgid "Custom Footer"
-msgstr ""
+msgstr "Pie de página personalizado"
 
 #: admin/list/settings.php:394 admin/list/settings.php:411
 #: admin/list/settings.php:456 admin/list/settings.php:473
@@ -1664,261 +1622,199 @@ msgstr "Deshabilitar"
 
 #: admin/list/settings.php:400
 msgid "Footer Text"
-msgstr ""
+msgstr "Texto de pie de página"
 
 #: admin/list/settings.php:407
 msgid "VWI Branding in Footer"
-msgstr ""
+msgstr "VWI marca en el pie de página"
 
 #: admin/list/settings.php:452
-#, fuzzy
-#| msgid "Default"
 msgid "Default To Admin"
-msgstr "Defecto"
+msgstr "Predeterminado a administradorDefecto"
 
 #: admin/list/settings.php:458
-msgid ""
-"Choose whether or not the admin should go to the admin panel or home after "
-"login."
-msgstr ""
+msgid "Choose whether or not the admin should go to the admin panel or home after login."
+msgstr "Elija si el administrador debe ir al panel de administración o al hogar después de iniciar sesión."
 
 #: admin/list/settings.php:462
-#, fuzzy
-#| msgid "Delete IP Address"
 msgid "Vesta Host Address"
-msgstr "Borrar Dirección IP"
+msgstr "Dirección de host de Vesta"
 
 #: admin/list/settings.php:465
 msgid "VestaCP Host URL or IP Address"
-msgstr ""
+msgstr "VestaCP Host URL o dirección IP"
 
 #: admin/list/settings.php:469 admin/server/vesta.php:936
 msgid "Vesta SSL"
-msgstr ""
+msgstr "Vesta SSL"
 
 #: admin/list/settings.php:478
-#, fuzzy
-#| msgid "Restart"
 msgid "Vesta Port"
-msgstr "Reiniciar"
+msgstr "Puerto Vesta"
 
 #: admin/list/settings.php:484
 msgid "API Method"
-msgstr ""
+msgstr "Método API"
 
 #: admin/list/settings.php:487
-#, fuzzy
-#| msgid "Normal Password"
 msgid "Username / Password"
-msgstr "Contraseña Normal"
+msgstr "Usuario / Contraseña"
 
 #: admin/list/settings.php:488
-#, fuzzy
-#| msgid "Pub Key"
 msgid "API Key"
-msgstr "Llave Publica"
+msgstr "Clave API"
 
 #: admin/list/settings.php:494
 msgid "Vesta API Key"
-msgstr ""
+msgstr "Clave API de Vesta"
 
 #: admin/list/settings.php:497
-msgid ""
-"Adding & editing custom SSL certificates and backup exclusions does not Work "
-"with API key. Features will be disabled."
-msgstr ""
+msgid "Adding & editing custom SSL certificates and backup exclusions does not Work with API key. Features will be disabled."
+msgstr "Agregar y editar certificados SSL personalizados y exclusiones de copias de seguridad no funciona con la clave API. Las funciones serán deshabilitadas."
 
 #: admin/list/settings.php:503
 msgid "Vesta Admin Username"
-msgstr ""
+msgstr "Nombre de usuario administrador de Vesta"
 
 #: admin/list/settings.php:510
 msgid "Vesta Admin Password"
-msgstr ""
+msgstr "Contraseña de administrador de Vesta"
 
 #: admin/list/settings.php:517
-#, fuzzy
-#| msgid "Enabled"
 msgid "Warnings Enabled"
-msgstr "Habilitado"
+msgstr "Advertencias habilitadas"
 
 #: admin/list/settings.php:524
 msgid "Display messages for installation warnings and connection errors."
-msgstr ""
+msgstr "Mostrar mensajes para advertencias de instalación y errores de conexión."
 
 #: admin/list/settings.php:528
-#, fuzzy
-#| msgid "No Encryption"
 msgid "Encryption Key 1"
-msgstr "Sin Encriptar"
+msgstr "Clave de cifrado 1"
 
 #: admin/list/settings.php:534
-#, fuzzy
-#| msgid "No Encryption"
 msgid "Encryption Key 2"
-msgstr "Sin Encriptar"
+msgstr "Clave de cifrado 2"
 
 #: admin/list/settings.php:540
 msgid "Current Favicon:"
-msgstr ""
+msgstr "Favicon actual:"
 
 #: admin/list/settings.php:542
 msgid "New Favicon:"
-msgstr ""
+msgstr "Nuevo favicon:"
 
 #: admin/list/settings.php:545
 msgid "Recommended 32x32px .ico"
-msgstr ""
+msgstr "Recomendado 32x32px .ico"
 
 #: admin/list/settings.php:549
 msgid "Current Icon:"
-msgstr ""
+msgstr "Ícono actual:"
 
 #: admin/list/settings.php:551
 msgid "New Icon:"
-msgstr ""
+msgstr "Nuevo icono:"
 
 #: admin/list/settings.php:554
-msgid ""
-"Recommended 40x40px .png or .gif. (.png, .gif, .jpg, and .jpeg up to 1MB "
-"allowed.)"
-msgstr ""
+msgid "Recommended 40x40px .png or .gif. (.png, .gif, .jpg, and .jpeg up to 1MB allowed.)"
+msgstr "Recomendado 40x40px .png o .gif. (.png, .gif, .jpg y .jpeg permiten hasta 1 MB)."
 
 #: admin/list/settings.php:559
 msgid "Current Logo:"
-msgstr ""
+msgstr "Logotipo actual:"
 
 #: admin/list/settings.php:561
-#, fuzzy
-#| msgid "View Logs"
 msgid "New Logo:"
-msgstr "Ver Logs"
+msgstr "Nuevo logo:"
 
 #: admin/list/settings.php:564
-msgid ""
-"Recommended 134x24px .png or .gif. (.png, .gif, .jpg, and .jpeg up to 1MB "
-"allowed.)"
-msgstr ""
+msgid "Recommended 134x24px .png or .gif. (.png, .gif, .jpg, and .jpeg up to 1MB allowed.)"
+msgstr "134x24px recomendado .png o .gif. (.png, .gif, .jpg y .jpeg permiten hasta 1 MB)."
 
 #: admin/list/settings.php:568
-#, fuzzy
-#| msgid "Enable Cron Notifications"
 msgid "Enable / Disable Sections"
-msgstr "Habilitar Notificaciones Cron"
+msgstr "Habilitar / deshabilitar secciones"
 
 #: admin/list/settings.php:570
-#, fuzzy
-#| msgid "Enabled"
 msgid "Web Enabled"
-msgstr "Habilitado"
+msgstr "Web habilitado"
 
 #: admin/list/settings.php:579
-#, fuzzy
-#| msgid "Enabled"
 msgid "DNS Enabled"
-msgstr "Habilitado"
+msgstr "DNS habilitado"
 
 #: admin/list/settings.php:588
-#, fuzzy
-#| msgid "Enabled"
 msgid "Mail Enabled"
-msgstr "Habilitado"
+msgstr "Correo habilitado"
 
 #: admin/list/settings.php:597
-#, fuzzy
-#| msgid "Database Error"
 msgid "Database Enabled"
-msgstr "Error Base de Datos"
+msgstr "Base de datos habilitada"
 
 #: admin/list/settings.php:606
 msgid "Admin Panel Enabled"
-msgstr ""
+msgstr "Panel de administración Habilitado"
 
 #: admin/list/settings.php:615
-#, fuzzy
-#| msgid "Cloudflare Enabled!"
 msgid "Profile Page Enabled"
-msgstr "¡Cloudflare Habilitado!"
+msgstr "Página de perfil habilitada"
 
 #: admin/list/settings.php:624
-#, fuzzy
-#| msgid "Enabled"
 msgid "Cron Enabled"
-msgstr "Habilitado"
+msgstr "Cron habilitado"
 
 #: admin/list/settings.php:633
-#, fuzzy
-#| msgid "Backup Name"
 msgid "Backups Enabled"
-msgstr "Nombre de Respaldo"
+msgstr "Copias de seguridad habilitadas"
 
 #: admin/list/settings.php:642
-#, fuzzy
-#| msgid "No Authentication"
 msgid "Notification System Enabled"
-msgstr "Sin Autenticación"
+msgstr "Sistema de notificaciones habilitado"
 
 #: admin/list/settings.php:651
 msgid "Registrations Enabled"
-msgstr ""
+msgstr "Registros Habilitados"
 
 #: admin/list/settings.php:660
-#, fuzzy
-#| msgid "Softaculous"
 msgid "Softaculous Enabled"
-msgstr "Softaculous"
+msgstr "Softaculous habilitado"
 
 #: admin/list/settings.php:669
 msgid "Link to Old CP Enabled"
-msgstr ""
+msgstr "Enlace a PC antiguo habilitado"
 
 #: admin/list/settings.php:680
-#, fuzzy
-#| msgid "Enabled"
 msgid "PHP Mail Enabled"
-msgstr "Habilitado"
+msgstr "Correo PHP habilitado"
 
 #: admin/list/settings.php:690
-#, fuzzy
-#| msgid "Address"
 msgid "From Address"
-msgstr "Dirección"
+msgstr "De la Dirección"
 
 #: admin/list/settings.php:696
-#, fuzzy
-#| msgid "First Name"
 msgid "From Name"
-msgstr "Nombre"
+msgstr "Del nombre"
 
 #: admin/list/settings.php:702
-#, fuzzy
-#| msgid "auth method"
 msgid "Mail Method"
-msgstr "metodo de autenticación"
+msgstr "Método de correo"
 
 #: admin/list/settings.php:706
-#, fuzzy
-#| msgid "Mail"
 msgid "PHP Mail"
-msgstr "Mail"
+msgstr "Correo PHP"
 
 #: admin/list/settings.php:712
-#, fuzzy
-#| msgid "Host"
 msgid "SMTP Host"
-msgstr "Host"
+msgstr "Host SMTP"
 
 #: admin/list/settings.php:718
-#, fuzzy
-#| msgid "Port"
 msgid "SMTP Port"
-msgstr "Puerto"
+msgstr "Puerto SMTP"
 
 #: admin/list/settings.php:724
-#, fuzzy
-#| msgid "No Encryption"
 msgid "SMTP Encryption"
-msgstr "Sin Encriptar"
+msgstr "Cifrado SMTP"
 
 #: admin/list/settings.php:729 list/mail.php:286 list/maildomain.php:270
 #: list/web.php:300 list/web.php:316 list/web.php:321
@@ -1926,97 +1822,77 @@ msgid "None"
 msgstr "Ninguno"
 
 #: admin/list/settings.php:734
-#, fuzzy
-#| msgid "No Authentication"
 msgid "Authentication Enabled"
-msgstr "Sin Autenticación"
+msgstr "Autenticación habilitada"
 
 #: admin/list/settings.php:744
-#, fuzzy
-#| msgid "Username"
 msgid "SMTP Username"
-msgstr "Usuario"
+msgstr "Nombre de usuario SMTP"
 
 #: admin/list/settings.php:750
-#, fuzzy
-#| msgid "Password"
 msgid "SMTP Password"
-msgstr "Contraseña"
+msgstr "Contraseña SMTP"
 
 #: admin/list/settings.php:759
-#, fuzzy
-#| msgid "Optional"
 msgid "Optional Links"
-msgstr "Opcional"
+msgstr "Enlaces opcionales"
 
 #: admin/list/settings.php:761
 msgid "FTP Client URL"
-msgstr ""
+msgstr "URL del cliente FTP"
 
 #: admin/list/settings.php:764 admin/list/settings.php:771
 #: admin/list/settings.php:778 admin/list/settings.php:785
 msgid "Leave blank for default or enter 'disabled' to disable."
-msgstr ""
+msgstr "Deje en blanco por defecto o ingrese 'disabled' para deshabilitar."
 
 #: admin/list/settings.php:768
-#, fuzzy
-#| msgid "Webmail"
 msgid "Webmail URL"
-msgstr "Webmail"
+msgstr "URL del correo web"
 
 #: admin/list/settings.php:775
-#, fuzzy
-#| msgid "phpMyAdmin"
 msgid "phpMyAdmin URL"
-msgstr "phpMyAdmin"
+msgstr "URL de phpMyAdmin"
 
 #: admin/list/settings.php:782
-#, fuzzy
-#| msgid "phpPgAdmin"
 msgid "phpPgAdmin URL"
-msgstr "phpPgAdmin"
+msgstr "URL de phpPgAdmin"
 
 #: admin/list/settings.php:789
-#, fuzzy
-#| msgid "Support"
 msgid "Support URL"
-msgstr "Soporte"
+msgstr "URL de soporte"
 
 #: admin/list/settings.php:792
 msgid "Leave blank or enter 'disabled' to disable."
-msgstr ""
+msgstr "Deje en blanco o ingrese 'disabled' para deshabilitar."
 
 #: admin/list/settings.php:795
 msgid "Optional Integrations"
-msgstr ""
+msgstr "Integraciones opcionales"
 
 #: admin/list/settings.php:800
 msgid "Comma seperated list of installed plugins."
-msgstr ""
+msgstr "Lista separada por comas de complementos instalados."
 
 #: admin/list/settings.php:804
 msgid "Google Analytics ID"
-msgstr ""
+msgstr "Identificación de Google Analytics"
 
 #: admin/list/settings.php:811
 msgid "Interakt App ID"
-msgstr ""
+msgstr "ID de la aplicación Interakt"
 
 #: admin/list/settings.php:818
 msgid "Interakt API Key"
-msgstr ""
+msgstr "Interakt API Key"
 
 #: admin/list/settings.php:825
-#, fuzzy
-#| msgid "Cloudflare Proxy"
 msgid "Cloudflare API Key"
-msgstr "Proxy Cloudflare"
+msgstr "Clave API de Cloudflare"
 
 #: admin/list/settings.php:832
-#, fuzzy
-#| msgid "Invalid Email Address"
 msgid "Cloudflare Account Email Address"
-msgstr "Correo electrónico inválido"
+msgstr "Dirección de correo electrónico de la cuenta de Cloudflare"
 
 #: admin/list/settings.php:842
 msgid "Update Settings"
@@ -2024,13 +1900,11 @@ msgstr "Actualizar Configuración"
 
 #: admin/list/settings.php:844
 msgid "Reset to Defaults"
-msgstr ""
+msgstr "Restablecer los valores predeterminados"
 
 #: admin/list/settings.php:1039
-#, fuzzy
-#| msgid "Error Updating User"
 msgid "Error Updating Settings"
-msgstr "Error al Actualizar Usuario"
+msgstr "Error al actualizar la configuración"
 
 #: admin/list/stats.php:96 list/web.php:271
 msgid "Stats"
@@ -2082,172 +1956,145 @@ msgid "User"
 msgstr "Usuario"
 
 #: admin/list/users.php:316
-#, fuzzy
-#| msgid "Login"
 msgid "Login as"
-msgstr "Login"
+msgstr "Ingresar como"
 
 #: admin/server/mysql.php:175
 msgid "View Configuration / MySQL"
-msgstr ""
+msgstr "Ver configuración / MySQL"
 
 #: admin/server/mysql.php:183
 msgid "Max Connections"
-msgstr ""
+msgstr "Conexiones máximas"
 
 #: admin/server/mysql.php:189
 msgid "Max User Connections"
-msgstr ""
+msgstr "Máximas Conexiones de Usuario"
 
 #: admin/server/mysql.php:195
 msgid "Wait Timeout"
-msgstr ""
+msgstr "Esperar tiempo de espera"
 
 #: admin/server/mysql.php:201
 msgid "Interactive Timeout"
-msgstr ""
+msgstr "Tiempo de espera interactivo"
 
 #: admin/server/mysql.php:207
 msgid "Max Allowed Packet"
-msgstr ""
+msgstr "Paquete máximo permitido"
 
 #: admin/server/nginx.php:175
 msgid "View Configuration / NGINX"
-msgstr ""
+msgstr "Ver configuración / NGINX"
 
 #: admin/server/nginx.php:183
-#, fuzzy
-#| msgid "Configure"
 msgid "Configure PHP"
-msgstr "Configurar"
+msgstr "Configurar PHP"
 
 #: admin/server/nginx.php:188
-#, fuzzy
-#| msgid "Process"
 msgid "Worker Processes"
-msgstr "Proceso"
+msgstr "Procesos de trabajo"
 
 #: admin/server/nginx.php:194
 msgid "Worker Connections"
-msgstr ""
+msgstr "Conexiones de trabajadores"
 
 #: admin/server/nginx.php:200
 msgid "Client Max Body Size"
-msgstr ""
+msgstr "Tamaño máximo del cuerpo del cliente"
 
 #: admin/server/nginx.php:206
 msgid "Send Timeout"
-msgstr ""
+msgstr "Enviar tiempo de espera"
 
 #: admin/server/nginx.php:212
 msgid "Proxy Connect Timeout"
-msgstr ""
+msgstr "Tiempo de espera de conexión del proxy\n"
+""
 
 #: admin/server/nginx.php:218
 msgid "Proxy Send Timeout"
-msgstr ""
+msgstr "Tiempo de espera de envío de proxy"
 
 #: admin/server/nginx.php:224
 msgid "Proxy Read Timeout"
-msgstr ""
+msgstr "Tiempo de espera de lectura proxy"
 
 #: admin/server/nginx.php:230
 msgid "GZip"
-msgstr ""
+msgstr "GZip"
 
 #: admin/server/nginx.php:236
 msgid "GZip Compression Level"
-msgstr ""
+msgstr "Nivel de compresión GZip"
 
 #: admin/server/php.php:175
 msgid "View Configuration / PHP"
-msgstr ""
+msgstr "Ver configuración / PHP"
 
 #: admin/server/php.php:183
 msgid "Max Execution Time"
-msgstr ""
+msgstr "Tiempo Máximo de Ejecución"
 
 #: admin/server/php.php:189
 msgid "Max Input Time"
-msgstr ""
+msgstr "Máximo tiempo de entrada"
 
 #: admin/server/php.php:195
-#, fuzzy
-#| msgid "Memory"
 msgid "Memory Limit"
-msgstr "Memoria"
+msgstr "Limite de memoria"
 
 #: admin/server/php.php:201
-#, fuzzy
-#| msgid "Error"
 msgid "Error Reporting"
-msgstr "Error Log"
+msgstr "Error al reportar"
 
 #: admin/server/php.php:207
 msgid "Display Errors"
-msgstr ""
+msgstr "Mostrar errores"
 
 #: admin/server/php.php:213
 msgid "Post Max Size"
-msgstr ""
+msgstr "Tiempo máximo de publicación"
 
 #: admin/server/php.php:219
 msgid "Upload Max Filesize"
-msgstr ""
+msgstr "Subir tamaño máximo de archivo"
 
 #: admin/server/vesta.php:214
-#, fuzzy
-#| msgid "Configure Restore"
 msgid "Configure Server"
-msgstr "Configurar Restauración"
+msgstr "Configurar servidor"
 
 #: admin/server/vesta.php:222
-#, fuzzy
-#| msgid "hostname"
 msgid "Hostname"
-msgstr "hostname"
+msgstr "Servidor"
 
 #: admin/server/vesta.php:676
-#, fuzzy
-#| msgid "Language"
 msgid "Default Language"
-msgstr "Lenguaje"
+msgstr "Idioma Predeterminad"
 
 #: admin/server/vesta.php:717
-#, fuzzy
-#| msgid "Server"
 msgid "Proxy Server"
-msgstr "Servidor"
+msgstr "Servidor Proxy"
 
 #: admin/server/vesta.php:723
-#, fuzzy
-#| msgid "Server"
 msgid "Web Server"
-msgstr "Servidor"
+msgstr "Servidor Web"
 
 #: admin/server/vesta.php:729
-#, fuzzy
-#| msgid "Backed Up"
 msgid "Backend Server"
-msgstr "Respaldado"
+msgstr "Backend Server"
 
 #: admin/server/vesta.php:740
-#, fuzzy
-#| msgid "Server"
 msgid "DNS Server"
-msgstr "Servidor"
+msgstr "Servidor DNS"
 
 #: admin/server/vesta.php:746
-#, fuzzy
-#| msgid "DNS Template"
 msgid "DNS Cluster"
-msgstr "Plantilla DNS"
+msgstr "Clúster de DNS"
 
 #: admin/server/vesta.php:760
-#, fuzzy
-#| msgid "Server"
 msgid "Mail Server"
-msgstr "Servidor"
+msgstr "Servidor de Correo"
 
 #: admin/server/vesta.php:766 list/mail.php:253
 msgid "Antivirus"
@@ -2258,10 +2105,8 @@ msgid "Antispam"
 msgstr "Antispam"
 
 #: admin/server/vesta.php:783
-#, fuzzy
-#| msgid "SSL Support"
 msgid "MySQL Support"
-msgstr "Soporte SSL"
+msgstr "Soporte MySQL"
 
 #: admin/server/vesta.php:794 admin/server/vesta.php:830 edit/db.php:293
 #: list/db.php:240
@@ -2269,42 +2114,32 @@ msgid "Host"
 msgstr "Host"
 
 #: admin/server/vesta.php:806 admin/server/vesta.php:842
-#, fuzzy
-#| msgid "Manage Databases"
 msgid "Maximum Number of Databases"
-msgstr "Administrar Base de Datos"
+msgstr "Número máximo de bases de datos"
 
 #: admin/server/vesta.php:812 admin/server/vesta.php:848
 msgid "Current Number of Databases"
-msgstr ""
+msgstr "Cantidad de Bases de Datos actual"
 
 #: admin/server/vesta.php:820
-#, fuzzy
-#| msgid "SSL Support"
 msgid "PostgreSQL Support"
-msgstr "Soporte SSL"
+msgstr "Soporte PostgreSQL"
 
 #: admin/server/vesta.php:857 list/backup.php:209 list/backups.php:238
 msgid "Backup"
 msgstr "Respaldo"
 
 #: admin/server/vesta.php:861
-#, fuzzy
-#| msgid "Backup"
 msgid "Local Backup"
-msgstr "Respaldo"
+msgstr "Copia de seguridad local"
 
 #: admin/server/vesta.php:871
-#, fuzzy
-#| msgid "Cloudflare Level"
 msgid "Compression Level"
-msgstr "Nivel Cloudflare"
+msgstr "Nivel de compresión"
 
 #: admin/server/vesta.php:888
-#, fuzzy
-#| msgid "SSL Directory"
 msgid "Directory"
-msgstr "Directorio SSL"
+msgstr "Directorio"
 
 #: admin/server/vesta.php:955 edit/domain.php:429
 msgid "Subject"
@@ -2331,78 +2166,64 @@ msgid "Issuer"
 msgstr "Editor"
 
 #: admin/server/vesta.php:966
-#, fuzzy
-#| msgid "Control Panel v1"
 msgid "Vesta Control Panel Plugins"
-msgstr "Panel de Control v1"
+msgstr "Complementos del panel de control de Vesta"
 
 #: admin/server/vesta.php:976
-#, fuzzy
-#| msgid "Disk Quota"
 msgid "FileSystem Disk Quota"
-msgstr "Cuota de Disco"
+msgstr "FileSystem - Cuota del disco"
 
 #: admin/server/vesta.php:996
 msgid "Reseller Role"
-msgstr ""
+msgstr "Rol de Revendedor"
 
 #: admin/server/vesta.php:1005
 msgid "Backup Migration Manager"
-msgstr ""
+msgstr "Administrador de Migración de Respaldos"
 
 #: admin/server/vesta.php:1014
 msgid "SFTP Chroot"
-msgstr ""
+msgstr "SFTP Chroot"
 
 #: admin/server/vesta.php:1024
-msgid ""
-"Restrict users so that they cannot use SSH and access only their home "
-"directory. This is a commercial module, you would need to purchace license "
-"key to enable it."
-msgstr ""
+msgid "Restrict users so that they cannot use SSH and access only their home directory. This is a commercial module, you would need to purchace license key to enable it."
+msgstr "Restringe a los usuarios para que sólo puedan ingresar a su directorio local y prohíbe el acceso a SSH. Este es un módulo comercial, tendrás que adquirir una licencia para poder activarlo."
 
 #: admin/server/vesta.php:1027 admin/server/vesta.php:1065
 msgid "License Key"
-msgstr ""
+msgstr "Clave de licencia"
 
 #: admin/server/vesta.php:1033 admin/server/vesta.php:1071
 msgid "Enter License Key"
-msgstr ""
+msgstr "Inserta la clave de licencia"
 
 #: admin/server/vesta.php:1040
 msgid "Buy License $3/Month"
-msgstr ""
+msgstr "Comprar licencia $ 3 USD / mes"
 
 #: admin/server/vesta.php:1045
 msgid "Buy Lifetime License $18"
-msgstr ""
+msgstr "Comprar licencia de por vida $ 18 USD"
 
 #: admin/server/vesta.php:1048 admin/server/vesta.php:1086
-msgid ""
-"2Checkout.com Inc. (Ohio, USA) is a payment facilitator for goods and "
-"services provided by vestacp.com."
-msgstr ""
+msgid "2Checkout.com Inc. (Ohio, USA) is a payment facilitator for goods and services provided by vestacp.com."
+msgstr "2Checkout.com Inc. (Ohio, EE. UU.) Es un facilitador de pagos para bienes y servicios proporcionados por vestacp.com."
 
 #: admin/server/vesta.php:1052
-#, fuzzy
-#| msgid "Manage"
 msgid "File Manager"
-msgstr "Administrar"
+msgstr "Adm. de Archivos"
 
 #: admin/server/vesta.php:1062
-msgid ""
-"Browse, copy, edit, view, and retrieve all of your web domain files using "
-"fully featured File Manager. This is a commercial module, you would need to "
-"purchace license key to enable it."
-msgstr ""
+msgid "Browse, copy, edit, view, and retrieve all of your web domain files using fully featured File Manager. This is a commercial module, you would need to purchace license key to enable it."
+msgstr "Navegar, copiar, editar, ver y descargar todos los archivos de tu página web utilizando el Administrador de Archivos."
 
 #: admin/server/vesta.php:1078
 msgid "Buy License $5/Month"
-msgstr ""
+msgstr "Comprar licencia $ 5 USD / mes"
 
 #: admin/server/vesta.php:1083
 msgid "Buy Lifetime License $50"
-msgstr ""
+msgstr "Comprar licencia de por vida $ 50 USD"
 
 #: admin/server/vesta.php:1090 includes/includes.php:432
 msgid "Softaculous"
@@ -2410,31 +2231,23 @@ msgstr "Softaculous"
 
 #: admin/server/vesta.php:1100
 msgid "Plugin installation will run in background."
-msgstr ""
+msgstr "La instalación del complemento se ejecutará en segundo plano."
 
 #: admin/server/vesta.php:1100
-msgid ""
-"Softaculous is a great Auto Installer having 426 great scripts, 1115 PHP "
-"Classes and we are still adding more. Softaculous is ideal for Web Hosting "
-"companies and it could give a significant boost to your sales. These scripts "
-"cover most of the uses a customer could ever have. We have covered a wide "
-"array of Categories so that everyone could find the required script one "
-"would need to power their Web Site."
-msgstr ""
+msgid "Softaculous is a great Auto Installer having 426 great scripts, 1115 PHP Classes and we are still adding more. Softaculous is ideal for Web Hosting companies and it could give a significant boost to your sales. These scripts cover most of the uses a customer could ever have. We have covered a wide array of Categories so that everyone could find the required script one would need to power their Web Site."
+msgstr "Softaculous es un gran instalador automático que tiene 426 excelentes scripts, 1115 clases de PHP y todavía estamos agregando más. Softaculous es ideal para empresas de alojamiento web y podría dar un impulso significativo a sus ventas. Estos scripts cubren la mayoría de los usos que un cliente podría tener. Hemos cubierto una amplia gama de Categorías para que todos puedan encontrar el script requerido que uno necesitaría para impulsar su Sitio Web."
 
 #: admin/server/vesta.php:1103
 msgid "Get Premium License"
-msgstr ""
+msgstr "Obtenga una licencia premium"
 
 #: admin/server/vesta.php:1110 edit/backupexclusions.php:244
 msgid "Save"
 msgstr "Guardar"
 
 #: admin/server/vesta.php:1350
-#, fuzzy
-#| msgid "Error Updating User"
 msgid "Error Updating Server"
-msgstr "Error al Actualizar Usuario"
+msgstr "Error al actualizar el servidor"
 
 #: admin/status/cpu.php:89 admin/status/cpu.php:187 admin/status/db.php:89
 #: admin/status/db.php:187 admin/status/disk.php:89 admin/status/disk.php:187
@@ -2447,8 +2260,6 @@ msgid "Server Status"
 msgstr "Estado de Servidor"
 
 #: admin/status/cpu.php:211
-#, fuzzy
-#| msgid "CP"
 msgid "CPU"
 msgstr "CPU"
 
@@ -2460,56 +2271,21 @@ msgstr "Memoria"
 msgid "Network"
 msgstr "Red"
 
-#: bower_components/moment/min/locales.min.js:1
-msgid "s"
-msgstr ""
-
-#: bower_components/moment/min/locales.min.js:1
-msgid "m"
-msgstr ""
-
-#: bower_components/moment/min/locales.min.js:1
-msgid "h"
-msgstr ""
-
-#: bower_components/moment/min/locales.min.js:1
-msgid "d"
-msgstr ""
-
-#: bower_components/moment/min/locales.min.js:1
-msgid "M"
-msgstr ""
-
-#: bower_components/moment/min/locales.min.js:1
-msgid "y"
-msgstr ""
-
-#: bower_components/moment/min/moment.min.js:1
-msgid ": "
-msgstr ""
-
 #: edit/backupexclusions.php:174
 msgid "Configure Backup Exclusions"
 msgstr "Configurar Exclusiones de Respaldo"
 
 #: edit/backupexclusions.php:185
-msgid ""
-"Type domain name, one per line. To exclude all domains use *. To exclude "
-"specific directories use the following format: domain.com:public_html/cache:"
-"public_html/tmp"
-msgstr ""
+msgid "Type domain name, one per line. To exclude all domains use *. To exclude specific directories use the following format: domain.com:public_html/cache:public_html/tmp"
+msgstr "Escriba el nombre de dominio, uno por línea. Para excluir todos los dominios use *. Para excluir directorios específicos, use el siguiente formato: domain.com:public_html/cache:public_html/tmp"
 
 #: edit/backupexclusions.php:200
-msgid ""
-"Type domain name, one per line. To exclude all domains use *. To exclude "
-"specific accounts use following format: domain.com:info:support:postmaster"
-msgstr ""
+msgid "Type domain name, one per line. To exclude all domains use *. To exclude specific accounts use following format: domain.com:info:support:postmaster"
+msgstr "Escriba el nombre de dominio, uno por línea. Para excluir todos los dominios use *. Para excluir cuentas específicas, utilice el siguiente formato: domain.com:info:support:postmaster"
 
 #: edit/backupexclusions.php:215
 msgid "Type full database name, one per line. To exclude all databases use *"
-msgstr ""
-"Escribe el nombre de base de datos completo, uno por linea. Para excluir "
-"todas las base de datos usar *"
+msgstr "Escribe el nombre de base de datos completo, uno por linea. Para excluir todas las base de datos usar *"
 
 #: edit/backupexclusions.php:228 index.php:684 list/backups.php:254
 msgid "User Directories"
@@ -2517,14 +2293,11 @@ msgstr "Directorio de Usuario"
 
 #: edit/backupexclusions.php:230
 msgid "Type directory name, one per line. To exlude all dirs use *"
-msgstr ""
-"Escribe el nombre del directorio, uno por linea. Para excluir todo loss "
-"directorios use *"
+msgstr "Escribe el nombre del directorio, uno por linea. Para excluir todo loss directorios use *"
 
 #: edit/backupexclusions.php:306 edit/backupexclusions.php:315
 msgid "Backup Exclusions are incompatible with API Key Authentication."
-msgstr ""
-"Exclusiones de Respaldo son incompatibles con la llave API de Autenticación"
+msgstr "Exclusiones de Respaldo son incompatibles con la llave API de Autenticación"
 
 #: edit/cfrecord.php:216 edit/dnsrecord.php:212
 msgid "Edit DNS Record"
@@ -2727,10 +2500,8 @@ msgid "Statistics"
 msgstr "Estadísticas"
 
 #: includes/includes.php:401 log.php:95 log.php:181 log.php:222 profile.php:226
-#, fuzzy
-#| msgid "Login"
 msgid "Log"
-msgstr "Login"
+msgstr "Registros"
 
 #: includes/includes.php:426
 msgid "Apps"
@@ -2772,10 +2543,8 @@ msgid "MySQL Server Failed To Connect"
 msgstr "El Servidor MySQL no se Pudo Conectar"
 
 #: includes/includes.php:513
-#, fuzzy
-#| msgid "Database Error"
 msgid "Database Error:"
-msgstr "Error Base de Datos"
+msgstr "Error de la base de datos:"
 
 #: includes/includes.php:704
 msgid "Vesta Web Interface"
@@ -2790,10 +2559,8 @@ msgid "Dashboard"
 msgstr "Tablero"
 
 #: index.php:252
-#, fuzzy
-#| msgid "Dashboard"
 msgid "Host Dashboard"
-msgstr "Tablero"
+msgstr "Panel de control del host"
 
 #: index.php:258
 msgid "Rebuild Account"
@@ -2896,10 +2663,8 @@ msgid "Disk Usage Breakdown"
 msgstr "Uso de Disco"
 
 #: index.php:646
-#, fuzzy
-#| msgid "Data"
 msgid "Web Data"
-msgstr "Dato"
+msgstr "Datos web"
 
 #: index.php:658
 msgid "Mail Data"
@@ -3090,16 +2855,12 @@ msgid "Frequency"
 msgstr "Frecuencia"
 
 #: list/cron.php:326
-#, fuzzy
-#| msgid "Enable Cron Notifications"
 msgid "Error Disabling Notifications"
-msgstr "Habilitar Notificaciones Cron"
+msgstr "Error al deshabilitar notificaciones"
 
 #: list/cron.php:361
-#, fuzzy
-#| msgid "Enable Cron Notifications"
 msgid "Error Enabling Notifications"
-msgstr "Habilitar Notificaciones Cron"
+msgstr "Error al habilitar notificaciones"
 
 #: list/cron.php:400
 msgid "Suspend Cron Job"
@@ -3215,7 +2976,7 @@ msgstr "DKIM"
 
 #: list/mail.php:277
 msgid "Add Accounts"
-msgstr ""
+msgstr "Agregar cuentas"
 
 #: list/mail.php:278
 msgid "List Accounts"
@@ -3258,16 +3019,12 @@ msgid "Template"
 msgstr "Plantilla"
 
 #: list/web.php:268
-#, fuzzy
-#| msgid "Web Template"
 msgid "Backend Template"
-msgstr "Plantilla Web"
+msgstr "Plantilla Backend"
 
 #: list/web.php:268
-#, fuzzy
-#| msgid "Backed Up"
 msgid "Backend"
-msgstr "Respaldado"
+msgstr "Backend"
 
 #: list/web.php:294
 msgid "View Logs"
@@ -3314,16 +3071,12 @@ msgid "AccessLog"
 msgstr "AccessLog"
 
 #: log/access.php:219
-#, fuzzy
-#| msgid "Error"
 msgid "ErrorLog"
-msgstr "Error"
+msgstr "ErrorLog"
 
 #: log/error.php:94 log/error.php:199
-#, fuzzy
-#| msgid "Error"
 msgid "Error Log"
-msgstr "Error Log"
+msgstr "Registro de errores"
 
 #: log/error.php:218
 msgid "Download Accesslog"
@@ -3351,9 +3104,7 @@ msgstr "Información inválida en el formulario. Intente nuevamente."
 
 #: login.php:126
 msgid "Server or form error (Code: 3). Please contact support."
-msgstr ""
-"Error en el servidor o formulario (Código: 3). Por favor contacte con el "
-"soporte."
+msgstr "Error en el servidor o formulario (Código: 3). Por favor contacte con el soporte."
 
 #: login.php:129
 msgid "Account already exists under same username."
@@ -3448,38 +3199,32 @@ msgid "Reset"
 msgstr "Resetear"
 
 #: login.php:320 register.php:230
-#, fuzzy
-#| msgid "Failed to connect to server."
 msgid "Failed to connect to server. Please check config."
-msgstr "Fallo al conectar al servidor."
+msgstr "Error al conectar con el servidor. Por favor verifique la configuración."
 
 #: process/generatecsr.php:232
 msgid "Process"
 msgstr "Proceso"
 
 #: process/search.php:89
-#, fuzzy
-#| msgid "March"
 msgid "Search"
-msgstr "Marzo"
+msgstr "Buscar"
 
 #: process/search.php:194
 msgid "Search Results"
-msgstr ""
+msgstr "Resultados de Busqueda"
 
 #: process/search.php:204
 msgid "Result"
-msgstr ""
+msgstr "Resultado"
 
 #: process/search.php:206
-#, fuzzy
-#| msgid "SSL Key"
 msgid "Key"
-msgstr "Llave SSL"
+msgstr "Clave"
 
 #: process/search.php:207
 msgid "Parent"
-msgstr ""
+msgstr "Principal"
 
 #: profile.php:143
 msgid "Invalid data entered in form."
@@ -3522,11 +3267,8 @@ msgid "2 to 28 Characters A-Z, 0-9, '-' '.' and '_' Only."
 msgstr "De 2 a 28 caracteres. Solamente A-Z, 0-9, '-' '.' y '_'."
 
 #: register.php:131
-msgid ""
-"Minimum 6 Characters: One uppercade letter, lowercase letter and number "
-"reuired."
-msgstr ""
-"Minimo 6 caracteres: Una mayúscula, una minúscula y un número requeridos."
+msgid "Minimum 6 Characters: One uppercade letter, lowercase letter and number reuired."
+msgstr "Minimo 6 caracteres: Una mayúscula, una minúscula y un número requeridos."
 
 #: register.php:133
 msgid "Confirm Pass"
@@ -3544,21 +3286,31 @@ msgstr "Ingresar"
 msgid "Passwords do not match"
 msgstr "Contraseñas no coinciden"
 
-#, fuzzy
-#~| msgid "Successfully Created!"
-#~ msgid "Successfully Processed!"
-#~ msgstr "¡Creado Exitosamente!"
+#: bower_components/moment/min/locales.min.js:1
+msgid "s"
+msgstr "s"
 
-#~ msgid "Warning"
-#~ msgstr "Advertencia"
+#: bower_components/moment/min/locales.min.js:1
+msgid "m"
+msgstr "m"
 
-#~ msgid "Error"
-#~ msgstr "Error"
+#: bower_components/moment/min/locales.min.js:1
+msgid "h"
+msgstr "h"
 
-#, fuzzy
-#~| msgid "Please check config.php"
-#~ msgid "Please check config."
-#~ msgstr "Por favor revisar config.php"
+#: bower_components/moment/min/locales.min.js:1
+msgid "d"
+msgstr "d"
 
-#~ msgid "c"
-#~ msgstr "Datos Web"
+#: bower_components/moment/min/locales.min.js:1
+msgid "M"
+msgstr "M"
+
+#: bower_components/moment/min/locales.min.js:1
+msgid "y"
+msgstr "y"
+
+#: bower_components/moment/min/moment.min.js:1
+msgid ": "
+msgstr " "
+
