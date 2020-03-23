@@ -754,9 +754,8 @@ msgstr "Zusätzliches FTP"
 
 #: add/domain.php:367 add/domain.php:513 edit/domain.php:532
 #: edit/domain.php:566 edit/domain.php:699
-#, fuzzy
 msgid "FTP Account"
-msgstr "Konto"
+msgstr "FTP-Konto"
 
 #: add/domain.php:386 add/domain.php:513 edit/domain.php:552
 #: edit/domain.php:586 edit/domain.php:699
@@ -771,9 +770,8 @@ msgstr "FTP-Anmeldeinformationen an E-Mail senden:"
 #: admin/add/package.php:535 admin/edit/package.php:537
 #: admin/edit/package.php:546 edit/backupexclusions.php:305
 #: edit/backupexclusions.php:314 edit/domain.php:781 edit/domain.php:790
-#, fuzzy
 msgid "Feature Disabled"
-msgstr "Behindert"
+msgstr "Funktion deaktiviert"
 
 #: add/domain.php:577 add/domain.php:586 edit/domain.php:782
 #: edit/domain.php:791
@@ -946,18 +944,16 @@ msgid "Firewall"
 msgstr "Firewall"
 
 #: admin/add/fail2ban.php:175
-#, fuzzy
 msgid "Add Banned IP"
-msgstr "Füge eins hinzu"
+msgstr "Verbotene IP hinzufügen"
 
 #: admin/add/fail2ban.php:183
 msgid "Banlist"
 msgstr "Banlist"
 
 #: admin/add/fail2ban.php:186
-#, fuzzy
 msgid "SSH"
-msgstr "SSL"
+msgstr "SSH"
 
 #: admin/add/fail2ban.php:187
 msgid "WEB"
@@ -985,9 +981,8 @@ msgid "CIDR format is supported"
 msgstr "Das CIDR-Format wird unterstützt"
 
 #: admin/add/fail2ban.php:205
-#, fuzzy
 msgid "Add Ban"
-msgstr "Füge eins hinzu"
+msgstr "Ban hinzufügen"
 
 #: admin/add/firewall.php:174
 msgid "Add Firewall Rule"
@@ -1021,9 +1016,8 @@ msgid "Comment"
 msgstr "Kommentar"
 
 #: admin/add/firewall.php:223
-#, fuzzy
 msgid "Add Rule"
-msgstr "Füge eins hinzu"
+msgstr "Regel hinzufügen"
 
 #: admin/add/ip.php:94 admin/edit/ip.php:96 admin/list/fail2ban.php:206
 #: admin/list/ip.php:90 includes/includes.php:373 list/dns.php:255
@@ -1052,18 +1046,16 @@ msgid "Assigned User"
 msgstr "Zugewiesener Benutzer"
 
 #: admin/add/ip.php:242 admin/edit/ip.php:239
-#, fuzzy
 msgid "Assigned Domain"
-msgstr "Domäne hinzufügen"
+msgstr "Zugewiesene Domain"
 
 #: admin/add/ip.php:249 admin/edit/ip.php:247
 msgid "NAT IP Association"
 msgstr "NAT IP Association"
 
 #: admin/add/ip.php:257 admin/list/ip.php:195
-#, fuzzy
 msgid "Add IP"
-msgstr "Füge eins hinzu"
+msgstr "IP hinzufügen"
 
 #: admin/add/package.php:97 admin/edit/package.php:102
 #: admin/list/packages.php:90 admin/list/packages.php:210
@@ -1072,9 +1064,8 @@ msgid "Packages"
 msgstr "Pakete"
 
 #: admin/add/package.php:182 admin/add/package.php:392
-#, fuzzy
 msgid "Add Package"
-msgstr "Datenbank hinzufügen"
+msgstr "Paket hinzufügen"
 
 #: admin/add/package.php:191 admin/edit/package.php:197
 msgid "Package Name"
@@ -1170,14 +1161,12 @@ msgstr "Pakete sind nicht mit der API-Schlüsselauthentifizierung kompatibel."
 
 #: admin/add/user.php:91 admin/edit/user.php:97 admin/list/ip.php:210
 #: admin/list/users.php:90 admin/list/users.php:220 includes/includes.php:371
-#, fuzzy
 msgid "Users"
-msgstr "Nutzername"
+msgstr "Benutzer"
 
 #: admin/add/user.php:177 admin/add/user.php:234
-#, fuzzy
 msgid "Add User"
-msgstr "Füge eins hinzu"
+msgstr "Benutzer hinzufügen"
 
 #: admin/add/user.php:198 admin/edit/user.php:206 index.php:763
 #: list/maildomain.php:235 profile.php:344 register.php:123
@@ -1203,19 +1192,16 @@ msgid "Edit Firewall Rule"
 msgstr "Firewall-Regel bearbeiten"
 
 #: admin/edit/firewall.php:229
-#, fuzzy
 msgid "Update Rule"
-msgstr "Profil aktualisieren"
+msgstr "Regel aktualisieren"
 
 #: admin/edit/ip.php:181
-#, fuzzy
 msgid "Edit IP Address"
-msgstr "E-mailadressen"
+msgstr "IP-Adresse bearbeiten"
 
 #: admin/edit/ip.php:256
-#, fuzzy
 msgid "Update IP"
-msgstr "Profil aktualisieren"
+msgstr "IP aktualisieren"
 
 #: admin/edit/ip.php:331
 msgid "Error Updating IP Address"
@@ -1227,14 +1213,12 @@ msgstr "Paket bearbeiten"
 
 #: admin/edit/package.php:277 admin/edit/package.php:300
 #: admin/edit/package.php:323
-#, fuzzy
 msgid "Per Domain"
-msgstr "Webdomänen"
+msgstr "Pro Domain"
 
 #: admin/edit/package.php:414
-#, fuzzy
 msgid "Update Package"
-msgstr "Profil aktualisieren"
+msgstr "Paket aktualisieren"
 
 #: admin/edit/package.php:532
 msgid "Error Updating Package"
@@ -1250,25 +1234,22 @@ msgid "Language"
 msgstr "Sprache"
 
 #: admin/edit/user.php:329
-#, fuzzy
 msgid "Update User"
-msgstr "Zähler aktualisieren"
+msgstr "Benutzer aktualisieren"
 
 #: admin/edit/user.php:466
 msgid "Error Updating User"
 msgstr "Fehler beim Aktualisieren des Benutzers"
 
 #: admin/list/fail2ban.php:191
-#, fuzzy
 msgid "Manage Fail2Ban"
-msgstr "Mail-Domains verwalten"
+msgstr "Fail2Ban verwalten"
 
 #: admin/list/fail2ban.php:197 admin/list/firewall.php:199
 #: admin/list/packages.php:208 admin/list/users.php:218 list/cfdomain.php:285
 #: list/dnsdomain.php:276 list/mail.php:238 list/maildomain.php:228
-#, fuzzy
 msgid "Add"
-msgstr "Füge eins hinzu"
+msgstr "Hinzufügen"
 
 #: admin/list/fail2ban.php:197 admin/list/fail2ban.php:205
 msgid "Ban"
@@ -1280,9 +1261,8 @@ msgstr "Verbotene IPs"
 
 #: admin/list/fail2ban.php:206 admin/list/ip.php:195 admin/list/ip.php:202
 #: list/maildomain.php:235
-#, fuzzy
 msgid "Address"
-msgstr "E-mailadressen"
+msgstr "Adresse"
 
 #: admin/list/fail2ban.php:207 admin/list/firewall.php:212
 #: admin/list/ip.php:207 list/backup.php:243 list/backups.php:248
@@ -1380,39 +1360,34 @@ msgstr "Bearbeiten"
 #: admin/list/firewall.php:231 admin/list/users.php:318
 #: admin/list/users.php:385 list/cron.php:264 list/db.php:263 list/dns.php:372
 #: list/mail.php:281 list/maildomain.php:264 list/web.php:296
-#, fuzzy
 msgid "Suspend"
-msgstr "Suspendiert"
+msgstr "Aussetzen"
 
 #: admin/list/firewall.php:232 admin/list/users.php:319
 #: admin/list/users.php:406 list/cron.php:265 list/db.php:264 list/dns.php:373
 #: list/mail.php:282 list/maildomain.php:265 list/web.php:297
-#, fuzzy
 msgid "Unsuspend"
-msgstr "Suspendiert"
+msgstr "Nicht aufhängen"
 
 #: admin/list/firewall.php:275
 msgid "Delete Rule"
 msgstr "Regel löschen"
 
 #: admin/list/firewall.php:297
-#, fuzzy
 msgid "Suspend Rule"
-msgstr "Suspendiert"
+msgstr "Regel aussetzen"
 
 #: admin/list/firewall.php:302 admin/list/firewall.php:323
 #: admin/list/users.php:390 admin/list/users.php:411 list/cron.php:405
 #: list/cron.php:426 list/db.php:336 list/db.php:357 list/dns.php:470
 #: list/dns.php:491 list/mail.php:372 list/mail.php:393 list/maildomain.php:368
 #: list/maildomain.php:390 list/web.php:397 list/web.php:418
-#, fuzzy
 msgid "Confirm"
-msgstr "Bestätige das Passwort"
+msgstr "Bestätigen"
 
 #: admin/list/firewall.php:318
-#, fuzzy
 msgid "Unsuspend Rule"
-msgstr "Suspendiert"
+msgstr "Regel aufheben"
 
 #: admin/list/graphs.php:93 includes/includes.php:374
 msgid "Graphs"
@@ -1432,18 +1407,16 @@ msgid "Download"
 msgstr "Herunterladen"
 
 #: admin/list/ip.php:189
-#, fuzzy
 msgid "Manage IP Addresses"
-msgstr "E-mailadressen"
+msgstr "IP-Adressen verwalten"
 
 #: admin/list/ip.php:197
 msgid "IPs"
 msgstr "IPs"
 
 #: admin/list/ip.php:203
-#, fuzzy
 msgid "Domains"
-msgstr "Webdomänen"
+msgstr "Domänen"
 
 #: admin/list/ip.php:204
 msgid "Owner"
@@ -1467,14 +1440,12 @@ msgstr "IP-Adresse löschen"
 
 #: admin/list/notifications.php:88 admin/list/notifications.php:185
 #: includes/includes.php:385 list/cron.php:225
-#, fuzzy
 msgid "Notifications"
-msgstr "Navigation"
+msgstr "Benachrichtigungen"
 
 #: admin/list/notifications.php:191
-#, fuzzy
 msgid "Send Notifications"
-msgstr "Navigation"
+msgstr "Benachrichtigungen senden"
 
 #: admin/list/notifications.php:194
 msgid "Notification System Disabled. Please enable the notification system from the VWI settings menu to send notifications."
@@ -1489,14 +1460,12 @@ msgid "Title"
 msgstr "Titel"
 
 #: admin/list/notifications.php:230
-#, fuzzy
 msgid "Send Notification"
-msgstr "Navigation"
+msgstr "Benachrichtigung senden"
 
 #: admin/list/packages.php:203
-#, fuzzy
 msgid "Manage Packages"
-msgstr "Datenbanken verwalten"
+msgstr "Pakete verwalten"
 
 #: admin/list/packages.php:307
 msgid "Delete package:"
@@ -1565,9 +1534,8 @@ msgstr "Halt"
 
 #: admin/list/server.php:300 admin/list/server.php:321
 #: admin/list/server.php:343 admin/list/server.php:365
-#, fuzzy
 msgid "Please confirm action."
-msgstr "Bitte versuche es erneut."
+msgstr "Bitte bestätigen Sie die Aktion."
 
 #: admin/list/server.php:320
 msgid "Restart System?"
@@ -1582,18 +1550,16 @@ msgid "Edit Panel Settings"
 msgstr "Bedienfeldeinstellungen bearbeiten"
 
 #: admin/list/settings.php:199
-#, fuzzy
 msgid "Server Configuration"
-msgstr "Bitte versuche es erneut."
+msgstr "Serverkonfiguration"
 
 #: admin/list/settings.php:201
 msgid "Server Timezone"
 msgstr "Server-Zeitzone"
 
 #: admin/list/settings.php:353
-#, fuzzy
 msgid "Site Name"
-msgstr "Vorname"
+msgstr "Site-Name"
 
 #: admin/list/settings.php:360 profile.php:400
 msgid "Theme"
@@ -1663,18 +1629,16 @@ msgid "VWI Branding in Footer"
 msgstr "VWI Branding in der Fußzeile"
 
 #: admin/list/settings.php:452
-#, fuzzy
 msgid "Default To Admin"
-msgstr "Standard"
+msgstr "Standardmäßig Admin"
 
 #: admin/list/settings.php:458
 msgid "Choose whether or not the admin should go to the admin panel or home after login."
 msgstr "Wählen Sie aus, ob der Administrator nach der Anmeldung zum Admin-Bereich oder nach Hause gehen soll."
 
 #: admin/list/settings.php:462
-#, fuzzy
 msgid "Vesta Host Address"
-msgstr "E-mailadressen"
+msgstr "Vesta Host-Adresse"
 
 #: admin/list/settings.php:465
 msgid "VestaCP Host URL or IP Address"
@@ -1693,9 +1657,8 @@ msgid "API Method"
 msgstr "API-Methode"
 
 #: admin/list/settings.php:487
-#, fuzzy
 msgid "Username / Password"
-msgstr "Passwort wiederherstellen"
+msgstr "Benutzername Passwort"
 
 #: admin/list/settings.php:488
 msgid "API Key"
@@ -1718,9 +1681,8 @@ msgid "Vesta Admin Password"
 msgstr "Vesta Admin Passwort"
 
 #: admin/list/settings.php:517
-#, fuzzy
 msgid "Warnings Enabled"
-msgstr "Aktiviert"
+msgstr "Warnungen aktiviert"
 
 #: admin/list/settings.php:524
 msgid "Display messages for installation warnings and connection errors."
@@ -1775,24 +1737,20 @@ msgid "Enable / Disable Sections"
 msgstr "Abschnitte aktivieren / deaktivieren"
 
 #: admin/list/settings.php:570
-#, fuzzy
 msgid "Web Enabled"
-msgstr "Aktiviert"
+msgstr "Web aktiviert"
 
 #: admin/list/settings.php:579
-#, fuzzy
 msgid "DNS Enabled"
-msgstr "Aktiviert"
+msgstr "DNS aktiviert"
 
 #: admin/list/settings.php:588
-#, fuzzy
 msgid "Mail Enabled"
-msgstr "Aktiviert"
+msgstr "Mail aktiviert"
 
 #: admin/list/settings.php:597
-#, fuzzy
 msgid "Database Enabled"
-msgstr "Datenbank"
+msgstr "Datenbank aktiviert"
 
 #: admin/list/settings.php:606
 msgid "Admin Panel Enabled"
@@ -1803,19 +1761,16 @@ msgid "Profile Page Enabled"
 msgstr "Profilseite aktiviert"
 
 #: admin/list/settings.php:624
-#, fuzzy
 msgid "Cron Enabled"
-msgstr "Aktiviert"
+msgstr "Cron aktiviert"
 
 #: admin/list/settings.php:633
-#, fuzzy
 msgid "Backups Enabled"
-msgstr "Aktiviert"
+msgstr "Backups aktiviert"
 
 #: admin/list/settings.php:642
-#, fuzzy
 msgid "Notification System Enabled"
-msgstr "Navigation"
+msgstr "Benachrichtigungssystem aktiviert"
 
 #: admin/list/settings.php:651
 msgid "Registrations Enabled"
@@ -1830,29 +1785,24 @@ msgid "Link to Old CP Enabled"
 msgstr "Link zu altem CP aktiviert"
 
 #: admin/list/settings.php:680
-#, fuzzy
 msgid "PHP Mail Enabled"
-msgstr "Aktiviert"
+msgstr "PHP Mail aktiviert"
 
 #: admin/list/settings.php:690
-#, fuzzy
 msgid "From Address"
-msgstr "E-mailadressen"
+msgstr "Von der Adresse"
 
 #: admin/list/settings.php:696
-#, fuzzy
 msgid "From Name"
-msgstr "Vorname"
+msgstr "Von Namen"
 
 #: admin/list/settings.php:702
-#, fuzzy
 msgid "Mail Method"
-msgstr "Mail-Daten"
+msgstr "Mail-Methode"
 
 #: admin/list/settings.php:706
-#, fuzzy
 msgid "PHP Mail"
-msgstr "Mail"
+msgstr "PHP Mail"
 
 #: admin/list/settings.php:712
 msgid "SMTP Host"
@@ -1876,14 +1826,12 @@ msgid "Authentication Enabled"
 msgstr "Authentifizierung aktiviert"
 
 #: admin/list/settings.php:744
-#, fuzzy
 msgid "SMTP Username"
-msgstr "Nutzername"
+msgstr "SMTP-Benutzername"
 
 #: admin/list/settings.php:750
-#, fuzzy
 msgid "SMTP Password"
-msgstr "Passwort"
+msgstr "SMTP-Passwort"
 
 #: admin/list/settings.php:759
 msgid "Optional Links"
@@ -1899,28 +1847,24 @@ msgid "Leave blank for default or enter 'disabled' to disable."
 msgstr "Lassen Sie die Standardeinstellung leer oder geben Sie zum Deaktivieren 'disabled' ein."
 
 #: admin/list/settings.php:768
-#, fuzzy
 msgid "Webmail URL"
-msgstr "Webmail"
+msgstr "Webmail-URL"
 
 #: admin/list/settings.php:775
-#, fuzzy
 msgid "phpMyAdmin URL"
-msgstr "phpMyAdmin"
+msgstr "phpMyAdmin URL"
 
 #: admin/list/settings.php:782
-#, fuzzy
 msgid "phpPgAdmin URL"
-msgstr "phpPgAdmin"
+msgstr "phpPgAdmin URL"
 
 #: admin/list/settings.php:789
-#, fuzzy
 msgid "Support URL"
-msgstr "Unterstützung"
+msgstr "Support-URL"
 
 #: admin/list/settings.php:792
 msgid "Leave blank or enter 'disabled' to disable."
-msgstr "Lassen Sie das Feld leer oder geben Sie \"deaktiviert\" ein, um es zu deaktivieren."
+msgstr "Lassen Sie das Feld leer oder geben Sie \"disabled\" ein, um es zu deaktivieren."
 
 #: admin/list/settings.php:795
 msgid "Optional Integrations"
@@ -1947,23 +1891,20 @@ msgid "Cloudflare API Key"
 msgstr "Cloudflare-API-Schlüssel"
 
 #: admin/list/settings.php:832
-#, fuzzy
 msgid "Cloudflare Account Email Address"
-msgstr "Ungültige E-Mail-Adresse"
+msgstr "E-Mail-Adresse des Cloudflare-Kontos"
 
 #: admin/list/settings.php:842
-#, fuzzy
 msgid "Update Settings"
-msgstr "Die Einstellungen"
+msgstr "Update Einstellungen"
 
 #: admin/list/settings.php:844
 msgid "Reset to Defaults"
 msgstr "Auf Standardeinstellung zurücksetzen"
 
 #: admin/list/settings.php:1039
-#, fuzzy
 msgid "Error Updating Settings"
-msgstr "Die Einstellungen"
+msgstr "Fehler beim Aktualisieren der Einstellungen"
 
 #: admin/list/stats.php:96 list/web.php:271
 msgid "Stats"
@@ -1978,53 +1919,45 @@ msgid "Disk"
 msgstr "Platte"
 
 #: admin/list/stats.php:239
-#, fuzzy
 msgid "IP Addresses"
-msgstr "E-mailadressen"
+msgstr "IP-Adressen"
 
 #: admin/list/updates.php:97 admin/list/updates.php:199
 #: includes/includes.php:376
-#, fuzzy
 msgid "Updates"
-msgstr "Zähler aktualisieren"
+msgstr "Aktualisierung"
 
 #: admin/list/updates.php:205
-#, fuzzy
 msgid "Update All"
-msgstr "Profil aktualisieren"
+msgstr "Alle aktualisieren"
 
 #: admin/list/updates.php:207
-#, fuzzy
 msgid "Disable "
-msgstr "Behindert"
+msgstr "Deaktivieren "
 
 #: admin/list/updates.php:207
 msgid "Autoupdate"
 msgstr "Auto-Update"
 
 #: admin/list/updates.php:207
-#, fuzzy
 msgid "Enable "
-msgstr "Aktiviert"
+msgstr "Aktivieren "
 
 #: admin/list/updates.php:224
-#, fuzzy
 msgid "Update"
-msgstr "Profil aktualisieren"
+msgstr "Aktualisieren"
 
 #: admin/list/users.php:212
-#, fuzzy
 msgid "Manage Users"
-msgstr "Datenbanken verwalten"
+msgstr "Benutzer verwalten"
 
 #: admin/list/users.php:218 edit/db.php:276
 msgid "User"
 msgstr "Benutzer"
 
 #: admin/list/users.php:316
-#, fuzzy
 msgid "Login as"
-msgstr "Anmeldung"
+msgstr "Anmelden als"
 
 #: admin/server/mysql.php:175
 msgid "View Configuration / MySQL"
@@ -2055,14 +1988,12 @@ msgid "View Configuration / NGINX"
 msgstr "Konfiguration anzeigen / NGINX"
 
 #: admin/server/nginx.php:183
-#, fuzzy
 msgid "Configure PHP"
-msgstr "Bestätige das Passwort"
+msgstr "Konfigurieren Sie PHP"
 
 #: admin/server/nginx.php:188
-#, fuzzy
 msgid "Worker Processes"
-msgstr "Wird bearbeitet"
+msgstr "Arbeitsprozesse"
 
 #: admin/server/nginx.php:194
 msgid "Worker Connections"
@@ -2113,9 +2044,8 @@ msgid "Memory Limit"
 msgstr "Speicherlimit"
 
 #: admin/server/php.php:201
-#, fuzzy
 msgid "Error Reporting"
-msgstr "Error"
+msgstr "Fehler melden"
 
 #: admin/server/php.php:207
 msgid "Display Errors"
@@ -2134,14 +2064,12 @@ msgid "Configure Server"
 msgstr "Server konfigurieren"
 
 #: admin/server/vesta.php:222
-#, fuzzy
 msgid "Hostname"
-msgstr "Nutzername"
+msgstr "Hostname"
 
 #: admin/server/vesta.php:676
-#, fuzzy
 msgid "Default Language"
-msgstr "Sprache"
+msgstr "Standardsprache"
 
 #: admin/server/vesta.php:717
 msgid "Proxy Server"
@@ -2152,9 +2080,8 @@ msgid "Web Server"
 msgstr "Webserver"
 
 #: admin/server/vesta.php:729
-#, fuzzy
 msgid "Backend Server"
-msgstr "Sicherungen"
+msgstr "Backend-Server"
 
 #: admin/server/vesta.php:740
 msgid "DNS Server"
@@ -2177,9 +2104,8 @@ msgid "Antispam"
 msgstr "Antispam"
 
 #: admin/server/vesta.php:783
-#, fuzzy
 msgid "MySQL Support"
-msgstr "Unterstützung"
+msgstr "MySQL-Unterstützung"
 
 #: admin/server/vesta.php:794 admin/server/vesta.php:830 edit/db.php:293
 #: list/db.php:240
@@ -2187,9 +2113,8 @@ msgid "Host"
 msgstr "Wirt"
 
 #: admin/server/vesta.php:806 admin/server/vesta.php:842
-#, fuzzy
 msgid "Maximum Number of Databases"
-msgstr "Datenbanken verwalten"
+msgstr "Maximale Anzahl von Datenbanken"
 
 #: admin/server/vesta.php:812 admin/server/vesta.php:848
 msgid "Current Number of Databases"
@@ -2200,23 +2125,20 @@ msgid "PostgreSQL Support"
 msgstr "PostgreSQL-Unterstützung"
 
 #: admin/server/vesta.php:857 list/backup.php:209 list/backups.php:238
-#, fuzzy
 msgid "Backup"
-msgstr "Sicherungen"
+msgstr "Backup"
 
 #: admin/server/vesta.php:861
-#, fuzzy
 msgid "Local Backup"
-msgstr "Sicherungen"
+msgstr "Lokale Sicherung"
 
 #: admin/server/vesta.php:871
 msgid "Compression Level"
 msgstr "Komprimierungsstufe"
 
 #: admin/server/vesta.php:888
-#, fuzzy
 msgid "Directory"
-msgstr "Benutzerverzeichnisse"
+msgstr "Verzeichnis"
 
 #: admin/server/vesta.php:955 edit/domain.php:429
 msgid "Subject"
@@ -2243,14 +2165,12 @@ msgid "Issuer"
 msgstr "Aussteller"
 
 #: admin/server/vesta.php:966
-#, fuzzy
 msgid "Vesta Control Panel Plugins"
-msgstr "Systemsteuerung v1"
+msgstr "Vesta Control Panel Plugins"
 
 #: admin/server/vesta.php:976
-#, fuzzy
 msgid "FileSystem Disk Quota"
-msgstr "Datenträgerkontingent"
+msgstr "Dateisystem-Festplattenkontingent"
 
 #: admin/server/vesta.php:996
 msgid "Reseller Role"
@@ -2289,9 +2209,8 @@ msgid "2Checkout.com Inc. (Ohio, USA) is a payment facilitator for goods and ser
 msgstr "2Checkout.com Inc. (Ohio, USA) ist ein Zahlungsvermittler für Waren und Dienstleistungen, die von vestacp.com bereitgestellt werden."
 
 #: admin/server/vesta.php:1052
-#, fuzzy
 msgid "File Manager"
-msgstr "Verwalten"
+msgstr "Dateimanager"
 
 #: admin/server/vesta.php:1062
 msgid "Browse, copy, edit, view, and retrieve all of your web domain files using fully featured File Manager. This is a commercial module, you would need to purchace license key to enable it."
@@ -2326,9 +2245,8 @@ msgid "Save"
 msgstr "speichern"
 
 #: admin/server/vesta.php:1350
-#, fuzzy
 msgid "Error Updating Server"
-msgstr "Error"
+msgstr "Fehler beim Aktualisieren des Servers"
 
 #: admin/status/cpu.php:89 admin/status/cpu.php:187 admin/status/db.php:89
 #: admin/status/db.php:187 admin/status/disk.php:89 admin/status/disk.php:187
@@ -2341,9 +2259,8 @@ msgid "Server Status"
 msgstr "Server Status"
 
 #: admin/status/cpu.php:211
-#, fuzzy
 msgid "CPU"
-msgstr "CP"
+msgstr "Zentralprozessor"
 
 #: admin/status/memory.php:211
 msgid "Memory"
@@ -2530,9 +2447,8 @@ msgid "Edit Mail Domain"
 msgstr "Mail-Domain bearbeiten"
 
 #: edit/mail.php:206 edit/mailaccount.php:211 list/maildomain.php:203
-#, fuzzy
 msgid "Delete Mail"
-msgstr "Mail neu erstellen"
+msgstr "Mail löschen"
 
 #: edit/mail.php:312
 msgid "Catchall Email"
@@ -2583,9 +2499,8 @@ msgid "Statistics"
 msgstr "Statistiken"
 
 #: includes/includes.php:401 log.php:95 log.php:181 log.php:222 profile.php:226
-#, fuzzy
 msgid "Log"
-msgstr "Anmeldung"
+msgstr "Log"
 
 #: includes/includes.php:426
 msgid "Apps"
@@ -2618,9 +2533,8 @@ msgstr "Includes ordner wurde nicht gesichert"
 
 #: includes/includes.php:496 login.php:294 login.php:311 register.php:204
 #: register.php:221
-#, fuzzy
 msgid "Database Error"
-msgstr "Datenbank"
+msgstr "Datenbankfehler"
 
 #: includes/includes.php:497 includes/includes.php:514 login.php:295
 #: login.php:312 register.php:205 register.php:222
@@ -2628,14 +2542,12 @@ msgid "MySQL Server Failed To Connect"
 msgstr "MySQL Server konnte keine Verbindung herstellen"
 
 #: includes/includes.php:513
-#, fuzzy
 msgid "Database Error:"
-msgstr "Datenbank"
+msgstr "Datenbankfehler:"
 
 #: includes/includes.php:704
-#, fuzzy
 msgid "Vesta Web Interface"
-msgstr "Alle Rechte vorbehalten. Vesta Webschnittstelle"
+msgstr "Vesta Webinterface"
 
 #: includes/includes.php:706
 msgid "by Carter Roeser"
@@ -2788,9 +2700,8 @@ msgid "Restore All"
 msgstr "Alles wiederherstellen"
 
 #: list/backup.php:236
-#, fuzzy
 msgid "Backed Up"
-msgstr "Sicherungen"
+msgstr "Gesichert"
 
 #: list/backup.php:236 list/backup.php:242
 msgid "Data"
@@ -2833,9 +2744,8 @@ msgid "Schedule "
 msgstr "Zeitplan "
 
 #: list/backups.php:239
-#, fuzzy
 msgid "Backup "
-msgstr "Sicherungen"
+msgstr "Backup "
 
 #: list/backups.php:239
 msgid "Exclusions"
@@ -2871,14 +2781,12 @@ msgid "Restore Scheduled!"
 msgstr "Geplant wiederherstellen!"
 
 #: list/cfdomain.php:252
-#, fuzzy
 msgid "Manage DNS"
-msgstr "Verwalten"
+msgstr "DNS verwalten"
 
 #: list/cfdomain.php:260
-#, fuzzy
 msgid "Disable"
-msgstr "Behindert"
+msgstr "Deaktivieren"
 
 #: list/cfdomain.php:260 list/dns.php:261 list/dnsdomain.php:252
 msgid "Cloudflare"
@@ -2922,19 +2830,16 @@ msgid "SUSPENDED"
 msgstr "SUSPENDIERT"
 
 #: list/cron.php:224 list/db.php:226 list/dns.php:243 list/web.php:252
-#, fuzzy
 msgid "Add "
-msgstr "Füge eins hinzu"
+msgstr "Hinzufügen "
 
 #: list/cron.php:225
-#, fuzzy
 msgid "Disable Cron "
-msgstr "Behindert"
+msgstr "Deaktivieren Sie Cron "
 
 #: list/cron.php:225
-#, fuzzy
 msgid "Enable Cron "
-msgstr "Aktiviert"
+msgstr "Aktivieren Sie Cron "
 
 #: list/cron.php:225
 msgid "Enable Cron Notifications"
@@ -2949,19 +2854,16 @@ msgid "Frequency"
 msgstr "Frequenz"
 
 #: list/cron.php:326
-#, fuzzy
 msgid "Error Disabling Notifications"
-msgstr "Navigation"
+msgstr "Fehler beim Deaktivieren von Benachrichtigungen"
 
 #: list/cron.php:361
-#, fuzzy
 msgid "Error Enabling Notifications"
-msgstr "Navigation"
+msgstr "Fehler beim Aktivieren von Benachrichtigungen"
 
 #: list/cron.php:400
-#, fuzzy
 msgid "Suspend Cron Job"
-msgstr "Cron-Jobs"
+msgstr "Cron Job aussetzen"
 
 #: list/cron.php:421
 msgid "Unsuspend Cron Job"
@@ -2980,14 +2882,12 @@ msgid "Character Set"
 msgstr "Zeichensatz"
 
 #: list/db.php:331
-#, fuzzy
 msgid "Suspend Database"
-msgstr "Datenbank hinzufügen"
+msgstr "Datenbank anhalten"
 
 #: list/db.php:352
-#, fuzzy
 msgid "Unsuspend Database"
-msgstr "Datenbank hinzufügen"
+msgstr "Datenbank aufheben"
 
 #: list/dns.php:199 list/mail.php:194 list/web.php:208
 msgid "DOMAINS"
@@ -3038,14 +2938,12 @@ msgid "Cloudflare Unavailable"
 msgstr "Cloudflare nicht verfügbar"
 
 #: list/dns.php:465
-#, fuzzy
 msgid "Suspend DNS Domain"
-msgstr "DNS-Domänen"
+msgstr "DNS-Domain anhalten"
 
 #: list/dns.php:486
-#, fuzzy
 msgid "Unsuspend DNS Domain"
-msgstr "Verwalten Sie DNS-Domänen"
+msgstr "Deaktivieren Sie die DNS-Domäne"
 
 #: list/dns.php:513
 msgid "Cloudflare Enabled!"
@@ -3060,9 +2958,8 @@ msgid "Manage DNS Domain"
 msgstr "DNS-Domäne verwalten"
 
 #: list/dnsdomain.php:252
-#, fuzzy
 msgid "Enable"
-msgstr "Aktiviert"
+msgstr "Aktivieren"
 
 #: list/mail.php:246 list/maildomain.php:230
 msgid "Accounts"
@@ -3085,23 +2982,20 @@ msgid "List Accounts"
 msgstr "Konten auflisten"
 
 #: list/mail.php:367
-#, fuzzy
 msgid "Suspend Mail Domain"
-msgstr "Mail-Domänen"
+msgstr "Mail Domain aussetzen"
 
 #: list/mail.php:388
-#, fuzzy
 msgid "Unsuspend Mail Domain"
-msgstr "Mail-Domains verwalten"
+msgstr "Mail-Domain aufheben"
 
 #: list/maildomain.php:199
 msgid "Manage Mail Accounts"
 msgstr "Mail-Konten verwalten"
 
 #: list/maildomain.php:363
-#, fuzzy
 msgid "Suspend Mail Account"
-msgstr "Konto neu erstellen"
+msgstr "Mail-Konto sperren"
 
 #: list/maildomain.php:385
 msgid "Unsuspend Mail Account"
@@ -3116,23 +3010,20 @@ msgid "ALIASES"
 msgstr "ALIASEN"
 
 #: list/web.php:266
-#, fuzzy
 msgid "Web "
-msgstr "Webdaten"
+msgstr "Netz "
 
 #: list/web.php:266
 msgid "Template"
 msgstr "Vorlage"
 
 #: list/web.php:268
-#, fuzzy
 msgid "Backend Template"
-msgstr "Sicherungen"
+msgstr "Backend-Vorlage"
 
 #: list/web.php:268
-#, fuzzy
 msgid "Backend"
-msgstr "Sicherungen"
+msgstr "Backend"
 
 #: list/web.php:294
 msgid "View Logs"
@@ -3147,14 +3038,12 @@ msgid "Delete Web Domain"
 msgstr "Webdomain löschen"
 
 #: list/web.php:392
-#, fuzzy
 msgid "Suspend Web Domain"
-msgstr "Webdomänen"
+msgstr "Web Domain aussetzen"
 
 #: list/web.php:413
-#, fuzzy
 msgid "Unsuspend Web Domain"
-msgstr "Verwalten Sie Web-Domains"
+msgstr "Web Domain aufheben"
 
 #: list/web.php:442
 msgid "Error Deleting Web Domain"
@@ -3181,14 +3070,12 @@ msgid "AccessLog"
 msgstr "AccessLog"
 
 #: log/access.php:219
-#, fuzzy
 msgid "ErrorLog"
-msgstr "Error"
+msgstr "Fehlerprotokoll"
 
 #: log/error.php:94 log/error.php:199
-#, fuzzy
 msgid "Error Log"
-msgstr "Error"
+msgstr "Fehlerprotokoll"
 
 #: log/error.php:218
 msgid "Download Accesslog"
@@ -3311,14 +3198,12 @@ msgid "Reset"
 msgstr "Zurücksetzen"
 
 #: login.php:320 register.php:230
-#, fuzzy
 msgid "Failed to connect to server. Please check config."
-msgstr "Verbindung zum Server fehlgeschlagen."
+msgstr "Verbindung zum Server fehlgeschlagen. Bitte überprüfen Sie die Konfiguration."
 
 #: process/generatecsr.php:232
-#, fuzzy
 msgid "Process"
-msgstr "Wird bearbeitet"
+msgstr "Prozess"
 
 #: process/search.php:89
 msgid "Search"
