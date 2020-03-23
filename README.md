@@ -1,7 +1,8 @@
 ![VWI Banner](https://raw.githubusercontent.com/cdgco/VestaWebInterface/master/VWI%20Banner.png)
 
-![Downloads](https://img.shields.io/github/downloads/cdgco/VestaWebInterface/total)
-![License](https://img.shields.io/github/license/cdgco/VestaWebInterface)
+[![Downloads](https://img.shields.io/github/downloads/cdgco/VestaWebInterface/total)](https://github.com/cdgco/VestaWebInterface/releases)
+[![License](https://img.shields.io/github/license/cdgco/VestaWebInterface)](https://choosealicense.com/licenses/lgpl-3.0/)
+[![Dependencies](https://img.shields.io/librariesio/github/cdgco/VestaWebInterface)](https://libraries.io/github/cdgco/VestaWebInterface)
 
 Vesta Web Interface is a PHP control panel and interface that integrates with the VestaCP API to provide a beautiful user friendly experience. 
 
