@@ -151,7 +151,8 @@ if(isset($_POST['resetdefault']) && $_POST['resetdefault'] != 'yes') {
     } 
     if(isset($_POST['VESTA_ADMIN_PW']) && $vst_password != $_POST['VESTA_ADMIN_PW']) { 
         $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $v7 = mysqli_real_escape_string($conn, $_POST['VESTA_ADMIN_PW']);
+        $encpassword = vwicryptx($_POST['VESTA_ADMIN_PW']);
+        $v7 = mysqli_real_escape_string($conn, $encpassword);
         $sql9 = "UPDATE ".$mysql_table."config SET `VALUE` = '".$v7."' WHERE `VARIABLE` = 'VESTA_ADMIN_PW';";
         if (mysqli_query($conn, $sql9)) {} else { $r1 = $r1 + 1; }
         mysqli_close($conn);

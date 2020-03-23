@@ -27,6 +27,17 @@ $configlocation = "../includes/";
 require("../includes/config.php");
 function randomPassword() { $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'; $pass = array(); $alphaLength = strlen($alphabet) - 1; for ($i = 0; $i < 8; $i++) { $n = rand(0, $alphaLength); $pass[] = $alphabet[$n]; } return implode($pass); }
 
+function vwicryptx($cs,$ca='e') { 
+    $op = false; $ecm ="AES-256-CBC"; $key=hash('sha256',$KEY3); $iv=substr(hash('sha256',$KEY4),0,16); 
+    if($ca=='e'){
+        $op=base64_encode(openssl_encrypt($cs,$ecm,$key,0,$iv));
+    } 
+    elseif($ca=='d'){
+        $op=openssl_decrypt(base64_decode($cs),$ecm,$key,0,$iv);
+    }
+    return $op;
+}
+
 $a = randomPassword();
 $b = randomPassword();
 
@@ -79,13 +90,16 @@ mysqli_close($con);
 
 $con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
 
+
+$encpassword = vwicryptx($_POST['VESTA_ADMIN_PW']);
+
 $v1 = mysqli_real_escape_string($con, $_POST['SITENAME']);
 $v2 = mysqli_real_escape_string($con, $_POST['THEME']);
 $v3 = mysqli_real_escape_string($con, $_POST['LANGUAGE']);
 $v4 = mysqli_real_escape_string($con, $_POST['VESTA_HOST_ADDRESS']);
 $v5 = mysqli_real_escape_string($con, $_POST['VESTA_PORT']);
 $v6 = mysqli_real_escape_string($con, $_POST['VESTA_ADMIN_UNAME']);
-$v7 = mysqli_real_escape_string($con, $_POST['VESTA_ADMIN_PW']);
+$v7 = mysqli_real_escape_string($con, $encpassword);
 $v8 = mysqli_real_escape_string($con, $_POST['FTP_URL']);
 $v9 = mysqli_real_escape_string($con, $_POST['WEBMAIL_URL']);
 $v10 = mysqli_real_escape_string($con, $_POST['PHPMYADMIN_URL']);

@@ -24,6 +24,9 @@
 
 if (file_exists( '../includes/config.php' )) { header( 'Location: index.php' ); exit();}; 
 
+function randomPassword() { $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'; $pass = array(); $alphaLength = strlen($alphabet) - 1; for ($i = 0; $i < 8; $i++) { $n = rand(0, $alphaLength); $pass[] = $alphabet[$n]; } return implode($pass); }
+
+
 if((isset($_POST['MYSQL_HOST'])) && (isset($_POST['MYSQL_UNAME'])) && (isset($_POST['MYSQL_PW'])) && (isset($_POST['MYSQL_DB'])) && (isset($_POST['MYSQL_TABLE']))) {
 
     $mysqli = new mysqli($_POST['MYSQL_HOST'], $_POST['MYSQL_UNAME'], $_POST['MYSQL_PW'], $_POST['MYSQL_DB']);
@@ -45,6 +48,8 @@ if((isset($_POST['MYSQL_HOST'])) && (isset($_POST['MYSQL_UNAME'])) && (isset($_P
 \$mysql_db = '" . $_POST['MYSQL_DB'] . "'; // MySQL Database Name.
 \$mysql_table = '" . $_POST['MYSQL_TABLE'] . "'; // MySQL Table Prefix
 
+\$KEY3 = '".randomPassword()."';
+\$KEY4 = '".randomPassword()."';
 ?>";
 
         file_put_contents('../includes/config.php', $writestr);

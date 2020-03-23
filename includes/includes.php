@@ -120,6 +120,8 @@ else{
 }
 $vst_url = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . ':' . $vesta_port . '/api/';
 $url8083 = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . ':' . $vesta_port;
+if(!isset($KEY3) || $KEY3 == '') { $KEY3 = 'Default VWI Secret Key'; }
+if(!isset($KEY4) || $KEY4 == '') { $KEY4 = 'Default VWI Secret IV'; }
 if ($config["VESTA_METHOD"] == "api"){
     DEFINE('VESTA_API_KEY', $config["VESTA_API_KEY"]);
     $vst_apikey = $config["VESTA_API_KEY"];
@@ -138,9 +140,9 @@ else {
     
     DEFINE('VESTA_ADMIN_UNAME', $config["VESTA_ADMIN_UNAME"]);
     $vst_username = $config["VESTA_ADMIN_UNAME"];
-
-    DEFINE('VESTA_ADMIN_PW', $config["VESTA_ADMIN_PW"]);
-    $vst_password = $config["VESTA_ADMIN_PW"];
+    $decpassword = vwicryptx($config["VESTA_ADMIN_PW"], d);
+    DEFINE('VESTA_ADMIN_PW', $decpassword);
+    $vst_password = $decpassword;
     
     $apienabled = 'false';
 }
@@ -348,6 +350,17 @@ DEFINE('CUSTOM_THEME_SECONDARY', $config["CUSTOM_THEME_SECONDARY"]);
 
 function vwicrypt($cs,$ca='e') { 
     $op = false; $ecm ="AES-256-CBC"; $key=hash('sha256',$KEY1); $iv=substr(hash('sha256',$KEY2),0,16); 
+    if($ca=='e'){
+        $op=base64_encode(openssl_encrypt($cs,$ecm,$key,0,$iv));
+    } 
+    elseif($ca=='d'){
+        $op=openssl_decrypt(base64_decode($cs),$ecm,$key,0,$iv);
+    }
+    return $op;
+}
+function vwicryptx($cs,$ca='e') { 
+
+    $op = false; $ecm ="AES-256-CBC"; $key=hash('sha256',$KEY3); $iv=substr(hash('sha256',$KEY4),0,16); 
     if($ca=='e'){
         $op=base64_encode(openssl_encrypt($cs,$ecm,$key,0,$iv));
     } 
