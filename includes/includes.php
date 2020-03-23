@@ -141,7 +141,7 @@ else {
     
     DEFINE('VESTA_ADMIN_UNAME', $config["VESTA_ADMIN_UNAME"]);
     $vst_username = $config["VESTA_ADMIN_UNAME"];
-    
+
     $decpassword = vwicryptx($config["VESTA_ADMIN_PW"], d);
     DEFINE('VESTA_ADMIN_PW', $decpassword);
     $vst_password = $decpassword;
@@ -446,7 +446,7 @@ function primaryMenu($l4, $l5, $a2) {
         if ($webmailurl != '') { echo '<li><a href="' . $webmailurl . '" target="_blank"><i class="fa fa-envelope-o fa-fw"></i><span class="hide-menu">' . __("Webmail") . '</span></a></li>';}
         if ($phpmyadmin != '') { echo '<li><a href="' . $phpmyadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . __("phpMyAdmin") . '</span></a></li>';}
         if ($phppgadmin != '') { echo '<li><a href="' . $phppgadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . __("phpPgAdmin") . '</span></a></li>';}
-        if ($softaculousurl != '') { echo '<li><a href="' . $softaculousurl . '" target="_blank"><i class="icon-softaculous">&#xe801;</i><span class="hide-menu">' . __("Softaculous") . '</span></a></li>';}
+        if ($softaculousurl != '') { echo '<li style="height: 48px;"><a style="height: 48px;" href="' . $softaculousurl . '" target="_blank"><i style="top: -11px;" class="icon-softaculous">&#xe801;</i><span style="top: -24px;left:-7px;position: relative;" class="hide-menu">' . __("Softaculous") . '</span></a></li>';}       
         if ($ftpurl != '' || $webmailurl != '' || $phpmyadmin != '' || $phppgadmin != '' || $softaculousurl != '') { echo '</ul></li>';}
         echo '<li class="devider"></li>
         <li><a href="' . $l5 . 'logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu">' . __("Log out") . '</span></a></li>';
