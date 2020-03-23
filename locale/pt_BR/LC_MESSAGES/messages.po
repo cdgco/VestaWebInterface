@@ -1,22 +1,11 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"POT-Creation-Date: 2019-09-15 21:33-0700\n"
-"PO-Revision-Date: 2020-03-22 12:25-0700\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
-"X-Poedit-Basepath: ../../../../VestaWebInterface\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: plugins\n"
-"X-Poedit-SearchPathExcluded-1: install/web\n"
-"X-Poedit-SearchPathExcluded-2: bootstrap\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Vesta Web Interface\n"
+"Language: pt-br\n"
 
 #: add/cfrecord.php:130 add/dns.php:87 add/dnsrecord.php:130
 #: admin/add/fail2ban.php:189 admin/list/stats.php:235
@@ -1459,9 +1448,7 @@ msgid "Send Notifications"
 msgstr "Enviar notificações"
 
 #: admin/list/notifications.php:194
-msgid ""
-"Notification System Disabled. Please enable the notification system from the "
-"VWI settings menu to send notifications."
+msgid "Notification System Disabled. Please enable the notification system from the VWI settings menu to send notifications."
 msgstr ""
 
 #: admin/list/notifications.php:200
@@ -1646,9 +1633,7 @@ msgid "Default To Admin"
 msgstr "Padrão para Admin"
 
 #: admin/list/settings.php:458
-msgid ""
-"Choose whether or not the admin should go to the admin panel or home after "
-"login."
+msgid "Choose whether or not the admin should go to the admin panel or home after login."
 msgstr ""
 
 #: admin/list/settings.php:462
@@ -1684,9 +1669,7 @@ msgid "Vesta API Key"
 msgstr ""
 
 #: admin/list/settings.php:497
-msgid ""
-"Adding & editing custom SSL certificates and backup exclusions does not Work "
-"with API key. Features will be disabled."
+msgid "Adding & editing custom SSL certificates and backup exclusions does not Work with API key. Features will be disabled."
 msgstr ""
 
 #: admin/list/settings.php:503
@@ -1734,9 +1717,7 @@ msgid "New Icon:"
 msgstr ""
 
 #: admin/list/settings.php:554
-msgid ""
-"Recommended 40x40px .png or .gif. (.png, .gif, .jpg, and .jpeg up to 1MB "
-"allowed.)"
+msgid "Recommended 40x40px .png or .gif. (.png, .gif, .jpg, and .jpeg up to 1MB allowed.)"
 msgstr ""
 
 #: admin/list/settings.php:559
@@ -1748,9 +1729,7 @@ msgid "New Logo:"
 msgstr ""
 
 #: admin/list/settings.php:564
-msgid ""
-"Recommended 134x24px .png or .gif. (.png, .gif, .jpg, and .jpeg up to 1MB "
-"allowed.)"
+msgid "Recommended 134x24px .png or .gif. (.png, .gif, .jpg, and .jpeg up to 1MB allowed.)"
 msgstr ""
 
 #: admin/list/settings.php:568
@@ -2206,10 +2185,7 @@ msgid "SFTP Chroot"
 msgstr ""
 
 #: admin/server/vesta.php:1024
-msgid ""
-"Restrict users so that they cannot use SSH and access only their home "
-"directory. This is a commercial module, you would need to purchace license "
-"key to enable it."
+msgid "Restrict users so that they cannot use SSH and access only their home directory. This is a commercial module, you would need to purchace license key to enable it."
 msgstr ""
 
 #: admin/server/vesta.php:1027 admin/server/vesta.php:1065
@@ -2229,9 +2205,7 @@ msgid "Buy Lifetime License $18"
 msgstr ""
 
 #: admin/server/vesta.php:1048 admin/server/vesta.php:1086
-msgid ""
-"2Checkout.com Inc. (Ohio, USA) is a payment facilitator for goods and "
-"services provided by vestacp.com."
+msgid "2Checkout.com Inc. (Ohio, USA) is a payment facilitator for goods and services provided by vestacp.com."
 msgstr ""
 
 #: admin/server/vesta.php:1052
@@ -2239,10 +2213,7 @@ msgid "File Manager"
 msgstr "Gerenciador de arquivos"
 
 #: admin/server/vesta.php:1062
-msgid ""
-"Browse, copy, edit, view, and retrieve all of your web domain files using "
-"fully featured File Manager. This is a commercial module, you would need to "
-"purchace license key to enable it."
+msgid "Browse, copy, edit, view, and retrieve all of your web domain files using fully featured File Manager. This is a commercial module, you would need to purchace license key to enable it."
 msgstr ""
 
 #: admin/server/vesta.php:1078
@@ -2262,13 +2233,7 @@ msgid "Plugin installation will run in background."
 msgstr ""
 
 #: admin/server/vesta.php:1100
-msgid ""
-"Softaculous is a great Auto Installer having 426 great scripts, 1115 PHP "
-"Classes and we are still adding more. Softaculous is ideal for Web Hosting "
-"companies and it could give a significant boost to your sales. These scripts "
-"cover most of the uses a customer could ever have. We have covered a wide "
-"array of Categories so that everyone could find the required script one "
-"would need to power their Web Site."
+msgid "Softaculous is a great Auto Installer having 426 great scripts, 1115 PHP Classes and we are still adding more. Softaculous is ideal for Web Hosting companies and it could give a significant boost to your sales. These scripts cover most of the uses a customer could ever have. We have covered a wide array of Categories so that everyone could find the required script one would need to power their Web Site."
 msgstr ""
 
 #: admin/server/vesta.php:1103
@@ -2305,49 +2270,16 @@ msgstr ""
 msgid "Network"
 msgstr ""
 
-#: bower_components/moment/min/locales.min.js:1
-msgid "s"
-msgstr ""
-
-#: bower_components/moment/min/locales.min.js:1
-msgid "m"
-msgstr ""
-
-#: bower_components/moment/min/locales.min.js:1
-msgid "h"
-msgstr ""
-
-#: bower_components/moment/min/locales.min.js:1
-msgid "d"
-msgstr ""
-
-#: bower_components/moment/min/locales.min.js:1
-msgid "M"
-msgstr ""
-
-#: bower_components/moment/min/locales.min.js:1
-msgid "y"
-msgstr ""
-
-#: bower_components/moment/min/moment.min.js:1
-msgid ": "
-msgstr ""
-
 #: edit/backupexclusions.php:174
 msgid "Configure Backup Exclusions"
 msgstr ""
 
 #: edit/backupexclusions.php:185
-msgid ""
-"Type domain name, one per line. To exclude all domains use *. To exclude "
-"specific directories use the following format: domain.com:public_html/cache:"
-"public_html/tmp"
+msgid "Type domain name, one per line. To exclude all domains use *. To exclude specific directories use the following format: domain.com:public_html/cache:public_html/tmp"
 msgstr ""
 
 #: edit/backupexclusions.php:200
-msgid ""
-"Type domain name, one per line. To exclude all domains use *. To exclude "
-"specific accounts use following format: domain.com:info:support:postmaster"
+msgid "Type domain name, one per line. To exclude all domains use *. To exclude specific accounts use following format: domain.com:info:support:postmaster"
 msgstr ""
 
 #: edit/backupexclusions.php:215
@@ -3171,8 +3103,7 @@ msgstr "Informação invalida. Tente novamente."
 
 #: login.php:126
 msgid "Server or form error (Code: 3). Please contact support."
-msgstr ""
-"Erro no servidor ou formulário (Código: 3). Entre em contato com o suporte."
+msgstr "Erro no servidor ou formulário (Código: 3). Entre em contato com o suporte."
 
 #: login.php:129
 msgid "Account already exists under same username."
@@ -3335,11 +3266,8 @@ msgid "2 to 28 Characters A-Z, 0-9, '-' '.' and '_' Only."
 msgstr "De 2 a 28 caráteres. Somente A-Z, 0-9, '-' '.' e '_'."
 
 #: register.php:131
-msgid ""
-"Minimum 6 Characters: One uppercade letter, lowercase letter and number "
-"reuired."
-msgstr ""
-"Mínimo 6 caráteres: Uma maiúscula, uma minúscula e um número necessários."
+msgid "Minimum 6 Characters: One uppercade letter, lowercase letter and number reuired."
+msgstr "Mínimo 6 caráteres: Uma maiúscula, uma minúscula e um número necessários."
 
 #: register.php:133
 msgid "Confirm Pass"
@@ -3357,22 +3285,3 @@ msgstr "Entrar"
 msgid "Passwords do not match"
 msgstr "Senhas não correspondem"
 
-#~ msgid "Warning"
-#~ msgstr "Advertência"
-
-#~ msgid "Error"
-#~ msgstr "Erro"
-
-#, fuzzy
-#~| msgid "Please check config.php"
-#~ msgid "Please check config."
-#~ msgstr "Por favor confira config.php"
-
-#~ msgid "Management"
-#~ msgstr "Gerenciamento"
-
-#~ msgid "Copyright"
-#~ msgstr "Copyright"
-
-#~ msgid "I was closed by the timer"
-#~ msgstr "Fui parado pelo timer"
