@@ -15,7 +15,7 @@ msgstr ""
 #: list/cfdomain.php:287 list/dns.php:89 list/dnsdomain.php:132
 #: list/dnsdomain.php:278
 msgid "DNS"
-msgstr ""
+msgstr "DNS"
 
 #: add/cfrecord.php:169 add/cron.php:129 add/db.php:135 add/dns.php:126
 #: add/dnsrecord.php:169 add/domain.php:136 add/mail.php:123
@@ -43,7 +43,7 @@ msgstr ""
 #: log/error.php:144 process/csr.php:135 process/generatecsr.php:128
 #: process/search.php:147 profile.php:176
 msgid "Search..."
-msgstr ""
+msgstr "Tìm kiếm..."
 
 #: add/cfrecord.php:182 add/cron.php:142 add/db.php:148 add/dns.php:139
 #: add/dnsrecord.php:182 add/domain.php:149 add/mail.php:136
@@ -71,7 +71,7 @@ msgstr ""
 #: log.php:179 log/access.php:157 log/error.php:157 process/search.php:161
 #: profile.php:194 profile.php:224 profile.php:237
 msgid "My Account"
-msgstr ""
+msgstr "Tài khoản của tôi"
 
 #: add/cfrecord.php:183 add/cron.php:143 add/db.php:149 add/dns.php:140
 #: add/dnsrecord.php:183 add/domain.php:150 add/mail.php:137
@@ -99,7 +99,7 @@ msgstr ""
 #: log.php:180 log/access.php:158 log/error.php:158 process/search.php:162
 #: profile.php:195 profile.php:225
 msgid "Account Settings"
-msgstr ""
+msgstr "Cài đặt tài khoản"
 
 #: add/cfrecord.php:185 add/cron.php:145 add/db.php:151 add/dns.php:142
 #: add/dnsrecord.php:185 add/domain.php:152 add/mail.php:139
@@ -126,7 +126,7 @@ msgstr ""
 #: list/maildomain.php:169 list/web.php:169 log.php:151 log/access.php:160
 #: log/error.php:160 process/search.php:164 profile.php:197
 msgid "Logout"
-msgstr ""
+msgstr "Đăng xuất"
 
 #: add/cfrecord.php:199 add/cron.php:159 add/db.php:165 add/dns.php:156
 #: add/dnsrecord.php:199 add/domain.php:166 add/mail.php:153
@@ -153,11 +153,11 @@ msgstr ""
 #: list/maildomain.php:183 list/web.php:183 log.php:165 log/access.php:174
 #: log/error.php:174 process/search.php:178 profile.php:212
 msgid "Navigation"
-msgstr ""
+msgstr "dẫn đường"
 
 #: add/cfrecord.php:215 add/dnsrecord.php:215
 msgid "Add DNS Record"
-msgstr ""
+msgstr "Thêm bản ghi DNS"
 
 #: add/cfrecord.php:223 add/dns.php:180 add/dnsrecord.php:223
 #: add/domain.php:190 add/mail.php:177 add/mailaccount.php:197
@@ -169,13 +169,13 @@ msgstr ""
 #: list/maildomain.php:203 list/web.php:252 list/web.php:259
 #: process/csr.php:189
 msgid "Domain"
-msgstr ""
+msgstr "Miền"
 
 #: add/cfrecord.php:230 add/dnsrecord.php:230 edit/cfrecord.php:240
 #: edit/dnsrecord.php:216 edit/dnsrecord.php:286 list/cfdomain.php:285
 #: list/cfdomain.php:292 list/dnsdomain.php:276 list/dnsdomain.php:283
 msgid "Record"
-msgstr ""
+msgstr "Ghi lại"
 
 #: add/cfrecord.php:236 add/db.php:215 add/dnsrecord.php:236
 #: admin/add/firewall.php:182 admin/edit/firewall.php:187
@@ -183,27 +183,27 @@ msgstr ""
 #: edit/dnsrecord.php:292 list/backup.php:241 list/cfdomain.php:293
 #: list/db.php:241 list/dnsdomain.php:284 process/search.php:205
 msgid "Type"
-msgstr ""
+msgstr "Kiểu"
 
 #: add/cfrecord.php:252 add/dnsrecord.php:256 edit/cfrecord.php:252
 #: edit/dnsrecord.php:298
 msgid "IP or Value"
-msgstr ""
+msgstr "IP hoặc Giá trị"
 
 #: add/cfrecord.php:257 edit/cfrecord.php:258 list/dns.php:257
 msgid "TTL (Time-To-Live)"
-msgstr ""
+msgstr "TTL (Thời gian sống)"
 
 #: add/cfrecord.php:260 admin/add/firewall.php:218 admin/add/ip.php:245
 #: admin/add/ip.php:252 admin/edit/firewall.php:224 admin/edit/ip.php:242
 #: admin/edit/ip.php:250 edit/cfrecord.php:261 edit/dnsrecord.php:307
 #: edit/dnsrecord.php:315 edit/mail.php:315
 msgid "Optional"
-msgstr ""
+msgstr "Không bắt buộc"
 
 #: add/cfrecord.php:265 edit/cfrecord.php:267
 msgid "Cloudflare Proxy"
-msgstr ""
+msgstr "Proxy đám mây"
 
 #: add/cfrecord.php:269 add/dns.php:197 add/domain.php:218 add/domain.php:229
 #: add/domain.php:250 add/domain.php:266 add/domain.php:276 add/domain.php:332
@@ -225,11 +225,11 @@ msgstr ""
 #: index.php:397 list/dns.php:390 list/mail.php:289 list/mail.php:296
 #: list/mail.php:302 list/maildomain.php:277 list/web.php:328
 msgid "Enabled"
-msgstr ""
+msgstr "Đã bật"
 
 #: add/cfrecord.php:276 add/dnsrecord.php:269 list/dns.php:361 list/dns.php:364
 msgid "Add Record"
-msgstr ""
+msgstr "Thêm bản ghi"
 
 #: add/cfrecord.php:277 add/cron.php:229 add/db.php:303 add/dns.php:257
 #: add/dnsrecord.php:270 add/domain.php:410 add/mail.php:215
@@ -245,7 +245,7 @@ msgstr ""
 #: edit/mailaccount.php:332 process/csr.php:220 process/generatecsr.php:233
 #: profile.php:414
 msgid "Back"
-msgstr ""
+msgstr "Trở lại"
 
 #: add/cfrecord.php:331 add/cron.php:641 add/db.php:361 add/dns.php:387
 #: add/dnsrecord.php:308 add/domain.php:555 add/mail.php:252
@@ -282,7 +282,7 @@ msgstr ""
 #: log/access.php:210 log/error.php:210 process/generatecsr.php:268
 #: profile.php:452
 msgid "Processing"
-msgstr ""
+msgstr "Chế biến"
 
 #: add/cfrecord.php:339 add/cron.php:649 add/db.php:369 add/dns.php:395
 #: add/dnsrecord.php:316 add/domain.php:563 add/mail.php:260
@@ -298,7 +298,7 @@ msgstr ""
 #: edit/mail.php:386 edit/mailaccount.php:685 process/csr.php:253
 #: profile.php:460
 msgid "Loading"
-msgstr ""
+msgstr "Đang tải"
 
 #: add/cfrecord.php:347 add/cron.php:657 add/db.php:381 add/dns.php:407
 #: add/dnsrecord.php:328 add/domain.php:594 add/mail.php:272
@@ -345,85 +345,85 @@ msgstr ""
 #: list/web.php:442 list/web.php:449 list/web.php:452 list/web.php:459
 #: process/generatecsr.php:276 profile.php:150 profile.php:549
 msgid "Please try again or contact support."
-msgstr ""
+msgstr "Vui lòng thử lại hoặc liên hệ với bộ phận hỗ trợ."
 
 #: add/cron.php:85 admin/add/package.php:322 admin/edit/package.php:336
 #: admin/list/stats.php:238 edit/cron.php:95 includes/includes.php:420
 #: index.php:813 list/cron.php:90 list/cron.php:227
 msgid "Cron Jobs"
-msgstr ""
+msgstr "Công việc định kỳ"
 
 #: add/cron.php:175
 msgid "Add Cron Job"
-msgstr ""
+msgstr "Thêm công việc định kỳ"
 
 #: add/cron.php:183 edit/cron.php:254 list/cron.php:233
 msgid "Command"
-msgstr ""
+msgstr "Chỉ huy"
 
 #: add/cron.php:197 add/cron.php:299 add/cron.php:336 add/cron.php:413
 #: add/cron.php:534 edit/cron.php:269 edit/cron.php:371 edit/cron.php:409
 #: edit/cron.php:488 edit/cron.php:609
 msgid "Minute"
-msgstr ""
+msgstr "Phút"
 
 #: add/cron.php:203 add/cron.php:336 add/cron.php:413 add/cron.php:534
 #: edit/cron.php:275 edit/cron.php:409 edit/cron.php:488 edit/cron.php:609
 msgid "Hour"
-msgstr ""
+msgstr "Giờ"
 
 #: add/cron.php:209 edit/cron.php:281
 msgid "Day"
-msgstr ""
+msgstr "ngày"
 
 #: add/cron.php:215 edit/cron.php:287
 msgid "Month"
-msgstr ""
+msgstr "tháng"
 
 #: add/cron.php:221 edit/cron.php:293
 msgid "Day of Week"
-msgstr ""
+msgstr "Ngày trong tuần"
 
 #: add/cron.php:228
 msgid "Add Cron"
-msgstr ""
+msgstr "Thêm Cron"
 
 #: add/cron.php:239 edit/cron.php:311
 msgid "Cron Generator"
-msgstr ""
+msgstr "Máy phát điện cron"
 
 #: add/cron.php:244 edit/cron.php:316
 msgid "Minutes"
-msgstr ""
+msgstr "Phút"
 
 #: add/cron.php:246 edit/cron.php:318
 msgid "Hourly"
-msgstr ""
+msgstr "Hàng giờ"
 
 #: add/cron.php:248 admin/list/graphs.php:203 edit/cron.php:320
 msgid "Daily"
-msgstr ""
+msgstr "hằng ngày"
 
 #: add/cron.php:250 admin/list/graphs.php:204 edit/cron.php:322
 msgid "Weekly"
-msgstr ""
+msgstr "Hàng tuần"
 
 #: add/cron.php:252 admin/list/graphs.php:205 edit/cron.php:324
 msgid "Monthly"
-msgstr ""
+msgstr "Hàng tháng"
 
 #: add/cron.php:259 add/cron.php:321 add/cron.php:396 add/cron.php:472
 #: edit/cron.php:331 edit/cron.php:393 edit/cron.php:469 edit/cron.php:547
 msgid "Run Command"
-msgstr ""
+msgstr "Chạy lệnh"
 
 #: add/cron.php:262 edit/cron.php:334
 msgid "every minute"
-msgstr ""
+msgstr "mỗi phút"
 
 #: add/cron.php:263 edit/cron.php:335
 msgid "every two minutes"
-msgstr ""
+msgstr "cứ hai phút một lần"
 
 #: add/cron.php:264 add/cron.php:265 add/cron.php:266 add/cron.php:267
 #: add/cron.php:293 add/cron.php:294 add/cron.php:327 add/cron.php:328
@@ -432,7 +432,7 @@ msgstr ""
 #: edit/cron.php:365 edit/cron.php:366 edit/cron.php:400 edit/cron.php:401
 #: edit/cron.php:402 edit/cron.php:403 edit/cron.php:553 edit/cron.php:554
 msgid "every"
-msgstr ""
+msgstr "mỗi"
 
 #: add/cron.php:277 add/cron.php:311 add/cron.php:386 add/cron.php:463
 #: add/cron.php:584 add/db.php:208 add/domain.php:345 add/domain.php:379
@@ -442,138 +442,138 @@ msgstr ""
 #: edit/domain.php:478 edit/domain.php:545 edit/domain.php:579
 #: edit/domain.php:699 edit/mailaccount.php:267 profile.php:324
 msgid "Generate"
-msgstr ""
+msgstr "Tạo"
 
 #: add/cron.php:291 edit/cron.php:363
 msgid "every hour"
-msgstr ""
+msgstr "mỗi tiếng"
 
 #: add/cron.php:292 edit/cron.php:364
 msgid "every two hours"
-msgstr ""
+msgstr "cứ sau hai giờ"
 
 #: add/cron.php:324 add/cron.php:399 edit/cron.php:397 edit/cron.php:473
 msgid "every day"
-msgstr ""
+msgstr "Hằng ngày"
 
 #: add/cron.php:325 edit/cron.php:398
 msgid "every odd day"
-msgstr ""
+msgstr "mỗi ngày lẻ"
 
 #: add/cron.php:326 edit/cron.php:399
 msgid "every even day"
-msgstr ""
+msgstr "mỗi ngày chẵn"
 
 #: add/cron.php:400 edit/cron.php:474
 msgid "weekdays (5 days)"
-msgstr ""
+msgstr "các ngày trong tuần (5 ngày)"
 
 #: add/cron.php:401 edit/cron.php:475
 msgid "weekend (2 days)"
-msgstr ""
+msgstr "cuối tuần (2 ngày)"
 
 #: add/cron.php:402 edit/cron.php:476
 msgid "Monday"
-msgstr ""
+msgstr "Thứ hai"
 
 #: add/cron.php:403 edit/cron.php:477
 msgid "Tuesday"
-msgstr ""
+msgstr "Thứ ba"
 
 #: add/cron.php:404 edit/cron.php:478
 msgid "Wednesday"
-msgstr ""
+msgstr "Thứ tư"
 
 #: add/cron.php:405 edit/cron.php:479
 msgid "Thursday"
-msgstr ""
+msgstr "Thứ năm"
 
 #: add/cron.php:406 edit/cron.php:480
 msgid "Friday"
-msgstr ""
+msgstr "Thứ sáu"
 
 #: add/cron.php:407 edit/cron.php:481
 msgid "Saturday"
-msgstr ""
+msgstr "ngày thứ bảy"
 
 #: add/cron.php:408 edit/cron.php:482
 msgid "Sunday"
-msgstr ""
+msgstr "chủ nhật"
 
 #: add/cron.php:475 edit/cron.php:550
 msgid "every month"
-msgstr ""
+msgstr "mỗi tháng"
 
 #: add/cron.php:476 edit/cron.php:551
 msgid "every odd month"
-msgstr ""
+msgstr "mỗi tháng lẻ"
 
 #: add/cron.php:477 edit/cron.php:552
 msgid "every even month"
-msgstr ""
+msgstr "mỗi tháng chẵn"
 
 #: add/cron.php:480 edit/cron.php:555
 msgid "January"
-msgstr ""
+msgstr "tháng Giêng"
 
 #: add/cron.php:481 edit/cron.php:556
 msgid "February"
-msgstr ""
+msgstr "Tháng hai"
 
 #: add/cron.php:482 edit/cron.php:557
 msgid "March"
-msgstr ""
+msgstr "tháng Ba"
 
 #: add/cron.php:483 edit/cron.php:558
 msgid "April"
-msgstr ""
+msgstr "Tháng 4"
 
 #: add/cron.php:484 edit/cron.php:559
 msgid "May"
-msgstr ""
+msgstr "có thể"
 
 #: add/cron.php:485 edit/cron.php:560
 msgid "June"
-msgstr ""
+msgstr "Tháng 6"
 
 #: add/cron.php:486 edit/cron.php:561
 msgid "July"
-msgstr ""
+msgstr "Tháng 7"
 
 #: add/cron.php:487 edit/cron.php:562
 msgid "August"
-msgstr ""
+msgstr "tháng Tám"
 
 #: add/cron.php:488 edit/cron.php:563
 msgid "September"
-msgstr ""
+msgstr "Tháng Chín"
 
 #: add/cron.php:489 edit/cron.php:564
 msgid "October"
-msgstr ""
+msgstr "Tháng Mười"
 
 #: add/cron.php:490 edit/cron.php:565
 msgid "November"
-msgstr ""
+msgstr "Tháng 11"
 
 #: add/cron.php:491 edit/cron.php:566
 msgid "December"
-msgstr ""
+msgstr "Tháng 12"
 
 #: add/cron.php:496 admin/list/fail2ban.php:204 admin/list/stats.php:230
 #: edit/cron.php:571 log.php:220
 msgid "Date"
-msgstr ""
+msgstr "Ngày"
 
 #: add/db.php:96 add/db.php:189 admin/status/db.php:211 edit/db.php:96
 #: edit/db.php:207 edit/db.php:269 includes/includes.php:416 index.php:358
 #: list/backup.php:272 list/db.php:226 list/db.php:234
 msgid "Database"
-msgstr ""
+msgstr "Cơ sở dữ liệu"
 
 #: add/db.php:181 add/db.php:302 index.php:580
 msgid "Add Database"
-msgstr ""
+msgstr "Thêm cơ sở dữ liệu"
 
 #: add/db.php:198 add/domain.php:339 add/domain.php:370 add/domain.php:513
 #: add/mailaccount.php:318 add/mailaccount.php:352 add/mailaccount.php:386
@@ -585,11 +585,11 @@ msgstr ""
 #: edit/mailaccount.php:551 index.php:762 list/db.php:235 login.php:206
 #: login.php:207 login.php:243 profile.php:318 register.php:127
 msgid "Username"
-msgstr ""
+msgstr "tên tài khoản"
 
 #: add/db.php:204
 msgid "Max Length 16 Characters Including Prefix"
-msgstr ""
+msgstr "Độ dài tối đa 16 ký tự bao gồm tiền tố"
 
 #: add/db.php:208 add/domain.php:345 add/domain.php:379 add/domain.php:513
 #: add/mailaccount.php:213 add/mailaccount.php:319 add/mailaccount.php:353
@@ -602,50 +602,50 @@ msgstr ""
 #: edit/mailaccount.php:518 edit/mailaccount.php:552 list/backups.php:140
 #: login.php:212 login.php:213 profile.php:324 register.php:131
 msgid "Password"
-msgstr ""
+msgstr "Mật khẩu"
 
 #: add/db.php:232
 msgid "Hosts"
-msgstr ""
+msgstr "Chủ nhà"
 
 #: add/db.php:249 admin/server/nginx.php:242 edit/db.php:305
 msgid "Charset"
-msgstr ""
+msgstr "Bộ ký tự"
 
 #: add/db.php:294 add/mailaccount.php:273
 msgid "Send Credentials To Email"
-msgstr ""
+msgstr "Gửi thông tin xác thực đến email"
 
 #: add/dns.php:172
 msgid "Add DNS Domain"
-msgstr ""
+msgstr "Thêm tên miền DNS"
 
 #: add/dns.php:186 add/domain.php:196 admin/add/fail2ban.php:197
 #: admin/add/firewall.php:208 admin/add/ip.php:187 admin/edit/firewall.php:214
 #: admin/edit/ip.php:189 admin/list/firewall.php:211 edit/dns.php:341
 #: edit/domain.php:286
 msgid "IP Address"
-msgstr ""
+msgstr "Địa chỉ IP"
 
 #: add/dns.php:193 edit/dns.php:388
 msgid "Cloudflare Support"
-msgstr ""
+msgstr "Hỗ trợ Cloudflare"
 
 #: add/dns.php:203 edit/dns.php:399
 msgid "Security Level"
-msgstr ""
+msgstr "Cấp độ bảo mật"
 
 #: add/dns.php:215 edit/dns.php:412
 msgid "SSL Setting"
-msgstr ""
+msgstr "Cài đặt SSL"
 
 #: add/dns.php:228 add/domain.php:235 add/mailaccount.php:220
 msgid "Advanced Options"
-msgstr ""
+msgstr "Tùy chọn nâng cao"
 
 #: add/dns.php:232 index.php:774 profile.php:285
 msgid "Nameservers"
-msgstr ""
+msgstr "Máy chủ tên"
 
 #: add/dns.php:237 add/dns.php:239 add/dns.php:241 add/dns.php:243
 #: add/dns.php:245 add/dns.php:247 admin/add/package.php:381
@@ -659,7 +659,7 @@ msgstr ""
 #: admin/edit/user.php:314 profile.php:389 profile.php:390 profile.php:391
 #: profile.php:392 profile.php:393 profile.php:394
 msgid "Add One"
-msgstr ""
+msgstr "Thêm một"
 
 #: add/dns.php:239 add/dns.php:241 add/dns.php:243 add/dns.php:245
 #: add/dns.php:247 add/dns.php:249 admin/add/package.php:382
@@ -673,110 +673,110 @@ msgstr ""
 #: admin/edit/user.php:316 profile.php:390 profile.php:391 profile.php:392
 #: profile.php:393 profile.php:394 profile.php:395
 msgid "Remove One"
-msgstr ""
+msgstr "Xóa một"
 
 #: add/dns.php:256 add/domain.php:182 add/domain.php:409 add/mail.php:214
 #: index.php:370
 msgid "Add Domain"
-msgstr ""
+msgstr "Thêm tên miền"
 
 #: add/dnsrecord.php:261 edit/dnsrecord.php:304
 msgid "Priority"
-msgstr ""
+msgstr "Sự ưu tiên"
 
 #: add/domain.php:97 admin/list/stats.php:234 admin/server/vesta.php:713
 #: admin/status/web.php:210 edit/domain.php:112 includes/includes.php:413
 #: index.php:355 list/backup.php:251 list/backups.php:249 list/web.php:93
 msgid "Web"
-msgstr ""
+msgstr "Web"
 
 #: add/domain.php:214
 msgid "DNS Support"
-msgstr ""
+msgstr "Hỗ trợ DNS"
 
 #: add/domain.php:225
 msgid "Mail Support"
-msgstr ""
+msgstr "Hỗ trợ thư"
 
 #: add/domain.php:239 add/mailaccount.php:231 admin/server/vesta.php:956
 #: edit/domain.php:305 edit/domain.php:430 edit/mailaccount.php:281
 #: list/maildomain.php:241 list/web.php:265 process/csr.php:195
 msgid "Aliases"
-msgstr ""
+msgstr "Bí danh"
 
 #: add/domain.php:246 edit/domain.php:337
 msgid "Proxy Support"
-msgstr ""
+msgstr "Hỗ trợ proxy"
 
 #: add/domain.php:255 edit/domain.php:366
 msgid "Proxy Extensions"
-msgstr ""
+msgstr "Tiện ích mở rộng proxy"
 
 #: add/domain.php:262 edit/domain.php:375
 msgid "SSL Support"
-msgstr ""
+msgstr "Hỗ trợ SSL"
 
 #: add/domain.php:272 edit/domain.php:386
 msgid "Let's Encrypt Support"
-msgstr ""
+msgstr "Hãy hỗ trợ mã hóa"
 
 #: add/domain.php:282 edit/domain.php:397
 msgid "SSL Directory"
-msgstr ""
+msgstr "Thư mục SSL"
 
 #: add/domain.php:291 admin/server/vesta.php:940 edit/domain.php:407
 msgid "SSL Certificate"
-msgstr ""
+msgstr "Chứng chỉ SSL"
 
 #: add/domain.php:291 edit/domain.php:407
 msgid "Generate CSR"
-msgstr ""
+msgstr "Tạo CSR"
 
 #: add/domain.php:297 admin/server/vesta.php:947 edit/domain.php:414
 msgid "SSL Key"
-msgstr ""
+msgstr "Khóa SSL"
 
 #: add/domain.php:303 edit/domain.php:421
 msgid "SSL Certificate Authority / Intermediate"
-msgstr ""
+msgstr "Cơ quan cấp chứng chỉ SSL / Trung cấp"
 
 #: add/domain.php:310 edit/domain.php:440 list/web.php:271
 msgid "Web Statistics"
-msgstr ""
+msgstr "Thống kê web"
 
 #: add/domain.php:328 edit/domain.php:459
 msgid "Statistics Authorization"
-msgstr ""
+msgstr "Ủy quyền thống kê"
 
 #: add/domain.php:356 edit/domain.php:494 list/web.php:270
 msgid "Additional FTP"
-msgstr ""
+msgstr "FTP bổ sung"
 
 #: add/domain.php:367 add/domain.php:513 edit/domain.php:532
 #: edit/domain.php:566 edit/domain.php:699
 msgid "FTP Account"
-msgstr ""
+msgstr "Tài khoản FTP"
 
 #: add/domain.php:386 add/domain.php:513 edit/domain.php:552
 #: edit/domain.php:586 edit/domain.php:699
 msgid "Path"
-msgstr ""
+msgstr "Con đường"
 
 #: add/domain.php:396 add/domain.php:513 edit/domain.php:699
 msgid "Send FTP Credentials to Email:"
-msgstr ""
+msgstr "Gửi thông tin đăng nhập FTP đến email:"
 
 #: add/domain.php:576 add/domain.php:585 admin/add/package.php:526
 #: admin/add/package.php:535 admin/edit/package.php:537
 #: admin/edit/package.php:546 edit/backupexclusions.php:305
 #: edit/backupexclusions.php:314 edit/domain.php:781 edit/domain.php:790
 msgid "Feature Disabled"
-msgstr ""
+msgstr "Tính năng bị vô hiệu hóa"
 
 #: add/domain.php:577 add/domain.php:586 edit/domain.php:782
 #: edit/domain.php:791
 msgid "Custom SSL Certificates are incompatible with API Key Authentication."
-msgstr ""
+msgstr "Chứng chỉ SSL tùy chỉnh không tương thích với Xác thực khóa API."
 
 #: add/mail.php:85 add/mailaccount.php:94 admin/list/stats.php:236
 #: admin/server/vesta.php:756 admin/status/mail.php:211 edit/mail.php:95
@@ -784,88 +784,88 @@ msgstr ""
 #: list/backup.php:265 list/backups.php:251 list/mail.php:89
 #: list/maildomain.php:93 list/maildomain.php:230
 msgid "Mail"
-msgstr ""
+msgstr "Thư"
 
 #: add/mail.php:169
 msgid "Add Mail Domain"
-msgstr ""
+msgstr "Thêm tên miền thư"
 
 #: add/mail.php:184 edit/mail.php:280
 msgid "AntiSpam Support"
-msgstr ""
+msgstr "Hỗ trợ AntiSpam"
 
 #: add/mail.php:195 edit/mail.php:292
 msgid "AntiVirus Support"
-msgstr ""
+msgstr "Hỗ trợ chống vi-rút"
 
 #: add/mail.php:204 edit/mail.php:303
 msgid "DKIM Support"
-msgstr ""
+msgstr "Hỗ trợ DKIM"
 
 #: add/mailaccount.php:189
 msgid "Add Mail Account"
-msgstr ""
+msgstr "Thêm tài khoản thư"
 
 #: add/mailaccount.php:204 edit/mailaccount.php:211 list/maildomain.php:228
 #: profile.php:86 profile.php:257
 msgid "Account"
-msgstr ""
+msgstr "Tài khoản"
 
 #: add/mailaccount.php:224 admin/add/package.php:339 admin/edit/package.php:353
 #: edit/mailaccount.php:274 list/maildomain.php:240
 msgid "Quota"
-msgstr ""
+msgstr "Hạn ngạch"
 
 #: add/mailaccount.php:227 admin/edit/package.php:363
 #: admin/edit/package.php:375 edit/mailaccount.php:277
 msgid "In Megabytes"
-msgstr ""
+msgstr "Bằng Megabyte"
 
 #: add/mailaccount.php:234 edit/mailaccount.php:285
 msgid "Use Local-Part"
-msgstr ""
+msgstr "Sử dụng phần cục bộ"
 
 #: add/mailaccount.php:238 edit/mailaccount.php:289 list/maildomain.php:242
 msgid "Forward To"
-msgstr ""
+msgstr "Chuyển tiếp tới"
 
 #: add/mailaccount.php:241
 msgid "One Or More Email Addresses"
-msgstr ""
+msgstr "Một hoặc nhiều địa chỉ email"
 
 #: add/mailaccount.php:246 edit/mailaccount.php:297
 msgid "Don't Store Forwarded Mail"
-msgstr ""
+msgstr "Không lưu trữ thư chuyển tiếp"
 
 #: add/mailaccount.php:256 edit/mailaccount.php:307 list/maildomain.php:243
 msgid "Autoreply"
-msgstr ""
+msgstr "Tự động trả lời"
 
 #: add/mailaccount.php:265 admin/list/notifications.php:223
 #: edit/mailaccount.php:317
 msgid "Message"
-msgstr ""
+msgstr "Thông điệp"
 
 #: add/mailaccount.php:281
 msgid "Add Account"
-msgstr ""
+msgstr "Thêm tài khoản"
 
 #: add/mailaccount.php:292 edit/mailaccount.php:342
 msgid "Authentication Settings"
-msgstr ""
+msgstr "Cài đặt xác thực"
 
 #: add/mailaccount.php:297 edit/mailaccount.php:347
 msgid "Use Server Hostname"
-msgstr ""
+msgstr "Sử dụng tên máy chủ"
 
 #: add/mailaccount.php:299 edit/mailaccount.php:349
 msgid "Use Domain Hostname"
-msgstr ""
+msgstr "Sử dụng tên máy chủ tên miền"
 
 #: add/mailaccount.php:310 add/mailaccount.php:425 edit/mailaccount.php:360
 #: edit/mailaccount.php:475
 msgid "No Authentication"
-msgstr ""
+msgstr "Không có chứng thực"
 
 #: add/mailaccount.php:320 add/mailaccount.php:324 add/mailaccount.php:354
 #: add/mailaccount.php:358 add/mailaccount.php:388 add/mailaccount.php:392
@@ -876,7 +876,7 @@ msgstr ""
 #: edit/mailaccount.php:485 edit/mailaccount.php:489 edit/mailaccount.php:519
 #: edit/mailaccount.php:523 edit/mailaccount.php:553 edit/mailaccount.php:557
 msgid "hostname"
-msgstr ""
+msgstr "tên máy chủ"
 
 #: add/mailaccount.php:321 add/mailaccount.php:325 add/mailaccount.php:355
 #: add/mailaccount.php:359 add/mailaccount.php:389 add/mailaccount.php:393
@@ -887,7 +887,7 @@ msgstr ""
 #: edit/mailaccount.php:486 edit/mailaccount.php:490 edit/mailaccount.php:520
 #: edit/mailaccount.php:524 edit/mailaccount.php:554 edit/mailaccount.php:558
 msgid "port"
-msgstr ""
+msgstr "Hải cảng"
 
 #: add/mailaccount.php:322 add/mailaccount.php:326 add/mailaccount.php:356
 #: add/mailaccount.php:360 add/mailaccount.php:390 add/mailaccount.php:394
@@ -898,7 +898,7 @@ msgstr ""
 #: edit/mailaccount.php:487 edit/mailaccount.php:491 edit/mailaccount.php:521
 #: edit/mailaccount.php:525 edit/mailaccount.php:555 edit/mailaccount.php:559
 msgid "security"
-msgstr ""
+msgstr "Bảo vệ"
 
 #: add/mailaccount.php:323 add/mailaccount.php:327 add/mailaccount.php:357
 #: add/mailaccount.php:361 add/mailaccount.php:391 add/mailaccount.php:395
@@ -909,7 +909,7 @@ msgstr ""
 #: edit/mailaccount.php:488 edit/mailaccount.php:492 edit/mailaccount.php:522
 #: edit/mailaccount.php:526 edit/mailaccount.php:556 edit/mailaccount.php:560
 msgid "auth method"
-msgstr ""
+msgstr "phương pháp xác thực"
 
 #: add/mailaccount.php:328 add/mailaccount.php:362 add/mailaccount.php:396
 #: add/mailaccount.php:443 add/mailaccount.php:477 add/mailaccount.php:511
@@ -917,7 +917,7 @@ msgstr ""
 #: edit/mailaccount.php:493 edit/mailaccount.php:527 edit/mailaccount.php:561
 #: includes/includes.php:429
 msgid "Webmail"
-msgstr ""
+msgstr "Webmail"
 
 #: add/mailaccount.php:338 add/mailaccount.php:342 add/mailaccount.php:372
 #: add/mailaccount.php:376 add/mailaccount.php:406 add/mailaccount.php:410
@@ -928,216 +928,216 @@ msgstr ""
 #: edit/mailaccount.php:503 edit/mailaccount.php:507 edit/mailaccount.php:537
 #: edit/mailaccount.php:541 edit/mailaccount.php:571 edit/mailaccount.php:575
 msgid "Normal Password"
-msgstr ""
+msgstr "Mật khẩu bình thường"
 
 #: add/mailaccount.php:405 add/mailaccount.php:409 add/mailaccount.php:520
 #: add/mailaccount.php:524 edit/mailaccount.php:455 edit/mailaccount.php:459
 #: edit/mailaccount.php:570 edit/mailaccount.php:574
 msgid "No Encryption"
-msgstr ""
+msgstr "Không mã hóa"
 
 #: admin/add/fail2ban.php:89 admin/add/firewall.php:88
 #: admin/edit/firewall.php:93 admin/list/fail2ban.php:92
 #: admin/list/firewall.php:90 admin/server/vesta.php:986
 #: includes/includes.php:379
 msgid "Firewall"
-msgstr ""
+msgstr "Bức tường lửa"
 
 #: admin/add/fail2ban.php:175
 msgid "Add Banned IP"
-msgstr ""
+msgstr "Thêm IP cấm"
 
 #: admin/add/fail2ban.php:183
 msgid "Banlist"
-msgstr ""
+msgstr "Banlist"
 
 #: admin/add/fail2ban.php:186
 msgid "SSH"
-msgstr ""
+msgstr "SSH"
 
 #: admin/add/fail2ban.php:187
 msgid "WEB"
-msgstr ""
+msgstr "WEB"
 
 #: admin/add/fail2ban.php:188 includes/includes.php:428 list/web.php:270
 msgid "FTP"
-msgstr ""
+msgstr "FTP"
 
 #: admin/add/fail2ban.php:190
 msgid "MAIL"
-msgstr ""
+msgstr "THƯ"
 
 #: admin/add/fail2ban.php:191 admin/server/vesta.php:779
 msgid "DB"
-msgstr ""
+msgstr "DB"
 
 #: admin/add/fail2ban.php:192
 msgid "VESTA"
-msgstr ""
+msgstr "VESTA"
 
 #: admin/add/fail2ban.php:200 admin/add/firewall.php:211
 #: admin/edit/firewall.php:217
 msgid "CIDR format is supported"
-msgstr ""
+msgstr "Định dạng CIDR được hỗ trợ"
 
 #: admin/add/fail2ban.php:205
 msgid "Add Ban"
-msgstr ""
+msgstr "Thêm Ban"
 
 #: admin/add/firewall.php:174
 msgid "Add Firewall Rule"
-msgstr ""
+msgstr "Thêm quy tắc tường lửa"
 
 #: admin/add/firewall.php:185 admin/edit/firewall.php:190
 msgid "Accept"
-msgstr ""
+msgstr "Chấp nhận"
 
 #: admin/add/firewall.php:186 admin/edit/firewall.php:191
 msgid "Drop"
-msgstr ""
+msgstr "Rơi vãi"
 
 #: admin/add/firewall.php:191 admin/edit/firewall.php:197
 #: admin/list/firewall.php:208
 msgid "Protocol"
-msgstr ""
+msgstr "Giao thức"
 
 #: admin/add/firewall.php:201 admin/edit/firewall.php:207
 #: admin/list/firewall.php:210
 msgid "Port"
-msgstr ""
+msgstr "Hải cảng"
 
 #: admin/add/firewall.php:204 admin/edit/firewall.php:210
 msgid "Ranges are acceptable"
-msgstr ""
+msgstr "Phạm vi được chấp nhận"
 
 #: admin/add/firewall.php:215 admin/edit/firewall.php:221
 #: admin/list/firewall.php:209
 msgid "Comment"
-msgstr ""
+msgstr "Bình luận"
 
 #: admin/add/firewall.php:223
 msgid "Add Rule"
-msgstr ""
+msgstr "Thêm quy tắc"
 
 #: admin/add/ip.php:94 admin/edit/ip.php:96 admin/list/fail2ban.php:206
 #: admin/list/ip.php:90 includes/includes.php:373 list/dns.php:255
 #: list/web.php:272
 msgid "IP"
-msgstr ""
+msgstr "IP"
 
 #: admin/add/ip.php:179
 msgid "Add IP Address"
-msgstr ""
+msgstr "Thêm địa chỉ IP"
 
 #: admin/add/ip.php:193 admin/edit/ip.php:197 admin/list/ip.php:208
 msgid "Netmask"
-msgstr ""
+msgstr "Netmask"
 
 #: admin/add/ip.php:199 admin/edit/ip.php:203 admin/list/ip.php:209
 msgid "Interface"
-msgstr ""
+msgstr "Giao diện"
 
 #: admin/add/ip.php:215 admin/edit/ip.php:209
 msgid "Shared"
-msgstr ""
+msgstr "Đã chia sẻ"
 
 #: admin/add/ip.php:225 admin/edit/ip.php:220
 msgid "Assigned User"
-msgstr ""
+msgstr "Người dùng được chỉ định"
 
 #: admin/add/ip.php:242 admin/edit/ip.php:239
 msgid "Assigned Domain"
-msgstr ""
+msgstr "Tên miền được gán"
 
 #: admin/add/ip.php:249 admin/edit/ip.php:247
 msgid "NAT IP Association"
-msgstr ""
+msgstr "Hiệp hội IP NAT"
 
 #: admin/add/ip.php:257 admin/list/ip.php:195
 msgid "Add IP"
-msgstr ""
+msgstr "Thêm IP"
 
 #: admin/add/package.php:97 admin/edit/package.php:102
 #: admin/list/packages.php:90 admin/list/packages.php:210
 #: includes/includes.php:372
 msgid "Packages"
-msgstr ""
+msgstr "Gói"
 
 #: admin/add/package.php:182 admin/add/package.php:392
 msgid "Add Package"
-msgstr ""
+msgstr "Thêm gói"
 
 #: admin/add/package.php:191 admin/edit/package.php:197
 msgid "Package Name"
-msgstr ""
+msgstr "Tên gói hàng"
 
 #: admin/add/package.php:197 admin/edit/package.php:205 edit/domain.php:320
 msgid "Web Template"
-msgstr ""
+msgstr "Mẫu web"
 
 #: admin/add/package.php:212 admin/edit/package.php:222 edit/domain.php:348
 #: list/web.php:267
 msgid "Proxy Template"
-msgstr ""
+msgstr "Mẫu proxy"
 
 #: admin/add/package.php:227 admin/edit/package.php:239 edit/dns.php:346
 #: list/dns.php:258
 msgid "DNS Template"
-msgstr ""
+msgstr "Mẫu DNS"
 
 #: admin/add/package.php:242 admin/edit/package.php:256
 #: edit/backupexclusions.php:183 index.php:323 list/web.php:254
 msgid "Web Domains"
-msgstr ""
+msgstr "Tên miền web"
 
 #: admin/add/package.php:253 admin/edit/package.php:267 index.php:827
 msgid "Web Aliases"
-msgstr ""
+msgstr "Bí danh web"
 
 #: admin/add/package.php:265 admin/edit/package.php:279 index.php:699
 #: list/dns.php:245
 msgid "DNS Domains"
-msgstr ""
+msgstr "Tên miền DNS"
 
 #: admin/add/package.php:276 admin/edit/package.php:290 index.php:713
 msgid "DNS Records"
-msgstr ""
+msgstr "Bản ghi DNS"
 
 #: admin/add/package.php:288 admin/edit/package.php:302
 #: edit/backupexclusions.php:198 index.php:725 list/mail.php:240
 msgid "Mail Domains"
-msgstr ""
+msgstr "Tên miền thư"
 
 #: admin/add/package.php:299 admin/edit/package.php:313
 msgid "Mail Accounts"
-msgstr ""
+msgstr "Tài khoản thư"
 
 #: admin/add/package.php:311 admin/edit/package.php:325
 #: admin/list/stats.php:237 edit/backupexclusions.php:213 index.php:671
 #: index.php:799 list/backups.php:252 list/db.php:89 list/db.php:229
 msgid "Databases"
-msgstr ""
+msgstr "Cơ sở dữ liệu"
 
 #: admin/add/package.php:333 admin/edit/package.php:347
 #: admin/list/stats.php:240 edit/backupexclusions.php:90
 #: includes/includes.php:422 index.php:739 list/backup.php:95
 #: list/backups.php:90 list/backups.php:241
 msgid "Backups"
-msgstr ""
+msgstr "Sao lưu"
 
 #: admin/add/package.php:351 admin/edit/package.php:365
 #: admin/list/stats.php:231 index.php:290 index.php:765 list/web.php:261
 msgid "Bandwidth"
-msgstr ""
+msgstr "Băng thông"
 
 #: admin/add/package.php:363 admin/edit/package.php:377 admin/edit/user.php:283
 msgid "SSH Access"
-msgstr ""
+msgstr "Truy cập SSH"
 
 #: admin/add/package.php:378 admin/edit/package.php:392 admin/edit/user.php:299
 #: profile.php:386
 msgid "Default Nameservers"
-msgstr ""
+msgstr "Máy chủ tên mặc định"
 
 #: admin/add/package.php:518 admin/edit/firewall.php:296 admin/edit/ip.php:327
 #: admin/edit/package.php:528 admin/edit/user.php:462
@@ -1152,117 +1152,117 @@ msgstr ""
 #: list/mail.php:428 list/maildomain.php:424 list/web.php:456 profile.php:141
 #: profile.php:545
 msgid "Successfully Updated!"
-msgstr ""
+msgstr "Cập nhật thành công!"
 
 #: admin/add/package.php:527 admin/add/package.php:536
 #: admin/edit/package.php:538 admin/edit/package.php:547
 msgid "Packages are incompatible with API Key Authentication."
-msgstr ""
+msgstr "Các gói không tương thích với Xác thực khóa API."
 
 #: admin/add/user.php:91 admin/edit/user.php:97 admin/list/ip.php:210
 #: admin/list/users.php:90 admin/list/users.php:220 includes/includes.php:371
 msgid "Users"
-msgstr ""
+msgstr "Người dùng"
 
 #: admin/add/user.php:177 admin/add/user.php:234
 msgid "Add User"
-msgstr ""
+msgstr "Thêm người dùng"
 
 #: admin/add/user.php:198 admin/edit/user.php:206 index.php:763
 #: list/maildomain.php:235 profile.php:344 register.php:123
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
 #: admin/add/user.php:204 admin/edit/user.php:213 admin/list/packages.php:208
 msgid "Package"
-msgstr ""
+msgstr "Gói"
 
 #: admin/add/user.php:221 admin/edit/user.php:269 profile.php:332
 #: register.php:118
 msgid "First Name"
-msgstr ""
+msgstr "Tên đầu tiên"
 
 #: admin/add/user.php:227 admin/edit/user.php:276 profile.php:338
 #: register.php:119
 msgid "Last Name"
-msgstr ""
+msgstr "Họ"
 
 #: admin/edit/firewall.php:179
 msgid "Edit Firewall Rule"
-msgstr ""
+msgstr "Chỉnh sửa quy tắc tường lửa"
 
 #: admin/edit/firewall.php:229
 msgid "Update Rule"
-msgstr ""
+msgstr "Cập nhật quy tắc"
 
 #: admin/edit/ip.php:181
 msgid "Edit IP Address"
-msgstr ""
+msgstr "Chỉnh sửa địa chỉ IP"
 
 #: admin/edit/ip.php:256
 msgid "Update IP"
-msgstr ""
+msgstr "Cập nhật IP"
 
 #: admin/edit/ip.php:331
 msgid "Error Updating IP Address"
-msgstr ""
+msgstr "Lỗi cập nhật địa chỉ IP"
 
 #: admin/edit/package.php:189
 msgid "Edit Package"
-msgstr ""
+msgstr "Chỉnh sửa gói"
 
 #: admin/edit/package.php:277 admin/edit/package.php:300
 #: admin/edit/package.php:323
 msgid "Per Domain"
-msgstr ""
+msgstr "Mỗi tên miền"
 
 #: admin/edit/package.php:414
 msgid "Update Package"
-msgstr ""
+msgstr "Cập nhật gói"
 
 #: admin/edit/package.php:532
 msgid "Error Updating Package"
-msgstr ""
+msgstr "Lỗi cập nhật gói"
 
 #: admin/edit/user.php:184
 msgid "Edit User"
-msgstr ""
+msgstr "Người dùng biên tập"
 
 #: admin/edit/user.php:231 admin/list/settings.php:416 profile.php:279
 #: profile.php:350
 msgid "Language"
-msgstr ""
+msgstr "Ngôn ngữ"
 
 #: admin/edit/user.php:329
 msgid "Update User"
-msgstr ""
+msgstr "Cập nhật người dùng"
 
 #: admin/edit/user.php:466
 msgid "Error Updating User"
-msgstr ""
+msgstr "Lỗi cập nhật người dùng"
 
 #: admin/list/fail2ban.php:191
 msgid "Manage Fail2Ban"
-msgstr ""
+msgstr "Quản lý Fail2Ban"
 
 #: admin/list/fail2ban.php:197 admin/list/firewall.php:199
 #: admin/list/packages.php:208 admin/list/users.php:218 list/cfdomain.php:285
 #: list/dnsdomain.php:276 list/mail.php:238 list/maildomain.php:228
 msgid "Add"
-msgstr ""
+msgstr "Thêm vào"
 
 #: admin/list/fail2ban.php:197 admin/list/fail2ban.php:205
 msgid "Ban"
-msgstr ""
+msgstr "Lệnh cấm"
 
 #: admin/list/fail2ban.php:199
 msgid "Banned IPs"
-msgstr ""
+msgstr "IP cấm"
 
 #: admin/list/fail2ban.php:206 admin/list/ip.php:195 admin/list/ip.php:202
 #: list/maildomain.php:235
 msgid "Address"
-msgstr ""
+msgstr "Địa chỉ"
 
 #: admin/list/fail2ban.php:207 admin/list/firewall.php:212
 #: admin/list/ip.php:207 list/backup.php:243 list/backups.php:248
@@ -1270,7 +1270,7 @@ msgstr ""
 #: list/dnsdomain.php:286 list/mail.php:250 list/maildomain.php:239
 #: list/web.php:264
 msgid "Action"
-msgstr ""
+msgstr "Hoạt động"
 
 #: admin/list/fail2ban.php:220 admin/list/fail2ban.php:262
 #: admin/list/firewall.php:234 admin/list/ip.php:225
@@ -1281,11 +1281,11 @@ msgstr ""
 #: list/dnsdomain.php:303 list/mail.php:284 list/maildomain.php:267
 #: list/web.php:298
 msgid "Delete"
-msgstr ""
+msgstr "Xóa bỏ"
 
 #: admin/list/fail2ban.php:262
 msgid "ban for IP"
-msgstr ""
+msgstr "cấm IP"
 
 #: admin/list/fail2ban.php:263 admin/list/firewall.php:276
 #: admin/list/ip.php:270 admin/list/packages.php:308 admin/list/users.php:363
@@ -1297,7 +1297,7 @@ msgstr ""
 #: list/dnsdomain.php:398 list/mail.php:346 list/maildomain.php:320
 #: list/maildomain.php:341 list/web.php:371
 msgid "You won't be able to revert this!"
-msgstr ""
+msgstr "Bạn sẽ không thể hoàn nguyên điều này!"
 
 #: admin/list/fail2ban.php:268 admin/list/firewall.php:281
 #: admin/list/ip.php:275 admin/list/packages.php:313 admin/list/users.php:368
@@ -1309,7 +1309,7 @@ msgstr ""
 #: list/dnsdomain.php:403 list/mail.php:351 list/maildomain.php:325
 #: list/maildomain.php:346 list/web.php:376
 msgid "Yes, delete it!"
-msgstr ""
+msgstr "Vâng, xóa nó đi!"
 
 #: admin/list/fail2ban.php:291 admin/list/firewall.php:346
 #: admin/list/graphs.php:278 admin/list/ip.php:298 admin/list/packages.php:336
@@ -1319,7 +1319,7 @@ msgstr ""
 #: list/dns.php:519 list/dnsdomain.php:425 list/mail.php:416
 #: list/maildomain.php:409 list/web.php:439
 msgid "Successfully Deleted!"
-msgstr ""
+msgstr "Đã xóa thành công!"
 
 #: admin/list/fail2ban.php:294 admin/list/firewall.php:349
 #: admin/list/graphs.php:281 admin/list/ip.php:301 admin/list/packages.php:339
@@ -1328,54 +1328,54 @@ msgstr ""
 #: list/cfdomain.php:412 list/cron.php:452 list/db.php:381 list/dns.php:522
 #: list/dnsdomain.php:428 list/mail.php:419 list/web.php:446
 msgid "Successfully Created!"
-msgstr ""
+msgstr "Thành công trong việc tạo ra!"
 
 #: admin/list/firewall.php:192
 msgid "Manage Firewall"
-msgstr ""
+msgstr "Quản lý tường lửa"
 
 #: admin/list/firewall.php:198
 msgid "List"
-msgstr ""
+msgstr "Danh sách"
 
 #: admin/list/firewall.php:198
 msgid "Fail2Ban"
-msgstr ""
+msgstr "Fail2Ban"
 
 #: admin/list/firewall.php:199
 msgid "Rule"
-msgstr ""
+msgstr "Qui định"
 
 #: admin/list/firewall.php:201
 msgid "Rules"
-msgstr ""
+msgstr "Quy tắc"
 
 #: admin/list/firewall.php:229 admin/list/ip.php:225
 #: admin/list/packages.php:264 admin/list/users.php:317 list/cfdomain.php:317
 #: list/cron.php:263 list/db.php:262 list/dns.php:370 list/dnsdomain.php:301
 #: list/mail.php:279 list/maildomain.php:262 list/web.php:293
 msgid "Edit"
-msgstr ""
+msgstr "Biên tập"
 
 #: admin/list/firewall.php:231 admin/list/users.php:318
 #: admin/list/users.php:385 list/cron.php:264 list/db.php:263 list/dns.php:372
 #: list/mail.php:281 list/maildomain.php:264 list/web.php:296
 msgid "Suspend"
-msgstr ""
+msgstr "Đình chỉ"
 
 #: admin/list/firewall.php:232 admin/list/users.php:319
 #: admin/list/users.php:406 list/cron.php:265 list/db.php:264 list/dns.php:373
 #: list/mail.php:282 list/maildomain.php:265 list/web.php:297
 msgid "Unsuspend"
-msgstr ""
+msgstr "Không ngờ"
 
 #: admin/list/firewall.php:275
 msgid "Delete Rule"
-msgstr ""
+msgstr "Xóa quy tắc"
 
 #: admin/list/firewall.php:297
 msgid "Suspend Rule"
-msgstr ""
+msgstr "Tạm dừng quy tắc"
 
 #: admin/list/firewall.php:302 admin/list/firewall.php:323
 #: admin/list/users.php:390 admin/list/users.php:411 list/cron.php:405
@@ -1383,227 +1383,227 @@ msgstr ""
 #: list/dns.php:491 list/mail.php:372 list/mail.php:393 list/maildomain.php:368
 #: list/maildomain.php:390 list/web.php:397 list/web.php:418
 msgid "Confirm"
-msgstr ""
+msgstr "Xác nhận"
 
 #: admin/list/firewall.php:318
 msgid "Unsuspend Rule"
-msgstr ""
+msgstr "Quy tắc không mong muốn"
 
 #: admin/list/graphs.php:93 includes/includes.php:374
 msgid "Graphs"
-msgstr ""
+msgstr "Đồ thị"
 
 #: admin/list/graphs.php:195
 msgid "RRD Graphs"
-msgstr ""
+msgstr "Đồ thị RRD"
 
 #: admin/list/graphs.php:206
 msgid "Yearly"
-msgstr ""
+msgstr "Hàng năm"
 
 #: admin/list/graphs.php:231 list/backups.php:269 log/access.php:218
 #: log/access.php:219
 msgid "Download"
-msgstr ""
+msgstr "Tải xuống"
 
 #: admin/list/ip.php:189
 msgid "Manage IP Addresses"
-msgstr ""
+msgstr "Quản lý địa chỉ IP"
 
 #: admin/list/ip.php:197
 msgid "IPs"
-msgstr ""
+msgstr "IP"
 
 #: admin/list/ip.php:203
 msgid "Domains"
-msgstr ""
+msgstr "Tên miền"
 
 #: admin/list/ip.php:204
 msgid "Owner"
-msgstr ""
+msgstr "Chủ nhân"
 
 #: admin/list/ip.php:205 admin/list/server.php:210 list/cron.php:234
 #: list/db.php:237 list/dns.php:252 list/dnsdomain.php:287 list/mail.php:248
 #: list/maildomain.php:237 list/web.php:262
 msgid "Status"
-msgstr ""
+msgstr "Trạng thái"
 
 #: admin/list/ip.php:206 list/cfdomain.php:297 list/cron.php:235
 #: list/db.php:238 list/dns.php:253 list/dnsdomain.php:288 list/mail.php:249
 #: list/maildomain.php:238 list/web.php:263 process/search.php:209
 msgid "Created"
-msgstr ""
+msgstr "Tạo"
 
 #: admin/list/ip.php:269
 msgid "Delete IP Address"
-msgstr ""
+msgstr "Xóa địa chỉ IP"
 
 #: admin/list/notifications.php:88 admin/list/notifications.php:185
 #: includes/includes.php:385 list/cron.php:225
 msgid "Notifications"
-msgstr ""
+msgstr "Thông báo"
 
 #: admin/list/notifications.php:191
 msgid "Send Notifications"
-msgstr ""
+msgstr "Gửi thông báo"
 
 #: admin/list/notifications.php:194
 msgid "Notification System Disabled. Please enable the notification system from the VWI settings menu to send notifications."
-msgstr ""
+msgstr "Hệ thống thông báo bị vô hiệu hóa. Vui lòng kích hoạt hệ thống thông báo từ menu cài đặt VWI để gửi thông báo."
 
 #: admin/list/notifications.php:200
 msgid "Send To:"
-msgstr ""
+msgstr "Gửi đến:"
 
 #: admin/list/notifications.php:217
 msgid "Title"
-msgstr ""
+msgstr "Tiêu đề"
 
 #: admin/list/notifications.php:230
 msgid "Send Notification"
-msgstr ""
+msgstr "Gửi thông báo"
 
 #: admin/list/packages.php:203
 msgid "Manage Packages"
-msgstr ""
+msgstr "Quản lý gói"
 
 #: admin/list/packages.php:307
 msgid "Delete package:"
-msgstr ""
+msgstr "Xóa gói:"
 
 #: admin/list/plugins.php:85 admin/list/plugins.php:181
 #: includes/includes.php:384
 msgid "Plugins"
-msgstr ""
+msgstr "bổ sung"
 
 #: admin/list/plugins.php:191 list/mail.php:245 list/web.php:259
 #: profile.php:266
 msgid "Name"
-msgstr ""
+msgstr "Tên"
 
 #: admin/list/plugins.php:192 admin/server/vesta.php:970
 msgid "Version"
-msgstr ""
+msgstr "Phiên bản"
 
 #: admin/list/plugins.php:193
 msgid "Developer"
-msgstr ""
+msgstr "Nhà phát triển"
 
 #: admin/list/plugins.php:194
 msgid "Descriptor"
-msgstr ""
+msgstr "Mô tả"
 
 #: admin/list/server.php:102 admin/list/server.php:204
 #: admin/server/mysql.php:90 admin/server/nginx.php:90 admin/server/php.php:90
 #: admin/server/vesta.php:129 includes/includes.php:382
 msgid "Server"
-msgstr ""
+msgstr "Người phục vụ"
 
 #: admin/list/server.php:210
 msgid "Show "
-msgstr ""
+msgstr "Chỉ "
 
 #: admin/list/server.php:218
 msgid "Load Average:"
-msgstr ""
+msgstr "Tải trung bình:"
 
 #: admin/list/server.php:219
 msgid "Uptime:"
-msgstr ""
+msgstr "Thời gian hoạt động:"
 
 #: admin/list/server.php:228 admin/list/server.php:258
 #: admin/server/vesta.php:717
 msgid "Configure"
-msgstr ""
+msgstr "Cấu hình"
 
 #: admin/list/server.php:229 admin/list/server.php:261
 #: admin/list/server.php:299 admin/list/server.php:305
 #: admin/list/server.php:326
 msgid "Restart"
-msgstr ""
+msgstr "Khởi động lại"
 
 #: admin/list/server.php:259 admin/list/server.php:364
 #: admin/list/server.php:370
 msgid "Start"
-msgstr ""
+msgstr "Khởi đầu"
 
 #: admin/list/server.php:259 admin/list/server.php:342
 #: admin/list/server.php:348
 msgid "Stop"
-msgstr ""
+msgstr "Dừng lại"
 
 #: admin/list/server.php:300 admin/list/server.php:321
 #: admin/list/server.php:343 admin/list/server.php:365
 msgid "Please confirm action."
-msgstr ""
+msgstr "Vui lòng xác nhận hành động."
 
 #: admin/list/server.php:320
 msgid "Restart System?"
-msgstr ""
+msgstr "Khởi động lại hệ thống?"
 
 #: admin/list/settings.php:88 includes/includes.php:383 profile.php:260
 msgid "Settings"
-msgstr ""
+msgstr "Cài đặt"
 
 #: admin/list/settings.php:192
 msgid "Edit Panel Settings"
-msgstr ""
+msgstr "Chỉnh sửa cài đặt bảng điều khiển"
 
 #: admin/list/settings.php:199
 msgid "Server Configuration"
-msgstr ""
+msgstr "Cấu hình máy chủ"
 
 #: admin/list/settings.php:201
 msgid "Server Timezone"
-msgstr ""
+msgstr "Múi giờ máy chủ"
 
 #: admin/list/settings.php:353
 msgid "Site Name"
-msgstr ""
+msgstr "Tên trang web"
 
 #: admin/list/settings.php:360 profile.php:400
 msgid "Theme"
-msgstr ""
+msgstr "Chủ đề"
 
 #: admin/list/settings.php:363 profile.php:403 register.php:138
 msgid "Default"
-msgstr ""
+msgstr "Mặc định"
 
 #: admin/list/settings.php:364 profile.php:404
 msgid "Blue"
-msgstr ""
+msgstr "Màu xanh da trời"
 
 #: admin/list/settings.php:365 profile.php:405
 msgid "Purple"
-msgstr ""
+msgstr "Màu tím"
 
 #: admin/list/settings.php:366 profile.php:406
 msgid "Orange"
-msgstr ""
+msgstr "trái cam"
 
 #: admin/list/settings.php:367 profile.php:407
 msgid "Dark"
-msgstr ""
+msgstr "Tối"
 
 #: admin/list/settings.php:368
 msgid "Custom"
-msgstr ""
+msgstr "Tập quán"
 
 #: admin/list/settings.php:374
 msgid "Custom Theme Colors"
-msgstr ""
+msgstr "Màu sắc chủ đề tùy chỉnh"
 
 #: admin/list/settings.php:380
 msgid "Primary Color (Header, Active Buttons / Text, Etc.)"
-msgstr ""
+msgstr "Màu chính (Tiêu đề, Nút / Văn bản hoạt động, v.v.)"
 
 #: admin/list/settings.php:385
 msgid "Secondary Color (Buttons / Text)"
-msgstr ""
+msgstr "Màu phụ (Nút / Văn bản)"
 
 #: admin/list/settings.php:390
 msgid "Custom Footer"
-msgstr ""
+msgstr "Chân trang tùy chỉnh"
 
 #: admin/list/settings.php:394 admin/list/settings.php:411
 #: admin/list/settings.php:456 admin/list/settings.php:473
@@ -1618,635 +1618,635 @@ msgstr ""
 #: list/mail.php:298 list/mail.php:304 list/maildomain.php:271
 #: list/maildomain.php:275 list/web.php:326
 msgid "Disabled"
-msgstr ""
+msgstr "Tàn tật"
 
 #: admin/list/settings.php:400
 msgid "Footer Text"
-msgstr ""
+msgstr "Văn bản chân trang"
 
 #: admin/list/settings.php:407
 msgid "VWI Branding in Footer"
-msgstr ""
+msgstr "Thương hiệu VWI ở Footer"
 
 #: admin/list/settings.php:452
 msgid "Default To Admin"
-msgstr ""
+msgstr "Mặc định cho quản trị viên"
 
 #: admin/list/settings.php:458
 msgid "Choose whether or not the admin should go to the admin panel or home after login."
-msgstr ""
+msgstr "Chọn xem quản trị viên có nên vào bảng quản trị hoặc nhà sau khi đăng nhập hay không."
 
 #: admin/list/settings.php:462
 msgid "Vesta Host Address"
-msgstr ""
+msgstr "Địa chỉ máy chủ Vesta"
 
 #: admin/list/settings.php:465
 msgid "VestaCP Host URL or IP Address"
-msgstr ""
+msgstr "Địa chỉ IP hoặc địa chỉ IP của VestaCP"
 
 #: admin/list/settings.php:469 admin/server/vesta.php:936
 msgid "Vesta SSL"
-msgstr ""
+msgstr "Vesta SSL"
 
 #: admin/list/settings.php:478
 msgid "Vesta Port"
-msgstr ""
+msgstr "Cảng Vesta"
 
 #: admin/list/settings.php:484
 msgid "API Method"
-msgstr ""
+msgstr "Phương pháp API"
 
 #: admin/list/settings.php:487
 msgid "Username / Password"
-msgstr ""
+msgstr "Tên đăng nhập / Mật khẩu"
 
 #: admin/list/settings.php:488
 msgid "API Key"
-msgstr ""
+msgstr "Mã API"
 
 #: admin/list/settings.php:494
 msgid "Vesta API Key"
-msgstr ""
+msgstr "Khóa API Vesta"
 
 #: admin/list/settings.php:497
 msgid "Adding & editing custom SSL certificates and backup exclusions does not Work with API key. Features will be disabled."
-msgstr ""
+msgstr "Thêm và chỉnh sửa chứng chỉ SSL tùy chỉnh và loại trừ sao lưu không hoạt động với khóa API. Các tính năng sẽ bị vô hiệu hóa."
 
 #: admin/list/settings.php:503
 msgid "Vesta Admin Username"
-msgstr ""
+msgstr "Tên người dùng quản trị Vesta"
 
 #: admin/list/settings.php:510
 msgid "Vesta Admin Password"
-msgstr ""
+msgstr "Mật khẩu quản trị Vesta"
 
 #: admin/list/settings.php:517
 msgid "Warnings Enabled"
-msgstr ""
+msgstr "Cảnh báo được kích hoạt"
 
 #: admin/list/settings.php:524
 msgid "Display messages for installation warnings and connection errors."
-msgstr ""
+msgstr "Hiển thị thông báo cho các cảnh báo cài đặt và lỗi kết nối."
 
 #: admin/list/settings.php:528
 msgid "Encryption Key 1"
-msgstr ""
+msgstr "Khóa mã hóa 1"
 
 #: admin/list/settings.php:534
 msgid "Encryption Key 2"
-msgstr ""
+msgstr "Khóa mã hóa 2"
 
 #: admin/list/settings.php:540
 msgid "Current Favicon:"
-msgstr ""
+msgstr "Favicon hiện tại:"
 
 #: admin/list/settings.php:542
 msgid "New Favicon:"
-msgstr ""
+msgstr "Favicon mới:"
 
 #: admin/list/settings.php:545
 msgid "Recommended 32x32px .ico"
-msgstr ""
+msgstr "Đề xuất 32x32px .ico"
 
 #: admin/list/settings.php:549
 msgid "Current Icon:"
-msgstr ""
+msgstr "Biểu tượng hiện tại:"
 
 #: admin/list/settings.php:551
 msgid "New Icon:"
-msgstr ""
+msgstr "Biểu tượng mới:"
 
 #: admin/list/settings.php:554
 msgid "Recommended 40x40px .png or .gif. (.png, .gif, .jpg, and .jpeg up to 1MB allowed.)"
-msgstr ""
+msgstr "Đề xuất 40x40px .png hoặc .gif. (.png, .gif, .jpg và .jpeg cho phép tối đa 1MB.)"
 
 #: admin/list/settings.php:559
 msgid "Current Logo:"
-msgstr ""
+msgstr "Logo hiện tại:"
 
 #: admin/list/settings.php:561
 msgid "New Logo:"
-msgstr ""
+msgstr "Logo mới:"
 
 #: admin/list/settings.php:564
 msgid "Recommended 134x24px .png or .gif. (.png, .gif, .jpg, and .jpeg up to 1MB allowed.)"
-msgstr ""
+msgstr "Đề xuất 134x24px .png hoặc .gif. (.png, .gif, .jpg và .jpeg cho phép tối đa 1MB.)"
 
 #: admin/list/settings.php:568
 msgid "Enable / Disable Sections"
-msgstr ""
+msgstr "Bật / Tắt phần"
 
 #: admin/list/settings.php:570
 msgid "Web Enabled"
-msgstr ""
+msgstr "Kích hoạt web"
 
 #: admin/list/settings.php:579
 msgid "DNS Enabled"
-msgstr ""
+msgstr "Đã bật DNS"
 
 #: admin/list/settings.php:588
 msgid "Mail Enabled"
-msgstr ""
+msgstr "Thư được kích hoạt"
 
 #: admin/list/settings.php:597
 msgid "Database Enabled"
-msgstr ""
+msgstr "Cơ sở dữ liệu kích hoạt"
 
 #: admin/list/settings.php:606
 msgid "Admin Panel Enabled"
-msgstr ""
+msgstr "Bảng quản trị được bật"
 
 #: admin/list/settings.php:615
 msgid "Profile Page Enabled"
-msgstr ""
+msgstr "Trang hồ sơ được kích hoạt"
 
 #: admin/list/settings.php:624
 msgid "Cron Enabled"
-msgstr ""
+msgstr "Cron kích hoạt"
 
 #: admin/list/settings.php:633
 msgid "Backups Enabled"
-msgstr ""
+msgstr "Sao lưu được kích hoạt"
 
 #: admin/list/settings.php:642
 msgid "Notification System Enabled"
-msgstr ""
+msgstr "Hệ thống thông báo kích hoạt"
 
 #: admin/list/settings.php:651
 msgid "Registrations Enabled"
-msgstr ""
+msgstr "Đăng ký kích hoạt"
 
 #: admin/list/settings.php:660
 msgid "Softaculous Enabled"
-msgstr ""
+msgstr "Kích hoạt mềm"
 
 #: admin/list/settings.php:669
 msgid "Link to Old CP Enabled"
-msgstr ""
+msgstr "Liên kết với CP cũ đã bật"
 
 #: admin/list/settings.php:680
 msgid "PHP Mail Enabled"
-msgstr ""
+msgstr "Đã bật thư PHP"
 
 #: admin/list/settings.php:690
 msgid "From Address"
-msgstr ""
+msgstr "Từ địa chỉ"
 
 #: admin/list/settings.php:696
 msgid "From Name"
-msgstr ""
+msgstr "Từ tên"
 
 #: admin/list/settings.php:702
 msgid "Mail Method"
-msgstr ""
+msgstr "Phương thức thư"
 
 #: admin/list/settings.php:706
 msgid "PHP Mail"
-msgstr ""
+msgstr "Thư PHP"
 
 #: admin/list/settings.php:712
 msgid "SMTP Host"
-msgstr ""
+msgstr "Máy chủ SMTP"
 
 #: admin/list/settings.php:718
 msgid "SMTP Port"
-msgstr ""
+msgstr "Cổng SMTP"
 
 #: admin/list/settings.php:724
 msgid "SMTP Encryption"
-msgstr ""
+msgstr "Mã hóa SMTP"
 
 #: admin/list/settings.php:729 list/mail.php:286 list/maildomain.php:270
 #: list/web.php:300 list/web.php:316 list/web.php:321
 msgid "None"
-msgstr ""
+msgstr "không ai"
 
 #: admin/list/settings.php:734
 msgid "Authentication Enabled"
-msgstr ""
+msgstr "Xác thực đã bật"
 
 #: admin/list/settings.php:744
 msgid "SMTP Username"
-msgstr ""
+msgstr "Tên người dùng SMTP"
 
 #: admin/list/settings.php:750
 msgid "SMTP Password"
-msgstr ""
+msgstr "Mật khẩu SMTP"
 
 #: admin/list/settings.php:759
 msgid "Optional Links"
-msgstr ""
+msgstr "Liên kết tùy chọn"
 
 #: admin/list/settings.php:761
 msgid "FTP Client URL"
-msgstr ""
+msgstr "URL khách hàng FTP"
 
 #: admin/list/settings.php:764 admin/list/settings.php:771
 #: admin/list/settings.php:778 admin/list/settings.php:785
 msgid "Leave blank for default or enter 'disabled' to disable."
-msgstr ""
+msgstr "Để trống để mặc định hoặc nhập 'disabled' để tắt."
 
 #: admin/list/settings.php:768
 msgid "Webmail URL"
-msgstr ""
+msgstr "URL webmail"
 
 #: admin/list/settings.php:775
 msgid "phpMyAdmin URL"
-msgstr ""
+msgstr "URL phpMyAdmin"
 
 #: admin/list/settings.php:782
 msgid "phpPgAdmin URL"
-msgstr ""
+msgstr "URL phpPgAdmin"
 
 #: admin/list/settings.php:789
 msgid "Support URL"
-msgstr ""
+msgstr "URL hỗ trợ"
 
 #: admin/list/settings.php:792
 msgid "Leave blank or enter 'disabled' to disable."
-msgstr ""
+msgstr "Để trống hoặc nhập 'disabled' để vô hiệu hóa."
 
 #: admin/list/settings.php:795
 msgid "Optional Integrations"
-msgstr ""
+msgstr "Tích hợp tùy chọn"
 
 #: admin/list/settings.php:800
 msgid "Comma seperated list of installed plugins."
-msgstr ""
+msgstr "Danh sách các dấu phẩy được cài đặt bằng dấu phẩy."
 
 #: admin/list/settings.php:804
 msgid "Google Analytics ID"
-msgstr ""
+msgstr "Mã số định danh Google Analytics"
 
 #: admin/list/settings.php:811
 msgid "Interakt App ID"
-msgstr ""
+msgstr "ID ứng dụng Interakt"
 
 #: admin/list/settings.php:818
 msgid "Interakt API Key"
-msgstr ""
+msgstr "Khóa API Interakt"
 
 #: admin/list/settings.php:825
 msgid "Cloudflare API Key"
-msgstr ""
+msgstr "Khóa API của Cloudflare"
 
 #: admin/list/settings.php:832
 msgid "Cloudflare Account Email Address"
-msgstr ""
+msgstr "Địa chỉ Email Tài khoản Cloudflare"
 
 #: admin/list/settings.php:842
 msgid "Update Settings"
-msgstr ""
+msgstr "Cập nhật cài đặt"
 
 #: admin/list/settings.php:844
 msgid "Reset to Defaults"
-msgstr ""
+msgstr "Đặt lại về Mặc định"
 
 #: admin/list/settings.php:1039
 msgid "Error Updating Settings"
-msgstr ""
+msgstr "Lỗi cập nhật cài đặt"
 
 #: admin/list/stats.php:96 list/web.php:271
 msgid "Stats"
-msgstr ""
+msgstr "Số liệu thống kê"
 
 #: admin/list/stats.php:201
 msgid "User Stats"
-msgstr ""
+msgstr "Số liệu thống kê người dùng"
 
 #: admin/list/stats.php:232 admin/list/stats.php:233 admin/status/disk.php:211
 msgid "Disk"
-msgstr ""
+msgstr "Đĩa"
 
 #: admin/list/stats.php:239
 msgid "IP Addresses"
-msgstr ""
+msgstr "Các địa chỉ IP"
 
 #: admin/list/updates.php:97 admin/list/updates.php:199
 #: includes/includes.php:376
 msgid "Updates"
-msgstr ""
+msgstr "Cập nhật"
 
 #: admin/list/updates.php:205
 msgid "Update All"
-msgstr ""
+msgstr "Cập nhật tất cả"
 
 #: admin/list/updates.php:207
 msgid "Disable "
-msgstr ""
+msgstr "Vô hiệu hóa "
 
 #: admin/list/updates.php:207
 msgid "Autoupdate"
-msgstr ""
+msgstr "Cập nhật tự động"
 
 #: admin/list/updates.php:207
 msgid "Enable "
-msgstr ""
+msgstr "Kích hoạt "
 
 #: admin/list/updates.php:224
 msgid "Update"
-msgstr ""
+msgstr "Cập nhật"
 
 #: admin/list/users.php:212
 msgid "Manage Users"
-msgstr ""
+msgstr "Quản lý người dùng"
 
 #: admin/list/users.php:218 edit/db.php:276
 msgid "User"
-msgstr ""
+msgstr "Người sử dụng"
 
 #: admin/list/users.php:316
 msgid "Login as"
-msgstr ""
+msgstr "Vào"
 
 #: admin/server/mysql.php:175
 msgid "View Configuration / MySQL"
-msgstr ""
+msgstr "Xem cấu hình / MySQL"
 
 #: admin/server/mysql.php:183
 msgid "Max Connections"
-msgstr ""
+msgstr "Kết nối tối đa"
 
 #: admin/server/mysql.php:189
 msgid "Max User Connections"
-msgstr ""
+msgstr "Kết nối người dùng tối đa"
 
 #: admin/server/mysql.php:195
 msgid "Wait Timeout"
-msgstr ""
+msgstr "Thời gian chờ"
 
 #: admin/server/mysql.php:201
 msgid "Interactive Timeout"
-msgstr ""
+msgstr "Hết thời gian tương tác"
 
 #: admin/server/mysql.php:207
 msgid "Max Allowed Packet"
-msgstr ""
+msgstr "Gói tối đa được phép"
 
 #: admin/server/nginx.php:175
 msgid "View Configuration / NGINX"
-msgstr ""
+msgstr "Xem cấu hình / NGINX"
 
 #: admin/server/nginx.php:183
 msgid "Configure PHP"
-msgstr ""
+msgstr "Cấu hình PHP"
 
 #: admin/server/nginx.php:188
 msgid "Worker Processes"
-msgstr ""
+msgstr "Quy trình công nhân"
 
 #: admin/server/nginx.php:194
 msgid "Worker Connections"
-msgstr ""
+msgstr "Kết nối công nhân"
 
 #: admin/server/nginx.php:200
 msgid "Client Max Body Size"
-msgstr ""
+msgstr "Kích thước cơ thể khách hàng tối đa"
 
 #: admin/server/nginx.php:206
 msgid "Send Timeout"
-msgstr ""
+msgstr "Gửi thời gian chờ"
 
 #: admin/server/nginx.php:212
 msgid "Proxy Connect Timeout"
-msgstr ""
+msgstr "Hết thời gian kết nối proxy"
 
 #: admin/server/nginx.php:218
 msgid "Proxy Send Timeout"
-msgstr ""
+msgstr "Hết thời gian gửi proxy"
 
 #: admin/server/nginx.php:224
 msgid "Proxy Read Timeout"
-msgstr ""
+msgstr "Hết thời gian đọc proxy"
 
 #: admin/server/nginx.php:230
 msgid "GZip"
-msgstr ""
+msgstr "GZip"
 
 #: admin/server/nginx.php:236
 msgid "GZip Compression Level"
-msgstr ""
+msgstr "Mức nén GZip"
 
 #: admin/server/php.php:175
 msgid "View Configuration / PHP"
-msgstr ""
+msgstr "Xem cấu hình / PHP"
 
 #: admin/server/php.php:183
 msgid "Max Execution Time"
-msgstr ""
+msgstr "Thời gian thực hiện tối đa"
 
 #: admin/server/php.php:189
 msgid "Max Input Time"
-msgstr ""
+msgstr "Thời gian nhập tối đa"
 
 #: admin/server/php.php:195
 msgid "Memory Limit"
-msgstr ""
+msgstr "Giới hạn bộ nhớ"
 
 #: admin/server/php.php:201
 msgid "Error Reporting"
-msgstr ""
+msgstr "Báo cáo lỗi"
 
 #: admin/server/php.php:207
 msgid "Display Errors"
-msgstr ""
+msgstr "Lỗi hiển thị"
 
 #: admin/server/php.php:213
 msgid "Post Max Size"
-msgstr ""
+msgstr "Đăng kích thước tối đa"
 
 #: admin/server/php.php:219
 msgid "Upload Max Filesize"
-msgstr ""
+msgstr "Tải lên tối đa tập tin"
 
 #: admin/server/vesta.php:214
 msgid "Configure Server"
-msgstr ""
+msgstr "Cấu hình máy chủ"
 
 #: admin/server/vesta.php:222
 msgid "Hostname"
-msgstr ""
+msgstr "Tên máy chủ"
 
 #: admin/server/vesta.php:676
 msgid "Default Language"
-msgstr ""
+msgstr "Ngôn ngữ mặc định"
 
 #: admin/server/vesta.php:717
 msgid "Proxy Server"
-msgstr ""
+msgstr "Máy chủ proxy"
 
 #: admin/server/vesta.php:723
 msgid "Web Server"
-msgstr ""
+msgstr "Máy chủ web"
 
 #: admin/server/vesta.php:729
 msgid "Backend Server"
-msgstr ""
+msgstr "Máy chủ cuối cùng"
 
 #: admin/server/vesta.php:740
 msgid "DNS Server"
-msgstr ""
+msgstr "Máy chủ DNS"
 
 #: admin/server/vesta.php:746
 msgid "DNS Cluster"
-msgstr ""
+msgstr "Cụm DNS"
 
 #: admin/server/vesta.php:760
 msgid "Mail Server"
-msgstr ""
+msgstr "Máy chủ thư"
 
 #: admin/server/vesta.php:766 list/mail.php:253
 msgid "Antivirus"
-msgstr ""
+msgstr "Diệt virus"
 
 #: admin/server/vesta.php:772 list/mail.php:255
 msgid "Antispam"
-msgstr ""
+msgstr "Chống thư rác"
 
 #: admin/server/vesta.php:783
 msgid "MySQL Support"
-msgstr ""
+msgstr "Hỗ trợ MySQL"
 
 #: admin/server/vesta.php:794 admin/server/vesta.php:830 edit/db.php:293
 #: list/db.php:240
 msgid "Host"
-msgstr ""
+msgstr "Tổ chức"
 
 #: admin/server/vesta.php:806 admin/server/vesta.php:842
 msgid "Maximum Number of Databases"
-msgstr ""
+msgstr "Số lượng cơ sở dữ liệu tối đa"
 
 #: admin/server/vesta.php:812 admin/server/vesta.php:848
 msgid "Current Number of Databases"
-msgstr ""
+msgstr "Số lượng cơ sở dữ liệu hiện tại"
 
 #: admin/server/vesta.php:820
 msgid "PostgreSQL Support"
-msgstr ""
+msgstr "Hỗ trợ PostgreSQL"
 
 #: admin/server/vesta.php:857 list/backup.php:209 list/backups.php:238
 msgid "Backup"
-msgstr ""
+msgstr "Sao lưu"
 
 #: admin/server/vesta.php:861
 msgid "Local Backup"
-msgstr ""
+msgstr "Sao lưu cục bộ"
 
 #: admin/server/vesta.php:871
 msgid "Compression Level"
-msgstr ""
+msgstr "Mức nén"
 
 #: admin/server/vesta.php:888
 msgid "Directory"
-msgstr ""
+msgstr "Danh mục"
 
 #: admin/server/vesta.php:955 edit/domain.php:429
 msgid "Subject"
-msgstr ""
+msgstr "Môn học"
 
 #: admin/server/vesta.php:957 edit/domain.php:431
 msgid "Not Before"
-msgstr ""
+msgstr "Không phải trước đây"
 
 #: admin/server/vesta.php:958 edit/domain.php:432
 msgid "Not After"
-msgstr ""
+msgstr "Không phải sau khi"
 
 #: admin/server/vesta.php:959 edit/domain.php:433
 msgid "Signature"
-msgstr ""
+msgstr "Chữ ký"
 
 #: admin/server/vesta.php:960 edit/domain.php:434
 msgid "Pub Key"
-msgstr ""
+msgstr "Khóa quán rượu"
 
 #: admin/server/vesta.php:961 edit/domain.php:435
 msgid "Issuer"
-msgstr ""
+msgstr "Tổ chức phát hành"
 
 #: admin/server/vesta.php:966
 msgid "Vesta Control Panel Plugins"
-msgstr ""
+msgstr "Pluga Bảng điều khiển Vesta"
 
 #: admin/server/vesta.php:976
 msgid "FileSystem Disk Quota"
-msgstr ""
+msgstr "Hạn ngạch đĩa hệ thống tệp"
 
 #: admin/server/vesta.php:996
 msgid "Reseller Role"
-msgstr ""
+msgstr "Vai trò người bán lại"
 
 #: admin/server/vesta.php:1005
 msgid "Backup Migration Manager"
-msgstr ""
+msgstr "Trình quản lý di chuyển sao lưu"
 
 #: admin/server/vesta.php:1014
 msgid "SFTP Chroot"
-msgstr ""
+msgstr "Chroot SFTP"
 
 #: admin/server/vesta.php:1024
 msgid "Restrict users so that they cannot use SSH and access only their home directory. This is a commercial module, you would need to purchace license key to enable it."
-msgstr ""
+msgstr "Hạn chế người dùng để họ không thể sử dụng SSH và chỉ truy cập thư mục chính của họ. Đây là một mô-đun thương mại, bạn sẽ cần phải mua khóa giấy phép để kích hoạt nó."
 
 #: admin/server/vesta.php:1027 admin/server/vesta.php:1065
 msgid "License Key"
-msgstr ""
+msgstr "Mã bản quyền"
 
 #: admin/server/vesta.php:1033 admin/server/vesta.php:1071
 msgid "Enter License Key"
-msgstr ""
+msgstr "Nhập mã cấp phép"
 
 #: admin/server/vesta.php:1040
 msgid "Buy License $3/Month"
-msgstr ""
+msgstr "Mua giấy phép $ 3 / tháng"
 
 #: admin/server/vesta.php:1045
 msgid "Buy Lifetime License $18"
-msgstr ""
+msgstr "Mua giấy phép trọn đời $ 18"
 
 #: admin/server/vesta.php:1048 admin/server/vesta.php:1086
 msgid "2Checkout.com Inc. (Ohio, USA) is a payment facilitator for goods and services provided by vestacp.com."
-msgstr ""
+msgstr "2Checkout.com Inc. (Ohio, Hoa Kỳ) là người hỗ trợ thanh toán cho hàng hóa và dịch vụ được cung cấp bởi vestacp.com."
 
 #: admin/server/vesta.php:1052
 msgid "File Manager"
-msgstr ""
+msgstr "Quản lý tập tin"
 
 #: admin/server/vesta.php:1062
 msgid "Browse, copy, edit, view, and retrieve all of your web domain files using fully featured File Manager. This is a commercial module, you would need to purchace license key to enable it."
-msgstr ""
+msgstr "Duyệt, sao chép, chỉnh sửa, xem và truy xuất tất cả các tệp miền web của bạn bằng Trình quản lý tệp đầy đủ tính năng. Đây là một mô-đun thương mại, bạn sẽ cần phải mua khóa giấy phép để kích hoạt nó."
 
 #: admin/server/vesta.php:1078
 msgid "Buy License $5/Month"
-msgstr ""
+msgstr "Mua giấy phép $ 5 / tháng"
 
 #: admin/server/vesta.php:1083
 msgid "Buy Lifetime License $50"
-msgstr ""
+msgstr "Mua giấy phép trọn đời $ 50"
 
 #: admin/server/vesta.php:1090 includes/includes.php:432
 msgid "Softaculous"
-msgstr ""
+msgstr "Mềm mại"
 
 #: admin/server/vesta.php:1100
 msgid "Plugin installation will run in background."
-msgstr ""
+msgstr "Cài đặt plugin sẽ chạy trong nền."
 
 #: admin/server/vesta.php:1100
 msgid "Softaculous is a great Auto Installer having 426 great scripts, 1115 PHP Classes and we are still adding more. Softaculous is ideal for Web Hosting companies and it could give a significant boost to your sales. These scripts cover most of the uses a customer could ever have. We have covered a wide array of Categories so that everyone could find the required script one would need to power their Web Site."
-msgstr ""
+msgstr "Softacificent là một Trình cài đặt tự động tuyệt vời có 426 tập lệnh tuyệt vời, 1115 Lớp PHP và chúng tôi vẫn đang bổ sung thêm. Softacious là lý tưởng cho các công ty Web Hosting và nó có thể giúp tăng doanh số đáng kể của bạn. Các kịch bản này bao gồm hầu hết các ứng dụng mà khách hàng có thể có. Chúng tôi đã đề cập đến một loạt các Danh mục để mọi người có thể tìm thấy tập lệnh cần thiết mà người ta sẽ cần để cung cấp năng lượng cho Trang web của họ."
 
 #: admin/server/vesta.php:1103
 msgid "Get Premium License"
-msgstr ""
+msgstr "Nhận giấy phép cao cấp"
 
 #: admin/server/vesta.php:1110 edit/backupexclusions.php:244
 msgid "Save"
-msgstr ""
+msgstr "Tiết kiệm"
 
 #: admin/server/vesta.php:1350
 msgid "Error Updating Server"
-msgstr ""
+msgstr "Lỗi cập nhật máy chủ"
 
 #: admin/status/cpu.php:89 admin/status/cpu.php:187 admin/status/db.php:89
 #: admin/status/db.php:187 admin/status/disk.php:89 admin/status/disk.php:187
@@ -2256,99 +2256,99 @@ msgstr ""
 #: admin/status/network.php:187 admin/status/web.php:89
 #: admin/status/web.php:186
 msgid "Server Status"
-msgstr ""
+msgstr "Tình trạng máy chủ"
 
 #: admin/status/cpu.php:211
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 #: admin/status/memory.php:211
 msgid "Memory"
-msgstr ""
+msgstr "Ký ức"
 
 #: admin/status/network.php:211
 msgid "Network"
-msgstr ""
+msgstr "Mạng"
 
 #: edit/backupexclusions.php:174
 msgid "Configure Backup Exclusions"
-msgstr ""
+msgstr "Cấu hình loại trừ sao lưu"
 
 #: edit/backupexclusions.php:185
 msgid "Type domain name, one per line. To exclude all domains use *. To exclude specific directories use the following format: domain.com:public_html/cache:public_html/tmp"
-msgstr ""
+msgstr "Nhập tên miền, mỗi tên một dòng. Để loại trừ tất cả các tên miền sử dụng *. Để loại trừ các thư mục cụ thể, hãy sử dụng định dạng sau: domain.com:public_html/cache:public_html/tmp"
 
 #: edit/backupexclusions.php:200
 msgid "Type domain name, one per line. To exclude all domains use *. To exclude specific accounts use following format: domain.com:info:support:postmaster"
-msgstr ""
+msgstr "Nhập tên miền, mỗi tên một dòng. Để loại trừ tất cả các tên miền sử dụng *. Để loại trừ các tài khoản cụ thể, hãy sử dụng định dạng sau: domain.com:info:support:postmaster"
 
 #: edit/backupexclusions.php:215
 msgid "Type full database name, one per line. To exclude all databases use *"
-msgstr ""
+msgstr "Nhập tên cơ sở dữ liệu đầy đủ, mỗi tên một dòng. Để loại trừ tất cả các cơ sở dữ liệu sử dụng *"
 
 #: edit/backupexclusions.php:228 index.php:684 list/backups.php:254
 msgid "User Directories"
-msgstr ""
+msgstr "Thư mục người dùng"
 
 #: edit/backupexclusions.php:230
 msgid "Type directory name, one per line. To exlude all dirs use *"
-msgstr ""
+msgstr "Nhập tên thư mục, một trên mỗi dòng. Để loại trừ tất cả các thư mục sử dụng *"
 
 #: edit/backupexclusions.php:306 edit/backupexclusions.php:315
 msgid "Backup Exclusions are incompatible with API Key Authentication."
-msgstr ""
+msgstr "Loại trừ sao lưu không tương thích với Xác thực khóa API."
 
 #: edit/cfrecord.php:216 edit/dnsrecord.php:212
 msgid "Edit DNS Record"
-msgstr ""
+msgstr "Chỉnh sửa bản ghi DNS"
 
 #: edit/cfrecord.php:220 edit/dns.php:272 edit/dnsrecord.php:216
 #: list/cfdomain.php:256 list/dnsdomain.php:242 list/dnsdomain.php:248
 msgid "Delete DNS"
-msgstr ""
+msgstr "Xóa DNS"
 
 #: edit/cfrecord.php:277 edit/dnsrecord.php:320
 msgid "Update Record"
-msgstr ""
+msgstr "Cập nhật hồ sơ"
 
 #: edit/cfrecord.php:314 list/cfdomain.php:359
 msgid "Delete DNS Record?"
-msgstr ""
+msgstr "Xóa bản ghi DNS?"
 
 #: edit/cron.php:202
 msgid "Edit Cron Job"
-msgstr ""
+msgstr "Chỉnh sửa công việc định kỳ"
 
 #: edit/cron.php:206 list/backup.php:279 list/cron.php:224
 msgid "Cron Job"
-msgstr ""
+msgstr "Công việc lương thấp"
 
 #: edit/cron.php:217 edit/db.php:232 edit/dns.php:297 edit/dnsrecord.php:241
 #: edit/domain.php:249 edit/mail.php:231 edit/mailaccount.php:222
 msgid "CREATED"
-msgstr ""
+msgstr "TẠO"
 
 #: edit/cron.php:235 edit/db.php:250 edit/dns.php:315 edit/dnsrecord.php:259
 #: edit/domain.php:267 edit/mail.php:249 edit/mailaccount.php:240 index.php:383
 #: index.php:434 index.php:547 index.php:591
 msgid "STATUS"
-msgstr ""
+msgstr "TRẠNG THÁI"
 
 #: edit/cron.php:300
 msgid "Update Cron"
-msgstr ""
+msgstr "Cập nhật Cron"
 
 #: edit/cron.php:712 list/cron.php:378
 msgid "Delete Cron Job"
-msgstr ""
+msgstr "Xóa công việc định kỳ"
 
 #: edit/db.php:203
 msgid "Edit Database"
-msgstr ""
+msgstr "Chỉnh sửa cơ sở dữ liệu"
 
 #: edit/db.php:218 index.php:589
 msgid "DATABASE"
-msgstr ""
+msgstr "CƠ SỞ"
 
 #: edit/db.php:255 edit/dns.php:320 edit/dnsrecord.php:264 edit/domain.php:272
 #: edit/mail.php:254 edit/mailaccount.php:245 index.php:402 index.php:516
@@ -2356,7 +2356,7 @@ msgstr ""
 #: list/dnsdomain.php:306 list/mail.php:271 list/maildomain.php:257
 #: list/web.php:288 process/search.php:227
 msgid "Active"
-msgstr ""
+msgstr "Hoạt động"
 
 #: edit/db.php:255 edit/dns.php:320 edit/dnsrecord.php:264 edit/domain.php:272
 #: edit/mail.php:254 edit/mailaccount.php:245 index.php:404 index.php:518
@@ -2364,924 +2364,924 @@ msgstr ""
 #: list/dnsdomain.php:308 list/mail.php:273 list/maildomain.php:259
 #: list/web.php:290 process/search.php:208 process/search.php:229
 msgid "Suspended"
-msgstr ""
+msgstr "Đình chỉ"
 
 #: edit/db.php:312
 msgid "Update Database"
-msgstr ""
+msgstr "Cập nhật cơ sở dữ liệu"
 
 #: edit/db.php:369 list/db.php:309
 msgid "Delete Database"
-msgstr ""
+msgstr "Xóa cơ sở dữ liệu"
 
 #: edit/dns.php:268
 msgid "Edit DNS Domain"
-msgstr ""
+msgstr "Chỉnh sửa tên miền DNS"
 
 #: edit/dns.php:283 edit/domain.php:235 edit/mail.php:217 index.php:379
 #: index.php:432 index.php:545 list/cfdomain.php:271 list/dnsdomain.php:263
 #: list/maildomain.php:214
 msgid "DOMAIN"
-msgstr ""
+msgstr "MIỀN"
 
 #: edit/dns.php:363
 msgid "Expiration Date"
-msgstr ""
+msgstr "Ngày hết hạn"
 
 #: edit/dns.php:376 list/dns.php:256
 msgid "SOA (Start of Authority)"
-msgstr ""
+msgstr "SOA (Bắt đầu quyền hạn)"
 
 #: edit/dns.php:381
 msgid "TTL (Time To Live)"
-msgstr ""
+msgstr "TTL (Thời gian để sống)"
 
 #: edit/dns.php:426 edit/domain.php:601 edit/mail.php:320
 msgid "Update Domain"
-msgstr ""
+msgstr "Cập nhật tên miền"
 
 #: edit/dns.php:469 list/cfdomain.php:381 list/dns.php:443
 #: list/dnsdomain.php:397
 msgid "Delete DNS Domain"
-msgstr ""
+msgstr "Xóa tên miền DNS"
 
 #: edit/dns.php:530
 msgid "Error Updating DNS Domain"
-msgstr ""
+msgstr "Lỗi cập nhật tên miền DNS"
 
 #: edit/dnsrecord.php:227
 msgid "RECORD"
-msgstr ""
+msgstr "GHI LẠI"
 
 #: edit/dnsrecord.php:312
 msgid "Order"
-msgstr ""
+msgstr "Đặt hàng"
 
 #: edit/dnsrecord.php:357 list/dnsdomain.php:376
 msgid "Delete DNS Record"
-msgstr ""
+msgstr "Xóa bản ghi DNS"
 
 #: edit/dnsrecord.php:402 edit/mail.php:402 edit/mailaccount.php:700
 #: list/maildomain.php:416
 msgid "Successfully updated!"
-msgstr ""
+msgstr "Cập nhật thành công!"
 
 #: edit/dnsrecord.php:406
 msgid "Error Updating DNS Record"
-msgstr ""
+msgstr "Lỗi cập nhật bản ghi DNS"
 
 #: edit/domain.php:220
 msgid "Edit Web Domain"
-msgstr ""
+msgstr "Chỉnh sửa tên miền web"
 
 #: edit/domain.php:740
 msgid "Delete Domain"
-msgstr ""
+msgstr "Xóa tên miền"
 
 #: edit/domain.php:806
 msgid "Error Updating Web Domain"
-msgstr ""
+msgstr "Lỗi cập nhật tên miền web"
 
 #: edit/mail.php:202
 msgid "Edit Mail Domain"
-msgstr ""
+msgstr "Chỉnh sửa tên miền thư"
 
 #: edit/mail.php:206 edit/mailaccount.php:211 list/maildomain.php:203
 msgid "Delete Mail"
-msgstr ""
+msgstr "Xóa thư"
 
 #: edit/mail.php:312
 msgid "Catchall Email"
-msgstr ""
+msgstr "Email của Catchall"
 
 #: edit/mail.php:357 list/mail.php:345 list/maildomain.php:340
 msgid "Delete Mail Domain"
-msgstr ""
+msgstr "Xóa tên miền thư"
 
 #: edit/mail.php:405
 msgid "Error Updating Mail Domain"
-msgstr ""
+msgstr "Lỗi cập nhật tên miền thư"
 
 #: edit/mailaccount.php:207
 msgid "Edit Mail Account"
-msgstr ""
+msgstr "Chỉnh sửa tài khoản thư"
 
 #: edit/mailaccount.php:259
 msgid "Email Addresss"
-msgstr ""
+msgstr "Địa chỉ email"
 
 #: edit/mailaccount.php:293
 msgid "One or more email addresses"
-msgstr ""
+msgstr "Một hoặc nhiều địa chỉ email"
 
 #: edit/mailaccount.php:331
 msgid "Update Account"
-msgstr ""
+msgstr "Cập nhật tài khoản"
 
 #: edit/mailaccount.php:656 list/maildomain.php:319
 msgid "Delete Mail Account"
-msgstr ""
+msgstr "Xóa tài khoản thư"
 
 #: edit/mailaccount.php:703
 msgid "Error Updating Mail Account"
-msgstr ""
+msgstr "Lỗi cập nhật tài khoản thư"
 
 #: includes/includes.php:360
 msgid "Home"
-msgstr ""
+msgstr "Trang Chủ"
 
 #: includes/includes.php:369
 msgid "Administration"
-msgstr ""
+msgstr "Quản trị"
 
 #: includes/includes.php:375
 msgid "Statistics"
-msgstr ""
+msgstr "Số liệu thống kê"
 
 #: includes/includes.php:401 log.php:95 log.php:181 log.php:222 profile.php:226
 msgid "Log"
-msgstr ""
+msgstr "Đăng nhập"
 
 #: includes/includes.php:426
 msgid "Apps"
-msgstr ""
+msgstr "Ứng dụng"
 
 #: includes/includes.php:430 list/db.php:227
 msgid "phpMyAdmin"
-msgstr ""
+msgstr "phpMyAdmin"
 
 #: includes/includes.php:431 list/db.php:227
 msgid "phpPgAdmin"
-msgstr ""
+msgstr "phpPgAdmin"
 
 #: includes/includes.php:435
 msgid "Log out"
-msgstr ""
+msgstr "Đăng xuất"
 
 #: includes/includes.php:437
 msgid "Control Panel v1"
-msgstr ""
+msgstr "Bảng điều khiển v1"
 
 #: includes/includes.php:438
 msgid "Support"
-msgstr ""
+msgstr "Ủng hộ"
 
 #: includes/includes.php:489 includes/includes.php:506 login.php:287
 #: login.php:304 register.php:197 register.php:214
 msgid "Includes folder has not been secured"
-msgstr ""
+msgstr "Bao gồm thư mục chưa được bảo mật"
 
 #: includes/includes.php:496 login.php:294 login.php:311 register.php:204
 #: register.php:221
 msgid "Database Error"
-msgstr ""
+msgstr "Lỗi cơ sở dữ liệu"
 
 #: includes/includes.php:497 includes/includes.php:514 login.php:295
 #: login.php:312 register.php:205 register.php:222
 msgid "MySQL Server Failed To Connect"
-msgstr ""
+msgstr "Máy chủ MySQL không thể kết nối"
 
 #: includes/includes.php:513
 msgid "Database Error:"
-msgstr ""
+msgstr "Lỗi cơ sở dữ liệu:"
 
 #: includes/includes.php:704
 msgid "Vesta Web Interface"
-msgstr ""
+msgstr "Giao diện web Vesta"
 
 #: includes/includes.php:706
 msgid "by Carter Roeser"
-msgstr ""
+msgstr "bởi Carter Roeser"
 
 #: index.php:119
 msgid "Dashboard"
-msgstr ""
+msgstr "bảng điều khiển"
 
 #: index.php:252
 msgid "Host Dashboard"
-msgstr ""
+msgstr "Bảng điều khiển máy chủ"
 
 #: index.php:258
 msgid "Rebuild Account"
-msgstr ""
+msgstr "Xây dựng lại tài khoản"
 
 #: index.php:259
 msgid "Rebuild Web"
-msgstr ""
+msgstr "Xây dựng lại web"
 
 #: index.php:260
 msgid "Rebuild DNS"
-msgstr ""
+msgstr "Xây dựng lại DNS"
 
 #: index.php:261
 msgid "Rebuild Mail"
-msgstr ""
+msgstr "Xây dựng lại thư"
 
 #: index.php:262
 msgid "Rebuild DB"
-msgstr ""
+msgstr "Xây dựng lại DB"
 
 #: index.php:263
 msgid "Rebuild Cron"
-msgstr ""
+msgstr "Tái tạo Cron"
 
 #: index.php:264
 msgid "Update Counters"
-msgstr ""
+msgstr "Cập nhật Bộ đếm"
 
 #: index.php:307
 msgid "Disk Space"
-msgstr ""
+msgstr "Dung lượng đĩa"
 
 #: index.php:339
 msgid "Email Addresses"
-msgstr ""
+msgstr "Địa chỉ email"
 
 #: index.php:366 list/web.php:199
 msgid "Manage Web Domains"
-msgstr ""
+msgstr "Quản lý tên miền web"
 
 #: index.php:371 index.php:424 index.php:537 index.php:581
 msgid "Manage"
-msgstr ""
+msgstr "Quản lý"
 
 #: index.php:380
 msgid "DISK"
-msgstr ""
+msgstr "DISK"
 
 #: index.php:381
 msgid "BANDWIDTH"
-msgstr ""
+msgstr "NGÂN HÀNG"
 
 #: index.php:382 list/web.php:273 process/csr.php:97 process/generatecsr.php:91
 msgid "SSL"
-msgstr ""
+msgstr "SSL"
 
 #: index.php:419 list/dns.php:190
 msgid "Manage DNS Domains"
-msgstr ""
+msgstr "Quản lý tên miền DNS"
 
 #: index.php:423
 msgid "Add DNS"
-msgstr ""
+msgstr "Thêm DNS"
 
 #: index.php:433 list/dns.php:214
 msgid "RECORDS"
-msgstr ""
+msgstr "HỒ SƠ"
 
 #: index.php:532 list/mail.php:186
 msgid "Manage Mail Domains"
-msgstr ""
+msgstr "Quản lý tên miền thư"
 
 #: index.php:536
 msgid "Add Mail"
-msgstr ""
+msgstr "Thêm thư"
 
 #: index.php:546 list/mail.php:209
 msgid "ACCOUNTS"
-msgstr ""
+msgstr "TÀI KHOẢN"
 
 #: index.php:576 list/db.php:189
 msgid "Manage Databases"
-msgstr ""
+msgstr "Quản lý cơ sở dữ liệu"
 
 #: index.php:590
 msgid "USER"
-msgstr ""
+msgstr "NGƯỜI SỬ DỤNG"
 
 #: index.php:622
 msgid "Disk Quota Used"
-msgstr ""
+msgstr "Hạn ngạch đĩa được sử dụng"
 
 #: index.php:627
 msgid "Total Disk Space"
-msgstr ""
+msgstr "Tổng dung lượng đĩa"
 
 #: index.php:638
 msgid "Disk Usage Breakdown"
-msgstr ""
+msgstr "Sự cố sử dụng đĩa"
 
 #: index.php:646
 msgid "Web Data"
-msgstr ""
+msgstr "Dữ liệu web"
 
 #: index.php:658
 msgid "Mail Data"
-msgstr ""
+msgstr "Dữ liệu thư"
 
 #: index.php:759
 msgid "Account Details"
-msgstr ""
+msgstr "Chi tiết tài khoản"
 
 #: index.php:764 profile.php:275
 msgid "Plan"
-msgstr ""
+msgstr "Kế hoạch"
 
 #: index.php:766
 msgid "Disk Quota"
-msgstr ""
+msgstr "Hạn ngạch đĩa"
 
 #: list/backup.php:206
 msgid "Configure Backup"
-msgstr ""
+msgstr "Cấu hình sao lưu"
 
 #: list/backup.php:206 list/backup.php:253 list/backup.php:260
 #: list/backup.php:267 list/backup.php:274 list/backup.php:281
 #: list/backup.php:288
 msgid "Restore"
-msgstr ""
+msgstr "Khôi phục"
 
 #: list/backup.php:220
 msgid "BACKUP"
-msgstr ""
+msgstr "SAO LƯU"
 
 #: list/backup.php:234
 msgid "Restore All"
-msgstr ""
+msgstr "Khôi phục lại tất cả"
 
 #: list/backup.php:236
 msgid "Backed Up"
-msgstr ""
+msgstr "Hỗ trợ"
 
 #: list/backup.php:236 list/backup.php:242
 msgid "Data"
-msgstr ""
+msgstr "Dữ liệu"
 
 #: list/backup.php:286
 msgid "User Dir"
-msgstr ""
+msgstr "Hướng dẫn sử dụng"
 
 #: list/backup.php:324 list/backups.php:326
 msgid "Delete Backup"
-msgstr ""
+msgstr "Xóa sao lưu"
 
 #: list/backup.php:353 list/backup.php:360 list/cron.php:331 list/cron.php:366
 msgid "Please try again later or contact support."
-msgstr ""
+msgstr "Vui lòng thử lại sau hoặc liên hệ với bộ phận hỗ trợ."
 
 #: list/backup.php:358 list/backups.php:356
 msgid "Backup Scheduled!"
-msgstr ""
+msgstr "Sao lưu theo lịch trình!"
 
 #: list/backups.php:137
 msgid "Confirm Password"
-msgstr ""
+msgstr "Xác nhận mật khẩu"
 
 #: list/backups.php:140
 msgid "Submit"
-msgstr ""
+msgstr "Gửi đi"
 
 #: list/backups.php:215
 msgid "Manage Backups"
-msgstr ""
+msgstr "Quản lý sao lưu"
 
 #: list/backups.php:224
 msgid "BACKUPS"
-msgstr ""
+msgstr "QUAY LẠI"
 
 #: list/backups.php:238
 msgid "Schedule "
-msgstr ""
+msgstr "Lịch trình "
 
 #: list/backups.php:239
 msgid "Backup "
-msgstr ""
+msgstr "Sao lưu "
 
 #: list/backups.php:239
 msgid "Exclusions"
-msgstr ""
+msgstr "Loại trừ"
 
 #: list/backups.php:246
 msgid "Backup Name"
-msgstr ""
+msgstr "Tên dự phòng"
 
 #: list/backups.php:247
 msgid "Size"
-msgstr ""
+msgstr "Kích thước"
 
 #: list/backups.php:253
 msgid "Cron"
-msgstr ""
+msgstr "Cron"
 
 #: list/backups.php:256
 msgid "Runtime"
-msgstr ""
+msgstr "Thời gian chạy"
 
 #: list/backups.php:270
 msgid "Configure Restore"
-msgstr ""
+msgstr "Cấu hình Khôi phục"
 
 #: list/backups.php:273 list/backups.php:274 list/backups.php:275
 #: list/backups.php:276 list/backups.php:277 list/backups.php:278
 msgid "Not Backed Up"
-msgstr ""
+msgstr "Không được sao lưu"
 
 #: list/backups.php:359
 msgid "Restore Scheduled!"
-msgstr ""
+msgstr "Khôi phục theo lịch trình!"
 
 #: list/cfdomain.php:252
 msgid "Manage DNS"
-msgstr ""
+msgstr "Quản lý DNS"
 
 #: list/cfdomain.php:260
 msgid "Disable"
-msgstr ""
+msgstr "Vô hiệu hóa"
 
 #: list/cfdomain.php:260 list/dns.php:261 list/dnsdomain.php:252
 msgid "Cloudflare"
-msgstr ""
+msgstr "Đám mây"
 
 #: list/cfdomain.php:287 list/dns.php:251 list/dnsdomain.php:278
 msgid "Records"
-msgstr ""
+msgstr "Hồ sơ"
 
 #: list/cfdomain.php:294 list/dnsdomain.php:285
 msgid "Value"
-msgstr ""
+msgstr "Giá trị"
 
 #: list/cfdomain.php:295 list/web.php:267
 msgid "Proxy"
-msgstr ""
+msgstr "Ủy quyền"
 
 #: list/cfdomain.php:310
 msgid "On"
-msgstr ""
+msgstr "Trên"
 
 #: list/cfdomain.php:312
 msgid "Off"
-msgstr ""
+msgstr "Tắt"
 
 #: list/cfdomain.php:314
 msgid "N/A"
-msgstr ""
+msgstr "Không có"
 
 #: list/cron.php:187
 msgid "Manage Cron Jobs"
-msgstr ""
+msgstr "Quản lý công việc định kỳ"
 
 #: list/cron.php:196
 msgid "CRON JOBS"
-msgstr ""
+msgstr "CÔNG VIỆC CRON"
 
 #: list/cron.php:210 list/db.php:212 list/dns.php:229 list/mail.php:224
 #: list/web.php:238
 msgid "SUSPENDED"
-msgstr ""
+msgstr "XÁC NHẬN"
 
 #: list/cron.php:224 list/db.php:226 list/dns.php:243 list/web.php:252
 msgid "Add "
-msgstr ""
+msgstr "Thêm vào "
 
 #: list/cron.php:225
 msgid "Disable Cron "
-msgstr ""
+msgstr "Vô hiệu hóa Cron "
 
 #: list/cron.php:225
 msgid "Enable Cron "
-msgstr ""
+msgstr "Kích hoạt Cron "
 
 #: list/cron.php:225
 msgid "Enable Cron Notifications"
-msgstr ""
+msgstr "Kích hoạt thông báo Cron"
 
 #: list/cron.php:232
 msgid "Job"
-msgstr ""
+msgstr "Việc làm"
 
 #: list/cron.php:237
 msgid "Frequency"
-msgstr ""
+msgstr "Tần số"
 
 #: list/cron.php:326
 msgid "Error Disabling Notifications"
-msgstr ""
+msgstr "Lỗi vô hiệu hóa thông báo"
 
 #: list/cron.php:361
 msgid "Error Enabling Notifications"
-msgstr ""
+msgstr "Lỗi kích hoạt thông báo"
 
 #: list/cron.php:400
 msgid "Suspend Cron Job"
-msgstr ""
+msgstr "Đình chỉ công việc định kỳ"
 
 #: list/cron.php:421
 msgid "Unsuspend Cron Job"
-msgstr ""
+msgstr "Công việc không mong muốn"
 
 #: list/db.php:197
 msgid "DATABASES"
-msgstr ""
+msgstr "Cơ sở dữ liệu"
 
 #: list/db.php:236 list/mail.php:247 list/maildomain.php:236 list/web.php:260
 msgid "Disk Usage"
-msgstr ""
+msgstr "Sử dụng đĩa"
 
 #: list/db.php:242
 msgid "Character Set"
-msgstr ""
+msgstr "Bộ ký tự"
 
 #: list/db.php:331
 msgid "Suspend Database"
-msgstr ""
+msgstr "Đình chỉ cơ sở dữ liệu"
 
 #: list/db.php:352
 msgid "Unsuspend Database"
-msgstr ""
+msgstr "Cơ sở dữ liệu không mong muốn"
 
 #: list/dns.php:199 list/mail.php:194 list/web.php:208
 msgid "DOMAINS"
-msgstr ""
+msgstr "TÊN MIỀN"
 
 #: list/dns.php:250
 msgid "Domain Name"
-msgstr ""
+msgstr "Tên miền"
 
 #: list/dns.php:259
 msgid "Expiration"
-msgstr ""
+msgstr "Hết hạn"
 
 #: list/dns.php:260
 msgid "Serial"
-msgstr ""
+msgstr "Nối tiếp"
 
 #: list/dns.php:262
 msgid "Cloudflare Level"
-msgstr ""
+msgstr "Cấp độ đám mây"
 
 #: list/dns.php:263
 msgid "Cloudflare SSL"
-msgstr ""
+msgstr "Đám mây SSL"
 
 #: list/dns.php:367 list/dns.php:368
 msgid "List Records"
-msgstr ""
+msgstr "Danh sách hồ sơ"
 
 #: list/dns.php:378
 msgid "Disable Cloudflare"
-msgstr ""
+msgstr "Vô hiệu hóa Cloudflare"
 
 #: list/dns.php:380
 msgid "Enable Cloudflare"
-msgstr ""
+msgstr "Kích hoạt Cloudflare"
 
 #: list/dns.php:391
 msgid "Unavailable"
-msgstr ""
+msgstr "Không có sẵn"
 
 #: list/dns.php:394 list/dns.php:395
 msgid "Cloudflare Disabled"
-msgstr ""
+msgstr "Cloudflare bị vô hiệu hóa"
 
 #: list/dns.php:394 list/dns.php:395
 msgid "Cloudflare Unavailable"
-msgstr ""
+msgstr "Cloudflare Không khả dụng"
 
 #: list/dns.php:465
 msgid "Suspend DNS Domain"
-msgstr ""
+msgstr "Đình chỉ tên miền DNS"
 
 #: list/dns.php:486
 msgid "Unsuspend DNS Domain"
-msgstr ""
+msgstr "Tên miền DNS không mong muốn"
 
 #: list/dns.php:513
 msgid "Cloudflare Enabled!"
-msgstr ""
+msgstr "Cloudflare đã kích hoạt!"
 
 #: list/dns.php:516
 msgid "Cloudflare Disabled!"
-msgstr ""
+msgstr "Cloudflare bị vô hiệu hóa!"
 
 #: list/dnsdomain.php:238
 msgid "Manage DNS Domain"
-msgstr ""
+msgstr "Quản lý tên miền DNS"
 
 #: list/dnsdomain.php:252
 msgid "Enable"
-msgstr ""
+msgstr "Kích hoạt"
 
 #: list/mail.php:246 list/maildomain.php:230
 msgid "Accounts"
-msgstr ""
+msgstr "Tài khoản"
 
 #: list/mail.php:251
 msgid "CatchAll"
-msgstr ""
+msgstr "Bắt hết"
 
 #: list/mail.php:256
 msgid "DKIM"
-msgstr ""
+msgstr "DKIM"
 
 #: list/mail.php:277
 msgid "Add Accounts"
-msgstr ""
+msgstr "Thêm tài khoản"
 
 #: list/mail.php:278
 msgid "List Accounts"
-msgstr ""
+msgstr "Danh sách tài khoản"
 
 #: list/mail.php:367
 msgid "Suspend Mail Domain"
-msgstr ""
+msgstr "Đình chỉ tên miền thư"
 
 #: list/mail.php:388
 msgid "Unsuspend Mail Domain"
-msgstr ""
+msgstr "Tên miền thư không mong muốn"
 
 #: list/maildomain.php:199
 msgid "Manage Mail Accounts"
-msgstr ""
+msgstr "Quản lý tài khoản thư"
 
 #: list/maildomain.php:363
 msgid "Suspend Mail Account"
-msgstr ""
+msgstr "Đình chỉ tài khoản thư"
 
 #: list/maildomain.php:385
 msgid "Unsuspend Mail Account"
-msgstr ""
+msgstr "Tài khoản thư không mong muốn"
 
 #: list/maildomain.php:420
 msgid "Error Adding Mail Domain"
-msgstr ""
+msgstr "Lỗi khi thêm tên miền thư"
 
 #: list/web.php:223
 msgid "ALIASES"
-msgstr ""
+msgstr "ALIASES"
 
 #: list/web.php:266
 msgid "Web "
-msgstr ""
+msgstr "Web "
 
 #: list/web.php:266
 msgid "Template"
-msgstr ""
+msgstr "Bản mẫu"
 
 #: list/web.php:268
 msgid "Backend Template"
-msgstr ""
+msgstr "Mẫu cuối cùng"
 
 #: list/web.php:268
 msgid "Backend"
-msgstr ""
+msgstr "Cuối tuần"
 
 #: list/web.php:294
 msgid "View Logs"
-msgstr ""
+msgstr "Xem các bản ghi"
 
 #: list/web.php:298
 msgid "View Stats"
-msgstr ""
+msgstr "Xem số liệu thống kê"
 
 #: list/web.php:370
 msgid "Delete Web Domain"
-msgstr ""
+msgstr "Xóa tên miền web"
 
 #: list/web.php:392
 msgid "Suspend Web Domain"
-msgstr ""
+msgstr "Đình chỉ tên miền web"
 
 #: list/web.php:413
 msgid "Unsuspend Web Domain"
-msgstr ""
+msgstr "Tên miền không mong muốn"
 
 #: list/web.php:442
 msgid "Error Deleting Web Domain"
-msgstr ""
+msgstr "Lỗi xóa tên miền web"
 
 #: list/web.php:449 list/web.php:452
 msgid "Error Creating Web Domain"
-msgstr ""
+msgstr "Lỗi tạo tên miền web"
 
 #: log.php:192
 msgid "User Log"
-msgstr ""
+msgstr "Nhật ký người dùng"
 
 #: log.php:221
 msgid "Time"
-msgstr ""
+msgstr "Thời gian"
 
 #: log/access.php:94 log/access.php:199
 msgid "Access Log"
-msgstr ""
+msgstr "Nhật ký truy cập"
 
 #: log/access.php:218
 msgid "AccessLog"
-msgstr ""
+msgstr "AccessLog"
 
 #: log/access.php:219
 msgid "ErrorLog"
-msgstr ""
+msgstr "Đăng nhập Lỗi"
 
 #: log/error.php:94 log/error.php:199
 msgid "Error Log"
-msgstr ""
+msgstr "Nhật ký lỗi"
 
 #: log/error.php:218
 msgid "Download Accesslog"
-msgstr ""
+msgstr "Tải xuống Accesslog"
 
 #: log/error.php:219
 msgid "Download Errorlog"
-msgstr ""
+msgstr "Tải xuống Errorlog"
 
 #: login.php:76 login.php:249
 msgid "Login"
-msgstr ""
+msgstr "Đăng nhập"
 
 #: login.php:118
 msgid "Account has been successfully created!"
-msgstr ""
+msgstr "Tài khoản đã được tạo thành công!"
 
 #: login.php:120
 msgid "Please fill out all sections of the form."
-msgstr ""
+msgstr "Vui lòng điền vào tất cả các phần của mẫu."
 
 #: login.php:123
 msgid "Invalid data entered in form. Please try again."
-msgstr ""
+msgstr "Dữ liệu không hợp lệ được nhập dưới dạng. Vui lòng thử lại."
 
 #: login.php:126
 msgid "Server or form error (Code: 3). Please contact support."
-msgstr ""
+msgstr "Lỗi máy chủ hoặc biểu mẫu (Mã: 3). Vui lòng liên hệ với bộ phận hỗ trợ."
 
 #: login.php:129
 msgid "Account already exists under same username."
-msgstr ""
+msgstr "Tài khoản đã tồn tại dưới cùng tên người dùng."
 
 #: login.php:132
 msgid "System Error (Code: 12). Please contact support."
-msgstr ""
+msgstr "Lỗi hệ thống (Mã: 12). Vui lòng liên hệ với bộ phận hỗ trợ."
 
 #: login.php:135
 msgid "Server Error (Code: 13). Please contact support."
-msgstr ""
+msgstr "Lỗi máy chủ (Mã: 13). Vui lòng liên hệ với bộ phận hỗ trợ."
 
 #: login.php:138
 msgid "Server Error (Code: 14). Please contact support."
-msgstr ""
+msgstr "Lỗi máy chủ (Mã: 14). Vui lòng liên hệ với bộ phận hỗ trợ."
 
 #: login.php:141
 msgid "System Error (Code: 15). Please contact support."
-msgstr ""
+msgstr "Lỗi hệ thống (Mã: 15). Vui lòng liên hệ với bộ phận hỗ trợ."
 
 #: login.php:144
 msgid "Server Error (Code: 16). Please contact support."
-msgstr ""
+msgstr "Lỗi máy chủ (Mã: 16). Vui lòng liên hệ với bộ phận hỗ trợ."
 
 #: login.php:147
 msgid "Server Error (Code: 17). Please contact support."
-msgstr ""
+msgstr "Lỗi máy chủ (Mã: 17). Vui lòng liên hệ với bộ phận hỗ trợ."
 
 #: login.php:150
 msgid "Process Error (Code: 18). Please contact support."
-msgstr ""
+msgstr "Lỗi quá trình (Mã: 18). Vui lòng liên hệ với bộ phận hỗ trợ."
 
 #: login.php:153
 msgid "Process Error (Code: 19). Please contact support."
-msgstr ""
+msgstr "Lỗi quá trình (Mã: 19). Vui lòng liên hệ với bộ phận hỗ trợ."
 
 #: login.php:156
 msgid "Fatal Error (Code: 20). Please contact support."
-msgstr ""
+msgstr "Lỗi nghiêm trọng (Mã số: 20). Vui lòng liên hệ với bộ phận hỗ trợ."
 
 #: login.php:167 register.php:107
 msgid "Control Panel"
-msgstr ""
+msgstr "Bảng điều khiển"
 
 #: login.php:174
 msgid "Sign In to"
-msgstr ""
+msgstr "Đăng nhập vào"
 
 #: login.php:174
 msgid "CP"
-msgstr ""
+msgstr "CP"
 
 #: login.php:175 register.php:114
 msgid "Enter your details below"
-msgstr ""
+msgstr "Nhập thông tin của bạn dưới đây"
 
 #: login.php:196
 msgid "Loading Dashboard"
-msgstr ""
+msgstr "Đang tải Bảng điều khiển"
 
 #: login.php:200
 msgid "Error: Incorrect Login."
-msgstr ""
+msgstr "Lỗi: Đăng nhập không chính xác."
 
 #: login.php:219
 msgid "Forgot pwd?"
-msgstr ""
+msgstr "Quên pwd?"
 
 #: login.php:223
 msgid "Log in"
-msgstr ""
+msgstr "Đăng nhập"
 
 #: login.php:230
 msgid "Don't have an account?"
-msgstr ""
+msgstr "Không có tài khoản?"
 
 #: login.php:230 register.php:143
 msgid "Sign Up"
-msgstr ""
+msgstr "Đăng ký"
 
 #: login.php:237
 msgid "Recover Password"
-msgstr ""
+msgstr "Khôi phục mật khẩu"
 
 #: login.php:238
 msgid "Enter your username and instructions will be sent to you."
-msgstr ""
+msgstr "Nhập tên người dùng của bạn và hướng dẫn sẽ được gửi cho bạn."
 
 #: login.php:254
 msgid "Reset"
-msgstr ""
+msgstr "Cài lại"
 
 #: login.php:320 register.php:230
 msgid "Failed to connect to server. Please check config."
-msgstr ""
+msgstr "Kết nối thất bại. Vui lòng kiểm tra cấu hình."
 
 #: process/generatecsr.php:232
 msgid "Process"
-msgstr ""
+msgstr "Quá trình"
 
 #: process/search.php:89
 msgid "Search"
-msgstr ""
+msgstr "Tìm kiếm"
 
 #: process/search.php:194
 msgid "Search Results"
-msgstr ""
+msgstr "kết quả tìm kiếm"
 
 #: process/search.php:204
 msgid "Result"
-msgstr ""
+msgstr "Kết quả"
 
 #: process/search.php:206
 msgid "Key"
-msgstr ""
+msgstr "Chìa khóa"
 
 #: process/search.php:207
 msgid "Parent"
-msgstr ""
+msgstr "Cha mẹ"
 
 #: profile.php:143
 msgid "Invalid data entered in form."
-msgstr ""
+msgstr "Dữ liệu không hợp lệ được nhập dưới dạng."
 
 #: profile.php:143
 msgid "Please try again."
-msgstr ""
+msgstr "Vui lòng thử lại."
 
 #: profile.php:270
 msgid "Joined"
-msgstr ""
+msgstr "Đã tham gia"
 
 #: profile.php:413
 msgid "Update Profile"
-msgstr ""
+msgstr "Cập nhật hồ sơ"
 
 #: profile.php:549
 msgid "Error Updating Profile"
-msgstr ""
+msgstr "Lỗi cập nhật hồ sơ"
 
 #: register.php:62
 msgid "Register"
-msgstr ""
+msgstr "Đăng ký"
 
 #: register.php:114
 msgid "Sign up for"
-msgstr ""
+msgstr "Đăng ký cho"
 
 #: register.php:118 register.php:119
 msgid "2 to 28 Letters Only. Apostrophes and hyphens allowed."
-msgstr ""
+msgstr "Chỉ 2 đến 28 chữ cái. Dấu nháy đơn và dấu gạch ngang cho phép."
 
 #: register.php:123
 msgid "Invalid Email Address"
-msgstr ""
+msgstr "Địa chỉ email không hợp lệ"
 
 #: register.php:127
 msgid "2 to 28 Characters A-Z, 0-9, '-' '.' and '_' Only."
-msgstr ""
+msgstr "2 đến 28 ký tự A-Z, 0-9, '-' '.' và chỉ."
 
 #: register.php:131
 msgid "Minimum 6 Characters: One uppercade letter, lowercase letter and number reuired."
-msgstr ""
+msgstr "Tối thiểu 6 ký tự: Một chữ cái viết hoa, chữ thường và số được sử dụng lại."
 
 #: register.php:133
 msgid "Confirm Pass"
-msgstr ""
+msgstr "Xác nhận mật khẩu"
 
 #: register.php:148
 msgid "Already have an account?"
-msgstr ""
+msgstr "Bạn co săn san để tạo một tai khoản?"
 
 #: register.php:148
 msgid "Sign in"
-msgstr ""
+msgstr "Đăng nhập"
 
 #: register.php:161
 msgid "Passwords do not match"
-msgstr ""
+msgstr "Mật khẩu không phù hợp"
 
