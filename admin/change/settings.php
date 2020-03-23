@@ -137,7 +137,8 @@ if(isset($_POST['resetdefault']) && $_POST['resetdefault'] != 'yes') {
     } 
     if(isset($_POST['VESTA_API_KEY']) && $vst_apikey != $_POST['VESTA_API_KEY']) { 
         $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $dm2 = mysqli_real_escape_string($conn, $_POST['VESTA_API_KEY']);
+        $enckey = vwicryptx($_POST['VESTA_API_KEY']);
+        $dm2 = mysqli_real_escape_string($conn, $enckey);
         $sqlm2 = "UPDATE ".$mysql_table."config SET `VALUE` = '".$dm2."' WHERE `VARIABLE` = 'VESTA_API_KEY';";
         if (mysqli_query($conn, $sqlm2)) {} else { $r1 = $r1 + 1; }
         mysqli_close($conn);

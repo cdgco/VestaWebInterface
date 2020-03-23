@@ -123,14 +123,15 @@ $url8083 = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . ':' . $vesta_port;
 if(!isset($KEY3) || $KEY3 == '') { $KEY3 = 'Default VWI Secret Key'; }
 if(!isset($KEY4) || $KEY4 == '') { $KEY4 = 'Default VWI Secret IV'; }
 if ($config["VESTA_METHOD"] == "api"){
-    DEFINE('VESTA_API_KEY', $config["VESTA_API_KEY"]);
-    $vst_apikey = $config["VESTA_API_KEY"];
-    
     DEFINE('VESTA_ADMIN_UNAME', '');
     $vst_username = '';
 
     DEFINE('VESTA_ADMIN_PW', '');
     $vst_password = '';
+
+    $deckey = vwicryptx($config["VESTA_API_KEY"], d);
+    DEFINE('VESTA_API_KEY', $deckey);
+    $vst_apikey = $deckey;
     
     $apienabled = 'true';
 }
@@ -140,6 +141,7 @@ else {
     
     DEFINE('VESTA_ADMIN_UNAME', $config["VESTA_ADMIN_UNAME"]);
     $vst_username = $config["VESTA_ADMIN_UNAME"];
+    
     $decpassword = vwicryptx($config["VESTA_ADMIN_PW"], d);
     DEFINE('VESTA_ADMIN_PW', $decpassword);
     $vst_password = $decpassword;
