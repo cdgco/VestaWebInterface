@@ -128,7 +128,7 @@ _textdomain('messages');
                         </div>       
                         <div class="form-group ">
                             <div class="col-xs-12">
-                                <input class="form-control" type="password" name="password" title="<?php echo __('Minimum 6 Characters: One uppercade letter, lowercase letter and number reuired.'); ?>" id="pass" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$" autocomplete="new-password" required="" placeholder="<?php echo __('Password'); ?>" style="width:49%; float:left;">
+                                <input class="form-control" type="password" name="password" title="<?php echo __('Minimum 6 Characters: One uppercade letter, lowercase letter and number required.'); ?>" id="pass" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$" autocomplete="new-password" required="" placeholder="<?php echo __('Password'); ?>" style="width:49%; float:left;">
 
                                 <input class="form-control" type="password" id="cpass" autocomplete="new-password" required="" placeholder="<?php echo __('Confirm Pass'); ?>" style="width:49%; float:right;"></div>
                         </div>
