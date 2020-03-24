@@ -374,7 +374,7 @@ function vwicryptx($cs,$ca='e') {
 function indexMenu($l1) {
     echo '<li> 
             <a href="' . $l1 . 'index.php" class="waves-effect">
-                <i class="mdi mdi-home fa-fw"></i> <span class="hide-menu">' . __("Home") . '</span>
+                <i class="fa fa-home fa-fw"></i> <span class="hide-menu">' . __("Home") . '</span>
             </a> 
         </li>';
 }
@@ -383,14 +383,14 @@ function adminMenu($l2, $a1) {
     global $initialusername;
     if($initialusername == "admin" && isset($adminenabled) && $adminenabled != ''){
     echo '<li class="devider"></li>
-            <li> <a href="#" class="waves-effect"><i class="mdi mdi-wrench fa-fw" data-icon="v"></i> <span class="hide-menu">' . __("Administration") . '<span class="fa arrow"></span> </span></a>
+            <li> <a href="#" class="waves-effect"><i class="fa fa-wrench fa-fw" data-icon="v"></i> <span class="hide-menu">' . __("Administration") . '<span class="fa arrow"></span> </span></a>
                 <ul class="nav nav-second-level'; if(isset($a1) && $a1 != '') { echo ' in'; } echo '" id="appendadministration">
                     <li> <a href="' . $l2 . 'users.php"'; if($a1 == 'users') { echo ' class="active"'; } echo '><i class="ti-user fa-fw"></i><span class="hide-menu">' . __("Users") . '</span></a> </li>
                     <li> <a href="' . $l2 . 'packages.php"'; if($a1 == 'packages') { echo ' class="active"'; } echo '><i class="ti-package fa-fw"></i><span class="hide-menu">' . __("Packages") . '</span></a> </li>
                     <li> <a href="' . $l2 . 'ip.php"'; if($a1 == 'ip') { echo ' class="active"'; } echo '><i class="fa fa-sliders fa-fw"></i><span class="hide-menu">' . __("IP") . '</span></a> </li>
                     <li> <a href="' . $l2 . 'graphs.php"'; if($a1 == 'graph') { echo ' class="active"'; } echo '><i class="ti-pie-chart fa-fw"></i><span class="hide-menu">' . __("Graphs") . '</span></a> </li>
                     <li> <a href="' . $l2 . 'stats.php"'; if($a1 == 'stats') { echo ' class="active"'; } echo '><i class="ti-stats-up fa-fw"></i><span class="hide-menu">' . __("Statistics") . '</span></a> </li>
-                    <li> <a href="' . $l2 . 'updates.php"'; if($a1 == 'updates') { echo ' class="active"'; } echo '><i class="mdi mdi-weather-cloudy fa-fw"></i><span class="hide-menu">' . __("Updates") . '</span></a> </li>';
+                    <li> <a href="' . $l2 . 'updates.php"'; if($a1 == 'updates') { echo ' class="active"'; } echo '><i class="fa fa-cloud fa-fw"></i><span class="hide-menu">' . __("Updates") . '</span></a> </li>';
         
                     if(checkService('iptables') !== false){ echo '
                     <li> <a href="' . $l2 . 'firewall.php"'; if($a1 == 'firewall') { echo ' class="active"'; } echo '><i class="fa fa-shield fa-fw"></i><span class="hide-menu">' . __("Firewall") . '</span></a> </li>';
@@ -434,13 +434,13 @@ function primaryMenu($l4, $l5, $a2) {
     
     
         if(isset($cronenabled) && $cronenabled != ''){
-        echo '<li> <a href="' . $l4 . 'cron.php" class="waves-effect'; if($a2 == 'cron') { echo ' active'; } echo '"><i  class="mdi mdi-calendar-arrow-right fa-fw"></i> <span class="hide-menu">' . __("Cron Jobs") . '</span></a> </li>'; }
+        echo '<li> <a href="' . $l4 . 'cron.php" class="waves-effect'; if($a2 == 'cron') { echo ' active'; } echo '"><i  class="fa fa-calendar-plus-o fa-fw"></i> <span class="hide-menu">' . __("Cron Jobs") . '</span></a> </li>'; }
         if(isset($backupsenabled) && $backupsenabled != ''){
         echo '<li> <a href="' . $l4 . 'backups.php" class="waves-effect'; if($a2 == 'backups') { echo ' active'; } echo '"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu">' . __("Backups") . '</span></a> </li>'; }
         
     
         if ($ftpurl != '' || $webmailurl != '' || $phpmyadmin != '' || $phppgadmin != '' || $softaculousurl != '') { echo '<li class="devider"></li>    
-        <li><a href="#" class="waves-effect"><i class="mdi mdi-apps fa-fw"></i> <span class="hide-menu">' . __("Apps") . '<span class="fa arrow"></span></span></a>
+        <li><a href="#" class="waves-effect"><i class="fa fa-th fa-fw"></i> <span class="hide-menu">' . __("Apps") . '<span class="fa arrow"></span></span></a>
                 <ul class="nav nav-second-level" id="appendapps">'; }
         if ($ftpurl != '') { echo '<li><a href="' . $ftpurl . '" target="_blank"><i class="fa fa-file-code-o fa-fw"></i><span class="hide-menu">' . __("FTP") . '</span></a></li>';}
         if ($webmailurl != '') { echo '<li><a href="' . $webmailurl . '" target="_blank"><i class="fa fa-envelope-o fa-fw"></i><span class="hide-menu">' . __("Webmail") . '</span></a></li>';}
@@ -449,7 +449,7 @@ function primaryMenu($l4, $l5, $a2) {
         if ($softaculousurl != '') { echo '<li style="height: 48px;"><a style="height: 48px;" href="' . $softaculousurl . '" target="_blank"><i style="top: -11px;" class="icon-softaculous">&#xe801;</i><span style="top: -24px;left:-7px;position: relative;" class="hide-menu">' . __("Softaculous") . '</span></a></li>';}       
         if ($ftpurl != '' || $webmailurl != '' || $phpmyadmin != '' || $phppgadmin != '' || $softaculousurl != '') { echo '</ul></li>';}
         echo '<li class="devider"></li>
-        <li><a href="' . $l5 . 'logout.php" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu">' . __("Log out") . '</span></a></li>';
+        <li><a href="' . $l5 . 'logout.php" class="waves-effect"><i class="fa fa-sign-out fa-fw"></i> <span class="hide-menu">' . __("Log out") . '</span></a></li>';
         if ($oldcpurl != '' || $supporturl != '') { echo '<li class="devider"></li>'; }
         if ($oldcpurl != '') { echo '<li><a href="' . $oldcpurl . '" class="waves-effect"> <i class="fa fa-tachometer fa-fw"></i> <span class="hide-menu"> ' . __("Control Panel v1") . '</span></a></li>'; }
         if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">' . __("Support") . '</span></a></li>'; }

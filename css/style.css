@@ -22,7 +22,6 @@
 
 @charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900);
-@import "../plugins/components/mdi/css/materialdesignicons.min.css";
 @import "../plugins/components/font-awesome/css/font-awesome.min.css";
 @import "../plugins/components/themify-icons/css/themify-icons.css";
 @import "../plugins/components/waves/waves.css";
@@ -618,9 +617,6 @@ hr {
 .vertical-middle,
 .vm {
   vertical-align: middle;
-}
-.mdi {
-  font-size: 17px;
 }
 .bx-shadow {
   -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
@@ -5340,9 +5336,6 @@ ul.select-row-icon li a.selected i.whn-hov {
   margin-right: 7px;
   font-size: 16px;
   vertical-align: middle;
-}
-.sidebar .mdi {
-  font-size: 21px;
 }
 .sidebar .sidebar-head {
   padding: 4px 20px;

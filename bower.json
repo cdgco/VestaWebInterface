@@ -35,7 +35,6 @@
     "jquery": "2.2.4",
     "jquery-overlaps": "latest",
     "jquery-slimscroll": "latest",
-    "mdi": "latest",
     "metismenu": "latest",
     "moment": "latest",
     "phpmailer": "latest",
@@ -83,19 +82,6 @@
       "hotkeysjs": "bower_components/hotkeysjs/dist/hotkeys.min.js",
       "jquery": "bower_components/jquery/dist/**",
       "jquery-overlaps": "bower_components/jquery-overlaps/jquery.overlaps.js",
-      "mdi": {
-        "mapping": [
-          {
-            "bower_components/mdi/css/**": "css"
-          },
-          {
-            "bower_components/mdi/fonts/**": "fonts"
-          },
-          {
-            "bower_components/mdi/scss/**": "scss"
-          }
-        ]
-      },
       "metismenu": {
         "mapping": [
           {
