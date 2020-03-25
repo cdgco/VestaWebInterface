@@ -33,7 +33,7 @@
   "dependencies": {
     "PHPMailer": "https://github.com/PHPMailer/PHPMailer",
     "animate.css": "latest",
-    "bootstrap": "3",
+    "bootstrap": "4",
     "bootstrap-colorpicker": "2.5.3",
     "bootstrap-datepicker": "uxsolutions/bootstrap-datepicker#latest",
     "bootstrap-select": "^1.13.1",
