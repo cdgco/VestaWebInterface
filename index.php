@@ -174,7 +174,7 @@ foreach ($plugins as $result) {
         <?php
 
         if(isset($_GET['rebuild'])){
-            echo "<script> swal({title: '"; echo "Action Complete!', type: 'success'})</script>";}
+            echo "<script> Swal.fire({title: '"; echo "Action Complete!', icon: 'success'})</script>";}
         ?>
         <div class="preloader">
             <svg class="circular" viewBox="25 25 50 50">
@@ -267,7 +267,7 @@ foreach ($plugins as $result) {
                                 </form>
                             </div>
                             <div class="input-group-btn">
-                                <button type="button" onclick='document.getElementById("rebuildform").submit();swal({title: "<?php echo __('Processing'); ?>", text: "",timer: 5000,onOpen: function () {swal.showLoading();}}).then(function () {},function (dismiss) {if (dismiss === "timer") {}})' class=" pull-right btn waves-effect waves-light color-button" style="left: -2px;"><i class="ti-angle-right"></i></button>
+                                <button type="button" onclick='document.getElementById("rebuildform").submit();Swal.fire({title: "<?php echo __('Processing'); ?>", text: "",timer: 5000,onOpen: function () {swal.showLoading();}}).then(function () {},function (dismiss) {if (dismiss === "timer") {}})' class=" pull-right btn waves-effect waves-light color-button" style="left: -2px;"><i class="ti-angle-right"></i></button>
                             </div>
                         </div>
                     </div>

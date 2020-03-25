@@ -112,47 +112,47 @@ _textdomain('messages');
 
             $answer = $_GET['code'];
 
-            echo "<script> swal({title: '";
+            echo "<script> Swal.fire({title: '";
             if($answer == 0) {
-                echo __("Account has been successfully created!") . "', type: 'success'})</script>";
+                echo __("Account has been successfully created!") . "', icon: 'success'})</script>";
             } if($answer == 1) {
-                echo __("Please fill out all sections of the form.") . "', type: 'error'})</script>";
+                echo __("Please fill out all sections of the form.") . "', icon: 'error'})</script>";
             }
             if($answer == 2) {
-                echo __("Invalid data entered in form. Please try again.") . "', type: 'error'})</script>";
+                echo __("Invalid data entered in form. Please try again.") . "', icon: 'error'})</script>";
             }
             if($answer == 3) {
-                echo __("Server or form error (Code: 3). Please contact support.") . "', type: 'error'})</script>";
+                echo __("Server or form error (Code: 3). Please contact support.") . "', icon: 'error'})</script>";
             }
             if($answer == 4) {
-                echo __("Account already exists under same username.") . "', type: 'error'})</script>";
+                echo __("Account already exists under same username.") . "', icon: 'error'})</script>";
             }
             if($answer == 12) {
-                echo __("System Error (Code: 12). Please contact support.") . "', type: 'error'})</script>";
+                echo __("System Error (Code: 12). Please contact support.") . "', icon: 'error'})</script>";
             }
             if($answer == 13) {
-                echo __("Server Error (Code: 13). Please contact support.") . "', type: 'error'})</script>";
+                echo __("Server Error (Code: 13). Please contact support.") . "', icon: 'error'})</script>";
             }
             if($answer == 14) {
-                echo __("Server Error (Code: 14). Please contact support.") . "', type: 'error'})</script>";
+                echo __("Server Error (Code: 14). Please contact support.") . "', icon: 'error'})</script>";
             }
             if($answer == 15) {
-                echo __("System Error (Code: 15). Please contact support.") . "', type: 'error'})</script>";
+                echo __("System Error (Code: 15). Please contact support.") . "', icon: 'error'})</script>";
             }
             if($answer == 16) {
-                echo __("Server Error (Code: 16). Please contact support.") . "', type: 'error'})</script>";
+                echo __("Server Error (Code: 16). Please contact support.") . "', icon: 'error'})</script>";
             }
             if($answer == 17) {
-                echo __("Server Error (Code: 17). Please contact support.") . "', type: 'error'})</script>";
+                echo __("Server Error (Code: 17). Please contact support.") . "', icon: 'error'})</script>";
             }
             if($answer == 18) {
-                echo __("Process Error (Code: 18). Please contact support.") . "', type: 'error'})</script>";
+                echo __("Process Error (Code: 18). Please contact support.") . "', icon: 'error'})</script>";
             }
             if($answer == 19) {
-                echo __("Process Error (Code: 19). Please contact support.") . "', type: 'error'})</script>";
+                echo __("Process Error (Code: 19). Please contact support.") . "', icon: 'error'})</script>";
             }
             if($answer == 20) {
-                echo __("Fatal Error (Code: 20). Please contact support.") . "', type: 'error'})</script>";
+                echo __("Fatal Error (Code: 20). Please contact support.") . "', icon: 'error'})</script>";
             }}
         ?>
         <div class="preloader">
@@ -282,42 +282,44 @@ _textdomain('messages');
             if($configstyle == '2'){
                 if($warningson == "all"){
                     if(substr(sprintf('%o', fileperms($configlocation)), -4) == '0777') {
-                        echo "toast1({ 
-                                text: '".__("Includes folder has not been secured")."',
-                                type: 'warning'
+                        echo "toast1.fire({ 
+                                title: '".__("Includes folder has not been secured")."',
+                                icon: 'warning',
+                                timerProgressBar: true
                             });";
 
                     } 
                     if(isset($mysqldown) && $mysqldown == 'yes') {
-                        echo "toast2({
+                        echo "toast2.fire({
                                 title: '" . __("Database Error") . "',
                                 text: '" . __("MySQL Server Failed To Connect") . "',
-                                type: 'error'
+                                icon: 'error'
                             });";
                     } 
                 }
             }
             else {
                 if(substr(sprintf('%o', fileperms($configlocation)), -4) == '0777') {
-                    echo "toast1({ 
-                            text: '".__("Includes folder has not been secured")."',
-                            type: 'warning'
+                    echo "toast1.fire({ 
+                            title: '".__("Includes folder has not been secured")."',
+                            icon: 'warning',
+                            timerProgressBar: true
                         });";
 
                 } 
                 if(isset($mysqldown) && $mysqldown == 'yes') {
-                    echo "toast2({
+                    echo "toast2.fire({
                            title: '" . __("Database Error") . "',
                             text: '" . __("MySQL Server Failed To Connect") . "',
-                            type: 'error'
+                            icon: 'error'
                         });";
 
                 }    
             }
             if(!isset($serverconnection)){
-            echo "toast2({
-                    text: '" . __("Failed to connect to server. Please check config.") . "',
-                    type: 'error'
+            echo "toast2.fire({
+                    title: '" . __("Failed to connect to server. Please check config.") . "',
+                    icon: 'error'
             });"; }
             ?>
         </script>

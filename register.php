@@ -193,42 +193,44 @@ _textdomain('messages');
             if($configstyle == '2'){
                 if($warningson == "all"){
                     if(substr(sprintf('%o', fileperms($configlocation)), -4) == '0777') {
-                        echo "toast1({ 
+                        echo "toast1.fire({ 
                                 text: '".__("Includes folder has not been secured")."',
-                                type: 'warning'
+                                icon: 'warning',
+                                timerProgressBar: true
                             });";
 
                     } 
                     if(isset($mysqldown) && $mysqldown == 'yes') {
-                        echo "toast2({
+                        echo "toast2.fire({
                                 title: '" . __("Database Error") . "',
                                 text: '" . __("MySQL Server Failed To Connect") . "',
-                                type: 'error'
+                                icon: 'error'
                             });";
                     } 
                 }
             }
             else {
                 if(substr(sprintf('%o', fileperms($configlocation)), -4) == '0777') {
-                    echo "toast1({ 
-                            text: '".__("Includes folder has not been secured")."',
-                            type: 'warning'
+                    echo "toast1.fire({ 
+                            title: '".__("Includes folder has not been secured")."',
+                            icon: 'warning',
+                            timerProgressBar: true
                         });";
 
                 } 
                 if(isset($mysqldown) && $mysqldown == 'yes') {
-                    echo "toast2({
+                    echo "toast2.fire({
                            title: '" . __("Database Error") . "',
                             text: '" . __("MySQL Server Failed To Connect") . "',
-                            type: 'error'
+                            icon: 'error'
                         });";
 
                 }    
             }
             if(!isset($serverconnection)){
-            echo "toast2({
-                    text: '" . __("Failed to connect to server. Please check config.") . "',
-                    type: 'error'
+            echo "toast2.fire({
+                    title: '" . __("Failed to connect to server. Please check config.") . "',
+                    icon: 'error'
             });"; }
             ?>
         </script>

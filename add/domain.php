@@ -551,7 +551,7 @@ foreach ($plugins as $result) {
                 document.getElementById(g).type="text";
             }
             function processLoader(){
-                swal({
+                Swal.fire({
                     title: '<?php echo __("Processing"); ?>',
                     text: '',
                     onOpen: function () {
@@ -559,7 +559,7 @@ foreach ($plugins as $result) {
                     }
                 })};
             function loadLoader(){
-                swal({
+                Swal.fire({
                     title: '<?php echo __("Loading"); ?>',
                     text: '',
                     onOpen: function () {
@@ -572,26 +572,26 @@ foreach ($plugins as $result) {
             includeScript();
             if($warningson == "all"){
                 if(isset($apienabled) && $apienabled == 'true') {
-                    echo "toast2({
+                    echo "toast2.fire({
                             title: '" . __("Feature Disabled") . "',
                             text: '" . __("Custom SSL Certificates are incompatible with API Key Authentication.") . "',
-                            type: 'error'
+                            icon: 'error'
                         });";
                 } 
             }
             elseif($warningson == "admin" && $initialusername == "admin"){
                 if(isset($apienabled) && $apienabled == 'true') {
-                    echo "toast2({
+                    echo "toast2.fire({
                             title: '" . __("Feature Disabled") . "',
                             text: '" . __("Custom SSL Certificates are incompatible with API Key Authentication.") . "',
-                            type: 'error'
+                            icon: 'error'
                         });";
 
                 } 
             }
             
             if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
+                echo "Swal.fire({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', icon:'error'});";
             } 
             ?>
         </script>

@@ -206,7 +206,7 @@ foreach ($plugins as $result) {
                             </form>
                         </div>
                         <div class="input-group-btn">
-                            <button type="button" onclick=\'document.getElementById("loguserform").submit();swal({title: "' . __('Processing') . '", text: "",timer: 5000,onOpen: function () {swal.showLoading();}}).then(function () {},function (dismiss) {if (dismiss === "timer") {}})\' class=" pull-right btn waves-effect waves-light color-button"><i class="ti-angle-right"></i></button>
+                            <button type="button" onclick=\'document.getElementById("loguserform").submit();Swal.fire({title: "' . __('Processing') . '", text: "",timer: 5000,onOpen: function () {swal.showLoading();}}).then(function () {},function (dismiss) {if (dismiss === "timer") {}})\' class=" pull-right btn waves-effect waves-light color-button"><i class="ti-angle-right"></i></button>
                         </div>
                     </div>'; } ?>
                     </div>

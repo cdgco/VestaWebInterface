@@ -264,7 +264,7 @@ foreach ($plugins as $result) {
                 this.submit();
             });
             function processLoader(){
-                swal({
+                Swal.fire({
                     title: '<?php echo __("Processing"); ?>',
                     text: '',
                     onOpen: function () {
@@ -273,7 +273,7 @@ foreach ($plugins as $result) {
                 })};
             <?php
             if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
+                echo "Swal.fire({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', icon:'error'});";
             }
             processPlugins();
             includeScript(); ?>

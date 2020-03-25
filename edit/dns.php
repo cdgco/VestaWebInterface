@@ -465,17 +465,17 @@ foreach ($plugins as $result) {
             document.getElementById('select2').value = '<?php print_r($dnsdata[0]['TPL']); ?>'; 
             $('.datepicker').datepicker();
             function confirmDelete(){
-                Swal({
+                Swal.fire({
                   title: '<?php echo __("Delete DNS Domain"); ?>:<br> <?php echo $requestdns; ?>' + ' ?',
                   text: "<?php echo __("You won't be able to revert this!"); ?>",
-                  type: 'warning',
+                  icon: 'warning',
                   showCancelButton: true,
                   confirmButtonColor: '#3085d6',
                   cancelButtonColor: '#d33',
                   confirmButtonText: '<?php echo __("Yes, delete it!"); ?>'
                 }).then((result) => {
                   if (result.value) {
-                    swal({
+                    Swal.fire({
                         title: '<?php echo __("Processing"); ?>',
                         text: '',
                         onOpen: function () {
@@ -486,7 +486,7 @@ foreach ($plugins as $result) {
                   }
                 })}
             function processLoader(){
-                swal({
+                Swal.fire({
                     title: '<?php echo __("Processing"); ?>',
                     text: '',
                     onOpen: function () {
@@ -494,7 +494,7 @@ foreach ($plugins as $result) {
                     }
                 })};
             function loadLoader(){
-                swal({
+                Swal.fire({
                     title: '<?php echo __("Loading"); ?>',
                     text: '',
                     onOpen: function () {
@@ -520,14 +520,14 @@ foreach ($plugins as $result) {
                 else { document.getElementById("cf-div").style.display = "none"; }
             }'; } 
             if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
+                echo "Swal.fire({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', icon:'error'});";
             }
             $returntotal = $_POST['r1'] + $_POST['r2'] + $_POST['r3'] + $_POST['r4'] + $_POST['r5'];
             if(isset($_POST['r1']) && $returntotal == 0) {
-                echo "swal({title:'" . __("Successfully Updated!") . "', type:'success'});";
+                echo "Swal.fire({title:'" . __("Successfully Updated!") . "', icon:'success'});";
             } 
             if(isset($_POST['r1']) && $returntotal != 0) {
-                echo "swal({title:'" . __("Error Updating DNS Domain") . "', html:'" . __("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . "." . $_POST['r4'] . "." . $_POST['r5'] . ")</span>', type:'error'});";
+                echo "Swal.fire({title:'" . __("Error Updating DNS Domain") . "', html:'" . __("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . "." . $_POST['r4'] . "." . $_POST['r5'] . ")</span>', icon:'error'});";
             }
             ?>
         </script>

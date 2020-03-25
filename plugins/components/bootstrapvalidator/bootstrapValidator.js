@@ -2,7 +2,7 @@
  * BootstrapValidator (http://bootstrapvalidator.com)
  * The best jQuery plugin to validate form fields. Designed to use with Bootstrap 3
  *
- * @version     v0.5.3, built on 2014-11-05 9:14:18 PM
+ * @version     v0.5.4, built on 2014-12-11 9:05:43 AM
  * @author      https://twitter.com/nghuuphuoc
  * @copyright   (c) 2013 - 2014 Nguyen Huu Phuoc
  * @license     Commercial: http://bootstrapvalidator.com/license/
@@ -854,6 +854,30 @@ if (typeof jQuery === 'undefined') {
                 this.validateField(field);
             }
 
+            if (this.$submitButton) {
+                this._submit();
+            }
+            this._submitIfValid = true;
+
+            return this;
+        },
+
+        /**
+         * Submit the form
+         *
+         * @returns {BootstrapValidator}
+         */
+        submit: function() {
+            if (!this.options.fields) {
+                return this;
+            }
+            this.disableSubmitButtons(true);
+
+            this._submitIfValid = false;
+            for (var field in this.options.fields) {
+                this.validateField(field);
+            }
+
             this._submit();
             this._submitIfValid = true;
 
@@ -935,7 +959,7 @@ if (typeof jQuery === 'undefined') {
 
                             that.updateStatus(updateAll ? $f.attr('data-bv-field') : $f, response.valid ? that.STATUS_VALID : that.STATUS_INVALID, v);
 
-                            if (response.valid && that._submitIfValid === true) {
+                            if (response.valid && that._submitIfValid === true && that.$submitButton) {
                                 // If a remote validator returns true and the form is ready to submit, then do it
                                 that._submit();
                             } else if (!response.valid && !verbose) {
@@ -1759,7 +1783,7 @@ if (typeof jQuery === 'undefined') {
         // - hidden
         // - invisible
         //
-        // The setting consists of jQuery filters. Accept 3 formats:
+        // The datadictionary consists of jQuery filters. Accept 3 formats:
         // - A string. Use a comma to separate filter
         // - An array. Each element is a filter
         // - An array. Each element can be a callback function
@@ -1841,7 +1865,6 @@ if (typeof jQuery === 'undefined') {
 
     // i18n
     $.fn.bootstrapValidator.i18n        = {};
-
     $.fn.bootstrapValidator.Constructor = BootstrapValidator;
 
     // Helper methods, which can be used in validator class
@@ -8229,3 +8252,4 @@ if (typeof jQuery === 'undefined') {
         }
     };
 }(window.jQuery));
+require('./language/zh_CN');

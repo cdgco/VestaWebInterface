@@ -975,10 +975,10 @@ foreach ($plugins as $result) {
             $('#color1').colorpicker();
             $('#color2').colorpicker();
             function resetDefault(){
-               swal({
+               Swal.fire({
                   title: 'Are you sure?',
                   text: "All VWI settings other than your VestaCP credentials will be reset. You won't be able to revert this!",
-                  type: 'warning',
+                  icon: 'warning',
                   showCancelButton: true,
                   confirmButtonColor: '#3085d6',
                   cancelButtonColor: '#d33',
@@ -991,7 +991,7 @@ foreach ($plugins as $result) {
                 });
             }
             function processLoader(){
-                swal({
+                Swal.fire({
                     title: '<?php echo __("Processing"); ?>',
                     text: '',
                     onOpen: function () {
@@ -999,7 +999,7 @@ foreach ($plugins as $result) {
                     }
                 })};
             function loadLoader(){
-                swal({
+                Swal.fire({
                     title: '<?php echo __("Loading"); ?>',
                     text: '',
                     onOpen: function () {
@@ -1007,10 +1007,10 @@ foreach ($plugins as $result) {
                     }
                 })};
             function pleaseDonate(){
-                Swal({
+                Swal.fire({
                   title: 'Please consider donating.',
                   html: "<p style='text-align: left;padding: 20px;'><br>VWI is provided open source and free of charge, developed in my free time. Please consider supporting the project by donating before removing the VWI branding.<br><br>- Carter Roeser (Developer)</p>",
-                  type: 'warning',
+                  icon: 'warning',
                   showCancelButton: true,
                   confirmButtonColor: '#3085d6',
                   cancelButtonColor: '#d33',
@@ -1030,13 +1030,13 @@ foreach ($plugins as $result) {
             includeScript();
             
             if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
+                echo "Swal.fire({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', icon:'error'});";
             }
             if(isset($_POST['r1']) && $_POST['r1'] == "0") {
-                echo "swal({title:'" . __("Successfully Updated!") . "', type:'success'});";
+                echo "Swal.fire({title:'" . __("Successfully Updated!") . "', icon:'success'});";
             } 
             if(isset($_POST['r1']) && $_POST['r1'] > "0") {
-                echo "swal({title:'" . __("Error Updating Settings") . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
+                echo "Swal.fire({title:'" . __("Error Updating Settings") . "', html:'" . __("Please try again or contact support.") . "', icon:'error'});";
             } 
             ?>
         </script>

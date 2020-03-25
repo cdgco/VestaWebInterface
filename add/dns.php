@@ -383,7 +383,7 @@ if (CLOUDFLARE_EMAIL == '' || CLOUDFLARE_API_KEY == ''){ $cfenabled = 'off'; }
             }
             document.getElementById('select2').value = '<?php print_r($dnsdata[0]['TPL']); ?>'; 
             function processLoader(){
-                swal({
+                Swal.fire({
                     title: '<?php echo __("Processing"); ?>',
                     text: '',
                     onOpen: function () {
@@ -391,7 +391,7 @@ if (CLOUDFLARE_EMAIL == '' || CLOUDFLARE_API_KEY == ''){ $cfenabled = 'off'; }
                     }
                 })};
             function loadLoader(){
-                swal({
+                Swal.fire({
                     title: '<?php echo __("Loading"); ?>',
                     text: '',
                     onOpen: function () {
@@ -404,7 +404,7 @@ if (CLOUDFLARE_EMAIL == '' || CLOUDFLARE_API_KEY == ''){ $cfenabled = 'off'; }
             includeScript();
             
             if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
+                echo "Swal.fire({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', icon:'error'});";
             }
             ?>
         </script>

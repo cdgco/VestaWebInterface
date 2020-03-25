@@ -209,7 +209,7 @@ foreach ($plugins as $result) {
                                 </form>
                             </div>
                             <div class="input-group-btn">
-                                <button type="button" onclick='document.getElementById("loguserform").submit();swal({title: "Processing", text: "",timer: 5000,onOpen: function () {swal.showLoading();}}).then(function () {},function (dismiss) {if (dismiss === "timer") {}})' class=" pull-right btn waves-effect waves-light color-button"><i class="ti-angle-right"></i></button>
+                                <button type="button" onclick='document.getElementById("loguserform").submit();Swal.fire({title: "Processing", text: "",timer: 5000,onOpen: function () {swal.showLoading();}}).then(function () {},function (dismiss) {if (dismiss === "timer") {}})' class=" pull-right btn waves-effect waves-light color-button"><i class="ti-angle-right"></i></button>
                             </div>
                         </div>
 
@@ -272,19 +272,19 @@ foreach ($plugins as $result) {
             includeScript();
             
              if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
+                echo "Swal.fire({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', icon:'error'});";
             }
             if(isset($_POST['delcode']) && $_POST['delcode'] == "0") {
-                echo "swal({title:'" . __("Successfully Deleted!") . "', type:'success'});";
+                echo "Swal.fire({title:'" . __("Successfully Deleted!") . "', icon:'success'});";
             } 
             if(isset($_POST['addcode']) && $_POST['addcode'] == "0") {
-                echo "swal({title:'" . __("Successfully Created!") . "', type:'success'});";
+                echo "Swal.fire({title:'" . __("Successfully Created!") . "', icon:'success'});";
             } 
             if(isset($_POST['delcode']) && $_POST['delcode'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['delcode']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
+                echo "Swal.fire({title:'" . $errorcode[$_POST['delcode']] . "', html:'" . __("Please try again or contact support.") . "', icon:'error'});";
             }
             if(isset($_POST['addcode']) && $_POST['addcode'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['addcode']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
+                echo "Swal.fire({title:'" . $errorcode[$_POST['addcode']] . "', html:'" . __("Please try again or contact support.") . "', icon:'error'});";
             }
             ?>
         </script>

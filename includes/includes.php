@@ -490,6 +490,7 @@ function includeScript() {
               toast: true,
               position: "top-end",
               showConfirmButton: false,
+              timerProgressBar: true,
               timer: 3500
             });
           const toast2 = Swal.mixin({
@@ -501,34 +502,34 @@ function includeScript() {
     
     if($warningson == "all"){
         if(substr(sprintf('%o', fileperms($configlocation)), -4) == '0777') {
-            echo "toast1({
-                    type: 'warning',
-                    text: '".__("Includes folder has not been secured")."'
+            echo "toast1.fire({
+                    icon: 'warning',
+                    title: '".__("Includes folder has not been secured")."'
                 });";
 
         } 
         if(isset($mysqldown) && $mysqldown == 'yes') {
-            echo "toast2({
-                    type: 'error',
+            echo "toast2.fire({
+                    icon: 'error',
                     title: '" . __("Database Error") . "',
-                    text: '" . __("MySQL Server Failed To Connect") . "'
+                    title: '" . __("MySQL Server Failed To Connect") . "'
                 });";
 
         } 
     }
     elseif($warningson == "admin" && $initialusername == "admin"){
         if(substr(sprintf('%o', fileperms($configlocation)), -4) == '0777') {
-            echo "toast1({
-                    type: 'warning',
-                    text: '".__("Includes folder has not been secured")."'
+            echo "toast1.fire({
+                    icon: 'warning',
+                    title: '".__("Includes folder has not been secured")."'
                 });";
 
         } 
         if(isset($mysqldown) && $mysqldown == 'yes') {
-            echo "toast2({
-                    type: 'error',
+            echo "toast2.fire({
+                    icon: 'error',
                     title: '" . __("Database Error:") . "',
-                    text: '" . __("MySQL Server Failed To Connect") . "'
+                    title: '" . __("MySQL Server Failed To Connect") . "'
                 });";
 
         } 

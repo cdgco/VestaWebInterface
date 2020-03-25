@@ -1,3 +1,4 @@
+node_modules
 bower_components
 includes/config.php
 plugins/ftp
@@ -10,3 +11,5 @@ bfg.jar
 build.sh
 config.json
 test.php
+yarn.lock
+yarn-error.log

@@ -366,17 +366,17 @@ foreach ($plugins as $result) {
             
             function confirmDelete(e){
                 e1 = String(e)
-                Swal({
+                Swal.fire({
                   title: '<?php echo __("Delete Web Domain"); ?>:<br>' + e1 +' ?',
                   text: "<?php echo __("You won't be able to revert this!"); ?>",
-                  type: 'warning',
+                  icon: 'warning',
                   showCancelButton: true,
                   confirmButtonColor: '#3085d6',
                   cancelButtonColor: '#d33',
                   confirmButtonText: '<?php echo __("Yes, delete it!"); ?>'
                 }).then((result) => {
                   if (result.value) {
-                    swal({
+                    Swal.fire({
                         title: '<?php echo __("Processing"); ?>',
                         text: '',
                         onOpen: function () {
@@ -388,16 +388,16 @@ foreach ($plugins as $result) {
                 })}
             function confirmSuspend(f){
                 f1 = String(f)
-                Swal({
+                Swal.fire({
                   title: '<?php echo __("Suspend Web Domain"); ?>:<br> ' + f1 +' ?',
-                  type: 'warning',
+                  icon: 'warning',
                   showCancelButton: true,
                   confirmButtonColor: '#3085d6',
                   cancelButtonColor: '#d33',
                   confirmButtonText: '<?php echo __("Confirm"); ?>'
                 }).then((result) => {
                   if (result.value) {
-                    swal({
+                    Swal.fire({
                         title: '<?php echo __("Processing"); ?>',
                         text: '',
                         onOpen: function () {
@@ -409,16 +409,16 @@ foreach ($plugins as $result) {
                 })}
             function confirmUnsuspend(f2){
                 f2 = String(f2)
-                Swal({
+                Swal.fire({
                   title: '<?php echo __("Unsuspend Web Domain"); ?>:<br> ' + f2 +' ?',
-                  type: 'warning',
+                  icon: 'warning',
                   showCancelButton: true,
                   confirmButtonColor: '#3085d6',
                   cancelButtonColor: '#d33',
                   confirmButtonText: '<?php echo __("Confirm"); ?>'
                 }).then((result) => {
                   if (result.value) {
-                    swal({
+                    Swal.fire({
                         title: '<?php echo __("Processing"); ?>',
                         text: '',
                         onOpen: function () {
@@ -436,27 +436,27 @@ foreach ($plugins as $result) {
             
             $deltotal = $_POST['r1'] + $_POST['r2'] + $_POST['r3'];
             if(isset($_POST['r1']) && $deltotal == 0) {
-                echo "swal({title:'" . __("Successfully Deleted!") . "', type:'success'});";
+                echo "Swal.fire({title:'" . __("Successfully Deleted!") . "', icon:'success'});";
             } 
             if(isset($_POST['r1']) && $deltotal != 0) {
-                echo "swal({title:'" . __("Error Deleting Web Domain") . "', html:'" . __("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . ")</span>', type:'error'});";
+                echo "Swal.fire({title:'" . __("Error Deleting Web Domain") . "', html:'" . __("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . ")</span>', icon:'error'});";
             }
             $addtotal = $_POST['a1'] + $_POST['a2'] + $_POST['a3'] + $_POST['a4'] + $_POST['a5'] + $_POST['a6'] + $_POST['a7'] + $_POST['a8'];
             if(isset($_POST['a1']) && $addtotal == 0) {
-                echo "swal({title:'" . __("Successfully Created!") . "', type:'success'});";
+                echo "Swal.fire({title:'" . __("Successfully Created!") . "', icon:'success'});";
             } 
             if(isset($_POST['a1']) && $addtotal != 0) {
-                echo "swal({title:'" . __("Error Creating Web Domain") . "<br>"  . "(E: " . $_POST['a1'] . "." . $_POST['a2'] . "." . $_POST['a3'] . "." . $_POST['a4'] . "." . $_POST['a5'] . "." . $_POST['a6'] . "." . $_POST['a7'] . "." . $_POST['a8'] . ")" . __("Please try again or contact support.") . "<br><br>', type:'error'});";
+                echo "Swal.fire({title:'" . __("Error Creating Web Domain") . "<br>"  . "(E: " . $_POST['a1'] . "." . $_POST['a2'] . "." . $_POST['a3'] . "." . $_POST['a4'] . "." . $_POST['a5'] . "." . $_POST['a6'] . "." . $_POST['a7'] . "." . $_POST['a8'] . ")" . __("Please try again or contact support.") . "<br><br>', icon:'error'});";
             }
             if(isset($_POST['a1']) && $addtotal != 0) {
-                echo "swal({title:'" . __("Error Creating Web Domain") . "', html:'" . __("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(E: " . $_POST['a1'] . "." . $_POST['a2'] . "." . $_POST['a3'] . "." . $_POST['a4'] . "." . $_POST['a5'] . "." . $_POST['a6'] . "." . $_POST['a7'] . "." . $_POST['a8'] . ")</span>', type:'error'});";
+                echo "Swal.fire({title:'" . __("Error Creating Web Domain") . "', html:'" . __("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(E: " . $_POST['a1'] . "." . $_POST['a2'] . "." . $_POST['a3'] . "." . $_POST['a4'] . "." . $_POST['a5'] . "." . $_POST['a6'] . "." . $_POST['a7'] . "." . $_POST['a8'] . ")</span>', icon:'error'});";
             }
             
             if(isset($_POST['u1']) && $_POST['u1'] == 0) {
-                echo "swal({title:'" . __("Successfully Updated!") . "', type:'success'});";
+                echo "Swal.fire({title:'" . __("Successfully Updated!") . "', icon:'success'});";
             } 
             if(isset($_POST['u1']) && $_POST['u1'] != 0) {
-                echo "swal({title:'" . $errorcode[$_POST['u1']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
+                echo "Swal.fire({title:'" . $errorcode[$_POST['u1']] . "', html:'" . __("Please try again or contact support.") . "', icon:'error'});";
             }  
             ?>
         </script>

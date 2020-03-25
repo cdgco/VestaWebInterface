@@ -283,7 +283,7 @@ foreach ($plugins as $result) {
                 this.submit();
             });
             function processLoader(){
-                swal({
+                Swal.fire({
                     title: '<?php echo __("Processing"); ?>',
                     text: '',
                     onOpen: function () {
@@ -291,7 +291,7 @@ foreach ($plugins as $result) {
                     }
                 })};
             function loadLoader(){
-                swal({
+                Swal.fire({
                     title: '<?php echo __("Loading"); ?>',
                     text: '',
                     onOpen: function () {
@@ -301,19 +301,19 @@ foreach ($plugins as $result) {
             <?php 
             if($warningson == "all"){
                 if(isset($apienabled) && $apienabled == 'true') {
-                    echo "toast2({
+                    echo "toast2.fire({
                             title: '" . __("Feature Disabled") . "',
                             text: '" . __("Backup Exclusions are incompatible with API Key Authentication.") . "',
-                            type: 'error'
+                            icon: 'error'
                         });";
                 } 
             }
             elseif($warningson == "admin" && $initialusername == "admin"){
                 if(isset($apienabled) && $apienabled == 'true') {
-                    echo "toast2({
+                    echo "toast2.fire({
                             title: '" . __("Feature Disabled") . "',
                             text: '" . __("Backup Exclusions are incompatible with API Key Authentication.") . "',
-                            type: 'error'
+                            icon: 'error'
                         });";
 
                 } 

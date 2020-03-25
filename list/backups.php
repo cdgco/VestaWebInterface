@@ -133,7 +133,7 @@ foreach ($plugins as $result) {
                 }
 
                 async function getPassword(){
-                    swal({
+                    Swal.fire({
                         title: '<?php echo __("Confirm Password"); ?>',
                         html:
                         '<input type="hidden" form="download" name="user" value="<?php echo $username; ?>"/>' +
@@ -322,17 +322,17 @@ foreach ($plugins as $result) {
             });
             function confirmDelete(e){
                 e1 = String(e)
-                Swal({
+                Swal.fire({
                   title: '<?php echo __("Delete Backup"); ?>:<br> ' + e1 +' ?',
                   text: "<?php echo __("You won't be able to revert this!"); ?>",
-                  type: 'warning',
+                  icon: 'warning',
                   showCancelButton: true,
                   confirmButtonColor: '#3085d6',
                   cancelButtonColor: '#d33',
                   confirmButtonText: '<?php echo __("Yes, delete it!"); ?>'
                 }).then((result) => {
                   if (result.value) {
-                    swal({
+                    Swal.fire({
                         title: '<?php echo __("Processing"); ?>',
                         text: '',
                         onOpen: function () {
@@ -347,25 +347,25 @@ foreach ($plugins as $result) {
             includeScript();
             
             if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
+                echo "Swal.fire({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', icon:'error'});";
             }
             if(isset($_POST['delcode']) && $_POST['delcode'] == "0") {
-                echo "swal({title:'" . __("Successfully Deleted!") . "', type:'success'});";
+                echo "Swal.fire({title:'" . __("Successfully Deleted!") . "', icon:'success'});";
             } 
             if(isset($_POST['addcode']) && $_POST['addcode'] == "0") {
-                echo "swal({title:'" . __("Backup Scheduled!") . "', type:'success'});";
+                echo "Swal.fire({title:'" . __("Backup Scheduled!") . "', icon:'success'});";
             } 
             if(isset($_POST['restore']) && $_POST['restore'] == "0") {
-                echo "swal({title:'" . __("Restore Scheduled!") . "', type:'success'});";
+                echo "Swal.fire({title:'" . __("Restore Scheduled!") . "', icon:'success'});";
             } 
             if(isset($_POST['delcode']) && $_POST['delcode'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['delcode']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
+                echo "Swal.fire({title:'" . $errorcode[$_POST['delcode']] . "', html:'" . __("Please try again or contact support.") . "', icon:'error'});";
             }
             if(isset($_POST['addcode']) && $_POST['addcode'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['addcode']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
+                echo "Swal.fire({title:'" . $errorcode[$_POST['addcode']] . "', html:'" . __("Please try again or contact support.") . "', icon:'error'});";
             }
             if(isset($_POST['restore']) && $_POST['restore'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['restore']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
+                echo "Swal.fire({title:'" . $errorcode[$_POST['restore']] . "', html:'" . __("Please try again or contact support.") . "', icon:'error'});";
             }
             ?>
             <?php if(isset($_POST['download']) && $_POST['download'] == "yes") {    

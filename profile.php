@@ -138,16 +138,16 @@ foreach ($plugins as $result) {
         if(isset($answer1)) { $answer = (int)$answer1; }
         if(isset($pwcode) || isset($emailcode) || isset($langcode) || isset($nscode) || isset($namecode)){
         if($answer == "0") {
-        echo "<script> swal({title:'" . __("Successfully Updated!") . "', type:'success'})</script>";
+        echo "<script> Swal.fire({title:'" . __("Successfully Updated!") . "', icon:'success'})</script>";
         } 
-        if(isset($answer) && $answer == "1" || isset($answer) && $answer == "2") { echo "<script> swal('" . __("Invalid data entered in form.") . "<br>" .  __("Please try again.") . "', '<br>"; 
+        if(isset($answer) && $answer == "1" || isset($answer) && $answer == "2") { echo "<script> Swal.fire('" . __("Invalid data entered in form.") . "<br>" .  __("Please try again.") . "', '<br>"; 
         if(isset($pwcode) && $pwcode != "0"){ echo " P: " . $pwcode;}
         if(isset($emailcode) && $emailcode != "0"){ echo " E: " . $emailcode;}
         if(isset($langcode) && $langcode != "0"){ echo " L: " . $langcode;}
         if(isset($nscode) && $nscode != "0"){ echo " NS: " . $nscode;}
         if(isset($namecode) && $namecode != "0"){ echo " N: " . $namecode;}
         echo "', 'error')</script>";}
-        if(isset($answer) && $answer > "2") { echo "<script> swal('" . __("Please try again or contact support.") . "', '<br>"; 
+        if(isset($answer) && $answer > "2") { echo "<script> Swal.fire('" . __("Please try again or contact support.") . "', '<br>"; 
          if(isset($pwcode) && $pwcode != "0"){ echo " P: " . $pwcode;}
          if(isset($emailcode) && $emailcode != "0"){ echo " E: " . $emailcode;}
          if(isset($langcode) && $langcode != "0"){ echo " L: " . $langcode;}
@@ -448,7 +448,7 @@ foreach ($plugins as $result) {
                 this.submit();
             });
         function processLoader(){
-                swal({
+                Swal.fire({
                     title: '<?php echo __("Processing"); ?>',
                     text: '',
                     onOpen: function () {
@@ -456,7 +456,7 @@ foreach ($plugins as $result) {
                     }
                 })};
             function loadLoader(){
-                swal({
+                Swal.fire({
                     title: '<?php echo __("Loading"); ?>',
                     text: '',
                     onOpen: function () {
@@ -542,11 +542,11 @@ foreach ($plugins as $result) {
 
         $returntotal = $_POST['r1'] + $_POST['r2'] + $_POST['r3'] + $_POST['r4'] + $_POST['r5'];
         if(isset($_POST['r1']) && $returntotal == 0) {
-            echo "swal({title:'" . __("Successfully Updated!") . "', type:'success'});";
+            echo "Swal.fire({title:'" . __("Successfully Updated!") . "', icon:'success'});";
         } 
         
         if(isset($_POST['r1']) && $returntotal != 0) {
-                echo "swal({title:'" . __("Error Updating Profile") . "', html:'" . __("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . "." . $_POST['r4'] . "." . $_POST['r5'] . ")</span>', type:'error'});";
+                echo "Swal.fire({title:'" . __("Error Updating Profile") . "', html:'" . __("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . "." . $_POST['r4'] . "." . $_POST['r5'] . ")</span>', icon:'error'});";
             }
         
         ?>

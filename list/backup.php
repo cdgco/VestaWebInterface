@@ -320,17 +320,17 @@ foreach ($plugins as $result) {
             });
             function confirmDelete(e){
                 e1 = String(e)
-                Swal({
+                Swal.fire({
                   title: '<?php echo __("Delete Backup"); ?>:<br> <?php echo $requestbackup; ?>' + ' ?',
                   text: "<?php echo __("You won't be able to revert this!"); ?>",
-                  type: 'warning',
+                  icon: 'warning',
                   showCancelButton: true,
                   confirmButtonColor: '#3085d6',
                   cancelButtonColor: '#d33',
                   confirmButtonText: '<?php echo __("Yes, delete it!"); ?>'
                 }).then((result) => {
                   if (result.value) {
-                    swal({
+                    Swal.fire({
                         title: '<?php echo __("Processing"); ?>',
                         text: '',
                         onOpen: function () {
@@ -348,16 +348,16 @@ foreach ($plugins as $result) {
             $bkcode = $_GET['delcode'];
 
             if(isset($bkcode) && $bkcode == "0") {
-                echo "swal({title:'" . __("Successfully Deleted!") . "', type:'success'});";
+                echo "Swal.fire({title:'" . __("Successfully Deleted!") . "', icon:'success'});";
             } 
-            if(isset($dbcode) && $bkcode > "0") { echo "swal({title:'" . __("Please try again later or contact support.") . "', type:'error'});";}
+            if(isset($dbcode) && $bkcode > "0") { echo "Swal.fire({title:'" . __("Please try again later or contact support.") . "', icon:'error'});";}
 
             $addcode = $_GET['addcode'];
 
             if(isset($addcode) && $addcode == "0") {
-                echo "swal({title:'" . __("Backup Scheduled!") . "', type:'success'});";
+                echo "Swal.fire({title:'" . __("Backup Scheduled!") . "', icon:'success'});";
             } 
-            if(isset($addcode) && $addcode > "0") { echo "swal({title:'" . __("Please try again later or contact support.") . "', type:'error'});";}
+            if(isset($addcode) && $addcode > "0") { echo "Swal.fire({title:'" . __("Please try again later or contact support.") . "', icon:'error'});";}
             ?>
         </script>
     </body>

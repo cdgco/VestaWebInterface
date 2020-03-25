@@ -249,7 +249,7 @@ foreach ($plugins as $result) {
             includeScript(); ?>
 
             function loadLoader(){
-                swal({
+                Swal.fire({
                     title: '<?php echo __("Loading"); ?>',
                     text: '',
                     onOpen: function () {

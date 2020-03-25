@@ -1,0 +1,58 @@
+{
+  "name": "vesta-web-interface",
+  "version": "2.0.0",
+  "description": "PHP interface for VestaCP, providing a beautiful UI, UX, features & integrations.",
+  "main": "js/main.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "postinstall": "sudo bash move.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cdgco/VestaWebInterface.git"
+  },
+  "keywords": [
+    "vestacp",
+    "cloudflare",
+    "php",
+    "interface",
+    "control-panel",
+    "php-interface",
+    "admin-panel",
+    "theme"
+  ],
+  "author": "Carter Roeser <carter@cdgtech.one>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/cdgco/VestaWebInterface/issues"
+  },
+  "homepage": "https://github.com/cdgco/VestaWebInterface#readme",
+  "private": true,
+  "dependencies": {
+    "PHPMailer": "https://github.com/PHPMailer/PHPMailer",
+    "animate.css": "latest",
+    "bootstrap": "3",
+    "bootstrap-colorpicker": "2.5.3",
+    "bootstrap-datepicker": "uxsolutions/bootstrap-datepicker#latest",
+    "bootstrap-select": "^1.13.1",
+    "bootstrapvalidator": "latest",
+    "font-awesome": "4.7.0",
+    "footable-v3": "^1.0.0",
+    "hotkeys-js": "latest",
+    "jquery": "2.2.4",
+    "jquery-overlaps": "https://github.com/brandonaaron/jquery-overlaps",
+    "jquery-slimscroll": "latest",
+    "metismenu": "latest",
+    "moment": "latest",
+    "node-waves": "^0.7.6",
+    "popper.js": "latest",
+    "select2": "latest",
+    "sweetalert2": "latest",
+    "themify-icons": "https://github.com/lykmapipo/themify-icons"
+  },
+  "engines": {
+    "yarn": ">= 1.0.0"
+  }
+}

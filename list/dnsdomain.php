@@ -372,17 +372,17 @@ foreach ($plugins as $result) {
             function confirmDelete(e){
                 e1 = String(e)
                 e0 = '<?php print_r($requestdns); ?>';
-                Swal({
+                Swal.fire({
                   title: '<?php echo __("Delete DNS Record"); ?><br> #' + e1 +' ?',
                   text: "<?php echo __("You won't be able to revert this!"); ?>",
-                  type: 'warning',
+                  icon: 'warning',
                   showCancelButton: true,
                   confirmButtonColor: '#3085d6',
                   cancelButtonColor: '#d33',
                   confirmButtonText: '<?php echo __("Yes, delete it!"); ?>'
                 }).then((result) => {
                   if (result.value) {
-                    swal({
+                    Swal.fire({
                         title: '<?php echo __("Processing"); ?>',
                         text: '',
                         onOpen: function () {
@@ -393,17 +393,17 @@ foreach ($plugins as $result) {
                   }
                 })}
             function confirmDelete2(){
-                Swal({
+                Swal.fire({
                  title: '<?php echo __("Delete DNS Domain"); ?>:<br> <?php echo $requestdns; ?>' + ' ?',
                         text: "<?php echo __("You won't be able to revert this!"); ?>",
-                  type: 'warning',
+                  icon: 'warning',
                   showCancelButton: true,
                   confirmButtonColor: '#3085d6',
                   cancelButtonColor: '#d33',
                   confirmButtonText: '<?php echo __("Yes, delete it!"); ?>'
                 }).then((result) => {
                   if (result.value) {
-                    swal({
+                    Swal.fire({
                         title: '<?php echo __("Processing"); ?>',
                         text: '',
                         onOpen: function () {
@@ -419,19 +419,19 @@ foreach ($plugins as $result) {
             includeScript();
             
                 if(isset($_GET['error']) && $_GET['error'] == "1") {
-                echo "swal({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
+                echo "Swal.fire({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', icon:'error'});";
             }
                 if(isset($_POST['delcode']) && $_POST['delcode'] == "0") {
-                    echo "swal({title:'" . __("Successfully Deleted!") . "', type:'success'});";
+                    echo "Swal.fire({title:'" . __("Successfully Deleted!") . "', icon:'success'});";
                 } 
                 if(isset($_POST['addcode']) && $_POST['addcode'] == "0") {
-                    echo "swal({title:'" . __("Successfully Created!") . "', type:'success'});";
+                    echo "Swal.fire({title:'" . __("Successfully Created!") . "', icon:'success'});";
                 } 
                 if(isset($_POST['delcode']) && $_POST['delcode'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['delcode']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
+                echo "Swal.fire({title:'" . $errorcode[$_POST['delcode']] . "', html:'" . __("Please try again or contact support.") . "', icon:'error'});";
             }
             if(isset($_POST['addcode']) && $_POST['addcode'] > "0") {
-                echo "swal({title:'" . $errorcode[$_POST['addcode']] . "', html:'" . __("Please try again or contact support.") . "', type:'error'});";
+                echo "Swal.fire({title:'" . $errorcode[$_POST['addcode']] . "', html:'" . __("Please try again or contact support.") . "', icon:'error'});";
             }
 
                 ?>
