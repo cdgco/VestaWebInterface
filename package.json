@@ -37,7 +37,7 @@
     "bootstrap-colorpicker": "2.5.3",
     "bootstrap-datepicker": "uxsolutions/bootstrap-datepicker#latest",
     "bootstrap-select": "^1.13.1",
-    "bootstrapvalidator": "latest",
+    "bootstrapvalidator": "^0.5.4",
     "font-awesome": "4.7.0",
     "footable-v3": "^1.0.0",
     "hotkeys-js": "latest",
