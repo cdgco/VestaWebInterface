@@ -455,7 +455,7 @@ function primaryMenu($l4, $l5, $a2) {
         if ($supporturl != '') { echo '<li><a href="' . $supporturl . '" class="waves-effect" target="_blank"> <i class="fa fa-life-ring fa-fw"></i> <span class="hide-menu">' . __("Support") . '</span></a></li>'; }
 }
 function processPlugins() {
-    global $configlocation; global $pluginnames; global $pluginhide; global $pluginnewtab; global $pluginsections; global $pluginicons; global $pluginlinks;
+    global $configlocation; global $pluginnames; global $pluginhide; global $pluginnewtab; global $pluginsections; global $pluginicons; global $pluginlinks; global $username;
     $pluginlocation = $configlocation . '../plugins/';
     if(isset($pluginnames[0]) && $pluginnames[0] != '') { 
     $curplg = 0; 
