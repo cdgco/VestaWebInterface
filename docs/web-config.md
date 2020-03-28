@@ -39,7 +39,10 @@ localhost / 127.0.0.1, web addresses and IP addresses are acceptable hosts.
 * Icon: Control Panel Icon. Read [Branding section](branding) for more info.
 * Logo: Control Panel Logo. Read [Branding section](branding) for more info.
 * Favicon: Control Panel Favicon. Read [Branding section](branding) for more info.
-
+* Headeer Ad: HTML Ad to display on all page headers.
+* Footer Ad: HTML Ad to display on all page footers.
+* Show Ads to Admin: Choose whether or not to display ads to Admin user. 'true' or 'false'.
+* Custom Script: Javascript code to include on all pages.
 
 #### Enable / Disable Sections
 
