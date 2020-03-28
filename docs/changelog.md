@@ -1,11 +1,21 @@
 ## Changelog
 
+### v2.1.0
+
+Bug Fixes
+Dependencies
+Plugin System Upgrades
+Custom Ad Support
+Custom Script Support
+Add support for PHP 5.4+
+
 ### v2.0.0
 Bug Fixes<br>
 Dependencies<br>
 Locale System Upgrade<br>
 Translations<br>
 Encrypt Credentials
+Bump Mimimum PHP to 7.1
 
 ### v1.0.1
 Bug Fixes<br>

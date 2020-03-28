@@ -1,4 +1,4 @@
-# Vesta Web Interface v2.0.0
+# Vesta Web Interface v2.1.0
 
 > A PHP Control Panel for VestaCP 
 
