@@ -91,7 +91,11 @@ INSERT INTO `vwi_config` (`VARIABLE`, `VALUE`) VALUES
 ('CLOUDFLARE_API_KEY', ''),
 ('CLOUDFLARE_EMAIL', ''),
 ('CUSTOM_THEME_PRIMARY', ''),
-('CUSTOM_THEME_SECONDARY', '');
+('CUSTOM_THEME_SECONDARY', ''),
+('HEADER_AD', ''),
+('FOOTER_AD', '')
+('ADMIN_ADS', 'true'),
+('EXT_SCRIPT', '');
 COMMIT;
 ```
 
@@ -149,14 +153,17 @@ Ex: 'mydomain.com' or '8.8.8.8'.
 * VESTA\_METHOD: Choose whether to use an API Key or username and password for API authentication. 'api' or 'credentials'.
 * VESTA\_API\_KEY: VestaCP generated API Key if 'api' enabled.
 * VESTA\_ADMIN\_UNAME: Username of the VestaCP admin account if 'credentials' enabled. 'admin' by default.
-* VESTA_ADMIN_PW: Password for VestaCP admin account if 'credentials' enabled.
-* KEY1: Encryption Key. Replace with random string.
-* KEY2: Encryption Key. Replace with random string.
+* VESTA_ADMIN_PW: AES-256-CBC encrypted password for VestaCP admin account if 'credentials' enabled. Uses encryption keys stored in config.php (KEY3 & KEY4).
+* KEY1: Encryption Key for backend authentication. Replace with random string.
+* KEY2: Encryption Key for backend authentication. Replace with random string.
 * WARNINGS_ENABLED: Choose who should see warning messages about server connection and security issues. Accepted values: 'none', 'admin' and 'all'.
 * ICON: Path to icon from plugins/images folder.  Read [Branding section](branding) for more info.
 * LOGO: Path to logo from plugins/images folder.  Read [Branding section](branding) for more info.
 * FAVICON: Path to favicon from plugins/images folder.  Read [Branding section](branding) for more info.
-
+* HEADER_AD: HTML Ad to display on all page headers.
+* FOOTER_AD: HTML Ad to display on all page footers.
+* ADMIN_ADS: Choose whether or not to display ads to Admin user. 'true' or 'false'.
+* EXT_SCRIPT: Javascript code to include on all pages.
 
 #### Enable / Disable Sections
 * WEB\_ENABLED: Enter 'true' or 'false'. If 'false', hides all web domains and control to web domain settings. Case sensitive.
