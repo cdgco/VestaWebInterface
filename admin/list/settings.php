@@ -121,7 +121,7 @@ foreach ($plugins as $result) {
         <![endif]-->
     </head>
 
-    <body class="fix-header" onload="checkDiv();checkDiv1();checkDiv2();checkDiv3();checkDiv4();">
+    <body class="fix-header" onload="checkDiv();checkDiv1();checkDiv2();checkDiv3();checkDiv4();checkDiv5();">
         <div class="preloader">
             <svg class="circular" viewBox="25 25 50 50">
                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
@@ -191,6 +191,7 @@ foreach ($plugins as $result) {
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                             <h4 class="page-title"><?php echo __("Edit Panel Settings"); ?></h4>
                         </div>
+                        <?php headerad(); ?>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
@@ -401,7 +402,7 @@ foreach ($plugins as $result) {
                                             <div class="col-md-12">
                                                 <input id="textinput2" name="FOOTER" type="text" value="<?php echo htmlspecialchars($config["FOOTER"]); ?>" class="form-control input-md">
                                             </div>
-                                    </div>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo __("VWI Branding in Footer"); ?></label>
@@ -564,7 +565,48 @@ foreach ($plugins as $result) {
                                             <span class="help-block"><?php echo __("Recommended 134x24px .png or .gif. (.png, .gif, .jpg, and .jpeg up to 1MB allowed.)"); ?></span>  
                                         </div>
                                     </div>
-                                    
+                                    <div class="form-group">
+                                        <label class="col-md-12"><?php echo __("Advertising"); ?></label>
+                                        <div class="col-md-12">
+                                            <div class="radio-info">
+                                            <label class="radio-inline"><input id="adsenabled" onclick="checkDiv5();" value="true" type="radio" name="ADS" <?php if($config["HEADER_AD"] != '' || $config["FOOTER_AD"] != ''){ echo 'checked'; } ?>/><?php echo __("Enabled"); ?></label>
+                                            <label class="radio-inline"><input onclick="checkDiv5();" value="false" id="adsenabledfalse" type="radio" name="ADS" <?php if(($config["HEADER_AD"] == '' && $config["FOOTER_AD"]== '') || (!isset($config["HEADER_AD"]) || !isset($config["FOOTER_AD"]))){ echo 'checked'; } ?>/><?php echo __("Disabled"); ?></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="adshide" style="margin-left: 4%;">
+                                        <div class="form-group">
+                                            <label class="col-md-12"><?php echo __("Header Ad"); ?></label>
+                                            <div class="col-md-12">
+                                                <textarea class="form-control" name="HEADER_AD" rows="3"><?php echo htmlspecialchars($config["HEADER_AD"]); ?></textarea>
+                                                <small class="form-text text-muted"><?php echo __("Enter ad code in HTML format only."); ?></small>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12"><?php echo __("Footer Ad"); ?></label>
+                                            <div class="col-md-12">
+                                                <textarea class="form-control" name="FOOTER_AD" rows="3"><?php echo htmlspecialchars($config["FOOTER_AD"]); ?></textarea>
+                                                <small class="form-text text-muted"><?php echo __("Enter ad code in HTML format only."); ?></small>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12"><?php echo __("Show Ads to Admin"); ?></label>
+                                            <div class="col-md-12">
+                                                <div class="radio-info">
+                                                <label class="radio-inline"><input value="true" type="radio" name="ADMIN_ADS" <?php if($config["ADMIN_ADS"] == 'true'){ echo 'checked'; } ?>/><?php echo __("Enabled"); ?></label>
+                                                <label class="radio-inline"><input value="false" type="radio" name="ADMIN_ADS" <?php if($config["ADMIN_ADS"] != 'true'){ echo 'checked'; } ?>/><?php echo __("Disabled"); ?></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12"><?php echo __("Custom Scripts"); ?></label>
+                                        <div class="col-md-12">
+                                            <textarea class="form-control" name="EXT_SCRIPT" rows="3"><?php echo htmlspecialchars($config["EXT_SCRIPT"]); ?></textarea>
+                                            <small class="form-text text-muted"><?php echo __("Enter script code in javascript only. Do not include ") . htmlspecialchars("<script>") . __(" tags."); ?></small>
+                                        </div>
+                                    </div>
+
                                     <br><h3><?php echo __("Enable / Disable Sections"); ?></h3><br><hr><br>
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo __("Web Enabled"); ?></label>
@@ -855,7 +897,7 @@ foreach ($plugins as $result) {
                     function exitForm() { window.location.href="../list/users.php"; };
                 </script>
                 <?php hotkeys($configlocation); ?>
-                <footer class="footer text-center"><?php footer(); ?></footer>
+                <?php footerad(); ?><footer class="footer text-center"><?php footer(); ?></footer>
             </div>
         </div>
         <script src="../../plugins/components/jquery/jquery.min.js"></script>
@@ -920,6 +962,12 @@ foreach ($plugins as $result) {
                     document.getElementById('customfooter').style.display = 'block';
                 }
                 else {document.getElementById('customfooter').style.display = 'none';}
+            } 
+            function checkDiv5(){
+                if(document.getElementById("adsenabled").checked) {
+                    document.getElementById('adshide').style.display = 'block';
+                }
+                else {document.getElementById('adshide').style.display = 'none';}
             } 
             $(function () {
                 var color = $("#themeselect").val();

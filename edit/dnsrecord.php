@@ -217,6 +217,7 @@ foreach ($plugins as $result) {
                                 </a>
                             </li>
                         </ul>
+                        <?php headerad(); ?>
                     </div>
                     <div class="row restwo">
                         <div class="col-lg-4 col-md-6 col-sm-12">
@@ -331,7 +332,7 @@ foreach ($plugins as $result) {
                     function exitForm() { window.location.href="../list/dnsdomain.php?domain=<?php echo $requestdns; ?>"; };
                 </script>
                 <?php hotkeys($configlocation); ?>
-                <footer class="footer text-center"><?php footer(); ?></footer>
+                <?php footerad(); ?><footer class="footer text-center"><?php footer(); ?></footer>
             </div>
         </div>
         <script src="../plugins/components/jquery/jquery.min.js"></script>

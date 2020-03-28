@@ -174,6 +174,7 @@ foreach ($plugins as $result) {
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                             <h4 class="page-title"><?php echo __("View Configuration / PHP"); ?></h4>
                         </div>
+                        <?php headerad(); ?>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
@@ -235,7 +236,7 @@ foreach ($plugins as $result) {
                     function exitForm() { window.location.href="../list/server.php"; };
                 </script>
                 <?php hotkeys($configlocation); ?>
-                <footer class="footer text-center"><?php footer(); ?></footer>
+                <?php footerad(); ?><footer class="footer text-center"><?php footer(); ?></footer>
             </div>
         </div>
         <script src="../../plugins/components/jquery/jquery.min.js"></script>

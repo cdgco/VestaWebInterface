@@ -221,6 +221,7 @@ foreach ($plugins as $result) {
                                 </a>
                             </li>
                         </ul>
+                        <?php headerad(); ?>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
@@ -288,7 +289,7 @@ foreach ($plugins as $result) {
                     function exitForm() { window.location.href="../list/cfdomain.php?domain=<?php echo $recorddata["zone_name"]; ?>"; };
                 </script>
                 <?php hotkeys($configlocation); ?>
-                <footer class="footer text-center"><?php footer(); ?></footer>
+                <?php footerad(); ?><footer class="footer text-center"><?php footer(); ?></footer>
             </div>
         </div>
         <script src="../plugins/components/jquery/jquery.min.js"></script>

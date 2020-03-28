@@ -485,7 +485,11 @@ function processPlugins() {
 }
 
 function includeScript() {
-    global $configlocation; global $mysqldown; global $initialusername; global $warningson;
+    global $configlocation; global $mysqldown; global $initialusername; global $warningson; global $config;
+
+    if(isset($config["EXT_SCRIPT"]) && $config["EXT_SCRIPT"] != '') {
+        echo $config["EXT_SCRIPT"];
+    }
     echo 'const toast1 = Swal.mixin({
               toast: true,
               position: "top-end",
@@ -722,6 +726,18 @@ function footer() {
         echo ' ' . __("Vesta Web Interface") . ' ';
         require $configlocation . 'versioncheck.php';
         echo ' ' . __("by Carter Roeser") . '.';
+    }
+}
+function headerad() {
+    global $config; global $username;
+    if((isset($config["HEADER_AD"]) && $config["HEADER_AD"] != '') && (isset($config["ADMIN_ADS"]) && $config["ADMIN_ADS"] == 'true') && $username == 'admin') {
+        echo '<center>' . $config["HEADER_AD"] . '</center>';
+    }
+}
+function footerad() {
+    global $config; global $username;
+    if((isset($config["FOOTER_AD"]) && $config["FOOTER_AD"] != '') && (isset($config["ADMIN_ADS"]) && $config["ADMIN_ADS"] == 'true') && $username == 'admin') {
+        echo '<center>' . $config["FOOTER_AD"] . '</center>';
     }
 }
 function checkService($requestedService) {

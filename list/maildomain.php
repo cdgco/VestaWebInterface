@@ -204,6 +204,7 @@ foreach ($plugins as $result) {
                                 </a>
                             </li>
                         </ul>
+                        <?php headerad(); ?>
                     </div>
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
@@ -291,7 +292,7 @@ foreach ($plugins as $result) {
                     function addNewObj() { window.location.href="../add/mailaccount.php?domain=<?php echo $requestmail; ?>"; };
                 </script>
                 <?php hotkeys($configlocation); ?>
-                <footer class="footer text-center"><?php footer(); ?></footer>
+                <?php footerad(); ?><footer class="footer text-center"><?php footer(); ?></footer>
             </div>
         </div>
         <script src="../plugins/components/jquery/jquery.min.js"></script>

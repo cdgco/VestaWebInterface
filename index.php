@@ -270,6 +270,7 @@ foreach ($plugins as $result) {
                                 <button type="button" onclick='document.getElementById("rebuildform").submit();Swal.fire({title: "<?php echo __('Processing'); ?>", text: "",timer: 5000,onOpen: function () {swal.showLoading();}}).then(function () {},function (dismiss) {if (dismiss === "timer") {}})' class=" pull-right btn waves-effect waves-light color-button" style="left: -2px;"><i class="ti-angle-right"></i></button>
                             </div>
                         </div>
+                        <?php headerad(); ?>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
@@ -838,8 +839,9 @@ foreach ($plugins as $result) {
                             </div>
                         </div>
                     </div>
+                    <br>
                     <?php hotkeys($configlocation); ?>
-                    <footer class="footer text-center"><?php footer(); ?></footer>
+                    <?php footerad(); ?><footer class="footer text-center"><?php footer(); ?></footer>
                 </div>
             </div>
         </div>

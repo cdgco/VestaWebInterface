@@ -210,6 +210,7 @@ foreach ($plugins as $result) {
                                 <button type="button" onclick='document.getElementById("pageform").submit();Swal.fire({title: "<?php echo __('Processing'); ?>", text: "",timer: 5000,onOpen: function () {swal.showLoading();}}).then(function () {},function (dismiss) {if (dismiss === "timer") {}})' class="pull-right btn waves-effect waves-light color-button"><i class="ti-angle-right"></i></button>
                             </div>
                         </div>
+                        <?php headerad(); ?>
                     </div>
                     <div class="row">
                         <div>
@@ -226,7 +227,7 @@ foreach ($plugins as $result) {
                     </div>
                 </div>
                 <?php hotkeys($configlocation); ?>
-                <footer class="footer text-center"><?php footer(); ?></footer>
+                <?php footerad(); ?><footer class="footer text-center"><?php footer(); ?></footer>
             </div>
         </div>
         <script src="../plugins/components/jquery/jquery.min.js"></script>

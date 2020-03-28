@@ -217,6 +217,35 @@ if(isset($_POST['resetdefault']) && $_POST['resetdefault'] != 'yes') {
         } } 
         else { $r1 = $r1 + 1; }
        }
+    if(isset($_POST['HEADER_AD']) && $config["HEADER_AD"] != $_POST['HEADER_AD']) { 
+        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
+        $v22 = mysqli_real_escape_string($conn, $_POST['HEADER_AD']);
+        $sql35 = "UPDATE ".$mysql_table."config SET `VALUE` = '".$v22."' WHERE `VARIABLE` = 'HEADER_AD';";
+        if (mysqli_query($conn, $sql35)) {} else { $r1 = $r1 + 1; }
+        mysqli_close($conn);
+    }
+    if(isset($_POST['FOOTER_AD']) && $config["FOOTER_AD"] != $_POST['FOOTER_AD']) { 
+        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
+        $v23 = mysqli_real_escape_string($conn, $_POST['FOOTER_AD']);
+        $sql36 = "UPDATE ".$mysql_table."config SET `VALUE` = '".$v23."' WHERE `VARIABLE` = 'FOOTER_AD';";
+        if (mysqli_query($conn, $sql36)) {} else { $r1 = $r1 + 1; }
+        mysqli_close($conn);
+    }
+    if(isset($_POST['ADMIN_ADS']) && $config["ADMIN_ADS"] != $_POST['ADMIN_ADS']) { 
+        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
+        $v24 = mysqli_real_escape_string($conn, $_POST['ADMIN_ADS']);
+        $sql37 = "UPDATE ".$mysql_table."config SET `VALUE` = '".$v24."' WHERE `VARIABLE` = 'ADMIN_ADS';";
+        if (mysqli_query($conn, $sql37)) {} else { $r1 = $r1 + 1; }
+        mysqli_close($conn);
+    }
+    if(isset($_POST['EXT_SCRIPT']) && $key2 != $_POST['EXT_SCRIPT']) { 
+        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
+        $v25 = mysqli_real_escape_string($conn, $_POST['EXT_SCRIPT']);
+        $sql38 = "UPDATE ".$mysql_table."config SET `VALUE` = '".$v25."' WHERE `VARIABLE` = 'EXT_SCRIPT';";
+        if (mysqli_query($conn, $sql38)) {} else { $r1 = $r1 + 1; }
+        mysqli_close($conn);
+    }
+
     if(isset($_POST['ENABLE_WEB']) && $config["WEB_ENABLED"] != $_POST['ENABLE_WEB']) {
         $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
         $d5 = mysqli_real_escape_string($conn, $_POST['ENABLE_WEB']);

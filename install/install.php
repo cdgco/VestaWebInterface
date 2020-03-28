@@ -169,7 +169,11 @@ $sql3 = "INSERT INTO `".$mysql_table."config` (`VARIABLE`, `VALUE`) VALUES
 ('CLOUDFLARE_API_KEY', '".$v16."'),
 ('CLOUDFLARE_EMAIL', '".$v17."'),
 ('CUSTOM_THEME_PRIMARY', ''),
-('CUSTOM_THEME_SECONDARY', '');";
+('CUSTOM_THEME_SECONDARY', ''),
+('HEADER_AD', ''),
+('FOOTER_AD', ''),
+('ADMIN_ADS', 'true').
+('EXT_SCRIPT', '');";
 
 if (mysqli_query($con, $sql3)) {} else { echo "Error populating table: " . mysqli_error($con); }
 
