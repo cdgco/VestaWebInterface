@@ -44,10 +44,11 @@ class ExpressionLanguage
      * Compiles an expression source code.
      *
      * @param Expression|string $expression The expression to compile
+     * @param array             $names      An array of valid names
      *
      * @return string The compiled PHP source code
      */
-    public function compile($expression, array $names = [])
+    public function compile($expression, $names = [])
     {
         return $this->getCompiler()->compile($this->parse($expression, $names)->getNodes())->getSource();
     }
@@ -56,10 +57,11 @@ class ExpressionLanguage
      * Evaluate an expression.
      *
      * @param Expression|string $expression The expression to compile
+     * @param array             $values     An array of values
      *
      * @return mixed The result of the evaluation of the expression
      */
-    public function evaluate($expression, array $values = [])
+    public function evaluate($expression, $values = [])
     {
         return $this->parse($expression, array_keys($values))->getNodes()->evaluate($this->functions, $values);
     }
@@ -68,10 +70,11 @@ class ExpressionLanguage
      * Parses an expression.
      *
      * @param Expression|string $expression The expression to parse
+     * @param array             $names      An array of valid names
      *
      * @return ParsedExpression A ParsedExpression instance
      */
-    public function parse($expression, array $names)
+    public function parse($expression, $names)
     {
         if ($expression instanceof ParsedExpression) {
             return $expression;
@@ -100,6 +103,7 @@ class ExpressionLanguage
     /**
      * Registers a function.
      *
+     * @param string   $name      The function name
      * @param callable $compiler  A callable able to compile the function
      * @param callable $evaluator A callable able to evaluate the function
      *
@@ -107,7 +111,7 @@ class ExpressionLanguage
      *
      * @see ExpressionFunction
      */
-    public function register(string $name, callable $compiler, callable $evaluator)
+    public function register($name, callable $compiler, callable $evaluator)
     {
         if (null !== $this->parser) {
             throw new \LogicException('Registering functions after calling evaluate(), compile() or parse() is not supported.');

@@ -84,7 +84,7 @@ class BinaryNode extends Node
         ;
     }
 
-    public function evaluate(array $functions, array $values)
+    public function evaluate($functions, $values)
     {
         $operator = $this->attributes['operator'];
         $left = $this->nodes['left']->evaluate($functions, $values);
@@ -148,13 +148,13 @@ class BinaryNode extends Node
                 return $left * $right;
             case '/':
                 if (0 == $right) {
-                    throw new \DivisionByZeroError('Division by zero');
+                    throw new \DivisionByZeroError('Division by zero.');
                 }
 
                 return $left / $right;
             case '%':
                 if (0 == $right) {
-                    throw new \DivisionByZeroError('Modulo by zero');
+                    throw new \DivisionByZeroError('Modulo by zero.');
                 }
 
                 return $left % $right;

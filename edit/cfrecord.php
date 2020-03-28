@@ -22,7 +22,7 @@
 *
 */
 
-session_start();
+session_set_cookie_params(['samesite' => 'none']); session_start();
 $configlocation = "../includes/";
 
 // Include settings & variables

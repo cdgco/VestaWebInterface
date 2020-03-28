@@ -41,7 +41,7 @@ abstract class AbstractAdapter implements AdapterInterface, CacheInterface, Logg
     {
         $this->namespace = '' === $namespace ? '' : CacheItem::validateKey($namespace).static::NS_SEPARATOR;
         if (null !== $this->maxIdLength && \strlen($namespace) > $this->maxIdLength - 24) {
-            throw new InvalidArgumentException(sprintf('Namespace must be %d chars max, %d given ("%s")', $this->maxIdLength - 24, \strlen($namespace), $namespace));
+            throw new InvalidArgumentException(sprintf('Namespace must be %d chars max, %d given ("%s").', $this->maxIdLength - 24, \strlen($namespace), $namespace));
         }
         $this->createCacheItem = \Closure::bind(
             static function ($key, $value, $isHit) use ($defaultLifetime) {
@@ -131,7 +131,7 @@ abstract class AbstractAdapter implements AdapterInterface, CacheInterface, Logg
             return MemcachedAdapter::createConnection($dsn, $options);
         }
 
-        throw new InvalidArgumentException(sprintf('Unsupported DSN: %s.', $dsn));
+        throw new InvalidArgumentException(sprintf('Unsupported DSN: "%s".', $dsn));
     }
 
     /**

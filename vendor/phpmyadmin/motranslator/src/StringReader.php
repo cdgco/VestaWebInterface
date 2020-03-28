@@ -19,15 +19,8 @@
     with this program; if not, write to the Free Software Foundation, Inc.,
     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
-declare(strict_types=1);
 
 namespace PhpMyAdmin\MoTranslator;
-
-use function file_get_contents;
-use function strlen;
-use function substr;
-use function unpack;
-use const PHP_INT_MAX;
 
 /**
  * Simple wrapper around string buffer for
@@ -35,16 +28,18 @@ use const PHP_INT_MAX;
  */
 class StringReader
 {
-    private $string;
-    private $length;
+    private $_str;
+    private $_len;
 
     /**
+     * Constructor.
+     *
      * @param string $filename Name of file to load
      */
     public function __construct($filename)
     {
-        $this->string = (string) file_get_contents($filename);
-        $this->length = strlen($this->string);
+        $this->_str = file_get_contents($filename);
+        $this->_len = strlen($this->_str);
     }
 
     /**
@@ -57,11 +52,11 @@ class StringReader
      */
     public function read($pos, $bytes)
     {
-        if ($pos + $bytes > $this->length) {
+        if ($pos + $bytes > $this->_len) {
             throw new ReaderException('Not enough bytes!');
         }
 
-        return substr($this->string, $pos, $bytes);
+        return substr($this->_str, $pos, $bytes);
     }
 
     /**

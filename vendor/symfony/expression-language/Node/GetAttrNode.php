@@ -64,7 +64,7 @@ class GetAttrNode extends Node
         }
     }
 
-    public function evaluate(array $functions, array $values)
+    public function evaluate($functions, $values)
     {
         switch ($this->attributes['type']) {
             case self::PROPERTY_CALL:

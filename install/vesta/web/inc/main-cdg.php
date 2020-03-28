@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+session_set_cookie_params(['samesite' => 'none']); session_start();
 
 define('VESTA_CMD', '/usr/bin/sudo /usr/local/vesta/bin/');
 define('JS_LATEST_UPDATE', '1491697868');
@@ -36,7 +36,7 @@ if(!isset($_SESSION['user_combined_ip'])){
 // Checking user to use session from the same IP he has been logged in
 if($_SESSION['user_combined_ip'] != $user_combined_ip && $_SERVER['REMOTE_ADDR'] != '127.0.0.1'){
     session_destroy();
-    session_start();
+    session_set_cookie_params(['samesite' => 'none']); session_start();
     $_SESSION['request_uri'] = $_SERVER['REQUEST_URI'];
     header("Location: /login/");
     exit;
@@ -45,7 +45,7 @@ if($_SESSION['user_combined_ip'] != $user_combined_ip && $_SERVER['REMOTE_ADDR']
 // Check system settings
 if ((!isset($_SESSION['VERSION'])) && (!defined('NO_AUTH_REQUIRED'))) {
     session_destroy();
-    session_start();
+    session_set_cookie_params(['samesite' => 'none']); session_start();
     $_SESSION['request_uri'] = $_SERVER['REQUEST_URI'];
     header("Location: /login/");
     exit;

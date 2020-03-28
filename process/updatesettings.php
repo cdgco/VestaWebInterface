@@ -22,7 +22,7 @@
 *
 */
 
-session_start();
+session_set_cookie_params(['samesite' => 'none']); session_start();
 $configlocation = "../includes/";
 if (file_exists( '../includes/config.php' )) { require( '../includes/includes.php'); }  else { header( 'Location: ../install' ); exit(); };
 if(base64_decode($_SESSION['loggedin']) == 'true') {}
@@ -112,7 +112,7 @@ if($ns1 != $_POST['ns1-x'] || $ns2 != $_POST['ns2-x'] || $ns3 != $_POST['ns3-x']
 }
 else{$r5 = '0';}
 if(isset($cookie)){
-    setcookie("theme", base64_encode($_POST["cookie"] . ".css"), time() + (10 * 365 * 24 * 60 * 60), '/');
+    setcookie("theme", base64_encode($_POST["cookie"] . ".css"), time() + (10 * 365 * 24 * 60 * 60), '/; samesite=none');
 }
 ?>
 <!DOCTYPE html>

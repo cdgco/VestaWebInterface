@@ -1,5 +1,5 @@
 {
     "require": {
-        "phpmyadmin/motranslator": "^5.0"
+        "phpmyadmin/motranslator": "4.0"
     }
 }

@@ -22,7 +22,7 @@
 *
 */
 
-session_start();
+session_set_cookie_params(['samesite' => 'none']); session_start();
 
 $configlocation = "includes/";
 if (file_exists( 'includes/config.php' )) { require 'includes/includes.php'; }  else { header( 'Location: install' );  exit(); }
@@ -40,7 +40,7 @@ curl_setopt($curlx, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($curlx, CURLOPT_POST, true);
 curl_setopt($curlx, CURLOPT_POSTFIELDS, http_build_query($postvarsx));
 $serverconnection = array_values(json_decode(curl_exec($curlx), true))[0]['OS'];
-if(!isset($serverconnection)) { unset($_SESSION['username']); setcookie('username', null, -1, '/'); unset($_SESSION['loggedin']); setcookie('loggedin', null, -1, '/'); header('Location: login.php'); exit;}
+if(!isset($serverconnection)) { unset($_SESSION['username']); setcookie('username', null, -1, '/; samesite=none'); unset($_SESSION['loggedin']); setcookie('loggedin', null, -1, '/; samesite=none'); header('Location: login.php'); exit;}
 
 $postvars = array(
     array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-user','arg1' => $username,'arg2' => 'json'),

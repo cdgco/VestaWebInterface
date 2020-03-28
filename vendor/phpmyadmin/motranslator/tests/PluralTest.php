@@ -1,10 +1,7 @@
 <?php
+
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-declare(strict_types=1);
 
-namespace PhpMyAdmin\MoTranslator\Tests;
-
-use PhpMyAdmin\MoTranslator\Translator;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -18,11 +15,12 @@ class PluralTest extends TestCase
      * @param int    $number   Number
      * @param string $expected Expected output
      *
+     *
      * @dataProvider providerTestNpgettext
      */
     public function testNpgettext($number, $expected)
     {
-        $parser = new Translator('');
+        $parser = new PhpMyAdmin\MoTranslator\Translator(null);
         $result = $parser->npgettext(
             'context',
             "%d pig went to the market\n",
@@ -39,15 +37,9 @@ class PluralTest extends TestCase
      */
     public static function providerTestNpgettext()
     {
-        return [
-            [
-                1,
-                "%d pig went to the market\n",
-            ],
-            [
-                2,
-                "%d pigs went to the market\n",
-            ],
-        ];
+        return array(
+            array(1, "%d pig went to the market\n"),
+            array(2, "%d pigs went to the market\n"),
+        );
     }
 }

@@ -19,15 +19,12 @@
     with this program; if not, write to the Free Software Foundation, Inc.,
     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
-declare(strict_types=1);
 
 namespace PhpMyAdmin\MoTranslator;
-
-use Exception;
 
 /**
  * Exception thrown when file can not be read.
  */
-class ReaderException extends Exception
+class ReaderException extends \Exception
 {
 }
