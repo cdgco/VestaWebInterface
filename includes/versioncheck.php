@@ -34,7 +34,7 @@ curl_setopt($ch,CURLOPT_USERAGENT,'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-U
 $data = curl_exec($ch);
 curl_close($ch);
 $data2 = json_decode($data, true);
-$ghversion = $data2[0]['tag_name'];
+$ghversion = $data2['tag_name'];
 
 $ghsimplified = preg_replace("/[^0-9]/", "", $ghversion );
 $currentsimplified = preg_replace("/[^0-9]/", "", $currentversion );
