@@ -174,7 +174,7 @@ $sql3 = "INSERT INTO `".$mysql_table."config` (`VARIABLE`, `VALUE`) VALUES
 ('CUSTOM_THEME_SECONDARY', ''),
 ('HEADER_AD', ''),
 ('FOOTER_AD', ''),
-('ADMIN_ADS', 'true').
+('ADMIN_ADS', 'true'),
 ('EXT_SCRIPT', '');";
 
 if (mysqli_query($con, $sql3)) {} else { echo "Error populating table: " . mysqli_error($con) . "\n"; $returncode = $returncode + 1; }
@@ -189,7 +189,7 @@ if (mysqli_query($con, $sql4)) {} else { echo "Error altering table: " . mysqli_
 
 mysqli_close($con);
 
-if($returncode != 0) { echo '
+if($returncode == 0) { echo '
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -204,5 +204,5 @@ if($returncode != 0) { echo '
     </body>
     <script src="../plugins/components/jquery/jquery.min.js"></script>
     <script>window.location = "complete.html"</script>
-</html>'; 
+</html>'; }
 ?>
