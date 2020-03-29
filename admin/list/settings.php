@@ -578,14 +578,14 @@ foreach ($plugins as $result) {
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo __("Header Ad"); ?></label>
                                             <div class="col-md-12">
-                                                <textarea class="form-control" name="HEADER_AD" rows="3"><?php echo htmlspecialchars($config["HEADER_AD"]); ?></textarea>
+                                                <textarea class="form-control" id="headerad" name="HEADER_AD" rows="3"><?php echo htmlspecialchars($config["HEADER_AD"]); ?></textarea>
                                                 <small class="form-text text-muted"><?php echo __("Enter ad code in HTML format only."); ?></small>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo __("Footer Ad"); ?></label>
                                             <div class="col-md-12">
-                                                <textarea class="form-control" name="FOOTER_AD" rows="3"><?php echo htmlspecialchars($config["FOOTER_AD"]); ?></textarea>
+                                                <textarea class="form-control" id="footerad" name="FOOTER_AD" rows="3"><?php echo htmlspecialchars($config["FOOTER_AD"]); ?></textarea>
                                                 <small class="form-text text-muted"><?php echo __("Enter ad code in HTML format only."); ?></small>
                                             </div>
                                         </div>
@@ -967,7 +967,11 @@ foreach ($plugins as $result) {
                 if(document.getElementById("adsenabled").checked) {
                     document.getElementById('adshide').style.display = 'block';
                 }
-                else {document.getElementById('adshide').style.display = 'none';}
+                else {
+                    document.getElementById('adshide').style.display = 'none';
+                    document.getElementById('headerad').value = '';
+                    document.getElementById('footerad').value = '';
+                }
             } 
             $(function () {
                 var color = $("#themeselect").val();

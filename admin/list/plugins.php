@@ -72,6 +72,7 @@ foreach ($plugins as $result) {
         }    
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -180,11 +181,19 @@ foreach ($plugins as $result) {
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                             <h4 class="page-title"><?php echo __("Plugins"); ?></h4>
                         </div>
-                        <?php headerad(); ?>
+                        <?php /*
+                        <ul class="side-icon-text pull-right">
+                            <li style="position: relative;top: -3px;">
+                                <a style="cursor: pointer;" href="../add/plugin.php"><span class="circle circle-sm bg-success di"><i class="fa fa-plus"></i></span><span class="resthree"><?php echo __("Upload Plugin"); ?></span>
+                                </a>
+                            </li>
+                        </ul> */
+                        headerad(); ?>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="white-box">
+                                <h3 class="box-title m-b-0"><?php echo __("Enabled Plugins"); ?></h3><br>
                                 <div class="table-responsive">
                                 <table class="table footable m-b-0" data-sorting="true">
                                     <thead>
@@ -193,11 +202,13 @@ foreach ($plugins as $result) {
                                             <th data-sortable="false"> <?php echo __("Version"); ?> </th>
                                             <th class="restwo"> <?php echo __("Developer"); ?> </th>
                                             <th class="restwo"> <?php echo __("Descriptor"); ?> </th>
+                                            <th data-sortable="false"><?php echo __("Action"); ?></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                        
+                                        $availableplugins = str_replace(array("../../plugins/", "/manifest.xml"), array("", ""), glob("../../plugins/*/manifest.xml"));
+
                                         foreach ($plugins as $result) {
                                             if (file_exists('../../plugins/' . $result)) {
                                                 if (file_exists('../../plugins/' . $result . '/manifest.xml')) {
@@ -229,10 +240,85 @@ foreach ($plugins as $result) {
                                                         echo $arr['descriptor'];
                                                     }
                                                     else { echo __('Not Provided'); }
-                                                    echo '</td></tr>';
+                                                    echo '</td>
+                                                    <td>
+                                                        <a onclick="processLoader();" href="../delete/plugin.php?plugin=' . $result . '">
+                                                            <button type="button" data-toggle="tooltip" data-original-title="' . __("Disable") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5">
+                                                                <i class="fa fa-power-off"></i>
+                                                            </button>
+                                                        </a>
+                                                    </td></tr>';
                                                 }    
                                             }
                                         }
+                                        ?>
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                            <div class="white-box">
+                                <h3 class="box-title m-b-0"><?php echo __("Disabled Plugins"); ?></h3><br>
+                                <div class="table-responsive">
+                                <table class="table footable m-b-0" data-sorting="true">
+                                    <thead>
+                                        <tr>
+                                            <th> <?php echo __("Name"); ?> </th>
+                                            <th data-sortable="false"> <?php echo __("Version"); ?> </th>
+                                            <th class="restwo"> <?php echo __("Developer"); ?> </th>
+                                            <th class="restwo"> <?php echo __("Descriptor"); ?> </th>
+                                            <th data-sortable="false"><?php echo __("Action"); ?></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $availableplugins = str_replace(array("../../plugins/", "/manifest.xml"), array("", ""), glob("../../plugins/*/manifest.xml"));
+                                        foreach($availableplugins as $key => $one) {
+                                            if(strpos($one, '?') !== false)
+                                                unset($array[$key]);
+                                        }
+                                        $disabledplugins = array_diff($availableplugins, $plugins);
+
+                                        foreach ($disabledplugins as $result) {
+                                            if (file_exists('../../plugins/' . $result)) {
+                                                if (file_exists('../../plugins/' . $result . '/manifest.xml')) {
+                                                    $get = file_get_contents('../../plugins/' . $result . '/manifest.xml');
+                                                    $xml   = simplexml_load_string($get, 'SimpleXMLElement', LIBXML_NOCDATA);
+                                                    $arr = json_decode(json_encode((array)$xml), TRUE);
+                                                    echo '<tr><td>';
+                                                    if (isset($arr['admin-name']) && !empty($arr['admin-name'] && isset($arr['name']) && !empty($arr['name']))) {
+                                                        echo $arr['admin-name'];
+                                                    }
+                                                    elseif (isset($arr['name']) && !empty($arr['name']) && (!isset($arr['admin-name']) || empty($arr['admin-name']))) {
+                                                        echo $arr['name'];
+                                                    }
+                                                    echo '</td><td>';
+                                                    if (isset($arr['version']) && !empty($arr['version'])) {
+                                                        echo $arr['version'];
+                                                    }
+                                                    else { echo __('Not Provided'); }
+                                                    echo '</td><td class="restwo">';
+                                                    if (isset($arr['developer']) && !empty($arr['developer'])) {
+                                                        echo $arr['developer'];
+                                                    }
+                                                    else { echo __('Not Provided'); }
+                                                    echo '</td>
+                                                    <td class="restwo">';
+                                                    if (isset($arr['descriptor']) && !empty($arr['descriptor'])) {
+                                                        echo $arr['descriptor'];
+                                                    }
+                                                    else { echo __('Not Provided'); }
+                                                    echo '</td>
+                                                    <td>
+                                                        <a onclick="processLoader();" href="../create/plugin.php?plugin=' . $result . '">
+                                                            <button type="button" data-toggle="tooltip" data-original-title="' . __("Enable") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5">
+                                                                <i class="fa fa-power-off"></i>
+                                                            </button>
+                                                        </a>
+                                                    </td></tr>';
+                                                }    
+                                            }
+                                        }
+                                        
                                         ?>
                                     </tbody>
                                 </table>
@@ -263,20 +349,33 @@ foreach ($plugins as $result) {
             jQuery(function($){
                 $('.footable').footable();
             });
+            function processLoader(){
+                Swal.fire({
+                    title: '<?php echo __("Processing"); ?>',
+                    text: '',
+                    onOpen: function () {
+                        swal.showLoading()
+                    }
+                })};
 
             <?php
 
             processPlugins();
             includeScript();
             
+            
+            if(isset($_GET['merr']) && $_GET['merr'] != "") {
+                echo " swal.fire({title:'Database Error', html:'" . __("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(MySQL Error: " . $_GET['merr'] . ")</span>', icon:'error'});";
+            } 
+
             if(isset($_GET['error']) && $_GET['error'] == "1") {
                 echo "Swal.fire({title:'" . $errorcode[1] . "', html:'" . __("Please try again or contact support.") . "', icon:'error'});";
             }
             if(isset($_POST['delcode']) && $_POST['delcode'] == "0") {
-                echo "Swal.fire({title:'" . __("Successfully Deleted!") . "', icon:'success'});";
+                echo "Swal.fire({title:'" . __("Successfully Disabled!") . "', icon:'success'});";
             } 
             if(isset($_POST['addcode']) && $_POST['addcode'] == "0") {
-                echo "Swal.fire({title:'" . __("Successfully Created!") . "', icon:'success'});";
+                echo "Swal.fire({title:'" . __("Successfully Enabled!") . "', icon:'success'});";
             } 
             if(isset($_POST['delcode']) && $_POST['delcode'] > "0") {
                 echo "Swal.fire({title:'" . $errorcode[$_POST['delcode']] . "', html:'" . __("Please try again or contact support.") . "', icon:'error'});";

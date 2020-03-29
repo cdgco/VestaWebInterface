@@ -290,7 +290,8 @@ foreach ($plugins as $result) {
                                                         else{ 
                                                             echo '<span class="label label-table label-danger">' . __("Suspended") . '</span>';} 
                                                         echo '</td>
-                                                        <td class="resone" data-sort-value="' . $domaindata[$x1]['DATE'] . '">' . $domaindata[$x1]['DATE'] . '</td><td>
+                                                        <td class="resone" data-sort-value="' . $domaindata[$x1]['DATE'] . '">' . $domaindata[$x1]['DATE'] . '</td>
+                                                        <td>
                                                             <a href="../edit/domain.php?domain=' . $domainname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . __("Edit") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-pencil-alt"></i></button></a>
                                                             <a href="../log/access.php?domain=' . $domainname[$x1] . '"><button type="button" data-toggle="tooltip" data-original-title="' . __("View Logs") . '" class="btn color-button btn-outline btn-circle btn-md m-r-5"><i class="ti-menu-alt"></i></button></a>';
 
