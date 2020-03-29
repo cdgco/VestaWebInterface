@@ -142,7 +142,7 @@ else {
     DEFINE('VESTA_ADMIN_UNAME', $config["VESTA_ADMIN_UNAME"]);
     $vst_username = $config["VESTA_ADMIN_UNAME"];
 
-    $decpassword = vwicryptx($config["VESTA_ADMIN_PW"], d);
+    $decpassword = vwicryptx($config["VESTA_ADMIN_PW"], 'd');
     DEFINE('VESTA_ADMIN_PW', $decpassword);
     $vst_password = $decpassword;
     
