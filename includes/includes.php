@@ -39,7 +39,7 @@ $con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
 if($configstyle != '2') {
     // Method 1: Initiate connection to MySQL DB and convert data into PHP Array
     if (!$con) { $mysqldown = 'yes'; }
-    $config = array(); $result=mysqli_query($con,"SELECT VARIABLE,VALUE FROM " . $mysql_table . "config");
+    $config = array(); $result=mysqli_query($con,"SELECT VARIABLE,VALUE FROM `" . $mysql_table . "config`");
     while ($row = mysqli_fetch_assoc($result)) { $config[$row["VARIABLE"]] = $row["VALUE"]; }
     mysqli_free_result($result); mysqli_close($con);
 }
@@ -51,7 +51,7 @@ else {
     
     if (!$con) { $config = json_decode(file_get_contents( $co1 . 'config.json'), true); $mysqldown = 'yes'; }
     else { 
-        $config = array(); $result=mysqli_query($con,"SELECT VARIABLE,VALUE FROM " . $mysql_table . "config");
+        $config = array(); $result=mysqli_query($con,"SELECT VARIABLE,VALUE FROM `" . $mysql_table . "config`");
         while ($row = mysqli_fetch_assoc($result)) { $config[$row["VARIABLE"]] = $row["VALUE"]; }
         mysqli_free_result($result); mysqli_close($con);
         if (!file_exists( $co1 . 'config.json' )) { 

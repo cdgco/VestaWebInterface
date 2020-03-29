@@ -38,7 +38,7 @@ if(!in_array($_GET['plugin'], $pluginsnew)) {
 
     $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
     $v = mysqli_real_escape_string($conn, $pluginstring);
-    $sql = "UPDATE ".$mysql_table."config SET `VALUE` = '".$v."' WHERE `VARIABLE` = 'PLUGINS';";
+    $sql = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$v."' WHERE `VARIABLE` = 'PLUGINS';";
     if (mysqli_query($conn, $sql)) { $r1 = 0; } else { header("Location: ../list/plugins.php?merr=" . mysqli_errno($con)); }
     mysqli_close($conn);  
 }
