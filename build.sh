@@ -9,7 +9,7 @@ if [ -f includes/version.php ] ; then
     rm includes/version.php
 fi
 
-echo "<?php \$currentversion = '$VERSION';" > includes/version.php
+echo "<?php \$currentversion = v'$VERSION';" > includes/version.php
 
 sed -i "s#Vesta Web Interface.*>#Vesta Web Interface $VERSION\n>#g" docs/_coverpage.md
 sed -i "s#archive/.*.zip#archive/$VERSION.zip#g" docs/manual-install.md
@@ -17,8 +17,8 @@ sed -i "s#archive/.*.zip#archive/$VERSION.zip#g" docs/manual-upgrade.md
 sed -i "s#archive/.*.zip#archive/$VERSION.zip#g" docs/select-install.md
 sed -i "s#archive/.*.zip#archive/$VERSION.zip#g" docs/select-upgrade.md
 
-if [ -f docs/readme.md ] ; then
-    rm docs/readme.md
+if [ -f docs/README.md ] ; then
+    rm docs/README.md
 fi
 
 
@@ -51,7 +51,7 @@ If you like VWI, please consider [donating](http://paypal.me/CJREvents) to show 
 
 ## License
 
-GNU General Public License v3.0" > docs/readme.md
+GNU General Public License v3.0" > docs/README.md
 else
 echo "# Vesta Web Interface $VERSION
 <hr>
@@ -79,7 +79,7 @@ If you like VWI, please consider [donating](http://paypal.me/CJREvents) to show 
 
 ## License
 
-GNU General Public License v3.0" > docs/readme.md
+GNU General Public License v3.0" > docs/README.md
 fi
 
 sed -i "s#VestaWebInterface@.*/css/style.css#VestaWebInterface@$VERSION/css/style.css#g" install/vesta/web/download/backup/vwi.php
