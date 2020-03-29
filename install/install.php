@@ -25,6 +25,8 @@
 if (!file_exists( '../includes/config.php' )) { header('step2.php'); exit(); } 
 $configlocation = "../includes/";
 require("../includes/config.php");
+
+$returncode = 0;
 function randomPassword() { $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'; $pass = array(); $alphaLength = strlen($alphabet) - 1; for ($i = 0; $i < 8; $i++) { $n = rand(0, $alphaLength); $pass[] = $alphabet[$n]; } return implode($pass); }
 
 function vwicryptx($cs,$ca='e') { 
@@ -74,7 +76,7 @@ $con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
 
 $sql1 = "DROP TABLE IF EXISTS `".$mysql_table."config`;";
 
-if (!mysqli_query($con, $sql1)) { echo "Error dropping table: " . mysqli_error($con); }
+if (!mysqli_query($con, $sql1)) { echo "Error dropping table: " . mysqli_error($con) . "\n"; $returncode = $returncode + 1; }
 mysqli_close($con);
 
 $con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
@@ -84,7 +86,7 @@ $sql2 = "CREATE TABLE IF NOT EXISTS `".$mysql_table."config` (
   `VALUE` varchar(1024) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8";
 
-if (mysqli_query($con, $sql2)) {} else { echo "Error creating table: " . mysqli_error($con); }
+if (mysqli_query($con, $sql2)) {} else { echo "Error creating table: " . mysqli_error($con) . "\n"; $returncode = $returncode + 1; }
 
 mysqli_close($con);
 
@@ -175,7 +177,7 @@ $sql3 = "INSERT INTO `".$mysql_table."config` (`VARIABLE`, `VALUE`) VALUES
 ('ADMIN_ADS', 'true').
 ('EXT_SCRIPT', '');";
 
-if (mysqli_query($con, $sql3)) {} else { echo "Error populating table: " . mysqli_error($con); }
+if (mysqli_query($con, $sql3)) {} else { echo "Error populating table: " . mysqli_error($con) . "\n"; $returncode = $returncode + 1; }
 
 mysqli_close($con);
 
@@ -183,11 +185,11 @@ $con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
 
 $sql4 = "ALTER TABLE `".$mysql_table."config` ADD PRIMARY KEY (`VARIABLE`);";
 
-if (mysqli_query($con, $sql4)) {} else { echo "Error altering table: " . mysqli_error($con); }
+if (mysqli_query($con, $sql4)) {} else { echo "Error altering table: " . mysqli_error($con) . "\n"; $returncode = $returncode + 1; }
 
 mysqli_close($con);
 
-?>
+if($returncode != 0) { echo '
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -202,4 +204,5 @@ mysqli_close($con);
     </body>
     <script src="../plugins/components/jquery/jquery.min.js"></script>
     <script>window.location = "complete.html"</script>
-</html>
+</html>'; 
+?>
