@@ -421,7 +421,7 @@ function profileMenu($l3) {
     }
 }
 function primaryMenu($l4, $l5, $a2) {
-        global $webenabled; global $dnsenabled; global $mailenabled; global $dbenabled; global $ftpurl; global $webmailurl; global $phpmyadmin; global $phppgadmin; global $oldcpurl; global $supporturl; global $cronenabled; global $backupsenabled; global $softaculousurl;
+        global $webenabled; global $dnsenabled; global $mailenabled; global $dbenabled; global $ftpurl; global $webmailurl; global $phpmyadmin; global $phppgadmin; global $oldcpurl; global $supporturl; global $cronenabled; global $backupsenabled; global $softaculousurl; global $pluginsections;
     
     
         if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '<li class="devider"></li>'; }
@@ -439,7 +439,7 @@ function primaryMenu($l4, $l5, $a2) {
         echo '<li> <a href="' . $l4 . 'backups.php" class="waves-effect'; if($a2 == 'backups') { echo ' active'; } echo '"><i  class="fa fa-cloud-upload fa-fw"></i> <span class="hide-menu">' . __("Backups") . '</span></a> </li>'; }
         
     
-        if ($ftpurl != '' || $webmailurl != '' || $phpmyadmin != '' || $phppgadmin != '' || $softaculousurl != '') { echo '<li class="devider"></li>    
+        if ($ftpurl != '' || $webmailurl != '' || $phpmyadmin != '' || $phppgadmin != '' || $softaculousurl != '' || in_array('apps', $pluginsections)) { echo '<li class="devider"></li>    
         <li><a href="#" class="waves-effect"><i class="fa fa-th fa-fw"></i> <span class="hide-menu">' . __("Apps") . '<span class="fa arrow"></span></span></a>
                 <ul class="nav nav-second-level" id="appendapps">'; }
         if ($ftpurl != '') { echo '<li><a href="' . $ftpurl . '" target="_blank"><i class="fa fa-file-code-o fa-fw"></i><span class="hide-menu">' . __("FTP") . '</span></a></li>';}
@@ -447,7 +447,7 @@ function primaryMenu($l4, $l5, $a2) {
         if ($phpmyadmin != '') { echo '<li><a href="' . $phpmyadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . __("phpMyAdmin") . '</span></a></li>';}
         if ($phppgadmin != '') { echo '<li><a href="' . $phppgadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . __("phpPgAdmin") . '</span></a></li>';}
         if ($softaculousurl != '') { echo '<li style="height: 48px;"><a style="height: 48px;" href="' . $softaculousurl . '" target="_blank"><i style="top: -11px;" class="icon-softaculous">&#xe801;</i><span style="top: -24px;left:-7px;position: relative;" class="hide-menu">' . __("Softaculous") . '</span></a></li>';}       
-        if ($ftpurl != '' || $webmailurl != '' || $phpmyadmin != '' || $phppgadmin != '' || $softaculousurl != '') { echo '</ul></li>';}
+        if ($ftpurl != '' || $webmailurl != '' || $phpmyadmin != '' || $phppgadmin != '' || $softaculousurl != '' || in_array('apps', $pluginsections)) { echo '</ul></li>';}
         echo '<li class="devider"></li>
         <li><a href="' . $l5 . 'logout.php" class="waves-effect"><i class="fa fa-sign-out fa-fw"></i> <span class="hide-menu">' . __("Log out") . '</span></a></li>';
         if ($oldcpurl != '' || $supporturl != '') { echo '<li class="devider"></li>'; }
