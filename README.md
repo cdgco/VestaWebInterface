@@ -6,8 +6,8 @@
 [![Dependencies](https://img.shields.io/librariesio/github/cdgco/VestaWebInterface)](https://libraries.io/github/cdgco/VestaWebInterface)
 [![Size](https://img.shields.io/github/repo-size/cdgco/VestaWebInterface)](https://github.com/cdgco/VestaWebInterface/releases)
 
-Vesta Web Interface is a PHP control panel and interface that integrates with the VestaCP API to provide a beautiful user friendly experience. 
+Vesta Web Interface is a PHP control panel and interface that integrates with VestaCP to provide a beautiful user friendly experience. 
 
-VWI features the ability to rebrand the control panel, change the theme, install it wherever you want, restrict access to users, easily edit options and offers integrations to services such as Google Analytics, Cloudflare, Interakt and plugins for webmail, web-ftp, and billing coming soon.
+VWI features the ability to rebrand the control panel, change the theme, install it wherever you want, restrict access to users, easily edit options and offers integrations to services such as Auth0, Google Analytics, Cloudflare, Softaculous, Interakt and plugins for webmail (rainloop), FTP (Monsta FTP), and billing (WIP).
 
 For installation, details, live demo and technical information, visit the [VWI Documentation](http://vwi.cdgtech.one)
