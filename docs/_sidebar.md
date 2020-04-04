@@ -22,6 +22,7 @@
 * Usage
 
   * [Error Codes](errors.md)
+  * [Auth0](auth.md)
   * [Cloudflare](cloudflare.md)
   * [Google Analytics](ga.md)
   * [Interakt](interakt.md)

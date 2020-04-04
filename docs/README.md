@@ -10,8 +10,8 @@ Vesta Web Interface is a PHP Control Panel and Web Interface that integrates wit
 - Seamless integration with VestaCP
 - Dynamic design with mobile support
 - Multiple themes including dark theme
-- Integrations with Cloudflare, Interakt and Google Analytics
-- Plugin system with webmail and FTP plugins
+- Integrations with Auth0, Cloudflare, Interakt, Net2FTP, Softaculous and Google Analytics
+- Plugin system with webmail (Rainloop), FTP (MonstaFTP) and billing plugins
 - Web based installation and configuration within admin panel
 
 ## Demo
@@ -20,7 +20,7 @@ Check out the [Demo](https://cdgtech.one/vwi/demo.php) to test out VWI before yo
 
 ## Donate
 
-If you like VWI, please consider [donating](http://paypal.me/CJREvents) to show your support and help me focus more time on it.
+If you like VWI, please consider [donating](http://paypal.me/CJREvents) to show your support and help me focus more time on it. I'm a full time student and have many other side jobs and projects, thanks for the support!
 
 ## License
 
