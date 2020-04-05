@@ -249,7 +249,7 @@ foreach ($plugins as $result) {
                                 </a>
                             </li>
                             <li style="position: relative;top: -8px;">
-                                <a href="../create/cloudflare.php?domain=<?php echo $requestdns; ?>"><span style="top: 8px;position: relative;"class="circle circle-sm bg-success di"><i class="icon-cloudflare">&#xe800;</i></span><span class="resthree"><wrapper class="restwo"><?php echo __("Enable"); ?> </wrapper><?php echo __("Cloudflare"); ?></span>
+                                <a href="../create/cloudflare.php?domain=<?php echo $requestdns; ?>"><span style="top: 8px;position: relative;"class="circle circle-sm bg-success di"><i class="icon-cloudflare"></i></span><span class="resthree"><wrapper class="restwo"><?php echo __("Enable"); ?> </wrapper><?php echo __("Cloudflare"); ?></span>
                                 </a>
                             </li>
                         </ul>

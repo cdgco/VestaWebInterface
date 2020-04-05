@@ -79,6 +79,19 @@ if (INTERAKT_APP_ID != '' && INTERAKT_API_KEY != ''){
     $r1 = curl_exec($curl0);
 }
 
+if(isset($_POST['auth0']) && $_POST['auth0'] == 'link2' && $r1 == 0) {
+    $userInfo = $auth0->getUser();
+    $auth0id = $userInfo['sub'];
+    if(isset($auth0id) && $auth0id != '') {
+	$con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
+	$v1 = mysqli_real_escape_string($con, $username1);
+	$v2 = mysqli_real_escape_string($con, $auth0id);
+	$insertrow= "INSERT INTO `" . $mysql_table . "auth0-users` (VWI_USER, AUTH0_USER) VALUES ('".$v1."', '".$v2."') ON DUPLICATE KEY UPDATE `AUTH0_USER`='".$v2."';";
+	if (mysqli_query($con, $insertrow)) { $r1 = '0'; } else { $r1 = mysqli_errno($con); }
+	mysqli_close($con);
+    }
+}
+
 header('Location: ../error-pages/403.html');
 
 if(isset($answer)) {

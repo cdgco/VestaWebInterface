@@ -8,9 +8,10 @@ copyfiles -f -u 1 node_modules/hotkeys-js/dist/hotkeys.min.js plugins/components
 copyfiles -f -u 1 node_modules/jquery/dist/* plugins/components/jquery
 copyfiles -f -u 1 node_modules/moment/min/moment.min.js plugins/components/moment
 copyfiles -u 2 node_modules/PHPMailer/* node_modules/PHPMailer/language/* node_modules/PHPMailer/src/* plugins/components/phpmailer
-copyfiles -f -u 1 node_modules/popper.js/dist/popper.js plugins/components/popper.js 
+copyfiles -f -u 1 node_modules/popper.js/dist/umd/popper.js plugins/components/popper.js 
 copyfiles -f -u 1 node_modules/select2/dist/css/select2.min.css node_modules/select2/dist/js/select2.min.js plugins/components/select2 
 copyfiles -f -u 1 node_modules/sweetalert2/dist/sweetalert2.min.css node_modules/sweetalert2/dist/sweetalert2.min.js plugins/components/sweetalert2
 copyfiles -f -u 1 node_modules/node-waves/dist/waves.css node_modules/node-waves/dist/waves.js plugins/components/waves
 copyfiles -u 3 node_modules/bootstrap-select/dist/css/* node_modules/bootstrap-select/dist/js/* node_modules/bootstrap-select/dist/js/i18n/* plugins/components/bootstrap-select
+copyfiles -f -u 1 node_modules/bootstrap-brand-buttons/dist/* plugins/components/bootstrap-brand-buttons
 chmod 777 plugins/components -R

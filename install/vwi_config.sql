@@ -24,9 +24,10 @@
 * Table structure for table `vwi_config`
 */
 
-CREATE TABLE `vwi_config` (
+CREATE TABLE IF NOT EXISTS `vwi_config` (
   `VARIABLE` varchar(64) NOT NULL,
-  `VALUE` varchar(1024) NOT NULL
+  `VALUE` varchar(1024) NOT NULL,
+  PRIMARY KEY (`VARIABLE`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `vwi_config` (`VARIABLE`, `VALUE`) VALUES
@@ -90,4 +91,13 @@ INSERT INTO `vwi_config` (`VARIABLE`, `VALUE`) VALUES
 ('FOOTER_AD', '')
 ('ADMIN_ADS', 'true'),
 ('EXT_SCRIPT', '');
-COMMIT;
+
+/*
+* Table structure for table `vwi_auth0-users`
+*/
+
+CREATE TABLE `vwi_auth0-users` (
+  `VWI_USER` varchar(64) NOT NULL,
+  `AUTH0_USER` varchar(1024) NOT NULL
+  PRIMARY KEY (`VWI_USER`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

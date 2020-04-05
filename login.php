@@ -62,7 +62,29 @@ _setlocale(LC_CTYPE, $locale);
 _setlocale(LC_MESSAGES, $locale);
 _bindtextdomain('messages', 'locale');
 _textdomain('messages');
+if($auth0) {
 
+	$curl1 = curl_init();
+        curl_setopt($curl1, CURLOPT_URL, 'https://' . $config["AUTH0_DOMAIN"] . '/oauth/token');
+        curl_setopt($curl1, CURLOPT_RETURNTRANSFER,true);
+        curl_setopt($curl1, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($curl1, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($curl1, CURLOPT_POST, true);
+        curl_setopt($curl1, CURLOPT_POSTFIELDS, "grant_type=client_credentials&client_id=".$config['AUTH0_CLIENT_ID']."&client_secret=".$config['AUTH0_CLIENT_SECRET']."&audience=https://".$config['AUTH0_DOMAIN']."/api/v2/");
+	$auth0token = json_decode(curl_exec($curl1), true)['access_token'];
+	if(isset($auth0token) && $auth0token != '') {
+
+ 		$curl2 = curl_init();
+       		curl_setopt($curl2, CURLOPT_URL, 'https://' . $config["AUTH0_DOMAIN"] . '/api/v2/connections');
+        	curl_setopt($curl2, CURLOPT_RETURNTRANSFER,true);
+	        curl_setopt($curl2, CURLOPT_SSL_VERIFYPEER, false);
+	        curl_setopt($curl2, CURLOPT_SSL_VERIFYHOST, false);
+		curl_setopt($curl2, CURLOPT_CUSTOMREQUEST, "GET");
+	        curl_setopt($curl2, CURLOPT_POSTFIELDS, "");
+		curl_setopt($curl2, CURLOPT_HTTPHEADER, array("Authorization: Bearer ".$auth0token, "cache-control: no-cache"));
+		$auth0connections = json_decode(curl_exec($curl2), true);
+	}
+}
 ?>
 
 <!DOCTYPE html>  
@@ -76,6 +98,7 @@ _textdomain('messages');
         <link href="plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="plugins/components/sweetalert2/sweetalert2.min.css" rel="stylesheet">
         <link href="plugins/components/animate.css/animate.min.css" rel="stylesheet">
+	    <link href="plugins/components/bootstrap-brand-buttons/brand-buttons-inversed.css" rel="stylesheet">
         <link rel="stylesheet" href="plugins/components/sweetalert2/sweetalert2.min.css" />
         <link href="css/style.css" rel="stylesheet">
         <link href="css/colors/<?php if(isset($_COOKIE['theme']) && $themecolor != 'custom.css') { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme"  rel="stylesheet">
@@ -104,6 +127,7 @@ _textdomain('messages');
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
         <script src="plugins/components/sweetalert2/sweetalert2.min.js"></script>
+	<script src="https://kit.fontawesome.com/9ce2a0b093.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <?php
@@ -115,45 +139,51 @@ _textdomain('messages');
             echo "<script> Swal.fire({title: '";
             if($answer == 0) {
                 echo __("Account has been successfully created!") . "', icon: 'success'})</script>";
-            } if($answer == 1) {
+            }
+	    elseif($answer == 1) {
                 echo __("Please fill out all sections of the form.") . "', icon: 'error'})</script>";
             }
-            if($answer == 2) {
+            elseif($answer == 2) {
                 echo __("Invalid data entered in form. Please try again.") . "', icon: 'error'})</script>";
             }
-            if($answer == 3) {
+            elseif($answer == 3) {
                 echo __("Server or form error (Code: 3). Please contact support.") . "', icon: 'error'})</script>";
             }
-            if($answer == 4) {
+            elseif($answer == 4) {
                 echo __("Account already exists under same username.") . "', icon: 'error'})</script>";
             }
-            if($answer == 12) {
+            elseif($answer == 12) {
                 echo __("System Error (Code: 12). Please contact support.") . "', icon: 'error'})</script>";
             }
-            if($answer == 13) {
+            elseif($answer == 13) {
                 echo __("Server Error (Code: 13). Please contact support.") . "', icon: 'error'})</script>";
             }
-            if($answer == 14) {
+            elseif($answer == 14) {
                 echo __("Server Error (Code: 14). Please contact support.") . "', icon: 'error'})</script>";
             }
-            if($answer == 15) {
+            elseif($answer == 15) {
                 echo __("System Error (Code: 15). Please contact support.") . "', icon: 'error'})</script>";
             }
-            if($answer == 16) {
+            elseif($answer == 16) {
                 echo __("Server Error (Code: 16). Please contact support.") . "', icon: 'error'})</script>";
             }
-            if($answer == 17) {
+            elseif($answer == 17) {
                 echo __("Server Error (Code: 17). Please contact support.") . "', icon: 'error'})</script>";
             }
-            if($answer == 18) {
+            elseif($answer == 18) {
                 echo __("Process Error (Code: 18). Please contact support.") . "', icon: 'error'})</script>";
             }
-            if($answer == 19) {
+            elseif($answer == 19) {
                 echo __("Process Error (Code: 19). Please contact support.") . "', icon: 'error'})</script>";
             }
-            if($answer == 20) {
+            elseif($answer == 20) {
                 echo __("Fatal Error (Code: 20). Please contact support.") . "', icon: 'error'})</script>";
-            }}
+            }
+	    else {
+                echo "Auth0 Error (Code: ". $answer . ").', icon: 'warning'})</script>";
+            }
+
+	}
         ?>
         <div class="preloader">
             <div class="cssload-speeding-wheel"></div>
@@ -186,7 +216,18 @@ _textdomain('messages');
                                     if((!isset($_GET['to']) || $_GET['to'] == '') && $_POST['username'] == "admin" && $defaulttoadmin == "true"){
                                         $userredirect = 'admin/list/users.php';
                                     }
-
+				    if(isset($_POST['auth0']) && $_POST['auth0'] == 'link2') {
+					$userInfo = $auth0->getUser();
+					$auth0id = $userInfo['sub'];
+					if(isset($auth0id) && $auth0id != '') {
+					    $con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
+					    $v1 = mysqli_real_escape_string($con, $username2);
+					    $v2 = mysqli_real_escape_string($con, $auth0id);
+					    $droprow= "INSERT INTO `" . $mysql_table . "auth0-users` (VWI_USER, AUTH0_USER) VALUES ('".$v1."', '".$v2."') ON DUPLICATE KEY UPDATE `AUTH0_USER`='".$v2."';";
+					    if (mysqli_query($con, $droprow)) { $r1 = '0'; } else { $r1 = mysqli_errno($con); }
+					    mysqli_close($con);
+					}
+				    }
                                     echo '<br><br>
                                         <div style="color: #000;" class="alert alert-success alert-dismissable">
                                             <button type="button" style="color: #000;" class="close text-inverse" aria-hidden="true">
@@ -197,6 +238,9 @@ _textdomain('messages');
                                         <script>setTimeout(function(){ window.location = "' . $userredirect . '";}, 100);</script>';
                                 } else {
                                     echo '<br><br><div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' . __("Error: Incorrect Login.") . '</div>';
+				     if(isset($_POST['auth0']) && $_POST['auth0'] == 'link2') {
+					echo '<input type="hidden" name="auth0" value="link2"/>';
+				     }
                                 }}}
 
                         ?>
@@ -212,6 +256,9 @@ _textdomain('messages');
                                 <input class="form-control" name="password" type="password" required="" placeholder="<?php echo __('Password'); ?>">
                             </div>
                         </div>
+			<?php if(isset($_POST['auth0']) && $_POST['auth0'] == 'link') {
+				echo '<input type="hidden" name="auth0" value="link2"/>';
+			      } ?>
                         <div class="form-group">
                             <div class="col-md-12">
 
@@ -222,7 +269,12 @@ _textdomain('messages');
                                 <button class="btn btn-info btn-lg btn-block btn-rounded text-uppercase waves-effect waves-light bg-theme" style="border: none;" type="submit"><?php echo __("Log in"); ?></button>
                             </div>
                         </div>
-                        <?php if($regenabled != '') {
+                        <?php if($auth0connections) {
+                            foreach($auth0connections as $connection) {
+                              socialloginhtml($connection['name']);
+                            }
+                              }
+                        if($regenabled != '') {
                         echo '<br>
                         <div class="form-group m-b-0">
                             <div class="col-sm-12 text-center">
@@ -250,7 +302,7 @@ _textdomain('messages');
                         </div>
                         <div class="form-group text-center m-t-20">
                             <div class="col-xs-12">
-                                <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light bg-theme" style="border: none;" type="submit"><?php echo __("Reset"); ?></button>
+                                <button class="btn btn-primary btn-lg btn-block btn-rounded text-uppercase waves-effect waves-light bg-theme" style="border: none;" type="submit"><?php echo __("Reset"); ?></button>
                             </div>
                         </div>
                     </form>
@@ -263,6 +315,7 @@ _textdomain('messages');
         <script src="plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="plugins/components/metismenu/dist/metisMenu.min.js"></script>
         <script src="plugins/components/waves/waves.js"></script>
+        <script src="https://cdn.auth0.com/js/auth0/9.11/auth0.min.js"></script>
         <script src="js/main.js"></script>
         <script type="text/javascript">
             Waves.attach('.button', ['waves-effect']);
@@ -273,12 +326,28 @@ _textdomain('messages');
               showConfirmButton: false,
               timer: 3500
             });
-          const toast2 = Swal.mixin({
+            const toast2 = Swal.mixin({
               toast: true,
               position: "top-end",
               showConfirmButton: false
             });
             <?php 
+
+	    if($auth0) {
+		echo 'var webAuth = new auth0.WebAuth({
+			    domain: "'.AUTH0_DOMAIN.'",
+			    clientID: "'.AUTH0_CLIENT_ID.'",
+			    responseMode: "query",
+			    redirectUri: "'.$auth0location.'",
+			    responseType: "code"
+		    });';
+		if($auth0connections) {
+			foreach($auth0connections as $connection) {
+			  socialloginjs($connection['name']);
+			}
+		      }
+
+	    }
             if($configstyle == '2'){
                 if($warningson == "all"){
                     if(substr(sprintf('%o', fileperms($configlocation)), -4) == '0777') {

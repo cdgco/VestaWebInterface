@@ -22,7 +22,7 @@
 *
 */
 
-include("includes/version.php");
+include($configlocation . "version.php");
 
 $ch = curl_init();
 

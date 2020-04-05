@@ -350,6 +350,10 @@ foreach ($plugins as $result) {
         <script src="../../js/notifications.js" one="<?php echo $configlocation; ?>"></script>
         <script src="../../js/main.js"></script>
         <script type="text/javascript">
+	    if(window.location.href.split("/").pop().includes('#')) {
+	    	window.history.pushState({}, document.title, "users.php");
+	    }
+
             Waves.attach('.button', ['waves-effect']);
             Waves.init();
             var processLocation = "../../process/";

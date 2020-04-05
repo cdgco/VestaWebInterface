@@ -83,7 +83,8 @@ $con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
 
 $sql2 = "CREATE TABLE IF NOT EXISTS `".$mysql_table."config` (
   `VARIABLE` varchar(64) NOT NULL,
-  `VALUE` varchar(1024) NOT NULL
+  `VALUE` varchar(1024) NOT NULL,
+  PRIMARY KEY (`VARIABLE`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8";
 
 if (mysqli_query($con, $sql2)) {} else { echo "Error creating table: " . mysqli_error($con) . "\n"; $returncode = $returncode + 1; }
@@ -183,11 +184,16 @@ mysqli_close($con);
 
 $con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
 
-$sql4 = "ALTER TABLE `".$mysql_table."config` ADD PRIMARY KEY (`VARIABLE`);";
+$sql4 = "CREATE TABLE IF NOT EXISTS `".$mysql_table."auth0-users` (
+  `VWI_USER` varchar(64) NOT NULL,
+  `AUTH0_USER` varchar(1024) NOT NULL,
+  PRIMARY KEY (`VWI_USER`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8";
 
 if (mysqli_query($con, $sql4)) {} else { echo "Error altering table: " . mysqli_error($con) . "\n"; $returncode = $returncode + 1; }
 
 mysqli_close($con);
+
 
 if($returncode == 0) { echo '
 <!DOCTYPE html>

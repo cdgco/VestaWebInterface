@@ -132,6 +132,9 @@ _textdomain('messages');
 
                                 <input class="form-control" type="password" id="cpass" autocomplete="new-password" required="" placeholder="<?php echo __('Confirm Pass'); ?>" style="width:49%; float:right;"></div>
                         </div>
+			<?php if(isset($_POST['auth0']) && $_POST['auth0'] == 'link') {
+				echo '<input type="hidden" name="auth0" value="link2"/>';
+			      } ?>
                         <div class="form-group ">
                             <div class="col-xs-12">
                                 <select class="selectpicker m-b-20 m-r-10" name="plan" data-style="btn color-button bg-theme" style="border:none;">

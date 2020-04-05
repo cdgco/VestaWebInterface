@@ -34,3 +34,7 @@ RewriteRule (^|/)includes(/|$) - [F]
 php_flag display_errors Off
 
 # END Vesta Web Interface
+
+# Uncomment to enable SSL
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

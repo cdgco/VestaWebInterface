@@ -73,7 +73,29 @@ foreach ($plugins as $result) {
         }    
     }
 }
+if($auth0) {
 
+	$curl1 = curl_init();
+        curl_setopt($curl1, CURLOPT_URL, 'https://' . $config["AUTH0_DOMAIN"] . '/oauth/token');
+        curl_setopt($curl1, CURLOPT_RETURNTRANSFER,true);
+        curl_setopt($curl1, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($curl1, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($curl1, CURLOPT_POST, true);
+        curl_setopt($curl1, CURLOPT_POSTFIELDS, "grant_type=client_credentials&client_id=".$config['AUTH0_CLIENT_ID']."&client_secret=".$config['AUTH0_CLIENT_SECRET']."&audience=https://".$config['AUTH0_DOMAIN']."/api/v2/");
+	$auth0token = json_decode(curl_exec($curl1), true)['access_token'];
+	if(isset($auth0token) && $auth0token != '') {
+
+ 		$curl2 = curl_init();
+       		curl_setopt($curl2, CURLOPT_URL, 'https://' . $config["AUTH0_DOMAIN"] . '/api/v2/connections');
+        	curl_setopt($curl2, CURLOPT_RETURNTRANSFER,true);
+	        curl_setopt($curl2, CURLOPT_SSL_VERIFYPEER, false);
+	        curl_setopt($curl2, CURLOPT_SSL_VERIFYHOST, false);
+		curl_setopt($curl2, CURLOPT_CUSTOMREQUEST, "GET");
+	        curl_setopt($curl2, CURLOPT_POSTFIELDS, "");
+		curl_setopt($curl2, CURLOPT_HTTPHEADER, array("Authorization: Bearer ".$auth0token, "cache-control: no-cache"));
+		$auth0connections = json_decode(curl_exec($curl2), true);
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -89,6 +111,8 @@ foreach ($plugins as $result) {
         <link href="plugins/components/metismenu/dist/metisMenu.min.css" rel="stylesheet">
         <link href="plugins/components/select2/select2.min.css" rel="stylesheet">
         <link href="plugins/components/animate.css/animate.min.css" rel="stylesheet">
+        <link href="plugins/components/bootstrap-brand-buttons/brand-buttons-inversed.css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/9ce2a0b093.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="plugins/components/sweetalert2/sweetalert2.min.css" />
         <link href="css/style.css" rel="stylesheet">
         <link href="css/colors/<?php if(isset($_COOKIE['theme']) && $themecolor != 'custom.css') { echo base64_decode($_COOKIE['theme']); } else {echo $themecolor; } ?>" id="theme" rel="stylesheet">
@@ -220,7 +244,7 @@ foreach ($plugins as $result) {
                         <li>
                             <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> <?php print_r($displayname); ?><span class="fa arrow"></span></span>
                             </a>
-                            <ul class="nav nav-second-level collapse" >
+                            <ul class="nav nav-second-level collapse" id="appendaccount">
                                 <li> <a href="profile.php" id="profileactive"><i class="ti-home fa-fw <?php if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo 'text-inverse';} ?>"></i> <span style="<?php if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo 'color:#54667a;font-weight:300;';} ?>" class="hide-menu"> <?php echo __("My Account"); ?></span></a></li>
                                 <li> <a href="profile.php?settings=open" id="settingsactive"><i class="ti-settings fa-fw "></i> <span class="hide-menu"> <?php echo __("Account Settings"); ?></span></a></li>
                                 <li> <a href="log.php"><i class="ti-layout-list-post fa-fw"></i><span class="hide-menu"><?php echo __("Log"); ?></span></a> </li>
@@ -286,19 +310,34 @@ foreach ($plugins as $result) {
                                         <strong><?php echo __("Nameservers"); ?>:</strong>
                                         <p class="m-t-30">
                                             <ul class="dashed">
-                                        <?php 
-                                        $nsArray = explode(',', ($admindata['NS'])); 
+                                            <?php 
+                                            $nsArray = explode(',', ($admindata['NS'])); 
 
-                                        foreach ($nsArray as &$value) {
-                                            $value = "<li>" . $value . "</li>";
-                                        }  
-                                        foreach($nsArray as $val) {
-                                            echo $val;
-                                        } 
-                                            ?>
-                                        </ul>
-                                    </p>
-
+                                            foreach ($nsArray as &$value) {
+                                                $value = "<li>" . $value . "</li>";
+                                            }  
+                                            foreach($nsArray as $val) {
+                                                echo $val;
+                                            } 
+                                                ?>
+                                            </ul>
+                                        </p>
+                                    <?php if($auth0) {
+                                        echo '<hr>
+                                        <strong>'.__("External Accounts").':</strong>
+                                        <br><br>';
+                                    
+                                        if($auth0connections) {
+                                            foreach($auth0connections as $connection) {
+                                              socialloginhtmlsmall($connection['name']);
+                                            }
+                                            echo '<br><br><small>' . __('Note: You may only link 1 extenal account at a time. Linking a new account will unlink all other accounts.') . '</small>';
+                                          }
+                                          else {
+                                              echo __("No external accounts available.");
+                                          }
+                                        }
+                                    ?>
                                 </div>
                                 <div class="tab-pane <?php if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo "active"; } ?>" id="settings">
                                     <form class="form-horizontal form-material" id="form" autocomplete="off" action="process/updatesettings.php" method="post">
@@ -432,17 +471,30 @@ foreach ($plugins as $result) {
     </div>
     <script src="plugins/components/jquery/jquery.min.js"></script>
     <script src="plugins/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="plugins/components/popper.js/popper.js"></script>
     <script src="plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="plugins/components/bootstrap-select/js/bootstrap-select.min.js"></script>
     <script src="plugins/components/metismenu/dist/metisMenu.min.js"></script>
     <script src="plugins/components/select2/select2.min.js"></script>
     <script src="plugins/components/waves/waves.js"></script>
+    <script src="https://cdn.auth0.com/js/auth0/9.11/auth0.min.js"></script>
     <script src="js/notifications.js"></script>
     <script src="js/main.js"></script>
     <script type="text/javascript">
+        if(window.location.href.split("/").pop().includes('profile.php?settings=open#')) {
+	    	window.history.pushState({}, document.title, "profile.php?settings=open");
+	    }
+        else if(window.location.href.split("/").pop().includes('profile.php?a=0#')) {
+	    	window.history.pushState({}, document.title, "profile.php?a=0");
+	    }
+        else if(window.location.href.split("/").pop().includes('profile.php#')) {
+	    	window.history.pushState({}, document.title, "profile.php");
+	    }
+        
         Waves.attach('.button', ['waves-effect']);
         Waves.init();
         var processLocation = "process/";
+        
         $('#form').submit(function(ev) {
                 ev.preventDefault();
                 processLoader();
@@ -456,15 +508,17 @@ foreach ($plugins as $result) {
                         swal.showLoading()
                     }
                 })};
-            function loadLoader(){
-                Swal.fire({
-                    title: '<?php echo __("Loading"); ?>',
-                    text: '',
-                    onOpen: function () {
-                        swal.showLoading()
-                    }
-                })};
-
+        function loadLoader(){
+            Swal.fire({
+                title: '<?php echo __("Loading"); ?>',
+                text: '',
+                onOpen: function () {
+                    swal.showLoading()
+                }
+            })};
+        $(function () {
+          $('[data-toggle="popper"]').popover({trigger: 'hover'})
+        });
         function toggler(e) {
             if( e.name == 'Hide' ) {
                 e.name = 'Show'
@@ -493,6 +547,60 @@ foreach ($plugins as $result) {
 
 
         <?php 
+        
+        if($auth0) {
+            echo '
+            var webAuth = new auth0.WebAuth({
+                domain: "'.AUTH0_DOMAIN.'",
+			    clientID: "'.AUTH0_CLIENT_ID.'",
+			    responseMode: "query",
+			    redirectUri: "'.$auth0location.'",
+			    responseType: "code"
+		    });
+            function unlink(e){
+                e1 = String(e)
+                Swal.fire({
+                  title: "'.__("Unlink Account?").'",
+                  icon: "question",
+                  showCancelButton: true,
+                  confirmButtonColor: "#3085d6",
+                  cancelButtonColor: "#d33",
+                  confirmButtonText: "'.__("Confirm"). '"
+                }).then((result) => {
+                  if (result.value) {
+                    Swal.fire({
+                        title: "'.__("Processing").'",
+                        text: "",
+                        onOpen: function () {
+                            swal.showLoading()
+                        }
+                    });
+                   window.location.replace("process/unlink.php");
+                  }
+                })}
+            function link(e){
+                e1 = String(e)
+                Swal.fire({
+                  title: "'.__("Link Account?").'",
+                  icon: "question",
+                  showCancelButton: true,
+                  confirmButtonColor: "#3085d6",
+                  cancelButtonColor: "#d33",
+                  confirmButtonText: "'.__("Confirm"). '"
+                }).then((result) => {
+                  if (result.value) {
+                    Swal.fire({
+                        title: "'.__("Processing").'",
+                        text: "",
+                        onOpen: function () {
+                            swal.showLoading()
+                        }
+                    });
+                   window.location.replace("process/link.php?auth0=" + e1);
+                  }
+                })}';
+        }
+
         processPlugins();
         includeScript();
         
@@ -545,11 +653,22 @@ foreach ($plugins as $result) {
         if(isset($_POST['r1']) && $returntotal == 0) {
             echo "Swal.fire({title:'" . __("Successfully Updated!") . "', icon:'success'});";
         } 
+        if(isset($_POST['a1']) && $_POST['a1'] == 0) {
+            echo "Swal.fire({title:'" . __("Account Unlinked!") . "', icon:'success'});";
+        } 
+        if(isset($_GET['a']) && $_GET['a'] == 0) {
+            echo "Swal.fire({title:'" . __("Account Linked!") . "', icon:'success'});";
+        }
         
         if(isset($_POST['r1']) && $returntotal != 0) {
                 echo "Swal.fire({title:'" . __("Error Updating Profile") . "', html:'" . __("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(E: " . $_POST['r1'] . "." . $_POST['r2'] . "." . $_POST['r3'] . "." . $_POST['r4'] . "." . $_POST['r5'] . ")</span>', icon:'error'});";
             }
-        
+        if(isset($_POST['a1']) && $_POST['a1'] != 0) {
+                echo "Swal.fire({title:'" . __("Error Unlinking Account") . "', html:'" . __("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(E: " . $_POST['a1'] . ")</span>', icon:'error'});";
+            }
+        if(isset($_GET['a']) && $_GET['a'] != 0) {
+                echo "Swal.fire({title:'" . __("Error Linking Account") . "', html:'" . __("Please try again or contact support.") . "<br><br><span onclick=\"$(\'.errortoggle\').toggle();\" class=\"swal-error-title\">View Error Code <i class=\"errortoggle fa fa-angle-double-right\"></i><i style=\"display:none;\" class=\"errortoggle fa fa-angle-double-down\"></i></span><span class=\"errortoggle\" style=\"display:none;\"><br><br>(E: " . $_GET['a'] . ")</span>', icon:'error'});";
+            }
         ?>
         <?php if(INTERAKT_APP_ID != ''){ echo '
           (function() {

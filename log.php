@@ -170,18 +170,7 @@ foreach ($plugins as $result) {
                               adminMenu("admin/list/", "");
                               profileMenu("./");
                               primaryMenu("list/", "process/", "");
-                        ?>
-                        <li class="devider"></li>
-                        <li>
-                            <a href="#" class="waves-effect"><i  class="ti-user fa-fw"></i><span class="hide-menu"> <?php print_r($displayname); ?><span class="fa arrow"></span></span>
-                            </a>
-                            <ul class="nav nav-second-level collapse" >
-                                <li> <a href="profile.php" id="profileactive"><i class="ti-home fa-fw <?php if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo 'text-inverse';} ?>"></i> <span style="<?php if(isset($_GET['settings']) && $_GET['settings'] == "open") { echo 'color:#54667a;font-weight:300;';} ?>" class="hide-menu"> <?php echo __("My Account"); ?></span></a></li>
-                                <li> <a href="profile.php?settings=open" id="settingsactive"><i class="ti-settings fa-fw "></i> <span class="hide-menu"> <?php echo __("Account Settings"); ?></span></a></li>
-                                <li> <a href="log.php"><i class="ti-layout-list-post fa-fw"></i><span class="hide-menu"><?php echo __("Log"); ?></span></a> </li>
-                            </ul>
-                        </li>
-                        
+                        ?>                        
                     </ul>
                 </div>
             </div>

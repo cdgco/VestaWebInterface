@@ -31,6 +31,7 @@
 require("config.php"); require("arrays.php");
 require __DIR__ . '/../vendor/autoload.php';
 PhpMyAdmin\MoTranslator\Loader::loadFunctions();
+use Auth0\SDK\Auth0;
 
 $configstyle = '1';
 
@@ -41,6 +42,9 @@ if($configstyle != '2') {
     if (!$con) { $mysqldown = 'yes'; }
     $config = array(); $result=mysqli_query($con,"SELECT VARIABLE,VALUE FROM `" . $mysql_table . "config`");
     while ($row = mysqli_fetch_assoc($result)) { $config[$row["VARIABLE"]] = $row["VALUE"]; }
+    mysqli_free_result($result); 
+    $auth0_users = array(); $result=mysqli_query($con,"SELECT VWI_USER,AUTH0_USER FROM `" . $mysql_table . "auth0-users`");
+    while ($row = mysqli_fetch_assoc($result)) { $auth0_users[$row["VWI_USER"]] = $row["AUTH0_USER"]; }
     mysqli_free_result($result); mysqli_close($con);
 }
 else {
@@ -53,7 +57,10 @@ else {
     else { 
         $config = array(); $result=mysqli_query($con,"SELECT VARIABLE,VALUE FROM `" . $mysql_table . "config`");
         while ($row = mysqli_fetch_assoc($result)) { $config[$row["VARIABLE"]] = $row["VALUE"]; }
-        mysqli_free_result($result); mysqli_close($con);
+        mysqli_free_result($result); 
+	$auth0_users = array(); $result=mysqli_query($con,"SELECT VWI_USER,AUTH0_USER FROM `" . $mysql_table . "auth0-users`");
+	while ($row = mysqli_fetch_assoc($result)) { $auth0_users[$row["VWI_USER"]] = $row["AUTH0_USER"]; }
+	mysqli_free_result($result); mysqli_close($con);
         if (!file_exists( $co1 . 'config.json' )) { 
             file_put_contents( $co1 . "config.json",json_encode($config));
         }  
@@ -61,6 +68,14 @@ else {
         elseif ((time()-filemtime( $co1 . "config.json")) > 1800 || $config != json_decode(file_get_contents( $co1 . 'config.json'), true)) { 
             file_put_contents( $co1 . "config.json",json_encode($config)); 
         }
+	if (!file_exists( $co1 . 'auth0-users.json' )) { 
+            file_put_contents( $co1 . "auth0-users.json",json_encode($auth0_users));
+        } 
+	// Reload Auth0 Users Every Hour (1800 Seconds) or if DB has been updated
+        elseif ((time()-filemtime( $co1 . "auth0-users.json")) > 1800 || $auth0_users != json_decode(file_get_contents( $co1 . 'auth0-users.json'), true)) { 
+            file_put_contents( $co1 . "auth0-users.json",json_encode($auth0_users)); 
+        }
+
     }
 }
 
@@ -346,7 +361,31 @@ $cfapikey = $config["CLOUDFLARE_API_KEY"];
 DEFINE('CLOUDFLARE_EMAIL', $config["CLOUDFLARE_EMAIL"]);
 DEFINE('CUSTOM_THEME_PRIMARY', $config["CUSTOM_THEME_PRIMARY"]);
 DEFINE('CUSTOM_THEME_SECONDARY', $config["CUSTOM_THEME_SECONDARY"]);
+DEFINE('AUTH0_DOMAIN', $config["AUTH0_DOMAIN"]);
+DEFINE('AUTH0_CLIENT_ID', $config["AUTH0_CLIENT_ID"]);
+DEFINE('AUTH0_CLIENT_SECRET', $config["AUTH0_CLIENT_SECRET"]);
 
+// Auth0 Integration
+if (isset($config["AUTH0_DOMAIN"], $config["AUTH0_CLIENT_ID"], $config["AUTH0_CLIENT_SECRET"], $_SERVER["HTTPS"]) && $config["AUTH0_DOMAIN"] != '' && $config["AUTH0_CLIENT_ID"] != '' && $config["AUTH0_CLIENT_SECRET"] != '' && $_SERVER['HTTPS'] === 'on') {
+
+    $numremoveloc = substr_count($configlocation, '..');
+    $auth0location = "https://" . $_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
+    if($numremoveloc > 0) {
+        $i = 0;
+        do {
+            $auth0location = substr($auth0location, 0, strrpos( $auth0location, '/'));
+            $i++;
+        } while ($i < $numremoveloc);
+    }
+    $auth0location = $auth0location . '/process/callback.php';
+    $auth0 = new Auth0([
+      'domain' => $config["AUTH0_DOMAIN"],
+      'client_id' => $config["AUTH0_CLIENT_ID"],
+      'client_secret' => $config["AUTH0_CLIENT_SECRET"],
+      'redirect_uri' => $auth0location,
+      'scope' => 'openid profile email'
+    ]);
+} 
 
 // VWI Functions
 
@@ -384,7 +423,7 @@ function adminMenu($l2, $a1) {
     if($initialusername == "admin" && isset($adminenabled) && $adminenabled != ''){
     echo '<li class="devider"></li>
             <li> <a href="#" class="waves-effect"><i class="fa fa-wrench fa-fw" data-icon="v"></i> <span class="hide-menu">' . __("Administration") . '<span class="fa arrow"></span> </span></a>
-                <ul class="nav nav-second-level'; if(isset($a1) && $a1 != '') { echo ' in'; } echo '" id="appendadministration">
+                <ul class="nav nav-second-level'; if(isset($a1) && $a1 != '') { echo ' in'; } echo '" id="appendadministration"> 
                     <li> <a href="' . $l2 . 'users.php"'; if($a1 == 'users') { echo ' class="active"'; } echo '><i class="ti-user fa-fw"></i><span class="hide-menu">' . __("Users") . '</span></a> </li>
                     <li> <a href="' . $l2 . 'packages.php"'; if($a1 == 'packages') { echo ' class="active"'; } echo '><i class="ti-package fa-fw"></i><span class="hide-menu">' . __("Packages") . '</span></a> </li>
                     <li> <a href="' . $l2 . 'ip.php"'; if($a1 == 'ip') { echo ' class="active"'; } echo '><i class="fa fa-sliders fa-fw"></i><span class="hide-menu">' . __("IP") . '</span></a> </li>
@@ -423,7 +462,6 @@ function profileMenu($l3) {
 function primaryMenu($l4, $l5, $a2) {
         global $webenabled; global $dnsenabled; global $mailenabled; global $dbenabled; global $ftpurl; global $webmailurl; global $phpmyadmin; global $phppgadmin; global $oldcpurl; global $supporturl; global $cronenabled; global $backupsenabled; global $softaculousurl; global $pluginsections;
     
-    
         if ($webenabled == 'true' || $dnsenabled == 'true' || $mailenabled == 'true' || $dbenabled == 'true') { echo '<li class="devider"></li>'; }
     
     
@@ -446,7 +484,7 @@ function primaryMenu($l4, $l5, $a2) {
         if ($webmailurl != '') { echo '<li><a href="' . $webmailurl . '" target="_blank"><i class="fa fa-envelope-o fa-fw"></i><span class="hide-menu">' . __("Webmail") . '</span></a></li>';}
         if ($phpmyadmin != '') { echo '<li><a href="' . $phpmyadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . __("phpMyAdmin") . '</span></a></li>';}
         if ($phppgadmin != '') { echo '<li><a href="' . $phppgadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . __("phpPgAdmin") . '</span></a></li>';}
-        if ($softaculousurl != '') { echo '<li style="height: 48px;"><a style="height: 48px;" href="' . $softaculousurl . '" target="_blank"><i style="top: -11px;" class="icon-softaculous">&#xe801;</i><span style="top: -24px;left:-7px;position: relative;" class="hide-menu">' . __("Softaculous") . '</span></a></li>';}       
+        if ($softaculousurl != '') { echo '<li><a href="' . $softaculousurl . '" target="_blank"><i class="icon-softaculous"></i>&nbsp;&nbsp;<span class="hide-menu">' . __("Softaculous") . '</span></a></li>';}       
         if ($ftpurl != '' || $webmailurl != '' || $phpmyadmin != '' || $phppgadmin != '' || $softaculousurl != '' || in_array('apps', $pluginsections)) { echo '</ul></li>';}
         echo '<li class="devider"></li>
         <li><a href="' . $l5 . 'logout.php" class="waves-effect"><i class="fa fa-sign-out fa-fw"></i> <span class="hide-menu">' . __("Log out") . '</span></a></li>';

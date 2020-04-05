@@ -857,6 +857,9 @@ foreach ($plugins as $result) {
         <script src="js/main.js"></script>
         <script src="js/notifications.js"></script>
         <script type="text/javascript">
+            if(window.location.href.split("/").pop().includes('#')) {
+                window.history.pushState({}, document.title, "index.php");
+            }
             <?php 
  
             processPlugins();

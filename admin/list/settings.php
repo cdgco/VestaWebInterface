@@ -112,6 +112,10 @@ foreach ($plugins as $result) {
                 .logosize { height: 30px !important;}
                 .logobr { display:block !important; }
             } 
+            .togglelink:hover {
+              text-decoration: underline;
+            color: cornflowerblue;
+            }
         </style>
         <?php if(GOOGLE_ANALYTICS_ID != ''){ echo "<script async src='https://www.googletagmanager.com/gtag/js?id=" . GOOGLE_ANALYTICS_ID . "'></script>
         <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" . GOOGLE_ANALYTICS_ID . "');</script>"; } ?> 
@@ -197,7 +201,13 @@ foreach ($plugins as $result) {
                         <div class="col-lg-12">
                             <div class="white-box">
                                 <form class="form-horizontal form-material" id="form" autocomplete="off" method="post" action="../change/settings.php" enctype="multipart/form-data">
-                                    <h3><?php echo __("Server Configuration"); ?></h3><br><hr><br>
+                                    <h3 style="cursor:pointer" class="togglelink" onclick="$('.servertoggle').toggle();">
+                                        <?php echo __("Server Configuration"); ?>
+                                        <i class="servertoggle fa fa-angle-double-right"></i>
+                                        <i style="display:none;" class="servertoggle fa fa-angle-double-down"></i>
+                                    </h3><hr><br>
+                                    <span class="servertoggle" style="display:none;">
+                                        <div style="margin-left: 4%;">
                                     <div class="form-group"  style="overflow: visible;">
                                         <label class="col-md-12"><?php echo __("Server Timezone"); ?></label>
                                         <div class="col-md-12">
@@ -606,8 +616,15 @@ foreach ($plugins as $result) {
                                             <small class="form-text text-muted"><?php echo __("Enter script code in javascript only. Do not include ") . htmlspecialchars("<script>") . __(" tags."); ?></small>
                                         </div>
                                     </div>
-
-                                    <br><h3><?php echo __("Enable / Disable Sections"); ?></h3><br><hr><br>
+                                        </div>
+                                    </span>
+                                    <h3 style="cursor:pointer" class="togglelink" onclick="$('.sectionstoggle').toggle();">
+                                        <?php echo __("Enable / Disable Sections"); ?>
+                                        <i class="sectionstoggle fa fa-angle-double-right"></i>
+                                        <i style="display:none;" class="sectionstoggle fa fa-angle-double-down"></i>
+                                    </h3><hr><br>
+                                    <span class="sectionstoggle" style="display:none;">
+                                        <div style="margin-left: 4%;">
                                     <div class="form-group">
                                         <label class="col-md-12"><?php echo __("Web Enabled"); ?></label>
                                         <div class="col-md-12">
@@ -797,8 +814,16 @@ foreach ($plugins as $result) {
                                             </div>
                                         </div>
                                     </div>
-                                    <br>
-                                        <h3><?php echo __("Optional Links"); ?></h3><br><hr><br>
+                                        </div>
+                                    </span>
+                                    <h3 style="cursor:pointer" class="togglelink" onclick="$('.linkstoggle').toggle();">
+                                        <?php echo __("Optional Links"); ?>
+                                        <i class="linkstoggle fa fa-angle-double-right"></i>
+                                        <i style="display:none;" class="linkstoggle fa fa-angle-double-down"></i>
+                                    </h3><hr><br>
+                                    
+                                    <span class="linkstoggle" style="display:none;">
+                                        <div style="margin-left: 4%;">
                                     <div class="form-group">
                                         <label class="col-md-12" for="FTP_URL"><?php echo __("FTP Client URL"); ?></label>  
                                         <div class="col-md-12">
@@ -834,7 +859,16 @@ foreach ($plugins as $result) {
                                             <span class="help-block"><?php echo __("Leave blank or enter 'disabled' to disable."); ?></span>  
                                         </div>
                                     </div>
-                                    <br><h3><?php echo __("Optional Integrations"); ?></h3><br><hr><br>
+                                        </div>
+                                    </span>
+                                    
+                                    <h3 style="cursor:pointer" class="togglelink" onclick="$('.integrationstoggle').toggle();">
+                                        <?php echo __("Optional Integrations"); ?>
+                                        <i class="integrationstoggle fa fa-angle-double-right"></i>
+                                        <i style="display:none;" class="integrationstoggle fa fa-angle-double-down"></i>
+                                    </h3><hr><br>
+                                    <span class="integrationstoggle" style="display:none;">
+                                        <div style="margin-left: 4%;">
                                     <div class="form-group">
                                         <label class="col-md-12" for="PLUGINS"><?php echo __("Plugins"); ?></label>  
                                         <div class="col-md-12">
@@ -849,6 +883,13 @@ foreach ($plugins as $result) {
 
                                         </div>
                                     </div>
+                                    <label style="cursor:pointer" class="togglelink" onclick="$('.interakttoggle').toggle();">
+                                        Interakt Integration 
+                                        <i class="interakttoggle fa fa-angle-double-right"></i>
+                                        <i style="display:none;" class="interakttoggle fa fa-angle-double-down"></i>
+                                    </label><br><br>
+                                    <span class="interakttoggle" style="display:none;">
+                                        <div style="margin-left: 4%;">
                                     <div class="form-group">
                                         <label class="col-md-12" for="INTERAKT_APP_ID"><?php echo __("Interakt App ID"); ?></label>  
                                         <div class="col-md-12">
@@ -863,20 +904,65 @@ foreach ($plugins as $result) {
 
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12" for="CLOUDFLARE_API_KEY"><?php echo __("Cloudflare API Key"); ?></label>  
-                                        <div class="col-md-12">
-                                            <input id="CLOUDFLARE_API_KEY" name="CLOUDFLARE_API_KEY" type="text" value="<?php echo $config["CLOUDFLARE_API_KEY"]; ?>" class="form-control input-md">
-
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12" for="CLOUDFLARE_EMAIL"><?php echo __("Cloudflare Account Email Address"); ?></label>  
-                                        <div class="col-md-12">
-                                            <input id="CLOUDFLARE_EMAIL" name="CLOUDFLARE_EMAIL" type="text" value="<?php echo $config["CLOUDFLARE_EMAIL"]; ?>" class="form-control input-md">
+                                    </span><br>
+                                    <label style="cursor:pointer" class="togglelink" onclick="$('.cloudflaretoggle').toggle();">
+                                        Cloudflare Integration 
+                                        <i class="cloudflaretoggle fa fa-angle-double-right"></i>
+                                        <i style="display:none;" class="cloudflaretoggle fa fa-angle-double-down"></i>
+                                    </label><br><br>
+                                    <span class="cloudflaretoggle" style="display:none;">
+                                        <div style="margin-left: 4%;">
+                                        <div class="form-group">
+                                            <label class="col-md-12" for="CLOUDFLARE_API_KEY"><?php echo __("Cloudflare API Key"); ?></label>  
+                                            <div class="col-md-12">
+                                                <input id="CLOUDFLARE_API_KEY" name="CLOUDFLARE_API_KEY" type="text" value="<?php echo $config["CLOUDFLARE_API_KEY"]; ?>" class="form-control input-md">
 
+                                            </div>
                                         </div>
-                                    </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12" for="CLOUDFLARE_EMAIL"><?php echo __("Cloudflare Account Email Address"); ?></label>  
+                                            <div class="col-md-12">
+                                                <input id="CLOUDFLARE_EMAIL" name="CLOUDFLARE_EMAIL" type="text" value="<?php echo $config["CLOUDFLARE_EMAIL"]; ?>" class="form-control input-md">
+
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </span><br>
+                                    <label style="cursor:pointer" class="togglelink" onclick="$('.authtoggle').toggle();">
+                                        Auth0 Integration 
+                                        <i class="authtoggle fa fa-angle-double-right"></i>
+                                        <i style="display:none;" class="authtoggle fa fa-angle-double-down"></i>
+                                    </label><br><br>
+                                    <span class="authtoggle" style="display:none;">
+                                        <div style="margin-left: 4%;">
+                                        <p><a href="https://vwi.cdgtech.one/#/auth0"><?php echo __("Setup Instructions"); ?></a></p><br>
+                                        <div class="form-group">
+                                            <label class="col-md-12" for="AUTH0_DOMAIN"><?php echo __("Auth0 Domain"); ?></label>  
+                                            <div class="col-md-12">
+                                                <input id="AUTH0_DOMAIN" name="AUTH0_DOMAIN" type="text" value="<?php echo $config["AUTH0_DOMAIN"]; ?>" class="form-control input-md">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12" for="AUTH0_CLIENT_ID"><?php echo __("Auth0 Client ID"); ?></label>  
+                                            <div class="col-md-12">
+                                                <input id="AUTH0_CLIENT_ID" name="AUTH0_CLIENT_ID" type="text" value="<?php echo $config["AUTH0_CLIENT_ID"]; ?>" class="form-control input-md">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12" for="AUTH0_CLIENT_SECRET"><?php echo __("Auth0 Client Secret"); ?></label>  
+                                            <div class="col-md-12">
+                                                <input id="AUTH0_CLIENT_SECRET" name="AUTH0_CLIENT_SECRET" type="text" value="<?php echo $config["AUTH0_CLIENT_SECRET"]; ?>" class="form-control input-md">
+
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </span>
+                                        </div>
+                                    </span>
+                                            <br>
                                     <input type="hidden" name="resetdefault" id="resetdefault" value="no">
                                     <div class="form-group">
                                         <div class="col-sm-12">
@@ -1022,7 +1108,7 @@ foreach ($plugins as $result) {
                   echo 'document.getElementById("themeselect").value = \'' . $config["THEME"] . '\';';
                   echo 'document.getElementById("languageselect").value = \'' . $locale . '\';'; ?>
             $(document).ready(function() {
-                $('.select2').select2();
+                $('.select2').select2({ width: '100%' });
             });
             $('#color1').colorpicker();
             $('#color2').colorpicker();

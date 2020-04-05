@@ -27,14 +27,45 @@
 @import "../plugins/components/waves/waves.css";
 @font-face {
       font-family: 'fontello';
-      src: url('./font/fontello.eot?93153592');
-      src: url('./font/fontello.eot?93153592#iefix') format('embedded-opentype'),
-           url('./font/fontello.woff?93153592') format('woff'),
-           url('./font/fontello.ttf?93153592') format('truetype'),
-           url('./font/fontello.svg?93153592#fontello') format('svg');
+      src: url('./font/fontello.eot?66458266');
+      src: url('./font/fontello.eot?66458266#iefix') format('embedded-opentype'),
+           url('./font/fontello.woff2?66458266') format('woff2'),
+           url('./font/fontello.woff?66458266') format('woff'),
+           url('./font/fontello.ttf?66458266') format('truetype'),
+           url('./font/fontello.svg?66458266#fontello') format('svg');
       font-weight: normal;
       font-style: normal;
     }
+
+.icon-37signals:before { content: '\e800'; } /* '?' */
+.icon-fitbit:before { content: '\e802'; } /* '?' */
+.icon-baidu:before { content: '\e803'; } /* '?' */
+.icon-dwolla:before { content: '\e807'; } /* '?' */
+.icon-aol:before { content: '\e808'; } /* '?' */
+.icon-box:before { content: '\e809'; } /* '?' */
+.icon-miicard:before { content: '\e80a'; } /* '?' */
+.icon-planningcenter:before { content: '\e80b'; } /* '?' */
+.icon-exact:before { content: '\e80c'; } /* '?' */
+.icon-docomo:before { content: '\e80d'; } /* '?' */
+.icon-softaculous:before { content: '\e80e'; } /* '?' */
+.icon-cloudflare:before { content: '\e80f'; } /* '?' */
+
+.fontello-icon
+    {
+      font-family: "fontello";
+      font-style: normal;
+      font-weight: normal;
+      speak: none;
+     
+      display: inline-block;
+      text-decoration: inherit;
+      width: 1em;
+      margin-right: .2em;
+      text-align: center;
+
+      font-variant: normal;
+      text-transform: none;
+     }
 .icon-cloudflare
 {
     font-family: "fontello";
@@ -51,9 +82,7 @@
     font-style: normal;
     font-weight: normal;
     speak: none;
-    font-size: 250%;
-    top: 9.4px;
-    right: 3px;
+    font-size: 150%;
     position: relative;
 }
 .swal2-popup {
@@ -1045,7 +1074,6 @@ pre {
   font-size: 30px;
 }
 .popover {
-  border-radius: 0px;
   z-index: 100;
 }
 .popover-title {

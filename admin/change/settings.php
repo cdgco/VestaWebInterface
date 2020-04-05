@@ -30,596 +30,329 @@ else { header('Location: ../../login.php'); exit(); }
 if($username != 'admin') { header("Location: ../../"); exit(); }
 
 if(isset($adminenabled) && $adminenabled != 'true'){ header("Location: ../../error-pages/403.html"); exit(); }
-$r1 = 0;
-$extsAllowed = array( 'jpg', 'jpeg', 'png', 'gif' );
-$extsAllowed2 = array( 'ico' );
 
+function check_file_uploaded_name ($filename) { return (bool) ((preg_match("`^[-0-9A-Z_\.]+$`i",$filename)) ? true : false); }
+function check_file_uploaded_length ($filename) { return (bool) ((mb_strlen($filename,"UTF-8") > 225) ? true : false); }
+
+$conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db); $r1 = 0;
+
+// Individually Update Settings
 if(isset($_POST['resetdefault']) && $_POST['resetdefault'] != 'yes') { 
+    $query = '';
+    
+    /*
+    * Server Configuration Section
+    */
+    
     if(isset($_POST['TIMEZONE']) && $config["TIMEZONE"] != $_POST['TIMEZONE']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $v19 = mysqli_real_escape_string($conn, $_POST['TIMEZONE']);
-        $sql32 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$v19."' WHERE `VARIABLE` = 'TIMEZONE';";
-        if (mysqli_query($conn, $sql32)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_timezone = mysqli_real_escape_string($conn, $_POST['TIMEZONE']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_timezone."' WHERE `VARIABLE` = 'TIMEZONE';";
     } 
     if(isset($_POST['SITENAME']) && $sitetitle != $_POST['SITENAME']) {
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $v1 = mysqli_real_escape_string($conn, $_POST['SITENAME']);
-        $sql1 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$v1."' WHERE `VARIABLE` = 'SITE_NAME';";
-        if (mysqli_query($conn, $sql1)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_sitename = mysqli_real_escape_string($conn, $_POST['SITENAME']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_sitename."' WHERE `VARIABLE` = 'SITE_NAME';";
     } 
     if(isset($_POST['THEME']) && $config["THEME"] != $_POST['THEME']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $v2 = mysqli_real_escape_string($conn, $_POST['THEME']);
-        $sql2 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$v2."' WHERE `VARIABLE` = 'THEME';";
-        if (mysqli_query($conn, $sql2)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_theme = mysqli_real_escape_string($conn, $_POST['THEME']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_theme."' WHERE `VARIABLE` = 'THEME';";
     } 
     if(isset($_POST['color1']) && $config["CUSTOM_THEME_PRIMARY"] != $_POST['color1']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $vcolor1 = mysqli_real_escape_string($conn, $_POST['color1']);
-        $sqlcolor1 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$vcolor1."' WHERE `VARIABLE` = 'CUSTOM_THEME_PRIMARY';";
-        if (mysqli_query($conn, $sqlcolor1)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_color1 = mysqli_real_escape_string($conn, $_POST['color1']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_color1."' WHERE `VARIABLE` = 'CUSTOM_THEME_PRIMARY';";
     } 
-
     if(isset($_POST['color2']) && $config["CUSTOM_THEME_SECONDARY"] != $_POST['color2']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $vcolor2 = mysqli_real_escape_string($conn, $_POST['color2']);
-        $sqlcolor2 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$vcolor2."' WHERE `VARIABLE` = 'CUSTOM_THEME_SECONDARY';";
-        if (mysqli_query($conn, $sqlcolor2)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_color2 = mysqli_real_escape_string($conn, $_POST['color2']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_color2."' WHERE `VARIABLE` = 'CUSTOM_THEME_SECONDARY';";
     } 
     if(isset($_POST['CUSTOM_FOOTER']) && $config["CUSTOM_FOOTER"] != $_POST['CUSTOM_FOOTER']) {
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $footer1 = mysqli_real_escape_string($conn, $_POST['CUSTOM_FOOTER']);
-        $sqlfooter1 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$footer1."' WHERE `VARIABLE` = 'CUSTOM_FOOTER';";
-        if (mysqli_query($conn, $sqlfooter1)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_custom_footer = mysqli_real_escape_string($conn, $_POST['CUSTOM_FOOTER']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_custom_footer."' WHERE `VARIABLE` = 'CUSTOM_FOOTER';";
     } 
     if(isset($_POST['FOOTER']) && $config["FOOTER"] != $_POST['FOOTER']) {
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $footer2 = mysqli_real_escape_string($conn, $_POST['FOOTER']);
-        $sqlfooter2 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$footer2."' WHERE `VARIABLE` = 'FOOTER';";
-        if (mysqli_query($conn, $sqlfooter2)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_footer = mysqli_real_escape_string($conn, $_POST['FOOTER']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_footer."' WHERE `VARIABLE` = 'FOOTER';";
     } 
     if(isset($_POST['VWI_BRANDING']) && $config["VWI_BRANDING"] != $_POST['VWI_BRANDING']) {
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $footer3 = mysqli_real_escape_string($conn, $_POST['VWI_BRANDING']);
-        $sqlfooter3 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$footer3."' WHERE `VARIABLE` = 'VWI_BRANDING';";
-        if (mysqli_query($conn, $sqlfooter3)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_branding = mysqli_real_escape_string($conn, $_POST['VWI_BRANDING']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_branding."' WHERE `VARIABLE` = 'VWI_BRANDING';";
     } 
     if(isset($_POST['LANGUAGE']) && $locale != $_POST['LANGUAGE']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $v3 = mysqli_real_escape_string($conn, $_POST['LANGUAGE']);
-        $sql3 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$v3."' WHERE `VARIABLE` = 'LANGUAGE';";
-        if (mysqli_query($conn, $sql3)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_language = mysqli_real_escape_string($conn, $_POST['LANGUAGE']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_language."' WHERE `VARIABLE` = 'LANGUAGE';";
     } 
     if(isset($_POST['DEFAULT_TO_ADMIN']) && $config["DEFAULT_TO_ADMIN"] != $_POST['DEFAULT_TO_ADMIN']) {
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $d1 = mysqli_real_escape_string($conn, $_POST['DEFAULT_TO_ADMIN']);
-        $sql4 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$d1."' WHERE `VARIABLE` = 'DEFAULT_TO_ADMIN';";
-        if (mysqli_query($conn, $sql4)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_default_to_admin = mysqli_real_escape_string($conn, $_POST['DEFAULT_TO_ADMIN']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_default_to_admin."' WHERE `VARIABLE` = 'DEFAULT_TO_ADMIN';";
     } 
     if(isset($_POST['VESTA_HOST_ADDRESS']) && $config["VESTA_HOST_ADDRESS"] != $_POST['VESTA_HOST_ADDRESS']) {
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $v4 = mysqli_real_escape_string($conn, $_POST['VESTA_HOST_ADDRESS']);
-        $sql5 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$v4."' WHERE `VARIABLE` = 'VESTA_HOST_ADDRESS';";
-        $vwi_value = $_POST['VESTA_HOST_ADDRESS'];
-        if (mysqli_query($conn, $sql5)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_host_address = mysqli_real_escape_string($conn, $_POST['VESTA_HOST_ADDRESS']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_host_address."' WHERE `VARIABLE` = 'VESTA_HOST_ADDRESS';";
     } 
     if(isset($_POST['VESTA_SSL_ENABLED']) && $config["VESTA_SSL_ENABLED"] != $_POST['VESTA_SSL_ENABLED']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $d2 = mysqli_real_escape_string($conn, $_POST['VESTA_SSL_ENABLED']);
-        $sql6 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$d2."' WHERE `VARIABLE` = 'VESTA_SSL_ENABLED';";
-        if (mysqli_query($conn, $sql6)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_ssl_enabled = mysqli_real_escape_string($conn, $_POST['VESTA_SSL_ENABLED']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_ssl_enabled."' WHERE `VARIABLE` = 'VESTA_SSL_ENABLED';";
     } 
     if(isset($_POST['VESTA_PORT']) && $config["VESTA_PORT"] != $_POST['VESTA_PORT']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $v5 = mysqli_real_escape_string($conn, $_POST['VESTA_PORT']);
-        $sql7 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$v5."' WHERE `VARIABLE` = 'VESTA_PORT';";
-        if (mysqli_query($conn, $sql7)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_port = mysqli_real_escape_string($conn, $_POST['VESTA_PORT']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_port."' WHERE `VARIABLE` = 'VESTA_PORT';";
     } 
     if(isset($_POST['VESTA_METHOD']) && $config["VESTA_METHOD"] != $_POST['VESTA_METHOD']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $dm1 = mysqli_real_escape_string($conn, $_POST['VESTA_METHOD']);
-        $sqlm1 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$dm1."' WHERE `VARIABLE` = 'VESTA_METHOD';";
-        if (mysqli_query($conn, $sqlm1)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_method = mysqli_real_escape_string($conn, $_POST['VESTA_METHOD']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_method."' WHERE `VARIABLE` = 'VESTA_METHOD';";
     } 
     if(isset($_POST['VESTA_API_KEY']) && $vst_apikey != $_POST['VESTA_API_KEY']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
         $enckey = vwicryptx($_POST['VESTA_API_KEY']);
-        $dm2 = mysqli_real_escape_string($conn, $enckey);
-        $sqlm2 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$dm2."' WHERE `VARIABLE` = 'VESTA_API_KEY';";
-        if (mysqli_query($conn, $sqlm2)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_apikey = mysqli_real_escape_string($conn, $enckey);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_apikey."' WHERE `VARIABLE` = 'VESTA_API_KEY';";
     } 
     if(isset($_POST['VESTA_ADMIN_UNAME']) && $vst_username != $_POST['VESTA_ADMIN_UNAME']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $v6 = mysqli_real_escape_string($conn, $_POST['VESTA_ADMIN_UNAME']);
-        $sql8 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$v6."' WHERE `VARIABLE` = 'VESTA_ADMIN_UNAME';";
-        if (mysqli_query($conn, $sql8)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_admin_uname = mysqli_real_escape_string($conn, $_POST['VESTA_ADMIN_UNAME']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_admin_uname."' WHERE `VARIABLE` = 'VESTA_ADMIN_UNAME';";
     } 
     if(isset($_POST['VESTA_ADMIN_PW']) && $vst_password != $_POST['VESTA_ADMIN_PW']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
         $encpassword = vwicryptx($_POST['VESTA_ADMIN_PW']);
-        $v7 = mysqli_real_escape_string($conn, $encpassword);
-        $sql9 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$v7."' WHERE `VARIABLE` = 'VESTA_ADMIN_PW';";
-        if (mysqli_query($conn, $sql9)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_admin_pw = mysqli_real_escape_string($conn, $encpassword);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_admin_pw."' WHERE `VARIABLE` = 'VESTA_ADMIN_PW';";
     }
     if(isset($_POST['KEY1']) && $key2 != $_POST['KEY1']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $v20 = mysqli_real_escape_string($conn, $_POST['KEY1']);
-        $sql33 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$v20."' WHERE `VARIABLE` = 'KEY1';";
-        if (mysqli_query($conn, $sql33)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_key1 = mysqli_real_escape_string($conn, $_POST['KEY1']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_key1."' WHERE `VARIABLE` = 'KEY1';";
     } 
     if(isset($_POST['KEY2']) && $key2 != $_POST['KEY2']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $v21 = mysqli_real_escape_string($conn, $_POST['KEY2']);
-        $sql34 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$v21."' WHERE `VARIABLE` = 'KEY2';";
-        if (mysqli_query($conn, $sql34)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_key2 = mysqli_real_escape_string($conn, $_POST['KEY2']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_key2."' WHERE `VARIABLE` = 'KEY2';";
     }
     if(isset($_FILES['FAVICON'])  && $_FILES['FAVICON']['name'] != ''){
-        if($_FILES['FAVICON']['error'] > 0) { $r1 = $r1 + 1; }
-        $extUpload3 = strtolower( substr( strrchr($_FILES['FAVICON']['name'], '.') ,1) ) ;
-        if (in_array($extUpload3, $extsAllowed2) ) { 
-           $name3 = "../../plugins/images/uploads/{$_FILES['FAVICON']['name']}";
-           $result3 = move_uploaded_file($_FILES['FAVICON']['tmp_name'], $name3);
-        if($result3){
-            $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-            $i3 = mysqli_real_escape_string($conn, "uploads/" . $_FILES['FAVICON']['name']);
-            $sql300 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$i3."' WHERE `VARIABLE` = 'FAVICON';";
-            if (mysqli_query($conn, $sql300)) {} else { $r1 = $r1 + 1; }
-            mysqli_close($conn);
-        } } 
-        else { $r1 = $r1 + 1; }
-       }
+        if($_FILES['FAVICON']['error'] > 0 && check_file_uploaded_name($_FILES['FAVICON']['name']) && check_file_uploaded_length($_FILES['FAVICON']['name']) && strpos(mime_content_type($_FILES['FAVICON']['tmp_name']), 'image') && strpos(mime_content_type($_FILES['FAVICON']['tmp_name']), 'ico')) { $r1++; }
+        if (in_array(strtolower(substr(strrchr($_FILES['FAVICON']['name'], '.'), 1)), array('ico'))) { 
+            $result3 = move_uploaded_file($_FILES['FAVICON']['tmp_name'], "../../plugins/images/uploads/{$_FILES['FAVICON']['name']}");
+            if($result3){
+                $_favicon = mysqli_real_escape_string($conn, "uploads/" . $_FILES['FAVICON']['name']);
+                $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_favicon."' WHERE `VARIABLE` = 'FAVICON';";
+            } else { $r1++; }
+        } else { $r1++; }
+    }
     if(isset($_FILES['ICON']) && $_FILES['ICON']['name'] != ''){
-        if($_FILES['ICON']['error'] > 0) { $r1 = $r1 + 1; }
-        $extUpload1 = strtolower( substr( strrchr($_FILES['ICON']['name'], '.') ,1) ) ;
-        if (in_array($extUpload1, $extsAllowed) ) { 
-           $name1 = "../../plugins/images/uploads/{$_FILES['ICON']['name']}";
-           $result1 = move_uploaded_file($_FILES['ICON']['tmp_name'], $name1);
-        if($result1){
-            $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-            $i1 = mysqli_real_escape_string($conn, "uploads/" . $_FILES['ICON']['name']);
-            $sql100 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$i1."' WHERE `VARIABLE` = 'ICON';";
-            if (mysqli_query($conn, $sql100)) {} else { $r1 = $r1 + 1; }
-            mysqli_close($conn);
-        } } 
-        else { $r1 = $r1 + 1; }
-       }
+        if($_FILES['ICON']['error'] > 0 && check_file_uploaded_name($_FILES['ICON']['name']) && check_file_uploaded_length($_FILES['ICON']['name']) && strpos(mime_content_type($_FILES['ICON']['tmp_name']), 'image')) { $r1++; }
+        if (in_array(strtolower(substr(strrchr($_FILES['ICON']['name'], '.'), 1)), array('jpg', 'jpeg', 'png', 'gif'))) { 
+            $result1 = move_uploaded_file($_FILES['ICON']['tmp_name'], "../../plugins/images/uploads/{$_FILES['ICON']['name']}");
+            if($result1){
+                $_icon = mysqli_real_escape_string($conn, "uploads/" . $_FILES['ICON']['name']);
+                $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_icon."' WHERE `VARIABLE` = 'ICON';";
+            } else { $r1++; }
+        } else { $r1++; }
+    }
     if(isset($_FILES['LOGO'])  && $_FILES['LOGO']['name'] != ''){
-        if($_FILES['LOGO']['error'] > 0) { $r1 = $r1 + 1; }
-        $extUpload2 = strtolower( substr( strrchr($_FILES['LOGO']['name'], '.') ,1) ) ;
-        if (in_array($extUpload2, $extsAllowed) ) { 
-           $name2 = "../../plugins/images/uploads/{$_FILES['LOGO']['name']}";
-           $result2 = move_uploaded_file($_FILES['LOGO']['tmp_name'], $name2);
-        if($result2){
-            $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-            $i2 = mysqli_real_escape_string($conn, "uploads/" . $_FILES['LOGO']['name']);
-            $sql200 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$i2."' WHERE `VARIABLE` = 'LOGO';";
-            if (mysqli_query($conn, $sql200)) {} else { $r1 = $r1 + 1; }
-            mysqli_close($conn);
-        } } 
-        else { $r1 = $r1 + 1; }
-       }
+        if($_FILES['LOGO']['error'] > 0 && check_file_uploaded_name($_FILES['LOGO']['name']) && check_file_uploaded_length($_FILES['LOGO']['name']) && strpos(mime_content_type($_FILES['LOGO']['tmp_name']), 'image')) { $r1++; }
+        if (in_array(strtolower(substr(strrchr($_FILES['LOGO']['name'], '.'), 1)), array('jpg', 'jpeg', 'png', 'gif'))) { 
+            $result2 = move_uploaded_file($_FILES['LOGO']['tmp_name'], "../../plugins/images/uploads/{$_FILES['LOGO']['name']}");
+            if($result2){
+                $_logo = mysqli_real_escape_string($conn, "uploads/" . $_FILES['LOGO']['name']);
+                $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_logo."' WHERE `VARIABLE` = 'LOGO';";
+            } else { $r1++; }
+        } else { $r1++; }
+    }
     if(isset($_POST['HEADER_AD']) && $config["HEADER_AD"] != $_POST['HEADER_AD']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $v22 = mysqli_real_escape_string($conn, $_POST['HEADER_AD']);
-        $sql35 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$v22."' WHERE `VARIABLE` = 'HEADER_AD';";
-        if (mysqli_query($conn, $sql35)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_header_ad = mysqli_real_escape_string($conn, $_POST['HEADER_AD']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_header_ad."' WHERE `VARIABLE` = 'HEADER_AD';";
     }
     if(isset($_POST['FOOTER_AD']) && $config["FOOTER_AD"] != $_POST['FOOTER_AD']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $v23 = mysqli_real_escape_string($conn, $_POST['FOOTER_AD']);
-        $sql36 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$v23."' WHERE `VARIABLE` = 'FOOTER_AD';";
-        if (mysqli_query($conn, $sql36)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_footer_ad = mysqli_real_escape_string($conn, $_POST['FOOTER_AD']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_footer_ad."' WHERE `VARIABLE` = 'FOOTER_AD';";
     }
     if(isset($_POST['ADMIN_ADS']) && $config["ADMIN_ADS"] != $_POST['ADMIN_ADS']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $v24 = mysqli_real_escape_string($conn, $_POST['ADMIN_ADS']);
-        $sql37 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$v24."' WHERE `VARIABLE` = 'ADMIN_ADS';";
-        if (mysqli_query($conn, $sql37)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_admin_ads = mysqli_real_escape_string($conn, $_POST['ADMIN_ADS']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_admin_ads."' WHERE `VARIABLE` = 'ADMIN_ADS';";
     }
     if(isset($_POST['EXT_SCRIPT']) && $key2 != $_POST['EXT_SCRIPT']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $v25 = mysqli_real_escape_string($conn, $_POST['EXT_SCRIPT']);
-        $sql38 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$v25."' WHERE `VARIABLE` = 'EXT_SCRIPT';";
-        if (mysqli_query($conn, $sql38)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_ext_script = mysqli_real_escape_string($conn, $_POST['EXT_SCRIPT']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_ext_script."' WHERE `VARIABLE` = 'EXT_SCRIPT';";
     }
-
+    
+    /*
+    * Enable / Disable Section
+    */
+    
     if(isset($_POST['ENABLE_WEB']) && $config["WEB_ENABLED"] != $_POST['ENABLE_WEB']) {
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $d5 = mysqli_real_escape_string($conn, $_POST['ENABLE_WEB']);
-        $sql17 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$d5."' WHERE `VARIABLE` = 'WEB_ENABLED';";
-        if (mysqli_query($conn, $sql17)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_e_web = mysqli_real_escape_string($conn, $_POST['ENABLE_WEB']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_e_web."' WHERE `VARIABLE` = 'WEB_ENABLED';";
     } 
     if(isset($_POST['ENABLE_DNS']) && $config["DNS_ENABLED"] != $_POST['ENABLE_DNS']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $d6 = mysqli_real_escape_string($conn, $_POST['ENABLE_DNS']);
-        $sql18 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$d6."' WHERE `VARIABLE` = 'DNS_ENABLED';";
-        if (mysqli_query($conn, $sql18)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_e_dns = mysqli_real_escape_string($conn, $_POST['ENABLE_DNS']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_e_dns."' WHERE `VARIABLE` = 'DNS_ENABLED';";
     } 
     if(isset($_POST['ENABLE_MAIL']) && $config["MAIL_ENABLED"] != $_POST['ENABLE_MAIL']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $d7 = mysqli_real_escape_string($conn, $_POST['ENABLE_MAIL']);
-        $sql19 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$d7."' WHERE `VARIABLE` = 'MAIL_ENABLED';";
-        if (mysqli_query($conn, $sql19)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_e_mail = mysqli_real_escape_string($conn, $_POST['ENABLE_MAIL']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_e_mail."' WHERE `VARIABLE` = 'MAIL_ENABLED';";
     } 
     if(isset($_POST['ENABLE_DB']) && $config["DB_ENABLED"] != $_POST['ENABLE_DB']) {  
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $d8 = mysqli_real_escape_string($conn, $_POST['ENABLE_DB']);
-        $sql20 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$d8."' WHERE `VARIABLE` = 'DB_ENABLED';";
-        if (mysqli_query($conn, $sql20)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_e_db = mysqli_real_escape_string($conn, $_POST['ENABLE_DB']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_e_db."' WHERE `VARIABLE` = 'DB_ENABLED';";
     } 
     if(isset($_POST['ENABLE_ADMIN']) && $config["ADMIN_ENABLED"] != $_POST['ENABLE_ADMIN']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $d3 = mysqli_real_escape_string($conn, $_POST['ENABLE_ADMIN']);
-        $sql15 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$d3."' WHERE `VARIABLE` = 'ADMIN_ENABLED';";
-        if (mysqli_query($conn, $sql15)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_e_admin = mysqli_real_escape_string($conn, $_POST['ENABLE_ADMIN']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_e_admin."' WHERE `VARIABLE` = 'ADMIN_ENABLED';";
     } 
     if(isset($_POST['ENABLE_PROFILE']) && $config["PROFILE_ENABLED"] != $_POST['ENABLE_PROFILE']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $d4 = mysqli_real_escape_string($conn, $_POST['ENABLE_PROFILE']);
-        $sql16 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$d4."' WHERE `VARIABLE` = 'PROFILE_ENABLED';";
-        if (mysqli_query($conn, $sql16)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_e_profile = mysqli_real_escape_string($conn, $_POST['ENABLE_PROFILE']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_e_profile."' WHERE `VARIABLE` = 'PROFILE_ENABLED';";
     } 
     if(isset($_POST['ENABLE_CRON']) && $config["CRON_ENABLED"] != $_POST['ENABLE_CRON']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $d9 = mysqli_real_escape_string($conn, $_POST['ENABLE_CRON']);
-        $sql21 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$d9."' WHERE `VARIABLE` = 'CRON_ENABLED';";
-        if (mysqli_query($conn, $sql21)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_e_cron = mysqli_real_escape_string($conn, $_POST['ENABLE_CRON']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_e_cron."' WHERE `VARIABLE` = 'CRON_ENABLED';";
     } 
     if(isset($_POST['ENABLE_BACKUPS']) && $config["BACKUPS_ENABLED"] != $_POST['ENABLE_BACKUPS']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $d10 = mysqli_real_escape_string($conn, $_POST['ENABLE_BACKUPS']);
-        $sql22 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$d10."' WHERE `VARIABLE` = 'BACKUPS_ENABLED';";
-        if (mysqli_query($conn, $sql22)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_e_backup = mysqli_real_escape_string($conn, $_POST['ENABLE_BACKUPS']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_e_backup."' WHERE `VARIABLE` = 'BACKUPS_ENABLED';";
     } 
     if(isset($_POST['ENABLE_NOTIF']) && $config["NOTIFICATIONS_ENABLED"]  != $_POST['ENABLE_NOTIF']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $dnotif = mysqli_real_escape_string($conn, $_POST['ENABLE_NOTIF']);
-        $sqlnotif = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$dnotif."' WHERE `VARIABLE` = 'NOTIFICATIONS_ENABLED';";
-        if (mysqli_query($conn, $sqlnotif)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_e_notif = mysqli_real_escape_string($conn, $_POST['ENABLE_NOTIF']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_e_notif."' WHERE `VARIABLE` = 'NOTIFICATIONS_ENABLED';";
     } 
     if(isset($_POST['ENABLE_REG']) && $config["REGISTRATIONS_ENABLED"]  != $_POST['ENABLE_REG']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $d13 = mysqli_real_escape_string($conn, $_POST['ENABLE_REG']);
-        $sql25 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$d13."' WHERE `VARIABLE` = 'REGISTRATIONS_ENABLED';";
-        if (mysqli_query($conn, $sql25)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_e_reg = mysqli_real_escape_string($conn, $_POST['ENABLE_REG']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_e_reg."' WHERE `VARIABLE` = 'REGISTRATIONS_ENABLED';";
     } 
     if(isset($_POST['ENABLE_SOFTURL']) && $config["SOFTACULOUS_URL"] != $_POST['ENABLE_SOFTURL']) {
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $d11 = mysqli_real_escape_string($conn, $_POST['ENABLE_SOFTURL']);
-        $sql23 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$d11."' WHERE `VARIABLE` = 'SOFTACULOUS_URL';";
-        if (mysqli_query($conn, $sql23)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_e_soft = mysqli_real_escape_string($conn, $_POST['ENABLE_SOFTURL']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_e_soft."' WHERE `VARIABLE` = 'SOFTACULOUS_URL';";
     } 
     if(isset($_POST['ENABLE_OLDCPURL']) && $config["OLD_CP_LINK"] != $_POST['ENABLE_OLDCPURL']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $d12 = mysqli_real_escape_string($conn, $_POST['ENABLE_OLDCPURL']);
-        $sql24 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$d12."' WHERE `VARIABLE` = 'OLD_CP_LINK';";
-        if (mysqli_query($conn, $sql24)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_e_cpurl = mysqli_real_escape_string($conn, $_POST['ENABLE_OLDCPURL']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_e_cpurl."' WHERE `VARIABLE` = 'OLD_CP_LINK';";
     } 
     if(isset($_POST['PHPMAIL_ENABLED']) && $phpmailenabled != $_POST['PHPMAIL_ENABLED']) {
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $m1 = mysqli_real_escape_string($conn, $_POST['PHPMAIL_ENABLED']);
-        $sqlm1 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$m1."' WHERE `VARIABLE` = 'PHPMAIL_ENABLED';";
-        if (mysqli_query($conn, $sqlm1)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_e_phpmail = mysqli_real_escape_string($conn, $_POST['PHPMAIL_ENABLED']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_e_phpmail."' WHERE `VARIABLE` = 'PHPMAIL_ENABLED';";
     } 
     if(isset($_POST['MAIL_FROM']) && $config["MAIL_FROM"] != $_POST['MAIL_FROM']) {
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $m2 = mysqli_real_escape_string($conn, $_POST['MAIL_FROM']);
-        $sqlm2 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$m2."' WHERE `VARIABLE` = 'MAIL_FROM';";
-        if (mysqli_query($conn, $sqlm2)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_mail_from = mysqli_real_escape_string($conn, $_POST['MAIL_FROM']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_mail_from."' WHERE `VARIABLE` = 'MAIL_FROM';";
     } 
     if(isset($_POST['MAIL_NAME']) && $config["MAIL_NAME"] != $_POST['MAIL_NAME']) {
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $m3 = mysqli_real_escape_string($conn, $_POST['MAIL_NAME']);
-        $sqlm3 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$m3."' WHERE `VARIABLE` = 'MAIL_NAME';";
-        if (mysqli_query($conn, $sqlm3)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_mail_name = mysqli_real_escape_string($conn, $_POST['MAIL_NAME']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_mail_name."' WHERE `VARIABLE` = 'MAIL_NAME';";
     } 
     if(isset($_POST['SMTP_ENABLED']) && $smtpenabled != $_POST['SMTP_ENABLED']) {
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $m4 = mysqli_real_escape_string($conn, $_POST['SMTP_ENABLED']);
-        $sqlm4 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$m4."' WHERE `VARIABLE` = 'SMTP_ENABLED';";
-        if (mysqli_query($conn, $sqlm4)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_e_smtp = mysqli_real_escape_string($conn, $_POST['SMTP_ENABLED']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_e_smtp."' WHERE `VARIABLE` = 'SMTP_ENABLED';";
     } 
     if(isset($_POST['SMTP_HOST']) && $config["SMTP_HOST"] != $_POST['SMTP_HOST']) {
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $m5 = mysqli_real_escape_string($conn, $_POST['SMTP_HOST']);
-        $sqlm5 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$m5."' WHERE `VARIABLE` = 'SMTP_HOST';";
-        if (mysqli_query($conn, $sqlm5)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_smtp_host = mysqli_real_escape_string($conn, $_POST['SMTP_HOST']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_smtp_host."' WHERE `VARIABLE` = 'SMTP_HOST';";
     } 
     if(isset($_POST['SMTP_PORT']) && $config["SMTP_PORT"] != $_POST['SMTP_PORT']) {
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $m6 = mysqli_real_escape_string($conn, $_POST['SMTP_PORT']);
-        $sqlm6 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$m6."' WHERE `VARIABLE` = 'SMTP_PORT';";
-        if (mysqli_query($conn, $sqlm6)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_smtp_port = mysqli_real_escape_string($conn, $_POST['SMTP_PORT']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_smtp_port."' WHERE `VARIABLE` = 'SMTP_PORT';";
     } 
     if(isset($_POST['SMTP_ENC']) && $smtpenc != $_POST['SMTP_ENC']) {
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $m7 = mysqli_real_escape_string($conn, $_POST['SMTP_ENC']);
-        $sqlm7 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$m7."' WHERE `VARIABLE` = 'SMTP_ENC';";
-        if (mysqli_query($conn, $sqlm7)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_smtp_enc = mysqli_real_escape_string($conn, $_POST['SMTP_ENC']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_smtp_enc."' WHERE `VARIABLE` = 'SMTP_ENC';";
     } 
     if(isset($_POST['SMTP_AUTH']) && $smtpauth != $_POST['SMTP_AUTH']) {
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $m8 = mysqli_real_escape_string($conn, $_POST['SMTP_AUTH']);
-        $sqlm8 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$m8."' WHERE `VARIABLE` = 'SMTP_AUTH';";
-        if (mysqli_query($conn, $sqlm8)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_smtp_auth = mysqli_real_escape_string($conn, $_POST['SMTP_AUTH']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_smtp_auth."' WHERE `VARIABLE` = 'SMTP_AUTH';";
     } 
     if(isset($_POST['SMTP_UNAME']) && $config["SMTP_UNAME"] != $_POST['SMTP_UNAME']) {
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $m9 = mysqli_real_escape_string($conn, $_POST['SMTP_UNAME']);
-        $sqlm9 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$m9."' WHERE `VARIABLE` = 'SMTP_UNAME';";
-        if (mysqli_query($conn, $sqlm9)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_smtp_uname = mysqli_real_escape_string($conn, $_POST['SMTP_UNAME']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_smtp_uname."' WHERE `VARIABLE` = 'SMTP_UNAME';";
     } 
     if(isset($_POST['SMTP_PW']) && $config["SMTP_PW"] != $_POST['SMTP_PW']) {
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $m10 = mysqli_real_escape_string($conn, $_POST['SMTP_PW']);
-        $sqlm10 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$m10."' WHERE `VARIABLE` = 'SMTP_PW';";
-        if (mysqli_query($conn, $sqlm10)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_smtp_pw = mysqli_real_escape_string($conn, $_POST['SMTP_PW']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_smtp_pw."' WHERE `VARIABLE` = 'SMTP_PW';";
     } 
+    
+    /*
+    * Optional Links Section
+    */
+    
     if(isset($_POST['FTP_URL']) && $config["FTP_URL"] != $_POST['FTP_URL']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $v8 = mysqli_real_escape_string($conn, $_POST['FTP_URL']);
-        $sql10 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$v8."' WHERE `VARIABLE` = 'FTP_URL';";
-        if (mysqli_query($conn, $sql10)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_ftp_url = mysqli_real_escape_string($conn, $_POST['FTP_URL']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_ftp_url."' WHERE `VARIABLE` = 'FTP_URL';";
     } 
     if(isset($_POST['WEBMAIL_URL']) && $config["WEBMAIL_URL"] != $_POST['WEBMAIL_URL']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $v9 = mysqli_real_escape_string($conn, $_POST['WEBMAIL_URL']);
-        $sql11 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$v9."' WHERE `VARIABLE` = 'WEBMAIL_URL';";
-        if (mysqli_query($conn, $sql11)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_webmail_url = mysqli_real_escape_string($conn, $_POST['WEBMAIL_URL']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_webmail_url."' WHERE `VARIABLE` = 'WEBMAIL_URL';";
     } 
     if(isset($_POST['PHPMYADMIN_URL']) && $config["PHPMYADMIN_URL"] != $_POST['PHPMYADMIN_URL']) {
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $v10 = mysqli_real_escape_string($conn, $_POST['PHPMYADMIN_URL']);
-        $sql12 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$v10."' WHERE `VARIABLE` = 'PHPMYADMIN_URL';";
-        if (mysqli_query($conn, $sql12)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_phpmy_url = mysqli_real_escape_string($conn, $_POST['PHPMYADMIN_URL']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_phpmy_url."' WHERE `VARIABLE` = 'PHPMYADMIN_URL';";
     } 
     if(isset($_POST['PHPPGADMIN_URL']) && $config["PHPPGADMIN_URL"] != $_POST['PHPPGADMIN_URL']) {  
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $v11 = mysqli_real_escape_string($conn, $_POST['PHPPGADMIN_URL']);
-        $sql13 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$v11."' WHERE `VARIABLE` = 'PHPPGADMIN_URL';";
-        if (mysqli_query($conn, $sql13)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_phppg_url = mysqli_real_escape_string($conn, $_POST['PHPPGADMIN_URL']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_phppg_url."' WHERE `VARIABLE` = 'PHPPGADMIN_URL';";
     } 
     if(isset($_POST['SUPPORT_URL']) && $config["SUPPORT_URL"] != $_POST['SUPPORT_URL']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $v12 = mysqli_real_escape_string($conn, $_POST['SUPPORT_URL']);
-        $sql14 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$v12."' WHERE `VARIABLE` = 'SUPPORT_URL';";
-        if (mysqli_query($conn, $sql14)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_support_url = mysqli_real_escape_string($conn, $_POST['SUPPORT_URL']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_support_url."' WHERE `VARIABLE` = 'SUPPORT_URL';";
     } 
+    
+    /*
+    * Optional Integrations Section
+    */
+    
     if(isset($_POST['PLUGINS']) && $config["PLUGINS"] != $_POST['PLUGINS']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $v18 = mysqli_real_escape_string($conn, $_POST['PLUGINS']);
-        $sql31 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$v18."' WHERE `VARIABLE` = 'PLUGINS';";
-        if (mysqli_query($conn, $sql31)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_plugins = mysqli_real_escape_string($conn, $_POST['PLUGINS']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_plugins."' WHERE `VARIABLE` = 'PLUGINS';";
     } 
     if(isset($_POST['GOOGLE_ANALYTICS_ID']) && $config["GOOGLE_ANALYTICS_ID"] != $_POST['GOOGLE_ANALYTICS_ID']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $v13 = mysqli_real_escape_string($conn, $_POST['GOOGLE_ANALYTICS_ID']);
-        $sql26 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$v13."' WHERE `VARIABLE` = 'GOOGLE_ANALYTICS_ID';";
-        if (mysqli_query($conn, $sql26)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_ga = mysqli_real_escape_string($conn, $_POST['GOOGLE_ANALYTICS_ID']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_ga."' WHERE `VARIABLE` = 'GOOGLE_ANALYTICS_ID';";
     } 
     if(isset($_POST['INTERAKT_APP_ID']) && $config["INTERAKT_APP_ID"] != $_POST['INTERAKT_APP_ID']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $v14 = mysqli_real_escape_string($conn, $_POST['INTERAKT_APP_ID']);
-        $sql27= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$v14."' WHERE `VARIABLE` = 'INTERAKT_APP_ID';";
-        if (mysqli_query($conn, $sql27)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_interakt_id = mysqli_real_escape_string($conn, $_POST['INTERAKT_APP_ID']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_interakt_id."' WHERE `VARIABLE` = 'INTERAKT_APP_ID';";
     } 
     if(isset($_POST['INTERAKT_API_KEY']) && $config["INTERAKT_API_KEY"] != $_POST['INTERAKT_API_KEY']) {
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $v15 = mysqli_real_escape_string($conn, $_POST['INTERAKT_API_KEY']);
-        $sql28 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$v15."' WHERE `VARIABLE` = 'INTERAKT_API_KEY';";
-        if (mysqli_query($conn, $sql28)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_interakt_key = mysqli_real_escape_string($conn, $_POST['INTERAKT_API_KEY']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_interakt_key."' WHERE `VARIABLE` = 'INTERAKT_API_KEY';";
     } 
     if(isset($_POST['CLOUDFLARE_API_KEY']) && $config["CLOUDFLARE_API_KEY"] != $_POST['CLOUDFLARE_API_KEY']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $v16 = mysqli_real_escape_string($conn, $_POST['CLOUDFLARE_API_KEY']);
-        $sql29= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$v16."' WHERE `VARIABLE` = 'CLOUDFLARE_API_KEY';";
-        if (mysqli_query($conn, $sql29)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_cf_key = mysqli_real_escape_string($conn, $_POST['CLOUDFLARE_API_KEY']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_cf_key."' WHERE `VARIABLE` = 'CLOUDFLARE_API_KEY';";
     } 
     if(isset($_POST['CLOUDFLARE_EMAIL']) && $config["CLOUDFLARE_EMAIL"] != $_POST['CLOUDFLARE_EMAIL']) { 
-        $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-        $v17 = mysqli_real_escape_string($conn, $_POST['CLOUDFLARE_EMAIL']);
-        $sql30 = "UPDATE `".$mysql_table."config` SET `VALUE` = '".$v17."' WHERE `VARIABLE` = 'CLOUDFLARE_EMAIL';";
-        if (mysqli_query($conn, $sql30)) {} else { $r1 = $r1 + 1; }
-        mysqli_close($conn);
+        $_cf_email = mysqli_real_escape_string($conn, $_POST['CLOUDFLARE_EMAIL']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_cf_email."' WHERE `VARIABLE` = 'CLOUDFLARE_EMAIL';";
     } 
+    if(isset($_POST['AUTH0_DOMAIN']) && $config["AUTH0_DOMAIN"] != $_POST['AUTH0_DOMAIN']) { 
+        $_auth0_domain = mysqli_real_escape_string($conn, $_POST['AUTH0_DOMAIN']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_auth0_domain."' WHERE `VARIABLE` = 'AUTH0_DOMAIN';";
+    } 
+    if(isset($_POST['AUTH0_CLIENT_ID']) && $config["AUTH0_CLIENT_ID"] != $_POST['AUTH0_CLIENT_ID']) { 
+        $_auth0_id = mysqli_real_escape_string($conn, $_POST['AUTH0_CLIENT_ID']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_auth0_id."' WHERE `VARIABLE` = 'AUTH0_CLIENT_ID';";
+    } 
+    if(isset($_POST['AUTH0_CLIENT_SECRET']) && $config["AUTH0_CLIENT_SECRET"] != $_POST['AUTH0_CLIENT_SECRET']) { 
+        $_auth0_secret = mysqli_real_escape_string($conn, $_POST['AUTH0_CLIENT_SECRET']);
+        $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '".$_auth0_secret."' WHERE `VARIABLE` = 'AUTH0_CLIENT_SECRET';";
+    } 
+    
 }
-if(isset($_POST['resetdefault']) && $_POST['resetdefault'] == 'yes') {
-    $conn=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-    $sql32 = "UPDATE `".$mysql_table."config` SET `VALUE` = 'America/Los_Angeles' WHERE `VARIABLE` = 'TIMEZONE';";
-    if (mysqli_query($conn, $sql32)) {} else { $r1 = $r1 + 1; }
-
-    $sql1 = "UPDATE `".$mysql_table."config` SET `VALUE` = '' WHERE `VARIABLE` = 'SITE_NAME';";
-    if (mysqli_query($conn, $sql1)) {} else { $r1 = $r1 + 1; }
-
-    $sql2 = "UPDATE `".$mysql_table."config` SET `VALUE` = 'default' WHERE `VARIABLE` = 'THEME';";
-    if (mysqli_query($conn, $sql2)) {} else { $r1 = $r1 + 1; }
-
-    $sqlcolor1 = "UPDATE `".$mysql_table."config` SET `VALUE` = '' WHERE `VARIABLE` = 'CUSTOM_THEME_PRIMARY';";
-    if (mysqli_query($conn, $sqlcolor1)) {} else { $r1 = $r1 + 1; }
-
-    $sqlcolor2 = "UPDATE `".$mysql_table."config` SET `VALUE` = '' WHERE `VARIABLE` = 'CUSTOM_THEME_SECONDARY';";
-    if (mysqli_query($conn, $sqlcolor2)) {} else { $r1 = $r1 + 1; }
-
-    $sqlfooter1 = "UPDATE `".$mysql_table."config` SET `VALUE` = 'false' WHERE `VARIABLE` = 'CUSTOM_FOOTER';";
-    if (mysqli_query($conn, $sqlfooter1)) {} else { $r1 = $r1 + 1; }
-
-    $sqlfooter2 = "UPDATE `".$mysql_table."config` SET `VALUE` = '' WHERE `VARIABLE` = 'FOOTER';";
-    if (mysqli_query($conn, $sqlfooter2)) {} else { $r1 = $r1 + 1; }
-
-    $sqlfooter3 = "UPDATE `".$mysql_table."config` SET `VALUE` = 'true' WHERE `VARIABLE` = 'VWI_BRANDING';";
-    if (mysqli_query($conn, $sqlfooter3)) {} else { $r1 = $r1 + 1; }
-
-    $sql3 = "UPDATE `".$mysql_table."config` SET `VALUE` = 'en_US.utf8' WHERE `VARIABLE` = 'LANGUAGE';";
-    if (mysqli_query($conn, $sql3)) {} else { $r1 = $r1 + 1; }
-
-    $sql4 = "UPDATE `".$mysql_table."config` SET `VALUE` = 'true' WHERE `VARIABLE` = 'DEFAULT_TO_ADMIN';";
-    if (mysqli_query($conn, $sql4)) {} else { $r1 = $r1 + 1; }
-
-    $sql300 = "UPDATE `".$mysql_table."config` SET `VALUE` = 'favicon.ico' WHERE `VARIABLE` = 'FAVICON';";
-    if (mysqli_query($conn, $sql300)) {} else { $r1 = $r1 + 1; }
-
-    $sql100 = "UPDATE `".$mysql_table."config` SET `VALUE` = 'admin-logo.png' WHERE `VARIABLE` = 'ICON';";
-    if (mysqli_query($conn, $sql100)) {} else { $r1 = $r1 + 1; }
-
-    $sql200 = "UPDATE `".$mysql_table."config` SET `VALUE` = 'admin-text.png' WHERE `VARIABLE` = 'LOGO';";
-    if (mysqli_query($conn, $sql200)) {} else { $r1 = $r1 + 1; }
-
-    $sql17 = "UPDATE `".$mysql_table."config` SET `VALUE` = 'true' WHERE `VARIABLE` = 'WEB_ENABLED';";
-    if (mysqli_query($conn, $sql17)) {} else { $r1 = $r1 + 1; }
-
-    $sql18 = "UPDATE `".$mysql_table."config` SET `VALUE` = 'true' WHERE `VARIABLE` = 'DNS_ENABLED';";
-    if (mysqli_query($conn, $sql18)) {} else { $r1 = $r1 + 1; }
-
-    $sql19 = "UPDATE `".$mysql_table."config` SET `VALUE` = 'true' WHERE `VARIABLE` = 'MAIL_ENABLED';";
-    if (mysqli_query($conn, $sql19)) {} else { $r1 = $r1 + 1; }
-
-    $sql20 = "UPDATE `".$mysql_table."config` SET `VALUE` = 'true' WHERE `VARIABLE` = 'DB_ENABLED';";
-    if (mysqli_query($conn, $sql20)) {} else { $r1 = $r1 + 1; }
-
-    $sql15 = "UPDATE `".$mysql_table."config` SET `VALUE` = 'true' WHERE `VARIABLE` = 'ADMIN_ENABLED';";
-    if (mysqli_query($conn, $sql15)) {} else { $r1 = $r1 + 1; }
-
-    $sql16 = "UPDATE `".$mysql_table."config` SET `VALUE` = 'true' WHERE `VARIABLE` = 'PROFILE_ENABLED';";
-    if (mysqli_query($conn, $sql16)) {} else { $r1 = $r1 + 1; }
-
-    $sql21 = "UPDATE `".$mysql_table."config` SET `VALUE` = 'true' WHERE `VARIABLE` = 'CRON_ENABLED';";
-    if (mysqli_query($conn, $sql21)) {} else { $r1 = $r1 + 1; }
-
-    $sql22 = "UPDATE `".$mysql_table."config` SET `VALUE` = 'true' WHERE `VARIABLE` = 'BACKUPS_ENABLED';";
-    if (mysqli_query($conn, $sql22)) {} else { $r1 = $r1 + 1; }
-
-    $sqlnotif = "UPDATE `".$mysql_table."config` SET `VALUE` = 'true' WHERE `VARIABLE` = 'NOTIFICATIONS_ENABLED';";
-    if (mysqli_query($conn, $sqlnotif)) {} else { $r1 = $r1 + 1; }
-
-    $sql25 = "UPDATE `".$mysql_table."config` SET `VALUE` = 'false' WHERE `VARIABLE` = 'REGISTRATIONS_ENABLED';";
-    if (mysqli_query($conn, $sql25)) {} else { $r1 = $r1 + 1; }
-
-    $sql23 = "UPDATE `".$mysql_table."config` SET `VALUE` = 'false' WHERE `VARIABLE` = 'SOFTACULOUS_URL';";
-    if (mysqli_query($conn, $sql23)) {} else { $r1 = $r1 + 1; }
-
-    $sql24 = "UPDATE `".$mysql_table."config` SET `VALUE` = 'false' WHERE `VARIABLE` = 'OLD_CP_LINK';";
-    if (mysqli_query($conn, $sql24)) {} else { $r1 = $r1 + 1; }
-
-    $sqlm1 = "UPDATE `".$mysql_table."config` SET `VALUE` = 'false' WHERE `VARIABLE` = 'PHPMAIL_ENABLED';";
-    if (mysqli_query($conn, $sqlm1)) {} else { $r1 = $r1 + 1; }
-
-    $sqlm2 = "UPDATE `".$mysql_table."config` SET `VALUE` = '' WHERE `VARIABLE` = 'MAIL_FROM';";
-    if (mysqli_query($conn, $sqlm2)) {} else { $r1 = $r1 + 1; }
-
-    $sqlm3 = "UPDATE `".$mysql_table."config` SET `VALUE` = '' WHERE `VARIABLE` = 'MAIL_NAME';";
-    if (mysqli_query($conn, $sqlm3)) {} else { $r1 = $r1 + 1; }
-
-    $sqlm4 = "UPDATE `".$mysql_table."config` SET `VALUE` = 'true' WHERE `VARIABLE` = 'SMTP_ENABLED';";
-    if (mysqli_query($conn, $sqlm4)) {} else { $r1 = $r1 + 1; }
-
-    $sqlm5 = "UPDATE `".$mysql_table."config` SET `VALUE` = '' WHERE `VARIABLE` = 'SMTP_HOST';";
-    if (mysqli_query($conn, $sqlm5)) {} else { $r1 = $r1 + 1; }
-
-    $sqlm6 = "UPDATE `".$mysql_table."config` SET `VALUE` = '587' WHERE `VARIABLE` = 'SMTP_PORT';";
-    if (mysqli_query($conn, $sqlm6)) {} else { $r1 = $r1 + 1; }
-
-    $sqlm7 = "UPDATE `".$mysql_table."config` SET `VALUE` = 'tls' WHERE `VARIABLE` = 'SMTP_ENC';";
-    if (mysqli_query($conn, $sqlm7)) {} else { $r1 = $r1 + 1; }
-
-    $sqlm8 = "UPDATE `".$mysql_table."config` SET `VALUE` = 'true' WHERE `VARIABLE` = 'SMTP_AUTH';";
-    if (mysqli_query($conn, $sqlm8)) {} else { $r1 = $r1 + 1; }
-
-    $sqlm9 = "UPDATE `".$mysql_table."config` SET `VALUE` = '' WHERE `VARIABLE` = 'SMTP_UNAME';";
-    if (mysqli_query($conn, $sqlm9)) {} else { $r1 = $r1 + 1; }
-
-    $sqlm10 = "UPDATE `".$mysql_table."config` SET `VALUE` = '' WHERE `VARIABLE` = 'SMTP_PW';";
-    if (mysqli_query($conn, $sqlm10)) {} else { $r1 = $r1 + 1; }
-
-    $sql10 = "UPDATE `".$mysql_table."config` SET `VALUE` = 'disabled' WHERE `VARIABLE` = 'FTP_URL';";
-    if (mysqli_query($conn, $sql10)) {} else { $r1 = $r1 + 1; }
-
-    $sql11 = "UPDATE `".$mysql_table."config` SET `VALUE` = 'disabled' WHERE `VARIABLE` = 'WEBMAIL_URL';";
-    if (mysqli_query($conn, $sql11)) {} else { $r1 = $r1 + 1; }
-
-    $sql12 = "UPDATE `".$mysql_table."config` SET `VALUE` = '' WHERE `VARIABLE` = 'PHPMYADMIN_URL';";
-    if (mysqli_query($conn, $sql12)) {} else { $r1 = $r1 + 1; }
-
-    $sql13 = "UPDATE `".$mysql_table."config` SET `VALUE` = '' WHERE `VARIABLE` = 'PHPPGADMIN_URL';";
-    if (mysqli_query($conn, $sql13)) {} else { $r1 = $r1 + 1; }
-
-    $sql14 = "UPDATE `".$mysql_table."config` SET `VALUE` = '' WHERE `VARIABLE` = 'SUPPORT_URL';";
-    if (mysqli_query($conn, $sql14)) {} else { $r1 = $r1 + 1; }
-
-    $sql31 = "UPDATE `".$mysql_table."config` SET `VALUE` = '' WHERE `VARIABLE` = 'PLUGINS';";
-    if (mysqli_query($conn, $sql31)) {} else { $r1 = $r1 + 1; }
-
-    $sql26 = "UPDATE `".$mysql_table."config` SET `VALUE` = '' WHERE `VARIABLE` = 'GOOGLE_ANALYTICS_ID';";
-    if (mysqli_query($conn, $sql26)) {} else { $r1 = $r1 + 1; }
-
-    $sql27= "UPDATE `".$mysql_table."config` SET `VALUE` = '' WHERE `VARIABLE` = 'INTERAKT_APP_ID';";
-    if (mysqli_query($conn, $sql27)) {} else { $r1 = $r1 + 1; }
-
-    $sql28 = "UPDATE `".$mysql_table."config` SET `VALUE` = '' WHERE `VARIABLE` = 'INTERAKT_API_KEY';";
-    if (mysqli_query($conn, $sql28)) {} else { $r1 = $r1 + 1; }
-
-    $sql29= "UPDATE `".$mysql_table."config` SET `VALUE` = '' WHERE `VARIABLE` = 'CLOUDFLARE_API_KEY';";
-    if (mysqli_query($conn, $sql29)) {} else { $r1 = $r1 + 1; }
-
-    $sql30 = "UPDATE `".$mysql_table."config` SET `VALUE` = '' WHERE `VARIABLE` = 'CLOUDFLARE_EMAIL';";
-    if (mysqli_query($conn, $sql30)) {} else { $r1 = $r1 + 1; }
-
-    mysqli_close($conn);
+// Reset To Default
+else {
+    $query = "UPDATE `".$mysql_table."config` SET `VALUE` = 'America/Los_Angeles' WHERE `VARIABLE` = 'TIMEZONE';";
+    $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = 'default' WHERE `VARIABLE` = 'THEME';";
+    $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = 'en_US.utf8' WHERE `VARIABLE` = 'LANGUAGE';";
+    $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = 'favicon.ico' WHERE `VARIABLE` = 'FAVICON';";
+    $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = 'admin-logo.png' WHERE `VARIABLE` = 'ICON';";
+    $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = 'admin-text.png' WHERE `VARIABLE` = 'LOGO';";
+    $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '587' WHERE `VARIABLE` = 'SMTP_PORT';";
+    $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = 'tls' WHERE `VARIABLE` = 'SMTP_ENC';";
+    $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = 'true' WHERE `VARIABLE` IN ('VWI_BRANDING', 'DEFAULT_TO_ADMIN', 'ADMIN_ADS', 'WEB_ENABLED', 'DNS_ENABLED', 'MAIL_ENABLED', 'DB_ENABLED', 'ADMIN_ENABLED', 'PROFILE_ENABLED', 'CRON_ENABLED', 'BACKUPS_ENABLED', 'NOTIFICATIONS_ENABLED', 'SMTP_ENABLED', 'SMTP_AUTH');";
+    $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = 'false' WHERE `VARIABLE` IN ('CUSTOM_FOOTER', 'REGISTRATIONS_ENABLED', 'SOFTACULOUS_URL', 'OLD_CP_LINK', 'PHPMAIL_ENABLED');";
+    $query .= "UPDATE `".$mysql_table."config` SET `VALUE` = '' WHERE `VARIABLE` IN ('SITE_NAME', 'CUSTOM_THEME_PRIMARY', 'CUSTOM_THEME_SECONDARY', 'FOOTER', 'HEADER_AD', 'FOOTER_AD', 'EXT_SCRIPT', 'MAIL_FROM', 'MAIL_NAME', 'SMTP_HOST', 'SMTP_UNAME', 'SMTP_PW', 'FTP_URL', 'WEBMAIL_URL', 'PHPMYADMIN_URL', 'PHPPGADMIN_URL', 'SUPPORT_URL', 'PLUGINS', 'GOOGLE_ANALYTICS_ID', 'INTERAKT_APP_ID', 'INTERAKT_API_KEY', 'CLOUDFLARE_API_KEY', 'CLOUDFLARE_EMAIL', 'AUTH0_DOMAIN', 'AUTH0_CLIENT_ID', 'AUTH0_CLIENT_SECRET');";
 }   
+
+if(mysqli_multi_query($conn, $query)) {
+    do {
+        if(!mysqli_more_results($conn)) { break; }
+        if(!mysqli_next_result($conn)) { $r1++; break; }
+    } while(true);
+    mysqli_free_result($result);
+} else { $r1++; }
+
+mysqli_close($conn);
 ?>
 <!DOCTYPE html>
 <html lang="en">

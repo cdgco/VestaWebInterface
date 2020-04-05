@@ -1,5 +1,6 @@
 {
     "require": {
-        "phpmyadmin/motranslator": "4.0"
+        "phpmyadmin/motranslator": "4.0",
+        "auth0/auth0-php": "~5.0"
     }
 }
