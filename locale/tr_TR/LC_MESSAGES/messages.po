@@ -162,7 +162,7 @@ msgstr "Çıkış Yap"
 #: log/error.php:174 plugins/example-plugin/index.php:131 process/csr.php:165
 #: process/generatecsr.php:158 process/search.php:178 profile.php:212
 msgid "Navigation"
-msgstr "navigasyon"
+msgstr "Navigasyon"
 
 #: add/cfrecord.php:215 add/dnsrecord.php:215
 msgid "Add DNS Record"
@@ -193,7 +193,7 @@ msgstr "Kayıt"
 #: list/cfdomain.php:293 list/db.php:241 list/dnsdomain.php:284
 #: process/search.php:205
 msgid "Type"
-msgstr "tip"
+msgstr "Tip"
 
 #: add/cfrecord.php:252 add/dnsrecord.php:256 edit/cfrecord.php:252
 #: edit/dnsrecord.php:298
