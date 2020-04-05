@@ -936,7 +936,7 @@ foreach ($plugins as $result) {
                                     </label><br><br>
                                     <span class="authtoggle" style="display:none;">
                                         <div style="margin-left: 4%;">
-                                        <p><a href="https://vwi.cdgtech.one/#/auth0"><?php echo __("Setup Instructions"); ?></a></p><br>
+                                        <p><a href="https://vwi.cdgtech.one/#/auth"><?php echo __("Setup Instructions"); ?></a></p><br>
                                         <div class="form-group">
                                             <label class="col-md-12" for="AUTH0_DOMAIN"><?php echo __("Auth0 Domain"); ?></label>  
                                             <div class="col-md-12">
