@@ -1512,9 +1512,9 @@ supports-color@^5.3.0:
     has-flag "^3.0.0"
 
 sweetalert2@latest:
-  version "9.10.6"
-  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-9.10.6.tgz#4f15e6881bd2d6784d2543c8aa4b24e5015cb167"
-  integrity sha512-++Vhmr3IRG9Ufaow7ad8QckEEINmA4bSNAW5dLTdC3jx1DdjyceVAoSfVzuOQgLQ0kQXQpiQqSwhQjVEroPHRQ==
+  version "9.10.9"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-9.10.9.tgz#a727178ea89a0976d3d1bf6ee9ea94d25cef59d1"
+  integrity sha512-EvCwcS9omZHhxp8XXiWwPMGq2ywGcU0VXeBr3DCibUMmfRkh8f8SxBWFSKMtw57HnK0tKYDhyhQV/vFERtRciQ==
 
 taffydb@2.6.2:
   version "2.6.2"
