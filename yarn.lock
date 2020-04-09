@@ -144,12 +144,14 @@ bootstrap-brand-buttons@^1.0.1:
   resolved "https://registry.yarnpkg.com/bootstrap-brand-buttons/-/bootstrap-brand-buttons-1.0.1.tgz#b71d11385025443c974765dd11b7a35932a80cdc"
   integrity sha1-tx0ROFAlRDyXR2XdEbejWTKoDNw=
 
-bootstrap-colorpicker@2.5.3:
-  version "2.5.3"
-  resolved "https://registry.yarnpkg.com/bootstrap-colorpicker/-/bootstrap-colorpicker-2.5.3.tgz#b50aff8590fbaa6b5aa63a5624e4213f1659a49d"
-  integrity sha512-xdllX8LSMvKULs3b8JrgRXTvyvjkSMHHHVuHjjN5FNMqr6kRe5NPiMHFmeAFjlgDF73MspikudLuEwR28LbzLw==
+bootstrap-colorpicker@3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/bootstrap-colorpicker/-/bootstrap-colorpicker-3.2.0.tgz#42b053b865a866b2674527813cd59f90137b9704"
+  integrity sha512-twW93EFLf4MzZ/st+MkfdLCWEEA7r43WPlPnGckzm3Lj2FsbmVS/qgJH2c9IcmO3re5Q1320NO9bhuViwHR9Qw==
   dependencies:
-    jquery ">=1.10"
+    bootstrap ">=4.0"
+    jquery ">=2.1.0"
+    popper.js ">=1.10"
 
 bootstrap-datepicker@uxsolutions/bootstrap-datepicker#latest:
   version "1.9.0"
@@ -166,6 +168,11 @@ bootstrap@3:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-3.4.1.tgz#c3a347d419e289ad11f4033e3c4132b87c081d72"
   integrity sha512-yN5oZVmRCwe5aKwzRj6736nSmKDX7pLYwsXiCj/EYmo16hODaBiT4En5btW/jhBF/seV+XMx3aYwukYC3A49DA==
+
+bootstrap@>=4.0:
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.4.1.tgz#8582960eea0c5cd2bede84d8b0baf3789c3e8b01"
+  integrity sha512-tbx5cHubwE6e2ZG7nqM3g/FZ5PQEDMWmMGNrCUBVRPHXTJaH7CBDdsLeu3eCh3B1tzAxTnAbtmrzvWEvT2NNEA==
 
 bootstrapvalidator@latest:
   version "0.5.4"
@@ -841,7 +848,7 @@ jquery@2.2.4:
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-2.2.4.tgz#2c89d6889b5eac522a7eea32c14521559c6cbf02"
   integrity sha1-LInWiJterFIqfuoywUUhVZxsvwI=
 
-"jquery@>= 1.7", jquery@>=1.10, "jquery@>=1.7.1 <4.0.0":
+"jquery@>= 1.7", "jquery@>=1.7.1 <4.0.0", jquery@>=2.1.0:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.4.1.tgz#714f1f8d9dde4bdfa55764ba37ef214630d80ef2"
   integrity sha512-36+AdBzCL+y6qjw5Tx7HgzeGCzC81MDDgaUP8ld2zhx58HdqXGoBd+tHdrBMiyjGQs0Hxs/MLZTu/eHNJJuWPw==
@@ -1165,7 +1172,7 @@ pinkie@^2.0.0:
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
   integrity sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
 
-popper.js@latest:
+popper.js@>=1.10, popper.js@latest:
   version "1.16.1"
   resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.16.1.tgz#2a223cb3dc7b6213d740e40372be40de43e65b1b"
   integrity sha512-Wb4p1J4zyFTbM+u6WuO4XstYx4Ky9Cewe4DWrel7B0w6VVICvPwdOpotjzcf6eD8TsckVnIMNONQyPIUFOUbCQ==
