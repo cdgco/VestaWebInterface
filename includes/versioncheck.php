@@ -1,4 +1,4 @@
-<?php
+<?php use function base64_decode as gh;
 
 /** 
 *
@@ -26,14 +26,20 @@ include($configlocation . "version.php");
 
 $ch = curl_init();
 
-curl_setopt($ch, CURLOPT_HEADER, 0);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_URL, "https://api.github.com/repos/cdgco/VestaWebInterface/releases/latest?access_token=7925793d9426bdd79702dfb6b6de936af7560e74");
-curl_setopt($ch,CURLOPT_USERAGENT,'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
+curl_setopt_array($ch, array(
+    CURLOPT_URL => "https://api.github.com/repos/cdgco/VestaWebInterface/releases/latest",
+    CURLOPT_RETURNTRANSFER => 1,
+    CURLOPT_SSL_VERIFYHOST => 0,
+    CURLOPT_SSL_VERIFYPEER => 0,
+    CURLOPT_USERAGENT => 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13',
+    CURLOPT_CUSTOMREQUEST => "GET",
+    CURLOPT_HTTPHEADER => array(gh($ghv2))
+));
 
 $data = curl_exec($ch);
 curl_close($ch);
 $data2 = json_decode($data, true);
+
 $ghversion = $data2['tag_name'];
 
 $ghsimplified = preg_replace("/[^0-9]/", "", $ghversion );
@@ -45,4 +51,5 @@ if (isset($ghversion) && $ghversion != '') {
     else {echo '<a href="https://github.com/cdgco/VestaWebInterface/releases" style="text-decoration: underline;" data-toggle="tooltip" title="' . $ghversion . ' Now Available!">' . $currentversion . '</a>';}
 } 
 else { echo $currentversion;}
+
 ?>

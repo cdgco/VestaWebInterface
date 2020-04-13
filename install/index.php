@@ -106,7 +106,7 @@ require '../includes/arrays.php';
                             <label class="col-md-4 control-label" for="singlebutton"></label>
                             <div class="col-md-4"> 
                                 <?php if(($a1+$a2+$a2+$a3+$a5+$a6+$a7+$a8+$a9+$a10+$a11) != 0) { echo '<span class="d-inline-block" boundary="viewport" tabindex="0" data-toggle="tooltip" title="Please Meet All Requirements">'; } ?>
-                                <button class="<?php if(($a1+$a2+$a2+$a3+$a5+$a6+$a7+$a8+$a9+$a10+$a11) != 0) { echo "disabled"; } ?> btn btn-primary">Continue</button>
+                                <button class="<?php if(($a1+$a2+$a2+$a3+$a5+$a6+$a7+$a8+$a9+$a10+$a11) != 0) { echo "disabled"; } ?> btn btn-primary" <?php if(($a1+$a2+$a2+$a3+$a5+$a6+$a7+$a8+$a9+$a10+$a11) != 0) { echo "disabled"; } ?>>Continue</button>
                                 <?php if(($a1+$a2+$a2+$a3+$a5+$a6+$a7+$a8+$a9+$a10+$a11) != 0) { echo '</span>'; } ?>
                             </div>
                         </div>
