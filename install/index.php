@@ -57,8 +57,8 @@ require '../includes/arrays.php';
 
                         <table style="width:80%; line-height: 200%;position:relative;left:12%;">
                             <tr>
-                                <td style="font-size:16px; text-align:">PHP Version >= 7.0:</td>
-                                <td style="font-size:16px;"><span style="color:<?php if(phpversion() >= 7.0) {echo "limegreen"; $a1 = 0; } else { echo "red"; $a1 = 1;} ?>"><?php echo phpversion(); ?></span></td>
+                                <td style="font-size:16px; text-align:">PHP Version >= 5.5:</td>
+                                <td style="font-size:16px;"><span style="color:<?php if(phpversion() >= 5.5) {echo "limegreen"; $a1 = 0; } else { echo "red"; $a1 = 1;} ?>"><?php echo phpversion(); ?></span></td>
                             </tr>
                             <tr>
                                 <td style="font-size:16px;">PHP cURL Extension:</td>
