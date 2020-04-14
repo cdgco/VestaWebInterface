@@ -1,5 +1,10 @@
 ## Changelog
 
+### v2.2.0
+Bug Fixes<br>
+Auth0 Integration<br>
+Updated Settings Page
+
 ### v2.1.1
 
 Bug Fixes<br>
