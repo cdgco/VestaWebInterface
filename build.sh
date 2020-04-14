@@ -63,7 +63,7 @@ sed -i "s#VestaWebInterface@.*/css/colors/default.css#VestaWebInterface@$VERSION
 sed -i "s#VestaWebInterface@.*/js/main.js#VestaWebInterface@$VERSION/js/main.js#g" install/vesta/web/templates/r_3.php
 sed -i "s#VestaWebInterface@.*/css/colors/blue.css#VestaWebInterface@$VERSION/css/style.css\" rel=\"stylesheet\"><link href=\"https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@$VERSION/css/colors/blue.css#g" .htaccess
 
-printf "Enter the changelog in HTML (<br> format: "
+printf "Enter the changelog in HTML (<br>) format: "
 read CHANGELOG
 
 sed -i "s/## Changelog.*###/## Changelog\n\n### v$VERSION\n$CHANGELOG\n\n###/g" docs/changelog.md
@@ -74,11 +74,11 @@ fi
 
 tar -cvzf install/vesta.tar.gz -C install vesta
 
-git commit -a -m "$VERSION"
-git push origin $VERSION
+git commit -a -m "v$VERSION"
+git push origin v$VERSION
 git checkout master
 
-printf "Build complete. New branch on Github named $VERSION.\n\n"
+printf "Build complete. New branch on Github named v$VERSION.\n\n"
 read -p "Press [Enter] key to close ..."
 exit 1
 
