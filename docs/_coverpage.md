@@ -8,4 +8,6 @@
 * Multiple Themes
 
 [GitHub](https://github.com/cdgco/VestaWebInterface)
+[Demo](http://demo.vwi.cdgtech.one/)
 [Get Started](#main)
+
