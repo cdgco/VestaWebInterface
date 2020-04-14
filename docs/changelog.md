@@ -1,6 +1,6 @@
 ## Changelog
 
-## v2.2.0
+### v2.2.0
 Bug Fixes<br>
 Auth0 Integration<br>
 Updated Settings Page
