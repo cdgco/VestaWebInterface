@@ -17,24 +17,7 @@
       repo: 'cdgco/VestaWebInterface',
       loadSidebar: true,
       coverpage: true,
-      search: 'auto',
-        plugins: [
-        function (hook, vm) {
-          hook.beforeEach(function (html) {
-            if (/githubusercontent\.com/.test(vm.route.file)) {
-              url = vm.route.file
-                .replace('raw.githubusercontent.com', 'github.com')
-                .replace(/\/master/, '/blob/master')
-            } else {
-              url = 'https://github.com/cdgco/VestaWebInterface/blob/master/docs/' + vm.route.file
-            }
-            var editHtml = '[:memo: Edit Document](' + url + ')\n'
-
-            return editHtml
-              + html
-          })
-        }
-      ]
+      search: 'auto'
   }
   if (typeof navigator.serviceWorker !== 'undefined') {
     navigator.serviceWorker.register('sw.js')
