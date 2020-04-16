@@ -1,9 +1,11 @@
 # Vesta Web Interface v2.2.0
 <hr>
 
-## About
+## About 
 
-Vesta Web Interface is a PHP Control Panel and Web Interface that integrates with the VestaCP API to provide a beautiful user friendly experience. VWI features the ability to rebrand the control panel, change the theme, install it wherever you want, restrict access to users, easily edit options and offers integrations to services such as Google Analytics, Cloudflare, Interakt and many more coming soon. 
+Vesta Web Interface is a PHP control panel and interface that integrates with VestaCP to provide a beautiful user friendly experience.
+
+VWI features the ability to rebrand the control panel, change the theme, install it wherever you want, restrict access to users, easily edit options and offers integrations to services such as Auth0, Google Analytics, Cloudflare, Softaculous, Interakt and plugins for webmail (rainloop), FTP (Monsta FTP), and billing (WIP).
 
 ## Features
 
