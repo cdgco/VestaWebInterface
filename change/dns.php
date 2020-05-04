@@ -48,11 +48,11 @@ $v_10 = $_POST['v_cf_id'];
 
 if ($v_7 == "no") {
     $postvars = array(
-        array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-dns-domain-ip','arg1' => $username,'arg2' => $v_1, 'arg3' => $v_2),
-        array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-dns-domain-tpl','arg1' => $username,'arg2' => $v_1, 'arg3' => $v_3),
+        array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-dns-domain-ip','arg1' => $username,'arg2' => $v_1, 'arg3' => $v_2, 'arg4' => 'no'),
+        array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-dns-domain-tpl','arg1' => $username,'arg2' => $v_1, 'arg3' => $v_3, 'arg4' => 'no'),
         array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-dns-domain-exp','arg1' => $username,'arg2' => $v_1, 'arg3' => $v_4),
-        array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-dns-domain-soa','arg1' => $username,'arg2' => $v_1, 'arg3' => $v_5),
-        array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-dns-domain-ttl','arg1' => $username,'arg2' => $v_1, 'arg3' => $v_6));
+        array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-dns-domain-soa','arg1' => $username,'arg2' => $v_1, 'arg3' => $v_5, 'arg4' => 'no'),
+        array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-dns-domain-ttl','arg1' => $username,'arg2' => $v_1, 'arg3' => $v_6, 'arg4' => 'no'));
 
     if ($v_2 != $_POST['v_ip-x']) { 
 

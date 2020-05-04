@@ -170,12 +170,6 @@ foreach ($plugins as $result) {
             app_id: "' . INTERAKT_APP_ID . '"
             };
             </script>'; } ?>
-        <script async src="plugins/components/sweetalert2/sweetalert2.min.js"></script>
-        <?php
-
-        if(isset($_GET['rebuild'])){
-            echo "<script> Swal.fire({title: '"; echo "Action Complete!', icon: 'success'})</script>";}
-        ?>
         <div class="preloader">
             <svg class="circular" viewBox="25 25 50 50">
                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
@@ -847,6 +841,7 @@ foreach ($plugins as $result) {
         </div>
         <script src="plugins/components/jquery/jquery.min.js"></script>
         <script src="plugins/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="plugins/components/sweetalert2/sweetalert2.min.js"></script>
         <script src="plugins/components/jquery-overlaps/jquery.overlaps.js"></script>
         <script src="plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="plugins/components/bootstrap-select/js/bootstrap-select.min.js"></script>
@@ -865,6 +860,13 @@ foreach ($plugins as $result) {
             processPlugins();
             includeScript(); 
             
+            if(isset($_GET['rebuild'])){
+                echo "Swal.fire({title:'" . __("Action Complete!") . "', icon:'success'});";
+            }
+            elseif(isset($_GET['re-error'])){
+                echo "Swal.fire({title:'" . __("Error Completing Action") . "', icon:'error'});";
+            }
+
             ?>
             Waves.attach('.button', ['waves-effect']);
             Waves.init();

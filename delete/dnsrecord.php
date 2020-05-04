@@ -30,7 +30,7 @@ else { header('Location: ../login.php'); exit(); }
 
 if(isset($dnsenabled) && $dnsenabled != 'true'){ header("Location: ../error-pages/403.html"); exit(); }
 
-$postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-dns-record','arg1' => $username,'arg2' => $_GET['domain'], 'arg3' => $_GET['id']);
+$postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-dns-record','arg1' => $username,'arg2' => $_GET['domain'], 'arg3' => $_GET['id'], 'arg4' => 'no');
 
 $curl0 = curl_init();
 

@@ -30,11 +30,33 @@ if(base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: ../login.php'); exit(); }
 
 $postaction = $_POST['action'];
-$vst_command = 'v-' . $postaction;
-
-
-$postvars = array(
-    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => $vst_command,'arg1' => $username));
+switch ($postaction) {
+    case 'rebuild-user':
+        $postvars = array(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-rebuild-user', 'arg1' => $username, 'arg2' => 'no'));
+        break;
+    case 'rebuild-web-domains':
+        $postvars = array(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-rebuild-web-domains', 'arg1' => $username, 'arg2' => 'no'));
+        break;
+    case 'rebuild-dns-domains':
+        $postvars = array(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-rebuild-dns-domains', 'arg1' => $username, 'arg2' => 'no'));
+        break;
+    case 'rebuild-mail-domains':
+        $postvars = array(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-rebuild-mail-domains', 'arg1' => $username));
+        break;
+    case 'rebuild-databases':
+        $postvars = array(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-rebuild-databases', 'arg1' => $username));
+        break;
+    case 'rebuild-cron-jobs':
+        $postvars = array(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-rebuild-cron-jobs', 'arg1' => $username, 'arg2' => 'no'));
+        break;
+    case 'update-user-counters':
+        $postvars = array(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-update-user-counters', 'arg1' => $username));
+        break;
+    default:
+        header('Location: ../index.php?re-error=true'); 
+        exit();
+        break;
+}
 
 $curl0 = curl_init();
 $curlstart = 0; 

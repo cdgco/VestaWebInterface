@@ -203,7 +203,7 @@ else {
         $r5 = curl_exec($curl5);
     } else { $r5 = '0'; }
     if ((!empty($_POST['v_webstats'])) && ($_POST['v_webstats'] != 'none') && (!empty($_POST['v_statsuname'])) && (!empty($_POST['v_statspassword']))) {
-        $postvars6 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain-stats-user','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_statsuname'], 'arg4' => $_POST['v_statspassword']);
+        $postvars6 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain-stats-user','arg1' => $username,'arg2' => $v_domain, 'arg3' => $_POST['v_statsuname'], 'arg4' => $_POST['v_statspassword'], 'arg5' => 'no');
 
         $curl6 = curl_init();
         curl_setopt($curl6, CURLOPT_URL, $vst_url);
@@ -239,7 +239,7 @@ else {
             ftp_file_put_contents($v_domain . '.ca', $writestr);
         }
         
-        $postvars8 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain-ssl','arg1' => $username, 'arg2' => $v_domain, 'arg3'=> "/home/admin/", 'arg4' => $_POST['v_ssldir']);
+        $postvars8 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-web-domain-ssl','arg1' => $username, 'arg2' => $v_domain, 'arg3'=> "/home/admin/", 'arg4' => $_POST['v_ssldir'], 'arg5' => 'no');
         
         $curl8 = curl_init();
         curl_setopt($curl8, CURLOPT_URL, $vst_url);

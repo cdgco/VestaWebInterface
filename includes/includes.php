@@ -484,7 +484,7 @@ function primaryMenu($l4, $l5, $a2) {
         if ($webmailurl != '') { echo '<li><a href="' . $webmailurl . '" target="_blank"><i class="fa fa-envelope-o fa-fw"></i><span class="hide-menu">' . __("Webmail") . '</span></a></li>';}
         if ($phpmyadmin != '') { echo '<li><a href="' . $phpmyadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . __("phpMyAdmin") . '</span></a></li>';}
         if ($phppgadmin != '') { echo '<li><a href="' . $phppgadmin . '" target="_blank"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">' . __("phpPgAdmin") . '</span></a></li>';}
-        if ($softaculousurl != '') { echo '<li><a href="' . $softaculousurl . '" target="_blank"><i class="icon-softaculous"></i>&nbsp;&nbsp;<span class="hide-menu">' . __("Softaculous") . '</span></a></li>';}       
+        if ($softaculousurl != '') { echo '<li><a href="javascript:void(0);" onclick="softaculousPassword();"><i class="icon-softaculous"></i>&nbsp;&nbsp;<span class="hide-menu">' . __("Softaculous") . '</span></a></li>';}       
         if ($ftpurl != '' || $webmailurl != '' || $phpmyadmin != '' || $phppgadmin != '' || $softaculousurl != '' || in_array('apps', $pluginsections)) { echo '</ul></li>';}
         echo '<li class="devider"></li>
         <li><a href="' . $l5 . 'logout.php" class="waves-effect"><i class="fa fa-sign-out fa-fw"></i> <span class="hide-menu">' . __("Log out") . '</span></a></li>';
@@ -528,7 +528,22 @@ function includeScript() {
     if(isset($config["EXT_SCRIPT"]) && $config["EXT_SCRIPT"] != '') {
         echo $config["EXT_SCRIPT"];
     }
-    echo 'const toast1 = Swal.mixin({
+    echo '
+        function closeModal() {    
+            swal.close() 
+        }
+
+        async function softaculousPassword(){
+            Swal.fire({
+                title: "'.__("Confirm Password").'",
+                html:
+                \'<form method="post" onsubmit="closeModal();" target="_blank" action="'.$configlocation.'../process/softaculous.php"><br><div class="form-group"><input type="password" class="form-control" name="password" id="pwinput" placeholder="'.__("Password").'"></div><button type="submit" class="btn btn-primary">'.__("Submit").'</button></form>\',
+                showCloseButton: true,
+                showCancelButton: false,
+                showConfirmButton: false
+            }).catch(swal.noop)};
+    
+        const toast1 = Swal.mixin({
               toast: true,
               position: "top-end",
               showConfirmButton: false,

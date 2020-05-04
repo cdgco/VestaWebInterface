@@ -37,7 +37,7 @@ $v_user = $_GET['user'];
 if ((!isset($_GET['resource'])) || ($_GET['resource'] == '')) { header('Location: ../../list/cron.php?error=1'); exit();}
 if ((!isset($_GET['user'])) || ($_GET['user'] == '')) { header('Location: ../../list/cron.php?error=1'); exit();}
 
-$postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-suspend-cron-job','arg1' => $v_user, 'arg2' => $v_resource);
+$postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-suspend-cron-job','arg1' => $v_user, 'arg2' => $v_resource, 'arg3' => 'no');
 
 $curl0 = curl_init();
 curl_setopt($curl0, CURLOPT_URL, $vst_url);

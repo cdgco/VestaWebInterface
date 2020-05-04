@@ -31,8 +31,8 @@ else { header('Location: ../login.php'); exit(); }
 if(isset($webenabled) && $webenabled != 'true'){ header("Location: ../error-pages/403.html"); exit(); }
 
 $postvars = array(
-    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-web-domain','arg1' => $username,'arg2' => $_GET['domain']),
-    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-dns-domain','arg1' => $username,'arg2' => $_GET['domain']),
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-web-domain','arg1' => $username,'arg2' => $_GET['domain'], 'arg3' => 'no'),
+    array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-dns-domain','arg1' => $username,'arg2' => $_GET['domain'], 'arg3' => 'no'),
     array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-mail-domain','arg1' => $username,'arg2' => $_GET['domain'])
 );
 

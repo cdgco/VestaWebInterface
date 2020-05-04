@@ -128,10 +128,6 @@ foreach ($plugins as $result) {
             <input type="hidden" form="download" id="formurl" name="url"/>
             <input type="hidden" form="download" name="download" value="yes"/>
             <script>
-                function closeModal() {    
-                    swal.close() 
-                }
-
                 async function getPassword(){
                     Swal.fire({
                         title: '<?php echo __("Confirm Password"); ?>',
@@ -298,7 +294,7 @@ foreach ($plugins as $result) {
             </div>
         </div>
         <?php if(isset($_POST['download']) && $_POST['download'] == "yes") { echo '
-                <form method="post" id="formx" action="' . $_POST['url'] . '">
+                <form method="post" target="_blank" id="formx" action="' . $_POST['url'] . '">
                     <input type="hidden" name="user" value="' . $_POST['user'] . '"/>
                     <input type="hidden" name="password" value="' . $_POST['password'] . '">
                 </form>'; 
@@ -370,8 +366,7 @@ foreach ($plugins as $result) {
             }
             ?>
             <?php if(isset($_POST['download']) && $_POST['download'] == "yes") {    
-                echo '$(".preloader").fadeOut();
-                document.getElementById(\'formx\').submit();'; } 
+                echo 'document.getElementById(\'formx\').submit();'; } 
             ?> 
         </script>
     </body>

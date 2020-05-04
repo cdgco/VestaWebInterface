@@ -192,7 +192,7 @@ if ($_POST['v_sslcrt'] != $_POST['v_sslcrt-x'] || $_POST['v_sslkey'] != $_POST['
         ftp_file_put_contents($v_domain . '.crt', $writestr1);
         ftp_file_put_contents($v_domain . '.key', $writestr2);
         
-        $postvars8 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-sys-vesta-ssl','arg1' => "/home/admin/");
+        $postvars8 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-sys-vesta-ssl','arg1' => "/home/admin/", 'arg2' => 'no');
         
         $curl8 = curl_init();
         curl_setopt($curl8, CURLOPT_URL, $vst_url);

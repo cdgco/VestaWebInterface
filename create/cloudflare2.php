@@ -86,7 +86,7 @@ foreach($keys as $val) {
     curl_setopt(${'curl' . $val}, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt(${'curl' . $val}, CURLOPT_SSL_VERIFYHOST, false);
     curl_setopt(${'curl' . $val}, CURLOPT_POST, true);
-    curl_setopt(${'curl' . $val}, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-dns-record','arg1' => $username,'arg2' => $v_1, 'arg3' => $val)));
+    curl_setopt(${'curl' . $val}, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-dns-record','arg1' => $username,'arg2' => $v_1, 'arg3' => $val, 'arg4' => 'no')));
 
     curl_exec( ${'curl' . $val});
     curl_close( ${'curl' . $val});
@@ -123,7 +123,7 @@ curl_setopt($curl3, CURLOPT_RETURNTRANSFER,true);
 curl_setopt($curl3, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($curl3, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($curl3, CURLOPT_POST, true);
-curl_setopt($curl3, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-dns-record','arg1' => $username,'arg2' => $v_1, 'arg3' => $dnsdata[$requestrecord]['ID'])));
+curl_setopt($curl3, CURLOPT_POSTFIELDS, http_build_query(array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-delete-dns-record','arg1' => $username,'arg2' => $v_1, 'arg3' => $dnsdata[$requestrecord]['ID'], 'arg4' => 'no')));
 
 curl_exec($curl3);
 curl_close($curl3);

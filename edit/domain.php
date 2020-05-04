@@ -407,21 +407,21 @@ foreach ($plugins as $result) {
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo __("SSL Certificate"); ?> / <a href="../process/generatecsr.php?domain=<?php echo $requestdomain; ?>" target="_blank"><?php echo __("Generate CSR"); ?></a></label>
                                             <div class="col-md-12">
-                                                <input type="hidden" name="v_sslcrt-x" value="<?php echo $domaindata[0]['CRT']; ?>">
+                                                <input type="hidden" name="v_sslcrt-x" value="<?php echo $domainssl[0]['CRT']; ?>">
                                                 <textarea class="form-control" rows="4" class="form-control form-control-static" name="v_sslcrt" <?php if($apienabled == 'true'){ echo "disabled"; } ?> <?php if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "disabled"; } ?>><?php print_r($domainssl[0]['CRT']); ?></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo __("SSL Key"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="hidden" name="v_sslkey-x" value="<?php echo $domaindata[0]['KEY']; ?>">
+                                                <input type="hidden" name="v_sslkey-x" value="<?php echo $domainssl[0]['KEY']; ?>">
                                                 <textarea class="form-control" rows="4" class="form-control form-control-static" name="v_sslkey" <?php if($apienabled == 'true'){ echo "disabled"; } ?> <?php if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "disabled"; } ?>><?php print_r($domainssl[0]['KEY']); ?></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12"><?php echo __("SSL Certificate Authority / Intermediate"); ?></label>
                                             <div class="col-md-12">
-                                                <input type="hidden" name="v_sslca-x" value="<?php echo $domaindata[0]['CA']; ?>">
+                                                <input type="hidden" name="v_sslca-x" value="<?php echo $domainssl[0]['CA']; ?>">
                                                 <textarea class="form-control" rows="4" class="form-control form-control-static" name="v_sslca" <?php if($apienabled == 'true'){ echo "disabled"; } ?> <?php if(checkService('vsftpd') === false && checkService('proftpd') === false) { echo "disabled"; } ?>><?php print_r($domainssl[0]['CA']); ?></textarea>
                                             </div>
                                         </div>

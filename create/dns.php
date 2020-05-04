@@ -53,7 +53,7 @@ elseif ((!isset($_POST['v_ip'])) || ($_POST['v_ip'] == '')) { header('Location: 
 elseif ((!isset($_POST['v_ns1'])) || ($_POST['v_ns1'] == '')) { header('Location: ../add/dns.php?error=1'); exit();}
 elseif ((!isset($_POST['v_ns2'])) || ($_POST['v_ns2'] == '')) { header('Location: ../add/dns.php?error=1'); exit();}
 
-$postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-dns-domain','arg1' => $username,'arg2' => $v_1, 'arg3' => $v_2, 'arg4' => $v_3, 'arg5' => $v_4, 'arg6' => $v_5, 'arg7' => $v_6, 'arg8' => $v_7, 'arg9' => $v_8, 'arg10' => $v_9, 'arg11' => $v_10);
+$postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-add-dns-domain','arg1' => $username,'arg2' => $v_1, 'arg3' => $v_2, 'arg4' => $v_3, 'arg5' => $v_4, 'arg6' => $v_5, 'arg7' => $v_6, 'arg8' => $v_7, 'arg9' => $v_8, 'arg10' => $v_9, 'arg11' => $v_10, 'arg12' => 'no');
 
 $curl0 = curl_init();
 curl_setopt($curl0, CURLOPT_URL, $vst_url);

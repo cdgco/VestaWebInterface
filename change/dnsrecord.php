@@ -43,7 +43,7 @@ elseif ((!isset($_POST['v_id2'])) || ($_POST['v_id2'] == '')) { header('Location
 elseif ((!isset($_POST['v_type'])) || ($_POST['v_type'] == '')) { header('Location: ../edit/dnsrecord.php?error=1&domain=' . $v_domain . '&record=' . $v_id); exit();}
 elseif ((!isset($_POST['v_value'])) || ($_POST['v_value'] == '')) { header('Location: ../edit/dnsrecord.php?error=1&domain=' . $v_domain . '&record=' . $v_id); exit();}
 
-$postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-dns-record','arg1' => $username,'arg2' => $v_domain, 'arg3' => $v_id, 'arg4' => $v_value, 'arg5' => $v_priority);
+$postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-dns-record','arg1' => $username,'arg2' => $v_domain, 'arg3' => $v_id, 'arg4' => $v_value, 'arg5' => $v_priority, 'arg6' => 'no');
 
 $curl0 = curl_init();
 curl_setopt($curl0, CURLOPT_URL, $vst_url);
@@ -56,7 +56,7 @@ $r1 = curl_exec($curl0);
 
 if ($v_id != $v_id2) {
 
-    $postvars1 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-dns-record-id','arg1' => $username,'arg2' => $v_domain, 'arg3' => $v_id, 'arg4' => $v_id2);
+    $postvars1 = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'returncode' => 'yes','cmd' => 'v-change-dns-record-id','arg1' => $username,'arg2' => $v_domain, 'arg3' => $v_id, 'arg4' => $v_id2, 'arg5' => 'no');
 
     $curl1 = curl_init();
     curl_setopt($curl1, CURLOPT_URL, $vst_url);
