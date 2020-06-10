@@ -22,6 +22,9 @@
   if (typeof navigator.serviceWorker !== 'undefined') {
     navigator.serviceWorker.register('sw.js')
   }
+  var host = "vwi.cdgtech.one";
+  if ((host == window.location.host) && (window.location.protocol != "https:"))
+      window.location.protocol = "https";
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0"></script>
