@@ -1,4 +1,4 @@
-<?php use function base64_decode as gh;
+<?php
 
 /** 
 *
@@ -32,8 +32,7 @@ curl_setopt_array($ch, array(
     CURLOPT_SSL_VERIFYHOST => 0,
     CURLOPT_SSL_VERIFYPEER => 0,
     CURLOPT_USERAGENT => 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13',
-    CURLOPT_CUSTOMREQUEST => "GET",
-    CURLOPT_HTTPHEADER => array(gh($ghv2))
+    CURLOPT_CUSTOMREQUEST => "GET"
 ));
 
 $data = curl_exec($ch);
