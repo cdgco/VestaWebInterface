@@ -287,7 +287,7 @@ curl_exec($curl4);
             echo '<input type="hidden" name="apiemail" value="'.CLOUDFLARE_EMAIL.'">';
             echo '<input type="hidden" name="apikey" value="'.CLOUDFLARE_API_KEY.'">';
             echo '<input type="hidden" name="username" value="'.$username.'">';
-            echo '<input type="hidden" name="returnlink" value="'. substr("http://" . $_SERVER[HTTP_HOST] . $_SERVER[REQUEST_URI], 0, -5) . '3.php">';
+            echo '<input type="hidden" name="returnlink" value="'. substr("http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'], 0, -5) . '3.php">';
 
             ?>
         </form>

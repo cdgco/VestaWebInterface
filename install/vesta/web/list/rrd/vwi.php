@@ -22,7 +22,7 @@
 *
 */
 
-if(strpos($_SERVER[HTTP_REFERER], 'admin/list/graphs.php')) {
+if(strpos($_SERVER['HTTP_REFERER'], 'admin/list/graphs.php')) {
     $real_path = realpath($_SERVER["DOCUMENT_ROOT"].$_SERVER['QUERY_STRING']);
     if (empty($real_path)) exit;
     $dir_name = dirname($real_path);

@@ -58,7 +58,7 @@ $domaindata = array_values(json_decode(curl_exec($curl1), true));
 $sysconfigdata = array_values(json_decode(curl_exec($curl2), true))[0];
 
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-_setlocale(LC_CTYPE, $locale); _setlocale(LC_MESSAGES, $locale);
+_setlocale('LC_CTYPE', $locale); _setlocale('LC_MESSAGES', $locale);
 _bindtextdomain('messages', '../locale');
 _textdomain('messages');
 

@@ -72,7 +72,7 @@ $requestrecord = array_search($_GET['record'], array_values($requestArr));
 if (!in_array($_GET['record'], $requestArr)) {
     header('Location: ../list/dnsdomain.php?domain=' . $requestdns); }
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-_setlocale(LC_CTYPE, $locale); _setlocale(LC_MESSAGES, $locale);
+_setlocale('LC_CTYPE', $locale); _setlocale('LC_MESSAGES', $locale);
 _bindtextdomain('messages', '../locale');
 _textdomain('messages');
 

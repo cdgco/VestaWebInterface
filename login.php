@@ -39,15 +39,49 @@ curl_setopt($curl0, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($curl0, CURLOPT_POST, true);
 curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query($postvars0));
 $serverconnection = array_values(json_decode(curl_exec($curl0), true))[0]['OS'];
-if(isset($_POST['username'])){
-
-    if(isset($_POST['password'])){
+if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['server'])){
 
         $username2 = $_POST['username'];
         $password = $_POST['password'];
 
-        $postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-check-user-password','arg1' => $username2,'arg2' => $password, 'arg3' => $_SERVER['REMOTE_ADDR']);
+        foreach($vwi_servers as $key => $server){
+            if($server['NAME'] == $_POST['server']) {
+                $curkey = $key;
+            }
+        }
+        if ($vwi_servers[$curkey]["METHOD"] == "api"){
+            $vst_username = '';
+            $vst_password = '';
+            $vst_apikey = vwicryptx($vwi_servers[$curkey]["API_KEY"], 'd');
+        }
+        else {
+            $vst_apikey = '';
+            $vst_username = $vwi_servers[$curkey]["UNAME"];
+            $vst_password = vwicryptx($vwi_servers[$curkey]["PASSWORD"], 'd');
+        }
 
+        if(substr( $vwi_servers[$curkey]["HOST_ADDRESS"], 0, 7 ) === "http://") {
+            $vwi_servers[$curkey]["HOST_ADDRESS"] = substr($vwi_servers[$curkey]["HOST_ADDRESS"], 7);
+        }
+        elseif(substr( $vwi_servers[$curkey]["HOST_ADDRESS"], 0, 8 ) === "https://") {
+            $vwi_servers[$curkey]["HOST_ADDRESS"] = substr($vwi_servers[$curkey]["HOST_ADDRESS"], 8);
+        }
+        if($vwi_servers[$curkey]["SSL_ENABLED"] == 'false'){
+            $vst_ssl = 'http://';
+        }
+        else{
+            $vst_ssl = 'https://';
+        }
+        if($vwi_servers[$curkey]["PORT"] == ''){
+            $vesta_port = '8083';
+        }
+        else{
+            $vesta_port = $vwi_servers[$curkey]["PORT"];
+        }
+        $vst_url = $vst_ssl . $vwi_servers[$curkey]["HOST_ADDRESS"] . ':' . $vesta_port . '/api/';
+
+        $postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-check-user-password','arg1' => $username2,'arg2' => $password, 'arg3' => $_SERVER['REMOTE_ADDR']);
+        print_r($vst_url);
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $vst_url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER,true);
@@ -56,10 +90,10 @@ if(isset($_POST['username'])){
         curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($postvars));
         $answer = curl_exec($curl);
-    }
+        
 }
-_setlocale(LC_CTYPE, $locale);
-_setlocale(LC_MESSAGES, $locale);
+_setlocale('LC_CTYPE', $locale);
+_setlocale('LC_MESSAGES', $locale);
 _bindtextdomain('messages', 'locale');
 _textdomain('messages');
 if($auth0) {
@@ -96,7 +130,9 @@ if($auth0) {
         <link rel="icon" type="image/ico" href="plugins/images/<?php echo $cpfavicon; ?>">
         <title><?php echo $sitetitle . ' - ' . __("Login"); ?></title>
         <link href="plugins/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="plugins/components/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet">
         <link href="plugins/components/sweetalert2/sweetalert2.min.css" rel="stylesheet">
+        <link href="plugins/components/select2/select2.min.css" rel="stylesheet">
         <link href="plugins/components/animate.css/animate.min.css" rel="stylesheet">
 	    <link href="plugins/components/bootstrap-brand-buttons/brand-buttons-inversed.css" rel="stylesheet">
         <link rel="stylesheet" href="plugins/components/sweetalert2/sweetalert2.min.css" />
@@ -140,7 +176,7 @@ if($auth0) {
             if($answer == 0) {
                 echo __("Account has been successfully created!") . "', icon: 'success'})</script>";
             }
-	    elseif($answer == 1) {
+	        elseif($answer == 1) {
                 echo __("Please fill out all sections of the form.") . "', icon: 'error'})</script>";
             }
             elseif($answer == 2) {
@@ -209,6 +245,7 @@ if($auth0) {
                                 if($answer == "OK") {
                                     $_SESSION['loggedin'] = base64_encode ( 'true' );
                                     $_SESSION['username'] = base64_encode ( $username2 );
+                                    $_SESSION['server'] = base64_encode ($_POST['server']);
                                     $userredirect = 'index.php';
                                     if(isset($_GET['to']) && $_GET['to'] != ''){
                                         $userredirect = $_GET['to'];
@@ -216,18 +253,18 @@ if($auth0) {
                                     if((!isset($_GET['to']) || $_GET['to'] == '') && $_POST['username'] == "admin" && $defaulttoadmin == "true"){
                                         $userredirect = 'admin/list/users.php';
                                     }
-				    if(isset($_POST['auth0']) && $_POST['auth0'] == 'link2') {
-					$userInfo = $auth0->getUser();
-					$auth0id = $userInfo['sub'];
-					if(isset($auth0id) && $auth0id != '') {
-					    $con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
-					    $v1 = mysqli_real_escape_string($con, $username2);
-					    $v2 = mysqli_real_escape_string($con, $auth0id);
-					    $droprow= "INSERT INTO `" . $mysql_table . "auth0-users` (VWI_USER, AUTH0_USER) VALUES ('".$v1."', '".$v2."') ON DUPLICATE KEY UPDATE `AUTH0_USER`='".$v2."';";
-					    if (mysqli_query($con, $droprow)) { $r1 = '0'; } else { $r1 = mysqli_errno($con); }
-					    mysqli_close($con);
-					}
-				    }
+                                    if(isset($_POST['auth0']) && $_POST['auth0'] == 'link2') {
+                                        $userInfo = $auth0->getUser();
+                                        $auth0id = $userInfo['sub'];
+                                        if(isset($auth0id) && $auth0id != '') {
+                                            $con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
+                                            $v1 = mysqli_real_escape_string($con, $username2);
+                                            $v2 = mysqli_real_escape_string($con, $auth0id);
+                                            $droprow= "INSERT INTO `" . $mysql_table . "auth0-users` (VWI_USER, AUTH0_USER) VALUES ('".$v1."', '".$v2."') ON DUPLICATE KEY UPDATE `AUTH0_USER`='".$v2."';";
+                                            if (mysqli_query($con, $droprow)) { $r1 = '0'; } else { $r1 = mysqli_errno($con); }
+                                            mysqli_close($con);
+                                        }
+                                    }
                                     echo '<br><br>
                                         <div style="color: #000;" class="alert alert-success alert-dismissable">
                                             <button type="button" style="color: #000;" class="close text-inverse" aria-hidden="true">
@@ -238,10 +275,12 @@ if($auth0) {
                                         <script>setTimeout(function(){ window.location = "' . $userredirect . '";}, 100);</script>';
                                 } else {
                                     echo '<br><br><div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' . __("Error: Incorrect Login.") . '</div>';
-				     if(isset($_POST['auth0']) && $_POST['auth0'] == 'link2') {
-					echo '<input type="hidden" name="auth0" value="link2"/>';
-				     }
-                                }}}
+                                    if(isset($_POST['auth0']) && $_POST['auth0'] == 'link2') {
+                                        echo '<input type="hidden" name="auth0" value="link2"/>';
+                                    }
+                                }
+                            }
+                        }
 
                         ?>
                         <div class="form-group m-t-20">
@@ -254,6 +293,21 @@ if($auth0) {
                             <div class="col-xs-12">
                                 <label><?php echo __("Password"); ?></label>
                                 <input class="form-control" name="password" type="password" required="" placeholder="<?php echo __('Password'); ?>">
+                            </div>
+                        </div>
+                        <div class="form-group" style="<?php if(count($vwi_servers) <= 1) { echo "display:none;"; } ?>overflow: visible;">
+                            <label class="col-md-12"><?php echo __("Server"); ?></label>
+                            <div class="col-md-12">
+                                <select class="form-control select2" name="server" id="select2">
+                                    <?php foreach($vwi_servers as &$server){
+                                        echo "<option value='".$server['NAME']."'";
+                                        if($server['DEFAULT'] == "true") {
+                                            echo " selected";
+                                        }
+                                        echo ">".$server['NAME']."</option>";
+                                    }
+                                    ?>
+                                </select>
                             </div>
                         </div>
 			<?php if(isset($_POST['auth0']) && $_POST['auth0'] == 'link') {
@@ -292,7 +346,7 @@ if($auth0) {
                         <div class="form-group ">
                             <div class="col-xs-12">
                                 <input class="form-control" name="user" type="text" required="" placeholder="<?php echo __('Username'); ?>">
-                                <?php echo '<input type="hidden" name="returnlink" value="'. substr("http://" . $_SERVER[HTTP_HOST] . $_SERVER[REQUEST_URI], 0, -9) . '">'; ?>
+                                <?php echo '<input type="hidden" name="returnlink" value="'. substr("http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'], 0, -9) . '">'; ?>
                             </div>
                         </div>
                         <div class="form-group">
@@ -313,7 +367,9 @@ if($auth0) {
         <script src="plugins/components/sweetalert2/sweetalert2.min.js"></script>
         <script src="plugins/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
         <script src="plugins/components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="plugins/components/bootstrap-select/js/bootstrap-select.min.js"></script>
         <script src="plugins/components/metismenu/dist/metisMenu.min.js"></script>
+        <script src="plugins/components/select2/select2.min.js"></script>
         <script src="plugins/components/waves/waves.js"></script>
         <script src="https://cdn.auth0.com/js/auth0/9.11/auth0.min.js"></script>
         <script src="js/main.js"></script>
@@ -330,6 +386,9 @@ if($auth0) {
               toast: true,
               position: "top-end",
               showConfirmButton: false
+            });
+            $(document).ready(function() {
+                $('.select2').select2();
             });
             <?php 
 

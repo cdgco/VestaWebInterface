@@ -61,7 +61,7 @@ $uxname = array_keys(json_decode(curl_exec($curl2), true));
 $uxdata = array_values(json_decode(curl_exec($curl2), true));
 $useremail = $admindata['CONTACT'];
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-_setlocale(LC_CTYPE, $locale); _setlocale(LC_MESSAGES, $locale);
+_setlocale('LC_CTYPE', $locale); _setlocale('LC_MESSAGES', $locale);
 _bindtextdomain('messages', '../../locale');
 _textdomain('messages');
 

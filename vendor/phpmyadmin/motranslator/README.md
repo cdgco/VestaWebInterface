@@ -87,7 +87,7 @@ echo $translator->npgettext('Context', 'String', 'Plural string', $count);
 PhpMyAdmin\MoTranslator\Loader::loadFunctions();
 
 // Configure
-_setlocale(LC_MESSAGES, 'cs');
+_setlocale('LC_MESSAGES', 'cs');
 _textdomain('phpmyadmin');
 _bindtextdomain('phpmyadmin', __DIR__ . '/data/locale/');
 _bind_textdomain_codeset('phpmyadmin', 'UTF-8');

@@ -1,5 +1,5 @@
 <?php
-if(strpos($_SERVER[HTTP_REFERER], 'process/softaculous.php')) {
+if(strpos($_SERVER['HTTP_REFERER'], 'process/softaculous.php')) {
 
     define('NO_AUTH_REQUIRED',true);
 

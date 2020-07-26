@@ -62,7 +62,7 @@ $updateArr = array_column(json_decode(curl_exec($curl2), true), 'UPDATED');
 $updatetest = array_search('no', $requestArr);
 
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-_setlocale(LC_CTYPE, $locale); _setlocale(LC_MESSAGES, $locale);
+_setlocale('LC_CTYPE', $locale); _setlocale('LC_MESSAGES', $locale);
 _bindtextdomain('messages', '../../locale');
 _textdomain('messages');
 

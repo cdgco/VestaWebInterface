@@ -43,9 +43,14 @@ if($configstyle != '2') {
     $config = array(); $result=mysqli_query($con,"SELECT VARIABLE,VALUE FROM `" . $mysql_table . "config`");
     while ($row = mysqli_fetch_assoc($result)) { $config[$row["VARIABLE"]] = $row["VALUE"]; }
     mysqli_free_result($result); 
-    $auth0_users = array(); $result=mysqli_query($con,"SELECT VWI_USER,AUTH0_USER FROM `" . $mysql_table . "auth0-users`");
-    while ($row = mysqli_fetch_assoc($result)) { $auth0_users[$row["VWI_USER"]] = $row["AUTH0_USER"]; }
+    $vwi_servers = array(); $result=mysqli_query($con,"SELECT * FROM `" . $mysql_table . "servers` ORDER BY `NAME` ASC");
+    while($line = mysqli_fetch_assoc($result)){ $vwi_servers[] = $line; }
     mysqli_free_result($result); mysqli_close($con);
+    $auth0_users = array(); $result=mysqli_query($con,"SELECT VWI_USER,AUTH0_USER FROM `" . $mysql_table . "auth0-users`");
+    if ($result) {
+    while ($row = mysqli_fetch_assoc($result)) { $auth0_users[$row["VWI_USER"]] = $row["AUTH0_USER"]; }
+     mysqli_free_result($result); mysqli_close($con);
+    }
 }
 else {
     // Method 2: Connection to MySQL, save config locally every 30 min, grab locally if connection fails.
@@ -58,9 +63,12 @@ else {
         $config = array(); $result=mysqli_query($con,"SELECT VARIABLE,VALUE FROM `" . $mysql_table . "config`");
         while ($row = mysqli_fetch_assoc($result)) { $config[$row["VARIABLE"]] = $row["VALUE"]; }
         mysqli_free_result($result); 
-	$auth0_users = array(); $result=mysqli_query($con,"SELECT VWI_USER,AUTH0_USER FROM `" . $mysql_table . "auth0-users`");
-	while ($row = mysqli_fetch_assoc($result)) { $auth0_users[$row["VWI_USER"]] = $row["AUTH0_USER"]; }
-	mysqli_free_result($result); mysqli_close($con);
+        $auth0_users = array(); $result=mysqli_query($con,"SELECT VWI_USER,AUTH0_USER FROM `" . $mysql_table . "auth0-users`");
+        while ($row = mysqli_fetch_assoc($result)) { $auth0_users[$row["VWI_USER"]] = $row["AUTH0_USER"]; }
+        mysqli_free_result($result); mysqli_close($con);
+        $vwi_servers = array(); $result=mysqli_query($con,"SELECT VWI_USER,AUTH0_USER FROM `" . $mysql_table . "servers`");
+        while($line = mysqli_fetch_assoc($result)){ $vwi_servers[] = $line; }
+        mysqli_free_result($result); mysqli_close($con);
         if (!file_exists( $co1 . 'config.json' )) { 
             file_put_contents( $co1 . "config.json",json_encode($config));
         }  
@@ -68,12 +76,19 @@ else {
         elseif ((time()-filemtime( $co1 . "config.json")) > 1800 || $config != json_decode(file_get_contents( $co1 . 'config.json'), true)) { 
             file_put_contents( $co1 . "config.json",json_encode($config)); 
         }
-	if (!file_exists( $co1 . 'auth0-users.json' )) { 
+        if (!file_exists( $co1 . 'auth0-users.json' )) { 
             file_put_contents( $co1 . "auth0-users.json",json_encode($auth0_users));
         } 
-	// Reload Auth0 Users Every Hour (1800 Seconds) or if DB has been updated
+        // Reload Auth0 Users Every Hour (1800 Seconds) or if DB has been updated
         elseif ((time()-filemtime( $co1 . "auth0-users.json")) > 1800 || $auth0_users != json_decode(file_get_contents( $co1 . 'auth0-users.json'), true)) { 
             file_put_contents( $co1 . "auth0-users.json",json_encode($auth0_users)); 
+        }
+        if (!file_exists( $co1 . 'vwi-servers.json' )) { 
+            file_put_contents( $co1 . "vwi_servers.json",json_encode($vwi_servers));
+        } 
+        // Reload Auth0 Users Every Hour (1800 Seconds) or if DB has been updated
+        elseif ((time()-filemtime( $co1 . "vwi_servers.json")) > 1800 || $vwi_servers != json_decode(file_get_contents( $co1 . 'vwi-servers.json'), true)) { 
+            file_put_contents( $co1 . "vwi_servers.json",json_encode($vwi_servers)); 
         }
 
     }
@@ -114,37 +129,51 @@ else{
     $defaulttoadmin = $config["DEFAULT_TO_ADMIN"];
 }
 
-if(substr( $config["VESTA_HOST_ADDRESS"], 0, 7 ) === "http://") {
-    $config["VESTA_HOST_ADDRESS"] = substr($config["VESTA_HOST_ADDRESS"], 7);
+if(!isset($_SESSION['server']) || base64_decode($_SESSION['server']) == '') {
+    foreach($vwi_servers as $key => $server){
+        if($server['DEFAULT'] == 'true') {
+            $curkey = $key;
+        }
+    }
 }
-elseif(substr( $config["VESTA_HOST_ADDRESS"], 0, 8 ) === "https://") {
-    $config["VESTA_HOST_ADDRESS"] = substr($config["VESTA_HOST_ADDRESS"], 8);
+else {
+    foreach($vwi_servers as $key => $server){
+        if($server['NAME'] == base64_decode($_SESSION['server'])) {
+            $curkey = $key;
+        }
+    }
 }
-DEFINE('VESTA_HOST_ADDRESS', rtrim($config["VESTA_HOST_ADDRESS"], '/')); 
-if($config["VESTA_SSL_ENABLED"] == 'false'){
+if(substr( $vwi_servers[$curkey]["HOST_ADDRESS"], 0, 7 ) === "http://") {
+    $vwi_servers[$curkey]["HOST_ADDRESS"] = substr($vwi_servers[$curkey]["HOST_ADDRESS"], 7);
+}
+elseif(substr( $vwi_servers[$curkey]["HOST_ADDRESS"], 0, 8 ) === "https://") {
+    $vwi_servers[$curkey]["HOST_ADDRESS"] = substr($vwi_servers[$curkey]["HOST_ADDRESS"], 8);
+}
+DEFINE('HOST_ADDRESS', rtrim($vwi_servers[$curkey]["HOST_ADDRESS"], '/')); 
+if($$vwi_servers[$curkey]["SSL_ENABLED"] == 'false'){
     $vst_ssl = 'http://';
 }
 else{
     $vst_ssl = 'https://';
 }
-if($config["VESTA_PORT"] == ''){
+if($vwi_servers[$curkey]["PORT"] == ''){
     $vesta_port = '8083';
 }
 else{
-    $vesta_port = $config["VESTA_PORT"];
+    $vesta_port = $vwi_servers[$curkey]["PORT"];
 }
-$vst_url = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . ':' . $vesta_port . '/api/';
-$url8083 = $vst_ssl . $config["VESTA_HOST_ADDRESS"] . ':' . $vesta_port;
+$vst_url = $vst_ssl . $vwi_servers[$curkey]["HOST_ADDRESS"] . ':' . $vesta_port . '/api/';
+$url8083 = $vst_ssl . $vwi_servers[$curkey]["HOST_ADDRESS"] . ':' . $vesta_port;
 if(!isset($KEY3) || $KEY3 == '') { $KEY3 = 'Default VWI Secret Key'; }
 if(!isset($KEY4) || $KEY4 == '') { $KEY4 = 'Default VWI Secret IV'; }
-if ($config["VESTA_METHOD"] == "api"){
+if ($vwi_servers[$curkey]["METHOD"] == "api"){
     DEFINE('VESTA_ADMIN_UNAME', '');
     $vst_username = '';
 
     DEFINE('VESTA_ADMIN_PW', '');
     $vst_password = '';
 
-    $deckey = vwicryptx($config["VESTA_API_KEY"], d);
+    $deckey = vwicryptx($vwi_servers[$curkey]["API_KEY"], 'd');
     DEFINE('VESTA_API_KEY', $deckey);
     $vst_apikey = $deckey;
     
@@ -154,10 +183,10 @@ else {
     DEFINE('VESTA_API_KEY', '');
     $vst_apikey = '';
     
-    DEFINE('VESTA_ADMIN_UNAME', $config["VESTA_ADMIN_UNAME"]);
-    $vst_username = $config["VESTA_ADMIN_UNAME"];
+    DEFINE('VESTA_ADMIN_UNAME', $vwi_servers[$curkey]["UNAME"]);
+    $vst_username = $vwi_servers[$curkey]["UNAME"];
 
-    $decpassword = vwicryptx($config["VESTA_ADMIN_PW"], 'd');
+    $decpassword = vwicryptx($vwi_servers[$curkey]["PASSWORD"], 'd');
     DEFINE('VESTA_ADMIN_PW', $decpassword);
     $vst_password = $decpassword;
     
@@ -165,7 +194,7 @@ else {
 }
 
 $vcpservices = curl_init();
-    
+
 curl_setopt($vcpservices, CURLOPT_URL, $vst_url);
 curl_setopt($vcpservices, CURLOPT_RETURNTRANSFER,true);
 curl_setopt($vcpservices, CURLOPT_SSL_VERIFYPEER, false);

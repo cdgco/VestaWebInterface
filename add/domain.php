@@ -62,7 +62,7 @@ $proxytemplates = array_values(json_decode(curl_exec($curl2), true));
 $webstats = array_values(json_decode(curl_exec($curl3), true));
 $sysconfigdata = array_values(json_decode(curl_exec($curl4), true))[0];
 if(isset($admindata['LANGUAGE'])){ $locale = $ulang[$admindata['LANGUAGE']]; }
-_setlocale(LC_CTYPE, $locale); _setlocale(LC_MESSAGES, $locale);
+_setlocale('LC_CTYPE', $locale); _setlocale('LC_MESSAGES', $locale);
 _bindtextdomain('messages', '../locale');
 _textdomain('messages');
 

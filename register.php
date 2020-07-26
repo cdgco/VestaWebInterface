@@ -44,8 +44,8 @@ curl_setopt($curl0, CURLOPT_POST, true);
 curl_setopt($curl0, CURLOPT_POSTFIELDS, http_build_query($postvars0));
 $serverconnection = array_values(json_decode(curl_exec($curl0), true))[0]['OS'];
 
-_setlocale(LC_CTYPE, $locale);
-_setlocale(LC_MESSAGES, $locale);
+_setlocale('LC_CTYPE', $locale);
+_setlocale('LC_MESSAGES', $locale);
 _bindtextdomain('messages', 'locale');
 _textdomain('messages');
 
