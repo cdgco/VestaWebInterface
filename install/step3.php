@@ -43,15 +43,12 @@ require '../includes/arrays.php'; include("../includes/version.php");
 
             <form class="form-horizontal" id="form" method="post" action="install.php">
                 <fieldset>
-
-                    <!-- Form Name -->
                     <legend>Install Vesta Web Interface</legend>
                     <br>
                     <center>
                         <h3>Server Configuration</h3>
                     </center><br>
                     <input type="hidden" value="1" name="x"/>
-                    <!-- Select Basic -->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="timezone">Server Timezone</label>
                         <div class="col-md-4">
@@ -204,8 +201,6 @@ require '../includes/arrays.php'; include("../includes/version.php");
                             </select>
                         </div>
                     </div>
-
-                    <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="textinput">Site Name</label>  
                         <div class="col-md-4">
@@ -213,8 +208,6 @@ require '../includes/arrays.php'; include("../includes/version.php");
 
                         </div>
                     </div>
-
-                    <!-- Select Basic -->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="THEME">Theme</label>
                         <div class="col-md-4">
@@ -264,24 +257,12 @@ require '../includes/arrays.php'; include("../includes/version.php");
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="DEFAULT_TO_ADMIN">Default to Admin Panel</label>
-                        <div class="col-md-4">
-                            <label class="checkbox-inline" for="DEFAULT_TO_ADMIN-0">
-                                <input type="checkbox" name="DEFAULT_TO_ADMIN" id="DEFAULT_TO_ADMIN-0" checked>
-                                Enabled
-                            </label>
-                            <span class="help-block">Choose whether or not the admin should go to the admin panel by default after login.</span>  
-                        </div>
-                    </div>
-                    <!-- Text input-->
-                    <div class="form-group">
                         <label class="col-md-4 control-label" for="VESTA_EMAIL">Email Address</label>  
                         <div class="col-md-4">
                             <input id="VESTA_EMAIL" name="EMAILADDR" type="text" placeholder="name@example.com" class="form-control input-md">
                             <span class="help-block">By entering an email, you may receive alerts regarding the security and status of your installation.</span>  
                         </div>
                     </div>
-                    <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="VESTA_HOST_ADDRESS">Vesta Host Address</label>  
                         <div class="col-md-4">
@@ -289,8 +270,6 @@ require '../includes/arrays.php'; include("../includes/version.php");
                             <span class="help-block">VestaCP Host or IP Address without leading 'http(s)://' or trailing '/'</span>  
                         </div>
                     </div>
-
-                    <!-- Multiple Checkboxes (inline) -->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="VESTA_SSL_ENABLED">Vesta SSL</label>
                         <div class="col-md-4">
@@ -300,8 +279,6 @@ require '../includes/arrays.php'; include("../includes/version.php");
                             </label>
                         </div>
                     </div>
-
-                    <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="VESTA_PORT">Vesta Port</label>  
                         <div class="col-md-4">
@@ -309,8 +286,6 @@ require '../includes/arrays.php'; include("../includes/version.php");
 
                         </div>
                     </div>
-
-                    <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="VESTA_ADMIN_UNAME">Vesta Admin Username</label>  
                         <div class="col-md-4">
@@ -318,7 +293,6 @@ require '../includes/arrays.php'; include("../includes/version.php");
 
                         </div>
                     </div>
-                    <!-- Password input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="VESTA_ADMIN_PW">Vesta Admin Password</label>
                         <div class="col-md-4">
@@ -326,193 +300,6 @@ require '../includes/arrays.php'; include("../includes/version.php");
 
                         </div>
                     </div>
-                    <!-- Multiple Checkboxes -->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="ENABLE_SECTIONS">Enable / Disable Sections</label>
-                        <div class="col-md-4">
-                            <div class="checkbox">
-                                <label for="ENABLE_SECTIONS-0">
-                                    <input type="checkbox" name="ENABLE_WEB" id="ENABLE_SECTIONS-0" checked>
-                                    Web Enabled
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label for="ENABLE_SECTIONS-1">
-                                    <input type="checkbox" name="ENABLE_DNS" id="ENABLE_SECTIONS-1" checked>
-                                    DNS Enabled
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label for="ENABLE_SECTIONS-2">
-                                    <input type="checkbox" name="ENABLE_MAIL" id="ENABLE_SECTIONS-2" checked>
-                                    Mail Enabled
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label for="ENABLE_SECTIONS-3">
-                                    <input type="checkbox" name="ENABLE_DB" id="ENABLE_SECTIONS-3" checked>
-                                    Database Enabled
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label for="ENABLE_SECTIONS-4">
-                                    <input type="checkbox" name="ENABLE_ADMIN" id="ENABLE_SECTIONS-4" checked>
-                                    Admin Panel Enabled
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label for="ENABLE_SECTIONS-5">
-                                    <input type="checkbox" name="ENABLE_PROFILE" id="ENABLE_SECTIONS-5" checked>
-                                    Profile Page Enabled
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label for="ENABLE_SECTIONS-6">
-                                    <input type="checkbox" name="ENABLE_CRON" id="ENABLE_SECTIONS-6" checked>
-                                    Cron Enabled
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label for="ENABLE_SECTIONS-7">
-                                    <input type="checkbox" name="ENABLE_BACKUPS" id="ENABLE_SECTIONS-7" checked>
-                                    Backups Enabled
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label for="ENABLE_SECTIONS-8">
-                                    <input type="checkbox" name="ENABLE_NOTIFICATIONS" id="ENABLE_SECTIONS-8">
-                                    Notification System Enabled
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label for="ENABLE_SECTIONS-9">
-                                    <input type="checkbox" name="ENABLE_REG" id="ENABLE_SECTIONS-9">
-                                    Registrations Enabled
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label for="ENABLE_SECTIONS-10">
-                                    <input type="checkbox" name="ENABLE_SOFTURL" id="ENABLE_SECTIONS-10">
-                                    Softaculous Enabled
-                                </label>
-                            </div>
-
-                            <div class="checkbox">
-                                <label for="ENABLE_SECTIONS-11">
-                                    <input type="checkbox" name="ENABLE_OLDCPURL" id="ENABLE_SECTIONS-11">
-                                    Link to Old CP Enabled
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <center><br>
-                        <h3>Optional Links</h3>
-                    </center><br>
-
-                    <!-- Text input-->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="FTP_URL">FTP Client URL</label>  
-                        <div class="col-md-4">
-                            <input id="FTP_URL" name="FTP_URL" type="text" placeholder="http://net2ftp.com" class="form-control input-md">
-                            <span class="help-block">Leave blank for default or enter 'disabled' to disable.</span> 
-                        </div>
-                    </div>
-
-                    <!-- Text input-->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="WEBMAIL_URL">Webmail URL</label>  
-                        <div class="col-md-4">
-                            <input id="WEBMAIL_URL" name="WEBMAIL_URL" type="text" placeholder="http://webmail.myhost.com" class="form-control input-md">
-                            <span class="help-block">Leave blank for default or enter 'disabled' to disable.</span>  
-                        </div>
-                    </div>
-
-                    <!-- Text input-->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="PHPMYADMIN_URL">phpMyAdmin URL</label>  
-                        <div class="col-md-4">
-                            <input id="PHPMYADMIN_URL" name="PHPMYADMIN_URL" type="text" placeholder="http://phpmyadmin.myhost.com" class="form-control input-md">
-                            <span class="help-block">Leave blank for default or enter 'disabled' to disable.</span>  
-                        </div>
-                    </div>
-
-                    <!-- Text input-->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="PHPPGADMIN_URL">phpPgAdmin URL</label>  
-                        <div class="col-md-4">
-                            <input id="PHPPGADMIN_URL" name="PHPPGADMIN_URL" type="text" placeholder="http://phppgadmin.myhost.com" class="form-control input-md">
-                            <span class="help-block">Leave blank for default or enter 'disabled' to disable.</span>  
-                        </div>
-                    </div>
-
-                    <!-- Text input-->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="SUPPORT_URL">Support URL</label>  
-                        <div class="col-md-4">
-                            <input id="SUPPORT_URL" name="SUPPORT_URL" type="text" placeholder="http://mysupportsite.com" class="form-control input-md">
-                            <span class="help-block">Leave blank or enter 'disabled' to disable.</span>  
-                        </div>
-                    </div>
-                    <center><br>
-                        <h3>Optional Integrations</h3>
-                    </center><br><br>
-                    <!-- Text input-->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="PLUGINS">Plugins</label>  
-                        <div class="col-md-4">
-                            <input id="PLUGINS" name="PLUGINS" type="text" placeholder="ftp,rainloop" class="form-control input-md">
-                            <span class="help-block">Comma seperated list of installed plugins.</span>  
-                        </div>
-                    </div>
-                    <!-- Text input-->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="GOOGLE_ANALYTICS_ID">Google Analytics ID</label>  
-                        <div class="col-md-4">
-                            <input id="GOOGLE_ANALYTICS_ID" name="GOOGLE_ANALYTICS_ID" type="text" placeholder="" class="form-control input-md">
-
-                        </div>
-                    </div>
-
-                    <!-- Text input-->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="INTERAKT_APP_ID">Interakt App ID</label>  
-                        <div class="col-md-4">
-                            <input id="INTERAKT_APP_ID" name="INTERAKT_APP_ID" type="text" placeholder="" class="form-control input-md">
-
-                        </div>
-                    </div>
-
-                    <!-- Text input-->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="INTERAKT_API_KEY">Interakt API Key</label>  
-                        <div class="col-md-4">
-                            <input id="INTERAKT_API_KEY" name="INTERAKT_API_KEY" type="text" placeholder="" class="form-control input-md">
-
-                        </div>
-                    </div>
-
-                    <!-- Text input-->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="CLOUDFLARE_API_KEY">Cloudflare API Key</label>  
-                        <div class="col-md-4">
-                            <input id="CLOUDFLARE_API_KEY" name="CLOUDFLARE_API_KEY" type="text" placeholder="" class="form-control input-md">
-
-                        </div>
-                    </div>
-
-
-                    <!-- Text input-->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="CLOUDFLARE_EMAIL">Cloudflare Account Email Address</label>  
-                        <div class="col-md-4">
-                            <input id="CLOUDFLARE_EMAIL" name="CLOUDFLARE_EMAIL" type="email" placeholder="" class="form-control input-md">
-
-                        </div>
-                    </div>
-
-                    <!-- Button -->
-
                 </fieldset>
             </form>
             <div class="form-group">
@@ -522,7 +309,6 @@ require '../includes/arrays.php'; include("../includes/version.php");
                         </div>
                     </div>
             <br><br><br>
-
         </div>
 
         <script src='../plugins/components/jquery/jquery.min.js'></script>
@@ -531,21 +317,14 @@ require '../includes/arrays.php'; include("../includes/version.php");
         <script>
         $(document).ready(function(){$("#contact_form").bootstrapValidator({feedbackIcons:{valid:"glyphicon glyphicon-ok",invalid:"glyphicon glyphicon-remove",validating:"glyphicon glyphicon-refresh"},fields:{first_name:{validators:{stringLength:{min:2},notEmpty:{message:"Please supply your first name"}}},last_name:{validators:{stringLength:{min:2},notEmpty:{message:"Please supply your last name"}}},email:{validators:{notEmpty:{message:"Please supply your email address"},emailAddress:{message:"Please supply a valid email address"}}},phone:{validators:{notEmpty:{message:"Please supply your phone number"},phone:{country:"US",message:"Please supply a vaild phone number with area code"}}},address:{validators:{stringLength:{min:8},notEmpty:{message:"Please supply your street address"}}},city:{validators:{stringLength:{min:4},notEmpty:{message:"Please supply your city"}}},state:{validators:{notEmpty:{message:"Please select your state"}}},zip:{validators:{notEmpty:{message:"Please supply your zip code"},zipCode:{country:"US",message:"Please supply a vaild zip code"}}},comment:{validators:{stringLength:{min:10,max:200,message:"Please enter at least 10 characters and no more than 200"},notEmpty:{message:"Please supply a description of your project"}}}}}).on("success.form.bv",function(e){$("#success_message").slideDown({opacity:"show"},"slow"),$("#contact_form").data("bootstrapValidator").resetForm(),e.preventDefault();var s=$(e.target);s.data("bootstrapValidator");$.post(s.attr("action"),s.serialize(),function(e){console.log(e)},"json")})});
         
-            <?php 
-            
-                if(phpversion()){ $phpversion = phpversion(); }
-                if(php_uname()){ $operatingsystem = php_uname(); }
-            
-            ?>
-            
+        <?php 
+            if(phpversion()){ $phpversion = phpversion(); }
+            if(php_uname()){ $operatingsystem = php_uname(); }
+        ?>
         
-            
         $("#button").click(function(){
             
         if (document.getElementById('VESTA_EMAIL').value != '') {var VEMAIL= document.getElementById('VESTA_EMAIL').value;} else {var VEMAIL="";}
-        if (document.getElementById('GOOGLE_ANALYTICS_ID').value != '') {var GAE="Enabled";} else {var GAE="Disabled";}
-        if (document.getElementById('INTERAKT_APP_ID').value != '') {var IAE="Enabled";} else {var IAE="Disabled";}
-        if (document.getElementById('CLOUDFLARE_API_KEY').value != '') {var CFE="Enabled";} else {var CFE="Disabled";}
             
           $.post("https://cdgtech.one/installvwi.php",
           {
@@ -560,9 +339,6 @@ require '../includes/arrays.php'; include("../includes/version.php");
             serverprotocol: "<?php echo $_SERVER['SERVER_PROTOCOL']; ?>",
             time: "<?php echo $_SERVER['REQUEST_TIME']; ?>",
             email: VEMAIL,
-            gae: GAE,
-            iae: IAE,
-            cfe: CFE,
             version: "<?php echo $currentversion; ?>",
             software: "<?php echo $_SERVER['SERVER_SOFTWARE']; ?>",
             agent: "<?php echo $_SERVER['HTTP_USER_AGENT']; ?>",

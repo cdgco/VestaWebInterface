@@ -43,34 +43,8 @@ function vwicryptx($cs,$ca='e') {
 $a = randomPassword();
 $b = randomPassword();
 
-if($_POST['DEFAULT_TO_ADMIN'] == 'on'){ $defaultadmin = 'true'; }
-else { $defaultadmin = 'false'; }
 if($_POST['VESTA_SSL_ENABLED'] == 'on'){ $sslenabled = 'true'; }
 else { $sslenabled = 'false'; }
-if($_POST['ENABLE_WEB'] == 'on'){ $webenabled = 'true'; }
-else { $webenabled = 'false'; }
-if($_POST['ENABLE_DNS'] == 'on'){ $dnsenabled = 'true'; }
-else { $dnsenabled = 'false'; }
-if($_POST['ENABLE_MAIL'] == 'on'){ $mailenabled = 'true'; }
-else { $mailenabled = 'false'; }
-if($_POST['ENABLE_DB'] == 'on'){ $dbenabled = 'true'; }
-else { $dbenabled = 'false'; }
-if($_POST['ENABLE_SOFTURL'] == 'on'){ $softaculouslink = 'true'; }
-else { $softaculouslink = 'false'; }
-if($_POST['ENABLE_OLDCPURL'] == 'on'){ $oldcplink = 'true'; }
-else { $oldcplink = 'false'; }
-if($_POST['ENABLE_ADMIN'] == 'on'){ $adminenabled = 'true'; }
-else { $adminenabled = 'false'; }
-if($_POST['ENABLE_PROFILE'] == 'on'){ $profileenabled = 'true'; }
-else { $profileenabled = 'false'; }
-if($_POST['ENABLE_CRON'] == 'on'){ $cronenabled = 'true'; }
-else { $cronenabled = 'false'; }
-if($_POST['ENABLE_BACKUPS'] == 'on'){ $backupsenabled = 'true'; }
-else { $backupsenabled = 'false'; }
-if($_POST['ENABLE_REG'] == 'on'){ $regenabled = 'true'; }
-else { $regenabled = 'false'; }
-if($_POST['ENABLE_NOTIFICATIONS'] == 'on'){ $notifenabled = 'true'; }
-else { $notifenabled = 'false'; }
 
 $con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
 
@@ -93,60 +67,38 @@ mysqli_close($con);
 
 $con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
 
-
 $encpassword = vwicryptx($_POST['VESTA_ADMIN_PW']);
 
 $v1 = mysqli_real_escape_string($con, $_POST['SITENAME']);
 $v2 = mysqli_real_escape_string($con, $_POST['THEME']);
 $v3 = mysqli_real_escape_string($con, $_POST['LANGUAGE']);
 $v4 = mysqli_real_escape_string($con, $_POST['VESTA_HOST_ADDRESS']);
-$v5 = mysqli_real_escape_string($con, $_POST['VESTA_PORT']);
-$v6 = mysqli_real_escape_string($con, $_POST['VESTA_ADMIN_UNAME']);
-$v7 = mysqli_real_escape_string($con, $encpassword);
-$v8 = mysqli_real_escape_string($con, $_POST['FTP_URL']);
-$v9 = mysqli_real_escape_string($con, $_POST['WEBMAIL_URL']);
-$v10 = mysqli_real_escape_string($con, $_POST['PHPMYADMIN_URL']);
-$v11 = mysqli_real_escape_string($con, $_POST['PHPPGADMIN_URL']);
-$v12 = mysqli_real_escape_string($con, $_POST['SUPPORT_URL']);
-$v13 = mysqli_real_escape_string($con, $_POST['GOOGLE_ANALYTICS_ID']);
-$v14 = mysqli_real_escape_string($con, $_POST['INTERAKT_APP_ID']);
-$v15 = mysqli_real_escape_string($con, $_POST['INTERAKT_API_KEY']);
-$v16 = mysqli_real_escape_string($con, $_POST['CLOUDFLARE_API_KEY']);
-$v17 = mysqli_real_escape_string($con, $_POST['CLOUDFLARE_EMAIL']);
-$v18 = mysqli_real_escape_string($con, $_POST['PLUGINS']);
-$v19 = mysqli_real_escape_string($con, $_POST['TIMEZONE']);
+$v5 = mysqli_real_escape_string($con, $_POST['TIMEZONE']);
 
 $sql3 = "INSERT INTO `".$mysql_table."config` (`VARIABLE`, `VALUE`) VALUES
-('TIMEZONE', '".$v19."'),
+('TIMEZONE', '".$v5."'),
 ('SITE_NAME', '".$v1."'),
 ('THEME', '".$v2."'),
 ('LANGUAGE', '".$v3."'),
-('DEFAULT_TO_ADMIN', '".$defaultadmin."'),
-('VESTA_HOST_ADDRESS', '".$v4."'),
-('VESTA_SSL_ENABLED', '".$sslenabled."'),
-('VESTA_PORT', '".$v5."'),
-('VESTA_METHOD', 'credentials'),
-('VESTA_API_KEY', ''),
-('VESTA_ADMIN_UNAME', '".$v6."'),
-('VESTA_ADMIN_PW', '".$v7."'),
+('DEFAULT_TO_ADMIN', 'true'),
 ('KEY1', '".$a."'),
 ('KEY2', '".$b."'),
 ('WARNINGS_ENABLED', 'admin'),
 ('ICON', 'admin-logo.png'),
 ('LOGO', 'admin-text.png'),
 ('FAVICON', 'favicon.ico'),
-('WEB_ENABLED', '".$webenabled."'),
-('DNS_ENABLED', '".$dnsenabled."'),
-('MAIL_ENABLED', '".$mailenabled."'),
-('DB_ENABLED', '".$dbenabled."'),
-('ADMIN_ENABLED', '".$adminenabled."'),
-('PROFILE_ENABLED', '".$profileenabled."'),
-('CRON_ENABLED', '".$cronenabled."'),
-('BACKUPS_ENABLED', '".$backupsenabled."'),
-('NOTIFICATIONS_ENABLED', '".$notifenabled."'),
-('REGISTRATIONS_ENABLED', '".$regenabled."'),
-('SOFTACULOUS_URL', '".$softaculouslink."'),
-('OLD_CP_LINK', '".$oldcplink."'),
+('WEB_ENABLED', 'true'),
+('DNS_ENABLED', 'true'),
+('MAIL_ENABLED', 'true'),
+('DB_ENABLED', 'true'),
+('ADMIN_ENABLED', 'true'),
+('PROFILE_ENABLED', 'true'),
+('CRON_ENABLED', 'true'),
+('BACKUPS_ENABLED', 'true'),
+('NOTIFICATIONS_ENABLED', 'false'),
+('REGISTRATIONS_ENABLED', 'false'),
+('SOFTACULOUS_URL', 'false'),
+('OLD_CP_LINK', 'false'),
 ('VWI_BRANDING', 'true'),
 ('CUSTOM_FOOTER', 'false'),
 ('FOOTER', ''),
@@ -160,17 +112,17 @@ $sql3 = "INSERT INTO `".$mysql_table."config` (`VARIABLE`, `VALUE`) VALUES
 ('SMTP_UNAME', ''),
 ('SMTP_PW', ''),
 ('SMTP_ENC', 'tls'),
-('FTP_URL', '".$v8."'),
-('WEBMAIL_URL', '".$v9."'),
-('PHPMYADMIN_URL', '".$v10."'),
-('PHPPGADMIN_URL', '".$v11."'),
-('SUPPORT_URL', '".$v12."'),
-('PLUGINS', '".$v18."'),
-('GOOGLE_ANALYTICS_ID', '".$v13."'),
-('INTERAKT_APP_ID', '".$v14."'),
-('INTERAKT_API_KEY', '".$v15."'),
-('CLOUDFLARE_API_KEY', '".$v16."'),
-('CLOUDFLARE_EMAIL', '".$v17."'),
+('FTP_URL', ''),
+('WEBMAIL_URL', ''),
+('PHPMYADMIN_URL', ''),
+('PHPPGADMIN_URL', ''),
+('SUPPORT_URL', ''),
+('PLUGINS', ''),
+('GOOGLE_ANALYTICS_ID', ''),
+('INTERAKT_APP_ID', ''),
+('INTERAKT_API_KEY', ''),
+('CLOUDFLARE_API_KEY', ''),
+('CLOUDFLARE_EMAIL', ''),
 ('CUSTOM_THEME_PRIMARY', ''),
 ('CUSTOM_THEME_SECONDARY', ''),
 ('HEADER_AD', ''),
@@ -184,13 +136,57 @@ mysqli_close($con);
 
 $con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
 
-$sql4 = "CREATE TABLE IF NOT EXISTS `".$mysql_table."auth0-users` (
+$sql4 = "DROP TABLE IF EXISTS `".$mysql_table."servers`;";
+
+if (mysqli_query($con, $sql4)) {} else { echo "Error dropping table: " . mysqli_error($con) . "\n"; $returncode = $returncode + 1; }
+
+mysqli_close($con);
+
+$con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
+
+$sql5 = "CREATE TABLE IF NOT EXISTS `".$mysql_table."servers` (
+    `NAME` varchar(255) NOT NULL,
+    `HOST_ADDRESS` varchar(1024) NOT NULL,
+    `PORT` varchar(10) NOT NULL,
+    `SSL_ENABLED` varchar(10) NOT NULL,
+    `METHOD` varchar(15) NOT NULL,
+    `API_KEY` varchar(1024) NOT NULL,
+    `UNAME` varchar(1024) NOT NULL,
+    `PASSWORD` varchar(1024) NOT NULL,
+    `DEFAULT` varchar(5) NOT NULL DEFAULT 'false',
+    PRIMARY KEY (`NAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8";
+
+if (mysqli_query($con, $sql5)) {} else { echo "Error creating table: " . mysqli_error($con) . "\n"; $returncode = $returncode + 1; }
+
+mysqli_close($con);
+
+$con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
+
+$encpassword = vwicryptx($_POST['VESTA_ADMIN_PW']);
+
+$v6 = mysqli_real_escape_string($con, $_POST['VESTA_HOST_ADDRESS']);
+$v7 = mysqli_real_escape_string($con, $_POST['VESTA_PORT']);
+$v8 = mysqli_real_escape_string($con, $_POST['VESTA_ADMIN_UNAME']);
+$v9 = mysqli_real_escape_string($con, $encpassword);
+
+$sql6 = "INSERT INTO `".$mysql_table."servers` (`NAME`, `HOST_ADDRESS`, `PORT`, `SSL_ENABLED`, `METHOD`, `API_KEY`, `UNAME`, `PASSWORD`, `DEFAULT`) VALUES
+('Default Server', '".$v6."', '".$v7."', '".$sslenabled."', 'credentials', '', '".$v8."', '".$v9."', 'true');";
+
+if (mysqli_query($con, $sql6)) {} else { echo "Error altering table: " . mysqli_error($con) . "\n"; $returncode = $returncode + 1; }
+
+mysqli_close($con);
+
+
+$con=mysqli_connect($mysql_server,$mysql_uname,$mysql_pw,$mysql_db);
+
+$sql7 = "CREATE TABLE IF NOT EXISTS `".$mysql_table."auth0-users` (
   `VWI_USER` varchar(64) NOT NULL,
   `AUTH0_USER` varchar(1024) NOT NULL,
   PRIMARY KEY (`VWI_USER`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8";
 
-if (mysqli_query($con, $sql4)) {} else { echo "Error altering table: " . mysqli_error($con) . "\n"; $returncode = $returncode + 1; }
+if (mysqli_query($con, $sql7)) {} else { echo "Error altering table: " . mysqli_error($con) . "\n"; $returncode = $returncode + 1; }
 
 mysqli_close($con);
 

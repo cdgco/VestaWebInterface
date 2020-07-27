@@ -21,6 +21,26 @@
 */
 
 /*
+* Table structure for table `vwi_servers`
+*/
+
+CREATE TABLE IF NOT EXISTS `vwi_servers` (
+  `NAME` varchar(255) NOT NULL,
+  `HOST_ADDRESS` varchar(1024) NOT NULL,
+  `PORT` varchar(10) NOT NULL,
+  `SSL_ENABLED` varchar(10) NOT NULL,
+  `METHOD` varchar(15) NOT NULL,
+  `API_KEY` varchar(1024) NOT NULL,
+  `UNAME` varchar(1024) NOT NULL,
+  `PASSWORD` varchar(1024) NOT NULL,
+  `DEFAULT` varchar(5) NOT NULL DEFAULT 'false',
+  PRIMARY KEY (`NAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `vwi_servers` (`NAME`, `HOST_ADDRESS`, `PORT`, `SSL_ENABLED`, `METHOD`, `API_KEY`, `UNAME`, `PASSWORD`, `DEFAULT`) VALUES
+('', '', '8083', 'true', 'credentials', '', 'admin', '', 'true');
+
+/*
 * Table structure for table `vwi_config`
 */
 
@@ -36,13 +56,6 @@ INSERT INTO `vwi_config` (`VARIABLE`, `VALUE`) VALUES
 ('THEME', 'default'),
 ('LANGUAGE', 'en_US.utf8'),
 ('DEFAULT_TO_ADMIN', 'true'),
-('VESTA_HOST_ADDRESS', ''),
-('VESTA_SSL_ENABLED', 'true'),
-('VESTA_PORT', '8083'),
-('VESTA_METHOD', 'credentials'),
-('VESTA_API_KEY', ''),
-('VESTA_ADMIN_UNAME', 'admin'),
-('VESTA_ADMIN_PW', ''),
 ('KEY1', 'INSERT-KEY-HERE'),
 ('KEY2', 'INSERT-KEY-HERE'),
 ('WARNINGS_ENABLED', 'admin'),
@@ -98,6 +111,6 @@ INSERT INTO `vwi_config` (`VARIABLE`, `VALUE`) VALUES
 
 CREATE TABLE IF NOT EXISTS `vwi_auth0-users` (
   `VWI_USER` varchar(64) NOT NULL,
-  `AUTH0_USER` varchar(1024) NOT NULL
+  `AUTH0_USER` varchar(1024) NOT NULL,
   PRIMARY KEY (`VWI_USER`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
