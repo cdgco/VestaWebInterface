@@ -31,7 +31,7 @@ RewriteRule (^|/)includes(/|$) - [F]
 
 # PHP Debugging
 
-php_flag display_errors Off
+# php_flag display_errors On
 
 # END Vesta Web Interface
 
