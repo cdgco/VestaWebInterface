@@ -81,7 +81,7 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['serve
         $vst_url = $vst_ssl . $vwi_servers[$curkey]["HOST_ADDRESS"] . ':' . $vesta_port . '/api/';
 
         $postvars = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-check-user-password','arg1' => $username2,'arg2' => $password, 'arg3' => $_SERVER['REMOTE_ADDR']);
-        print_r($vst_url);
+
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $vst_url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER,true);
