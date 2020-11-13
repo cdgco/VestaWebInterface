@@ -19,5 +19,5 @@ The VWI Plugin System allows simple development and installation for custom apps
 ### Installation Instructions:
 
 1. Upload your plugin to the 'plugins' folder of your VWI installation.
-2. Edit the VWI settings from either the settings page in the admin panel or from your MySQL database and add the plugin name to the comman seperated plugin list exactly like the name appears on the uploaded folder.
+2. Go to the Plugins section of the Admin Panel and click the "Enable" button on the plugin, edit the VWI settings from either the settings page in the admin panel or from your MySQL database and add the plugin name to the plugin list.
 3. Follow any further instructions as specified by the developer.
