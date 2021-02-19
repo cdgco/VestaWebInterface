@@ -9,7 +9,8 @@
 
 "PHPMailer@https://github.com/PHPMailer/PHPMailer":
   version "0.0.0"
-  resolved "https://github.com/PHPMailer/PHPMailer#a8bf068f64a580302026e484ee29511f661b2ad3"
+  uid a12c95eb53f84ccaf145a4d892c9964c5916f653
+  resolved "https://github.com/PHPMailer/PHPMailer#a12c95eb53f84ccaf145a4d892c9964c5916f653"
 
 abbrev@1:
   version "1.1.1"
