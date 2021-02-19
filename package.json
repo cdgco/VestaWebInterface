@@ -42,7 +42,7 @@
     "font-awesome": "4.7.0",
     "footable-v3": "^1.0.0",
     "hotkeys-js": "latest",
-    "jquery": "2.2.4",
+    "jquery": "3.5.0",
     "jquery-overlaps": "https://github.com/brandonaaron/jquery-overlaps",
     "jquery-slimscroll": "latest",
     "metismenu": "latest",
