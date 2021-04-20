@@ -2549,7 +2549,7 @@ msgstr "Erro ao atualizar conta de email"
 
 #: includes/includes.php:362
 msgid "Home"
-msgstr "Casa"
+msgstr "Início"
 
 #: includes/includes.php:371
 msgid "Administration"
