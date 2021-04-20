@@ -29,10 +29,6 @@ RewriteEngine On
 RewriteRule (^|/)tmp(/|$) - [F]
 RewriteRule (^|/)includes(/|$) - [F]
 
-# PHP Debugging
-
-# php_flag display_errors On
-
 # END Vesta Web Interface
 
 # Uncomment to enable SSL
