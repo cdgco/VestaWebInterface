@@ -151,9 +151,9 @@ Ex: 'mydomain.com' or '8.8.8.8'.
 * VESTA\_SSL\_ENABLED: Enter 'true' or 'false' depending on if SSL is enabled for your VestaCP installation. 'true' by default. Enter 'true' if your VestaCP url (mydomain.com:8083) starts with 'https://'.
 * VESTA\_PORT: Port of your VestaCP installation. '8083' by default.
 * VESTA\_METHOD: Choose whether to use an API Key or username and password for API authentication. 'api' or 'credentials'.
-* VESTA\_API\_KEY: VestaCP generated API Key if 'api' enabled.
+* VESTA\_API\_KEY: AES-256-CBC encrypted VestaCP generated API Key if 'api' enabled. Uses encryption keys stored in config.php (KEY3 & KEY4). Read [Encrypting Credentials](encryption) for more info.
 * VESTA\_ADMIN\_UNAME: Username of the VestaCP admin account if 'credentials' enabled. 'admin' by default.
-* VESTA_ADMIN_PW: AES-256-CBC encrypted password for VestaCP admin account if 'credentials' enabled. Uses encryption keys stored in config.php (KEY3 & KEY4).
+* VESTA_ADMIN_PW: AES-256-CBC encrypted password for VestaCP admin account if 'credentials' enabled. Uses encryption keys stored in config.php (KEY3 & KEY4). Read [Encrypting Credentials](encryption) for more info.
 * KEY1: Encryption Key for backend authentication. Replace with random string.
 * KEY2: Encryption Key for backend authentication. Replace with random string.
 * WARNINGS_ENABLED: Choose who should see warning messages about server connection and security issues. Accepted values: 'none', 'admin' and 'all'.
