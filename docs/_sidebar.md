@@ -14,6 +14,7 @@
 
   * [Web Based](web-config.md)
   * [Manual](manual-config.md)
+  * [Encryption](encryption.md)
   * [Branding](branding.md)
   * [Themes](themes.md)
   * [Registrations](registrations.md)
