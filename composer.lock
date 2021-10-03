@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f023f3eeeeb4f0637fd53770a7092a92",
+    "content-hash": "0804ccc1443e70cae88b467dc2a79a4d",
     "packages": [
         {
             "name": "auth0/auth0-php",
@@ -295,26 +295,27 @@
         },
         {
             "name": "phpmyadmin/motranslator",
-            "version": "4.0",
+            "version": "5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpmyadmin/motranslator.git",
-                "reference": "fcb370254998fda7eeccfd7c787b4deb71b0d77c"
+                "reference": "d1982c7e468df332b6ff0d73fb599519140d393f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpmyadmin/motranslator/zipball/fcb370254998fda7eeccfd7c787b4deb71b0d77c",
-                "reference": "fcb370254998fda7eeccfd7c787b4deb71b0d77c",
+                "url": "https://api.github.com/repos/phpmyadmin/motranslator/zipball/d1982c7e468df332b6ff0d73fb599519140d393f",
+                "reference": "d1982c7e468df332b6ff0d73fb599519140d393f",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0",
-                "symfony/expression-language": "^4.0 || ^3.2 || ^2.8"
+                "php": "^7.1",
+                "symfony/expression-language": "^4.0 || ^5.0"
             },
             "require-dev": {
-                "apigen/apigen": "^4.1",
+                "phpmyadmin/coding-standard": "^1.0",
                 "phpunit/php-code-coverage": "*",
-                "phpunit/phpunit": "~4.8 || ~5.7 || ~6.5"
+                "phpunit/phpunit": "^7.4 || ^8",
+                "sami/sami": "^4.0"
             },
             "type": "library",
             "autoload": {
@@ -341,7 +342,7 @@
                 "mo",
                 "translator"
             ],
-            "time": "2018-02-12T13:22:52+00:00"
+            "time": "2020-02-28T13:01:56+00:00"
         },
         {
             "name": "psr/cache",
@@ -577,16 +578,16 @@
         },
         {
             "name": "symfony/cache",
-            "version": "v5.0.6",
+            "version": "v5.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache.git",
-                "reference": "805c71585ca75c4793fd5228e8c2a05a281540bb"
+                "reference": "7c229da093cb0c630e5d16b99fd253e20f979ac2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache/zipball/805c71585ca75c4793fd5228e8c2a05a281540bb",
-                "reference": "805c71585ca75c4793fd5228e8c2a05a281540bb",
+                "url": "https://api.github.com/repos/symfony/cache/zipball/7c229da093cb0c630e5d16b99fd253e20f979ac2",
+                "reference": "7c229da093cb0c630e5d16b99fd253e20f979ac2",
                 "shasum": ""
             },
             "require": {
@@ -652,7 +653,7 @@
                 "caching",
                 "psr6"
             ],
-            "time": "2020-03-18T08:00:37+00:00"
+            "time": "2020-03-27T16:56:45+00:00"
         },
         {
             "name": "symfony/cache-contracts",
@@ -714,27 +715,27 @@
         },
         {
             "name": "symfony/expression-language",
-            "version": "v4.4.6",
+            "version": "v5.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/expression-language.git",
-                "reference": "208ceff59b98b8b38bd4426df49be697a8582240"
+                "reference": "00e044885469d193c3b8dfa62030cd4525576d4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/expression-language/zipball/208ceff59b98b8b38bd4426df49be697a8582240",
-                "reference": "208ceff59b98b8b38bd4426df49be697a8582240",
+                "url": "https://api.github.com/repos/symfony/expression-language/zipball/00e044885469d193c3b8dfa62030cd4525576d4e",
+                "reference": "00e044885469d193c3b8dfa62030cd4525576d4e",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1.3",
-                "symfony/cache": "^3.4|^4.0|^5.0",
+                "php": "^7.2.5",
+                "symfony/cache": "^4.4|^5.0",
                 "symfony/service-contracts": "^1.1|^2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.4-dev"
+                    "dev-master": "5.0-dev"
                 }
             },
             "autoload": {
@@ -761,7 +762,7 @@
             ],
             "description": "Symfony ExpressionLanguage Component",
             "homepage": "https://symfony.com",
-            "time": "2020-03-15T10:05:03+00:00"
+            "time": "2020-03-27T16:56:45+00:00"
         },
         {
             "name": "symfony/service-contracts",
@@ -823,16 +824,16 @@
         },
         {
             "name": "symfony/var-exporter",
-            "version": "v5.0.6",
+            "version": "v5.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-exporter.git",
-                "reference": "89d4bfebb1ad985ee8b770d826707658c44e45d8"
+                "reference": "ffd29a70370e466343e33154b5df197a07a13afa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/89d4bfebb1ad985ee8b770d826707658c44e45d8",
-                "reference": "89d4bfebb1ad985ee8b770d826707658c44e45d8",
+                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/ffd29a70370e466343e33154b5df197a07a13afa",
+                "reference": "ffd29a70370e466343e33154b5df197a07a13afa",
                 "shasum": ""
             },
             "require": {
@@ -879,7 +880,7 @@
                 "instantiate",
                 "serialize"
             ],
-            "time": "2020-03-16T12:10:54+00:00"
+            "time": "2020-03-27T16:56:45+00:00"
         }
     ],
     "packages-dev": [],
