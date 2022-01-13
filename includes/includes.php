@@ -96,8 +96,8 @@ else {
 
 
 // Grab Session data for username & status
-$initialusername = base64_decode($_SESSION['username']);
-$loggedin = base64_decode($_SESSION['loggedin']);
+$initialusername = (isset($_SESSION['username'])) ? base64_decode($_SESSION['username']) : "";
+$loggedin = (isset($_SESSION['loggedin'])) ? base64_decode($_SESSION['loggedin']) : "";
 
 // System for login as user
 if($initialusername == "admin" && isset($_SESSION['proxied']) && base64_decode($_SESSION['proxied']) != '')   {
@@ -164,8 +164,8 @@ else{
 }
 $vst_url = $vst_ssl . $vwi_servers[$curkey]["HOST_ADDRESS"] . ':' . $vesta_port . '/api/';
 $url8083 = $vst_ssl . $vwi_servers[$curkey]["HOST_ADDRESS"] . ':' . $vesta_port;
-if(!isset($KEY3) || $KEY3 == '') { $KEY3 = 'Default VWI Secret Key'; }
-if(!isset($KEY4) || $KEY4 == '') { $KEY4 = 'Default VWI Secret IV'; }
+if(!isset($KEY3) || (isset($KEY3) && $KEY3 == '')) { $KEY3 = 'Default VWI Secret Key'; }
+if(!isset($KEY4) || (isset($KEY4) && $KEY4 == '')) { $KEY4 = 'Default VWI Secret IV'; }
 if ($vwi_servers[$curkey]["METHOD"] == "api"){
     DEFINE('VESTA_ADMIN_UNAME', '');
     $vst_username = '';
