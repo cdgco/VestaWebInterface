@@ -96,7 +96,7 @@ _setlocale('LC_CTYPE', $locale);
 _setlocale('LC_MESSAGES', $locale);
 _bindtextdomain('messages', 'locale');
 _textdomain('messages');
-if($auth0) {
+if(isset($auth0) && $auth0) {
 
 	$curl1 = curl_init();
         curl_setopt($curl1, CURLOPT_URL, 'https://' . $config["AUTH0_DOMAIN"] . '/oauth/token');
@@ -323,7 +323,7 @@ if($auth0) {
                                 <button class="btn btn-info btn-lg btn-block btn-rounded text-uppercase waves-effect waves-light bg-theme" style="border: none;" type="submit"><?php echo __("Log in"); ?></button>
                             </div>
                         </div>
-                        <?php if($auth0connections) {
+                        <?php if(isset($auth0connections) && $auth0connections) {
                             foreach($auth0connections as $connection) {
                               socialloginhtml($connection['name']);
                             }
@@ -392,7 +392,7 @@ if($auth0) {
             });
             <?php 
 
-	    if($auth0) {
+	    if(isset($auth0) && $auth0) {
 		echo 'var webAuth = new auth0.WebAuth({
 			    domain: "'.AUTH0_DOMAIN.'",
 			    clientID: "'.AUTH0_CLIENT_ID.'",
@@ -400,7 +400,7 @@ if($auth0) {
 			    redirectUri: "'.$auth0location.'",
 			    responseType: "code"
 		    });';
-		if($auth0connections) {
+		if(isset($auth0connections) && $auth0connections) {
 			foreach($auth0connections as $connection) {
 			  socialloginjs($connection['name']);
 			}
