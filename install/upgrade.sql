@@ -26,7 +26,7 @@
 
 CREATE TABLE IF NOT EXISTS `vwi_auth0-users` (
   `VWI_USER` varchar(64) NOT NULL,
-  `AUTH0_USER` varchar(1024) NOT NULL
+  `AUTH0_USER` varchar(1024) NOT NULL,
   PRIMARY KEY (`VWI_USER`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
