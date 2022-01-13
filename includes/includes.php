@@ -41,16 +41,21 @@ if($configstyle != '2') {
     // Method 1: Initiate connection to MySQL DB and convert data into PHP Array
     if (!$con) { $mysqldown = 'yes'; }
     $config = array(); $result=mysqli_query($con,"SELECT VARIABLE,VALUE FROM `" . $mysql_table . "config`");
-    while ($row = mysqli_fetch_assoc($result)) { $config[$row["VARIABLE"]] = $row["VALUE"]; }
-    if($result) { mysqli_free_result($result); } 
+    if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) { $config[$row["VARIABLE"]] = $row["VALUE"]; }
+        mysqli_free_result($result); 
+    }
     $vwi_servers = array(); $result=mysqli_query($con,"SELECT * FROM `" . $mysql_table . "servers` ORDER BY `NAME` ASC");
-    while($line = mysqli_fetch_assoc($result)){ $vwi_servers[] = $line; }
-    if ($result) { mysqli_free_result($result); } mysqli_close($con);
+    if ($result) {
+        while($line = mysqli_fetch_assoc($result)){ $vwi_servers[] = $line; }
+        mysqli_free_result($result); 
+    }
     $auth0_users = array(); $result=mysqli_query($con,"SELECT VWI_USER,AUTH0_USER FROM `" . $mysql_table . "auth0-users`");
     if ($result) {
-    while ($row = mysqli_fetch_assoc($result)) { $auth0_users[$row["VWI_USER"]] = $row["AUTH0_USER"]; }
-     mysqli_free_result($result); mysqli_close($con);
-    }
+        while ($row = mysqli_fetch_assoc($result)) { $auth0_users[$row["VWI_USER"]] = $row["AUTH0_USER"]; }
+        mysqli_free_result($result); 
+    } 
+    mysqli_close($con);
 }
 else {
     // Method 2: Connection to MySQL, save config locally every 30 min, grab locally if connection fails.
@@ -61,14 +66,21 @@ else {
     if (!$con) { $config = json_decode(file_get_contents( $co1 . 'config.json'), true); $mysqldown = 'yes'; }
     else { 
         $config = array(); $result=mysqli_query($con,"SELECT VARIABLE,VALUE FROM `" . $mysql_table . "config`");
-        while ($row = mysqli_fetch_assoc($result)) { $config[$row["VARIABLE"]] = $row["VALUE"]; }
-        if ($result) { mysqli_free_result($result); } 
+        if ($result) {
+            while ($row = mysqli_fetch_assoc($result)) { $config[$row["VARIABLE"]] = $row["VALUE"]; }
+            mysqli_free_result($result); 
+        }
         $auth0_users = array(); $result=mysqli_query($con,"SELECT VWI_USER,AUTH0_USER FROM `" . $mysql_table . "auth0-users`");
-        while ($row = mysqli_fetch_assoc($result)) { $auth0_users[$row["VWI_USER"]] = $row["AUTH0_USER"]; }
-        if ($result) { mysqli_free_result($result); } mysqli_close($con);
+        if ($result) {
+	        while ($row = mysqli_fetch_assoc($result)) { $auth0_users[$row["VWI_USER"]] = $row["AUTH0_USER"]; }
+	        mysqli_free_result($result); 
+        } 
         $vwi_servers = array(); $result=mysqli_query($con,"SELECT VWI_USER,AUTH0_USER FROM `" . $mysql_table . "servers`");
-        while($line = mysqli_fetch_assoc($result)){ $vwi_servers[] = $line; }
-        if ($result) { mysqli_free_result($result); } mysqli_close($con);
+        if ($result) {
+            while($line = mysqli_fetch_assoc($result)){ $vwi_servers[] = $line; }
+            mysqli_free_result($result); 
+        } 
+        mysqli_close($con);
         if (!file_exists( $co1 . 'config.json' )) { 
             file_put_contents( $co1 . "config.json",json_encode($config));
         }  
