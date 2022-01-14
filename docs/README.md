@@ -1,6 +1,8 @@
 # Vesta Web Interface v2.2.0
 <hr>
 
+!> **Important!**: VWI is experiencing compatibility issues on PHP 7.4+. I appreciate your patience while I add support for the latest versions of PHP.
+
 ## About 
 
 Vesta Web Interface is a PHP control panel and interface that integrates with VestaCP to provide a beautiful user friendly experience.
