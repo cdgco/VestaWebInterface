@@ -22,13 +22,13 @@ From the settings tab of your new Auth0 application, change the following settin
 
 !> Note: You must replace \[YOUR-VWI-INSTALL-LOCATION] with the address where your Vesta Web Interface installation is publicly accessible.
 
-### Step 4:
+#### Step 4:
 Under the 'APIs' tab in Auth0, open the settings for the 'Auth0 Management API' and view the 'Machine to Machine Applications' tab. Authorize your new application, select the permission 'read:connections' and update the API.
 
-### Step 5:
+#### Step 5:
 From the 'Connections -> Social' tab in Auth0, enable any social connections you wish to use. For help, visit the [Auth0 Social Connection Docs](https://auth0.com/docs/connections/identity-providers-social). If Auth0 does not have the social connection you desire, you may add any OAuth2 connection through the [Custom Social Connections extension](https://auth0.com/docs/extensions/custom-social-extensions) or any OAuth1 connection through the [Auth0 Connections API](https://auth0.com/docs/connections/adding-generic-oauth1-connection).
 
-### Step 6:
+#### Step 6:
 Copy the Domain, Client ID and Client Secret from your new Auth0 app into the VWI settings page under 'Optional Integrations' or into your vwi_config MySQL table for the 'AUTH0_DOMAIN', 'AUTH0_CLIENT_ID' and 'AUTH0_CLIENT_SECRET' fields.
 
 All Done! Once all three fields are filled out, Auth0 will be automically enabled.
