@@ -27,7 +27,7 @@ session_set_cookie_params(['samesite' => 'none']); session_start();
 $configlocation = "includes/";
 if (file_exists( 'includes/config.php' )) { require 'includes/includes.php'; }  else { header( 'Location: install' );  exit(); }
 
-if(base64_decode($_SESSION['loggedin']) == 'true') {}
+if(isset($_SESSION['loggedin']) && base64_decode($_SESSION['loggedin']) == 'true') {}
 else { header('Location: login.php'); exit(); }
 
 $postvarsx = array('hash' => $vst_apikey, 'user' => $vst_username,'password' => $vst_password,'cmd' => 'v-list-sys-info','arg1' => 'json');
