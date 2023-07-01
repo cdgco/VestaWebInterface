@@ -1,4 +1,6 @@
-![VWI Banner](https://raw.githubusercontent.com/cdgco/VestaWebInterface/master/VWI%20Banner.png)
+> **Warning**: **As VestaCP stopped receiving updates in 2020, Vesta Web Interface is no longer supported.**
+
+> ![VWI Banner](https://raw.githubusercontent.com/cdgco/VestaWebInterface/master/VWI%20Banner.png)
 
 [![Downloads](https://img.shields.io/github/downloads/cdgco/VestaWebInterface/total)](https://github.com/cdgco/VestaWebInterface/releases)
 [![JSDelivr](https://img.shields.io/jsdelivr/gh/hy/cdgco/VestaWebInterface)](https://www.jsdelivr.com/package/gh/cdgco/VestaWebInterface)
