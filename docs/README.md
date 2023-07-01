@@ -1,7 +1,7 @@
 # Vesta Web Interface v2.2.0
 <hr>
 
-!> **Important!**: VWI is experiencing compatibility issues on PHP 7.4+. I appreciate your patience while I add support for the latest versions of PHP.
+!> **Important!**: As VestaCP stopped receiving updates in 2020, Vesta Web Interface is no longer supported. VWI is experiencing compatibility issues on PHP 7.4+.
 
 ## About 
 
