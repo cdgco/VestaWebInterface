@@ -1,7 +1,7 @@
 # Vesta Web Interface v2.2.0
 <hr>
 
-!> **Important!**: *As VestaCP stopped receiving updates in 2020, Vesta Web Interface is no longer supported. VWI is experiencing compatibility issues on PHP 7.4+. Consider moving to [HestiaCP](https://hestiacp.com/) / [Hestia Web Interface](https://hwi.cdgtech.one/#/) instead.
+!> **Important!**: As VestaCP stopped receiving updates in 2020, Vesta Web Interface is no longer supported. VWI is experiencing compatibility issues on PHP 7.4+. Consider moving to [HestiaCP](https://hestiacp.com/) / [Hestia Web Interface](https://hwi.cdgtech.one/#/) instead.
 
 ## About 
 
