@@ -1,4 +1,4 @@
-> **Warning**: **As VestaCP stopped receiving updates in 2020, Vesta Web Interface is no longer supported.**
+> **Warning**: **As VestaCP stopped receiving updates in 2020, Vesta Web Interface is no longer supported. VWI is experiencing compatibility issues on PHP 7.4+. Consider moving to [HestiaCP](https://hestiacp.com/) / [Hestia Web Interface](https://github.com/cdgco/HestiaWebInterface) instead.**
 
 > ![VWI Banner](https://raw.githubusercontent.com/cdgco/VestaWebInterface/master/VWI%20Banner.png)
 
