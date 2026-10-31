@@ -7,7 +7,7 @@
 * Extensive Customization
 * Multiple Themes
 
-[GitHub](https://github.com/cdgco/VestaWebInterface)
+[GitHub](https://github.com/cjroeser/VestaWebInterface)
 [Demo](http://demo.vwi.cdgtech.one/)
 [Get Started](#main)
 

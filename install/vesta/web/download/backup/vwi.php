@@ -5,7 +5,7 @@
 * Vesta Web Interface
 *
 * Copyright (C) 2020 Carter Roeser <carter@cdgtech.one>
-* https://cdgco.github.io/VestaWebInterface
+* https://cjroeser.github.io/VestaWebInterface
 *
 * Vesta Web Interface is free software: you can redistribute it and/or modify
 * it under the terms of version 3 of the GNU General Public License as published 
@@ -18,7 +18,7 @@
 * 
 * You should have received a copy of the GNU General Public License
 * along with Vesta Web Interface.  If not, see
-* <https://github.com/cdgco/VestaWebInterface/blob/master/LICENSE>.
+* <https://github.com/cjroeser/VestaWebInterface/blob/master/LICENSE>.
 *
 */
 
@@ -72,7 +72,7 @@ if (isset($_POST['user']) && isset($_POST['password'])) {
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@2.2.0/css/style.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/gh/cjroeser/VestaWebInterface@2.2.0/css/style.css" rel="stylesheet">
     </head>
     <body class="fix-header">
         <div class="preloader">

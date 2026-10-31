@@ -3,10 +3,10 @@ The VWI Plugin System allows simple development and installation for custom apps
 
 ## Plugins
 
-- [Billing System - [WIP]](https://github.com/cdgco/vwi-billing) - Billing System Plugin for Vesta Web Interface
-- [example-plugin](https://github.com/cdgco/VestaWebInterface/tree/master/plugins/example-plugin) - Template for developing plugins for Vesta Web Interface
-- [Monsta FTP](https://github.com/cdgco/vwi-ftp) - Web FTP Client Plugin for Vesta Web Interface
-- [Rainloop Webmail](https://github.com/cdgco/vwi-rainloop) - Rainloop Webmail Client Plugin for Vesta Web Interface
+- [Billing System - [WIP]](https://github.com/cjroeser/vwi-billing) - Billing System Plugin for Vesta Web Interface
+- [example-plugin](https://github.com/cjroeser/VestaWebInterface/tree/master/plugins/example-plugin) - Template for developing plugins for Vesta Web Interface
+- [Monsta FTP](https://github.com/cjroeser/vwi-ftp) - Web FTP Client Plugin for Vesta Web Interface
+- [Rainloop Webmail](https://github.com/cjroeser/vwi-rainloop) - Rainloop Webmail Client Plugin for Vesta Web Interface
 
 
 Development Instructions:

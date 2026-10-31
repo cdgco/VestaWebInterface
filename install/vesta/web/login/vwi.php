@@ -71,7 +71,7 @@ else {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://cdn.jsdelivr.net/gh/cdgco/VestaWebInterface@2.2.0/css/style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/cjroeser/VestaWebInterface@2.2.0/css/style.css" rel="stylesheet">
 </head>
 <body class="fix-header">
     <div class="preloader">

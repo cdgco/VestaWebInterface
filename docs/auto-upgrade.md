@@ -12,6 +12,6 @@ cd /home/admin/web/mydomain.com/public_html/
 #### Step 2:
 Run the automatic upgrader.
 ```shell
-bash <(curl -s https://cdgco.github.io/upfull)
+bash <(curl -s https://cjroeser.github.io/upfull)
 ```
 Upgrade Complete

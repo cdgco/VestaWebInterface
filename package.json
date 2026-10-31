@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cdgco/VestaWebInterface.git"
+    "url": "git+https://github.com/cjroeser/VestaWebInterface.git"
   },
   "keywords": [
     "vestacp",
@@ -26,9 +26,9 @@
   "author": "Carter Roeser <carter@cdgtech.one>",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/cdgco/VestaWebInterface/issues"
+    "url": "https://github.com/cjroeser/VestaWebInterface/issues"
   },
-  "homepage": "https://github.com/cdgco/VestaWebInterface#readme",
+  "homepage": "https://github.com/cjroeser/VestaWebInterface#readme",
   "private": true,
   "dependencies": {
     "PHPMailer": "https://github.com/PHPMailer/PHPMailer",

@@ -3,7 +3,7 @@ To selectively install VWI or to install the web interface on a non-VestaCP serv
 
 
 #### Step 1:
-[Download the latest release](https://github.com/cdgco/VestaWebInterface/archive/v2.2.0.zip) of VWI from GitHub.
+[Download the latest release](https://github.com/cjroeser/VestaWebInterface/archive/v2.2.0.zip) of VWI from GitHub.
 
 #### Step 2:
 Extract Vesta Web Interface to a blank domain directory.
@@ -11,7 +11,7 @@ Extract Vesta Web Interface to a blank domain directory.
 #### Step 3:
 Install the Vesta Web Interface backend on your VestaCP server.
 ```shell
-bash <(curl -s https://cdgco.github.io/backend)
+bash <(curl -s https://cjroeser.github.io/backend)
 ```
   
 When promted during the automatic installer to "Enter the full web address of your installation", enter the URL where Vesta Web Interface will be accessed from, including the "http(s)://" and the following "/".
